@@ -1,0 +1,594 @@
+	ACC			Aggregate Core Component
+UN00006834	ACC	Access Control List. Details	Access Control List	"A list of permissions attached to an object defining access rights, such as to a party or system."
+UN00003667	ACC	Accompanying Person. Details	Accompanying Person	"A person that accompanies another person, such as a mother accompanying her child during a stay in hospital."
+UN00005786	ACC	Accounting Account Boundary. Details	Accounting Account Boundary	The lower and upper limits in a series of consecutive accounts.
+UN00004761	ACC	Accounting Account Classification. Details	Accounting Account Classification	"A systematic arrangement in classes or categories according to the sector of activities the business is actually running, such as insurance, commercial and industrial, or not for profit."
+UN00004771	ACC	Accounting Account Credit Risk. Details	Accounting Account Credit Risk	"The risk of loss due to a debtor's non-payment of due invoices, loan or other line of credit for an accounting account."
+UN00004774	ACC	Accounting Account Dimension. Details	Accounting Account Dimension	The characteristics template for an aspect of an accounting account which bounds a set of values.
+UN00004779	ACC	Accounting Account Pattern. Details	Accounting Account Pattern	"A template depicting the mask of the structure that forms an accounting account identifier; the structure is arranged in successive parts ;_ for instance, \"AABBBBCC\" where AA represents a state, BBBB a product, CC a sales representative."
+UN00001267	ACC	Accounting Account. Details	Accounting Account	"A specific account for recording debits and credits to general accounting, cost accounting or budget accounting."
+UN00004873	ACC	Accounting Book. Details	Accounting Book	"A collection of accounting related data that pertains to specific documents, such as year end report, tax reports, trial balance, or entries."
+UN00006626	ACC	Accounting Characteristic. Details	Accounting Characteristic	Specification of accounting characteristics for a trial balance.
+UN00004877	ACC	Accounting Check. Details	Accounting Check	A set of values providing a validation check of accounting data.
+UN00002165	ACC	Accounting Entry Line. Details	Accounting Entry Line	A line included in an accounting entry.
+UN00002151	ACC	Accounting Entry. Details	Accounting Entry	"A posting of monetary values into accounting books that indicates the financial flow for an economic event, the acquisition or consumption of a resource, or the working contribution of an agent."
+UN00006534	ACC	Accounting Journal. Details	Accounting Journal	A book or file where particularities of transactions of one specific category are recorded.
+UN00002187	ACC	Accounting Line Index. Details	Accounting Line Index	The identification of a line in a folio of a book or an automated index.
+UN00002190	ACC	Accounting Line Monetary Value. Details	Accounting Line Monetary Value	The material or monetary worth of a thing that is associated with a line that is a part of an accounting entry.
+UN00004938	ACC	Accounting Period. Details	Accounting Period	"A period of time for which accounts are recorded, audited, and reported."
+UN00002206	ACC	Accounting Voucher. Details	Accounting Voucher	"A document that proves the reality of an operation, authenticates its conclusion and is used in accounting entry recording and for audit control purposes."
+UN00008467	ACC	Accounts Receivable History. Details	Accounts Receivable History	A set of characteristics that provide information regarding the history of accounts receivable.
+UN00008472	ACC	Accounts Receivable Insurance Factor. Details	Accounts Receivable Insurance Factor	A set of characteristics that affect the insurance of accounts receivable.
+UN00005527	ACC	Accreditation. Details	Accreditation	"An official recognition awarded to a person, organisation or thing, such as a building or product, to certify that a certain level of attainment has been achieved."
+UN00007080	ACC	ACDR Report. Details	ACDR Report	Information pertaining to an Aggregated Catch Data Report (ACDR).
+UN00008106	ACC	Activity. Details	Activity	A thing that a person or group does or has done.
+UN00002216	ACC	Add On Coverage. Details	Add On Coverage	A coverage which is added on to a policy but is provided by a different insurer/risk bearer.
+UN00005176	ACC	Additional Interest. Details	Additional Interest	"A concern or stake that a third-party has in an object, such as leasing, mortgage, renting."
+UN00006838	ACC	Additive. Details	Additive	A product added to another product in order to maintain or to change the quality of that product.
+UN00000010	ACC	Address. Details	Address	The location at which a particular organization or person may be found or reached.
+UN00001330	ACC	Adjustment. Details	Adjustment	A correction or modification to reflect actual conditions.
+UN00008419	ACC	Agricultural Application. Details	Agricultural Application	"Any substance (such as seed, fertilizer, food, water, gas, chemical) applied to a plant or animal."
+UN00002837	ACC	Agricultural Device. Details	Agricultural Device	An object used to perform an agricultural activity.
+UN00002875	ACC	Agricultural Process. Details	Agricultural Process	"A practice of cultivating land, raising crops, and feeding, breeding and raising livestock or treatment of the produce."
+UN00006644	ACC	Agronomical Observation. Details	Agronomical Observation	"A collection of diagnostic data, visual or technical, for agronomical purposes."
+UN00003670	ACC	Air Conditioning. Details	Air Conditioning	A system to cool and dehumidify indoor air.
+UN00005198	ACC	Airbag. Details	Airbag	A safety device in a vehicle that inflates rapidly on impact.
+UN00003674	ACC	Alarm. Details	Alarm	"A device that provides a warning that the item which it is protecting is under an imminent threat, such as theft or fire."
+UN00000521	ACC	Allowance Charge. Details	Allowance Charge	"A component of pricing, such as a service, promotion, allowance or charge."
+UN00002228	ACC	Amount To Date. Details	Amount To Date	A set of amounts that have been paid or apply from a previous point in time to the current date.
+UN00002768	ACC	Analysis. Details	Analysis	A detailed examination of elements and structure.
+UN00005201	ACC	Animal. Details	Animal	A living creature which is not a human being.
+UN00005216	ACC	Anti-Theft Device. Details	Anti-Theft Device	A device that provides theft protection to an object.
+UN00006614	ACC	Archive Parameter. Details	Archive Parameter	The set of parameters linked with this archive.
+UN00002772	ACC	Area. Details	Area	A part of a surface.
+UN00003546	ACC	Assembly. Details	Assembly	A number of component pieces fitted together to form a whole.
+UN00006080	ACC	Assessment. Details	Assessment	The evaluation of an object with respect to the object's worth or condition.
+UN00000917	ACC	Assignment. Details	Assignment	"Allocation of a task, mission or responsibility between two or more entities."
+UN00002759	ACC	Authentication. Details	Authentication	A proof that something is genuine.
+UN00003355	ACC	Authorization. Details	Authorization	An official permission or approval.
+UN00006849	ACC	Autopsy. Details	Autopsy	Characteristics of a post-mortem examination.
+UN00003349	ACC	Availability. Details	Availability	Being obtainable or at one's disposal.
+UN00008078	ACC	Balance Out. Details	Balance Out	Offset information to ensure that debits and credits are equal.
+UN00003694	ACC	Base Amount Calculation. Details	Base Amount Calculation	"The calculation of a base amount, such as a base premium, base loading or discount."
+UN00003707	ACC	Base Premium. Details	Base Premium	The amount used as a base for a premium calculation for a policy or specific coverage.
+UN00003831	ACC	Basement. Details	Basement	A room or floor which is partly or entirely below ground level.
+UN00008166	ACC	Batch History Record. Details	Batch History Record	A batch which has a parent or child relationship to another batch.
+UN00002818	ACC	Batch. Details	Batch	"A group of objects, animals, plants, persons considered or dealt with together."
+UN00003720	ACC	Bathroom. Details	Bathroom	A room with a bath.
+UN00000850	ACC	Bill Of Quantities. Details	Bill Of Quantities	"A detailed statement of work, prices, and dimensions."
+UN00003614	ACC	Binary File. Details	Binary File	A computer file or program stored in a binary format.
+UN00007614	ACC	Blanket Coverage. Details	Blanket Coverage	Insurance which encompasses a wide range of risks or properties.
+UN00005220	ACC	Blood Alcohol Test. Details	Blood Alcohol Test	An examination of the level of alcohol in the blood of a living creature.
+UN00008702	ACC	Booking. Details	Booking	"A transaction which results in the recording of an entry in an account, such as an entry in a bank account or ordering transport services."
+UN00007263	ACC	Breakdown Item. Details	Breakdown Item	A part or element of a whole.
+UN00005153	ACC	Breakdown Statement. Details	Breakdown Statement	"A detailed statement of work, materials, products, prices, or dimensions."
+UN00003724	ACC	Building Accessory. Details	Building Accessory	A type of accessory located on the same property as the building.
+UN00007294	ACC	Building Block. Details	Building Block	A part of a building sharing some common characteristics.
+UN00003730	ACC	Building Improvement. Details	Building Improvement	An addition or enhancement that has been made to a building over and above the original specification.
+UN00003742	ACC	Building Inspection. Details	Building Inspection	A careful review of a building to assess value and shortcomings.
+UN00003758	ACC	Building Insurance Factor. Details	Building Insurance Factor	A set of characteristics or circumstances that affect building insurance.
+UN00004223	ACC	Building Money Securities Underwriting. Details	Building Money Securities Underwriting	Money and securities held at a building and subject to coverage by insurance underwriting.
+UN00001266	ACC	Building. Details	Building	"A permanent fixed structure, such as a house, factory, hotel, or office building."
+UN00004885	ACC	Bundle Collection. Details	Bundle Collection	Combination of documents and books intended to be stored together in a usable form to conform with regulatory requirements.
+UN00006070	ACC	Business Account. Details	Business Account	A specific arrangement whereby business transactions are recorded.
+UN00000257	ACC	Business Profile. Details	Business Profile	"Distinctive features or characteristics of a business such as number of employees, number of operating units, business type."
+UN00000911	ACC	Business Type. Details	Business Type	A class or group that specifies the area of business.
+UN00000177	ACC	Calculation. Details	Calculation	"The act, the process or result of a procedure of determining something by mathematical or logical methods."
+UN00001339	ACC	Calendar. Details	Calendar	"A system that defines beginning, ending, length, and sub-divisions of a period of time."
+UN00006509	ACC	Capital Asset Amortization. Details	Capital Asset Amortization	The distribution of the cost of a capital asset with respect to its lifetime duration.
+UN00006505	ACC	Capital Asset. Details	Capital Asset	"An item of property which is usually held for a long period, such as real estate, equipment."
+UN00001712	ACC	Cargo Insurance. Details	Cargo Insurance	The insurance of goods during their transportation.
+UN00001707	ACC	Cargo. Details	Cargo	Goods being transported.
+UN00007093	ACC	Catch. Details	Catch	Information about the species and quantity of fish caught.
+UN00007932	ACC	Category. Details	Category	A class or division of people or things regarded as having particular shared characteristics.
+UN00007546	ACC	Causing Party. Details	Causing Party	"A party causing something, such as damages or an accident."
+UN00003906	ACC	Certificate. Details	Certificate	A legal proof of ownership or worthiness of an item.
+UN00006027	ACC	Certification. Details	Certification	"The process of ensuring that a certain object, process, or activity has passed performance and quality assurance tests or qualification requirements."
+UN00003417	ACC	Change. Details	Change	An alternation or modification.
+UN00002788	ACC	Characteristic. Details	Characteristic	A prominent attribute or aspect.
+UN00003553	ACC	Checkpoint. Details	Checkpoint	The point in an operation where the inspection is performed.
+UN00006581	ACC	Chemical Treatment. Details	Chemical Treatment	"A process of subjecting an object to the action of a chemical, physical, or biological agent."
+UN00001511	ACC	Chemical. Details	Chemical	Any substance having a defined molecular composition.
+UN00002680	ACC	Cheque. Details	Cheque	A written order to a bank to pay the stated sum from the drawer's account.
+UN00007664	ACC	Chimney. Details	Chimney	"A channel for the escape of fumes, smoke or heated air from a fireplace, engine or furnace."
+UN00008818	ACC	Circle. Details	Circle	"A planar surface, defined by one completely round flat shape in the mathematical sense."
+UN00003558	ACC	Circuit Pin. Details	Circuit Pin	The metal extension from an integrated circuit that connects components.
+UN00006112	ACC	Circumstance. Details	Circumstance	An external condition affecting an object or event.
+UN00006116	ACC	Claim Amount Breakdown. Details	Claim Amount Breakdown	A set of amounts that provide an itemization of the costs of a claim.
+UN00005246	ACC	Claim Free Record Entitlement. Details	Claim Free Record Entitlement	"An entitlement to a bonus, such as a reduced premium, if there is a proven record of no previous claims for a set period of time."
+UN00002244	ACC	Claim Free Record. Details	Claim Free Record	"Information based upon claims history that is or may be used in a premium pricing mechanism, such as the number of years without claims."
+UN00006123	ACC	Claim Recovery. Details	Claim Recovery	Amount of money from a claim that is to be contributed by or recovered from other parties. The recovery procedures may refer to legal requirements or to conventions between parties.
+UN00006130	ACC	Claim Settlement. Details	Claim Settlement	An agreement intended to settle a claim.
+UN00006135	ACC	Claim Transaction. Details	Claim Transaction	"An action that affects an insurance claim, such as initial notification, claim settlement, claim statistics."
+UN00006144	ACC	Claim. Details	Claim	A request made by a claimant against a liable party for reparation of losses.
+UN00003910	ACC	Claimant. Details	Claimant	"A party that demands or requests one's due, such as a claim under the terms of an insurance policy."
+UN00002253	ACC	Claims Made Policy. Details	Claims Made Policy	The coverage of claims first made (reported or filed) during the period that the policy is in force for any incidents that occur during that period or any previous period.
+UN00002750	ACC	Classification. Details	Classification	A systematic arrangement in classes or categories according to established criteria.
+UN00002263	ACC	Clause. Details	Clause	"A distinct article or provision in a contract, treaty, will, or other formal or legal written document, which requires compliance."
+UN00007676	ACC	Clearance. Details	Clearance	The empty space between two objects.
+UN00006673	ACC	Code Scheme Reference. Details	Code Scheme Reference	Information to identify a code list.
+UN00005252	ACC	Coinsurance Share. Details	Coinsurance Share	A share of coverage provided by a single coinsurer or coinsurance agent if the insurance is not provided by a single insurer.
+UN00005261	ACC	Collection. Details	Collection	"A set of items gathered together, such as a collection of jewellery, a collection of coins, a collection of postage stamps."
+UN00005268	ACC	Colour. Details	Colour	The property possessed by an object of producing different sensations on the eye as a result of the way it reflects or emits light.
+UN00003916	ACC	Commission. Details	Commission	"A remuneration to an agent for the performance of specific duties, such as a payment for services rendered or products sold."
+UN00000095	ACC	Communication. Details	Communication	"The exchange of thoughts, messages, or information, as by speech, signals, writing, or behaviour between persons and/or organizations."
+UN00003466	ACC	Competitor Product. Details	Competitor Product	A rival's equal or comparable product.
+UN00000512	ACC	Completed Work. Details	Completed Work	Completion of a mental or physical effort to a specific purpose.
+UN00000892	ACC	Complex Description. Details	Complex Description	An aggregation of descriptive information consisting of different but related characteristics that together constitute a complex description.
+UN00007328	ACC	Complex Quantity. Details	Complex Quantity	An aggregation of quantitative information consisting of different but related characteristics that together constitute a complex quantity.
+UN00002794	ACC	Condition. Details	Condition	A state of a person or thing.
+UN00001720	ACC	Consignment Item. Details	Consignment Item	An item within a consignment of goods separately identified for transport and customs purposes.
+UN00001762	ACC	Consignment. Details	Consignment	A separately identifiable collection of goods items to be transported or available to be transported from one consignor to one consignee via one or more modes of transport where each consignment is the subject of one single transport contract.
+UN00003926	ACC	Construction Material. Details	Construction Material	The material used in the building of a structure.
+UN00000274	ACC	Construction Type. Details	Construction Type	"The type of the design or creation through construction of a physical infrastructure such as a building, bridge, highway, power grid."
+UN00008363	ACC	Construction. Details	Construction	"A man made structure, such as a building."
+UN00000122	ACC	Contact. Details	Contact	A person or department that acts as a point of contact with another person or department.
+UN00002067	ACC	Context. Details	Context	"A set of circumstances that form the setting for an object, situation, event, statement, or idea."
+UN00000961	ACC	Contract Award Notice. Details	Contract Award Notice	A notice of the contract award decision by the bid reviewer or procurement entity.
+UN00003932	ACC	Contract Beneficiary. Details	Contract Beneficiary	"A party designated to receive the benefits provided for in a contract, such as in an insurance policy (or by specific coverage in the policy), if the risk covered actually occurs."
+UN00005277	ACC	Contract Cancellation. Details	Contract Cancellation	An action that discontinues a contract.
+UN00001348	ACC	Contract Change. Details	Contract Change	A set of one or more changes made to the scope of a contract after the contract has been initiated.
+UN00001357	ACC	Contract Line Item. Details	Contract Line Item	"A distinct, separately defined line item specified in a contract."
+UN00005548	ACC	Contract Reinstatement. Details	Contract Reinstatement	The restoration of a contract after it has lapsed or been cancelled.
+UN00005551	ACC	Contract Renewal Condition. Details	Contract Renewal Condition	"A condition which must be met by the client before the contract will be renewed, such as provide a survey."
+UN00005553	ACC	Contract Renewal Option. Details	Contract Renewal Option	An option to amend the terms of a contract at renewal.
+UN00007344	ACC	Contract Section. Details	Contract Section	An identifiable part of a contract that has specific contract parameters.
+UN00000278	ACC	Contract. Details	Contract	"An agreement between two or more parties, especially one that is written or spoken and enforceable by law."
+UN00007368	ACC	Control. Details	Control	"A person or thing used as a standard of comparison, such as for checking the results of a survey or experiment."
+UN00005283	ACC	Conviction. Details	Conviction	The fact or condition of being legally found guilty of an offence.
+UN00007010	ACC	Convoy. Details	Convoy	A number of means of transport following each other with a common transport purpose.
+UN00008312	ACC	Coordinate Reference System. Details	Coordinate Reference System	A coordinate reference system that is used to describe the relative locations of objects (reference ISO 19111).
+UN00008812	ACC	Coordinate Source System. Details	Coordinate Source System	Properties defining a coordinate source system used in different places around the world to identify locations on the earth.
+UN00003519	ACC	Coordinate. Details	Coordinate	"The identification of position relative to one or more axes, such as horizontal, vertical and layer."
+UN00004525	ACC	Copayment. Details	Copayment	"A capped contribution defined in a health insurance policy and paid by an insured person each time a medical service, such as a medical prescription, is accessed."
+UN00001375	ACC	Cost. Details	Cost	"An effort or loss necessary to achieve a specified goal, including some combination of money, time, materials, and labour."
+UN00000041	ACC	Country Sub-Division. Details	Country Sub-Division	"An area of land which is a sub-division within a country, such as a state, a county, a canton, a province, etc."
+UN00000038	ACC	Country. Details	Country	"The area of land that belongs to a nation together with its properties such as population, political organization, etc."
+UN00006209	ACC	Courtesy Item. Details	Courtesy Item	An item or service that is provided as a courtesy to replace or alleviate a need.
+UN00005293	ACC	Coverage History. Details	Coverage History	The history of one coverage within a period of prior insurance.
+UN00002371	ACC	Coverage Life Factor. Details	Coverage Life Factor	A set of characteristics or circumstances that affect a life coverage.
+UN00002385	ACC	Coverage Limit. Details	Coverage Limit	A limit which applies to the coverage terms of an insurance policy.
+UN00002405	ACC	Coverage Option. Details	Coverage Option	Additional benefit or supplement that applies to a coverage.
+UN00002410	ACC	Coverage Surrender. Details	Coverage Surrender	The relinquishing of a cover for its cash surrender value by an owner of a cash value policy.
+UN00002416	ACC	Coverage Valuation. Details	Coverage Valuation	"The statement of worth of a coverage that is designed to return an increasing benefit to the beneficiary, such as an investment in a life insurance product."
+UN00002277	ACC	Coverage. Details	Coverage	"The classification of causes of loss and protection against losses resulting from those causes by insurers, that apply to a specific risk object, party or line of business under an insurance policy."
+UN00007928	ACC	Crew. Details	Crew	"A body or a class of people who work at a common activity, generally in a structured or hierarchical organization."
+UN00003960	ACC	Crime Underwriting. Details	Crime Underwriting	"The process of insuring against the risk of burglary, theft and robbery."
+UN00002827	ACC	Crop Input. Details	Crop Input	An organic or inorganic substance applied to soil or a crop to improve crop quality.
+UN00008404	ACC	Crop Mixture Constituent. Details	Crop Mixture Constituent	A plant species or variety constituting part of a crop mixture.
+UN00002858	ACC	Crop Production Cycle. Details	Crop Production Cycle	A series of events in the production of a crop.
+UN00002803	ACC	Crop Residue. Details	Crop Residue	Material that is left after the crop has been harvested or processed.
+UN00002806	ACC	Crop Stage. Details	Crop Stage	A point or step in a process or development of a crop.
+UN00002797	ACC	Crop. Details	Crop	One or more cultivated plants or produce from one or more plant species or varieties.
+UN00000300	ACC	Currency Exchange. Details	Currency Exchange	The conversion of one currency to another.
+UN00002430	ACC	Current Coverage Claim Free Record. Details	Current Coverage Claim Free Record	Information based upon claims history that is used in a premium pricing mechanism for the current coverage.
+UN00008510	ACC	Custody. Details	Custody	The control and care of a person or property.
+UN00003279	ACC	Customer Class. Details	Customer Class	The conditions and requirements of the type of person who may use or purchase a product.
+UN00001860	ACC	Customs Procedure. Details	Customs Procedure	Any procedure based on the World Customs Organization (WCO) Kyoto Convention and related to the border crossing of internationally traded goods.
+UN00002053	ACC	Customs Valuation. Details	Customs Valuation	"An assessment of the worth of an object, such as its monetary value, for customs purposes."
+UN00006222	ACC	Damage Area. Details	Damage Area	"A specific part of an object that has lost its original capability or condition, such as after an accident."
+UN00007112	ACC	Damage. Details	Damage	"Loss or harm to persons, animals or the environment resulting from one or more hazards."
+UN00001573	ACC	Dangerous Goods. Details	Dangerous Goods	A hazardous or non-hazardous substance which may pose risks to people and/or the environment for which the transportation is regulated by dangerous goods regulations.
+UN00008533	ACC	Data Backup. Details	Data Backup	Information relating to media and data backup practices.
+UN00001386	ACC	Data Node. Details	Data Node	"A single element or node within a data structure, usually a hierarchical structure."
+UN00004718	ACC	Data Set. Details	Data Set	"A collection of data, usually presented in tabular form."
+UN00006675	ACC	Data Structure. Details	Data Structure	"A collection of metadata concepts, their structure and usage, when used to collect or disseminate data."
+UN00004890	ACC	Day Book. Details	Day Book	A book in which the debits and credits which occur day by day are set down. These are ultimately sorted into the ledger.
+UN00003970	ACC	Declaration Requirement. Details	Declaration Requirement	"A set of periodic declarations that have to be made, such as against an insurance policy or coverage to declare updated underwriting data."
+UN00003975	ACC	Declaration Schedule. Details	Declaration Schedule	"The scheduling of periodic declarations that have to be made, such as against an insurance policy."
+UN00005831	ACC	Declaration. Details	Declaration	"An act of notification by formal documentation or action, in any form prescribed or accepted, such as a goods declaration to customs."
+UN00002444	ACC	Deductible Limit. Details	Deductible Limit	"The limitation on the amount, quantity or duration of a deductible, and how it is to be applied."
+UN00002434	ACC	Deductible. Details	Deductible	A part of the risk that is deducted from a claim before the insurer becomes liable.
+UN00003978	ACC	Defendant. Details	Defendant	A party who is required to answer a legal complaint.
+UN00000969	ACC	Deliverable. Details	Deliverable	"Specific goods or services expected to be delivered as the result of a contract award or project.  The deliverable, or set of deliverables, can be identified in a request or response for bid, proposal, tender or the like."
+UN00000666	ACC	Delivery Terms. Details	Delivery Terms	The conditions agreed upon between the parties with regard to the delivery of goods and or services.
+UN00001272	ACC	Delivery. Details	Delivery	The action of distributing goods or services to their destination.
+UN00003475	ACC	Design Registration. Details	Design Registration	The reporting of intellectual property to the World Intellectual Property Organization (WIPO) or a national organization to protect the design rights.
+UN00007385	ACC	Design. Details	Design	"A document, plan or drawing produced to describe the look and function of something before it is built or made."
+UN00000173	ACC	Dimension. Details	Dimension	"A measure of spatial extent, such as length, breadth or height."
+UN00008461	ACC	Direct Position List. Details	Direct Position List	"The list of coordinates for a physical location, expressed as a sequence of direct positions."
+UN00007179	ACC	Direct Position. Details	Direct Position	A physical location described within a coordinate reference system.
+UN00003426	ACC	Directive. Details	Directive	The explicit declaration of compliance to one or more compliance directives inclusive of the exceptions to the compliance.
+UN00004449	ACC	Discrepancy. Details	Discrepancy	Any deviation or departure from the expected.
+UN00003480	ACC	Disposition. Details	Disposition	"Action to be taken on records, material or assets at a specified time, such as destruction, recycling, or electronic wiping, reformatting, transferring, or permanent retention."
+UN00004961	ACC	Distribution Profile Point. Details	Distribution Profile Point	A point in time or space within a distribution profile.
+UN00004964	ACC	Distribution Profile. Details	Distribution Profile	"A spread curve that defines how an item, such as a resource, is distributed over time or space."
+UN00008098	ACC	Distribution. Details	Distribution	The way in which something is shared out among a group or spread over an area.
+UN00007395	ACC	Document Folder. Details	Document Folder	A directory containing related documents or files.
+UN00000309	ACC	Document. Details	Document	"A collection of data for a piece of written, printed or electronic matter that provides information or evidence."
+UN00002425	ACC	Driver Coverage Limitation. Details	Driver Coverage Limitation	A coverage limitation specifying inclusions or exclusions regarding the drivers for the coverage within a policy.
+UN00003981	ACC	Driver. Details	Driver	A person that operates a vehicle.
+UN00004005	ACC	Driving Credit. Details	Driving Credit	A discount given for a motor coverage for a certain qualification of the driver.
+UN00003524	ACC	ECID Report. Details	ECID Report	The Electronic Chip Identification (ECID) reporting of specific parameters.
+UN00004010	ACC	Elevator. Details	Elevator	A transport device used to move goods or people vertically from one floor to another.
+UN00007016	ACC	Emission. Details	Emission	"Pollution (including noise, heat, and radiation) discharged into the environment by residential, commercial, or industrial facilities or by a means of transport."
+UN00002456	ACC	Employee Count. Details	Employee Count	The number of employees of various classifications for a specific time period.
+UN00004014	ACC	Employee Injury Illness. Details	Employee Injury Illness	An injury or illness that happens to an employee at work and for which they may be entitled to worker's compensation.
+UN00004022	ACC	Employee. Details	Employee	A person that works for and is paid a salary by another person or organization.
+UN00004037	ACC	Employer. Details	Employer	A person or organization that pays someone to do work on a regular or contractual basis.
+UN00005323	ACC	Endorsement. Details	Endorsement	A supplementary or official comment on a document which limits or extends its provisions.
+UN00005330	ACC	Engine. Details	Engine	A machine with moving parts that converts power into motion.
+UN00003538	ACC	Engineering Instructions. Details	Engineering Instructions	The technical data necessary for the processing of a device.
+UN00003572	ACC	Engineering Result. Details	Engineering Result	The specific outcome of a defined cycle of steps or measurements in an engineering process.
+UN00004043	ACC	Environmental Factor. Details	Environmental Factor	"An environmental hazard or benefit that may affect an object. Also used to express the distance between the risk object and the environmental hazard or benefit, such as the distance between the risk object and the hazardous or beneficial object."
+UN00008566	ACC	Equipment. Details	Equipment	A necessary item or object for a particular purpose.
+UN00005873	ACC	Error. Details	Error	Something done incorrectly or mistakenly.
+UN00008192	ACC	Event Element. Details	Event Element	A structure for elements of an event.
+UN00000151	ACC	Event. Details	Event	"A significant occurrence or happening related to a person, animal, object or process."
+UN00000328	ACC	Examination Result. Details	Examination Result	The results of a detailed inspection.
+UN00005862	ACC	Exemption. Details	Exemption	"An exclusion from a requirement, such as a regulation or a tax."
+UN00004856	ACC	Expected Information. Details	Expected Information	"A single datum or a compilation of data anticipated, such as an amount, percentage, date or comment in a report."
+UN00004051	ACC	External Building Protection. Details	External Building Protection	"The protection, by external means, that a building has against a threat, such as fire."
+UN00007414	ACC	External Work. Details	External Work	"Work belonging to, situated on, or forming the outside of something."
+UN00006681	ACC	Facet. Details	Facet	"Specification of the format for the content of a data object, such as the content of a data element when reported in a data or metadata set."
+UN00001187	ACC	Facility. Details	Facility	A structure or place that provides a particular service.
+UN00000924	ACC	Factory. Details	Factory	A building or buildings with equipment for manufacturing.
+UN00003609	ACC	Failure Analysis. Details	Failure Analysis	"Logical, systematic examination to determine the nature of a failure."
+UN00003489	ACC	Failure. Details	Failure	A breakdown in functionality.
+UN00003493	ACC	Fault. Details	Fault	A defect or logical grouping of defects that appear to be related or are showing the same symptoms.
+UN00001218	ACC	Feature. Details	Feature	Distinctive or characteristic parts of an object.
+UN00004060	ACC	Fee. Details	Fee	"A charge that is payable as remuneration, such as for membership in a society."
+UN00000001	ACC	Financial Account. Details	Financial Account	"A specific business arrangement whereby debits and/or credits arising from transactions are recorded, such as, a financial account with a bank, a financial account with a trading partner etc."
+UN00000503	ACC	Financial Card. Details	Financial Card	A card used to represent a financial account.
+UN00001004	ACC	Financial Institution. Details	Financial Institution	"An institution, such as a bank, building society, credit union, stock brokerage, or similar business; established primarily to provide financial services and financial transactions."
+UN00004066	ACC	Fire Extinguishing System. Details	Fire Extinguishing System	A protection device or system used to extinguish or control fires.
+UN00004074	ACC	Fireplace. Details	Fireplace	"An architectural element in a building consisting of a space designed to contain a fire, generally for heating but sometimes also for cooking."
+UN00003098	ACC	Forecast Terms. Details	Forecast Terms	A set of terms and conditions by which a forecast has been or will be made.
+UN00004851	ACC	Form Template. Details	Form Template	A model or standard for making comparisons for a form.
+UN00004893	ACC	Formality. Details	Formality	"A compilation of gathered information to be remitted to official data collectors or interested parties, such as a tax or social return, statistical statement, financial report."
+UN00004078	ACC	Fuel. Details	Fuel	Any material that is burnt or altered in order to obtain energy.
+UN00007908	ACC	Gear. Details	Gear	An apparatus that is used for a particular purpose or activity.
+UN00005338	ACC	Geographic Usage Limit. Details	Geographic Usage Limit	"A limitation or limitations on the geographical area within which the use of an object is allowed or disallowed, such as the area within which a vehicle is allowed to be driven."
+UN00000044	ACC	Geographical Coordinate. Details	Geographical Coordinate	"A set of geographical coordinates of a specific point such as the longitude, latitude and altitude."
+UN00008318	ACC	Geographical Feature. Details	Geographical Feature	Distinctive or characteristic part of a geographical object.
+UN00008352	ACC	Geographical Grid. Details	Geographical Grid	"The combination of the latitude and longitude forming a graticule, used for specifying the position of any location on the surface of the Earth, without consideration of_altitude_or depth (reference ISO 19136)."
+UN00008337	ACC	Geographical Line. Details	Geographical Line	A connection between two points on the surface of the Earth (reference ISO 19136).
+UN00008340	ACC	Geographical Multi-Curve. Details	Geographical Multi-Curve	A collection of curves on the surface of the Earth (reference ISO 19136).
+UN00008333	ACC	Geographical Multi-Point. Details	Geographical Multi-Point	"A collection of points, on the surface of the Earth (reference ISO 19136)."
+UN00008347	ACC	Geographical Multi-Surface. Details	Geographical Multi-Surface	A collection of surfaces on the Earth (reference ISO 19136).
+UN00008414	ACC	Geographical Object Characteristic. Details	Geographical Object Characteristic	An attribute of a geographical object.
+UN00008330	ACC	Geographical Point. Details	Geographical Point	A_point_on the surface of the Earth (reference ISO 19136).
+UN00008344	ACC	Geographical Surface. Details	Geographical Surface	A figure on the Earth_having_only_two_dimensions (reference ISO 19136).
+UN00002059	ACC	Geopolitical Region. Details	Geopolitical Region	"A collection of countries and/or economies united by a common characteristic, such as political union."
+UN00007735	ACC	Glass Sign. Details	Glass Sign	Windows and signage inside or outside a building.
+UN00007715	ACC	Glass. Details	Glass	Transparent or translucent materials used in a building to allow light into the building or to act as screens within the building.
+UN00001610	ACC	Goods Characteristic. Details	Goods Characteristic	A distinguishing feature or quality of goods.
+UN00006018	ACC	Grant. Details	Grant	An allocation of funds for a specific purpose.
+UN00004082	ACC	Gross Premium. Details	Gross Premium	The amount payable for a contract of insurance.
+UN00000333	ACC	Guarantee. Details	Guarantee	Information about the guarantee of a contractual or financial obligation.
+UN00006796	ACC	Guest Arrival. Details	Guest Arrival	Guest arrival information.
+UN00001600	ACC	Hazard Rating. Details	Hazard Rating	The classification and ranking of the hazard or peril.
+UN00008034	ACC	Hazard. Details	Hazard	"A risk or danger that poses a threat to individuals, property, or the environment."
+UN00001523	ACC	Hazardous Material. Details	Hazardous Material	"Any solid, liquid, or gas, that can harm people, other living organisms, property, or the environment."
+UN00004537	ACC	Health Care Institution Attendance. Details	Health Care Institution Attendance	"Proposed, on-going or completed service to an inpatient by a health care institution."
+UN00004559	ACC	Health Care Institution. Details	Health Care Institution	"An institution with specialised staff and equipment, such as a hospital, providing patient treatment and optionally longer-term patient care."
+UN00004564	ACC	Health Care Professional. Details	Health Care Professional	"A trained, experienced individual who provides services for the maintenance and improvement of personal health."
+UN00007119	ACC	Health Hazard. Details	Health Hazard	"A threat to health, such as heavy metals, foreign bodies, contaminations, pesticides, biotoxins or residues of pesticides."
+UN00004085	ACC	Heating System. Details	Heating System	"A device or system used to provide warmth, such as in a building or vehicle."
+UN00001396	ACC	Hierarchical Structure. Details	Hierarchical Structure	"A hierarchical structure identifies, organizes, and summarizes hierarchical information."
+UN00006685	ACC	Identifiable Artefact. Details	Identifiable Artefact	A construct that contains a structure capable of managing the identification of an artefact.
+UN00001286	ACC	Identity. Details	Identity	"Information which uniquely identifies a person, organization, animal or object."
+UN00006852	ACC	Illness. Details	Illness	A collection of data about an illness or disease.
+UN00004094	ACC	Inbuilt Component. Details	Inbuilt Component	"A component built into an existing component, such as a structure or appliance built into a building."
+UN00006228	ACC	Incident Ancillary Object. Details	Incident Ancillary Object	An object involved in an incident which is not the primary involved object.
+UN00007571	ACC	Incident Building. Details	Incident Building	The condition of a building that has been involved in an incident.
+UN00007573	ACC	Incident Object. Details	Incident Object	The condition of an object that has been involved in an incident.
+UN00006236	ACC	Incident Vehicle. Details	Incident Vehicle	The condition of a vehicle that has been involved in an accident or other loss event.
+UN00006290	ACC	Incident. Details	Incident	"An event or occurrence, such as a car crash or theft of an object."
+UN00002487	ACC	Index Adjustment. Details	Index Adjustment	Information used to assist in the application of rate changes due to factors such as rampant inflation in a country.
+UN00006331	ACC	Injury. Details	Injury	Physical damage or loss to a person.
+UN00006011	ACC	Inspection. Details	Inspection	An examination or review.
+UN00005347	ACC	Instalment Plan. Details	Instalment Plan	A plan for paying a total sum of money by several payments made over a period of time.
+UN00000734	ACC	Instructions. Details	Instructions	"Information of an instructive or teaching nature that tells someone how to manage, manipulate, control, or cope with something."
+UN00005358	ACC	Insurance Account Entry. Details	Insurance Account Entry	"An amount of money or set of amounts that is stated in an insurance account held by an insurance party, such as insurer, producer, reinsurer."
+UN00004098	ACC	Insurance Applicant. Details	Insurance Applicant	A party applying for an insurance product.
+UN00002233	ACC	Insurance Benefits. Details	Insurance Benefits	Payments to a beneficiary under an insurance policy or coverage.
+UN00004102	ACC	Insurance Client. Details	Insurance Client	A party that requests insurance protection and pays the premium to an insurance company in exchange for the protection provided by a policy.
+UN00004117	ACC	Insurance Company. Details	Insurance Company	"An organization that undertakes, on receipt of a premium, to secure a party against a financial loss by payment, such as in the event of loss, damage, injury."
+UN00006338	ACC	Insurance History. Details	Insurance History	"A period of prior insurance and a summary of losses, which are relevant to the current insurance."
+UN00005364	ACC	Insurance Line Item. Details	Insurance Line Item	The material or monetary worth of an insurance line item that is associated with an insurance account entry.
+UN00004257	ACC	Insurance Object. Details	Insurance Object	"General information about an object, such as a vehicle or a building, that affects the underwriting of that object."
+UN00005370	ACC	Insurance Payment Plan. Details	Insurance Payment Plan	A plan for the payment of an insurance premium to an insurance company.
+UN00004124	ACC	Insurance Policy. Details	Insurance Policy	A contract between an insured and an insurer to provide the insured with coverage against certain specified risks.
+UN00004174	ACC	Insurance Producer. Details	Insurance Producer	A party that offers advice and arranges policies for clients. An insurance producer may be either tied - representing one or a limited number of companies - or independent - with no limit on the number of companies with which he can deal.
+UN00004182	ACC	Insurance Product. Details	Insurance Product	A combination of insurance coverages for selling purposes.
+UN00005398	ACC	Insurance Transaction. Details	Insurance Transaction	"An action that affects any insurance data item as a result of an insurance process, such as for policy: renewal, change of address, for claim: notification, assessment."
+UN00004187	ACC	Insured. Details	Insured	A party that is covered by an insurance policy.
+UN00004192	ACC	Interior Finish. Details	Interior Finish	"The components and material used to complete and/or beautify the interior of a building such as ceiling finish, wall finish."
+UN00003293	ACC	Intermediary Sale. Details	Intermediary Sale	The conditions and commission information that apply to the selling of a product by an entity other than the supplier of the product.
+UN00003054	ACC	Inventory. Details	Inventory	Material held in stock.
+UN00006343	ACC	Investigation. Details	Investigation	A systematic or formal inquiry into an incident or allegation so as to establish the truth.
+UN00006351	ACC	Investigator Activity. Details	Investigator Activity	"A task performed by a person investigating something, such as an insurance claim."
+UN00008774	ACC	IOT Device. Details	IOT Device	"An object or system made or adapted for an IOT (Internet of Things) purpose such as to collect, report and autonomously transmit digital data especially when connected to a piece of mechanical or electronic equipment."
+UN00003368	ACC	Issue. Details	Issue	A topic for debate or resolution.
+UN00004196	ACC	Item Valuation. Details	Item Valuation	"An item whose value is being estimated, such as for insurance purposes."
+UN00003309	ACC	Itinerary. Details	Itinerary	Schedule and location information for travel.
+UN00004899	ACC	Journal List. Details	Journal List	A specific list of journals used in an accounting book by an entity.
+UN00005068	ACC	Keyword. Details	Keyword	"A significant word, part of word or phrase that is used to enable indexing of or searching within a textual repository, such as a product catalogue or library."
+UN00007796	ACC	Kitchen Protection. Details	Kitchen Protection	"The protection that a kitchen has against threats, such as fire."
+UN00004199	ACC	Kitchen. Details	Kitchen	A room used for food preparation.
+UN00002024	ACC	Label. Details	Label	"An attachment to an object, person or animal which provides identification information for the object."
+UN00005425	ACC	Leasehold. Details	Leasehold	"A contract under which one party allows use of an object, such as land or a dwelling, by another party for a period of time, usually in consideration of rent."
+UN00005788	ACC	Ledger. Details	Ledger	"A book or file containing all accounts of an entity relating to assets, liabilities, revenues, and expenditure."
+UN00005449	ACC	Licence Restriction. Details	Licence Restriction	"A limitation that has been placed on the licence, such as daylight driving only or a restaurant without alcohol."
+UN00005430	ACC	Licence. Details	Licence	"A permit from an authority to own or use something, do a particular thing, or carry on a trade."
+UN00007184	ACC	Linear Ring. Details	Linear Ring	An array of points which define a closed loop which is not self intersecting.
+UN00005452	ACC	Loading Discount. Details	Loading Discount	A factor applied to the insurance base premium to calculate the net premium for a policy or coverage; loadings are added to the premium and discounts are subtracted.
+UN00000067	ACC	Location. Details	Location	A physical location or place.
+UN00006359	ACC	Loss. Details	Loss	"The fact or process of losing something, such as loss of money by theft, loss of fitness due to injury, loss of full function due to damage."
+UN00008058	ACC	Machine. Details	Machine	"An apparatus using or applying mechanical power and having several parts, each with a definite function and together performing a particular task or series of tasks."
+UN00006689	ACC	Maintainable Artefact. Details	Maintainable Artefact	A construct that contains a structure capable of managing the maintenance of an artefact.
+UN00008429	ACC	Man Machine System. Details	Man Machine System	A combination of man and machinery which operate as one independently controllable unit.
+UN00007431	ACC	Market Conditions. Details	Market Conditions	"Characteristics, such as competition, prices, or environmental factors that have an impact on a particular market."
+UN00006998	ACC	Marketplace. Details	Marketplace	"An actual or virtual place where buyers and sellers interact, directly or through intermediaries, to trade goods or services."
+UN00003218	ACC	Marking. Details	Marking	"An inscription, stamp or label such as to indicate date, ownership, quality, manufacture or origin."
+UN00008693	ACC	Material Component. Details	Material Component	A component of something inanimate that occupies space and possesses mass.
+UN00003373	ACC	Material. Details	Material	Something inanimate that occupies space and possesses mass.
+UN00008562	ACC	Means. Details	Means	A method or object by which a result is achieved.
+UN00001558	ACC	Measurement. Details	Measurement	"An amount, size, or extent as established by measuring."
+UN00004569	ACC	Medical Aid. Details	Medical Aid	"An item, such as a wheelchair or bandages but excluding medications, that is used to aid a patient."
+UN00004577	ACC	Medical Condition. Details	Medical Condition	"A state of health, such as a disease or disability, that may impact an individual's ability to perform tasks."
+UN00004585	ACC	Medical Diagnosis. Details	Medical Diagnosis	The process of determining and documenting the nature of a medical disease or disorder.
+UN00004591	ACC	Medical Episode. Details	Medical Episode	An incident or event that gives rise to a medical condition.
+UN00004600	ACC	Medical Reimbursement. Details	Medical Reimbursement	"The compensation by a funding institution, such as a private health insurer, based on a health insurance policy, for the expenses of a medical treatment an insured had to pay."
+UN00004604	ACC	Medical Superintendent. Details	Medical Superintendent	A person that is the leader of a hospital or a department within a hospital.
+UN00005465	ACC	Medical Supplement Form. Details	Medical Supplement Form	A form that describes the medical condition of a person.
+UN00005468	ACC	Medical Test. Details	Medical Test	An examination of part of the body or a body fluid for medical purposes.
+UN00004608	ACC	Medical Treatment. Details	Medical Treatment	"Medication or therapy, excluding surgery, for the relief or cure of a medical condition."
+UN00004631	ACC	Medication. Details	Medication	"A medicine, drug or other substance used to prevent or cure disease or to relieve pain."
+UN00001892	ACC	Membership. Details	Membership	"The state of belonging to a group, such as a club or trade association."
+UN00007816	ACC	Messenger Protection. Details	Messenger Protection	"Protection measures that a messenger has against threats, such as criminal threats."
+UN00005474	ACC	Meter Reading. Details	Meter Reading	"The formal reading of a meter, such as an odometer or horometer, at a specific point in time, such as the time of an incident or for annual declaration."
+UN00006842	ACC	Method. Details	Method	A defined way of performing something.
+UN00000344	ACC	Metrics. Details	Metrics	Quantitative information about a system of parameters for assessment purposes.
+UN00004203	ACC	Mobile Home. Details	Mobile Home	"A home which can be moved, such as a caravan or trailer, but is not self-propelled or motorised."
+UN00004272	ACC	Modification. Details	Modification	"A change that has been made to an object, such as to a vehicle or building."
+UN00002177	ACC	Monetary Allocation. Details	Monetary Allocation	"The terms and conditions by which monetary amounts are assigned or distributed, such as an insurance or income revenue scheduled provision."
+UN00002183	ACC	Monetary Instalment. Details	Monetary Instalment	The arrangement of the payment of a sum of money in fixed proportions at fixed times.
+UN00001289	ACC	Monetary Summation. Details	Monetary Summation	A collection of monetary amount totals.
+UN00002646	ACC	Monetary Transfer. Details	Monetary Transfer	"The movement of money, such as a transfer between financial accounts."
+UN00005581	ACC	Monetary Value. Details	Monetary Value	"The monetary amount that is considered to be a fair equivalent for something else, such as an object or a service."
+UN00005482	ACC	Monthly Leasehold Interest. Details	Monthly Leasehold Interest	Factors that influence the calculation of the monthly interest for a leasehold contract.
+UN00004230	ACC	Multiple Identifier. Details	Multiple Identifier	A set of identifiers to be used when multiple parties have different identifiers for the same item.
+UN00006696	ACC	Nameable Artefact. Details	Nameable Artefact	A construct that contains a structure capable of managing the naming of an artefact.
+UN00005487	ACC	National Residency. Details	National Residency	The country where a person usually lives.
+UN00004243	ACC	Net Premium. Details	Net Premium	"The premium derived by applying the loadings and discounts to the base premium, but excluding taxes and fees."
+UN00001298	ACC	Note. Details	Note	"A textual or coded description, such as a remark or additional information."
+UN00006406	ACC	Notification. Details	Notification	The formal act of giving information about an event from one party to another.
+UN00006413	ACC	Object Salvage. Details	Object Salvage	"The recovery of value of an object following damage to the object, such as a vehicle."
+UN00007202	ACC	Observation Request Characteristic. Details	Observation Request Characteristic	A prominent attribute or aspect of this observation request.
+UN00007214	ACC	Observation Request. Details	Observation Request	A collection of data specifying a request to perform an observation on an object.
+UN00006899	ACC	Observation Result Characteristic. Details	Observation Result Characteristic	An observed prominent attribute or aspect.
+UN00006883	ACC	Observation Result. Details	Observation Result	"A collection of diagnostic data, visual or technical, and processing data, performed on an object."
+UN00008578	ACC	Observation. Details	Observation	An act or instance of viewing or noting a fact or occurrence for some scientific or other special purpose.
+UN00004275	ACC	Occupancy. Details	Occupancy	"The use or intended use of a building or part thereof for the shelter or support of persons, animals or property."
+UN00005495	ACC	Occupation. Details	Occupation	A person's job or profession.
+UN00004294	ACC	Occupied Floor. Details	Occupied Floor	The floor or number of floors occupied in a building.
+UN00005502	ACC	Offence. Details	Offence	A punishable breach of law.
+UN00004297	ACC	Onsite Building Protection. Details	Onsite Building Protection	"Equipment that a building has on the premises to protect against threats, such as fire."
+UN00007439	ACC	Option. Details	Option	A thing that is or may be chosen.
+UN00005508	ACC	Optional Extra. Details	Optional Extra	"An item or service that can, if requested, be provided as an addition to the standard specification of an object."
+UN00000050	ACC	Organization. Details	Organization	"An organized structure set up for a particular purpose, such as a business, government body, department, charity, or financial institution."
+UN00004312	ACC	Ownership. Details	Ownership	"The state or fact of exclusive legal rights and control over something such as property, a vehicle, an organization or intangible items, such as a lease or drilling rights."
+UN00001896	ACC	Package. Details	Package	"Any self-contained wrapping or container within which goods can be contained, such as a box or a barrel which can be filled, partially filled or empty."
+UN00001906	ACC	Packaging. Details	Packaging	"Any wrapping or containment, such as a box or a barrel, of goods."
+UN00005511	ACC	Paint. Details	Paint	"A liquid matter used to colour objects, such as vehicles, walls."
+UN00008795	ACC	Pairing. Details	Pairing	The process by which two potentially entities are linked.
+UN00002274	ACC	Parameter. Details	Parameter	A feature that is fixed for the case in question but may be different in other cases.
+UN00006418	ACC	Part. Details	Part	"A piece or segment of an object, such as a wheel, paint, screw."
+UN00002530	ACC	Party Group. Details	Party Group	"A collection of individuals, such as a group of similar employees, a group of drivers, a group of homeowners, or a travel group."
+UN00000376	ACC	Party. Details	Party	"An individual, a group, or a body having a role in a business function.  Party has a legal connotation in a business transaction."
+UN00004651	ACC	Patient. Details	Patient	A person receiving medical treatment.
+UN00003062	ACC	Payment Discount Terms. Details	Payment Discount Terms	Terms and conditions by which a payment discount is or can be applied to a payable amount.
+UN00002718	ACC	Payment Instruction. Details	Payment Instruction	Instructions related to the processing of a payment.
+UN00000388	ACC	Payment Means. Details	Payment Means	Details of the means by which the payment will be or has been made.
+UN00003067	ACC	Payment Penalty Terms. Details	Payment Penalty Terms	Terms and conditions by which a payment penalty is or can be applied to a payable amount.
+UN00000394	ACC	Payment Terms. Details	Payment Terms	Terms and conditions by which payment has been or will be made.
+UN00002669	ACC	Payment Transaction Instruction. Details	Payment Transaction Instruction	Instructions for the movement of funds from one account to another.
+UN00000410	ACC	Payment. Details	Payment	Discharge obligations in respect of funds or securities transferred between two or more parties.
+UN00000416	ACC	Penalty Charge. Details	Penalty Charge	A charge that may be applied or agreed upon as a penalty for a breach of rule or contract.
+UN00001407	ACC	Performance Measurement. Details	Performance Measurement	"A means of calculating a benefit gained by or penalty against a person or organization, based on predefined criteria."
+UN00000116	ACC	Period. Details	Period	"A specific period of time such as the length of time between two known date/time points, from a start date onwards, or up to an end date."
+UN00003521	ACC	Periodicity. Details	Periodicity	The distribution of reference points at regular or reoccurring intervals.
+UN00002625	ACC	Permitted Usage. Details	Permitted Usage	The permitted use of an object.
+UN00002473	ACC	Person Financial Situation. Details	Person Financial Situation	"The financial situation of a person, such as income and savings."
+UN00000074	ACC	Person. Details	Person	An individual human being.
+UN00008676	ACC	Personal Effects. Details	Personal Effects	Privately owned articles for personal use by an individual.
+UN00001253	ACC	Picture. Details	Picture	"A painting, drawing, or photograph represented as a digital image for electronic sharing."
+UN00002776	ACC	Plot. Details	Plot	A small piece of land or water.
+UN00006431	ACC	Point Of Impact. Details	Point Of Impact	"A position on an object where it is hit, normally causing damage."
+UN00005914	ACC	Pointer. Details	Pointer	"Reference pointing to a position within an object, such as a document."
+UN00007187	ACC	Polygon. Details	Polygon	"A planar surface, defined by one exterior boundary and zero or more interior boundaries. Each interior boundary defines a hole in the polygon."
+UN00004322	ACC	Porch. Details	Porch	A structure attached to a building forming a covered entrance to a vestibule or doorway.
+UN00006437	ACC	Post Loss Risk Control. Details	Post Loss Risk Control	An action that is put into effect after a loss to minimise the consequences.
+UN00000112	ACC	Preference. Details	Preference	"Precedence, advantage, or choice of one person or thing over another."
+UN00007459	ACC	Price Index. Details	Price Index	A scheme for expressing the value of something compared to a base value.
+UN00000423	ACC	Price. Details	Price	A sum of money for which something is or may be bought or sold.
+UN00008142	ACC	Problem. Details	Problem	A matter or situation regarded as unwelcome or harmful and needing to be dealt with and overcome.
+UN00003655	ACC	Process Step. Details	Process Step	A stage within a process.
+UN00000430	ACC	Process. Details	Process	A naturally occurring or designed sequence of operations or events.
+UN00004909	ACC	Processed Entity. Details	Processed Entity	An individual or organization for which an accounting book is prepared.
+UN00002809	ACC	Produce. Details	Produce	"Products, such as grain, fruits, vegetables, poultry and livestock."
+UN00005070	ACC	Product Group. Details	Product Group	"The grouping of products, such as for catalogue or regulatory purposes."
+UN00003072	ACC	Product Instance. Details	Product Instance	An instance of an individual product or batch of similar products produced by human or mechanical effort or by a natural process.
+UN00003658	ACC	Product Return. Details	Product Return	An act of sending a product back to its origination point.
+UN00003504	ACC	Product Warranty. Details	Product Warranty	"A guarantee or written assurance that some product or service will be provided, such as repair or replacement of a faulty product."
+UN00003145	ACC	Product. Details	Product	Any tangible output or service produced by human or mechanical effort or by a natural process.
+UN00008377	ACC	Production Unit. Details	Production Unit	A defined set of production utilities under a single management.
+UN00008211	ACC	Production. Details	Production	The process of making or growing something for sale or use.
+UN00001414	ACC	Programme. Details	Programme	"A set of related measures, activities or projects with a common goal."
+UN00003471	ACC	Project Description. Details	Project Description	A characteristic or detailed description of a project.
+UN00001420	ACC	Project Portfolio. Details	Project Portfolio	A collection of one or more projects that are tracked together.
+UN00000457	ACC	Project. Details	Project	"An endeavour carefully planned to achieve a unique product, service, or other particular aim such as a construction project."
+UN00003569	ACC	Proprietary Unit. Details	Proprietary Unit	A non-standardized unit.
+UN00007844	ACC	Protective Material. Details	Protective Material	"Material that protects from a potentially hazardous source, such as a heating system."
+UN00007848	ACC	Proximity. Details	Proximity	"Nearness in space, time, or relationship."
+UN00000466	ACC	Qualification. Details	Qualification	A condition that must be fulfilled.
+UN00003434	ACC	Quality Analysis. Details	Quality Analysis	The data that demonstrate conclusively whether or not the product or process meets a requirement.
+UN00000863	ACC	Quantity Analysis. Details	Quantity Analysis	"The analytic breakdown of a quantity to include its supporting information, such as a complex quantity that consists of multiple pieces of information that together constitute a single quantity."
+UN00004972	ACC	Query Parameter. Details	Query Parameter	"Information that defines, limits or restricts the scope of a query."
+UN00000898	ACC	Query. Details	Query	A formally raised question or request for information.
+UN00004722	ACC	Questionnaire. Details	Questionnaire	"A formulated series of questions by which information is sought from a selected or target group, such as for statistical analysis purposes."
+UN00007959	ACC	Quota. Details	Quota	"The proportional share or part of a whole that is due from, due to, or allocated to a person or group."
+UN00005533	ACC	Quotation. Details	Quotation	"Proposed terms, conditions and costs for a requested contract."
+UN00003441	ACC	Radioactive Isotope. Details	Radioactive Isotope	"Any of several species of the same chemical element with different masses whose nuclei are unstable and dissipate excess energy by spontaneously emitting radiation in the form of alpha, beta, or gamma rays."
+UN00004329	ACC	Range. Details	Range	"A row, line or series, such as a block of floors in a building."
+UN00002841	ACC	Reason. Details	Reason	"A motive, cause or justification."
+UN00006961	ACC	Reference. Details	Reference	"A direction, more or less precise, to related information."
+UN00000136	ACC	Registration. Details	Registration	The recording of items or details for a specific purpose.
+UN00001604	ACC	Registry Product. Details	Registry Product	The identification of a product in a registry.
+UN00001536	ACC	Regulated Goods. Details	Regulated Goods	"Articles of trade or commerce which are subject to or controlled by a rule, regulation, or law at a particular point during its lifecycle."
+UN00001565	ACC	Regulation. Details	Regulation	"A principle, rule, or law designed to control or govern."
+UN00005818	ACC	Regulatory Control. Details	Regulatory Control	"A verification to satisfy a regulation, law or convention, such as by a physical examination of goods."
+UN00005084	ACC	Regulatory Procedure. Details	Regulatory Procedure	"A set of formal steps to satisfy a regulation, law or convention."
+UN00002707	ACC	Regulatory Reporting. Details	Regulatory Reporting	Reporting that is specifically required for regulatory or legal purposes.
+UN00002713	ACC	Related Settlement. Details	Related Settlement	Information related to the handling of the remittance information in the transaction processing chain.
+UN00006440	ACC	Repair Task. Details	Repair Task	A service that is performed in the repair of a damaged object.
+UN00006452	ACC	Reparation. Details	Reparation	"The act of renewing, restoring, repairing or compensating, such as the repair of a vehicle or the refunding of costs."
+UN00002202	ACC	Report. Details	Report	"A compilation of information which is pertinent to a specific subject or topic, such as an accounting report or financial report."
+UN00007087	ACC	Reported Area. Details	Reported Area	"An area that is reported, such as where a catch has been taken."
+UN00001435	ACC	Reporting Threshold. Details	Reporting Threshold	The trigger point for initiating a reporting action.
+UN00006700	ACC	Representation. Details	Representation	"The allowable values or formats for a concept, such as a data element."
+UN00001212	ACC	Requirement. Details	Requirement	An action or item that is imperative.
+UN00006824	ACC	Reservation Item. Details	Reservation Item	The item of products or services which is specified in a reservation.
+UN00003288	ACC	Reservation Restriction. Details	Reservation Restriction	A limitation for the booking of a product or service.
+UN00006759	ACC	Reservation. Details	Reservation	"The action or fact of booking something, such as a hotel room, in advance."
+UN00001444	ACC	Resource Assignment. Details	Resource Assignment	An assignment of a resource to a particular work task.
+UN00001454	ACC	Resource. Details	Resource	"A stock or supply of people, materials, or assets."
+UN00000902	ACC	Response. Details	Response	"A reply, answer, or additional message that is usually in response to a question or query."
+UN00007596	ACC	Responsibility. Details	Responsibility	The state or fact of being accountable for or to blame for something.
+UN00004091	ACC	Retained Balance. Details	Retained Balance	The balance of payments that are held as credit by the insurer.
+UN00007491	ACC	Revision Method. Details	Revision Method	A defined method for adjusting or revising something.
+UN00008645	ACC	Risk Analysis Result. Details	Risk Analysis Result	The results of a risk analysis calculation.
+UN00004333	ACC	Rounding Rule. Details	Rounding Rule	The applicable rule when rounding a numeric value.
+UN00000737	ACC	Route. Details	Route	A way or course taken from one location to another.
+UN00004336	ACC	Safe Component. Details	Safe Component	"A constituent part, such as a wall, floor or ceiling, of a safe."
+UN00004340	ACC	Safe Door. Details	Safe Door	The characteristics of the door of a safe or vault.
+UN00004347	ACC	Safe. Details	Safe	"A strong lockable cabinet used to protect money or other valuables against theft or damage, such as a safe or vault."
+UN00007861	ACC	Safety Programme. Details	Safety Programme	A programme to provide safety to people or property.
+UN00006786	ACC	Sales Channel. Details	Sales Channel	A way or route by which the products or services are distributed for sale.
+UN00006910	ACC	Sample Type. Details	Sample Type	"The type of material, such as animal or plant, a sample contains."
+UN00006860	ACC	Sample. Details	Sample	A specimen (small part of the whole) taken for testing or analysis.
+UN00006915	ACC	Sampled Object. Details	Sampled Object	The physical object from which a sample has been taken.
+UN00007076	ACC	Satellite Identification. Details	Satellite Identification	An identification provided by a satellite service provider.
+UN00001465	ACC	Schedule Task Relationship. Details	Schedule Task Relationship	A schedule task relationship defines the dependencies between schedule tasks.
+UN00001472	ACC	Schedule Task. Details	Schedule Task	"A cohesive activity, collection of activities, or milestone with a definite duration or date which is required to achieve a deliverable."
+UN00008626	ACC	Schedule. Details	Schedule	A series of planned activities or things to be done showing the times or dates when they are intended to happen or be done.
+UN00006658	ACC	Scope. Details	Scope	The sphere or area over which an activity operates.
+UN00001915	ACC	Seal. Details	Seal	A device used to secure an object and protect from unauthorized entry or tampering such as a seal affixed to a piece of transport equipment.
+UN00004726	ACC	Section. Details	Section	"A part separated within or cut off from an object, such as the subdivision of a book or a piece of pipe."
+UN00005074	ACC	Security Tag. Details	Security Tag	A tag device to protect an object from a peril such as theft.
+UN00004363	ACC	Security. Details	Security	"A measure that helps prevent an object, such as a building, from incurring a peril such as theft."
+UN00008609	ACC	Segment. Details	Segment	Each of the parts into which something is or may be divided.
+UN00008800	ACC	Sensor. Details	Sensor	"An object which can detect and measure physical properties and which can record, indicate and even transmit such measurements locally."
+UN00005556	ACC	Sentence. Details	Sentence	The judgement or decision of a court of law of the punishment imposed on a party following a conviction.
+UN00000542	ACC	Service Charge. Details	Service Charge	"A charge made for services rendered or assessed, such as banking, freight charges, charges for a medical service such as provision of a private room, provision of a television, medical supplies, massage."
+UN00001224	ACC	Service Option. Details	Service Option	A service item that may be chosen.
+UN00000517	ACC	Service. Details	Service	Work or the doing of work for another or community to include utilities and transport.
+UN00004384	ACC	Shareholder. Details	Shareholder	A party that holds share equity of at least 5% in a listed company.
+UN00001922	ACC	Shipping Marks. Details	Shipping Marks	Physical markings or labels on individual packages or transport units for shipping purposes.
+UN00007870	ACC	Signage. Details	Signage	"A publicly displayed board giving information or directions, such as within or outside a building."
+UN00006949	ACC	Silage. Details	Silage	"Fermented, high-moisture feed."
+UN00003226	ACC	Software Configuration. Details	Software Configuration	The internal structure and commands of a computer program which determine the program's behavior.
+UN00000928	ACC	Software. Details	Software	Programs and other operating information used by a computer.
+UN00002845	ACC	Soil Occupation. Details	Soil Occupation	The use or occupation of soil to grow a crop.
+UN00002822	ACC	Soil Supplement. Details	Soil Supplement	A material added to soil to improve its quality.
+UN00006954	ACC	Soil. Details	Soil	"A natural body consisting of layers (soil horizons) of a mix of mineral and organic constituents of variable thicknesses, generally the natural upper layer of the earth surface."
+UN00001205	ACC	Source. Details	Source	"A place from which a river, stream, spring or other water originates."
+UN00004389	ACC	Specialty Room. Details	Specialty Room	"A room of a building designated for special purposes, such as a ballroom or computer room."
+UN00002869	ACC	Species Variety. Details	Species Variety	A sub-division of plants or animals within a species.
+UN00000477	ACC	Staff. Details	Staff	Persons employed in a business.
+UN00002609	ACC	Standard Conditions. Details	Standard Conditions	"A set of conventions, conditions and restrictions that apply to an agreement."
+UN00006057	ACC	Standard. Details	Standard	"A norm or requirement that establishes uniform criteria, methods, processes and practices, such as in engineering or technical areas."
+UN00006704	ACC	Statistical Attribute Relationship. Details	Statistical Attribute Relationship	Specifies the type of artefact to which a data attribute can be attached in a data set.
+UN00006709	ACC	Statistical Attribute Set. Details	Statistical Attribute Set	"A collection of characteristics qualifying a set of observations, a time series or a data set."
+UN00006712	ACC	Statistical Attribute. Details	Statistical Attribute	"A statistical characteristic qualifying observations, time series or data sets, such as title, availability, observation status, unit of measure, title in national language, or source."
+UN00006719	ACC	Statistical Concept Reference. Details	Statistical Concept Reference	Information to identify a statistical characteristic of a statistical series or a statistical observation.
+UN00006722	ACC	Statistical Concept Scheme Reference. Details	Statistical Concept Scheme Reference	"Information to identify a language independent set of letters, numbers or symbols that together represent a statistical concept whose meaning is described in a natural language."
+UN00006724	ACC	Statistical Dimension Group. Details	Statistical Dimension Group	A collection of references each of which identifies a dimension in a data structure.
+UN00006727	ACC	Statistical Dimension Set. Details	Statistical Dimension Set	A collection of statistical concepts which together identify a statistical series or a set of observations.
+UN00006732	ACC	Statistical Dimension. Details	Statistical Dimension	"A statistical concept used, in combination with other statistical concepts, to identify a statistical series or observation."
+UN00006739	ACC	Statistical Measure Dimension. Details	Statistical Measure Dimension	A construct that specifies formally the meaning of the measures and which enables multiple measures to be defined and reported in a data set.
+UN00006745	ACC	Statistical Measure Set. Details	Statistical Measure Set	A collection of metadata concepts which together define the numbers or quantities that record a statistical series or a set of observations.
+UN00006748	ACC	Statistical Measure. Details	Statistical Measure	The metadata concept that is the phenomenon to be measured in a data set. In a data set the instance of the measure is often called the observation.
+UN00006752	ACC	Statistical Time Dimension. Details	Statistical Time Dimension	The period of time or point in time to which the measured observation refers when reported in a data set.
+UN00000131	ACC	Status. Details	Status	The information relevant to a condition or a position of an object or event.
+UN00008136	ACC	Stock. Details	Stock	A supply or quantity of something accumulated or available for future use.
+UN00005562	ACC	Storage. Details	Storage	"The location and security arrangements for an object, such as a vehicle. The storage might be for overnight, long periods, off season, etc."
+UN00003460	ACC	Subcomponent. Details	Subcomponent	"A subassembly or portion of a component, such as for an electronic component."
+UN00003827	ACC	Substructure. Details	Substructure	An underlying or supporting structure.
+UN00003086	ACC	Supply Plan. Details	Supply Plan	Specification of the delivery time and quantity bucket in a demand forecast or supply schedule.
+UN00003485	ACC	Support Case. Details	Support Case	Data used to ensure uniqueness in a case management system.
+UN00004665	ACC	Surgery. Details	Surgery	"The medical practice which treats injuries, deformities, and other bodily disorders by physical operation or manipulation."
+UN00004393	ACC	Surrounding Area. Details	Surrounding Area	"The area around a place or thing, such as the area around a building."
+UN00004731	ACC	Survey. Details	Survey	"A systematic collection and analysis of data relating to the opinions, habits, etc., of a population or the statistics of a thing usually taken from a representative sample, such as a poll."
+UN00008739	ACC	Suspicion. Details	Suspicion	"A compilation of information about a suspicion causing one to have the idea or impression that someone or something is questionable, dishonest, or dangerous."
+UN00004401	ACC	Swimming Pool. Details	Swimming Pool	An artificially enclosed body of water intended for swimming or water-based recreation.
+UN00006858	ACC	Tank. Details	Tank	"A storage container for bulk materials, such as milk or grain."
+UN00002866	ACC	Target Object. Details	Target Object	An entity at which efforts are aimed.
+UN00000162	ACC	Tax. Details	Tax	"A levy or payment for the support of a government required of persons, groups, or businesses within the domain of that government."
+UN00000484	ACC	Technical Capability. Details	Technical Capability	The ability to use the mechanical arts and applied sciences to achieve an objective.
+UN00000740	ACC	Temperature. Details	Temperature	"Measured or perceived degree of heat or cold of a thing, region, etc."
+UN00002614	ACC	Temporary Insurance Agreement. Details	Temporary Insurance Agreement	An agreement providing temporary insurance coverage prior to issue of a policy.
+UN00000947	ACC	Tender Result. Details	Tender Result	The result of the tender bid opening.
+UN00007509	ACC	Tender Submission. Details	Tender Submission	"The submission of a formal written offer to carry out work, supply goods, etc. for a price."
+UN00007518	ACC	Tender. Details	Tender	"A formal written offer to carry out work, supply goods, etc. for a price."
+UN00000953	ACC	Tenderer Result. Details	Tenderer Result	The detailed information of the bid opening for this tenderer.
+UN00000834	ACC	Tendering Process. Details	Tendering Process	The process of a formal offer and response to execute work or supply goods at a stated price.
+UN00000267	ACC	Test Condition. Details	Test Condition	A condition or set of conditions of a specific test.
+UN00003509	ACC	Test Configuration Component. Details	Test Configuration Component	Parts of a report of test results and conditions.
+UN00003516	ACC	Test Configuration. Details	Test Configuration	A report of test results and conditions.
+UN00003542	ACC	Test Environment. Details	Test Environment	"The nature, circumstances, conditions or parameters of a test in which a defined cycle of steps or measurements is conducted."
+UN00003586	ACC	Test Map. Details	Test Map	The orientation and configuration used by manufacturing test (metrology) equipment.
+UN00003594	ACC	Test Parameter. Details	Test Parameter	Any factor that defines a test and determines (or potentially limits) its performance.
+UN00003601	ACC	Test Setup. Details	Test Setup	The system control information for setting up a tester.
+UN00003635	ACC	Test Specification Report. Details	Test Specification Report	"A report that lists each test, its attributes, wafer sort and final test, such as test name, electrical conditions, or sort number."
+UN00003578	ACC	Testing Device. Details	Testing Device	A tool used for performing tests.
+UN00003445	ACC	Threshold. Details	Threshold	The measure of sensitivity such as the minimum or maximum level allowed.
+UN00002618	ACC	Time Status. Details	Time Status	"The status of a given point in time, such as current, previous or future."
+UN00003229	ACC	Timing Constraint. Details	Timing Constraint	"A restriction applied to the timing of an activity or event, such as the start or end date of a task within a schedule."
+UN00006958	ACC	Tissue. Details	Tissue	"An aggregate of similar cells and cell products forming a definite kind of structural material with a specific function, in a multicellular organism."
+UN00003581	ACC	Tool Attachment. Details	Tool Attachment	"A supplementary part or accessory to a tool, such as a probe or hand grip."
+UN00003648	ACC	Total. Details	Total	A summation obtained by a calculation or count.
+UN00002086	ACC	Trade Agreement. Details	Trade Agreement	The contractual terms of a trade agreement.
+UN00002094	ACC	Trade Delivery. Details	Trade Delivery	The shipping arrangements and movement of products and or services including despatch and delivery.
+UN00001308	ACC	Trade Line Item. Details	Trade Line Item	A collection of information specific to an item being used or reported on for trade purposes.
+UN00002693	ACC	Trade Settlement. Details	Trade Settlement	"The information that enables the reconciliation of a financial transaction with the item(s) that the financial transaction is intended to settle, for example a commercial invoice."
+UN00002077	ACC	Trade Transaction. Details	Trade Transaction	"Agreement, contract, exchange, understanding, or transfer of cash or property that occurs between two or more parties."
+UN00005573	ACC	Transmission. Details	Transmission	A set of gears by which power is transmitted from engine to the drive mechanism in a vehicle.
+UN00007955	ACC	Transport Charter. Details	Transport Charter	"The reservation of a means of transport, such as an aircraft, boat, or bus."
+UN00001982	ACC	Transport Equipment. Details	Transport Equipment	"A piece of equipment used to hold, protect or secure cargo for transportation purposes."
+UN00001323	ACC	Transport Means. Details	Transport Means	"The device or method used to convey people, goods, animals or other objects from place to place."
+UN00001327	ACC	Transport Mode. Details	Transport Mode	"The mode used to convey people, goods or other objects from place to place."
+UN00002036	ACC	Transport Movement. Details	Transport Movement	"The conveyance (physical carriage) of people, animals, goods, or other objects from place to place."
+UN00003301	ACC	Travel Product Component. Details	Travel Product Component	An item that is included in a travel product for which there may or may not be an additional charge.
+UN00003315	ACC	Travel Product Sub-Component. Details	Travel Product Sub-Component	An item which is included in a travel product component.
+UN00003255	ACC	Travel Product. Details	Travel Product	A travel item which may be purchased by a customer.
+UN00006775	ACC	Traveller. Details	Traveller	A person or group who is travelling or on a journey.
+UN00004935	ACC	Trial Balance. Details	Trial Balance	A worksheet listing all accounts at a certain date to ensure that debits are equal to credits.
+UN00008102	ACC	Trip. Details	Trip	The act of going to a place and returning to the place of departure.
+UN00006464	ACC	Tyre. Details	Tyre	"A solid, or hollow inflated, rubber ring placed round the wheel of a vehicle to prevent jarring."
+UN00002621	ACC	Under Insured. Details	Under Insured	"Information about an under insurance, where the limit of the primary insurance coverage is less than the value of the insured item or the loss exposure."
+UN00007884	ACC	Underwriting Decision. Details	Underwriting Decision	Details related to an underwriting decision.
+UN00004423	ACC	Underwriting Factor. Details	Underwriting Factor	"A factor used in the process of examining, accepting, or rejecting insurance risks, and classifying those selected, in order to assign the proper premium for each."
+UN00004429	ACC	Unoccupied Building. Details	Unoccupied Building	A building which has no occupants.
+UN00001233	ACC	Usage Condition. Details	Usage Condition	A stipulation or thing upon which the fulfilment of something else depends.
+UN00006469	ACC	Valuation. Details	Valuation	The act of deciding how much money something might be sold for or the amount of money decided on.
+UN00002628	ACC	VAT Registration. Details	VAT Registration	Information on how an entity is recorded with the tax authorities for VAT (Value Added Tax).
+UN00005673	ACC	Vehicle Driver Relationship. Details	Vehicle Driver Relationship	The nature of the association of one vehicle and one driver.
+UN00005689	ACC	Vehicle Insurance Factor. Details	Vehicle Insurance Factor	A set of elements or components that affects the insurance of a vehicle.
+UN00006485	ACC	Vehicle Investigation. Details	Vehicle Investigation	"The discovery of facts relating to a vehicle, such as for an insurance claim."
+UN00005587	ACC	Vehicle. Details	Vehicle	"A means of conveyance, usually with wheels, for transporting people or goods, primarily on roads."
+UN00002063	ACC	Version. Details	Version	"A specific issuance of an object, such as a version of software or a message."
+UN00006817	ACC	Voucher. Details	Voucher	A document exchangeable for products or services by which the payment will be or has been made.
+UN00003629	ACC	Wafer Backside. Details	Wafer Backside	The information about the back of a thin sheet of semiconductor material.
+UN00003642	ACC	Wafer. Details	Wafer	The individual thin sheet of semiconductor material of a semiconductor manufacturing batch.
+UN00005745	ACC	Water Craft. Details	Water Craft	A conveyance that transports people or objects on water.
+UN00006968	ACC	Water Location. Details	Water Location	A specification of the type of location and the specification of the water point.
+UN00006497	ACC	Wear And Tear Depreciation. Details	Wear And Tear Depreciation	A reduction in the value of an item due to use.
+UN00008426	ACC	Weather Condition. Details	Weather Condition	"Conditions that comprise the state of the atmosphere such as the temperature, wind, clouds, precipitation, humidity."
+UN00006604	ACC	Witness. Details	Witness	A person who sees an event take place.
+UN00000494	ACC	Work Capability. Details	Work Capability	The ability to perform or complete a task.
+UN00000874	ACC	Work Item. Details	Work Item	A specific task or set of tasks to be undertaken.
+UN00001492	ACC	Work Shift. Details	Work Shift	"Either a period of work that has a predetermined starting and ending time or a regularly scheduled configuration or pattern of work periods and days off, or both. This configuration may repeat itself on a weekly, biweekly, or longer-term basis."
+UN00006024	ACC	Workflow Object. Details	Workflow Object	An object used in the management of the state changes in a business process.

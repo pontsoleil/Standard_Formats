@@ -1,0 +1,58 @@
+﻿var Abbreviation = {
+{'Account': 'ACC'}
+{'Audit Data Collection Standard': 'ADCS'}
+{'Adjustment': 'ADJ'}
+{'Accounts Payable': 'AP'}
+{'Accounts Receivable': 'AR'}
+{'American Standard Code for Information Interchange': 'ASCII'}
+{'Base': 'BAS'}
+{'Beginning': 'BEG'}
+{'Business Identifier Code': 'BIC'}
+{'Chief Financial Officer': 'CFO'}
+{'Chinese Yuan': 'CNY'}
+{'Carriage-Return Line-Feed': 'CRLF'}
+{'Comma Separated Values': 'CSV'}
+{'Currency': 'CUR'}
+{'Customer': 'CUS'}
+{'Enterprise Resource Management': 'ERM'}
+{'Enterprise Resource Planning': 'ERP'}
+{'Euro': 'EUR'}
+{'"First In': ' First Out"': 'FIFO'}
+{'Free On Board': 'FOB'}
+{'Financial Statement': 'FS'}
+{'Gigabyte': 'GB'}
+{'General Ledger': 'GL'}
+{'International Bank Account Number': 'IBAN'}
+{'Industrial and Commercial Bank of China': 'ICBC'}
+{'Identification': 'ID'}
+{'Inventory': 'INV'}
+{'Information Technology': 'IT'}
+{'Journal Entry': 'JE'}
+{'Legal Entity Identifier': 'LEI'}
+{'"Last In': ' First Out"': 'LIFO'}
+{'Microsoft Disk Operating System': 'MS-DOS'}
+{'New Technology File System': 'NTFS'}
+{'Number': 'NUM'}
+{'New York State': 'NY'}
+{'Organization': 'ORG'}
+{'Operating System': 'OS'}
+{'Primary Key': 'PK'}
+{'Purchase Order': 'PO'}
+{'"Property': ' Plant and Equipment"': 'PPE'}
+{'Province': 'PRV'}
+{'Purchase': 'PUR'}
+{'Reference Identifier': 'REF'}
+{'Request For Comments': 'RFC'}
+{'Sales': 'SAL'}
+{'Systems Applications and Products in data processing': 'SAP'}
+{'Structured Query Language': 'SQL'}
+{'Terabytes': 'TB'}
+{'Tax Identification Number': 'TIN'}
+{'Transactional': 'TRX'}
+{'Unit of Measurement': 'UOM'}
+{'United States of America': 'US'}
+{'U.S. Dollars': 'USD'}
+{'Coordinated Universal Time': 'UTC'}
+{'8-bit Unicode Transformation Format': 'UTF-8'}
+{'Work In Progress': 'WIP'}
+}

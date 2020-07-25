@@ -1,0 +1,259 @@
+html,
+body,
+.content,
+#mapping_element,
+#table_mapping,
+#document_adc,
+#document_ads,
+#manage {
+  height       : 100%;
+  min-height   : 100%;
+  margin       : 0;
+  padding      : 0;
+  overflow     : auto;
+}
+#login,
+#about,
+#logout {
+  width        : 100%;
+  height       : 100%;
+  padding      : 12px;
+  overflow     : auto;
+}
+
+html {
+  font-size    : 80%;
+  /*font-size    : 62.5%;*/ /* 10(base font size) / 16(Browser Default font size) = 0.625em * 100 = 62.5% */
+}
+
+h1 {
+  font-size    : 2.4 rem; /* 24 / 10 = 2.4em */
+}
+
+p {
+  font-size    : 1.2 rem; /* 12 / 10 = 1.2em */
+}
+
+ul li {
+  font-size    : 1.2 rem; /* 12 / 10 = 1.2em */
+}
+/*
+ * tab
+ */
+.ui-tabs .ui-tabs-nav .ui-tabs-anchor {
+  padding      :0.2em 0.5em;
+}
+
+/*
+ * splitter
+ */
+#horizontal-divider,
+#horizontal-divider2,
+#horizontal-divider3,
+#horizontal-divider4 {
+  top          : 400px;
+  height       : 5px;
+}
+
+#top-component,
+#top2-component,
+#top3-component,
+#top4-component {
+  height       : 400px;
+}
+
+#ads-component,
+#adc_element-component,
+#ads_field-component,
+#mapping_detail-component {
+  top          : 400px;
+  margin-top   : 5px;
+}
+
+#vertical-divider,
+#vertical-divider2,
+#vertical-divider3 {
+  left         : 600px;
+  width        : 5px;
+}
+#mapping-component,
+#adc_module-component,
+#ads_module-component {
+  width        : 600px;
+}
+#adc-component,
+#adc_table-component,
+#ads_table-component {
+  left         : 600px;
+  margin-left  : 5px;
+}
+
+#vertical-divider4 {
+  left         : 640px;
+  width        : 5px;
+}
+#table_mapping-component {
+  width        : 640px;
+}
+#element_mapping-component {
+  left         : 640px;
+  margin-left  : 5px;
+}
+
+.item .column_filter {
+  width        : 110px;
+}
+.item.mapping {
+  width        : 600px;
+}
+.heading {
+  font-size    : 1em;
+  margin       : 0;
+}
+.heading .title {
+  color        : #4169e1;
+  font-size    : 1.5em;
+  margin       : 0;
+}
+
+.pagelength {
+  float        : right;
+  font-size    : 0.9em;
+  margin       : 0;
+}
+.toggle {
+  float        : left;
+  font-size    : 0.9em;
+  margin       : 0;
+}
+
+#login h3,
+#logout h3 {
+  padding-bottom: 2em;
+}
+#login button,
+#logout button {
+  width        : 6em;
+  font-size    : 1em;
+  box-sizing   : border-box;
+  float        : none;
+  border       : 1px solid #ccc;
+  border-radius: 3px;
+  background-color: #eee;
+  padding      : 0px;
+}
+#show_password {
+  width        : 100%!important;
+}
+#about iframe {
+  display      : block;
+  width        : 100%;
+  min-width    : 400px;
+  height       : 100%;
+  min-height   : 600px;
+  border       : 0 none;
+  margin       : 0 auto;
+  padding      : 0;
+}
+.ui-tabs-nav .title {
+  position     : absolute;
+  top          : 1em;
+  right        : 0.5em;
+  color        : #777;
+}
+.item.element_mapping select {
+  width        : 150px;
+}
+
+/* CLEARABLE INPUT
+ *  http://stackoverflow.com/questions/6258521/clear-icon-inside-input-text
+ */
+.clearable {
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-position: right -10px center;
+  background-image: url(data:image/gif;base64,R0lGODlhBwAHAIAAAP///5KSkiH5BAAAAAAALAAAAAAHAAcAAAIMTICmsGrIXnLxuDMLADs=);
+  border: 0.1em solid #999;
+  padding: 0.2em 1.1em 0.2em 0.3em; /* Use the same right padding (18) in jQ! */
+  border-radius: 0.2em;
+  transition: background 0.4s;
+}
+/* (jQ) Show icon */
+.clearable.x {
+  background-position: right 0.3em center;
+}
+/* (jQ) hover cursor style */
+.clearable.onX {
+  cursor: pointer;
+}
+/* Remove IE default X */
+.clearable::-ms-clear {
+  display: none;
+  width: 0;
+  height: 0;
+}
+/*
+ * DataTables
+ */
+/*td.details-control {
+  background   : url('../images/details_open.png') no-repeat center center;
+  cursor       : pointer;
+}
+tr.details td.details-control {
+  background   : url('../images/details_close.png') no-repeat center center;
+}
+*/
+table.dataTable thead th,
+table.dataTable thead td,
+table.dataTable tfoot th,
+table.dataTable tfoot td {
+  padding      : 3px 5px;
+  line-height: 20px;
+}
+table.dataTable thead th,
+table.dataTable thead td {
+  color        : #FAFAFA;
+  background   : #1e90ff;
+}
+table.dataTable tfoot th,
+table.dataTable tfoot td {
+  color        : #1e90ff;
+}
+button.dt-button,
+div.dt-button,
+a.dt-button {
+  font-size    : 0.8em;
+  padding      : 0.1em 0.2em;
+  border-radius: 0.4em;
+}
+a.dt-button {
+  color        : #696969;
+}
+a.dt-button.create {
+  color        : #4169e1;
+}
+a.dt-button.edit {
+  color        : #4169e1;
+}
+a.dt-button.remove {
+  color        : #da70d6;
+}
+a.dt-button.reload {
+  color        : #696969;
+}
+a.dt-button.export {
+  color        : #696969;
+}
+/*
+ * pdfDialog
+ */
+.dialogPopover {
+  padding      : 0;
+  margin       : 0;
+}
+.dialogPopover iframe {
+  width        : 100%;
+  height       : 100%;
+  padding      : 0;
+  margin       : 0;
+}
