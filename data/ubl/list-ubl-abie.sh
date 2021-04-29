@@ -17,39 +17,40 @@ Tmp=/tmp/${0##*/}.$$
 exec 2>log/${0##*/}.$$.log
 # --------------------------------------------------------------------
 for file in `find ubl -maxdepth 1 -type f | awk /UBL-.*.txt/`
-# this is command substitution i.e back quote
 do
-  cat $file | awk -v f=$file -F'\t' '{
+  cat $file | awk -F'\t' '{
     if (NR>1 && "END"!=$19 && "ABIE"==$19) {
-      n=NR-1;
-      gsub(/\n/,"",$0);
-      rgx="^ubl\\/UBL-([^-0-9]*).*\\.txt$";
-      f=gensub(rgx, "\\1", "g", f);
-      print "$.data[" n "].EntityName",f;
-      print "$.data[" n "].ComponentName",$1;
-      if ($2!="") {print "$.data[" n "].Subset",$2;}
-      print "$.data[" n "].Cardinality",$3;
-      print "$.data[" n "].Definition",$4;
-      if ($5!="") {print "$.data[" n "].AlternativeBusinessTerms",$5;}
-      # if ($6!="") {print "$.data[" n "].Examples",$6;} #TODO newline escape in field
-      print "$.data[" n "].DictionaryEntryName",$7;
-      if ($8!="") {print "$.data[" n "].ObjectClassTermQualifier",$8;}
-      print "$.data[" n "].ObjectClassTerm",$9;
-      if ($10!="") {print "$.data[" n "].PropertyTermQualifier",$10;}
-      if ($11!="") {print "$.data[" n "].PropertyTermPossessiveNoun",$11;}
-      if ($12!="") {print "$.data[" n "].PropertyTermPrimaryNoun",$12;}
-      if ($13!="") {print "$.data[" n "].PropertyTerm",$13;}
-      if ($14!="") {print "$.data[" n "].RepresentationTerm",$14;}
-      if ($15!="") {print "$.data[" n "].DataTypeQualifier",$15;}
-      print "$.data[" n "].DataType",$16;
-      if ($17!="") {print "$.data[" n "].AssociatedObjectClassQualifier",$17;}
-      if ($18!="") {print "$.data[" n "].AssociatedObjectClass",$18;}
-      print "$.data[" n "].ComponentType",$19;
-      if ($20!="") {print "$.data[" n "].UNTDEDCode",$20;}
-      if ($21!="") {print "$.data[" n "].CurrentVersion",$21;}
+      print $0
     }
-  }' < $file
-done | makrj.sh | sed "s/^\(\"[^\":,]*\":\),/\1null,/" > list-ubl-abie.json
+  }' >> $Tmp-ubl-abie
+done
+
+cat $Tmp-ubl-abie | awk -F'\t' '{
+  n=NR-1;
+  gsub(/\n/,"",$0);
+  print "$.data[" n "].ComponentName",$1;
+  if ($2!="") {print "$.data[" n "].Subset",$2;}
+  print "$.data[" n "].Cardinality",$3;
+  print "$.data[" n "].Definition",$4;
+  if ($5!="") {print "$.data[" n "].AlternativeBusinessTerms",$5;}
+  # if ($6!="") {print "$.data[" n "].Examples",$6;} #TODO newline escape in field
+  print "$.data[" n "].DictionaryEntryName",$7;
+  if ($8!="") {print "$.data[" n "].ObjectClassTermQualifier",$8;}
+  print "$.data[" n "].ObjectClassTerm",$9;
+  if ($10!="") {print "$.data[" n "].PropertyTermQualifier",$10;}
+  if ($11!="") {print "$.data[" n "].PropertyTermPossessiveNoun",$11;}
+  if ($12!="") {print "$.data[" n "].PropertyTermPrimaryNoun",$12;}
+  if ($13!="") {print "$.data[" n "].PropertyTerm",$13;}
+  if ($14!="") {print "$.data[" n "].RepresentationTerm",$14;}
+  if ($15!="") {print "$.data[" n "].DataTypeQualifier",$15;}
+  print "$.data[" n "].DataType",$16;
+  if ($17!="") {print "$.data[" n "].AssociatedObjectClassQualifier",$17;}
+  if ($18!="") {print "$.data[" n "].AssociatedObjectClass",$18;}
+  print "$.data[" n "].ComponentType",$19;
+  if ($20!="") {print "$.data[" n "].UNTDEDCode",$20;}
+  if ($21!="") {print "$.data[" n "].CurrentVersion",$21;}
+}' | ./bin/makrj.sh | sed "s/^\(\"[^\":,]*\":\),/\1null,/" > list-ubl-abie.json
+   
 # === HTTP response ==================================================
 rm $Tmp-*
 rm log/${0##*/}.$$.*

@@ -515,7 +515,7 @@ function xbrlgl_entity_format(d) { // d is the original data object for the row
   : '')+
   '<tr><td>XBRL GL</td><td>'+
   (d.Name
-    ? 'gl-'+d.Name.trim()+' '+(d.Datatype ? '(xsd:'+d.Datatype+')' : '')
+    ? /*'gl-'+*/table_id.Name.trim()+' '+(d.Datatype ? '(xsd:'+d.Datatype+')' : '')
     : '')+'</td></tr>'+
   '</table>';
   return html;
@@ -2979,7 +2979,7 @@ function showDetail(tr, frame) {
   });
 // -----------------------------------------------------------------
   tab1 = tab1 || 'adc';
-  tab2 = tab2 || 'ubl';
+  tab2 = tab2 || 'acc';
   setFrame(2, tab2);
   setFrame(1, tab1);
 /**
