@@ -106,7 +106,7 @@ Content-Type: application/json
 
 $(cat $Tmp-data)
 HTTP_RESPONSE
-# rm $Tmp-*
-# rm log/${0##*/}.$$.*
+rm $Tmp-*
+rm log/${0##*/}.$$.*
 exit 0
 # list-ADC-udt.cgi

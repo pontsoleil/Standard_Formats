@@ -28,10 +28,10 @@ if [ 'GET' = "$METHOD" ]; then
 fi
 # # Kind Table No. Name DictionaryEntryName Description ObjectClassTermQualifier ObjectClassTerm PropertyTermQualifier
 # 1 2    3     4   5    6                   7           8                        9               10
-# PropertyTerm DatatypeQualifier RepresentationTerm AssociatedObjectClassTermQualifier AssociatedObjectClass
-# 11           12                13                 14                                 15
-# Datatype Representation Level PK_REF RefField RefTable OccurrenceMin OccurrenceMax
-# 16       17             18    19     20       21       22            23
+# PropertyTerm RepresentationTermQualifier Representationterm AssociatedObjectClass Datatype Representation
+# 11           12                          13                 14                    15       16 
+# Level PK_REF RefField RefTable OccurrenceMin OccurrenceMax Enumeration RestrictionValue
+# 17    18     19       20       21            22            23          24
 cat ADC.tsv | awk -v k="${KIND}" -F'\t' 'BEGIN { n=0; }
 {
   if (NR>1) {
@@ -66,27 +66,28 @@ cat ADC.tsv | awk -v k="${KIND}" -F'\t' 'BEGIN { n=0; }
       if ($11!="") {print "$.data[" n "].PropertyTerm",$11;}
       if ($12!="") {print "$.data[" n "].DatatypeQualifier",$12;}
       if ($13!="") {print "$.data[" n "].RepresentationTerm",$13;}
-      if ($14!="") {print "$.data[" n "].AssociatedObjectClassTermQualifier",$14;}
-      if ($15!="") {print "$.data[" n "].AssociatedObjectClass",$15;}
-      if ($16!="") {
-        print "$.data[" n "].Datatype",$16;
+      if ($14!="") {print "$.data[" n "].AssociatedObjectClass",$14;}
+      if ($15!="") {
+        print "$.data[" n "].Datatype",$15;
       } else {
         print "$.data[" n "].Datatype","";
       }
-      if ($17!="") {
-        print "$.data[" n "].Representation",$17;
+      if ($16!="") {
+        print "$.data[" n "].Representation",$16;
       } else {
         print "$.data[" n "].Representation","";
       }
-      if ($18!="") {
-        print "$.data[" n "].Level",$18;
+      if ($17!="") {
+        print "$.data[" n "].Level",$17;
       } else {
         print "$.data[" n "].Level","";
       }
-      if ($19!="") {print "$.data[" n "].PK_REF",$19;}
-      if ($20!="") {print "$.data[" n "].RefField",$20;}
-      if ($21!="") {print "$.data[" n "].RefTable",$21;}
-      if ($22!="" && $23!="") {print "$.data[" n "].Occurrence",$22".."$23;}
+      if ($18!="") {print "$.data[" n "].PK_REF",$18;}
+      if ($19!="") {print "$.data[" n "].RefField",$19;}
+      if ($20!="") {print "$.data[" n "].RefTable",$20;}
+      if ($21!="" && $22!="") {print "$.data[" n "].Occurrence",$21".."$22;}
+      if ($23!="") {print "$.data[" n "].Enumeration",$23;}
+      if ($24!="") {print "$.data[" n "].RestrictionValue",$24;}
       n=n+1;
     }
   }
@@ -97,7 +98,7 @@ Content-Type: application/json
 
 $(cat $Tmp-json)
 HTTP_RESPONSE
-# rm $Tmp-*
-# rm log/${0##*/}.$$.*
+rm $Tmp-*
+rm log/${0##*/}.$$.*
 exit 0
 # list-ADC.cgi

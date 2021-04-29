@@ -32,7 +32,6 @@ cat ADC.tsv | awk -F'\t' 'BEGIN { n=0; }
     print "$.data[" n "].num",$2;
     print "$.data[" n "].Kind",$3;
     print "$.data[" n "].Table",$4;
-    print "$.data[" n "].No",$5;
     if ($6!="") {
       print "$.data[" n "].Name",$6;
     } else {

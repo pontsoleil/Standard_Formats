@@ -1,0 +1,853 @@
+{
+"data":[{
+"module":"Base",
+"num":1,
+"Kind":"ABIE",
+"Table":"BAS_Business_Segment",
+"Name":"",
+"DictionaryEntryName":"ADC_ Business Segment. Details",
+"Description":"The BAS_Business_Segment (Table 4) and the BAS_Business_Segment_Hierarchy (Table 6) have been designed to tabularize the portions of an organizational chart that is reflected in the business transactions as structural units, e.g. business unit, department, cost center and project. Instructions on how to implement the business segment structures (4.4.2 and 4.4.3) are detailed in Annex A.The fields within the BAS_Business_Segment (Table 4) are used to capture the individual organizational unit represented by each box on an organizational diagram.",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"Business Segment"
+},{
+"module":"Base",
+"num":2,
+"Kind":"ABIE",
+"Table":"BAS_Business_Segment_Hierarchy",
+"Name":"",
+"DictionaryEntryName":"ADC_ Business Segment Hierarchy. Details",
+"Description":"The fields in the BAS_Business_Segment_Hierarchy (Table 6) are used to capture the relationships between the individual organization units. The table assumes a one_to_one relationship and captures the data necessary to consolidate transactions occurring for child level organizational units into higher level organizational structures (for example, business unit to division).  Instructions on how to implement the business segment structures (see 4.4.2 and 4.4.3) are detailed in Annex A.",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"Business Segment Hierarchy"
+},{
+"module":"Base",
+"num":3,
+"Kind":"ABIE",
+"Table":"BAS_Employee",
+"Name":"",
+"DictionaryEntryName":"ADC_ Employee. Details",
+"Description":"The personnel information of the employee in an independent accounting unit is contained in Table 8.",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"Employee"
+},{
+"module":"Base",
+"num":4,
+"Kind":"ABIE",
+"Table":"BAS_User",
+"Name":"",
+"DictionaryEntryName":"ADC_ User. Details",
+"Description":"The user information of accounting and/or ERP system is contained in Table 10.",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"User"
+},{
+"module":"Base",
+"num":5,
+"Kind":"ABIE",
+"Table":"BAS_Customer_Type",
+"Name":"",
+"DictionaryEntryName":"ADC_ Customer Type. Details",
+"Description":"Detailed descriptions of the customer type are contained in Table 12.",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"Customer Type"
+},{
+"module":"Base",
+"num":6,
+"Kind":"ABIE",
+"Table":"BAS_Customer",
+"Name":"",
+"DictionaryEntryName":"ADC_ Customer. Details",
+"Description":"The essential and generic information of the customers is contained in Table 14.",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"Customer"
+},{
+"module":"Base",
+"num":7,
+"Kind":"ABIE",
+"Table":"BAS_Supplier_Type",
+"Name":"",
+"DictionaryEntryName":"ADC_ Supplier Type. Details",
+"Description":"Detailed descriptions of the supplier type are contained in Table 16.",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"Supplier Type"
+},{
+"module":"Base",
+"num":8,
+"Kind":"ABIE",
+"Table":"BAS_Supplier",
+"Name":"",
+"DictionaryEntryName":"ADC_ Supplier. Details",
+"Description":"The essential and generic information of the suppliers is contained in Table 18.",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"Supplier"
+},{
+"module":"Base",
+"num":9,
+"Kind":"ABIE",
+"Table":"BAS_Chart_Of_Accounts",
+"Name":"",
+"DictionaryEntryName":"ADC_ Chart Of Accounts. Details",
+"Description":"The information about GL accounts, including name, description, type and hierarchy is contained in Table 20. When it is cross-referred by other table(s), consistency shall apply. For example, in this table, the value of GL_Account_Number is 101, the value of GL_Account_Name is cash, and the value of Balance_Debit_Or_Credit is D, if the value of GL_Account_Number in GL_Tial_Balance table is 101, then the Amount corresponding with cash account (101) must be debit.",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"Chart Of Accounts"
+},{
+"module":"Base",
+"num":10,
+"Kind":"ABIE",
+"Table":"BAS_Accounting_Period",
+"Name":"",
+"DictionaryEntryName":"ADC_ Accounting Period. Details",
+"Description":"The information related to accounting period including the corresponding fiscal year, the beginning and ending date is contained in Table 22. The table captures the time range within a specific reporting period and year, in which business transactions and entries are accumulated into financial statements and other reports.",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"Accounting Period"
+},{
+"module":"Base",
+"num":11,
+"Kind":"ABIE",
+"Table":"BAS_Journal_Entry_Type",
+"Name":"",
+"DictionaryEntryName":"ADC_ Journal Entry Type. Details",
+"Description":"The information relevant to the GL journal entry type is contained in Table 24. For example, cash receipts, cash disbursements are contained.",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"Journal Entry Type"
+},{
+"module":"Base",
+"num":12,
+"Kind":"ABIE",
+"Table":"BAS_Bill_Type",
+"Name":"",
+"DictionaryEntryName":"ADC_ Bill Type. Details",
+"Description":"The information of bill type, for example, bank draft, commercial draft, promissory note and check are contained, is contained in Table 26. Bills are frequently used in the business cycle of sales and purchase, as evidence of debt, payment and/or settlement instrument.",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"Bill Type"
+},{
+"module":"Base",
+"num":13,
+"Kind":"ABIE",
+"Table":"BAS_Settlement_Method",
+"Name":"",
+"DictionaryEntryName":"ADC_ Settlement Method. Details",
+"Description":"The information on methods used to settle transactions is contained in Table 28. Businesses can adopt various methods to settle transactions and transfer money, especially in sales and purchase activities. Typical settlement methods include: cash settlements, issuing bills, using credit cards, bank remittances and bank collections.",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"Settlement Method"
+},{
+"module":"Base",
+"num":14,
+"Kind":"ABIE",
+"Table":"BAS_Currency",
+"Name":"",
+"DictionaryEntryName":"ADC_ Currency. Details",
+"Description":"The information of the currency is contained in Table 30.",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"Currency"
+},{
+"module":"Base",
+"num":15,
+"Kind":"ABIE",
+"Table":"BAS_Measurement_Unit",
+"Name":"",
+"DictionaryEntryName":"ADC_ Measurement Unit. Details",
+"Description":"The information of the measurement unit (UOM) used in the modules of general ledger, sales, purchase, inventory and PPE is contained in Table 32.",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"Measurement Unit"
+},{
+"module":"Base",
+"num":16,
+"Kind":"ABIE",
+"Table":"BAS_Payment_Term",
+"Name":"",
+"DictionaryEntryName":"ADC_ Payment Term. Details",
+"Description":"The details of the payment term, which is applied and referenced in the purchase and sales modules, are contained in Table 34. The payment term refers to the condition of a sale/purchase agreement and is related to how the customer will pay (type of credit instrument), and especially how much time is allowed for payment (credit period) and discount (cash discount and discount period).",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"Payment Term"
+},{
+"module":"Base",
+"num":17,
+"Kind":"ABIE",
+"Table":"BAS_Project",
+"Name":"",
+"DictionaryEntryName":"ADC_ Project. Details",
+"Description":"The detailed information related to the project, for example, construction project, government or business-funded research project are contained, is contained in Table 36. Projects are commonly administered separately and could be subject to being audit in accordance with regulatory and/or managerial requirements. The audit of a project is a thorough examination of the management, execution, methodology, procedures, records, budgets, expenditures, and the degree of completion. It is referenced in several modules including the GL, AR, AP and Inventory.",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"Project"
+},{
+"module":"Base",
+"num":18,
+"Kind":"ABIE",
+"Table":"BAS_Bank_Account",
+"Name":"",
+"DictionaryEntryName":"ADC_ Bank Account. Details",
+"Description":"The details of a bank account are contained in Table 38.",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"Bank Account"
+},{
+"module":"Base",
+"num":19,
+"Kind":"ABIE",
+"Table":"BAS_Tax_Regulatory",
+"Name":"",
+"DictionaryEntryName":"ADC_ Tax Regulatory. Details",
+"Description":"The regulatory information related to taxes is contained in Table 40. For example, regulator country, region, name and role are contained.",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"Tax Regulatory"
+},{
+"module":"Base",
+"num":20,
+"Kind":"ABIE",
+"Table":"BAS_Tax_Type",
+"Name":"",
+"DictionaryEntryName":"ADC_ Tax Type. Details",
+"Description":"The detailed information on tax types used by the business is contained in Table 42. Tables in AR, Sales, AP and Purchase modules contain 4 tax types respectively, which can meet requirement of most cases of the business. Tax types could be tax in country level, in state level, in county level or in local level, or tax related to a transaction, for example, sale tax, value added tax or tariff.",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"Tax Type"
+},{
+"module":"Base",
+"num":21,
+"Kind":"ABIE",
+"Table":"BAS_Customized_ACC_Segment",
+"Name":"",
+"DictionaryEntryName":"ADC_ Customized Account Segment. Details",
+"Description":"An account segment is a customized file item, which includes the information of the customized account segments that are not fixed account segments and no other table contains their description information, for example region type. This table is used together with the BAS_Customized_ACC_Value.",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"Customized Account Segment"
+},{
+"module":"Base",
+"num":22,
+"Kind":"ABIE",
+"Table":"BAS_Customized_ACC_Value",
+"Name":"",
+"DictionaryEntryName":"ADC_ Customized Account Value. Details",
+"Description":"The information from the customized account segment value is contained in Table 46.",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"Customized Account Value"
+},{
+"module":"Base",
+"num":23,
+"Kind":"ABIE",
+"Table":"BAS_Profile",
+"Name":"",
+"DictionaryEntryName":"ADC_ Profile. Details",
+"Description":"The industry and software version information is contained in Table 48. This table contains information related to the profile of the data being collected. For instance, when we extract the financial data of 2016 from an auditee using SAP XXX ERP System in 2017.1.16, we should have a record with the Profile_Name XXX_2016, Fiscal_Year 2016, Developer_Name SAP, Software_Name SAP_S/4, Software_Version 2.0, Functional_Currency CNY, Standard_Version ISO 21378, Extracted_Date 2017-01-16.",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"Profile"
+},{
+"module":"GL",
+"num":24,
+"Kind":"ABIE",
+"Table":"GL_Trial_Balance",
+"Name":"",
+"DictionaryEntryName":"ADC_ Trial Balance. Details",
+"Description":"All the ledger account balance information of ADCS is contained in Table 50. The GL_Trial_Balance file shall contain the ending balances at a point in time. The GL_Trial_Balance should be extracted at the same time as the GL_Details to prevent differences in transactions and balances.",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"Trial Balance"
+},{
+"module":"GL",
+"num":25,
+"Kind":"ABIE",
+"Table":"GL_Details",
+"Name":"",
+"DictionaryEntryName":"ADC_ General Ledger Line. Details",
+"Description":"All of the journal entry details for each transaction of ADCS are contained in Table 52. For example, the associated journal entry ID, the associated account number, and the debits or credits associated with the journal entry line are contained. This table should be at the journal entry line level.",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"General Ledger Line"
+},{
+"module":"GL",
+"num":26,
+"Kind":"ABIE",
+"Table":"GL_Source",
+"Name":"",
+"DictionaryEntryName":"ADC_ General Ledger Source. Details",
+"Description":"The additional information about the sources provided in the GL_Details table is contained in Table 54. Each source shall include a description of the ERP system or accounting package, from which the data is extracted, and information related to the business process the data represents.",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"General Ledger Source"
+},{
+"module":"GL",
+"num":27,
+"Kind":"ABIE",
+"Table":"GL_Account_Segment",
+"Name":"",
+"DictionaryEntryName":"ADC_ General Ledger Account Segment. Details",
+"Description":"The code and name for account segment, as well as the GL_Account_Number to which the account segment is related are contained in Table 56. The account segment provides additional information for particular GL_Accounts; for example, the accounts receivable contains the information regarding supplier, customer, employee, and project. Such information would be treated as an account segment below A/R, thus resulting in a lengthy account structure. In light of this, the account segment structure is defined as a set to record related information, efficiently avoiding the case that account names and numbers are extended to be too long and too complex. Account segment is more flexible to capture the complicated information. Some of the most frequently used account segments, for example, project, employee and bank account, have been defined as fixed fields in tables, such as GL_Details. These segments are called fixed account segments in the document. Fixed account segments and other customized account segments are covered in this table. More details are presented in Annex B.",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"General Ledger Account Segment"
+},{
+"module":"AR",
+"num":29,
+"Kind":"ABIE",
+"Table":"AR_Open_Accounts_Receivable",
+"Name":"",
+"DictionaryEntryName":"ADC_ Open Accounts Receivable. Details",
+"Description":"Details regarding all open, unpaid, or unresolved customer transactions as of a specified date are contained in Table 61. Each row in this table represents the balance expected from the customer for one uniquely identifiable transaction. This data should be at the summary level (by invoice), not at the detailed level (by invoice line item). The sum total of the transaction amounts as of the specified date shall reconcile to the total AR amount in the General Ledger (GL) as of the same date.",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"Open Accounts Receivable"
+},{
+"module":"AR",
+"num":30,
+"Kind":"ABIE",
+"Table":"AR_Cash_Received",
+"Name":"",
+"DictionaryEntryName":"ADC_ Cash Received. Details",
+"Description":"The information on all payment transactions received during the period is contained in Table 63. Cash means any type of receipt received including checks, wire transfers and cash.",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"Cash Received"
+},{
+"module":"AR",
+"num":31,
+"Kind":"ABIE",
+"Table":"AR_Cash_Application",
+"Name":"",
+"DictionaryEntryName":"ADC_ Accounts Receivable Cash Application. Details",
+"Description":"The information of all cash receipts applied against the invoice during the period under review is contained in Table 65. The file will record for each application of cash receipt to an invoice. For example, if a cash receipt was applied to three invoices, there will be three records for that receipt, one for each of the invoices to which the cash was applied. In the context of this process, cash means any type of receipt received including checks, wire transfers and cash.",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"Accounts Receivable Cash Application"
+},{
+"module":"AR",
+"num":32,
+"Kind":"ABIE",
+"Table":"AR_Adjustments",
+"Name":"",
+"DictionaryEntryName":"ADC_ Accounts Receivable Adjustment. Details",
+"Description":"All adjustments recorded against the invoice and impacting the invoice balance during the period are contained in Table 67. For example, write-offs, credit memos, and other adjustments. The data set shall contain one record for each adjustment to each invoice. For example, if an adjustment transaction impacted three invoices, there shall be three records for that adjustment; one for each of the invoices impacted by the adjustment.",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"Accounts Receivable Adjustment"
+},{
+"module":"AR",
+"num":33,
+"Kind":"ABIE",
+"Table":"AR_Adjustments_Details",
+"Name":"",
+"DictionaryEntryName":"ADC_ Accounts Receivable Adjustment Line. Details",
+"Description":"Line item details for the invoices included in the AR_Adjustments are contained in Table 69. The file will record for each invoice line item impacted by each adjustment.",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"Accounts Receivable Adjustment Line"
+},{
+"module":"Sales",
+"num":34,
+"Kind":"ABIE",
+"Table":"SAL_Contracts",
+"Name":"",
+"DictionaryEntryName":"ADC_ Sales Contract. Details",
+"Description":"The summary information of sales contracts placed during the period under review is contained in Table 72. In situations where companies only require sales orders, the sales contract(s) may not always be available. The file will record for each contract.",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"Sales Contract"
+},{
+"module":"Sales",
+"num":35,
+"Kind":"ABIE",
+"Table":"SAL_Contracts_Details",
+"Name":"",
+"DictionaryEntryName":"ADC_ Sales Contract Line. Details",
+"Description":"Line item details for the sales contracts are contained in Table 74. Each line includes product, quantity, customer, price per unit and trading amount. The file will record for each contract line item.",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"Sales Contract Line"
+},{
+"module":"Sales",
+"num":36,
+"Kind":"ABIE",
+"Table":"SAL_Orders",
+"Name":"",
+"DictionaryEntryName":"ADC_ Sales Order. Details",
+"Description":"Table 76 contains summary information of sales orders pertinent to orders placed during the period under review. Sales orders are included in the three-way match procedures, which control the decision process for AR entries. The file will record for each sales order.",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"Sales Order"
+},{
+"module":"Sales",
+"num":37,
+"Kind":"ABIE",
+"Table":"SAL_Orders_Details",
+"Name":"",
+"DictionaryEntryName":"ADC_ Sales Order Line. Details",
+"Description":"Line item details for sales orders are contained in Table 78. Each line includes product, quantity, due date, price per unit, trading amount and settlement organization. The file will record for each sales order line item. Multiple types of products may be presented in one sales order. Additionally, different shippers and settlement organization may be assigned by each order line.",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"Sales Order Line"
+},{
+"module":"Sales",
+"num":38,
+"Kind":"ABIE",
+"Table":"SAL_Invoices_Generated",
+"Name":"",
+"DictionaryEntryName":"ADC_ Invoice Generated. Details",
+"Description":"The summary information for the invoices generated during the period under review is contained in Table 80. Invoices are included in the three-way match procedures, which control the decision process for AR entries. Each line includes invoice ID, invoice number, invoice date, customer, invoice amount, currency type, tax type, tax amount, settlement method and payment terms. The file will record for each invoice item.",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"Invoice Generated"
+},{
+"module":"Sales",
+"num":39,
+"Kind":"ABIE",
+"Table":"SAL_Invoices_Generated_Details",
+"Name":"",
+"DictionaryEntryName":"ADC_ Invoice Generated Line. Details",
+"Description":"Line item details for invoices are contained in Table 82. Each line includes invoice line information on specific products, measurement unit, price per unit, invoice amount, currency type, tax type code and tax amount. The file will record for each invoice line item.",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"Invoice Generated Line"
+},{
+"module":"Sales",
+"num":40,
+"Kind":"ABIE",
+"Table":"SAL_Shipments_Made",
+"Name":"",
+"DictionaryEntryName":"ADC_ Shipments Made. Details",
+"Description":"Summary information for shipments and shipment adjustments made against sales orders during the period under review is contained in Table 84. Shipments made are included in the three-way match procedures, which control the decision process for AR entries. Each line includes shipment ID and Number, shipment date, shipping amount, customer information and currency type. The file will record for each shipment.",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"Shipments Made"
+},{
+"module":"Sales",
+"num":41,
+"Kind":"ABIE",
+"Table":"SAL_Shipments_Made_Details",
+"Name":"",
+"DictionaryEntryName":"ADC_ Shipments Made Line. Details",
+"Description":"Line item details for shipments and shipment adjustments are contained in Table 86. Each line includes shipments made, measurement unit, price per unit, order amount and currency type. The file will record for each shipping line item.",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"Shipments Made Line"
+},{
+"module":"AP",
+"num":42,
+"Kind":"ABIE",
+"Table":"AP_Open_Accounts_Payable",
+"Name":"",
+"DictionaryEntryName":"ADC_ Open Accounts Payable. Details",
+"Description":"Details regarding all open, unpaid, or unresolved payable transactions as of a specified date are contained in Table 89. Each row in this table represents the balance due to the supplier for one uniquely identifiable transaction. This file should be at the summary level (by invoice), not at the detailed level (by invoice line item). The sum total of the transaction amounts as of the specified date shall reconcile to the total AP amount in the General Ledger (GL) as of the same date.",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"Open Accounts Payable"
+},{
+"module":"AP",
+"num":43,
+"Kind":"ABIE",
+"Table":"AP_Payments_Made",
+"Name":"",
+"DictionaryEntryName":"ADC_ Payment Made. Details",
+"Description":"Information on all payment transactions made during the period is contained in Table 91. Types of payments include check, wire transfer and cash is contained in Table 91.",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"Payment Made"
+},{
+"module":"AP",
+"num":44,
+"Kind":"ABIE",
+"Table":"AP_Cash_Application",
+"Name":"",
+"DictionaryEntryName":"ADC_ Accounts Receivable Cash Application. Details",
+"Description":"Information of all cash payments applied against the invoice during the period under review is contained in Table 93. The file will record for each application of a cash payment to an invoice; for example, if a cash payment was applied to three invoices, there will be three records for that payment -  one for each of the invoices to which the cash was applied. In the context of this process, cash means any type of payment received including checks and wire transfers and cash.",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"Accounts Receivable Cash Application"
+},{
+"module":"AP",
+"num":45,
+"Kind":"ABIE",
+"Table":"AP_Adjustments",
+"Name":"",
+"DictionaryEntryName":"ADC_ Accounts Payable Adjustment. Details",
+"Description":"All adjustments recorded against the invoice and impacting the invoice balance during the period are contained in Table 95. For example, write-offs, credit memos, and other adjustments. The file will record for each adjustment to each invoice. For example, if an adjustment transaction impacted three invoices, there will be three records for that adjustment - one for each of the invoices impacted by the adjustment.",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"Accounts Payable Adjustment"
+},{
+"module":"AP",
+"num":46,
+"Kind":"ABIE",
+"Table":"AP_Adjustments_Details",
+"Name":"",
+"DictionaryEntryName":"ADC_ Accounts Payable Adjustment Line. Details",
+"Description":"Line item details for the invoices included in the AP_Adjustments table are contained in Table 97. The file will record for each invoice line item impacted by each adjustment.",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"Accounts Payable Adjustment Line"
+},{
+"module":"Purchase",
+"num":47,
+"Kind":"ABIE",
+"Table":"PUR_Requisitions",
+"Name":"",
+"DictionaryEntryName":"ADC_ Purchase Requisition. Details",
+"Description":"Summary information for purchase requisitions placed during the period under review is contained in Table 100. The file will record for each requisition.",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"Purchase Requisition"
+},{
+"module":"Purchase",
+"num":48,
+"Kind":"ABIE",
+"Table":"PUR_Requisitions_Details",
+"Name":"",
+"DictionaryEntryName":"ADC_ Purchase Requisition Line. Details",
+"Description":"Line item details for the purchase requisitions are contained in Table 102. The table contains material, quantity, due date, requisition organization and the purchase organization. The file will record for each requisition line item.",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"Purchase Requisition Line"
+},{
+"module":"Purchase",
+"num":49,
+"Kind":"ABIE",
+"Table":"PUR_Contracts",
+"Name":"",
+"DictionaryEntryName":"ADC_ Purchase Contract. Details",
+"Description":"Summary information of purchase contracts placed during the period under review is contained in Table 104. In situations where companies only require purchase orders, the purchase contract(s) may not always be available. The file will record for each contract.",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"Purchase Contract"
+},{
+"module":"Purchase",
+"num":50,
+"Kind":"ABIE",
+"Table":"PUR_Contracts_Details",
+"Name":"",
+"DictionaryEntryName":"ADC_ Purchase Contract Line. Details",
+"Description":"Line item details for the purchase contracts are contained in Table 106. Each line includes material, quantity, supplier, price per unit and trading amount. The file will record for each contract line item.",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"Purchase Contract Line"
+},{
+"module":"Purchase",
+"num":51,
+"Kind":"ABIE",
+"Table":"PUR_Orders",
+"Name":"",
+"DictionaryEntryName":"ADC_ Purchase Order. Details",
+"Description":"Summary information of purchase orders placed during the period under review is contained in Table 108. Purchase orders are included in the three-way match procedures, which control the decision process for AP entries. The file will record for each purchase order.",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"Purchase Order"
+},{
+"module":"Purchase",
+"num":52,
+"Kind":"ABIE",
+"Table":"PUR_Orders_Details",
+"Name":"",
+"DictionaryEntryName":"ADC_ Purchase Order Line. Details",
+"Description":"Line item details for purchase orders are contained in Table 110. Each line includes material, quantity, due date, price per unit, trading amount, recipient, and settlement organization. The file will record for each purchase order line item. Multiple types of materials may be presented in one purchase order. Additionally, different settlement organizations may be assigned by each order line.",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"Purchase Order Line"
+},{
+"module":"Purchase",
+"num":53,
+"Kind":"ABIE",
+"Table":"PUR_Invoices_Received",
+"Name":"",
+"DictionaryEntryName":"ADC_ Invoice Received. Details",
+"Description":"Summary information for the invoices received during the period under review is contained in Table 112. Invoices are included in the three-way match procedures, which control the decision process for AP entries. Each line includes invoice ID, invoice number, invoice date, supplier, invoice amount, currency type, tax type, tax amount, settle method and payment terms. The file will record for each invoice item.",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"Invoice Received"
+},{
+"module":"Purchase",
+"num":54,
+"Kind":"ABIE",
+"Table":"PUR_Invoices_Received_Details",
+"Name":"",
+"DictionaryEntryName":"ADC_ Invoice Received Line. Details",
+"Description":"Line item details for invoices are contained in Table 114. Each line includes invoice line information on specific materials, measurement unit, price per unit, invoice amount, currency type, tax type code, and tax amount. The file will record for each invoice line item.",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"Invoice Received Line"
+},{
+"module":"Purchase",
+"num":55,
+"Kind":"ABIE",
+"Table":"PUR_Materials_Received",
+"Name":"",
+"DictionaryEntryName":"ADC_ Material Received. Details",
+"Description":"Summary information for shipments and shipment adjustments received against purchase orders during the period under review is contained in Table 116. Materials received are included in the threeway match procedures, which control the decision process for AP entries. Each line includes receipt ID and Number, receipt date, receipt amount, supplier information and currency type. The file will record for each receipt.",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"Material Received"
+},{
+"module":"Purchase",
+"num":56,
+"Kind":"ABIE",
+"Table":"PUR_Materials_Received_Details",
+"Name":"",
+"DictionaryEntryName":"ADC_ Material Received Line. Details",
+"Description":"Line item details for shipments and shipment adjustment are contained in Table 118. Each line includes materials received, measurement unit, price per unit, order amount and currency type. The file will record for each receipt line item.",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"Material Received Line"
+},{
+"module":"Inventory",
+"num":57,
+"Kind":"ABIE",
+"Table":"INV_Location",
+"Name":"",
+"DictionaryEntryName":"ADC_ Inventory Location. Details",
+"Description":"Information of inventory locations where inventory may be tracked is contained in Table 121.",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"Inventory Location"
+},{
+"module":"Inventory",
+"num":58,
+"Kind":"ABIE",
+"Table":"INV_Product_Type",
+"Name":"",
+"DictionaryEntryName":"ADC_ Product Type. Details",
+"Description":"Inventory product type information and the tree structure information of inventory product type are contained in Table 123.",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"Product Type"
+},{
+"module":"Inventory",
+"num":59,
+"Kind":"ABIE",
+"Table":"INV_Product",
+"Name":"",
+"DictionaryEntryName":"ADC_ Inventory Product. Details",
+"Description":"Basic attributes of inventory items and other tracked items through the purchase, use and sales are contained in Table 125.",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"Inventory Product"
+},{
+"module":"Inventory",
+"num":60,
+"Kind":"ABIE",
+"Table":"INV_On_Hand",
+"Name":"",
+"DictionaryEntryName":"ADC_ Inventory On Hand. Details",
+"Description":"Information of inventory on hand, for example, suppliers, quantities of items by location and amounts as of the specified date is contained in Table 127.",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"Inventory On Hand"
+},{
+"module":"Inventory",
+"num":61,
+"Kind":"ABIE",
+"Table":"INV_Transaction",
+"Name":"",
+"DictionaryEntryName":"ADC_ Inventory Transaction. Details",
+"Description":"Transaction history impacting the inventory accounts during the specified time period is contained in Table 129.",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"Inventory Transaction"
+},{
+"module":"Inventory",
+"num":62,
+"Kind":"ABIE",
+"Table":"INV_Physical_Inventory",
+"Name":"",
+"DictionaryEntryName":"ADC_ Physical Inventory. Details",
+"Description":"The quantities on hand as of the date of the physical inventory count as well as the flow information are contained in Table 131.",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"Physical Inventory"
+},{
+"module":"Inventory",
+"num":63,
+"Kind":"ABIE",
+"Table":"INV_Period_Balance",
+"Name":"",
+"DictionaryEntryName":"ADC_ Inventory Period Balance. Details",
+"Description":"Inventory information regarding its beginning and ending balances, quantities and durational quantities and amounts is contained in Table 133.",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"Inventory Period Balance"
+},{
+"module":"PPE",
+"num":64,
+"Kind":"ABIE",
+"Table":"PPE_Type",
+"Name":"",
+"DictionaryEntryName":"ADC_ PPE Type. Details",
+"Description":"The details of each PPE type are contained in Table 136.",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"PPE Type"
+},{
+"module":"PPE",
+"num":65,
+"Kind":"ABIE",
+"Table":"PPE_Master",
+"Name":"",
+"DictionaryEntryName":"ADC_ PPE Master. Details",
+"Description":"The details of each PPE item, for example, its code, specification, location, acquiring date, original cost, and quantity are Table 138.",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"PPE Master"
+},{
+"module":"PPE",
+"num":66,
+"Kind":"ABIE",
+"Table":"PPE_Addition",
+"Name":"",
+"DictionaryEntryName":"ADC_ PPE Addition. Details",
+"Description":"The information of PPE addition transactions is kept in Table 140.",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"PPE Addition"
+},{
+"module":"PPE",
+"num":67,
+"Kind":"ABIE",
+"Table":"PPE_Removal",
+"Name":"",
+"DictionaryEntryName":"ADC_ PPE Removal. Details",
+"Description":"The details related to PPE removal transaction are contained in Table 142.",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"PPE Removal"
+},{
+"module":"PPE",
+"num":68,
+"Kind":"ABIE",
+"Table":"PPE_Change",
+"Name":"",
+"DictionaryEntryName":"ADC_ PPE Change. Details",
+"Description":"The PPE_Change table contains changes in PPE information not related to additions and removals of PPE. Examples of information changes recorded include: revaluation, historical cost, depreciation method and ownership.",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"PPE Change"
+},{
+"module":"PPE",
+"num":69,
+"Kind":"ABIE",
+"Table":"PPE_Department_Allocation",
+"Name":"",
+"DictionaryEntryName":"ADC_ PPE Department Allocation. Details",
+"Description":"The information about how the related expenses are allocated among departments who benefit from using the PPE, especially the depreciation expenses, is contained in Table 146.",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"PPE Department Allocation"
+},{
+"module":"PPE",
+"num":70,
+"Kind":"ABIE",
+"Table":"PPE_Depreciation_Method",
+"Name":"",
+"DictionaryEntryName":"ADC_ PPE Depreciation Method. Details",
+"Description":"Transaction history impacting the inventory accounts during the specified time period is contained in Table 129.",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"PPE Depreciation Method"
+},{
+"module":"PPE",
+"num":71,
+"Kind":"ABIE",
+"Table":"",
+"Name":"",
+"DictionaryEntryName":"ADC_ PPE Depreciation. Details",
+"Description":"Transaction history impacting the inventory accounts during the specified time period is contained in Table 129.",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"PPE Depreciation"
+},{
+"module":"Core",
+"num":72,
+"Kind":"ABIE",
+"Table":"",
+"Name":"",
+"DictionaryEntryName":"ADC_ Created Activity. Details",
+"Description":"Create operation",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"Created Activity"
+},{
+"module":"Core",
+"num":73,
+"Kind":"ABIE",
+"Table":"",
+"Name":"",
+"DictionaryEntryName":"ADC_ Approved Activity. Details",
+"Description":"Approve operation",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"Approved Activity"
+},{
+"module":"Core",
+"num":74,
+"Kind":"ABIE",
+"Table":"",
+"Name":"",
+"DictionaryEntryName":"ADC_ Last Modified Activity. Details",
+"Description":"Last modify operation",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"Last Modified Activity"
+},{
+"module":"Core",
+"num":75,
+"Kind":"ABIE",
+"Table":"",
+"Name":"",
+"DictionaryEntryName":"ADC_ Entry Operation. Details",
+"Description":"Entry operations",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"Entry Operation"
+},{
+"module":"Core",
+"num":76,
+"Kind":"ABIE",
+"Table":"",
+"Name":"",
+"DictionaryEntryName":"ADC_ Address. Details",
+"Description":"",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"Address"
+},{
+"module":"Core",
+"num":77,
+"Kind":"ABIE",
+"Table":"",
+"Name":"",
+"DictionaryEntryName":"ADC_ Primary Contact. Details",
+"Description":"",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"Primary Contact"
+},{
+"module":"Core",
+"num":78,
+"Kind":"ABIE",
+"Table":"",
+"Name":"",
+"DictionaryEntryName":"ADC_ Local TaxN. Details",
+"Description":"",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"Local TaxN"
+},{
+"module":"Core",
+"num":79,
+"Kind":"ABIE",
+"Table":"",
+"Name":"",
+"DictionaryEntryName":"ADC_ Local Tax. Details",
+"Description":"",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"Local Tax"
+},{
+"module":"Core",
+"num":80,
+"Kind":"ABIE",
+"Table":"",
+"Name":"",
+"DictionaryEntryName":"ADC_ Transaction TaxN. Details",
+"Description":"",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"Transaction TaxN"
+},{
+"module":"Core",
+"num":81,
+"Kind":"ABIE",
+"Table":"",
+"Name":"",
+"DictionaryEntryName":"ADC_ Transaction Tax. Details",
+"Description":"",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"Transaction Tax"
+},{
+"module":"Core",
+"num":88,
+"Kind":"ABIE",
+"Table":"",
+"Name":"",
+"DictionaryEntryName":"ADC_ Multi Currency Amount. Details",
+"Description":"Multi currency monetary amount",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"Multi Currency Amount"
+},{
+"module":"Core",
+"num":89,
+"Kind":"ABIE",
+"Table":"",
+"Name":"",
+"DictionaryEntryName":"ADC_ Transaction Currency Amount. Details",
+"Description":"Transaction currency monetary amount",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"Transaction Currency Amount"
+},{
+"module":"Core",
+"num":90,
+"Kind":"ABIE",
+"Table":"",
+"Name":"",
+"DictionaryEntryName":"ADC_ Local Currency Amount. Details",
+"Description":"Local currency monetary amount",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"Local Currency Amount"
+},{
+"module":"Core",
+"num":91,
+"Kind":"ABIE",
+"Table":"",
+"Name":"",
+"DictionaryEntryName":"ADC_ Product. Details",
+"Description":"",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"Product"
+},{
+"module":"Core",
+"num":92,
+"Kind":"ABIE",
+"Table":"",
+"Name":"",
+"DictionaryEntryName":"ADC_ Measurement Quantity. Details",
+"Description":"",
+"ObjectClassTermQualifier":"ADC",
+"ObjectClassTerm":"Measurement Quantity"
+}]
+}
