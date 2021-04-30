@@ -23,18 +23,6 @@ var ccts_cct = {
     'XML':'xsd:normalizadString', 'JSON':'string' }
 },
 content = {
-  'adc': {
-    'top': 'adc-abie', 'bottom-top': 'adc-entity', 'bottom-bottom': ['adc-entity2', 'adc-udt']
-  },
-  'xbrlgl': {
-    'top': 'xbrlgl-abie', 'bottom-top': 'xbrlgl-entity', 'bottom-bottom': ['xbrlgl-entity2']
-  },
-  'ads': {
-    'top': 'ads-abie', 'bottom-top': 'ads-entity', 'bottom-bottom': ['ads-entity2']
-  },
-  'ubl': {
-    'top': 'ubl-abie', 'bottom-top': 'ubl-entity', 'bottom-bottom': ['ubl-entity2', 'ubl-udt', 'ubl-qdt']
-  },
   'bie': {
     'top': 'bie', 'bottom-top': 'bie-compt', 'bottom-bottom': ['bie-compt2', 'uncefact-udt', 'qdt']
   },
@@ -43,25 +31,13 @@ content = {
   }
 },
 loaded = {
-  'adc': false, 'xbrlgl': false, 'ads': false, 'ubl': false, 'bie': false, 'acc': false
+  'bie': false, 'acc': false
 },
 pane = {
   1: null,
   2: null
 },
 table_title = {
-  'adc': {
-    'adc-entity': null, 'adc-entity2': null, 'adc-udt': null
-  },
-  'xbrlgl': {
-    'xbrlgl-entity': null, 'xbrlgl-entity2': null
-  },
-  'ads': {
-    'ads-entity': null, 'ads-entity2': null
-  },
-  'ubl': {
-    'ubl-entity': null, 'ubl-entity2': null, 'ubl-qd': null, 'ubl-udt': null
-  },
   'bie': {
     'bie-compt': null, 'bie-compt2': null, 'qdt': null, 'uncefact-udt': null
   },
