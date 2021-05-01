@@ -11,8 +11,8 @@
     <!-- jQuery -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <!-- split-pane on GitHub https://github.com/shagstrom/split-pane -->
-    <link rel="stylesheet" href="css/split-pane.css" />
-    <script src="js/split-pane.js"></script>
+    <link rel="stylesheet" href="../css/split-pane.css" />
+    <script src="../js/split-pane.js"></script>
     <!-- DataTables -->
     <link rel="stylesheet" href="/DataTables/DataTables-1.10.21/css/jquery.dataTables.min.css">
     <script type="text/javascript" src="/DataTables/DataTables-1.10.21/js/jquery.dataTables.js"></script>
@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/upload.css">
     <link rel="stylesheet" href="../css/snackbar.css">
-    <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="../js/upload.js"></script>
     <script type="text/javascript" src="../js/upload.markup.js"></script>
     <script type="text/javascript" src="../js/ajax.js"></script>
@@ -86,7 +86,7 @@
     </div>
 
     <div id="tab-1" class="tab d-none">
-      <p class="tablinks adc" onclick="setFrame(1, 'adc-bie');return false;">ADC BIE</p>
+      <p class="tablinks adc" onclick="setFrame(1, 'bie');return false;">ADCS BIE</p>
       <!-- <p class="tablinks xbrlgl" onclick="setFrame(1, 'xbrlgl');return false;">XBRL GL</p>
       <p class="tablinks ads" onclick="setFrame(1, 'ads');return false;">ADS</p>
       <p class="tablinks ubl" onclick="setFrame(1, 'ubl');return false;">UBL</p>
@@ -97,7 +97,7 @@
     </div>
   
     <div id="tab-2" class="tab d-none">
-      <p class="tablinks adc" onclick="setFrame(2, 'adc-ccl');return false;">ADC CCL</p>
+      <p class="tablinks adc" onclick="setFrame(2, 'acc');return false;">ADCS CCL</p>
       <!-- <p class="tablinks xbrlgl" onclick="setFrame(2, 'xbrlgl');return false;">XBRL GL</p>
       <p class="tablinks ads" onclick="setFrame(2, 'ads');return false;">ADS</p>
       <p class="tablinks ubl" onclick="setFrame(2, 'ubl');return false;">UBL</p>
@@ -151,20 +151,20 @@
       </div>
     </div>
 
-    <p id="adc-bie-title" class="title d-none">ISO 21378:2019 Audit data collection BIE</p>
-    <p id="adc-ccl-title" class="title d-none">ISO 21378:2019 Audit data collection CCL</p>
+    <p id="bie-title" class="title d-none">Business Information Entity</p>
+    <p id="acc-title" class="title d-none">Core Component</p>
 
     <div class="d-none">
     <!-- ADC BIE -->
       <div id="bie-container">
         <div id="bie-frame" class="pretty-split-pane-component-inner">
-          <span class="table-title">UN/CEFACT Business Information Entity</span>
+          <span class="table-title">Aggregate Business Information Entity</span>
           <table id="bie" class="display" style="width:100%">
             <thead>
               <tr>
                 <!-- <th></th> -->
                 <th>-</th>
-                <th>Short Name</th>
+                <th>Business Term</th>
                 <th>Definition</th>
                 <th></th><!-- info-control -->
                 <th></th><!--Unique ID(hidden) -->
@@ -176,14 +176,14 @@
       </div>
       <div id="bie-compt-container">
         <div id="bie-compt-frame" class="pretty-split-pane-component-inner">
-          <span class="table-title">Basic/Associated Business Information Entity</span>
+          <span class="table-title">Business Information Entity</span>
           <table id="bie-compt" class="display" style="width:100%">
             <thead>
               <tr>
                 <th></th><!-- detail-control -->
                 <th>-</th>
                 <th>#</th>
-                <th>Short Name</th>
+                <th>Business Term</th>
                 <th>Definition</th>
                 <th>Occ.</th>
                 <th></th><!-- info-control -->
@@ -196,14 +196,14 @@
       </div>
       <div id="bie-compt2-container">
         <div id="bie-compt2-frame" class="pretty-split-pane-component-inner">
-          <span class="table-title">Referenced Business Information Entity</span>
+          <span class="table-title">Relation Business Information Entity</span>
           <table id="bie-compt2" class="display" style="width:100%">
             <thead>
               <tr>
                 <th></th><!-- detail-control -->
                 <th>-</th>
                 <th>#</th>
-                <th>Short Name</th>
+                <th>Business Term</th>
                 <th>Definition</th>
                 <th>Occ.</th>
                 <th></th><!-- info-control -->
@@ -230,10 +230,10 @@
           </table>
         </div>
       </div>
-      <div id="uncefact-udt-container">
-        <div id="uncefact-udt-frame" class="pretty-split-pane-component-inner">
+      <div id="bie-udt-container">
+        <div id="bie-udt-frame" class="pretty-split-pane-component-inner">
           <span class="table-title">Data Type</span>
-          <table id="uncefact-udt" class="display" style="width:100%">
+          <table id="bie-udt" class="display" style="width:100%">
             <thead>
               <tr>
                 <th>-</th>
@@ -249,7 +249,7 @@
     <!-- ADC CCL -->
       <div id="acc-container">
         <div id="acc-frame" class="pretty-split-pane-component-inner">
-          <span class="table-title">UN/CEFACT Core Components (UN/CCL 20A)</span>
+          <span class="table-title">Aggregate Core Component</span>
           <table id="acc" class="display" style="width:100%">
             <thead>
               <tr>
@@ -266,13 +266,13 @@
       </div>
       <div id="cc-container">
         <div id="cc-frame" class="pretty-split-pane-component-inner">
-          <span class="table-title">Basic/Associated Core Component</span>
+          <span class="table-title">Core Component</span>
           <table id="cc" class="display" style="width:100%">
             <thead>
               <tr>
                 <th></th><!-- detail-control -->
                 <th>-</th>
-                <th>Short Name</th>
+                <th>Business Term</th>
                 <th>Definition</th>
                 <th>Occ.</th>
                 <th></th><!-- info-control -->
@@ -286,13 +286,13 @@
       </div>
       <div id="cc2-container">
         <div id="cc2-frame" class="pretty-split-pane-component-inner">
-          <span class="table-title">Referenced Core Component</span>
+          <span class="table-title">Relation Core Component</span>
           <table id="cc2" class="display" style="width:100%">
             <thead>
               <tr>
                 <th></th><!-- detail-control -->
                 <th>-</th>
-                <th>Short Name</th>
+                <th>Business Term</th>
                 <th>Definition</th>
                 <th>Occ.</th>
                 <th></th><!-- info-control -->
