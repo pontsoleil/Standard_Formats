@@ -1,0 +1,79 @@
+DOMAIN_NAME	FORMAT	DATATYPE	COMPOUND	MIN_LENGTH	MAX_LENGTH	VAR_FIXED	TOTAL_DIGITS	DECIMALS	SIGNED_UNSIGNED	MIN_VALUE	MIN_EXCLUSIVE	MAX_VALUE	MAX_EXCLUSIVE	PATTERN	#CODELISTS	DESCRIPTION	XMLTAG
+ACCOUNT HIERARCHY	n..2	Integer	No			Variable	2		Signed								TypeAccountHierarchy
+ACCOUNT TYPE	an..25	Alpha Numeric	No		25	Variable											TypeAccountType
+ADJUSTMENT INDICATOR	an..1	Alpha Numeric	No		1	Variable									1		TypeAdjustmentIndicator
+AMOUNT	"n..22,4"	Monetary Amount	No			Variable	22	4	Signed								TypeAmount
+AMOUNT8	"n..22,8"	Monetary Amount	No			Variable	22	8	Signed								TypeAmount8
+BANK CODE	an..80	Alpha Numeric	No		80	Variable											TypeBankCode
+BOOLEAN	n1	Boolean	No		1	Fixed											TypeBoolean
+BRANCH CODE	an..80	Alpha Numeric	No		80	Variable											TypeBranchCode
+BUSINESS SEGMENT REFERENCE LEVEL	an..2	Alpha Numeric	No		2	Variable											TypeBusinessSegmentReferenceLevel
+CANCELLATION SIGN	n1	Boolean	No		1	Fixed											TypeCancellationSign
+CITY NAME	an..100	Alpha Numeric	No		100	Variable											TypeCityName
+COUNTRY CODE	an..3	Alpha Numeric	No	2	3	Variable									1		TypeCountryCode
+CREDIT DEBIT CODE	an..1	Alpha Numeric	No		1	Variable									1		TypeCreditDebitCode
+CURRENCY CODE	an3	Alpha Numeric	No	3	3	Fixed									1	"ISO 4217, codes for representation of currencies."	TypeCurrencyCode
+CUSTOMER TYPE CODE	an..100	Alpha Numeric	No		100	Variable											TypeCustomerTypeCode
+DATE	an10	Date/time	No		10	Fixed											TypeDate
+DATE.TIME	an19	Date/time	No		19	Fixed											TypeDateTime
+EMAIL	an..100	Alpha Numeric	No		100	Variable											TypeEmail
+FILE ENCODING RULE CODE	an..20	Alpha Numeric	No		20	Variable											TypeFileEncodingRuleCode
+GL ACCOUNT NUMBER 100	an..100	Alpha Numeric	No		100	Variable											TypeGlAccountNumber
+HIERARCHY LEVEL	n..2	Integer	No			Variable	2		Signed								TypeHierarchyLevel
+IDENTIFIER 10	an..10	Alpha Numeric	No		10	Variable											TypeIdentifier10
+IDENTIFIER 100	an..100	Alpha Numeric	No		100	Variable											TypeIdentifier100
+IDENTIFIER 200	an..200	Alpha Numeric	No		200	Variable											TypeIdentifier200
+IDENTIFIER 25	an..25	Alpha Numeric	No		25	Variable											TypeIdentifier25
+IDENTIFIER 5	an..5	Alpha Numeric	No		5	Variable											TypeIdentifier5
+IDENTIFIER 60	an..60	Alpha Numeric	No		60	Variable											TypeIdentifier60
+IDENTIFIER 75	an..75	Alpha Numeric	No		75	Variable											TypeIdentifier75
+IDENTIFIER 80	an..80	Alpha Numeric	No		80	Variable											TypeIdentifier80
+INVENTORY ABC CODE	an..25	Alpha Numeric	No		25	Variable											TypeInventoryAbcCode
+INVENTORY PRODUCT TYPE CODE	an..80	Alpha Numeric	No		80	Variable											TypeInventoryProductTypeCode
+INVENTORY RECEIVED DISPATCHED CODE	n1	Alpha Numeric	No	1	1	Fixed									1		TypeInventoryReceivedDispatchedCode
+MEASUREMENT UNIT CODE	an..80	Alpha Numeric	No		80	Variable											TypeMeasurementUnitCode
+NAME 100	an..100	Alpha Numeric	No		100	Variable											TypeName100
+NAME 200	an..200	Alpha Numeric	No		200	Variable											TypeName200
+NAME 25	an..25	Alpha Numeric	No		25	Variable											TypeName25
+NAME 60	an..60	Alpha Numeric	No		60	Variable											TypeName60
+NAME 80	an..80	Alpha Numeric	No		80	Variable											TypeName80
+NUMBER 4	n..4	Integer	No			Variable	4		Signed								TypeNumber4
+NUMBER 6	n..6	Integer	No			Variable	6		Signed								TypeNumber6
+NUMBER9	n..9	Integer	No			Variable	9		Signed								TypeNumber9
+PAYMENT TERM CODE	an..80	Alpha Numeric	No		80	Variable											TypePaymentTermCode
+PERCENTAGE	"n..5,4"	Monetary Amount	No			Variable	5	4	Signed								TypePercentage
+PERCENTAGE11	"n..11,6"	Monetary Amount	No			Variable	11	6	Signed								TypePercentage11
+PERIOD IDENTIFIER	an..15	Alpha Numeric	No		15	Variable											TypePeriodIdentifier
+PHONE NUMBER	an..20	Alpha Numeric	No		20	Variable											TypePhoneNumber
+POSTAL CODE	an..20	Alpha Numeric	No		20	Variable											TypePostalCode
+PRICE	"n..22,8"	Monetary Amount	No			Variable	22	8	Signed								TypePrice
+QUANTITY	"n..22,4"	Monetary Amount	No			Variable	22	4	Signed								TypeQuantity
+REGION	an..25	Alpha Numeric	No		25	Variable											TypeRegion
+REGULATOR CODE	an..25	Alpha Numeric	No		25	Variable											TypeRegulatorCode
+REVERSAL INDICATOR CODE	an..1	Alpha Numeric	No		1	Variable											TypeReversalIndicatorCode
+SOURCE CODE	an..1	Alpha Numeric	No		1	Variable									1		TypeSourceCode
+STATE PROVINCE CODE	an..6	Alpha Numeric	No		6	Variable									1		TypeStateProvinceCode
+STATUS CODE	an..30	Alpha Numeric	No		30	Variable											TypeStatusCode
+SUPPLIER TYPE CODE	an..100	Alpha Numeric	No		100	Variable											TypeSupplierTypeCode
+SYSTEM MANUAL IDENTIFIER	an..1	Alpha Numeric	No		1	Variable									1		TypeSystemManualIdentifier
+TAX IDENTIFICATION NUMBER	an..100	Alpha Numeric	No		100	Variable											TypeTaxIdentificationNumber
+TAX TYPE CODE	an..25	Alpha Numeric	No		25	Variable											TypeTaxTypeCode
+TEXT 10	an..10	Alpha Numeric	No		10	Variable											TypeText10
+TEXT 100	an..100	Alpha Numeric	No		100	Variable											TypeText100
+TEXT 1000	an..1000	Alpha Numeric	No		1000	Variable											TypeText1000
+TEXT 12	an..12	Alpha Numeric	No		12	Variable											TypeText12
+TEXT 128	an..128	Alpha Numeric	No		128	Variable											TypeText128
+TEXT 20	an..20	Alpha Numeric	No		20	Variable											TypeText20
+TEXT 200	an..200	Alpha Numeric	No		200	Variable											TypeText200
+TEXT 25	an..25	Alpha Numeric	No		25	Variable											TypeText25
+TEXT 30	an..30	Alpha Numeric	No		30	Variable											TypeText30
+TEXT 40	an..40	Alpha Numeric	No		40	Variable											TypeText40
+TEXT 50	an..50	Alpha Numeric	No		50	Variable											TypeText50
+TEXT 500	an..500	Alpha Numeric	No		500	Variable											TypeText500
+TEXT 60	an..60	Alpha Numeric	No		60	Variable											TypeText60
+TEXT 80	an..80	Alpha Numeric	No		80	Variable											TypeText80
+TIME	an..8	Alpha Numeric	No		8	Variable											TypeTime
+TIME ZONE	an..6	Alpha Numeric	No		6	Variable											TypeTimeZone
+Undefined	?	Undefined	No		0	Fixed											TypeUndefined
+UNIT	n1	Integer	No			Variable	1		Unsigned								TypeUnit
+YEAR IDENTIFIER	n..4	Integer	No			Variable	4		Unsigned								TypeYearIdentifier
