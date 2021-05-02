@@ -86,25 +86,27 @@
     </div>
 
     <div id="tab-1" class="tab d-none">
-      <p class="tablinks adc" onclick="setFrame(1, 'bie');return false;">ADCS BIE</p>
-      <!-- <p class="tablinks xbrlgl" onclick="setFrame(1, 'xbrlgl');return false;">XBRL GL</p>
+      <p class="tablinks adc" onclick="setFrame(1, 'adc');return false;">ADC</p>
+      <p class="tablinks adc-cc" onclick="setFrame(1, 'adc-cc');return false;">ADC CC</p>
+      <p class="tablinks xbrlgl" onclick="setFrame(1, 'xbrlgl');return false;">XBRL</p>
       <p class="tablinks ads" onclick="setFrame(1, 'ads');return false;">ADS</p>
       <p class="tablinks ubl" onclick="setFrame(1, 'ubl');return false;">UBL</p>
       <p class="tablinks bie" onclick="setFrame(1, 'bie');return false;">UN/CEFACT BIE</p>
-      <p class="tablinks acc" onclick="setFrame(1, 'acc');return false;">CCL</p> -->
+      <p class="tablinks acc" onclick="setFrame(1, 'acc');return false;">CCL</p>
       <p class="tablinks" onclick="resetFilter()">Reset</p>
-      <!-- <p class="tablinks file upload d-none" onclick="upload.open('upload')">Upload</p> -->
+      <p class="tablinks file upload d-none" onclick="upload.open('upload')">Upload</p>
     </div>
   
     <div id="tab-2" class="tab d-none">
-      <p class="tablinks adc" onclick="setFrame(2, 'acc');return false;">ADCS CCL</p>
-      <!-- <p class="tablinks xbrlgl" onclick="setFrame(2, 'xbrlgl');return false;">XBRL GL</p>
+      <p class="tablinks adc" onclick="setFrame(2, 'adc');return false;">ADC</p>
+      <p class="tablinks adc-cc" onclick="setFrame(2, 'adc-cc');return false;">ADC CC</p>
+      <p class="tablinks xbrlgl" onclick="setFrame(2, 'xbrlgl');return false;">XBRL</p>
       <p class="tablinks ads" onclick="setFrame(2, 'ads');return false;">ADS</p>
       <p class="tablinks ubl" onclick="setFrame(2, 'ubl');return false;">UBL</p>
       <p class="tablinks bie" onclick="setFrame(2, 'bie');return false;">UN/CEFACT BIE</p>
-      <p class="tablinks acc" onclick="setFrame(2, 'acc');return false;">CCL</p> -->
+      <p class="tablinks acc" onclick="setFrame(2, 'acc');return false;">CCL</p>
       <p class="tablinks" onclick="resetFilter()">Reset</p>
-      <!-- <p class="tablinks file open_adc d-none" onclick="openADC()">ADC Sheet</p> -->
+      <p class="tablinks file open_adc d-none" onclick="openADC()">ADC Sheet</p>
     </div>
 
     <!-- ROOT -->
@@ -151,20 +153,385 @@
       </div>
     </div>
 
-    <p id="bie-title" class="title d-none">Business Information Entity</p>
-    <p id="acc-title" class="title d-none">Core Component</p>
+    <p id="adc-title" class="title d-none">Audit data collection Business Information Entity</p>
+    <p id="adc-cc-title" class="title d-none">Audit data collection Core Component</p>
+    <p id="xbrlgl-title" class="title d-none">XBRL Global Ledger: Transactional Reporting</p>
+    <p id="ads-title" class="title d-none">AICPA Audit Data Standards</p>
+    <p id="ubl-title" class="title d-none">ISO/IEC 19845:ccyy Information technology<br> — Universal business language version 2.3 (UBL v2.3)</p>
+    <p id="uncefact-title" class="title d-none">
+      UN/CEFACT Core Components Library (UN/CCL) Version 20A
+    </p>
 
     <div class="d-none">
-    <!-- ADC BIE -->
+    <!-- ADC -->
+      <div id="adc-abie-container">
+        <div id="adc-abie-frame" class="pretty-split-pane-component-inner">
+        <span class="table-title">ISO 21378:2019 Audit data collection</span>
+        <table id="adc-abie" class="display" style="width:100%">
+          <thead>
+            <tr>
+              <th>-</th>
+              <th>Module</th>
+              <th>Object Class</th>
+              <th>Description</th>
+              <th></th><!-- info-control -->
+              <th></th><!--Dictionary Entry Name (hidden) -->
+            </tr>
+          </thead>
+        </table>
+        </div>
+      </div>
+      <div id="adc-entity-container">
+        <div id="adc-entity-frame" class="pretty-split-pane-component-inner">
+          <span class="table-title">Basic/Associated Business Information Entity</span>
+          <table id="adc-entity" class="display" style="width:100%">
+            <thead>
+              <tr>
+                <th></th><!-- detail-control -->
+                <th>-</th>
+                <th>Name</th>
+                <th>Description</th>
+                <!-- <th>L</th> -->
+                <th></th><!-- info-control -->
+                <th></th><!--Data Type (hidden) -->
+                <th></th><!--Dictionary Entry Name (hidden) -->
+                <th></th><!--Object Class (hidden) -->
+              </tr>
+            </thead>
+          </table>
+        </div>
+      </div>
+      <div id="adc-entity2-container">
+        <div id="adc-entity2-frame" class="pretty-split-pane-component-inner">
+          <span class="table-title">Referenced Business Information Entity</span>
+          <table id="adc-entity2" class="display" style="width:100%">
+            <thead>
+              <thead>
+                <tr>
+                  <th></th><!-- detail-control -->
+                  <th>-</th>
+                  <th>Name</th>
+                  <th>Description</th>
+                  <!-- <th>L</th> -->
+                  <th></th><!-- info-control -->
+                  <th></th><!--Data Type (hidden) -->
+                  <th></th><!--Dictionary Entry Name (hidden) -->
+                  <th></th><!--Object Class (hidden) -->
+                </tr>
+            </thead>
+          </table>
+        </div>
+      </div>
+      <div id="adc-udt-container">
+        <div id="adc-udt-frame" class="pretty-split-pane-component-inner">
+          <span class="table-title">Data Type</span>
+          <table id="adc-udt" class="display" style="width:100%">
+            <thead>
+              <tr>
+                <th>-</th>
+                <th>Dictionary Entry Name</th>
+                <th>Definition</th>
+                <th></th><!-- info-control -->
+                <th></th><!-- Datatype (hidden) -->
+                <th></th><!-- Representation Term (hidden) -->
+                <th></th><!-- Property Term (hidden) -->
+                <th></th><!-- Representation Term (hidden) -->
+              </tr>
+            </thead>
+          </table>
+        </div>
+      </div>
+    <!-- ADC CC -->
+    <div id="adc-acc-container">
+      <div id="adc-acc-frame" class="pretty-split-pane-component-inner">
+      <span class="table-title">ISO 21378:2019 Audit data collection</span>
+      <table id="adc-acc" class="display" style="width:100%">
+        <thead>
+          <tr>
+            <th>-</th>
+            <th>Module</th>
+            <th>Object Class</th>
+            <th>Description</th>
+            <th></th><!-- info-control -->
+            <th></th><!--Dictionary Entry Name (hidden) -->
+          </tr>
+        </thead>
+      </table>
+      </div>
+    </div>
+    <div id="adc-cc-container">
+      <div id="adc-cc-frame" class="pretty-split-pane-component-inner">
+        <span class="table-title">Basic/Associated Business Information Entity</span>
+        <table id="adc-cc" class="display" style="width:100%">
+          <thead>
+            <tr>
+              <th></th><!-- detail-control -->
+              <th>-</th>
+              <th>Name</th>
+              <th>Description</th>
+              <!-- <th>L</th> -->
+              <th></th><!-- info-control -->
+              <th></th><!--Data Type (hidden) -->
+              <th></th><!--Dictionary Entry Name (hidden) -->
+              <th></th><!--Object Class (hidden) -->
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </div>
+    <div id="adc-cc2-container">
+      <div id="adc-cc2-frame" class="pretty-split-pane-component-inner">
+        <span class="table-title">Referenced Business Information Entity</span>
+        <table id="adc-cc2" class="display" style="width:100%">
+          <thead>
+            <thead>
+              <tr>
+                <th></th><!-- detail-control -->
+                <th>-</th>
+                <th>Name</th>
+                <th>Description</th>
+                <!-- <th>L</th> -->
+                <th></th><!-- info-control -->
+                <th></th><!--Data Type (hidden) -->
+                <th></th><!--Dictionary Entry Name (hidden) -->
+                <th></th><!--Object Class (hidden) -->
+              </tr>
+          </thead>
+        </table>
+      </div>
+    </div>
+    <div id="adc-cc-udt-container">
+      <div id="adc-cc-udt-frame" class="pretty-split-pane-component-inner">
+        <span class="table-title">Data Type</span>
+        <table id="adc-cc-udt" class="display" style="width:100%">
+          <thead>
+            <tr>
+              <th>-</th>
+              <th>Dictionary Entry Name</th>
+              <th>Definition</th>
+              <th></th><!-- info-control -->
+              <th></th><!-- Datatype (hidden) -->
+              <th></th><!-- Representation Term (hidden) -->
+              <th></th><!-- Property Term (hidden) -->
+              <th></th><!-- Representation Term (hidden) -->
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </div>
+
+    <!-- XBRL GL -->
+      <div id="xbrlgl-abie-container">
+        <div id="xbrlgl-abie-frame" class="pretty-split-pane-component-inner">
+        <span class="table-title">XBRL Global Ledger</span>
+        <table id="xbrlgl-abie" class="display" style="width:100%">
+          <thead>
+            <tr>
+              <th>-</th>
+              <th>Business Information Entity</th>
+              <th>Description</th>
+              <th></th><!-- info-control -->
+              <th></th><!--Dictionary Entry Name (hidden) -->
+            </tr>
+          </thead>
+        </table>
+        </div>
+      </div>
+      <div id="xbrlgl-entity-container">
+        <div id="xbrlgl-entity-frame" class="pretty-split-pane-component-inner">
+          <span class="table-title">Basic/Associated Business Information Entity</span>
+          <table id="xbrlgl-entity" class="display" style="width:100%">
+            <thead>
+              <tr>
+                <th></th><!-- detail-control -->
+                <th>-</th>
+                <th>Dictionary Entry Name</th>
+                <th>Description</th>
+                <th></th><!-- info-control -->
+                <th></th><!-- Object Class (hidden) -->
+              </tr>
+            </thead>
+          </table>
+        </div>
+      </div>
+      <div id="xbrlgl-entity2-container">
+        <div id="xbrlgl-entity2-frame" class="pretty-split-pane-component-inner">
+          <span class="table-title">Referenced Business Information Entity</span>
+          <table id="xbrlgl-entity2" class="display" style="width:100%">
+            <thead>
+              <thead>
+                <tr>
+                  <th></th><!-- detail-control -->
+                  <th>-</th>
+                  <th>Dictionary Entry Name</th>
+                  <th>Description</th>
+                  <th></th><!-- info-control -->
+                  <th></th><!-- Object Class (hidden) -->
+                </tr>
+            </thead>
+          </table>
+        </div>
+      </div>
+    <!-- ADS -->
+      <div id="ads-abie-container">
+        <div id="ads-abie-frame" class="pretty-split-pane-component-inner">
+        <span class="table-title">AICPA Audit Data Standards</span>
+        <table id="ads-abie" class="display" style="width:100%">
+          <thead>
+            <tr>
+              <th>-</th><!-- Kind -->
+              <th>Module</th>
+              <th>Table</th>
+              <th>Comment</th>
+              <th></th><!-- info-control -->
+            </tr>
+          </thead>
+        </table>
+        </div>
+      </div>
+      <div id="ads-entity-container">
+        <div id="ads-entity-frame" class="pretty-split-pane-component-inner">
+          <span class="table-title">Basic/Associated Business Information Entity</span>
+          <table id="ads-entity" class="display" style="width:100%">
+            <thead>
+              <tr>
+                <th></th><!-- detail-control -->
+                <th>-</th><!-- Kind -->
+                <th>No</th>
+                <th>Name</th>
+                <th>L</th>
+                <th>Comment</th>
+                <th></th><!-- info-control -->
+                <th></th><!-- Table (hidden) -->
+                <th></th><!-- ObjectClassTerm (hidden) -->
+              </tr>
+            </thead>
+          </table>
+        </div>
+      </div>
+      <div id="ads-entity2-container">
+        <div id="ads-entity2-frame" class="pretty-split-pane-component-inner">
+          <span class="table-title">Referenced Business Information Entity</span>
+          <table id="ads-entity2" class="display" style="width:100%">
+            <thead>
+              <thead>
+                <tr>
+                  <th></th><!-- detail-control -->
+                  <th>-</th><!-- Kind -->
+                  <th>No</th>
+                  <th>Name</th>
+                  <th>L</th>
+                  <th>Comment</th>
+                  <th></th><!-- info-control -->
+                  <th></th><!-- Table (hidden) -->
+                  <th></th><!-- ObjectClassTerm (hidden) -->
+                </tr>
+              </thead>
+          </table>
+        </div>
+      </div>
+    <!-- UBL -->
+      <div id="ubl-abie-container">
+        <div id="ubl-abie-frame" class="pretty-split-pane-component-inner">
+          <span class="table-title">UBL Business Information Entity</span>
+          <table id="ubl-abie" class="display" style="width:100%">
+            <thead>
+              <tr>
+                <th>-</th>
+                <th>Business Information Entity</th>
+                <th>Definition</th>
+                <th></th><!-- info-control -->
+                <th></th><!--Dictionary Entry Name (hidden) -->
+              </tr>
+            </thead>
+          </table>
+        </div>
+      </div>
+      <div id="ubl-entity-container">
+        <div id="ubl-entity-frame" class="pretty-split-pane-component-inner">
+          <span class="table-title">Basic/Associated Business Information Entity</span>
+          <table id="ubl-entity" class="display" style="width:100%">
+            <thead>
+              <tr>
+                <th></th><!-- detail-control -->
+                <th>-</th>
+                <th>Component Name</th>
+                <th>Definition</th>
+                <th>C</th>
+                <th></th><!-- info-control -->
+                <th></th><!-- Data Type (hidden) -->
+                <th></th><!-- Dictionary Entry Name (hidden) -->
+                <th></th><!-- Object Class (hidden) -->
+              </tr>
+            </thead>
+          </table>
+        </div>
+      </div>
+      <div id="ubl-entity2-container">
+        <div id="ubl-entity2-frame" class="pretty-split-pane-component-inner">
+          <span class="table-title">Referenced Business Information Entity</span>
+          <table id="ubl-entity2" class="display" style="width:100%">
+            <thead>
+              <thead>
+                <tr>
+                  <th></th><!-- detail-control -->
+                  <th>-</th>
+                  <th>Component Name</th>
+                  <th>Definition</th>
+                  <th>C</th>
+                  <th></th><!-- info-control -->
+                  <th></th><!-- Data Type (hidden) -->
+                  <th></th><!-- Dictionary Entry Name (hidden) -->
+                  <th></th><!-- Object Class (hidden) -->
+                </tr>
+            </thead>
+          </table>
+        </div>
+      </div>
+      <div id="ubl-qdt-container">
+        <div id="ubl-qdt-frame" class="pretty-split-pane-component-inner">
+          <span class="table-title">Data Type</span>
+          <table id="ubl-qdt" class="display" style="width:100%">
+            <thead>
+              <tr>
+                <th>-</th>
+                <th>Dictionary Entry Name</th>
+                <th>Definition</th>
+                <th>Qualifier</th>
+                <th></th><!-- info-control -->
+                <th></th><!-- UNID (hidden) -->
+              </tr>
+            </thead>
+          </table>
+        </div>
+      </div>
+      <div id="ubl-udt-container">
+        <div id="ubl-udt-frame" class="pretty-split-pane-component-inner">
+          <span class="table-title">Data Type</span>
+          <table id="ubl-udt" class="display" style="width:100%">
+            <thead>
+              <tr>
+                <th>-</th>
+                <th>Name</th>
+                <th>Representation Term</th>
+                <th>Definition</th>
+                <th></th><!-- info-control -->
+                <th></th><!--Dictionary Entry Name (hidden) -->
+              </tr>
+            </thead>
+          </table>
+        </div>
+      </div>
+    <!-- UN/CEFACT BIE -->
       <div id="bie-container">
         <div id="bie-frame" class="pretty-split-pane-component-inner">
-          <span class="table-title">Aggregate Business Information Entity</span>
+          <span class="table-title">UN/CEFACT Business Information Entity</span>
           <table id="bie" class="display" style="width:100%">
             <thead>
               <tr>
                 <!-- <th></th> -->
                 <th>-</th>
-                <th>Business Term</th>
+                <th>Short Name</th>
                 <th>Definition</th>
                 <th></th><!-- info-control -->
                 <th></th><!--Unique ID(hidden) -->
@@ -176,14 +543,14 @@
       </div>
       <div id="bie-compt-container">
         <div id="bie-compt-frame" class="pretty-split-pane-component-inner">
-          <span class="table-title">Business Information Entity</span>
+          <span class="table-title">Basic/Associated Business Information Entity</span>
           <table id="bie-compt" class="display" style="width:100%">
             <thead>
               <tr>
                 <th></th><!-- detail-control -->
                 <th>-</th>
                 <th>#</th>
-                <th>Business Term</th>
+                <th>Short Name</th>
                 <th>Definition</th>
                 <th>Occ.</th>
                 <th></th><!-- info-control -->
@@ -196,14 +563,14 @@
       </div>
       <div id="bie-compt2-container">
         <div id="bie-compt2-frame" class="pretty-split-pane-component-inner">
-          <span class="table-title">Relation Business Information Entity</span>
+          <span class="table-title">Referenced Business Information Entity</span>
           <table id="bie-compt2" class="display" style="width:100%">
             <thead>
               <tr>
                 <th></th><!-- detail-control -->
                 <th>-</th>
                 <th>#</th>
-                <th>Business Term</th>
+                <th>Short Name</th>
                 <th>Definition</th>
                 <th>Occ.</th>
                 <th></th><!-- info-control -->
@@ -230,10 +597,10 @@
           </table>
         </div>
       </div>
-      <div id="bie-udt-container">
-        <div id="bie-udt-frame" class="pretty-split-pane-component-inner">
+      <div id="uncefact-udt-container">
+        <div id="uncefact-udt-frame" class="pretty-split-pane-component-inner">
           <span class="table-title">Data Type</span>
-          <table id="bie-udt" class="display" style="width:100%">
+          <table id="uncefact-udt" class="display" style="width:100%">
             <thead>
               <tr>
                 <th>-</th>
@@ -246,10 +613,10 @@
           </table>
         </div>
       </div>
-    <!-- ADC CCL -->
+    <!-- UN/CEFACT CC -->
       <div id="acc-container">
         <div id="acc-frame" class="pretty-split-pane-component-inner">
-          <span class="table-title">Aggregate Core Component</span>
+          <span class="table-title">UN/CEFACT Core Components (UN/CCL 20A)</span>
           <table id="acc" class="display" style="width:100%">
             <thead>
               <tr>
@@ -266,13 +633,13 @@
       </div>
       <div id="cc-container">
         <div id="cc-frame" class="pretty-split-pane-component-inner">
-          <span class="table-title">Core Component</span>
+          <span class="table-title">Basic/Associated Core Component</span>
           <table id="cc" class="display" style="width:100%">
             <thead>
               <tr>
                 <th></th><!-- detail-control -->
                 <th>-</th>
-                <th>Business Term</th>
+                <th>Short Name</th>
                 <th>Definition</th>
                 <th>Occ.</th>
                 <th></th><!-- info-control -->
@@ -286,13 +653,13 @@
       </div>
       <div id="cc2-container">
         <div id="cc2-frame" class="pretty-split-pane-component-inner">
-          <span class="table-title">Relation Core Component</span>
+          <span class="table-title">Referenced Core Component</span>
           <table id="cc2" class="display" style="width:100%">
             <thead>
               <tr>
                 <th></th><!-- detail-control -->
                 <th>-</th>
-                <th>Business Term</th>
+                <th>Short Name</th>
                 <th>Definition</th>
                 <th>Occ.</th>
                 <th></th><!-- info-control -->

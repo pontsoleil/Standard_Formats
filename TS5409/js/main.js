@@ -26,6 +26,9 @@ content = {
   'adc': {
     'top': 'adc-abie', 'bottom-top': 'adc-entity', 'bottom-bottom': ['adc-entity2', 'adc-udt']
   },
+  'adc-cc': {
+    'top': 'adc-acc', 'bottom-top': 'adc-cc', 'bottom-bottom': ['adc-cc2', 'adc-cc-udt']
+  },
   'xbrlgl': {
     'top': 'xbrlgl-abie', 'bottom-top': 'xbrlgl-entity', 'bottom-bottom': ['xbrlgl-entity2']
   },
@@ -43,7 +46,7 @@ content = {
   }
 },
 loaded = {
-  'adc': false, 'xbrlgl': false, 'ads': false, 'ubl': false, 'bie': false, 'acc': false
+  'adc': false, 'adc-cc': false, 'xbrlgl': false, 'ads': false, 'ubl': false, 'bie': false, 'acc': false
 },
 pane = {
   1: null,
@@ -52,6 +55,9 @@ pane = {
 table_title = {
   'adc': {
     'adc-entity': null, 'adc-entity2': null, 'adc-udt': null
+  },
+  'adc-cc': {
+    'adc-cc': null, 'adc-cc2': null, 'adc-cc-udt': null
   },
   'xbrlgl': {
     'xbrlgl-entity': null, 'xbrlgl-entity2': null
@@ -79,6 +85,10 @@ adc_abie_table, adc_entity_table, adc_entity2_table, adc_udt_table,
 adc_abie_COL_Module, adc_abie_COL_ComponentName, adc_abie_COL_DictionaryEntryName,
 adc_entity_COL_DictionaryEntryName, adc_entity_COL_ObjectClassTerm,
 adc_dt_COL_CategoryCode, adc_dt_COL_ObjectClassTerm, adc_dt_COL_DictionaryEntryName, adc_dt_COL_DataType,
+adc_acc_table, adc_cc_table, adc_cc2_table, adc_cc_udt_table,
+adc_acc_COL_Module, adc_acc_COL_ComponentName, adc_acc_COL_DictionaryEntryName,
+adc_cc_COL_DictionaryEntryName, adc_cc_COL_ObjectClassTerm,
+adc_cc_dt_COL_CategoryCode, adc_cc_dt_COL_ObjectClassTerm, adc_cc_dt_COL_DictionaryEntryName, adc_cc_dt_COL_DataType,
 xbrlgl_abie_table, xbrlgl_entity_table, xbrlgl_entity2_table,
 xbrlgl_abie_COL_ComponentName, xbrlgl_abie_COL_ObjectClassTerm, xbrlgl_abie_COL_DictionaryEntryName,
 xbrlgl_entity_COL_DictionaryEntryName, xbrlgl_entity_COL_ObjectClassTerm, //xbrlgl_entity_COL_num,
@@ -92,11 +102,11 @@ ubl_abie_table, ubl_abie_COL_ComponentName, ubl_abie_COL_DictionaryEntryName,
 ubl_entity_table, ubl_entity_COL_DictionaryEntryName, ubl_entity_COL_ObjectClassTerm,
 ubl_udt_table, ubl_dt_COL_CategoryCode, ubl_dt_COL_DictionaryEntryName,
 ubl_acc_table, ubl_cc_table, ubl_un_udt_table, ubl_cc2_table,
-adcMap, xbrlglMap, adsMap, ublMap, bieMap, accMap,
-adcEntityMap, xbrlglEntityMap, adsEntityMap, ublEntityMap, bieComptMap, ccMap,
-adcRows, xbrlglRows, adsRows, ublRows, bieRows, abie,
-adcEntityRows, xbrlglEntityRows, adsEntityRows, ublEntityRows, bieComptRows, bie,
-populateAdc, populateXbrlgl, populateAds, populateUbl, populateBie, populateAcc,
+adcMap, adcAccMap, xbrlglMap, adsMap, ublMap, bieMap, accMap,
+adcEntityMap, adcCcMap, xbrlglEntityMap, adsEntityMap, ublEntityMap, bieComptMap, ccMap,
+adcRows, adcAccRows, xbrlglRows, adsRows, ublRows, bieRows, abie,
+adcEntityRows, adcCcRows, xbrlglEntityRows, adsEntityRows, ublEntityRows, bieComptRows, bie,
+populateAdc, populateAdcAcc, populateXbrlgl, populateAds, populateUbl, populateBie, populateAcc,
 getTopTable, getTopTableID, getEntityTable, getEntityTableID;
 // -----------------------------------------------------------------
 // TAB MENU
@@ -149,8 +159,10 @@ function setFrame(num, frame) {
   var top_content, bottom_top_content, bottom_bottom_content;
   var root_pane, frames, children, child, i;
 
-  match = frame.match(/^(([^-]*)-)?(.*)$/);
-  frame = match[2] || match[3];
+  if ('adc-cc' !== frame) {
+    match = frame.match(/^(([^-]*)-)?(.*)$/);
+    frame = match[2] || match[3];
+  }
   pane[num] = frame;
 
   showOverlay(pane, /** autoclose */true);
@@ -171,6 +183,9 @@ function setFrame(num, frame) {
     adc_abie_table.columns(adc_abie_COL_Module)
     .search('^((?!(Core)).)*$', /*regex*/true, /*smart*/false, /*caseInsen*/false).draw();
   }
+  // else if ('adc-cc' === frame) {
+
+  // }
   else if ('xbrlgl' === frame) {
     xbrlgl_abie_table.columns(xbrlgl_abie_COL_ObjectClassTerm)
     .search('^Accounting Entries$', /*regex*/true, /*smart*/false, /*caseInsen*/false).draw();
@@ -972,68 +987,20 @@ function renderDescription(description) {
 }
 // -----------------------------------------------------------------
 // ADC
-function renderAdcAbieModule(row) {
-  var module = row.Table, match, map;
-  if (!module) {
-    return 'Core';
-  }
-  match = module.match(/(([^_]+)_)?(.*)$/);
-  map = {
-    'BAS': 'Base',
-    'SAL': 'Sales',
-    'PUR': 'Purchase',
-    'INV': 'Inventory'
-  };
-  if (match) {
-    module = match[2];
-    if (map[module]) {
-      module = map[module];
-    }
-  }
+function renderAdcModule(row) {
+  var module = row.module || '', match;
+  match = module.match(/^[0-9]\.(.*)$/);
+  if (match) { module = match[1]; }
   return module;
 }
-function rendeAdcAbierDescription(row) {
+function rendeAdcDescription(row) {
   var description = row.Description;
-  if (description.length > 72) {
-    description = description.substr(0, 72)+'...';
-  }
-  var match;
-  match = description.match(/^(.*)( (is|are) contained in Table [0-9]*)(.*)$/);
-  if (match) {
-    description = match[1]+match[4];
-  }
-  description = description.replace(/ \(Table [0-9]*\)/g, '');
-  description = description.replace(/ \(4.4.2 and 4.4.3\)/g, '');
-  description = description.replace(/ \(see 4.4.2 and 4.4.3\)/g, '');
   return renderDescription(description);
 }
 function renderAdcEntityName(row) {
-  var dictionaryEntryName = row.DictionaryEntryName,
-      match, name = '',
-      objectClassTerm, qualifier, propertyTerm, representationTerm;
-  if (!dictionaryEntryName) {
+  var name = row.BusinessTerm || row.DictionaryEntryName;
+  if (!name) {
     return '';
-  }
-  match = dictionaryEntryName.match(rgx);
-  if (match) {
-    objectClassTerm = match[rgx_COL_ObjectClassTerm];
-    objectClassTerm = objectClassTerm ? objectClassTerm.trim() : '';
-    qualifier = match[rgx_COL_PropertyTermQualifier];
-    qualifier = qualifier ? qualifier.trim()+'_ ' : '';
-    propertyTerm = match[rgx_COL_PropertyTerm];
-    propertyTerm = propertyTerm ? propertyTerm.trim() : '';
-    representationTerm = match[rgx_COL_RepresentationTerm];
-    representationTerm = representationTerm ? representationTerm.trim() : '';
-    if ('ID' === propertyTerm) {
-      name = objectClassTerm+'. ID';
-    }
-    else if ((representationTerm && representationTerm.indexOf(propertyTerm) >= 0) ||
-        (propertyTerm && propertyTerm.indexOf(representationTerm) >= 0)) {
-      name = qualifier+propertyTerm;
-    }
-    else {
-      name = qualifier+propertyTerm+'. '+representationTerm;
-    }
   }
   return renderNameByNum(row.num, name);
 }
@@ -1072,12 +1039,16 @@ var adc_abie_columns = [
   { 'width': '8%',
     'data': 'module',
     'render': function(data, type, row) {
-      return renderAdcAbieModule(row); }}, // 1
+      return renderAdcModule(row); }}, // 1
   { 'width': '35%',
-    'data': 'ObjectClassTerm' }, // 2
+    'data': 'BusinessTerm' /*'ObjectClass',
+    'render': function(data, type, row) {
+      var objectClass = (row.ObjectClassTermQualifier ? row.ObjectClassTermQualifier+'_ ' : '')+row.ObjectClassTerm;
+      return objectClass; 
+    }*/ }, // 2
   { 'data': 'description',
     'render': function (data, type, row) {
-      return rendeAdcAbierDescription(row); }}, // 3
+      return rendeAdcDescription(row); }}, // 3
   { 'width': '4%',
     'className': 'info-control',
     'orderable': false,
@@ -1089,8 +1060,8 @@ var adc_abie_columnDefs = [
   { 'searchable': false, 'targets': 4},
   { 'visible': false, 'targets': 5 } 
 ];
-adc_entity_COL_DictionaryEntryName = 7;
-adc_entity_COL_ObjectClassTerm = 8;
+adc_entity_COL_DictionaryEntryName = 6;
+adc_entity_COL_ObjectClassTerm = 7;
 var adc_entity_columns = [
   { 'width': '2%',
     'className': 'details-control',
@@ -1107,20 +1078,30 @@ var adc_entity_columns = [
     'data': 'description',
     'render': function(data, type, row) {
       return renderAdcEntityDescription(row); }}, // 3
-  { 'width': '4%',
-    'data': 'Level' }, // 4
   { 'width': '2%',
     'className': 'info-control',
     'orderable': false,
     'data': null,
-    'defaultContent': '' }, // 5
-  { 'data': 'Datatype' }, // 6-
-  { 'data': 'DictionaryEntryName' }, // 7-
-  { 'data': 'ObjectClassTerm' } // 8-
+    'defaultContent': '' }, // 4
+  { 'data': 'Representation',
+    'render': function(data, type, row) {
+      var qualifier = row.DataTypeQualifier,
+          term = row.RepresentationTerm,
+          name;
+      name = (qualifier ? qualifier+'_ ' : '')+term;
+      return name; }}, // 5-
+  { 'data': 'DictionaryEntryName' }, // 6-
+  { 'data': 'ObjectClass',
+    'render': function(data, type, row) {
+      var qualifier = row.ObjectClassTermQualifier,
+          term = row.ObjectClassTerm,
+          name;
+      name = (qualifier ? qualifier+'_ ' : '')+term;
+      return name; }} // 7-
 ];
 var adc_entity_columnDefs = [
-  { 'searchable': false, 'targets': [0, 5] },
-  { 'visible': false, 'targets': [6, 7, 8] } 
+  { 'searchable': false, 'targets': [0, 4] },
+  { 'visible': false, 'targets': [5, 6, 7] } 
 ];
 adc_dt_COL_CategoryCode = 0;
 adc_dt_COL_DictionaryEntryName = 1;
@@ -1148,6 +1129,102 @@ var adc_dt_columnDefs = [
   { 'visible': false, 'targets': [4, 5, 6, 7] } 
 ];
 // -----------------------------------------------------------------
+// ADC CC
+adc_acc_COL_ComponentName = 0;
+adc_acc_COL_Module = 1;
+adc_acc_COL_DictionaryEntryName = 5;
+var adc_acc_columns = [
+  { 'width': '4%',
+    'data': 'Kind' }, // 0
+  { 'width': '8%',
+    'data': 'module',
+    'render': function(data, type, row) {
+      return renderAdcModule(row); }}, // 1
+  { 'width': '35%',
+    'data': 'BusinessTerm' }, // 2
+  { 'data': 'description',
+    'render': function (data, type, row) {
+      return rendeAdcDescription(row); }}, // 3
+  { 'width': '4%',
+    'className': 'info-control',
+    'orderable': false,
+    'data': null,
+    'defaultContent': '' }, // 4
+  { 'data': 'DictionaryEntryName' } // 5
+];
+var adc_acc_columnDefs = [
+  { 'searchable': false, 'targets': 4},
+  { 'visible': false, 'targets': 5 } 
+];
+adc_cc_COL_DictionaryEntryName = 6;
+adc_cc_COL_ObjectClassTerm = 7;
+var adc_cc_columns = [
+  { 'width': '2%',
+    'className': 'details-control',
+    'orderable': false,
+    'data': null,
+    'defaultContent': '' }, // 0
+  { 'width': '8%',
+    'data': 'Kind' }, // 1
+  { 'width': '35%',
+    'data': 'name',
+    'render': function(data, type, row) {
+      return renderAdcEntityName(row); }}, // 2
+  { 'width': '49%',
+    'data': 'description',
+    'render': function(data, type, row) {
+      return renderAdcEntityDescription(row); }}, // 3
+  { 'width': '2%',
+    'className': 'info-control',
+    'orderable': false,
+    'data': null,
+    'defaultContent': '' }, // 4
+  { 'data': 'Representation',
+    'render': function(data, type, row) {
+      var qualifier = row.DataTypeQualifier,
+          term = row.RepresentationTerm,
+          name;
+      name = (qualifier ? qualifier+'_ ' : '')+term;
+      return name; }}, // 5-
+  { 'data': 'DictionaryEntryName' }, // 6-
+  { 'data': 'ObjectClass',
+    'render': function(data, type, row) {
+      var qualifier = row.ObjectClassTermQualifier,
+          term = row.ObjectClassTerm,
+          name;
+      name = (qualifier ? qualifier+'_ ' : '')+term;
+      return name; }} // 7-
+];
+var adc_cc_columnDefs = [
+  { 'searchable': false, 'targets': [0, 4] },
+  { 'visible': false, 'targets': [5, 6, 7] } 
+];
+adc_cc_dt_COL_CategoryCode = 0;
+adc_cc_dt_COL_DictionaryEntryName = 1;
+adc_cc_dt_COL_DataType = 4; // hidden
+adc_cc_dt_COL_ObjectClassTerm = 5; // hidden
+var adc_cc_dt_columns = [
+  { 'width': '4%',
+    'data': 'Kind' }, // 0
+  { 'width': '35%',
+    'data': 'DictionaryEntryName' }, // 1
+  { 'width': '57%',
+    'data': 'Definition' }, // 2
+  { 'width': '4%',
+    'className': 'info-control',
+    'orderable': false,
+    'data': null,
+    'defaultContent': '' }, // 3
+  { 'data': 'DataType' }, // 4-
+  { 'data': 'ObjectClassTerm' }, // 5-
+  { 'data': 'PropertyTerm' }, // 6-
+  { 'data': 'RepresentationTerm' } // 7-
+];
+var adc_cc_dt_columnDefs = [
+  { 'searchable': false, 'targets': 0 },
+  { 'visible': false, 'targets': [4, 5, 6, 7] } 
+];
+// -----------------------------------------------------------------
 // XBRL GL
 function renderXbrlglEntityName(row) {
 var dictionaryEntryName = row.DictionaryEntryName, name;
@@ -1158,7 +1235,6 @@ var match = dictionaryEntryName.match(/^([^\.]+)\. (.*)$/);
 if (match) {
   name = match[2];
 }
-
 return renderNameByNum(row.num, name);
 }
 xbrlgl_abie_COL_ComponentName = 0;
@@ -1293,23 +1369,21 @@ var ads_entity_columns = [
     'data': 'name',
     'render': function(data, type, row) {
       return renderAdsEntityName(row); }}, // 3
-  { 'width': '2%',
-    'data': 'Level' }, // 4
   { 'width': '51%',
     'data': 'description',
     'render': function(data, type, row) {
-      return renderDescription(row.Description); }}, // 5
+      return renderDescription(row.Description); }}, // 4
   { 'width': '2%',
     'className': 'info-control',
     'orderable': false,
     'data': null,
-    'defaultContent': '' }, // 6
-  { 'data': 'Table' }, // 7-
-  { 'data': 'ObjectClassTerm' } // 8-
+    'defaultContent': '' }, // 5
+  { 'data': 'Table' }, // 6-
+  { 'data': 'ObjectClassTerm' } // 7-
 ];
 var ads_entity_columnDefs = [
-  { 'searchable': false, 'targets': [0, 6] },
-  { 'visible': false, 'targets': [7, 8] } 
+  { 'searchable': false, 'targets': [0, 5] },
+  { 'visible': false, 'targets': [6, 7] } 
 ];
 // -----------------------------------------------------------------
 // UBL
@@ -1553,6 +1627,7 @@ getTopTableID = function(frame) {
   var table_id;
   switch (frame) {
     case 'adc':    table_id = 'adc-abie';    break;
+    case 'adc-cc': table_id = 'adc-acc';     break;
     case 'xbrlgl': table_id = 'xbrlgl-abie'; break;
     case 'ads':    table_id = 'ads-abie';    break;
     case 'ubl':    table_id = 'ubl-abie';    break;
@@ -1565,6 +1640,7 @@ getTopTable = function(frame) {
   var table;
   switch (frame) {
     case 'adc':    table = adc_abie_table;    break;
+    case 'adc-cc': table = adc_acc_table;     break;
     case 'xbrlgl': table = xbrlgl_abie_table; break;
     case 'ads':    table = ads_abie_table;    break;
     case 'ubl':    table = ubl_abie_table;    break;
@@ -1577,6 +1653,7 @@ getEntityTableID = function(frame) {
   var table_id;
   switch (frame) {
     case 'adc':    table_id = 'adc-entity';    break;
+    case 'adc-cc': table_id = 'adc-cc';        break;
     case 'xbrlgl': table_id = 'xbrlgl-entity'; break;
     case 'ads':    table_id = 'ads-entity';    break;
     case 'ubl':    table_id = 'ubl-entity';    break;
@@ -1589,6 +1666,7 @@ getEntityTable = function(frame) {
   var table;
   switch (frame) {
     case 'adc':    table = adc_entity_table;    break;
+    case 'adc-cc': table = adc_cc_table;        break;
     case 'xbrlgl': table = xbrlgl_entity_table; break;
     case 'ads':    table = ads_entity_table;    break;
     case 'ubl':    table = ubl_entity_table;    break;
@@ -1601,6 +1679,7 @@ function getEntityMap(frame) {
   var map;
   switch (frame) {
     case 'adc':    map = adcEntityMap;    break;
+    case 'adc-cc': map = adcCcMap;        break;
     case 'xbrlgl': map = xbrlglEntityMap; break;
     case 'ads':    map = adsEntityMap;    break;
     case 'ubl':    map = ublEntityMap;    break;
@@ -1612,6 +1691,7 @@ function getEntityMap(frame) {
 function assignEntityRows(frame, rows) {
   switch (frame) {
     case 'adc':    adcEntityRows = rows;    break;
+    case 'adc-cc': adcCcRows = rows;        break;
     case 'xbrlgl': xbrlglEntityRows = rows; break;
     case 'ads':    adsEntityRows = rows;    break;
     case 'ubl':    ublEntityRows = rows;    break;
@@ -1625,16 +1705,16 @@ function checkAssociated(table_id) {
   for (i = 0; i < rows.length; i++) {
     tr = rows[i];
     td_0 = tr.cells[0]; td_1 = tr.cells[1]; td_2 = tr.cells[2];
-    if (td_2 &&
-        td_2.innerHTML.match(/\. ID$/)) {
+    if ((td_2 && td_2.innerHTML.match(/\. ID$/)) ||
+        (td_1 && 'IDBIE' === td_1.innerHTML)) {
       td_0.classList.remove('details-control');
       td_0.classList.add('key-control');
     }
-    else if (!td_1 ||
-        'BBIE' === td_1.innerHTML || 'BCC' === td_1.innerHTML) {
+    else if (!td_1 || 'BBIE' === td_1.innerHTML || 'BCC' === td_1.innerHTML) {
       td_0.classList.remove('details-control');
     }
-    else if ('RBIE' === td_1.innerHTML || 'RCC' === td_1.innerHTML) {
+    else if ('RLBIE' === td_1.innerHTML || 'RBIE' === td_1.innerHTML ||
+             'RLCC' === td_1.innerHTML  || 'RCC' === td_1.innerHTML) {
       td_0.classList.remove('details-control');
       td_0.classList.add('link-control');
     }
@@ -1690,7 +1770,7 @@ function filterTop(frame) {
 
     rows = [];
     table.data().toArray().forEach(function(v, i) {
-      if (['adc', 'ads'].indexOf(frame) >= 0) {
+      if (['adc', 'adc-cc', 'ads'].indexOf(frame) >= 0) {
         if ('Core' !== v.Module) {
           rows.push(v);
         }
@@ -1712,6 +1792,7 @@ function filterTop(frame) {
   }
   switch (frame) {
     case 'adc':    adcRows = rows;    adcEntityMap = entityMap;    break;
+    case 'adc-cc': adcAccRows = rows; adcCcMap = entityMap;        break;
     case 'xbrlgl': xbrlglRows = rows; xbrlglEntityMap = entityMap; break;
     case 'ads':    adsRows = rows;    adsEntityMap = entityMap;    break;
     case 'ubl':    ublRows = rows;    ublEntityMap = entityMap;    break;
@@ -1763,9 +1844,58 @@ adc_entity2_table = $('#adc-entity2').DataTable({
   }
 });
 adc_udt_table = $('#adc-udt').DataTable({
-  'ajax': 'data/list-ADC-udt.json',
+  'ajax': '../data/list-ADC-udt.json',
   'columns': adc_dt_columns,
   'columnDefs': adc_dt_columnDefs,
+  'paging': false,
+  'autoWidth': false,
+  'ordering': false,
+  'select': true
+});
+// -----------------------------------------------------------------
+// ADC CC
+//
+adc_acc_table = $('#adc-acc').DataTable({
+  'ajax': 'data/list-ADC-acc.json',
+  'columns': adc_acc_columns,
+  'columnDefs': adc_acc_columnDefs,
+  'paging': false,
+  'autoWidth': false,
+  'ordering': false,
+  'select': true
+});
+adc_cc_table = $('#adc-cc').DataTable({
+  'ajax': 'data/list-ADC-cc.json',
+  'columns': adc_cc_columns,
+  'columnDefs': adc_cc_columnDefs,
+  'paging': false,
+  'autoWidth': false,
+  'ordering': false,
+  'select': true,
+  'initComplete': function(settings, json) {
+    filterTop('adc-cc');
+  },
+  'drawCallback': function(settings) {
+    checkAssociated('adc-cc');
+    hideOverlay();
+  }
+});
+adc_cc2_table = $('#adc-cc2').DataTable({
+  'ajax': 'data/list-ADC-cc.json',
+  'columns': adc_cc_columns,
+  'columnDefs': adc_cc_columnDefs,
+  'paging': false,
+  'autoWidth': false,
+  'ordering': false,
+  'select': true,
+  'drawCallback': function(settings) {
+    checkAssociated('adc-cc2');
+  }
+});
+adc_cc_udt_table = $('#adc-cc-udt').DataTable({
+  'ajax': '../data/list-ADC-udt.json',
+  'columns': adc_cc_dt_columns,
+  'columnDefs': adc_cc_dt_columnDefs,
   'paging': false,
   'autoWidth': false,
   'ordering': false,
@@ -1775,7 +1905,7 @@ adc_udt_table = $('#adc-udt').DataTable({
 // XBRL GL
 //
 xbrlgl_abie_table = $('#xbrlgl-abie').DataTable({
-  'ajax': 'data/list-xbrlgl-abie.json',
+  'ajax': '../data/list-xbrlgl-abie.json',
   'columns': xbrlgl_abie_columns,
   'columnDefs': xbrlgl_abie_columnDefs,
   'paging': false,
@@ -1784,7 +1914,7 @@ xbrlgl_abie_table = $('#xbrlgl-abie').DataTable({
   'select': true
 });
 xbrlgl_entity_table = $('#xbrlgl-entity').DataTable({
-  'ajax': 'data/list-xbrlgl-entity.json',
+  'ajax': '../data/list-xbrlgl-entity.json',
   'columns': xbrlgl_entity_columns,
   'columnDefs': xbrlgl_entity_columnDefs,
   'paging': false,
@@ -1800,7 +1930,7 @@ xbrlgl_entity_table = $('#xbrlgl-entity').DataTable({
   }
 });
 xbrlgl_entity2_table = $('#xbrlgl-entity2').DataTable({
-  'ajax': 'data/list-xbrlgl-entity.json',
+  'ajax': '../data/list-xbrlgl-entity.json',
   'columns': xbrlgl_entity_columns,
   'columnDefs': xbrlgl_entity_columnDefs,
   'paging': false,
@@ -1815,7 +1945,7 @@ xbrlgl_entity2_table = $('#xbrlgl-entity2').DataTable({
 // ADS
 //
 ads_abie_table = $('#ads-abie').DataTable({
-  'ajax': 'data/list-ADS-abie.json',
+  'ajax': '../data/list-ADS-abie.json',
   'columns': ads_abie_columns,
   'columnDefs': ads_abie_columnDefs,
   'paging': false,
@@ -1824,7 +1954,7 @@ ads_abie_table = $('#ads-abie').DataTable({
   'select': true
 });
 ads_entity_table = $('#ads-entity').DataTable({
-  'ajax': 'data/list-ADS-entity.json',
+  'ajax': '../data/list-ADS-entity.json',
   'columns': ads_entity_columns,
   'columnDefs': ads_entity_columnDefs,
   'paging': false,
@@ -1840,7 +1970,7 @@ ads_entity_table = $('#ads-entity').DataTable({
   }
 });
 ads_entity2_table = $('#ads-entity2').DataTable({
-  'ajax': 'data/list-ADS-entity.json',
+  'ajax': '../data/list-ADS-entity.json',
   'columns': ads_entity_columns,
   'columnDefs': ads_entity_columnDefs,
   'paging': false,
@@ -1855,7 +1985,7 @@ ads_entity2_table = $('#ads-entity2').DataTable({
 // UBL
 //
 ubl_abie_table = $('#ubl-abie').DataTable({
-  'ajax': 'data/list-ubl-abie.json',
+  'ajax': '../data/list-ubl-abie.json',
   'columns': ubl_abie_columns,
   'columnDefs': ubl_abie_columnDefs,
   'paging': false,
@@ -1864,7 +1994,7 @@ ubl_abie_table = $('#ubl-abie').DataTable({
   'select': true
 });
 ubl_entity_table = $('#ubl-entity').DataTable({
-  'ajax': 'data/list-ubl-entity.json',
+  'ajax': '../data/list-ubl-entity.json',
   'columns': ubl_entity_columns,
   'columnDefs': ubl_entity_columnDefs,
   'paging': false,
@@ -1880,7 +2010,7 @@ ubl_entity_table = $('#ubl-entity').DataTable({
   }
 });
 ubl_entity2_table = $('#ubl-entity2').DataTable({
-  'ajax': 'data/list-ubl-entity.json',
+  'ajax': '../data/list-ubl-entity.json',
   'columns': ubl_entity_columns,
   'columnDefs': ubl_entity_columnDefs,
   'paging': false,
@@ -1892,7 +2022,7 @@ ubl_entity2_table = $('#ubl-entity2').DataTable({
   }
 });
 ubl_qdt_table = $('#ubl-qdt').DataTable({
-  'ajax': 'data/list-ubl-udt.json',
+  'ajax': '../data/list-ubl-udt.json',
   'columns': ubl_dt_columns,
   'columnDefs': ubl_dt_columnDefs,
   'paging': false,
@@ -1901,7 +2031,7 @@ ubl_qdt_table = $('#ubl-qdt').DataTable({
   'select': true
 });
 ubl_udt_table = $('#ubl-udt').DataTable({
-  'ajax': 'data/list-ubl-udt.json',
+  'ajax': '../data/list-ubl-udt.json',
   'columns': ubl_dt_columns,
   'columnDefs': ubl_dt_columnDefs,
   'paging': false,
@@ -1913,7 +2043,7 @@ ubl_udt_table = $('#ubl-udt').DataTable({
 // UN/CEFACT
 //
 bie_table = $('#bie').DataTable({
-  'ajax': 'data/list-bie.json',
+  'ajax': '../data/list-bie.json',
   'columns': bie_columns,
   'columnDefs': bie_columnDefs,
   'paging': false,
@@ -1922,7 +2052,7 @@ bie_table = $('#bie').DataTable({
   'select': true
 });
 bie_compt_table = $('#bie-compt').DataTable({
-  'ajax': 'data/list-bie_compt.json',
+  'ajax': '../data/list-bie_compt.json',
   'columns': bie_compt_columns,
   'columnDefs': bie_compt_columnDefs,
   'paging': false,
@@ -1938,7 +2068,7 @@ bie_compt_table = $('#bie-compt').DataTable({
   }
 });
 bie_compt2_table = $('#bie-compt2').DataTable({
-  'ajax': 'data/list-bie_compt.json',
+  'ajax': '../data/list-bie_compt.json',
   'columns': bie_compt_columns,
   'columnDefs': bie_compt_columnDefs,
   'paging': false,
@@ -1950,7 +2080,7 @@ bie_compt2_table = $('#bie-compt2').DataTable({
   }
 });
 qdt_table = $('#qdt').DataTable({
-  'ajax': 'data/list-qdt.json',
+  'ajax': '../data/list-qdt.json',
   'columns': qdt_columns,
   'columnDefs': qdt_columnDefs,
   'paging': false,
@@ -1959,7 +2089,7 @@ qdt_table = $('#qdt').DataTable({
   'select': true
 });
 uncefact_udt_table = $('#uncefact-udt').DataTable({
-  'ajax': 'data/list-udt.json',
+  'ajax': '../data/list-udt.json',
   'columns': dt_columns,
   'columnDefs': dt_columnDefs,
   'paging': false,
@@ -1969,7 +2099,7 @@ uncefact_udt_table = $('#uncefact-udt').DataTable({
 });
 // -----------------------------------------------------------------
 acc_table = $('#acc').DataTable({
-  'ajax': 'data/list-acc.json',
+  'ajax': '../data/list-acc.json',
   'columns': acc_columns,
   'columnDefs': acc_columnDefs,
   'paging': false,
@@ -1978,7 +2108,7 @@ acc_table = $('#acc').DataTable({
   'select': true
 });
 cc_table = $('#cc').DataTable({
-  'ajax': 'data/list-cc.json',
+  'ajax': '../data/list-cc.json',
   'columns': cc_columns,
   'columnDefs': cc_columnDefs,
   'paging': false,
@@ -1994,7 +2124,7 @@ cc_table = $('#cc').DataTable({
   }
 });
 cc2_table = $('#cc2').DataTable({
-  'ajax': 'data/list-cc.json',
+  'ajax': '../data/list-cc.json',
   'columns': cc_columns,
   'columnDefs': cc_columnDefs,
   'paging': false,
@@ -2006,7 +2136,7 @@ cc2_table = $('#cc2').DataTable({
   }
 });
 udt_table = $('#udt').DataTable({
-  'ajax': 'data/list-udt.json',
+  'ajax': '../data/list-udt.json',
   'columns': dt_columns,
   'columnDefs': dt_columnDefs,
   'paging': false,
@@ -2050,6 +2180,49 @@ $('#adc-entity2 tbody').on('click', 'td.info-control', function(event) {
   }
 });
 $('#adc-udt tbody').on('click', 'td.info-control', function(event) {
+  event.stopPropagation();
+  var tr = $(this).closest('tr'), row = adc_udt_table.row(tr);
+  if (row.child.isShown()) { // This row is already open - close it
+    row.child.hide(); tr.removeClass('shown');
+  }
+  else { // Open this row
+    row.child(adc_dt_format(row.data())).show(); tr.addClass('shown');
+  }
+});
+// -----------------------------------------------------------------
+// ADC CC
+//
+$('#adc-acc tbody').on('click', 'td.info-control', function(event) {
+  event.stopPropagation();
+  var tr = $(this).closest('tr'), row = adc_abie_table.row(tr);
+  if (row.child.isShown()) { // This row is already open - close it
+    row.child.hide(); tr.removeClass('shown');
+  }
+  else { // Open this row
+    row.child(adc_entity_format(row.data())).show(); tr.addClass('shown');
+  }
+});
+$('#adc-cc tbody').on('click', 'td.info-control', function(event) {
+  event.stopPropagation();
+  var tr = $(this).closest('tr'), row = adc_entity_table.row(tr);
+  if (row.child.isShown()) { // This row is already open - close it
+    row.child.hide(); tr.removeClass('shown');
+  }
+  else { // Open this row
+    row.child(adc_entity_format(row.data())).show(); tr.addClass('shown');
+  }
+});
+$('#adc-cc2 tbody').on('click', 'td.info-control', function(event) {
+  event.stopPropagation();
+  var tr = $(this).closest('tr'), row = adc_entity2_table.row(tr);
+  if (row.child.isShown()) { // This row is already open - close it
+    row.child.hide(); tr.removeClass('shown');
+  }
+  else { // Open this row
+    row.child(adc_entity_format(row.data())).show(); tr.addClass('shown');
+  }
+});
+$('#adc-cc-udt tbody').on('click', 'td.info-control', function(event) {
   event.stopPropagation();
   var tr = $(this).closest('tr'), row = adc_udt_table.row(tr);
   if (row.child.isShown()) { // This row is already open - close it
@@ -2478,10 +2651,10 @@ function expandCollapse(frame, entityMap, tr) {
         data_.AssociatedObjectClass;
       regex = new RegExp('^('+associated+')\\.');
       entityMap.forEach(function(value, key) {
-        if (value.ancestor === data_.ancestor) {
+        /*if (value.ancestor === data_.ancestor) {
           v = JSON.parse(JSON.stringify(value));
           appendByNum(entityRows, v);
-        }
+        }*/
         if (key && key.match(regex)) {
           idx = data_.num+'.'+(i++);
           v = JSON.parse(JSON.stringify(value));
@@ -2662,6 +2835,9 @@ function showEntity(tr, frame) {
     case 'adc':
       table = adc_abie_table; entityMap = adcEntityMap; entityRows = adcEntityRows;
       break;
+    case 'adc-cc':
+      table = adc_acc_table; entityMap = adcCcMap; entityRows = adcCcRows;
+      break;  
     case 'xbrlgl':
       table = xbrlgl_abie_table; entityMap = xbrlglEntityMap; entityRows = xbrlglEntityRows;
       break;
@@ -2731,8 +2907,15 @@ function showDetail(tr, frame) {
       entity2_table = adc_entity2_table;
       udttable      = adc_udt_table;
       COL_ObjectClassTerm     = adc_entity_COL_ObjectClassTerm;
-      COL_DictionaryEntryName = adc_dt_COL_DictionaryEntryName;
-      COL_DataType            = adc_dt_COL_DataType;
+      COL_DictionaryEntryName = adc_entity_COL_DictionaryEntryName;
+      // COL_DataType            = adc_entity_COL_DataType;
+      break;
+    case 'adc-cc':
+      entity2_table = adc_cc2_table;
+      udttable      = adc_cc_udt_table;
+      COL_ObjectClassTerm     = adc_cc_COL_ObjectClassTerm;
+      COL_DictionaryEntryName = adc_cc_COL_DictionaryEntryName;
+      // COL_DataType            = adc_cc_COL_DataType;
       break;
     case 'xbrlgl':
       entity2_table = xbrlgl_entity2_table;
@@ -2768,7 +2951,7 @@ function showDetail(tr, frame) {
       COL_DataType        = dt_COL_DataType;
       break;
   }
-  if (['RBIE','RCC'].indexOf(componentType) >= 0) {
+  if (['RLBIE','RLCC','RBIE','RCC'].indexOf(componentType) >= 0) {
     $('#'+entity2_id+'-frame').removeClass('d-none');
     if (udt_id) {
       $('#'+udt_id+'-frame').addClass('d-none');
@@ -2776,7 +2959,15 @@ function showDetail(tr, frame) {
     if (qdt_id) {
       $('#'+qdt_id+'-frame').addClass('d-none');
     }
-    if (['adc', 'xbrlgl', 'ads', 'ubl'].indexOf(frame) >= 0) {
+    if (['adc', 'adc-cc'].indexOf(frame) >= 0) {
+      var qualifier = data.RelationObjectClassTermQualifier,
+          term = data.RelationObjectClassTerm;
+      searchText = (qualifier ? qualifier+'_ ' : '')+term;
+      entity2_table.columns(COL_ObjectClassTerm)
+      .search('^'+searchText+'$', /*regex*/true, /*smart*/false, /*caseInsen*/false)
+      .draw();
+    }
+    else if (['xbrlgl', 'ads', 'ubl'].indexOf(frame) >= 0) {
       searchText = data.AssociatedObjectClass;
       entity2_table.columns(COL_ObjectClassTerm)
       .search('^'+searchText+'$', /*regex*/true, /*smart*/false, /*caseInsen*/false)
@@ -2795,7 +2986,7 @@ function showDetail(tr, frame) {
     tableTitle.text(searchText);
     showUpControl(num);
   }
-  else if (['BBIE','BCC'].indexOf(componentType) >= 0) {
+  else if (['IDBIE','IDCC','BBIE','BCC'].indexOf(componentType) >= 0) {
     if (qdt_id && data.QualifiedDataTypeUID) {
       tableTitle = $('#'+qdt_id+'-frame .table-title');
       $('#'+entity2_id+'-frame').addClass('d-none');
@@ -2875,6 +3066,26 @@ function showDetail(tr, frame) {
       showDetail(tr, frame);
     }
   });
+// -----------------------------------------------------------------
+// ADC CC
+//
+$('#adc-acc tbody').on('click', 'td:not(.info-control)', function () {
+  event.stopPropagation();
+  var tr = $(this).closest('tr'), frame = 'adc-cc';
+  showEntity(tr, frame);
+});
+$('#adc-cc tbody').on('click', 'td:not(.info-control)', function () {
+  event.stopPropagation();
+  var tr = $(this).closest('tr'), frame = 'adc-cc',
+      row = adc_cc_table.row(tr), data = row.data(),
+      componentType = data.ComponentType || data.Kind;
+  if ('ASBIE' === componentType || 'ASCC' === componentType) {
+    adcEntityRows = expandCollapse(frame, adcEntityMap, tr);      
+  }
+  else {
+    showDetail(tr, frame);
+  }
+});
 // -----------------------------------------------------------------
 // XBRL GL
 //
@@ -2979,7 +3190,7 @@ function showDetail(tr, frame) {
   });
 // -----------------------------------------------------------------
   tab1 = tab1 || 'adc';
-  tab2 = tab2 || 'acc';
+  tab2 = tab2 || 'adc-cc';
   setFrame(2, tab2);
   setFrame(1, tab1);
 /**
