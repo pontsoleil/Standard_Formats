@@ -215,7 +215,6 @@ function setFrame(num, frame) {
   top_component.empty();
   top_content = $('#'+content[frame]['top']+'-frame');
   top_component.append(top_content);
-
   // bottom-top
   bottom_top_component = $('#bottom-top-component-'+num);
   base = $('#'+content[frame]['bottom-top']+'-container');
@@ -402,17 +401,10 @@ function adc_entity_format(d) { // d is the original data object for the row
     '<col span="1" style="width: '+H2+'%;">'+
   '</colgroup>'+
   (description ? '<tr><td colspan="2">'+description+'</td><tr>' : '')+
-  '<tr><td>'+
-  (d.UNID
-    ? d.UNID
-    : (d.num && d.No
-      ? 'ADC'+d.Kind+pad(d.num, 2)+pad(d.No, 3)
-      : 'Dictionary Entry Name:'+'</td>'+
-        '<td>'+(d.DictionaryEntryName ? d.DictionaryEntryName : '</td><td>')+'</td></tr>'
-      )
-  )+
+  '<tr><td>Dictionary Entry Name:</td>'+
+      '<td>'+(d.DictionaryEntryName ? d.DictionaryEntryName : '</td><td>')+'</td></tr>'+
   (d.ObjectClassTerm
-    ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Object Class Term:</td>'+
+    ? '<tr><td>&nbsp;&nbsp;Object Class Term:</td>'+
       '<td>'+(d.ObjectClassTermQualifier ? d.ObjectClassTermQualifier+'_ ' : '')+d.ObjectClassTerm+'</td></tr>'
     : ''
   )+
@@ -1094,10 +1086,8 @@ var adc_entity_columns = [
   { 'data': 'ObjectClass',
     'render': function(data, type, row) {
       var qualifier = row.ObjectClassTermQualifier,
-          term = row.ObjectClassTerm,
-          name;
-      name = (qualifier ? qualifier+'_ ' : '')+term;
-      return name; }} // 7-
+          term = row.ObjectClassTerm;
+      return (qualifier ? qualifier+'_ ' : '')+term; }} // 7-
 ];
 var adc_entity_columnDefs = [
   { 'searchable': false, 'targets': [0, 4] },
@@ -1182,18 +1172,14 @@ var adc_cc_columns = [
   { 'data': 'Representation',
     'render': function(data, type, row) {
       var qualifier = row.DataTypeQualifier,
-          term = row.RepresentationTerm,
-          name;
-      name = (qualifier ? qualifier+'_ ' : '')+term;
-      return name; }}, // 5-
+          term = row.RepresentationTerm;
+      return (qualifier ? qualifier+'_ ' : '')+term; }}, // 5-
   { 'data': 'DictionaryEntryName' }, // 6-
   { 'data': 'ObjectClass',
     'render': function(data, type, row) {
       var qualifier = row.ObjectClassTermQualifier,
-          term = row.ObjectClassTerm,
-          name;
-      name = (qualifier ? qualifier+'_ ' : '')+term;
-      return name; }} // 7-
+          term = row.ObjectClassTerm;
+      return (qualifier ? qualifier+'_ ' : '')+term; }} // 7-
 ];
 var adc_cc_columnDefs = [
   { 'searchable': false, 'targets': [0, 4] },
@@ -2151,42 +2137,42 @@ udt_table = $('#udt').DataTable({
 //
 $('#adc-abie tbody').on('click', 'td.info-control', function(event) {
   event.stopPropagation();
-  var tr = $(this).closest('tr'), row = adc_abie_table.row(tr);
+  var tr = $(this).closest('tr'), row = adc_abie_table.row(tr), data = row.data();
   if (row.child.isShown()) { // This row is already open - close it
     row.child.hide(); tr.removeClass('shown');
   }
   else { // Open this row
-    row.child(adc_entity_format(row.data())).show(); tr.addClass('shown');
+    row.child(adc_entity_format(data)).show(); tr.addClass('shown');
   }
 });
 $('#adc-entity tbody').on('click', 'td.info-control', function(event) {
   event.stopPropagation();
-  var tr = $(this).closest('tr'), row = adc_entity_table.row(tr);
+  var tr = $(this).closest('tr'), row = adc_entity_table.row(tr), data = row.data();
   if (row.child.isShown()) { // This row is already open - close it
     row.child.hide(); tr.removeClass('shown');
   }
   else { // Open this row
-    row.child(adc_entity_format(row.data())).show(); tr.addClass('shown');
+    row.child(adc_entity_format(data)).show(); tr.addClass('shown');
   }
 });
 $('#adc-entity2 tbody').on('click', 'td.info-control', function(event) {
   event.stopPropagation();
-  var tr = $(this).closest('tr'), row = adc_entity2_table.row(tr);
+  var tr = $(this).closest('tr'), row = adc_entity2_table.row(tr), data = row.data();
   if (row.child.isShown()) { // This row is already open - close it
     row.child.hide(); tr.removeClass('shown');
   }
   else { // Open this row
-    row.child(adc_entity_format(row.data())).show(); tr.addClass('shown');
+    row.child(adc_entity_format(data)).show(); tr.addClass('shown');
   }
 });
 $('#adc-udt tbody').on('click', 'td.info-control', function(event) {
   event.stopPropagation();
-  var tr = $(this).closest('tr'), row = adc_udt_table.row(tr);
+  var tr = $(this).closest('tr'), row = adc_udt_table.row(tr), data = row.data();
   if (row.child.isShown()) { // This row is already open - close it
     row.child.hide(); tr.removeClass('shown');
   }
   else { // Open this row
-    row.child(adc_dt_format(row.data())).show(); tr.addClass('shown');
+    row.child(adc_dt_format(data)).show(); tr.addClass('shown');
   }
 });
 // -----------------------------------------------------------------
@@ -2194,42 +2180,42 @@ $('#adc-udt tbody').on('click', 'td.info-control', function(event) {
 //
 $('#adc-acc tbody').on('click', 'td.info-control', function(event) {
   event.stopPropagation();
-  var tr = $(this).closest('tr'), row = adc_abie_table.row(tr);
+  var tr = $(this).closest('tr'), row = adc_acc_table.row(tr), data = row.data();
   if (row.child.isShown()) { // This row is already open - close it
     row.child.hide(); tr.removeClass('shown');
   }
   else { // Open this row
-    row.child(adc_entity_format(row.data())).show(); tr.addClass('shown');
+    row.child(adc_entity_format(data)).show(); tr.addClass('shown');
   }
 });
 $('#adc-cc tbody').on('click', 'td.info-control', function(event) {
   event.stopPropagation();
-  var tr = $(this).closest('tr'), row = adc_entity_table.row(tr);
+  var tr = $(this).closest('tr'), row = adc_cc_table.row(tr), data = row.data();
   if (row.child.isShown()) { // This row is already open - close it
     row.child.hide(); tr.removeClass('shown');
   }
   else { // Open this row
-    row.child(adc_entity_format(row.data())).show(); tr.addClass('shown');
+    row.child(adc_entity_format(data)).show(); tr.addClass('shown');
   }
 });
 $('#adc-cc2 tbody').on('click', 'td.info-control', function(event) {
   event.stopPropagation();
-  var tr = $(this).closest('tr'), row = adc_entity2_table.row(tr);
+  var tr = $(this).closest('tr'), row = adc_cc2_table.row(tr), data = row.data();
   if (row.child.isShown()) { // This row is already open - close it
     row.child.hide(); tr.removeClass('shown');
   }
   else { // Open this row
-    row.child(adc_entity_format(row.data())).show(); tr.addClass('shown');
+    row.child(adc_entity_format(data)).show(); tr.addClass('shown');
   }
 });
 $('#adc-cc-udt tbody').on('click', 'td.info-control', function(event) {
   event.stopPropagation();
-  var tr = $(this).closest('tr'), row = adc_udt_table.row(tr);
+  var tr = $(this).closest('tr'), row = adc_udt_table.row(tr), data = row.data();
   if (row.child.isShown()) { // This row is already open - close it
     row.child.hide(); tr.removeClass('shown');
   }
   else { // Open this row
-    row.child(adc_dt_format(row.data())).show(); tr.addClass('shown');
+    row.child(adc_dt_format(data)).show(); tr.addClass('shown');
   }
 });
 // -----------------------------------------------------------------
@@ -2237,32 +2223,32 @@ $('#adc-cc-udt tbody').on('click', 'td.info-control', function(event) {
 //
 $('#xbrlgl-abie tbody').on('click', 'td.info-control', function(event) {
   event.stopPropagation();
-  var tr = $(this).closest('tr'), row = xbrlgl_abie_table.row(tr);
+  var tr = $(this).closest('tr'), row = xbrlgl_abie_table.row(tr), data = row.data();
   if (row.child.isShown()) { // This row is already open - close it
     row.child.hide(); tr.removeClass('shown');
   }
   else { // Open this row
-    row.child(xbrlgl_entity_format(row.data())).show(); tr.addClass('shown');
+    row.child(xbrlgl_entity_format(data)).show(); tr.addClass('shown');
   }
 });
 $('#xbrlgl-entity tbody').on('click', 'td.info-control', function(event) {
   event.stopPropagation();
-  var tr = $(this).closest('tr'), row = xbrlgl_entity_table.row(tr);
+  var tr = $(this).closest('tr'), row = xbrlgl_entity_table.row(tr), data = row.data();
   if (row.child.isShown()) { // This row is already open - close it
     row.child.hide(); tr.removeClass('shown');
   }
   else { // Open this row
-    row.child(xbrlgl_entity_format(row.data())).show(); tr.addClass('shown');
+    row.child(xbrlgl_entity_format(data)).show(); tr.addClass('shown');
   }
 });
 $('#xbrlgl-entity2 tbody').on('click', 'td.info-control', function(event) {
   event.stopPropagation();
-  var tr = $(this).closest('tr'), row = xbrlgl_entity2_table.row(tr);
+  var tr = $(this).closest('tr'), row = xbrlgl_entity2_table.row(tr), data = row.data();
   if (row.child.isShown()) { // This row is already open - close it
     row.child.hide(); tr.removeClass('shown');
   }
   else { // Open this row
-    row.child(xbrlgl_entity_format(row.data())).show(); tr.addClass('shown');
+    row.child(xbrlgl_entity_format(data)).show(); tr.addClass('shown');
   }
 });
 // -----------------------------------------------------------------
@@ -2270,32 +2256,32 @@ $('#xbrlgl-entity2 tbody').on('click', 'td.info-control', function(event) {
 //
 $('#ads-abie tbody').on('click', 'td.info-control', function(event) {
   event.stopPropagation();
-  var tr = $(this).closest('tr'), row = ads_abie_table.row(tr);
+  var tr = $(this).closest('tr'), row = ads_abie_table.row(tr), data = row.data();
   if (row.child.isShown()) { // This row is already open - close it
     row.child.hide(); tr.removeClass('shown');
   }
   else { // Open this row
-    row.child(ads_entity_format(row.data())).show(); tr.addClass('shown');
+    row.child(ads_entity_format(data)).show(); tr.addClass('shown');
   }
 });
 $('#ads-entity tbody').on('click', 'td.info-control', function(event) {
   event.stopPropagation();
-  var tr = $(this).closest('tr'), row = ads_entity_table.row(tr);
+  var tr = $(this).closest('tr'), row = ads_entity_table.row(tr), data = row.data();
   if (row.child.isShown()) { // This row is already open - close it
     row.child.hide(); tr.removeClass('shown');
   }
   else { // Open this row
-    row.child(ads_entity_format(row.data())).show(); tr.addClass('shown');
+    row.child(ads_entity_format(data)).show(); tr.addClass('shown');
   }
 });
 $('#ads-entity2 tbody').on('click', 'td.info-control', function(event) {
   event.stopPropagation();
-  var tr = $(this).closest('tr'), row = ads_entity2_table.row(tr);
+  var tr = $(this).closest('tr'), row = ads_entity2_table.row(tr), data = row.data();
   if (row.child.isShown()) { // This row is already open - close it
     row.child.hide(); tr.removeClass('shown');
   }
   else { // Open this row
-    row.child(ads_entity_format(row.data())).show(); tr.addClass('shown');
+    row.child(ads_entity_format(data)).show(); tr.addClass('shown');
   }
 });
 // -----------------------------------------------------------------
@@ -2303,52 +2289,52 @@ $('#ads-entity2 tbody').on('click', 'td.info-control', function(event) {
 //
 $('#ubl-abie tbody').on('click', 'td.info-control', function(event) {
   event.stopPropagation();
-  var tr = $(this).closest('tr'), row = ubl_abie_table.row(tr);
+  var tr = $(this).closest('tr'), row = ubl_abie_table.row(tr), data = row.data();
   if (row.child.isShown()) { // This row is already open - close it
     row.child.hide(); tr.removeClass('shown');
   }
   else { // Open this row
-    row.child(ubl_entity_format(row.data())).show(); tr.addClass('shown');
+    row.child(ubl_entity_format(data)).show(); tr.addClass('shown');
   }
 });
 $('#ubl-entity tbody').on('click', 'td.info-control', function(event) {
   event.stopPropagation();
-  var tr = $(this).closest('tr'), row = ubl_entity_table.row(tr);
+  var tr = $(this).closest('tr'), row = ubl_entity_table.row(tr), data = row.data();
   if (row.child.isShown()) { // This row is already open - close it
     row.child.hide(); tr.removeClass('shown');
   }
   else { // Open this row
-    row.child(ubl_entity_format(row.data())).show(); tr.addClass('shown');
+    row.child(ubl_entity_format(data)).show(); tr.addClass('shown');
   }
 });
 $('#ubl-entity2 tbody').on('click', 'td.info-control', function(event) {
   event.stopPropagation();
-  var tr = $(this).closest('tr'), row = ubl_entity2_table.row(tr);
+  var tr = $(this).closest('tr'), row = ubl_entity2_table.row(tr), data = row.data();
   if (row.child.isShown()) { // This row is already open - close it
     row.child.hide(); tr.removeClass('shown');
   }
   else { // Open this row
-    row.child(ubl_entity_format(row.data())).show(); tr.addClass('shown');
+    row.child(ubl_entity_format(data)).show(); tr.addClass('shown');
   }
 });
 $('#ubl-udt tbody').on('click', 'td.info-control', function(event) {
   event.stopPropagation();
-  var tr = $(this).closest('tr'), row = ubl_udt_table.row(tr);
+  var tr = $(this).closest('tr'), row = ubl_udt_table.row(tr), data = row.data();
   if (row.child.isShown()) { // This row is already open - close it
     row.child.hide(); tr.removeClass('shown');
   }
   else { // Open this row
-    row.child(ubl_dt_format(row.data())).show(); tr.addClass('shown');
+    row.child(ubl_dt_format(data)).show(); tr.addClass('shown');
   }
 });
 $('#ubl-qdt tbody').on('click', 'td.info-control', function(event) {
   event.stopPropagation();
-  var tr = $(this).closest('tr'), row = ubl_udt_table.row(tr);
+  var tr = $(this).closest('tr'), row = ubl_udt_table.row(tr), data = row.data();
   if (row.child.isShown()) { // This row is already open - close it
     row.child.hide(); tr.removeClass('shown');
   }
   else { // Open this row
-    row.child(qdt_format(row.data())).show(); tr.addClass('shown');
+    row.child(qdt_format(data)).show(); tr.addClass('shown');
   }
 });
 // -----------------------------------------------------------------
@@ -2356,93 +2342,93 @@ $('#ubl-qdt tbody').on('click', 'td.info-control', function(event) {
 //
 $('#bie tbody').on('click', 'td.info-control', function(event) {
   event.stopPropagation();
-  var tr = $(this).closest('tr'), row = bie_table.row(tr);
+  var tr = $(this).closest('tr'), row = bie_table.row(tr), data = row.data();
   if (row.child.isShown()) { // This row is already open - close it
     row.child.hide(); tr.removeClass('shown');
   }
   else { // Open this row
-    row.child(bie_format(row.data())).show(); tr.addClass('shown');
+    row.child(bie_format(data)).show(); tr.addClass('shown');
   }
 });
 $('#bie-compt tbody').on('click', 'td.info-control', function(event) {
   event.stopPropagation();
-  var tr = $(this).closest('tr'), row = bie_compt_table.row(tr);
+  var tr = $(this).closest('tr'), row = bie_compt_table.row(tr), data = row.data();
   if (row.child.isShown()) { // This row is already open - close it
     row.child.hide(); tr.removeClass('shown');
   }
   else { // Open this row
-    row.child(bie_compt_format(row.data())).show(); tr.addClass('shown');
+    row.child(bie_compt_format(data)).show(); tr.addClass('shown');
   }
 });
 $('#bie-compt2 tbody').on('click', 'td.info-control', function(event) {
   event.stopPropagation();
-  var tr = $(this).closest('tr'), row = bie_compt2_table.row(tr);
+  var tr = $(this).closest('tr'), row = bie_compt2_table.row(tr), data = row.data();
   if (row.child.isShown()) { // This row is already open - close it
     row.child.hide(); tr.removeClass('shown');
   }
   else { // Open this row
-    row.child(bie_compt_format(row.data())).show(); tr.addClass('shown');
+    row.child(bie_compt_format(data)).show(); tr.addClass('shown');
   }
 });
 $('#qdt tbody').on('click', 'td.info-control', function(event) {
   event.stopPropagation();
-  var tr = $(this).closest('tr'), row = qdt_table.row(tr);
+  var tr = $(this).closest('tr'), row = qdt_table.row(tr), data = row.data();
   if (row.child.isShown()) { // This row is already open - close it
     row.child.hide(); tr.removeClass('shown');
   }
   else { // Open this row
-    row.child(qdt_format(row.data())).show(); tr.addClass('shown');
+    row.child(qdt_format(data)).show(); tr.addClass('shown');
   }
 });
 $('#uncefact-udt tbody').on('click', 'td.info-control', function(event) {
   event.stopPropagation();
-  var tr = $(this).closest('tr'), row = uncefact_udt_table.row(tr);
+  var tr = $(this).closest('tr'), row = uncefact_udt_table.row(tr), data = row.data();
   if (row.child.isShown()) { // This row is already open - close it
     row.child.hide(); tr.removeClass('shown');
   }
   else { // Open this row
-    row.child(dt_format(row.data())).show(); tr.addClass('shown');
+    row.child(dt_format(data)).show(); tr.addClass('shown');
   }
 });
 // -----------------------------------------------------------------
 $('#acc tbody').on('click', 'td.info-control', function () {
   event.stopPropagation();
-  var tr = $(this).closest('tr'), row = acc_table.row(tr);
+  var tr = $(this).closest('tr'), row = acc_table.row(tr), data = row.data();
   if (row.child.isShown()) { // This row is already open - close it
     row.child.hide(); tr.removeClass('shown');
   }
   else { // Open this row
-    row.child(acc_format(row.data())).show(); tr.addClass('shown');
+    row.child(acc_format(data)).show(); tr.addClass('shown');
   }
 });
 $('#cc tbody').on('click', 'td.info-control', function(event) {
   event.stopPropagation();
-  var tr = $(this).closest('tr'), row = cc_table.row(tr);
+  var tr = $(this).closest('tr'), row = cc_table.row(tr), data = row.data();
   if (row.child.isShown()) { // This row is already open - close it
     row.child.hide(); tr.removeClass('shown');
   }
   else { // Open this row
-    row.child(cc_format(row.data())).show(); tr.addClass('shown');
+    row.child(cc_format(data)).show(); tr.addClass('shown');
   }
 });
 $('#cc2 tbody').on('click', 'td.info-control', function(event) {
   event.stopPropagation();
-  var tr = $(this).closest('tr'), row = cc2_table.row(tr);
+  var tr = $(this).closest('tr'), row = cc2_table.row(tr), data = row.data();
   if (row.child.isShown()) { // This row is already open - close it
     row.child.hide(); tr.removeClass('shown');
   }
   else { // Open this row
-    row.child(cc_format(row.data())).show(); tr.addClass('shown');
+    row.child(cc_format(data)).show(); tr.addClass('shown');
   }
 }); 
 $('#udt tbody').on('click', 'td.info-control', function(event) {
   event.stopPropagation();
-  var tr = $(this).closest('tr'), row = udt_table.row(tr);
+  var tr = $(this).closest('tr'), row = udt_table.row(tr), data = row.data();
   if (row.child.isShown()) { // This row is already open - close it
     row.child.hide(); tr.removeClass('shown');
   }
   else { // Open this row
-    row.child(dt_format(row.data())).show(); tr.addClass('shown');
+    row.child(dt_format(data)).show(); tr.addClass('shown');
   }
 });
 // -----------------------------------------------------------------
