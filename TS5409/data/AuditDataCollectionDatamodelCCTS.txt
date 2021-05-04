@@ -1,16 +1,16 @@
 ENTITY_NAME	ATTRIBUTE_NAME	DOMAIN_NAME	#	Module	A/B/ID/RL/AS	CC/BIE	Business Term	Dictionary Entry Name	Object Class Term Qualifier	Object Class Term	Property Term Qualifier	Property Term	Datatype Qualifiry	Representation Term	Associate Object Class Term Qualifier	Associate Object Class Term	Relation Object Class Term Qualifier	Relation Object Class Term	DESCRIPTION
 		Identifier	1	0._		DT	Identifier	Identifier. Type				Identifier		Identifier					
 		Identifier	2	0._		CC	Identifier	Identifier. Content		Identifier		Content							"A character string used to identify and distinguish uniquely, one instance of an object in an identification scheme from all other objects within the same scheme."
-		Identifier	3	0._		SC	Identification Scheme	Identification Scheme. . Identifier		Identification Scheme				Identifier					The identification of the identification scheme.
+		Identifier	3	0._		SC	Identification Scheme	Identification Scheme. Identifier		Identification Scheme				Identifier					The identification of the identification scheme.
 		Identifier	4	0._		SC	Identification Scheme Name	Identification Scheme. Name. Text		Identification Scheme		Name		Text					The name of the identification scheme.
 		Identifier	5	0._		SC	Identification Scheme Agency	Identification Scheme Agency. . Identifier		Identification Scheme Agency				Identifier					The identification of the agency that maintains the identification scheme.
 		Identifier	6	0._		SC	Identification Scheme Agency Name	Identification Scheme. Agency Name. Text		Identification Scheme		Agency Name		Text					The name of the agency that maintains the identification scheme.
 		Identifier	7	0._		SC	Identification Scheme Version	Identification Scheme. Version. Identifier		Identification Scheme		Version		Identifier					The version of the identification scheme.
 		Identifier	8	0._		SC	Identification Scheme Data URI	Identification Scheme Data. Uniform Resource. Identifier		Identification Scheme Data		Uniform Resource		Identifier					The Uniform Resource Identifier that identifies where the identification scheme data is located.
 		Identifier	9	0._		SC	Identification Scheme URI	Identification Scheme. Uniform Resource. Identifier		Identification Scheme		Uniform Resource		Identifier					The Uniform Resource Identifier that identifies where the identification scheme is located.
-		Reference Identifier	10	0._		DT	Reference Identifier	Identifier. Type				Identifier	Reference	Identifier					
+		Reference Identifier	10	0._		DT	Reference Identifier	Reference Identifier. Type				Reference Identifier	Reference	Identifier					
 		Reference Identifier	11	0._		CC	Reference Identifier	Identifier. Content		Identifier		Content							"A character string used to identify and distinguish uniquely, one instance of an object in an identification scheme from all other objects within the same scheme."
-		Reference Identifier	12	0._		SC	Reference Identification Scheme	Identification Scheme. . Identifier		Identification Scheme				Identifier					The identification of the identification scheme.
+		Reference Identifier	12	0._		SC	Reference Identification Scheme	Identification Scheme. Identifier		Identification Scheme				Identifier					The identification of the identification scheme.
 		Reference Identifier	13	0._		SC	Reference Identification Scheme Name	Identification Scheme. Name. Text		Identification Scheme		Name		Text					The name of the identification scheme.
 		Reference Identifier	14	0._		SC	Reference Identification Scheme Agency	Identification Scheme Agency. . Identifier		Identification Scheme Agency				Identifier					The identification of the agency that maintains the identification scheme.
 		Reference Identifier	15	0._		SC	Reference Identification Scheme Agency Name	Identification Scheme. Agency Name. Text		Identification Scheme		Agency Name		Text					The name of the agency that maintains the identification scheme.
@@ -43,7 +43,7 @@ ENTITY_NAME	ATTRIBUTE_NAME	DOMAIN_NAME	#	Module	A/B/ID/RL/AS	CC/BIE	Business Ter
 		Quantity	42	0._		SC	Quantity UOM Agency	Quantity Unit. Code List Agency Name. Text		Quantity Unit		Code List Agency Name		Text					The name of the agency which maintains the quantity unit code list.
 		Code	43	0._		DT	Code	Code. Type				Code		Code					
 		Code	44	0._		CC	Code	Code. Content		Code		Content							"A character string (letters, figures or symbols) that for brevity and/or language independence may be used to represent or replace a definitive value or text of an attribute."
-		Code	45	0._		SC	Code List	Code List. . Identifier		Code List				Identifier					The identification of a list of codes.
+		Code	45	0._		SC	Code List	Code List. Identifier		Code List				Identifier					The identification of a list of codes.
 		Code	46	0._		SC	Code List Agency	Code List. Agency. Identifier		Code List		Agency		Identifier					An agency that maintains one or more code lists.
 		Code	47	0._		SC	Code List Agency Name	Code List. Agency Name. Text		Code List		Agency Name		Text					The name of the agency that maintains the code list.
 		Code	48	0._		SC	Code List Name	Code List. Name. Text		Code List		Name		Text					The name of a list of codes.
@@ -54,34 +54,48 @@ ENTITY_NAME	ATTRIBUTE_NAME	DOMAIN_NAME	#	Module	A/B/ID/RL/AS	CC/BIE	Business Ter
 		Code	53	0._		SC	Code List Scheme URI	Code List Scheme. Uniform Resource. Identifier		Code List Scheme		Uniform Resource		Identifier					The Uniform Resource identifier that identifies where the code list scheme is located.
 		Currency Code	54	0._		DT	Currency Code	Currency Code. Type				Currency Code	Currency	Code					
 		Currency Code	55	0._		CC	Currency Code	Code. Content		Code		Content							
-		Currency Code	56	0._		SC	Currency Code List	Code List. . Identifier		Code List				Identifier					
+		Currency Code	56	0._		SC	Currency Code List	Code List. Identifier		Code List				Identifier					
 		Currency Code	57	0._		SC	Currency Code Agency	Code List. Agency. Identifier		Code List		Agency		Identifier					
 		Currency Code	58	0._		SC	Currency Code Version	Code List. Version. Identifier		Code List		Version		Identifier					
 		Currency Code	59	0._		SC	Currency Code URI	Code List. Uniform Resource. Identifier		Code List		Uniform Resource		Identifier					
 		Country Code	60	0._		DT	Country Code	Country Code. Type				Country Code	Country	Code					
 		Country Code	61	0._		CC	Country Code	Code. Content		Code		Content							
-		Country Code	62	0._		SC	Country Code List	Code List. . Identifier		Code List				Identifier					
+		Country Code	62	0._		SC	Country Code List	Code List. Identifier		Code List				Identifier					
 		Country Code	63	0._		SC	Country Code Agency	Code List. Agency. Identifier		Code List		Agency		Identifier					
 		Country Code	64	0._		SC	Country Code Version	Code List. Version. Identifier		Code List		Version		Identifier					
 		Country Code	65	0._		SC	Country Code URI	Code List. Uniform Resource. Identifier		Code List		Uniform Resource		Identifier					
 		State Province Code	66	0._		DT	State Province Code	State Province Code. Type				State Province Code	State Province	Code					
 		State Province Code	67	0._		CC	State Province Code	Code. Content		Code		Content							
-		State Province Code	68	0._		SC	State Province Code List	Code List. . Identifier		Code List				Identifier					
+		State Province Code	68	0._		SC	State Province Code List	Code List. Identifier		Code List				Identifier					
 		State Province Code	69	0._		SC	State Province Code Agency	Code List. Agency. Identifier		Code List		Agency		Identifier					
 		State Province Code	70	0._		SC	State Province Code Version	Code List. Version. Identifier		Code List		Version		Identifier					
 		State Province Code	71	0._		SC	State Province Code URI	Code List. Uniform Resource. Identifier		Code List		Uniform Resource		Identifier					
-		Indicator	72	0._		DT	Indicator	Percent. Type				Percent		Percent					
-		Indicator	73	0._		CC	Indicator	Indicator. Content		Indicator		Content							
-		Indicator	74	0._		SC	Indicator Format	Indicator. Format. Text		Indicator		Format		Text					
-		Date Time	75	0._		DT	Date Time	Date Time. Type				Date Time		Date Time					
-		Date Time	76	0._		CC	Date Time	Date Time. Content		Date Time		Content							The particular point in the progression of time.
-		Date Time	77	0._		SC	Date Time Format	Date Time. Format. Text		Date Time		Format		Text					The format of the date/time content.
-		Date	78	0._		DT	Date	Date. Type				Date		Date					
-		Date	79	0._		CC	Date	Date Time. Content		Date Time		Content							The particular point in the progression of time.
-		Date	80	0._		SC	Date Format	Date Time. Format. Text		Date Time		Format		Text					The format of the date/time content.
-		Time	81	0._		DT	Time	Time. Type				Time		Time					
-		Time	82	0._		CC	Time	Date Time. Content		Date Time		Content							The particular point in the progression of time.
-		Time	83	0._		SC	Time Format	Date Time. Format. Text		Date Time		Format		Text					The format of the date/time content.
+		Date Time	72	0._		DT	Date Time	Date Time. Type				Date Time		Date Time					
+		Date Time	73	0._		CC	Date Time	Date Time. Content		Date Time		Content							The particular point in the progression of time.
+		Date Time	74	0._		SC	Date Time Format	Date Time. Format. Text		Date Time		Format		Text					The format of the date/time content.
+		Date	75	0._		DT	Date	Date. Type				Date		Date					
+		Date	76	0._		CC	Date	Date Time. Content		Date Time		Content							The particular point in the progression of time.
+		Date	77	0._		SC	Date Format	Date Time. Format. Text		Date Time		Format		Text					The format of the date/time content.
+		Time	78	0._		DT	Time	Time. Type				Time		Time					
+		Time	79	0._		CC	Time	Date Time. Content		Date Time		Content							The particular point in the progression of time.
+		Time	80	0._		SC	Time Format	Date Time. Format. Text		Date Time		Format		Text					The format of the date/time content.
+		Text	81	0._		DT	Text. Type	Text. Type				Text							
+		Text	82	0._		CC	Text. Content	Text. Content		Text		Content							A character string (I.e. a finite set of characters) generally in the form of words of a language.
+		Text	83	0._		SC	Language. Identifier	Language. Identifier		Language				Identifier					The identifier of the language used in the corresponding text string.
+		Text	84	0._		SC	Language. Locale. Identifier	Language. Locale. Identifier		Language		Locale		Identifier					The identification of the locale of the language.
+		Name	85	0._		DT	Name. Type	Name. Type				Name							
+		Name	86	0._		CC	Text. Content	Text. Content		Text		Content							A character string (I.e. a finite set of characters) generally in the form of words of a language.
+		Name	87	0._		SC	Language. Identifier	Language. Identifier		Language				Identifier					The identifier of the language used in the corresponding text string.
+		Name	88	0._		SC	Language. Locale. Identifier	Language. Locale. Identifier		Language		Locale		Identifier					The identification of the locale of the language.
+		Numeric	89	0._		DT	Numeric. Type	Numeric. Type				Numeric							
+		Numeric	90	0._		CC	Numeric. Content	Numeric. Content		Numeric		Content							"Numeric information that is assigned or is determined by calculation, counting or sequencing."
+		Numeric	91	0._		SC	Numeric. Format. Text	Numeric. Format. Text		Numeric		Format		Text					"Whether the number is an integer, decimal, real number or percentage."
+		Value	92	0._		DT	Value. Type	Value. Type				Value							
+		Value	93	0._		CC	Numeric. Content	Numeric. Content		Numeric		Content							"Numeric information that is assigned or is determined by calculation, counting or sequencing."
+		Value	94	0._		SC	Numeric. Format. Text	Numeric. Format. Text		Numeric		Format		Text					"Whether the number is an integer, decimal, real number or percentage."
+		Rate	95	0._		DT	Rate. Type	Rate. Type				Rate							
+		Rate	96	0._		CC	Numeric. Content	Numeric. Content		Numeric		Content							"Numeric information that is assigned or is determined by calculation, counting or sequencing."
+		Rate	97	0._		SC	Numeric. Format. Text	Numeric. Format. Text		Numeric		Format		Text					"Whether the number is an integer, decimal, real number or percentage."
 			84	0.Core	A	CC	List	List. Detail. 		List		Detail							A list.
 			85	0.Core	RL	CC	Parent ID	List. Parent. List		List		Parent						List	A specified reference identifier of this list item.
 			86	0.Core	ID	CC	List ID	List. ID		List		Identification		Identifier					A unique identifier for this list.
