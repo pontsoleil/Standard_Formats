@@ -1,0 +1,710 @@
+{
+"data":[{
+"entity_name":"ACCOUNT SEGMENT",
+"tag":"ACS",
+"code":"",
+"description":"Account segment information.",
+"comments":"",
+"xmltag":"AccountSegment"
+},{
+"entity_name":"ADDRESS",
+"tag":"ADR",
+"code":"",
+"description":"Address information.",
+"comments":"",
+"xmltag":"Address"
+},{
+"entity_name":"ADJUSTED AMOUNT",
+"tag":"AJA",
+"code":"",
+"description":"Adjusted amount.",
+"comments":"",
+"xmltag":"AdjustedAmount"
+},{
+"entity_name":"AMOUNT CURRENCY",
+"tag":"AMT",
+"code":"",
+"description":"Amount in different currencies.",
+"comments":"",
+"xmltag":"AmountCurrency"
+},{
+"entity_name":"AP ADJUSTMENT",
+"tag":"APA",
+"code":"",
+"description":"Contains all adjustments recorded against the invoice and impacting the invoice balance during the period. For example, write-offs, credit memos, and other adjustments. The file will have one record for each adjustment to each invoice. For example, if an adjustment transaction impacted three invoices, there will be three records for that adjustment-one for each of the invoices impacted by the adjustment.",
+"comments":"095",
+"xmltag":"ApAdjustment"
+},{
+"entity_name":"AP ADJUSTMENT DETAILS",
+"tag":"AAD",
+"code":"",
+"description":"Contains line item details for the invoices included in the AP_Adjustments table. The file will have one record for each invoice line item impacted by each adjustment.",
+"comments":"097",
+"xmltag":"ApAdjustmentDetails"
+},{
+"entity_name":"AP CASH APPLICATION",
+"tag":"APC",
+"code":"",
+"description":"Contains information of all cash payments applied against the invoice during the period under review. The file will have one record for each application of a cash payment to an invoice; for example, if a cash payment was applied to three invoices, there will be three records for that payment - one for each of the invoices to which the cash was applied. In the context of this process, cash means any type of payment received including checks and wire transfers and cash.",
+"comments":"093",
+"xmltag":"ApCashApplication"
+},{
+"entity_name":"AP OPEN ACCOUNT PAYABLE",
+"tag":"OAP",
+"code":"",
+"description":"Contains details regarding all open, unpaid, or unresolved payable transactions as of a specified date. Each row in this table represents the balance due to the supplier for one uniquely identifiable transaction. This file should be at the summary level (by invoice), not at the detailed level (by invoice line item). The sum total of the transaction amounts as of the specified date shall reconcile to the total AP amount in the general ledger (GL) as of the same date.",
+"comments":"089",
+"xmltag":"ApOpenAccountPayable"
+},{
+"entity_name":"AP PAYMENT MADE",
+"tag":"PAM",
+"code":"",
+"description":"Contains information on all payment transactions made during the period. Types of payments include check, wire transfer and cash.",
+"comments":"091",
+"xmltag":"ApPaymentMade"
+},{
+"entity_name":"APPROVED",
+"tag":"APR",
+"code":"",
+"description":"Information about the data was approved within the system.",
+"comments":"",
+"xmltag":"Approved"
+},{
+"entity_name":"AR ADJUSTMENT",
+"tag":"ARA",
+"code":"",
+"description":"Contains all adjustments recorded against the invoice and impacting the invoice balance during the period. For example, write-offs, credit memos, and other adjustments. The data set shall contain one record for each adjustment to each invoice. For example, if an adjustment transaction impacted three invoices, there shall be three records for that adjustment; one for each of the invoices impacted by the adjustment.",
+"comments":"067",
+"xmltag":"ArAdjustment"
+},{
+"entity_name":"AR ADJUSTMENT DETAILS",
+"tag":"ARL",
+"code":"",
+"description":"Contains line item details for the invoices included in the AR_Adjustments. The file will record for each invoice line item impacted by each adjustment.",
+"comments":"069",
+"xmltag":"ArAdjustmentDetails"
+},{
+"entity_name":"AR CASH APPLICATION",
+"tag":"ACA",
+"code":"",
+"description":"Contains information of all cash receipts applied against the invoice during the period under review. The file will have one record for each application of cash receipt to an invoice. For example, if a cash receipt was applied to three invoices, there will be three records for that receipt, one for each of the invoices to which the cash was applied. In the context of this process, cash means any type of receipt received including checks and wire transfers and crash.",
+"comments":"065",
+"xmltag":"ArCashApplication"
+},{
+"entity_name":"AR CASH RECEIVED",
+"tag":"CAR",
+"code":"",
+"description":"Contains information on all payment transactions received during the period. Cash means any type of receipt received including checks, wire transfers and cash.",
+"comments":"063",
+"xmltag":"ArCashReceived"
+},{
+"entity_name":"AR OPEN ACCOUNT RECEIVABLE",
+"tag":"OAR",
+"code":"",
+"description":"Contains details regarding all open, unpaid, or unresolved customer transactions as of a specified date. Each row in this table represents the balance expected from the customer for one uniquely identifiable transaction. This data should be at the summary level (by invoice), not at the detailed level (by invoice line item). The sum total of the transaction amounts as of the specified date shall reconcile to the total AR amount in the general ledger (GL) as of the same date.",
+"comments":"061",
+"xmltag":"ArOpenAccountReceivable"
+},{
+"entity_name":"BALANCE AMOUNT",
+"tag":"BAT",
+"code":"",
+"description":"Balance monetary amounts recorded in their currency. The balance here refers to the remaining balance unpaid or needing settlement, which can be calculated by analyzing net of the originating invoice and any payment made and adjustments against it.",
+"comments":"",
+"xmltag":"BalanceAmount"
+},{
+"entity_name":"BALANCE BEGINNING AMOUNT",
+"tag":"BBA",
+"code":"",
+"description":"The beginning balance amount.",
+"comments":"",
+"xmltag":"BalanceBeginningAmount"
+},{
+"entity_name":"BALANCE ENDING AMOUNT",
+"tag":"BEA",
+"code":"",
+"description":"The ending balance amount.",
+"comments":"",
+"xmltag":"BalanceEndingAmount"
+},{
+"entity_name":"BAS ACCOUNTING PERIOD",
+"tag":"APE",
+"code":"",
+"description":"Contains information related to accounting period including the corresponding fiscal year, the beginning and ending date. The table captures the time range within a specific reporting period and year, in which business transactions and entries are accumulated into financial statements and other reports.",
+"comments":"022",
+"xmltag":"BasAccountingPeriod"
+},{
+"entity_name":"BAS BANK ACCOUNT",
+"tag":"BAC",
+"code":"",
+"description":"Contains the details of a bank account.",
+"comments":"038",
+"xmltag":"BasBankAccount"
+},{
+"entity_name":"BAS BILL TYPE",
+"tag":"BLT",
+"code":"",
+"description":"Contains information of bill type, for example, bank draft, commercial draft, promissory note and check. Bills are frequently used in the business cycle of sales and purchase, as evidence of debt, payment and/or settlement instrument.",
+"comments":"026",
+"xmltag":"BasBillType"
+},{
+"entity_name":"BAS BUSINESS SEGMENT",
+"tag":"SEG",
+"code":"",
+"description":"The BAS_Business_Segment and the BAS_Business_Segment_Hierarchy have been designed to tabularize the portions of an organizational chart that is reflected in the business transactions as structural units  e.g. business unit, department, cost center and project).",
+"comments":"",
+"xmltag":""
+},{
+"entity_name":"The fields within the BAS_Business_Segment are used to capture the individual organizational unit represented by each box on an organizational diagram.",
+"tag":"004",
+"code":"BasBusinessSegment",
+"description":"",
+"comments":"",
+"xmltag":""
+},{
+"entity_name":"BAS BUSINESS SEGMENT HIERARCHY",
+"tag":"BSH",
+"code":"",
+"description":"The fields in the BAS_Business_Segment_Hierarchy are used to capture the relationships between the individual organization units. The table assumes a one to one relationship and captures the data necessary to consolidate transactions occurring for child level organizational units into higher level organizational structures (for example, business unit to division).",
+"comments":"006",
+"xmltag":"BasBusinessSegmentHierarchy"
+},{
+"entity_name":"BAS CHART OF ACCOUNTS",
+"tag":"ACC",
+"code":"",
+"description":"Contains the information about GL accounts, including name, description, type and hierarchy. This table is level 1. When it is cross-referred by other table(s), consistency shall apply. For example, in this table, the value of GL_Account_Number is 101, the value of GL_Account_Name is cash, and the value of Balance_Debit_Or_Credit is D, if the value of GL_Account_Number in GL_Tial_Balance table is 101, then the Amount corresponding with cash account (101) must be debit.",
+"comments":"020",
+"xmltag":"BasChartOfAccounts"
+},{
+"entity_name":"BAS CURRENCY",
+"tag":"CUR",
+"code":"",
+"description":"Contains the information of the currency.",
+"comments":"030",
+"xmltag":"BasCurrency"
+},{
+"entity_name":"BAS CUSTOMER",
+"tag":"CUS",
+"code":"",
+"description":"Contains essential and generic information of the customers.",
+"comments":"014",
+"xmltag":"BasCustomer"
+},{
+"entity_name":"BAS CUSTOMER TYPE",
+"tag":"CST",
+"code":"",
+"description":"Contains detailed descriptions of the customer type.",
+"comments":"012",
+"xmltag":"BasCustomerType"
+},{
+"entity_name":"BAS CUSTOMIZED ACC SEGMENT",
+"tag":"CAS",
+"code":"",
+"description":"An account segment is a customized file item, which includes the information of the customized account segments that are not fixed account segments and no other table contains their description information, for example region type. This table is used together with the BAS_Customized_ACC_Value.",
+"comments":"044",
+"xmltag":"BasCustomizedAccSegment"
+},{
+"entity_name":"BAS CUSTOMIZED ACC VALUE",
+"tag":"CAV",
+"code":"",
+"description":"Contains the information from the customized account segment value.",
+"comments":"046",
+"xmltag":"BasCustomizedAccValue"
+},{
+"entity_name":"BAS EMPLOYEE",
+"tag":"EMP",
+"code":"",
+"description":"Contains the personnel information of the employee in an independent accounting unit.",
+"comments":"008",
+"xmltag":"BasEmployee"
+},{
+"entity_name":"BAS JOURNAL ENTRY TYPE",
+"tag":"JET",
+"code":"",
+"description":"Contains information relevant with the GL journal entry type, for example, cash receipts, cash disbursements.",
+"comments":"024",
+"xmltag":"BasJournalEntryType"
+},{
+"entity_name":"BAS MEASUREMENT UNIT",
+"tag":"MEA",
+"code":"",
+"description":"Contains information of the measurement unit (UOM) used in the modules of general ledger, sales, purchase and inventory and PPE.",
+"comments":"032",
+"xmltag":"BasMeasurementUnit"
+},{
+"entity_name":"BAS PAYMENT TERM",
+"tag":"PAT",
+"code":"",
+"description":"Contains the details of the payment term, which is applied and referenced in the purchase ans sales modules.The payment term refers to the condition of a sale/purchase agreement and is related to how the customer will pay (type of credit instrument), and especially how much time is allowed for payment (credit period) and discount (cash discount and discount period).",
+"comments":"034",
+"xmltag":"BasPaymentTerm"
+},{
+"entity_name":"BAS PROFILE",
+"tag":"PRF",
+"code":"",
+"description":"Contains industry and software version information. This table contains information related to the profile of the data being collected. For instance, when we extract the financial data of 2016 from an auditee using SAP XXX ERP System in 2017.1.16, we should have a record with the Profile_Name \"\"XXX_2016\"\", Fiscal_Year \"\"2016\"\", Developer_Name \"\"SAP\"\", Software_Name \"\"SAP_S/4\"\", Software_Version \"\"2.0\"\", Functional_Currency \"\"CNY, Standard_Version \"\"ISO 21378\"\", Extracted_Date \"\"2017-01-16\"\".",
+"comments":"048",
+"xmltag":"BasProfile"
+},{
+"entity_name":"BAS PROJECT",
+"tag":"PRJ",
+"code":"",
+"description":"Contains the detailed information related to the project; for example, construction project, government or business-funded research project. Projects are commonly administrated seperately and could be subject to being audit in accordance with regulatory and/or managerial requirements. The audit of a project is a thorough examination of the management, execution, methodology, procedures, records, budgets, expenditures, and the degree of completion. It is referenced in several modules including the GL, AR, AP and Inventory.",
+"comments":"036",
+"xmltag":"BasProject"
+},{
+"entity_name":"BAS SETTLEMENT METHOD",
+"tag":"STM",
+"code":"",
+"description":"Contains information on methods used to settle transactions. Businesses can adopt various methods to settle transactions and transfer money, especially in sales and purchase activities. Typical settlement methods include: cash settlements, issuing bills, using credit cards, bank remittances and bank collection.",
+"comments":"028",
+"xmltag":"BasSettlementMethod"
+},{
+"entity_name":"BAS SUPPLIER",
+"tag":"SUP",
+"code":"",
+"description":"Contains essential and generic information of the suppliers.",
+"comments":"018",
+"xmltag":"BasSupplier"
+},{
+"entity_name":"BAS SUPPLIER TYPE",
+"tag":"SPT",
+"code":"",
+"description":"Contains detailed descriptions of the supplier type.",
+"comments":"016",
+"xmltag":"BasSupplierType"
+},{
+"entity_name":"BAS TAX REGULATORY",
+"tag":"TAR",
+"code":"",
+"description":"Contains regulatory information related to taxes, for example, regulator country, region, name and role.",
+"comments":"040",
+"xmltag":"BasTaxRegulatory"
+},{
+"entity_name":"BAS TAX TYPE",
+"tag":"TAT",
+"code":"",
+"description":"Contains detailed information on tax types used by the business. Tables in AR, Sales, AP and Purchase modules contain 4 tax types respectively, which can meet requirement of most cases of the business. Tax types could be tax in country level, in state level, in county level or in local level, or tax related to a transaction, for example, sale tax, value added tax or tariff.",
+"comments":"042",
+"xmltag":"BasTaxType"
+},{
+"entity_name":"BAS USER",
+"tag":"USR",
+"code":"",
+"description":"Contains the user information of accounting and/or ERP system.",
+"comments":"010",
+"xmltag":"BasUser"
+},{
+"entity_name":"BILLING ADDRESS",
+"tag":"BLA",
+"code":"",
+"description":"Billing address information.",
+"comments":"",
+"xmltag":"BillingAddress"
+},{
+"entity_name":"CONTACT",
+"tag":"CON",
+"code":"",
+"description":"Contact information.",
+"comments":"",
+"xmltag":"Contact"
+},{
+"entity_name":"CONTRACT",
+"tag":"CTR",
+"code":"",
+"description":"Contains information about a contract.",
+"comments":"",
+"xmltag":"Contract"
+},{
+"entity_name":"CONTRACT DETAILS",
+"tag":"CTD",
+"code":"",
+"description":"Contains line item details for a contract.",
+"comments":"",
+"xmltag":"ContractDetails"
+},{
+"entity_name":"CREATED",
+"tag":"CRT",
+"code":"",
+"description":"Information about the data  that was created into the system.",
+"comments":"",
+"xmltag":"Created"
+},{
+"entity_name":"CREDIT AMOUNT",
+"tag":"CRA",
+"code":"",
+"description":"The accumulative credit total during particular accounting period.",
+"comments":"",
+"xmltag":"CreditAmount"
+},{
+"entity_name":"CURRENCY INFO",
+"tag":"CRC",
+"code":"",
+"description":"Currency information.",
+"comments":"",
+"xmltag":"CurrencyInfo"
+},{
+"entity_name":"DEBIT AMOUNT",
+"tag":"DBA",
+"code":"",
+"description":"The accumulative debit total during particular accounting period.",
+"comments":"",
+"xmltag":"DebitAmount"
+},{
+"entity_name":"GL ACCOUNT PERIOD BALANCE",
+"tag":"GPB",
+"code":"",
+"description":"Contains the cumulative total and balance of accounts in each accounting period, facilitating the calculation of beginning, ending balance, duration amounts and quantity, thus reflecting information and changes in GL more intuitively. In this table, the quantity can serve different regulatory and managerial purposes. For example, subledgers of inventory and PPE may not be covered in some auditees' systems. In this case, we can record the cumulative total and balance of quantity of inventory or PPE in this table. This is a well-established practice in some countries, like France and China. Countries can choose to use GL_Trial_Balance or GL_Accounts_Period_Balance or both, depending on their customary practice, regulatory and managerial requirements.",
+"comments":"058",
+"xmltag":"GlAccountPeriodBalance"
+},{
+"entity_name":"GL ACCOUNT SEGMENT",
+"tag":"GSG",
+"code":"",
+"description":"The code and name for account segment, as well as the GL_Account_Number to which the account segment is related.The account segment provides additional information for particular GL_Accounts; for example, the accounts receivable contains the information regarding supplier, customer, employee, and project. Such information would be treated as an account segment below A/R, thus resulting in a lengthy account structure. In light of this, the account segment structure is defined as a set to record related information, efficiently avoiding the case that account names and numbers are extended to be too long and too complex. Account segment is more flexible to capture the complicated information.",
+"comments":"",
+"xmltag":""
+},{
+"entity_name":"Some of the most frequently used account segments, for example, project, employee and bank account, have been defined as fixed fields in tables, such as GL_Details. These segments are called fixed account segments in the document. Fixed account segments and other customized account segments are covered in this table.",
+"tag":"056",
+"code":"GlAccountSegment",
+"description":"",
+"comments":"",
+"xmltag":""
+},{
+"entity_name":"GL DETAILS",
+"tag":"GLD",
+"code":"",
+"description":"Contains all of the journal entry details for each transaction; for example, the associated journal entry ID, the associated account number, and the debits or credits associated with the journal entry line. This table should be at the journal entry line level.",
+"comments":"052",
+"xmltag":"GlDetails"
+},{
+"entity_name":"GL SOURCE",
+"tag":"SRC",
+"code":"",
+"description":"Contains additional information about the sources provided in the GL_Details table. Each source shall include a description of the ERP system or accounting package, from which the data is extracted, and information relating to the business process the data represents.",
+"comments":"054",
+"xmltag":"GlSource"
+},{
+"entity_name":"GL TRIAL BALANCE",
+"tag":"GTB",
+"code":"",
+"description":"Conains all the ledger account balance information. The GL_Trial_Balance file shall contain the ending balances at a point in time. The GL_Trial_Balance should be extracted at the same time as the GL_Details to prevent differences in transactions and balances.",
+"comments":"050",
+"xmltag":"GlTrialBalance"
+},{
+"entity_name":"HANDLING",
+"tag":"HND",
+"code":"",
+"description":"Handling information.",
+"comments":"",
+"xmltag":"Handling"
+},{
+"entity_name":"INV LOCATION",
+"tag":"IVL",
+"code":"",
+"description":"Contains information of inventory locations where inventory may be tracked.",
+"comments":121,
+"xmltag":"InvLocation"
+},{
+"entity_name":"INV ON HAND",
+"tag":"IVH",
+"code":"",
+"description":"Contains information of inventory on hand, for example, suppliers, quantities of items by location and amounts as of the specified date.",
+"comments":127,
+"xmltag":"InvOnHand"
+},{
+"entity_name":"INV PERIOD BALANCE",
+"tag":"IPB",
+"code":"",
+"description":"Contains inventory information regarding its beginning and ending balances, quantities and durational quantities and amounts.",
+"comments":133,
+"xmltag":"InvPeriodBalance"
+},{
+"entity_name":"INV PHYSICAL INVENTORY",
+"tag":"PHI",
+"code":"",
+"description":"Contains the quantities on hand as of the date of the physical inventory count as well as the flow information.",
+"comments":131,
+"xmltag":"InvPhysicalInventory"
+},{
+"entity_name":"INV PRODUCT",
+"tag":"IPR",
+"code":"",
+"description":"Contains basic attributes of inventory items and other tracked items through the purchase, use and sales.",
+"comments":125,
+"xmltag":"InvProduct"
+},{
+"entity_name":"INV PRODUCT TYPE",
+"tag":"IPT",
+"code":"",
+"description":"Contains inventory product type information and the tree structure information of inventory product type.",
+"comments":123,
+"xmltag":"InvProductType"
+},{
+"entity_name":"INV TRANSACTION",
+"tag":"INT",
+"code":"",
+"description":"Contains transaction history impacting the inventory accounts during the specified time period.",
+"comments":129,
+"xmltag":"InvTransaction"
+},{
+"entity_name":"INVOICE",
+"tag":"INV",
+"code":"",
+"description":"Contains the summery information for the invoices.",
+"comments":"",
+"xmltag":"Invoice"
+},{
+"entity_name":"INVOICE DETAILS",
+"tag":"IVD",
+"code":"",
+"description":"Contains line item details for invoices.",
+"comments":"",
+"xmltag":"InvoiceDetails"
+},{
+"entity_name":"LAST MODIFIED",
+"tag":"LSM",
+"code":"",
+"description":"Information about the data was  last modified within the system.",
+"comments":"",
+"xmltag":"LastModified"
+},{
+"entity_name":"MESSAGE",
+"tag":"MSG",
+"code":"",
+"description":"Message",
+"comments":"",
+"xmltag":"Message"
+},{
+"entity_name":"ORDER",
+"tag":"ORD",
+"code":"",
+"description":"Contains summary information of orders.",
+"comments":"",
+"xmltag":"Order"
+},{
+"entity_name":"ORDER DETAILS",
+"tag":"ODT",
+"code":"",
+"description":"Line item details for orders.",
+"comments":"",
+"xmltag":"OrderDetails"
+},{
+"entity_name":"PHYSICAL ADDRESS",
+"tag":"PHA",
+"code":"",
+"description":"Physical address information.",
+"comments":"",
+"xmltag":"PhysicalAddress"
+},{
+"entity_name":"POSTED",
+"tag":"PST",
+"code":"",
+"description":"Information about the data that was posted.",
+"comments":"",
+"xmltag":"Posted"
+},{
+"entity_name":"PPE ADDITION",
+"tag":"PPA",
+"code":"",
+"description":"Contains the information of PPE addition transactions.",
+"comments":140,
+"xmltag":"PpeAddition"
+},{
+"entity_name":"PPE CHANGE",
+"tag":"PPC",
+"code":"",
+"description":"Contains changes in PPE information not related to additions and removals of PPE.  Examples of information changes recorded include: revaluation, historical cost, depreciation method and ownership.",
+"comments":144,
+"xmltag":"PpeChange"
+},{
+"entity_name":"PPE DEPARTMENT ALLOCATION",
+"tag":"DPA",
+"code":"",
+"description":"Contains information about how the related expenses are allocated among departments who benefit from using the PPE, especially the depreciation expenses.",
+"comments":146,
+"xmltag":"PpeDepartmentAllocation"
+},{
+"entity_name":"PPE DEPRECIATION",
+"tag":"PDP",
+"code":"",
+"description":"Contains the information correlating with PPE summarized depreciation in the period.",
+"comments":150,
+"xmltag":"PpeDepreciation"
+},{
+"entity_name":"PPE DEPRECIATION METHOD",
+"tag":"PDM",
+"code":"",
+"description":"Contains the information of depreciation methods used for PPE depreciation.",
+"comments":148,
+"xmltag":"PpeDepreciationMethod"
+},{
+"entity_name":"PPE MASTER",
+"tag":"PPE",
+"code":"",
+"description":"Contains the details of each PPE item, for example, its code, specification, location, acquiring date, original cost, and quantity.",
+"comments":138,
+"xmltag":"PpeMaster"
+},{
+"entity_name":"PPE REMOVAL",
+"tag":"PPR",
+"code":"",
+"description":"Contains the details related to PPE removal transactions.",
+"comments":142,
+"xmltag":"PpeRemoval"
+},{
+"entity_name":"PPE TYPE",
+"tag":"PTP",
+"code":"",
+"description":"Contains the details of each PPE type. (Property, Plant and Equipment)",
+"comments":136,
+"xmltag":"PpeType"
+},{
+"entity_name":"PRIMARY CONTACT",
+"tag":"PCT",
+"code":"",
+"description":"Primary contact information.",
+"comments":"",
+"xmltag":"PrimaryContact"
+},{
+"entity_name":"PUR CONTRACT",
+"tag":"PCN",
+"code":"",
+"description":"Contains summary information of purchase contracts placed during the period under review. In situations where companies only require purchase orders, the purchase contract(s) may not always be available.",
+"comments":104,
+"xmltag":"PurContract"
+},{
+"entity_name":"PUR CONTRACT DETAILS",
+"tag":"PCD",
+"code":"",
+"description":"Contains line item details for the purchase contracts. Each line includes material, quantity, supplier, price per unit and trading amount.",
+"comments":106,
+"xmltag":"PurContractDetails"
+},{
+"entity_name":"PUR INVOICE RECEIVED",
+"tag":"PIR",
+"code":"",
+"description":"Contains summary information for the invoices received during the period under review. Invoices are included in the three-way match procedures, which control the decision process for AP entries. Each line includes invoice ID, invoice number, invoice date, supplier, invoice amount, currency type, tax type, tax amount, settle method and payment terms.",
+"comments":112,
+"xmltag":"PurInvoiceReceived"
+},{
+"entity_name":"PUR INVOICE RECEIVED DETAILS",
+"tag":"PID",
+"code":"",
+"description":"Contains line item details for invoices. Each line includes invoice line information on specific materials, measurement unit, price per unit, invoice amount, currency type, tax type code, and tax amount. The file will record for each invoice line item.",
+"comments":114,
+"xmltag":"PurInvoiceReceivedDetails"
+},{
+"entity_name":"PUR MATERIALS RECEIVED",
+"tag":"PMR",
+"code":"",
+"description":"Contains summary information for shipments and shipment adjustments received against purchase orders during the period under review. Materials received are included in the three-way match procedures, which control the decision process for AP entries.  Each line includes receipt ID and Number, receipt date, receipt amount, supplier information and currency type.",
+"comments":116,
+"xmltag":"PurMaterialsReceived"
+},{
+"entity_name":"PUR MATERIALS RECEIVED DETAILS",
+"tag":"PGD",
+"code":"",
+"description":"Contains line item details for shipments and shipment adjustment. Each line includes materials received, measurement unit, price per unit, order amount and currency type.",
+"comments":118,
+"xmltag":"PurMaterialsReceivedDetails"
+},{
+"entity_name":"PUR ORDER",
+"tag":"POR",
+"code":"",
+"description":"Contains summary information of purchase orders placed during the period under review. Purchase orders are included in the three-way match procedures, which control the decision process for AP entries.",
+"comments":108,
+"xmltag":"PurOrder"
+},{
+"entity_name":"PUR ORDER DETAILS",
+"tag":"POD",
+"code":"",
+"description":"Contains line item details for purchase orders. Each line includes material, quantity, due date, price per unit, trading amount, recipient and settlement organization. The file will have one record for each purchase order line item. Multiple types of materials may be presented in one purchase order.",
+"comments":110,
+"xmltag":"PurOrderDetails"
+},{
+"entity_name":"PUR REQUISITION",
+"tag":"PRR",
+"code":"",
+"description":"Contains summary information for purchase requisitions placed during the period under review.  The file will have one record for each requisition.",
+"comments":100,
+"xmltag":"PurRequisition"
+},{
+"entity_name":"PUR REQUISITION DETAILS",
+"tag":"PRD",
+"code":"",
+"description":"Contains line item details for the purchase requisitions. The table contains material, quantity, due date, requisition organization and the purchase organization.",
+"comments":102,
+"xmltag":"PurRequisitionDetails"
+},{
+"entity_name":"SAL CONTRACT",
+"tag":"SAC",
+"code":"",
+"description":"Contains summary information of sales contracts placed during the period under review. In situations where companies only require sales orders, the sales contract(s) may not always be available.",
+"comments":"072",
+"xmltag":"SalContract"
+},{
+"entity_name":"SAL CONTRACT DETAILS",
+"tag":"SCD",
+"code":"",
+"description":"Contains line item details for the sales contracts. Each line includes product, quantity, customer, price per unit and trading amount.",
+"comments":"074",
+"xmltag":"SalContractDetails"
+},{
+"entity_name":"SAL INVOICE GENERATED",
+"tag":"SAG",
+"code":"",
+"description":"Contains summary information for the invoices generated during the period under review. Invoices are included in the three-way match procedures, which control the decision process for AR entries.  Each line includes invoice ID, invoice number, invoice date, customer, invoice amount, currency type, tax type, tax amount, settlement method and payment terms.",
+"comments":"080",
+"xmltag":"SalInvoiceGenerated"
+},{
+"entity_name":"SAL INVOICE GENERATED DETAILS",
+"tag":"IGL",
+"code":"",
+"description":"Contains line item details for invoices. Each line includes invoice line information on specific products, measurement unit, price per unit, invoice amount, currency type, tax type code and tax amount.",
+"comments":"082",
+"xmltag":"SalInvoiceGeneratedDetails"
+},{
+"entity_name":"SAL ORDER",
+"tag":"SOR",
+"code":"",
+"description":"Contains summary information of sales orders pertinent to orders placed during the period under review Sales orders are included in the three-way match procedures, which control the decision process for AR entries.",
+"comments":"076",
+"xmltag":"SalOrder"
+},{
+"entity_name":"SAL ORDER DETAILS",
+"tag":"SAL",
+"code":"",
+"description":"Contains line item details for sales orders. Each line includes product, quantity, due date, price per unit, trading amount and settlement organization. The file will have one record for each sales order line item. Multiple types of products may be presented in one sales order. Additionally, different shippers and settlement organization may be assigned by each order line.",
+"comments":"078",
+"xmltag":"SalOrderDetails"
+},{
+"entity_name":"SAL SHIPMENT MADE",
+"tag":"SHM",
+"code":"",
+"description":"Contains summary information for shipments and shipment adjustments made against sales orders during the period under review. Shipments made are included in the three-way match procedures, which control the decision process for AR entries.  Each line includes shipment ID and Number, shipment date, shipping amount, customer information and currency type.",
+"comments":"084",
+"xmltag":"SalShipmentMade"
+},{
+"entity_name":"SAL SHIPMENT MADE DETAILS",
+"tag":"SMD",
+"code":"",
+"description":"Contains line item details for shipments and shipment adjustments. Each line includes shipments made, measurement unit, price per unit, order amount and currency type.",
+"comments":"086",
+"xmltag":"SalShipmentMadeDetails"
+},{
+"entity_name":"TAX",
+"tag":"TAX",
+"code":"",
+"description":"Tax information.",
+"comments":"",
+"xmltag":"Tax"
+},{
+"entity_name":"TRANSACTION AMOUNT",
+"tag":"TRA",
+"code":"",
+"description":"Transaction amount.",
+"comments":"",
+"xmltag":"TransactionAmount"
+}]
+}

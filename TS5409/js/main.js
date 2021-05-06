@@ -1,4 +1,5 @@
-var ccts_cct = {
+var adc_cct = {},
+ccts_cct = {
   'Amount': {
     'XML':'xsd:decimal', 'JSON':'number' },
   'BinaryObject': {
@@ -24,10 +25,10 @@ var ccts_cct = {
 },
 content = {
   'adc': {
-    'top': 'adc-abie', 'bottom-top': 'adc-entity', 'bottom-bottom': ['adc-entity2', 'adc-udt']
+    'top': 'adc-abie', 'bottom-top': 'adc-entity', 'bottom-bottom': ['adc-entity2', 'adc-dt']
   },
   'adc-cc': {
-    'top': 'adc-acc', 'bottom-top': 'adc-cc', 'bottom-bottom': ['adc-cc2', 'adc-cc-udt']
+    'top': 'adc-acc', 'bottom-top': 'adc-cc', 'bottom-bottom': ['adc-cc2', 'adc-cc-dt']
   },
   'xbrlgl': {
     'top': 'xbrlgl-abie', 'bottom-top': 'xbrlgl-entity', 'bottom-bottom': ['xbrlgl-entity2']
@@ -54,10 +55,10 @@ pane = {
 },
 table_title = {
   'adc': {
-    'adc-entity': null, 'adc-entity2': null, 'adc-udt': null
+    'adc-entity': null, 'adc-entity2': null, 'adc-dt': null
   },
   'adc-cc': {
-    'adc-cc': null, 'adc-cc2': null, 'adc-cc-udt': null
+    'adc-cc': null, 'adc-cc2': null, 'adc-cc-dt': null
   },
   'xbrlgl': {
     'xbrlgl-entity': null, 'xbrlgl-entity2': null
@@ -81,11 +82,11 @@ previous_entity = {
 },
 acc_table, cc_table, udt_table, cc2_table,
 bie_table, bie_compt_table, bie_compt2_table, qdt_table, uncefact_udt_table,
-adc_abie_table, adc_entity_table, adc_entity2_table, adc_udt_table,
+adc_abie_table, adc_entity_table, adc_entity2_table, adc_dt_table,
 adc_abie_COL_Module, adc_abie_COL_ComponentName, adc_abie_COL_DictionaryEntryName,
 adc_entity_COL_DictionaryEntryName, adc_entity_COL_ObjectClassTerm,
 adc_dt_COL_CategoryCode, adc_dt_COL_ObjectClassTerm, adc_dt_COL_DictionaryEntryName, adc_dt_COL_DataType,
-adc_acc_table, adc_cc_table, adc_cc2_table, adc_cc_udt_table,
+adc_acc_table, adc_cc_table, adc_cc2_table, adc_cc_dt_table,
 adc_acc_COL_Module, adc_acc_COL_ComponentName, adc_acc_COL_DictionaryEntryName,
 adc_cc_COL_DictionaryEntryName, adc_cc_COL_ObjectClassTerm,
 adc_cc_dt_COL_CategoryCode, adc_cc_dt_COL_ObjectClassTerm, adc_cc_dt_COL_DictionaryEntryName, adc_cc_dt_COL_DataType,
@@ -107,7 +108,8 @@ adcEntityMap, adcCcMap, xbrlglEntityMap, adsEntityMap, ublEntityMap, bieComptMap
 adcRows, adcAccRows, xbrlglRows, adsRows, ublRows, bieRows, abie,
 adcEntityRows, adcCcRows, xbrlglEntityRows, adsEntityRows, ublEntityRows, bieComptRows, bie,
 populateAdc, populateAdcAcc, populateXbrlgl, populateAds, populateUbl, populateBie, populateAcc,
-getTopTable, getTopTableID, getEntityTable, getEntityTableID;
+getTopTable, getTopTableID, getEntityTable, getEntityTableID,
+TS5409domainMap, TS5409attribute, TS5409entityMap;
 // -----------------------------------------------------------------
 // TAB MENU
 //
@@ -288,7 +290,7 @@ collapse(2);
 var H1 = 30, H2 = 70, Q1 = 25, Q2 = 25, Q3 = 25, Q4 = 25;
 function adc_entity_format(d) { // d is the original data object for the row
   if (!d) { return null; }
-  const capitalize = function(s) {
+  /*const capitalize = function(s) {
     if (typeof s !== 'string') return ''
     return s.charAt(0).toUpperCase() + s.slice(1)
   }
@@ -296,8 +298,15 @@ function adc_entity_format(d) { // d is the original data object for the row
     var s = num + "";
     while (s.length < size) s = "0" + s;
     return s;
+  }*/
+  const qualifiedName = function(q, term) {
+    return (q ? q+'_ ' : '')+term;
   }
   var html, name, key, nameC3, cct, xml, json, match, description;
+  var module = d.module || d.Module,
+      entityValue, attributeValue, domainValue,
+      entityName, attributeName, domain, entityXmlTag, attrXmlTag,
+      domainFormat, domainDatatype, iso21378datatype, iso21378representation;
   var Abbreviation = {
     'Account': 'ACC',
     'Audit Data Collection Standard': 'ADCS',
@@ -357,11 +366,14 @@ function adc_entity_format(d) { // d is the original data object for the row
     '8-bit Unicode Transformation Format': 'UTF-8',
     'Work In Progress': 'WIP'
   };
+  match = module.match(/[0-9]*\.[ ]*(.*)$/);
+  if (match) {
+    module = match[1];
+  }
   name = 'ABIE' === d.Kind
     ? d.DictionaryEntryName.match(/^([^_\.]*_ )?([^\.]+)\. .*$/)[2]
-    : d.Name
-      ? d.Name
-      : d.PropertyTerm+' '+d.RepresentationTerm;
+    : d.BusinessTerm;
+    // : d.PropertyTerm+' '+d.RepresentationTerm;
   for (key in Abbreviation) {
     var abbrev = Abbreviation[key],
         regx = RegExp(key),
@@ -371,8 +383,33 @@ function adc_entity_format(d) { // d is the original data object for the row
     }
   }
   name = name.replace(/ /g, '_');
-  nameC3 = name.split('_');
-  nameC3 = nameC3.map(function(n) { capitalize(n); }).join('');
+  // nameC3 = name.split('_');
+  // nameC3 = nameC3.map(function(n) { capitalize(n); }).join('');
+  entityName = d.Table;
+  entityValue = TS5409entityMap.get(entityName)
+  entityXmlTag = entityValue.xmltag;
+
+  attributeName = d.BusinessTerm;
+  if (entityName && attributeName) {
+    try {
+      attributeValue = TS5409attribute[entityName][attributeName];
+      attrXmlTag = attributeValue.xmltag;
+    }
+    catch(e) {
+      console.log(e);
+    }
+  }
+  domain = d.DOMAIN;
+  if (domain) {
+    domainValue = TS5409domainMap.get(domain);
+    if (domainValue) {
+      domainFormat = domainValue.format;
+      domainDatatype = domainValue.datatype;
+      domainXmlTag = domainValue.xmltag;
+      iso21378datatype = domainValue.ISO21378_datatype;
+      iso21378representation = domainValue.ISO21378_representation;
+    }
+  }
 
   cct = ccts_cct[d.RepresentationTerm];
   xml = cct ? cct.XML : null;
@@ -392,59 +429,66 @@ function adc_entity_format(d) { // d is the original data object for the row
     description = match[1]+match[3];
   }
   description = description.replace(/ (is|are) contained in Table [0-9]+/g, '');
-  description = description.replace(/EXAMPLE/g, '<br><span style="font-size:smaller">EXAMPLE</span><br>');
+  description = description.replace(/EXAMPLE/g, '<br><span style="font-size:small">EXAMPLE</span><br>');
   description = description.replace(/\(Table [0-9]+\) /g, '');
 
   html = '<table cellpadding="4" cellspacing="0" border="0" style="width:100%; padding-left:16px;">'+
   '<colgroup>'+
     '<col span="1" style="width: '+H1+'%;">'+
     '<col span="1" style="width: '+H2+'%;">'+
-  '</colgroup>'+
-  (description ? '<tr><td colspan="2">'+description+'</td><tr>' : '')+
-  '<tr><td>Dictionary Entry Name:</td>'+
-      '<td>'+(d.DictionaryEntryName ? d.DictionaryEntryName : '</td><td>')+'</td></tr>'+
-  (d.ObjectClassTerm
-    ? '<tr><td>&nbsp;&nbsp;Object Class Term:</td>'+
-      '<td>'+(d.ObjectClassTermQualifier ? d.ObjectClassTermQualifier+'_ ' : '')+d.ObjectClassTerm+'</td></tr>'
-    : ''
-  )+
-  ('ABIE' === d.Kind
-    ? '<tr><td>CSV</td><td>'+d.Table+'</td></tr>'+
-        '<tr><td>XML</td><td>'+nameC3+'</td></tr>'+
-        '<tr><td>JSON</td><td>'+nameC3+'</td></tr>'
-    : (d.PropertyTerm
-        ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Property Term:</td>'+
-          '<td>'+(d.PropertyTermQualifier ? d.PropertyTermQualifier+'_ ' : '')+' '+d.PropertyTerm+'</td></tr>'
-        : '')+
-      (d.RepresentationTerm
-        ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Representation Term:</td><td>'+d.RepresentationTerm+'</td></tr>'
-        : '')+
-      (d.AssociatedObjectClass
-        ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Associated Object Class:</td>'+
-          '<td>'+
-            (d.AssociatedObjectClassTermQualifier ? d.AssociatedObjectClassTermQualifier+'_ ' : '')+
-            d.AssociatedObjectClass+
-          '</td></tr>'
-        : '')+
-      (d.UsageRule
-        ? '<tr><td style="font-size:smaller">Usage Rule:</td><td>'+d.UsageRule+'</td></tr>'
-        : '')+
-      (d.Datatype
-        ? '<tr><td>CSV</td><td>name: '+name+'</td></tr>'+
-          (d.PK_REF
-            ? '<tr><td></td>'+
-              '<td>'+d.PK_REF+' '+(d.RefField ? d.RefField+' ( '+d.RefTable+' )' : '')+'</td></tr>'
-            : '')+
-          '<tr><td></td><td>data type: '+d.Datatype+'&nbsp;&nbsp;( '+d.Representation+' )'+(d.Occurence ? '&nbsp;&nbsp;occurence: '+d.Occurence+'</td></tr>' : '')
-        : '')+
-      '<tr><td>XML</td><td>name: '+nameC3+
-      (d.RepresentationTerm
-        ? ' Datatype: ccts-cct:'+d.RepresentationTerm+'Type'+(xml ? '&nbsp;&nbsp;( base: '+xml+' )' : '( complexType )')+'</td></tr>'
-        : ' ( complexType )</td></tr>')+
-      '<tr><td>JSON</td><td>name: '+nameC3+(json ? '&nbsp;&nbsp;( Datatype: '+json+' )' : '&nbsp;&nbsp;( Datatype: object )')+'</td></tr>'+
-      '<tr><td>XBRL GL</td><td>'+(d.XBRLGL ? d.XBRLGL : 'TBD')+'</td></tr>'
-  )+
-  '</table>';
+  '</colgroup>';
+  html += description ? '<tr><td colspan="2">'+description+'</td><tr>' : '';
+  html += '<tr><td>Dictionary Entry Name:</td>'+
+      '<td>'+(d.DictionaryEntryName ? d.DictionaryEntryName : '')+'</td></tr>';
+  html += d.ObjectClassTerm
+    ? '<tr><td style="font-size:small">&nbsp;&nbsp;Object Class Term:</td>'+
+        '<td>'+qualifiedName(d.ObjectClassTermQualifier, d.ObjectClassTerm)+'</td></tr>'
+    : '';
+  if ('ABIE' === d.Kind) {
+    html += 'Common' !== module
+      ? '<tr><td>CSV</td><td>'+d.Table.replaceAll(' ','_')+'</td></tr>'
+      : '';
+    html += entityName
+      ? '<tr><td>ISO/WD TS 5409</td><td>'+entityName+' &lt;'+entityXmlTag+'&gt;'+'</td></tr>'
+      : '';
+  }
+  else {
+    html += d.PropertyTerm
+      ? '<tr><td style="font-size:small">&nbsp;&nbsp;Property Term:</td>'+
+        '<td>'+qualifiedName(d.PropertyTermQualifier, d.PropertyTerm)+'</td></tr>'
+      : '';
+    html += d.RepresentationTerm
+      ? '<tr><td style="font-size:small">&nbsp;&nbsp;Representation Term:</td><td>'+d.RepresentationTerm+'</td></tr>'
+      : '';
+    html += d.AssociatedObjectClass
+      ? '<tr><td style="font-size:small">&nbsp;&nbsp;Associated Object Class:</td>'+
+        '<td>'+qualifiedName(d.AssociatedObjectClassTermQualifier, d.AssociatedObjectClass)+'</td></tr>'
+      : '';
+    html += d.RelationObjectClassTerm
+      ? '<tr><td style="font-size:small">&nbsp;&nbsp;Relation Object Class:</td>'+
+        '<td>'+qualifiedName(d.RelationObjectClassTermQualifier, d.RelationObjectClassTerm)+'</td></tr>'
+      : '';
+    html += d.UsageRule
+      ? '<tr><td style="font-size:small">Usage Rule:</td><td>'+d.UsageRule+'</td></tr>'
+      : '';
+    /*html += (d.PK_REF
+      ? '<tr><td></td>'+
+        '<td>'+d.PK_REF+' '+(d.RefField ? d.RefField+' ( '+d.RefTable+' )' : '')+'</td></tr>'
+      : '');*/
+    if (d.Kind.match(/BIE$/)) {
+      html += iso21378datatype
+        ? '<tr><td rowspan="2">CSV</td><td>'+name+'</td></tr>'+
+          '<tr><td>'+iso21378datatype+'&nbsp;&nbsp;( '+iso21378representation+' )</td></tr>'
+        : '<tr><td>CSV</td><td>'+name+'</td></tr>';
+      html += domainDatatype
+        ? '<tr><td rowspan="2">ISO/WD TS 5409</td><td>'+attributeName+' &lt;'+attrXmlTag+'&gt;</td></tr>'+
+          '<tr><td>'+domainDatatype+'&nbsp;&nbsp;( '+domainFormat+' )&nbsp;&nbsp;&lt;'+domainXmlTag+'&gt;</td></tr>'
+        : attributeName
+          ? '<tr><td>ISO/WD TS 5409</td><td>'+attributeName+' &lt;'+attrXmlTag+'&gt;</td></tr>'
+          : '';
+    }
+  }
+  html += '</table>';
   return html;
 }
 function adc_dt_format(d) { // d is the original data object for the row
@@ -464,10 +508,10 @@ function adc_dt_format(d) { // d is the original data object for the row
   '<tr><td>'+(d.UNID ? d.UNID : 'Dictionary Entry Name:')+'</td>'+
   '<td>'+d.DictionaryEntryName+'</td></tr>'+
   (d.PropertyTerm
-    ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Property Term:</td><td>'+d.PropertyTerm+'</td></tr>'
+    ? '<tr><td style="font-size:small">&nbsp;&nbsp;Property Term:</td><td>'+d.PropertyTerm+'</td></tr>'
     : '')+
   (d.RepresentationTerm
-    ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Representation Term:</td><td>'+
+    ? '<tr><td style="font-size:small">&nbsp;&nbsp;Representation Term:</td><td>'+
       (d.DatatypeQualifier ? d.DatatypeQualifier+'_ ' : '')+d.RepresentationTerm+'</td></tr>'
     : '')+
   ('CC' === d.Kind
@@ -476,10 +520,10 @@ function adc_dt_format(d) { // d is the original data object for the row
     : ''
   )+
   (d.Enumeration
-  ? '<tr><td style="font-size:smaller">Enumeration:</td><td>'+d.Enumeration+'</td></tr>'
+  ? '<tr><td style="font-size:small">Enumeration:</td><td>'+d.Enumeration+'</td></tr>'
   : '')+
   (d.RestrictionValue
-  ? '<tr><td style="font-size:smaller">Restriction Value:</td><td>'+d.RestrictionValue+'</td></tr>'
+  ? '<tr><td style="font-size:small">Restriction Value:</td><td>'+d.RestrictionValue+'</td></tr>'
   : '')+
   '</table>';
   return html;
@@ -496,23 +540,23 @@ function xbrlgl_entity_format(d) { // d is the original data object for the row
     ? '<tr><td colspan="2">'+d.Description+'</td><tr>'
     : '')+
   (d.ObjectClassTerm
-  ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Object Class Term:</td>'+
+  ? '<tr><td style="font-size:small">&nbsp;&nbsp;Object Class Term:</td>'+
     '<td>'+
     (d.ObjectClassTermQualifier ? d.ObjectClassTermQualifier+'_ ' : '')+
     d.ObjectClassTerm+'</td></tr>'
   : '')+
   (d.PropertyTerm
-  ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Property Term:</td>'+
+  ? '<tr><td style="font-size:small">&nbsp;&nbsp;Property Term:</td>'+
     '<td>'+
       (d.PropertyTermQualifier ? d.PropertyTermQualifier+'_ ' : '')+d.PropertyTerm+
     '</td></tr>'
   : '')+
   (d.RepresentationTerm
-  ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Representation Term:</td>'+
+  ? '<tr><td style="font-size:small">&nbsp;&nbsp;Representation Term:</td>'+
     '<td>'+d.RepresentationTerm+'</td></tr>'
   : '')+
   (d.AssociatedObjectClass
-  ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Associated Object Class:</td>'+
+  ? '<tr><td style="font-size:small">&nbsp;&nbsp;Associated Object Class:</td>'+
     '<td>'+
       (d.AssociatedObjectClassTermQualifier
         ? d.AssociatedObjectClassTermQualifier+'_ '
@@ -551,15 +595,15 @@ function ads_entity_format(d) { // d is the original data object for the row
   '<col span="1" style="width: '+H2+'%;">'+
   '</colgroup>'+
   (description ? '<tr><td colspan="2">'+description+'</td><tr>' : '')+
-  '<tr><td style="font-size:smaller">Dictionary Entry Name:</td><td>'+d.DictionaryEntryName+'</td><tr>'+
-  '<tr><td style="font-size:smaller">&nbsp;&nbsp;object class term:</td>'+
+  '<tr><td style="font-size:small">Dictionary Entry Name:</td><td>'+d.DictionaryEntryName+'</td><tr>'+
+  '<tr><td style="font-size:small">&nbsp;&nbsp;object class term:</td>'+
     '<td>'+
     (d.ObjectClassTermQualifier
       ? d.ObjectClassTermQualifier+'_ '
       : '')+
     d.ObjectClassTerm+'</td><tr>'+
   (d.PropertyTerm
-    ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Property Term:</td>'+
+    ? '<tr><td style="font-size:small">&nbsp;&nbsp;Property Term:</td>'+
         '<td>'+
         (d.PropertyTermQualifier
           ? d.PropertyTermQualifier+'_ '
@@ -567,7 +611,7 @@ function ads_entity_format(d) { // d is the original data object for the row
         d.PropertyTerm+'</td><tr>'
     : '')+
   ("BBIE" === d.Kind
-    ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Representation Term:</td>'+
+    ? '<tr><td style="font-size:small">&nbsp;&nbsp;Representation Term:</td>'+
         '<td>'+
         (d.DatatypeQualifier
           ? d.DatatypeQualifier+'_ '
@@ -575,7 +619,7 @@ function ads_entity_format(d) { // d is the original data object for the row
         d.RepresentationTerm+'</td><tr>'
     : '')+
   ("ASBIE" === d.Kind
-    ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Associated Object Class:</td>'+
+    ? '<tr><td style="font-size:small">&nbsp;&nbsp;Associated Object Class:</td>'+
           '<td>'+d.AssociatedObjectClass+'</td></tr>'
     : '')+
   (d.DataType
@@ -618,16 +662,16 @@ function cc_format(d) { // d is the original data object for the row
       : d.ObjectClassTerm+'. '+d.PropertyTerm+'. '+d.AssociatedObjectClass+'</td>')+
   '</tr>'+
   (d.ObjectClassTerm
-    ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Object Class Term:</td><td>'+d.ObjectClassTerm+'</td></tr>'
+    ? '<tr><td style="font-size:small">&nbsp;&nbsp;Object Class Term:</td><td>'+d.ObjectClassTerm+'</td></tr>'
     : '')+
   (d.PropertyTerm
-    ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Property Term:</td><td>'+d.PropertyTerm+'</td></tr>'
+    ? '<tr><td style="font-size:small">&nbsp;&nbsp;Property Term:</td><td>'+d.PropertyTerm+'</td></tr>'
     : '')+
   ('BCC' === d.Kind && d.RepresentationTerm
-    ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Representation Term:</td><td>'+d.RepresentationTerm+'</td></tr>'
+    ? '<tr><td style="font-size:small">&nbsp;&nbsp;Representation Term:</td><td>'+d.RepresentationTerm+'</td></tr>'
     : '')+
   ('ASCC' === d.Kind && d.AssociatedObjectClass
-    ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Associated Object Class:</td><td>'+d.AssociatedObjectClass+'</td></tr>'
+    ? '<tr><td style="font-size:small">&nbsp;&nbsp;Associated Object Class:</td><td>'+d.AssociatedObjectClass+'</td></tr>'
     : '')+
   '</table>';
   return html;
@@ -651,10 +695,10 @@ function bie_format(d) { // d is the original data object for the row
   (d.Definition ? '<tr><td colspan="4">'+d.Definition+'</td><tr>' : '')+
   '<tr><td>'+d.UniqueID+'</td><td colspan="3">'+d.DictionaryEntryName+'</td></tr>'+
   (d.Publicationcomments
-    ? '<tr><td style="font-size:smaller">Publication Comments:</td><td colspan="3">'+d.Publicationcomments+'</td></tr>'
+    ? '<tr><td style="font-size:small">Publication Comments:</td><td colspan="3">'+d.Publicationcomments+'</td></tr>'
     : '')+
   (d.AssociatedObjectClass
-    ? '<tr><td style="font-size:smaller">Associated Object Class:</td>'+
+    ? '<tr><td style="font-size:small">Associated Object Class:</td>'+
         '<td colspan="3">'+
         (d.AssociatedObjectClassTermQualifier
           ? d.AssociatedObjectClassTermQualifier+'_ '
@@ -663,35 +707,35 @@ function bie_format(d) { // d is the original data object for the row
         '</td></tr>'
     : '')+
   (d.QualifiedDataTypeUID
-    ?  '<tr><td style="font-size:smaller">Qualified Datatype UID:</td>'+
+    ?  '<tr><td style="font-size:small">Qualified Datatype UID:</td>'+
         '<td colspan="3">'+d.QualifiedDataTypeUID+'</td></tr>'
     : '')+
   (d.BusinessTerm
-    ? '<tr><td style="font-size:smaller">Business Term:</td><td colspan="3">'+d.BusinessTerm+'</td></tr>'
+    ? '<tr><td style="font-size:small">Business Term:</td><td colspan="3">'+d.BusinessTerm+'</td></tr>'
     : '')+
   (d.UsageRule
-    ? '<tr><td  style="font-size:smaller">Usage Rule:</td><td colspan="3">'+d.UsageRule+'</td></tr>'
+    ? '<tr><td  style="font-size:small">Usage Rule:</td><td colspan="3">'+d.UsageRule+'</td></tr>'
     : '')+
   (d.BusinessProcess
-    ? '<tr><td style="font-size:smaller">Business Process:</td><td colspan="3">'+d.BusinessProcess+'</td></tr>'
+    ? '<tr><td style="font-size:small">Business Process:</td><td colspan="3">'+d.BusinessProcess+'</td></tr>'
     : '')+
   (d.Product
-    ? '<tr><td style="font-size:smaller">Product:</td><td colspan="3" >'+d.Product+'</td></tr>'
+    ? '<tr><td style="font-size:small">Product:</td><td colspan="3" >'+d.Product+'</td></tr>'
     : '')+
-  '<tr><td style="font-size:smaller">Industry:</td><td>'+(d.Industry ?  d.Industry : '')+'</td>'+
-    '<td style="font-size:smaller">Region(Geopolitical):</td><td>'+(d.RegionGeopolitical ? d.RegionGeopolitical : '')+'</td>'+
+  '<tr><td style="font-size:small">Industry:</td><td>'+(d.Industry ?  d.Industry : '')+'</td>'+
+    '<td style="font-size:small">Region(Geopolitical):</td><td>'+(d.RegionGeopolitical ? d.RegionGeopolitical : '')+'</td>'+
   '</tr>'+
-  '<tr><td style="font-size:smaller">Official Constraints:</td><td>'+(d.OfficialConstraints ? d.OfficialConstraints : '')+'</td>'+
-    '<td style="font-size:smaller">Role:</td><td>'+(d.Role ? d.Role : '')+'</td>'+
+  '<tr><td style="font-size:small">Official Constraints:</td><td>'+(d.OfficialConstraints ? d.OfficialConstraints : '')+'</td>'+
+    '<td style="font-size:small">Role:</td><td>'+(d.Role ? d.Role : '')+'</td>'+
   '</tr>'+
   (d.SupportingRole
-    ? '<tr><td style="font-size:smaller">Supporting Role:</td><td colspan="3">'+d.SupportingRole+'</td></tr>'
+    ? '<tr><td style="font-size:small">Supporting Role:</td><td colspan="3">'+d.SupportingRole+'</td></tr>'
     : '')+
   (d.SystemConstraints
-    ? '<tr><td style="font-size:smaller">System Constraints:</td><td colspan="3">'+d.SystemConstraints+'</td></tr>'
+    ? '<tr><td style="font-size:small">System Constraints:</td><td colspan="3">'+d.SystemConstraints+'</td></tr>'
     : '')+
   (d.Example
-    ? '<tr><td style="font-size:smaller">Example:</td><td colspan="3">'+d.Example+'</td></tr>'
+    ? '<tr><td style="font-size:small">Example:</td><td colspan="3">'+d.Example+'</td></tr>'
     : '')+
   '</table>';
   return html;
@@ -709,45 +753,45 @@ function bie_compt_format(d) { // d is the original data object for the row
   (d.Definition ? '<tr><td colspan="4">'+d.Definition+'</td><tr>' : '')+
   '<tr><td>'+d.UniqueID+'</td><td colspan="3">'+d.DictionaryEntryName+'</td></tr>'+
   (d.Publicationcomments
-    ? '<tr><td style="font-size:smaller">Publication Comments:</td><td colspan="3">'+d.Publicationcomments+'</td></tr>'
+    ? '<tr><td style="font-size:small">Publication Comments:</td><td colspan="3">'+d.Publicationcomments+'</td></tr>'
     : '')+
   (d.AssociatedObjectClass
-    ? '<tr><td style="font-size:smaller">Associated Object Class:</td>'+
+    ? '<tr><td style="font-size:small">Associated Object Class:</td>'+
       '<td colspan="3">'+
       (d.AssociatedObjectClassTermQualifier
         ? d.AssociatedObjectClassTermQualifier+'_ '
         : '')+d.AssociatedObjectClass
     : '')+'</td></tr>'+
   (d.QualifiedDataTypeUID
-    ?  '<tr><td style="font-size:smaller">Qualified Datatype UID:</td>'+
+    ?  '<tr><td style="font-size:small">Qualified Datatype UID:</td>'+
         '<td colspan="3">'+d.QualifiedDataTypeUID
     : '')+'</td></tr>'+
   (d.BusinessTerm
-    ? '<tr><td style="font-size:smaller">Business Term:</td><td colspan="3">'+d.BusinessTerm+'</td></tr>'
+    ? '<tr><td style="font-size:small">Business Term:</td><td colspan="3">'+d.BusinessTerm+'</td></tr>'
     : '')+
   (d.UsageRule
-    ? '<tr><td  style="font-size:smaller">Usage Rule:</td><td colspan="3">'+d.UsageRule+'</td></tr>'
+    ? '<tr><td  style="font-size:small">Usage Rule:</td><td colspan="3">'+d.UsageRule+'</td></tr>'
     : '')+
   (d.BusinessProcess
-    ? '<tr><td style="font-size:smaller">Business Process:</td><td colspan="3">'+d.BusinessProcess+'</td></tr>'
+    ? '<tr><td style="font-size:small">Business Process:</td><td colspan="3">'+d.BusinessProcess+'</td></tr>'
     : '')+
   (d.Product
-    ? '<tr><td style="font-size:smaller">Product:</td><td colspan="3" >'+d.Product+'</td></tr>'
+    ? '<tr><td style="font-size:small">Product:</td><td colspan="3" >'+d.Product+'</td></tr>'
     : '')+
-  '<tr><td style="font-size:smaller">Industry:</td><td>'+(d.Industry ? d.Industry : '')+'</td>'+
-    '<td style="font-size:smaller">region(Geopolitical):</td><td>'+(d.RegionGeopolitical ? +d.RegionGeopolitical : '')+'</td>'+
+  '<tr><td style="font-size:small">Industry:</td><td>'+(d.Industry ? d.Industry : '')+'</td>'+
+    '<td style="font-size:small">region(Geopolitical):</td><td>'+(d.RegionGeopolitical ? +d.RegionGeopolitical : '')+'</td>'+
   '</tr>'+
-  '<tr><td style="font-size:smaller">Official Constraints:</td><td>'+(d.OfficialConstraints ? d.OfficialConstraints : '')+'</td>'+
-    '<td style="font-size:smaller">Role:</td><td>'+(d.Role ? d.Role : '')+'</td>'+
+  '<tr><td style="font-size:small">Official Constraints:</td><td>'+(d.OfficialConstraints ? d.OfficialConstraints : '')+'</td>'+
+    '<td style="font-size:small">Role:</td><td>'+(d.Role ? d.Role : '')+'</td>'+
   '</tr>'+
   (d.SupportingRole
-    ? '<tr><td style="font-size:smaller">Supporting Role:</td><td colspan="3">'+d.SupportingRole+'</td></tr>'
+    ? '<tr><td style="font-size:small">Supporting Role:</td><td colspan="3">'+d.SupportingRole+'</td></tr>'
     : '')+
   (d.SystemConstraints
-    ? '<tr><td style="font-size:smaller">System Constraints:</td><td colspan="3">'+d.SystemConstraints+'</td></tr>'
+    ? '<tr><td style="font-size:small">System Constraints:</td><td colspan="3">'+d.SystemConstraints+'</td></tr>'
     : '')+
   (d.Example
-    ? '<tr><td style="font-size:smaller">Example:</td><td colspan="3">'+d.Example+'</td></tr>'
+    ? '<tr><td style="font-size:small">Example:</td><td colspan="3">'+d.Example+'</td></tr>'
     : '')+
   '</table>';
   return html;
@@ -761,22 +805,22 @@ function qdt_format(d) { // d is the original data object for the row
   '<col span="1" style="width: '+H2+'%;">'+
   '</colgroup>'+
   (d.ObjectClassTerm
-    ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Object Class Term:</td><td>'+
+    ? '<tr><td style="font-size:small">&nbsp;&nbsp;Object Class Term:</td><td>'+
       (d.ObjectClassTermQualifier ? d.ObjectClassTermQualifier+'_ ' : '')+
       d.ObjectClassTerm+'</td></tr>'
     : '')+
   (d.PropertyTerm
-    ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Property Term:</td><td>'+d.PropertyTerm+'</td></tr>'
+    ? '<tr><td style="font-size:small">&nbsp;&nbsp;Property Term:</td><td>'+d.PropertyTerm+'</td></tr>'
     : '')+
   (d.RepresentationTerm
-    ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Representation Term:</td><td>'+
+    ? '<tr><td style="font-size:small">&nbsp;&nbsp;Representation Term:</td><td>'+
       (d.DatatypeQualifier ? d.DatatypeQualifier+'_ ' : '')+d.RepresentationTerm+'</td></tr>'
     : '')+
   (d.Enumeration
-    ? '<tr><td style="font-size:smaller">Enumeration:</td><td>'+d.Enumeration+'</td></tr>'
+    ? '<tr><td style="font-size:small">Enumeration:</td><td>'+d.Enumeration+'</td></tr>'
     : '')+
   (d.RestrictionValue
-    ? '<tr><td style="font-size:smaller">Restriction Value:</td><td>'+d.RestrictionValue+'</td></tr>'
+    ? '<tr><td style="font-size:small">Restriction Value:</td><td>'+d.RestrictionValue+'</td></tr>'
     : '')+
   '</table>';
   return html;
@@ -790,7 +834,7 @@ function ubl_entity_format(d) { // d is the original data object for the row
   '<col span="1" style="width: '+H2+'%;">'+
   '</colgroup>'+
   (d.Definition ? '<tr><td colspan="2">'+d.Definition+'</td><tr>' : '')+
-  '<tr><td style="font-size:smaller">'+
+  '<tr><td style="font-size:small">'+
   (d.DictionaryEntryName
     ? 'Dictionary Entry Name:</td><td>'+d.DictionaryEntryName
     : '</td><td>')+
@@ -800,30 +844,30 @@ function ubl_entity_format(d) { // d is the original data object for the row
       (d.base ? ' base:'+d.base : '')+'</td></tr>'
     : '')+
   (d.ObjectClass
-    ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Object Class Term:</td><td>'+
+    ? '<tr><td style="font-size:small">&nbsp;&nbsp;Object Class Term:</td><td>'+
       (d.ObjectClassQualifier ? d.ObjectClassQualifier+'_ ' : '')+
       d.ObjectClass+'</td></tr>'
     : '')+
   (d.PropertyTerm
-    ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Property Term:</td><td>'+
+    ? '<tr><td style="font-size:small">&nbsp;&nbsp;Property Term:</td><td>'+
       (d.PropertyTermQualifier ? d.PropertyTermQualifier+'_ ' : '')+
       d.PropertyTerm+'</td></tr>'
     : '')+
   ('BBIE' === d.ComponentType && d.RepresentationTerm
-    ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Representation Term:</td><td>'+
+    ? '<tr><td style="font-size:small">&nbsp;&nbsp;Representation Term:</td><td>'+
       (d.DataTypeQualifier ? d.DataTypeQualifier+'_ ' : '')+' '+d.RepresentationTerm+'</td></tr>'
     : '')+
   ('BBIE' === d.ComponentType && d.DataType
-    ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Datatype:</td><td>'+
+    ? '<tr><td style="font-size:small">&nbsp;&nbsp;Datatype:</td><td>'+
       (d.DataType ? d.DataType : '')+'</td></tr>'
     : '')+
   ('ASBIE' === d.ComponentType && d.AssociatedObjectClass
-    ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Associated Object Class:</td><td>'+
+    ? '<tr><td style="font-size:small">&nbsp;&nbsp;Associated Object Class:</td><td>'+
       (d.AssociatedObjectClassTermQualifier ? d.AssociatedObjectClassTermQualifier+'_ ' : '')+
       d.AssociatedObjectClass+'</td></tr>'
     : '')+
   (d.UsageRule
-    ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Usage Rule:</td><td>'+d.UsageRule+'</td></tr>'
+    ? '<tr><td style="font-size:small">&nbsp;&nbsp;Usage Rule:</td><td>'+d.UsageRule+'</td></tr>'
     : '')+
   '</table>';
   return html;
@@ -870,18 +914,18 @@ function ubl_dt_format(d) { // d is the original data object for the row
     var _d = foundArray[i];
     related += 
       '<tr><td>'+_d.UniqueID+'</td><td>'+_d.CategoryCode+'_ '+_d.DictionaryEntryName+'</td></tr>'+
-      '<tr><td style="font-size:smaller">&nbsp;&nbsp;&nbsp;Name:</td><td>'+_d.name+'</td></tr>'+
-      '<tr><td style="font-size:smaller">&nbsp;&nbsp;&nbsp;Definition:</td><td>'+_d.Definition+'</td></tr>'+
+      '<tr><td style="font-size:small">&nbsp;&nbsp;&nbsp;Name:</td><td>'+_d.name+'</td></tr>'+
+      '<tr><td style="font-size:small">&nbsp;&nbsp;&nbsp;Definition:</td><td>'+_d.Definition+'</td></tr>'+
       (_d.UsageRule
-        ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;&nbsp;Usage Rule:</td><td>'+_d.UsageRule+'</td></tr>'
+        ? '<tr><td style="font-size:small">&nbsp;&nbsp;&nbsp;Usage Rule:</td><td>'+_d.UsageRule+'</td></tr>'
         : '')+
       (_d.ObjectClass
-        ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;&nbsp;Object Class Term:</td><td>'+_d.ObjectClass+'</td></tr>'
+        ? '<tr><td style="font-size:small">&nbsp;&nbsp;&nbsp;Object Class Term:</td><td>'+_d.ObjectClass+'</td></tr>'
         : '')+
       (_d.PropertyTermName
-        ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;&nbsp;Property Term:</td><td>'+_d.PropertyTermName+'</td></tr>' : '')+
+        ? '<tr><td style="font-size:small">&nbsp;&nbsp;&nbsp;Property Term:</td><td>'+_d.PropertyTermName+'</td></tr>' : '')+
       (_d.RepresentationTermName
-        ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;&nbsp;Representation Term:</td><td>'+_d.RepresentationTermName+'</td></tr>' : '')+
+        ? '<tr><td style="font-size:small">&nbsp;&nbsp;&nbsp;Representation Term:</td><td>'+_d.RepresentationTermName+'</td></tr>' : '')+
       '<tr><td></td>'+
         '<td>'+(_d.type ? _d.type : '')+' '+(_d.PrimitiveType ? '&nbsp;&nbsp;(primitive type:'+_d.PrimitiveType+')'
         : '')+
@@ -901,16 +945,16 @@ function ubl_dt_format(d) { // d is the original data object for the row
   '<tr><td></td><td>'+
       (d.base ? ' base:'+d.base : '')+'(primitive type:'+d.PrimitiveType+')</td></tr>'+
   (d.ObjectClass
-    ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Object Class Term:</td><td>'+d.ObjectClass+'</td></tr>'
+    ? '<tr><td style="font-size:small">&nbsp;&nbsp;Object Class Term:</td><td>'+d.ObjectClass+'</td></tr>'
     : '')+
   d.PropertyTermName
-    ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Property Term:</td><td>'+d.PropertyTermName+'</td></tr>'
+    ? '<tr><td style="font-size:small">&nbsp;&nbsp;Property Term:</td><td>'+d.PropertyTermName+'</td></tr>'
     : '')+
   (d.RepresentationTermName
-    ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Representation Term:</td><td>'+d.RepresentationTermName+'</td></tr>'
+    ? '<tr><td style="font-size:small">&nbsp;&nbsp;Representation Term:</td><td>'+d.RepresentationTermName+'</td></tr>'
     : '')+
   (d.UsageRule
-    ? '<tr><td  style="font-size:smaller">Usage Rule:</td><td>'+d.UsageRule+'</td></tr>'
+    ? '<tr><td  style="font-size:small">Usage Rule:</td><td>'+d.UsageRule+'</td></tr>'
     : '')+
   (found.length > 0 ? related : '')+
   '</table>';
@@ -1015,7 +1059,7 @@ function renderAdcEntityDescription(row) {
     description = match[1]+match[3];
   }
   description = description.replace(/ (is|are) contained in Table [0-9]+/g, '');
-  // description = description.replace(/EXAMPLE/g, '<br><span style="font-size:smaller">EXAMPLE</span><br>');
+  // description = description.replace(/EXAMPLE/g, '<br><span style="font-size:small">EXAMPLE</span><br>');
   description = description.replace(/\(Table [0-9]+\) /g, '');
   if (description.length > 72) {
     description = description.substr(0, 72)+'...';
@@ -1103,7 +1147,7 @@ var adc_dt_columns = [
   { 'width': '35%',
     'data': 'DictionaryEntryName' }, // 1
   { 'width': '57%',
-    'data': 'Definition' }, // 2
+    'data': 'Description' }, // 2
   { 'width': '4%',
     'className': 'info-control',
     'orderable': false,
@@ -1195,7 +1239,7 @@ var adc_cc_dt_columns = [
   { 'width': '35%',
     'data': 'DictionaryEntryName' }, // 1
   { 'width': '57%',
-    'data': 'Definition' }, // 2
+    'data': 'Description' }, // 2
   { 'width': '4%',
     'className': 'info-control',
     'orderable': false,
@@ -1692,7 +1736,7 @@ function checkAssociated(table_id) {
     tr = rows[i];
     td_0 = tr.cells[0]; td_1 = tr.cells[1]; td_2 = tr.cells[2];
     if ((td_2 && td_2.innerHTML.match(/\. ID$/)) ||
-        (td_1 && 'IDBIE' === td_1.innerHTML)) {
+        (td_1 && td_1.innerHTML.match(/^ID/))) {
       td_0.classList.remove('details-control');
       td_0.classList.add('key-control');
     }
@@ -1713,7 +1757,7 @@ function checkAssociated(table_id) {
 function filterTop(frame) {
   var table, entity_table, entity_id,
       entityMap, data, key, item, dictionaryEntryName,
-      associates, rows;
+      associates, rows, module;
   loaded[frame] = true;
   table = getTopTable(frame);
   entity_table = getEntityTable(frame);
@@ -1737,11 +1781,11 @@ function filterTop(frame) {
       }
     }
   }
-  if (['xbrlgl', 'ubl'].indexOf(frame) >= 0) {
+  if (frame.match(/^(xbrlgl|ubl)$/)) {
     rows = table.data().toArray();
   }
   else {
-    if (['bie', 'acc'].indexOf(frame) >= 0) {
+    if (frame.match(/^(bie|acc)$/)) {
       associates = {};
       entityMap.forEach(function(v,k,m) {
         if (v.AssociatedObjectClass) {
@@ -1753,15 +1797,19 @@ function filterTop(frame) {
         }
       });
     }
-
     rows = [];
     table.data().toArray().forEach(function(v, i) {
-      if (['adc', 'adc-cc', 'ads'].indexOf(frame) >= 0) {
-        if ('Core' !== v.Module) {
+      if (frame.match(/^(adc|ads)$/)) {
+        module = v.Module || v.module;
+        if (!module.match(/^([0-9]*\.)?(Core)$/)) {
           rows.push(v);
         }
       }
-      else if (['bie', 'acc'].indexOf(frame) >= 0) {
+      if (frame.match(/^adc-cc$/)) {
+        module = v.Module || v.module;
+        rows.push(v);
+      }
+      else if (frame.match(/^(bie|acc)$/)) {
         key = (v.ObjectClassTermQualifier
           ? v.ObjectClassTermQualifier+'_ '
           : '')+
@@ -1771,7 +1819,6 @@ function filterTop(frame) {
         }
       }
     });
-
     table.clear();
     table.rows.add(rows)
     .draw();
@@ -1829,8 +1876,8 @@ adc_entity2_table = $('#adc-entity2').DataTable({
     checkAssociated('adc-entity2');
   }
 });
-adc_udt_table = $('#adc-udt').DataTable({
-  'ajax': '../data/list-ADC-udt.json',
+adc_dt_table = $('#adc-dt').DataTable({
+  'ajax': 'data/cct.json',
   'columns': adc_dt_columns,
   'columnDefs': adc_dt_columnDefs,
   'paging': false,
@@ -1878,8 +1925,8 @@ adc_cc2_table = $('#adc-cc2').DataTable({
     checkAssociated('adc-cc2');
   }
 });
-adc_cc_udt_table = $('#adc-cc-udt').DataTable({
-  'ajax': '../data/list-ADC-udt.json',
+adc_cc_dt_table = $('#adc-cc-dt').DataTable({
+  'ajax': 'data/cct.json',
   'columns': adc_cc_dt_columns,
   'columnDefs': adc_cc_dt_columnDefs,
   'paging': false,
@@ -2131,6 +2178,102 @@ udt_table = $('#udt').DataTable({
   'select': true
 });
 // -----------------------------------------------------------------
+// Ajax request
+// -----------------------------------------------------------------
+var requestCCT = function(n) {
+  ajaxRequest('data/cct.json', null, 'GET', 1000)
+  .then(function(res) {
+    try {
+      var data = JSON.parse(res).data;
+      adc_cct = {};
+      for (var record of data) {
+        var DataType = record.DataType;
+        if (!adc_cct[DataType]) { adc_cct[DataType] = []; }
+        adc_cct[DataType].push(record);
+      }
+    }
+    catch(e) { console.log(e); }
+  })
+  .catch(function(err) {
+    console.log('RETRY data/cct.json');
+    if (--n > 0) {
+      setTimeout(function() { requestCCT(n); }, 1000);
+    }
+    else { console.log(err); }
+  });
+}
+requestCCT(3);
+// -----------------------------------------------------------------
+var requestDomain = function(n) {
+  ajaxRequest('data/domains.json', null, 'GET', 1000)
+  .then(function(res) {
+    try {
+      var data = JSON.parse(res).data;
+      TS5409domainMap = new Map();
+      for (var record of data) {
+        TS5409domainMap.set(record.domain_name, record);
+      }
+    }
+    catch(e) { console.log(e); }
+  })
+  .catch(function(err) {
+    console.log('RETRY data/domains.json');
+    if (--n > 0) {
+      setTimeout(function() { requestDomain(n); }, 1000)
+    }
+    else { console.log(err); }
+  });
+}
+requestDomain(3);
+// -----------------------------------------------------------------
+var requestAttribute = function(n) {
+  ajaxRequest('data/attributes.json', null, 'GET', 1000)
+  .then(function(res) {
+    try {
+      var data = JSON.parse(res).data, attribute;
+      TS5409attribute = {};
+      for (var record of data) {
+        var e = record.entity_name, a = record.attribute_name;
+        if (!TS5409attribute[e]) {
+          TS5409attribute[e] = {};
+        }
+        TS5409attribute[e][a] = record;
+      }
+    }
+    catch(e) { console.log(e); }
+  })
+  .catch(function(err) {
+    console.log('RETRY data/attributes.json');
+    if (--n > 0) {
+      setTimeout(function() { requestAttribute(n); }, 1000);
+    }
+    else { console.log(err); }
+  });
+}
+requestAttribute(3);
+// -----------------------------------------------------------------
+var requestEntity = function(n) {
+  ajaxRequest('data/entities.json', null, 'GET', 1000)
+  .then(function(res) {
+    try {
+      var data = JSON.parse(res).data;
+      TS5409entityMap = new Map();
+      for (var record of data) {
+        TS5409entityMap.set(record.entity_name, record);
+      }
+    }
+    catch(e) { console.log(e); }
+  })
+  .catch(function(err) {
+    console.log('RETRY data/entities.json');
+    if (--n > 0) {
+      setTimeout(function() { requestEntity(n); }, 1000);
+    }
+    else { console.log(err); }
+  });
+}
+requestEntity(3);
+// -----------------------------------------------------------------
 // Add event listener for opening and closing info
 // -----------------------------------------------------------------
 // ADC
@@ -2165,9 +2308,9 @@ $('#adc-entity2 tbody').on('click', 'td.info-control', function(event) {
     row.child(adc_entity_format(data)).show(); tr.addClass('shown');
   }
 });
-$('#adc-udt tbody').on('click', 'td.info-control', function(event) {
+$('#adc-dt tbody').on('click', 'td.info-control', function(event) {
   event.stopPropagation();
-  var tr = $(this).closest('tr'), row = adc_udt_table.row(tr), data = row.data();
+  var tr = $(this).closest('tr'), row = adc_dt_table.row(tr), data = row.data();
   if (row.child.isShown()) { // This row is already open - close it
     row.child.hide(); tr.removeClass('shown');
   }
@@ -2208,9 +2351,9 @@ $('#adc-cc2 tbody').on('click', 'td.info-control', function(event) {
     row.child(adc_entity_format(data)).show(); tr.addClass('shown');
   }
 });
-$('#adc-cc-udt tbody').on('click', 'td.info-control', function(event) {
+$('#adc-cc-dt tbody').on('click', 'td.info-control', function(event) {
   event.stopPropagation();
-  var tr = $(this).closest('tr'), row = adc_udt_table.row(tr), data = row.data();
+  var tr = $(this).closest('tr'), row = adc_dt_table.row(tr), data = row.data();
   if (row.child.isShown()) { // This row is already open - close it
     row.child.hide(); tr.removeClass('shown');
   }
@@ -2847,8 +2990,9 @@ function showEntity(tr, frame) {
   entity_id = content[frame]['bottom-top'];
   num = getNum(frame);
   qualifier = (data.ObjectClassTermQualifier ? data.ObjectClassTermQualifier : '');
-  if (!qualifier && ['adc', 'ads'].indexOf(frame) >= 0) {
-    qualifier = frame.toUpperCase();
+  //if (!qualifier && ['adc', 'ads'].indexOf(frame) >= 0) {
+  if (!qualifier && 'ads' === frame) {
+      qualifier = frame.toUpperCase();
   }
   searchText = (qualifier ? qualifier+'_ ' : '')+data.ObjectClassTerm;
   showOverlay(null, false, searchText);
@@ -2867,10 +3011,11 @@ function showEntity(tr, frame) {
 function showDetail(tr, frame) {
   var table_id, data, entity2_id, udt_id, qdt_id, num, componentType,
       entity2_table, COL_ObjectClassTerm, udttable, qdttable,
-      //COL_CategoryCode, 
-      COL_DictionaryEntryName,// COL_UNID, 
+      COL_DictionaryEntryName,
       COL_DataType,
-      searchText = '', tableTitle;
+      searchText = '', tableTitle,
+      AssociatedObjectClassTermQualifier, AssociatedObjectClassTerm,
+      RelationObjectClassTermQualifier, RelationObjectClassTerm;
   table = getEntityTable(frame);
   table_id = getEntityTableID(frame);
   $('#'+table_id+' tbody tr.selected').removeClass('selected');
@@ -2878,6 +3023,14 @@ function showDetail(tr, frame) {
   row = table.row(tr);
   data = row.data();
   if (!data) { return; }
+  AssociatedObjectClassTermQualifier = data.AssociatedObjectClassTermQualifier;
+  AssociatedObjectClassTerm = data.AssociatedObjectClassTerm;
+  RelationObjectClassTermQualifier = data.RelationObjectClassTermQualifier;
+  RelationObjectClassTerm = data.RelationObjectClassTerm;
+  if ((AssociatedObjectClassTerm && AssociatedObjectClassTerm.match(/^\[.*\]$/)) ||
+      (RelationObjectClassTerm && RelationObjectClassTerm.match(/^\[.*\]$/))) {
+    return;
+  }
   componentType = data.ComponentType || data.Kind;
   if ('ASBIE' === componentType || 'ASCC' === componentType) {
     return null;
@@ -2891,17 +3044,17 @@ function showDetail(tr, frame) {
   switch (frame) {
     case 'adc':
       entity2_table = adc_entity2_table;
-      udttable      = adc_udt_table;
+      udttable      = adc_dt_table;
       COL_ObjectClassTerm     = adc_entity_COL_ObjectClassTerm;
       COL_DictionaryEntryName = adc_entity_COL_DictionaryEntryName;
-      // COL_DataType            = adc_entity_COL_DataType;
+      COL_DataType            = adc_dt_COL_DataType;
       break;
     case 'adc-cc':
       entity2_table = adc_cc2_table;
-      udttable      = adc_cc_udt_table;
+      udttable      = adc_cc_dt_table;
       COL_ObjectClassTerm     = adc_cc_COL_ObjectClassTerm;
       COL_DictionaryEntryName = adc_cc_COL_DictionaryEntryName;
-      // COL_DataType            = adc_cc_COL_DataType;
+      COL_DataType            = adc_cc_dt_COL_DataType;
       break;
     case 'xbrlgl':
       entity2_table = xbrlgl_entity2_table;
@@ -2946,24 +3099,34 @@ function showDetail(tr, frame) {
       $('#'+qdt_id+'-frame').addClass('d-none');
     }
     if (['adc', 'adc-cc'].indexOf(frame) >= 0) {
-      var qualifier = data.RelationObjectClassTermQualifier,
-          term = data.RelationObjectClassTerm;
+      var qualifier = RelationObjectClassTermQualifier,
+          term = RelationObjectClassTerm;
       searchText = (qualifier ? qualifier+'_ ' : '')+term;
       entity2_table.columns(COL_ObjectClassTerm)
-      .search('^'+searchText+'$', /*regex*/true, /*smart*/false, /*caseInsen*/false)
+      .search('^'+searchText, /*regex*/true, /*smart*/false, /*caseInsen*/false)
       .draw();
+      if (0 === entity2_table.rows({filter:'applied'}).nodes().length) {
+        entity2_table.columns(COL_ObjectClassTerm)
+        .search(term, /*regex*/true, /*smart*/false, /*caseInsen*/false)
+        .draw();
+      }
+      if (0 === entity2_table.rows({filter:'applied'}).nodes().length) {
+        entity2_table.columns(COL_DictionaryEntryName)
+        .search(term, /*regex*/true, /*smart*/false, /*caseInsen*/false)
+        .draw();
+      }
     }
     else if (['xbrlgl', 'ads', 'ubl'].indexOf(frame) >= 0) {
-      searchText = data.AssociatedObjectClass;
+      searchText = AssociatedObjectClass;
       entity2_table.columns(COL_ObjectClassTerm)
       .search('^'+searchText+'$', /*regex*/true, /*smart*/false, /*caseInsen*/false)
       .draw();
     }
     else if (['bie', 'acc'].indexOf(frame) >= 0) {
-      searchText = (data.AssociatedObjectClassTermQualifier
-        ? data.AssociatedObjectClassTermQualifier+'_ '
+      searchText = (AssociatedObjectClassTermQualifier
+        ? AssociatedObjectClassTermQualifier+'_ '
         : '')+
-        data.AssociatedObjectClass;
+        AssociatedObjectClass;
       entity2_table.columns(COL_DictionaryEntryName)
       .search('^'+searchText+'\\.', /*regex*/true, /*smart*/false, /*caseInsen*/false)
       .draw();
@@ -3010,9 +3173,9 @@ function showDetail(tr, frame) {
         .search('^'+searchText+'\\.', true, false, false)
         .draw();
       }
-      else if (['adc', 'acc'].indexOf(frame) >= 0) {
+      else if (['adc', 'adc-cc', 'acc'].indexOf(frame) >= 0) {
         udttable.columns(COL_DataType)
-        .search('^'+searchText+'\\.', /*regex*/true, /*smart*/false, /*caseInsen*/false)
+        .search('^'+searchText+'$', /*regex*/true, /*smart*/false, /*caseInsen*/false)
         .draw();
       }
       searchText = searchText+'\. Type';
