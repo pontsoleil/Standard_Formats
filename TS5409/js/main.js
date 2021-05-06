@@ -288,6 +288,9 @@ collapse(2);
 // Formatting function for row details
 //
 var H1 = 30, H2 = 70, Q1 = 25, Q2 = 25, Q3 = 25, Q4 = 25;
+var qualifiedName = function(q, term) {
+  return (q ? q+'_ ' : '')+term;
+}
 function adc_entity_format(d) { // d is the original data object for the row
   if (!d) { return null; }
   /*const capitalize = function(s) {
@@ -299,9 +302,6 @@ function adc_entity_format(d) { // d is the original data object for the row
     while (s.length < size) s = "0" + s;
     return s;
   }*/
-  const qualifiedName = function(q, term) {
-    return (q ? q+'_ ' : '')+term;
-  }
   var html, name, key, nameC3, cct, xml, json, match, description;
   var module = d.module || d.Module,
       entityValue, attributeValue, domainValue,
@@ -477,12 +477,12 @@ function adc_entity_format(d) { // d is the original data object for the row
       : '');*/
     if (d.Kind.match(/BIE$/)) {
       html += iso21378datatype
-        ? '<tr><td rowspan="2">CSV</td><td>'+name+'</td></tr>'+
-          '<tr><td>'+iso21378datatype+'&nbsp;&nbsp;( '+iso21378representation+' )</td></tr>'
+        ? '<tr><td>CSV</td><td>'+
+          name+'&nbsp;&nbsp;['+iso21378datatype+']&nbsp;&nbsp;( '+iso21378representation+' )</td></tr>'
         : '<tr><td>CSV</td><td>'+name+'</td></tr>';
       html += domainDatatype
         ? '<tr><td rowspan="2">ISO/WD TS 5409</td><td>'+attributeName+' &lt;'+attrXmlTag+'&gt;</td></tr>'+
-          '<tr><td>'+domainDatatype+'&nbsp;&nbsp;( '+domainFormat+' )&nbsp;&nbsp;&lt;'+domainXmlTag+'&gt;</td></tr>'
+          '<tr><td>['+domainDatatype+']&nbsp;&nbsp;( '+domainFormat+' )&nbsp;&nbsp;&lt;'+domainXmlTag+'&gt;</td></tr>'
         : attributeName
           ? '<tr><td>ISO/WD TS 5409</td><td>'+attributeName+' &lt;'+attrXmlTag+'&gt;</td></tr>'
           : '';
@@ -1134,6 +1134,7 @@ var adc_entity_columns = [
       return (qualifier ? qualifier+'_ ' : '')+term; }} // 7-
 ];
 var adc_entity_columnDefs = [
+  { 'className': 'dt-body-right', 'targets': [1] },
   { 'searchable': false, 'targets': [0, 4] },
   { 'visible': false, 'targets': [5, 6, 7] } 
 ];
@@ -1226,6 +1227,7 @@ var adc_cc_columns = [
       return (qualifier ? qualifier+'_ ' : '')+term; }} // 7-
 ];
 var adc_cc_columnDefs = [
+  { 'className': 'dt-body-right', 'targets': [1] },
   { 'searchable': false, 'targets': [0, 4] },
   { 'visible': false, 'targets': [5, 6, 7] } 
 ];
