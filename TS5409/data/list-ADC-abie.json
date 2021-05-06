@@ -6,10 +6,11 @@
 "Table":"ADJUSTED AMOUNT",
 "BusinessTerm":"Adjustment Amount",
 "DictionaryEntryName":"Adjusted_ Multi Currency Amount. Detail.",
-"Description":"",
+"Description":"Adjusted amount.",
 "ObjectClassTermQualifier":"Adjusted",
 "ObjectClassTerm":"Multi Currency Amount",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"AMOUNT CURRENCY",
 "DOMAIN":"is an"
 },{
@@ -19,10 +20,11 @@
 "Table":"BALANCE AMOUNT",
 "BusinessTerm":"Balance Amount",
 "DictionaryEntryName":"Balance_ Multi Currency Amount. Detail.",
-"Description":"",
+"Description":"Balance monetary amounts recorded in their currency. The balance here refers to the remaining balance unpaid or needing settlement, which can be calculated by analyzing net of the originating invoice and any payment made and adjustments against it.",
 "ObjectClassTermQualifier":"Balance",
 "ObjectClassTerm":"Multi Currency Amount",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"AMOUNT CURRENCY",
 "DOMAIN":"is an"
 },{
@@ -32,10 +34,11 @@
 "Table":"BALANCE BEGINNING AMOUNT",
 "BusinessTerm":"Balance Beginning Amount",
 "DictionaryEntryName":"Balance Beginning_ Multi Currency Amount. Detail.",
-"Description":"",
+"Description":"The beginning balance amount.",
 "ObjectClassTermQualifier":"Balance Beginning",
 "ObjectClassTerm":"Multi Currency Amount",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"AMOUNT CURRENCY",
 "DOMAIN":"is an"
 },{
@@ -45,10 +48,11 @@
 "Table":"BALANCE ENDING AMOUNT",
 "BusinessTerm":"Balance Ending Amount",
 "DictionaryEntryName":"Balance Ending_ Multi Currency Amount. Detail.",
-"Description":"",
+"Description":"The ending balance amount.",
 "ObjectClassTermQualifier":"Balance Ending",
 "ObjectClassTerm":"Multi Currency Amount",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"AMOUNT CURRENCY",
 "DOMAIN":"is an"
 },{
@@ -58,10 +62,11 @@
 "Table":"DEBIT AMOUNT",
 "BusinessTerm":"Debit Amount",
 "DictionaryEntryName":"Debit_ Multi Currency Amount. Detail.",
-"Description":"",
+"Description":"The accumulative debit total during particular accounting period.",
 "ObjectClassTermQualifier":"Debit",
 "ObjectClassTerm":"Multi Currency Amount",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"AMOUNT CURRENCY",
 "DOMAIN":"is an"
 },{
@@ -71,10 +76,11 @@
 "Table":"TRANSACTION AMOUNT",
 "BusinessTerm":"Transaction Amount",
 "DictionaryEntryName":"Transaction_ Multi Currency Amount. Detail.",
-"Description":"",
+"Description":"Transaction amount.",
 "ObjectClassTermQualifier":"Transaction",
 "ObjectClassTerm":"Multi Currency Amount",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"AMOUNT CURRENCY",
 "DOMAIN":"is an"
 },{
@@ -84,10 +90,11 @@
 "Table":"CURRENCY INFO",
 "BusinessTerm":"Currency Info",
 "DictionaryEntryName":"Currency Info_ Multi Currency Amount. Detail.",
-"Description":"",
+"Description":"Currency information.",
 "ObjectClassTermQualifier":"Currency Info",
 "ObjectClassTerm":"Multi Currency Amount",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"AMOUNT CURRENCY",
 "DOMAIN":"is an"
 },{
@@ -97,10 +104,11 @@
 "Table":"CREATED",
 "BusinessTerm":"Created Handling",
 "DictionaryEntryName":"Created_ Handling. Detail.",
-"Description":"A thing that a person does or has done. A type of activity is 'Created'.",
+"Description":"Information about the data  that was created into the system.",
 "ObjectClassTermQualifier":"Created",
 "ObjectClassTerm":"Handling",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"HANDLING",
 "DOMAIN":"is a"
 },{
@@ -110,10 +118,11 @@
 "Table":"POSTED",
 "BusinessTerm":"Posted Handling",
 "DictionaryEntryName":"Posted_ Handling. Detail.",
-"Description":"A thing that a person does or has done. A type of activity is 'Created'.",
+"Description":"Information about the data that was posted.",
 "ObjectClassTermQualifier":"Posted",
 "ObjectClassTerm":"Handling",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"HANDLING"
 },{
 "module":"1.Common",
@@ -125,7 +134,8 @@
 "Description":"A thing that a person does or has done. A type of activity is 'Entered'.",
 "ObjectClassTermQualifier":"Entered",
 "ObjectClassTerm":"Handling",
-"PropertyTerm":"Detail"
+"PropertyTerm":"Detail",
+"RepresentationTerm":"Code"
 },{
 "module":"1.Common",
 "num":440,
@@ -133,10 +143,11 @@
 "Table":"APPROVED",
 "BusinessTerm":"Approved Handling",
 "DictionaryEntryName":"Approved_ Handling. Detail.",
-"Description":"A thing that a person does or has done. A type of activity is 'Approved'.",
+"Description":"Information about the data was approved within the system.",
 "ObjectClassTermQualifier":"Approved",
 "ObjectClassTerm":"Handling",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"HANDLING"
 },{
 "module":"1.Common",
@@ -145,10 +156,11 @@
 "Table":"LAST MODIFIED",
 "BusinessTerm":"Last Modified Handling",
 "DictionaryEntryName":"Last Modified_ Handling. Detail.",
-"Description":"A thing that a person does or has done. A type of activity is 'Last Modified'.",
+"Description":"Information about the data was  last modified within the system.",
 "ObjectClassTermQualifier":"Last Modified",
 "ObjectClassTerm":"Handling",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"HANDLING"
 },{
 "module":"1.Common",
@@ -159,7 +171,8 @@
 "DictionaryEntryName":"Code. Detail.",
 "Description":"",
 "ObjectClassTerm":"Code",
-"PropertyTerm":"Detail"
+"PropertyTerm":"Detail",
+"RepresentationTerm":"Code"
 },{
 "module":"1.Common",
 "num":455,
@@ -167,9 +180,10 @@
 "Table":"ADDRESS",
 "BusinessTerm":"Address",
 "DictionaryEntryName":"Address. Detail.",
-"Description":"",
+"Description":"Address information.",
 "ObjectClassTerm":"Address",
-"PropertyTerm":"Detail"
+"PropertyTerm":"Detail",
+"RepresentationTerm":"Code"
 },{
 "module":"1.Common",
 "num":462,
@@ -177,10 +191,11 @@
 "Table":"BILLING ADDRESS",
 "BusinessTerm":"Billing Address",
 "DictionaryEntryName":"Billing_ Address. Detail.",
-"Description":"",
+"Description":"Billing address information.",
 "ObjectClassTermQualifier":"Billing",
 "ObjectClassTerm":"Address",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"ADDRESS",
 "DOMAIN":"is an"
 },{
@@ -190,10 +205,11 @@
 "Table":"PHYSICAL ADDRESS",
 "BusinessTerm":"Physical Address",
 "DictionaryEntryName":"Physical_ Address. Detail.",
-"Description":"",
+"Description":"Physical address information.",
 "ObjectClassTermQualifier":"Physical",
 "ObjectClassTerm":"Address",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"ADDRESS",
 "DOMAIN":"is an"
 },{
@@ -203,10 +219,11 @@
 "Table":"MESSAGE",
 "BusinessTerm":"Message",
 "DictionaryEntryName":"Message_ List. Detail.",
-"Description":"",
+"Description":"Message",
 "ObjectClassTermQualifier":"Message",
 "ObjectClassTerm":"List",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"TABLE INFORMATION"
 },{
 "module":"1.Common",
@@ -215,10 +232,11 @@
 "Table":"PRIMARY CONTACT",
 "BusinessTerm":"Primary Contact",
 "DictionaryEntryName":"Primary_ Contact. Detail.",
-"Description":"",
+"Description":"Primary contact information.",
 "ObjectClassTermQualifier":"Primary",
 "ObjectClassTerm":"Contact",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"CONTACT",
 "DOMAIN":"is a"
 },{
@@ -228,10 +246,11 @@
 "Table":"TAX",
 "BusinessTerm":"Tax",
 "DictionaryEntryName":"Tax_ List. Detail.",
-"Description":"",
+"Description":"Tax information.",
 "ObjectClassTermQualifier":"Tax",
 "ObjectClassTerm":"List",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"TAX"
 },{
 "module":"2.Base",
@@ -240,10 +259,11 @@
 "Table":"ACCOUNT SEGMENT",
 "BusinessTerm":"Account Segment",
 "DictionaryEntryName":"Account Segment_ Code. Detail.",
-"Description":"",
+"Description":"Account segment information.",
 "ObjectClassTermQualifier":"Account Segment",
 "ObjectClassTerm":"Code",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"ACCOUNT SEGMENT INFORMATION"
 },{
 "module":"2.Base",
@@ -252,10 +272,11 @@
 "Table":"BAS ACCOUNTING PERIOD",
 "BusinessTerm":"Accounting Period",
 "DictionaryEntryName":"Accounting Period_ List. Detail.",
-"Description":"",
+"Description":"Contains information related to accounting period including the corresponding fiscal year, the beginning and ending date. The table captures the time range within a specific reporting period and year, in which business transactions and entries are accumulated into financial statements and other reports.",
 "ObjectClassTermQualifier":"Accounting Period",
 "ObjectClassTerm":"List",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"ACCOUNTING PERIOD INFORMATION"
 },{
 "module":"2.Base",
@@ -264,10 +285,11 @@
 "Table":"BAS BANK ACCOUNT",
 "BusinessTerm":"Bank Account",
 "DictionaryEntryName":"Bank Account_ List. Detail.",
-"Description":"",
+"Description":"Contains the details of a bank account.",
 "ObjectClassTermQualifier":"Bank Account",
 "ObjectClassTerm":"List",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"BANK ACCOUNT"
 },{
 "module":"2.Base",
@@ -276,10 +298,11 @@
 "Table":"BAS BILL TYPE",
 "BusinessTerm":"Bill Type",
 "DictionaryEntryName":"Bill Type_ List. Detail.",
-"Description":"",
+"Description":"Contains information of bill type, for example, bank draft, commercial draft, promissory note and check. Bills are frequently used in the business cycle of sales and purchase, as evidence of debt, payment and/or settlement instrument.",
 "ObjectClassTermQualifier":"Bill Type",
 "ObjectClassTerm":"List",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"DOCUMENT TYPE"
 },{
 "module":"2.Base",
@@ -288,10 +311,11 @@
 "Table":"BAS BUSINESS SEGMENT",
 "BusinessTerm":"Business Segment",
 "DictionaryEntryName":"Business Segment_ List. Detail.",
-"Description":"",
+"Description":"The BAS_Business_Segment and the BAS_Business_Segment_Hierarchy have been designed to tabularize the portions of an organizational chart that is reflected in the business transactions as structural units  e.g. business unit, department, cost center and project).",
 "ObjectClassTermQualifier":"Business Segment",
 "ObjectClassTerm":"List",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"BUSINESS SEGMENT"
 },{
 "module":"2.Base",
@@ -300,10 +324,11 @@
 "Table":"BAS BUSINESS SEGMENT HIERARCHY",
 "BusinessTerm":"Business Segment Hierarchy",
 "DictionaryEntryName":"Business Segment Hierarchy_ List. Detail.",
-"Description":"",
+"Description":"The fields in the BAS_Business_Segment_Hierarchy are used to capture the relationships between the individual organization units. The table assumes a one to one relationship and captures the data necessary to consolidate transactions occurring for child level organizational units into higher level organizational structures (for example, business unit to division).",
 "ObjectClassTermQualifier":"Business Segment Hierarchy",
 "ObjectClassTerm":"List",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"RELATIONSHIP"
 },{
 "module":"2.Base",
@@ -312,10 +337,11 @@
 "Table":"BAS CHART OF ACCOUNTS",
 "BusinessTerm":"Chart of Accounts",
 "DictionaryEntryName":"Chart Of Accounts_ Accounting Account. Detail.",
-"Description":"",
+"Description":"Contains the information about GL accounts, including name, description, type and hierarchy. This table is level 1. When it is cross-referred by other table(s), consistency shall apply. For example, in this table, the value of GL_Account_Number is 101, the value of GL_Account_Name is cash, and the value of Balance_Debit_Or_Credit is D, if the value of GL_Account_Number in GL_Tial_Balance table is 101, then the Amount corresponding with cash account (101) must be debit.",
 "ObjectClassTermQualifier":"Chart Of Accounts",
 "ObjectClassTerm":"Accounting Account",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"CHART OF LEDGER ACCOUNTS"
 },{
 "module":"2.Base",
@@ -324,10 +350,11 @@
 "Table":"BAS CURRENCY",
 "BusinessTerm":"Currency",
 "DictionaryEntryName":"Currency_ List. Detail.",
-"Description":"",
+"Description":"Contains the information of the currency.",
 "ObjectClassTermQualifier":"Currency",
 "ObjectClassTerm":"List",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"CURRENCY"
 },{
 "module":"2.Base",
@@ -336,10 +363,11 @@
 "Table":"BAS CUSTOMIZED ACC SEGMENT",
 "BusinessTerm":"Customized Account Segment",
 "DictionaryEntryName":"Customized Account Segment_ List. Detail.",
-"Description":"",
+"Description":"An account segment is a customized file item, which includes the information of the customized account segments that are not fixed account segments and no other table contains their description information, for example region type. This table is used together with the BAS_Customized_ACC_Value.",
 "ObjectClassTermQualifier":"Customized Account Segment",
 "ObjectClassTerm":"List",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"CUSTOMIZED ACC SEGMENT"
 },{
 "module":"2.Base",
@@ -348,10 +376,11 @@
 "Table":"BAS CUSTOMIZED ACC VALUE",
 "BusinessTerm":"Customized Account Value",
 "DictionaryEntryName":"Customized Account Value_ List. Detail.",
-"Description":"",
+"Description":"Contains the information from the customized account segment value.",
 "ObjectClassTermQualifier":"Customized Account Value",
 "ObjectClassTerm":"List",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"CUSTOMIZED ACC VALUE"
 },{
 "module":"2.Base",
@@ -360,10 +389,11 @@
 "Table":"BAS EMPLOYEE",
 "BusinessTerm":"Employee",
 "DictionaryEntryName":"Employee_ Person. Detail.",
-"Description":"",
+"Description":"Contains the personnel information of the employee in an independent accounting unit.",
 "ObjectClassTermQualifier":"Employee",
 "ObjectClassTerm":"Person",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"EMPLOYEE"
 },{
 "module":"2.Base",
@@ -372,10 +402,11 @@
 "Table":"BAS JOURNAL ENTRY TYPE",
 "BusinessTerm":"Journal entry type",
 "DictionaryEntryName":"Journal Entry Type_ List. Detail.",
-"Description":"",
+"Description":"Contains information relevant with the GL journal entry type, for example, cash receipts, cash disbursements.",
 "ObjectClassTermQualifier":"Journal Entry Type",
 "ObjectClassTerm":"List",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"JOURNAL ENTRY TYPE"
 },{
 "module":"2.Base",
@@ -384,10 +415,11 @@
 "Table":"BAS MEASUREMENT UNIT",
 "BusinessTerm":"Measurement unit",
 "DictionaryEntryName":"Measurement Unit_ List. Detail.",
-"Description":"",
+"Description":"Contains information of the measurement unit (UOM) used in the modules of general ledger, sales, purchase and inventory and PPE.",
 "ObjectClassTermQualifier":"Measurement Unit",
 "ObjectClassTerm":"List",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"MEASUREMENT UNIT"
 },{
 "module":"2.Base",
@@ -396,10 +428,11 @@
 "Table":"BAS PAYMENT TERM",
 "BusinessTerm":"Payment term",
 "DictionaryEntryName":"Payment Term_ List. Detail.",
-"Description":"",
+"Description":"Contains the details of the payment term, which is applied and referenced in the purchase ans sales modules.The payment term refers to the condition of a sale/purchase agreement and is related to how the customer will pay (type of credit instrument), and especially how much time is allowed for payment (credit period) and discount (cash discount and discount period).",
 "ObjectClassTermQualifier":"Payment Term",
 "ObjectClassTerm":"List",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"PAYMENT TERM"
 },{
 "module":"2.Base",
@@ -408,10 +441,11 @@
 "Table":"BAS PROFILE",
 "BusinessTerm":"Profile",
 "DictionaryEntryName":"Profile_ List. Detail.",
-"Description":"",
+"Description":"Contains industry and software version information. This table contains information related to the profile of the data being collected. For instance, when we extract the financial data of 2016 from an auditee using SAP XXX ERP System in 2017.1.16, we should have a record with the Profile_Name XXX_2016, Fiscal_Year 2016, Developer_Name SAP, Software_Name SAP_S/4, Software_Version 2.0, Functional_Currency CNY, Standard_Version ISO 21378, Extracted_Date 2017-01-16.",
 "ObjectClassTermQualifier":"Profile",
 "ObjectClassTerm":"List",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"PROFILE"
 },{
 "module":"2.Base",
@@ -420,10 +454,11 @@
 "Table":"BAS PROJECT",
 "BusinessTerm":"Project",
 "DictionaryEntryName":"Project_ List. Detail.",
-"Description":"",
+"Description":"Contains the detailed information related to the project; for example, construction project, government or business-funded research project. Projects are commonly administrated seperately and could be subject to being audit in accordance with regulatory and/or managerial requirements. The audit of a project is a thorough examination of the management, execution, methodology, procedures, records, budgets, expenditures, and the degree of completion. It is referenced in several modules including the GL, AR, AP and Inventory.",
 "ObjectClassTermQualifier":"Project",
 "ObjectClassTerm":"List",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"PROJECT"
 },{
 "module":"2.Base",
@@ -432,10 +467,11 @@
 "Table":"BAS SETTLEMENT METHOD",
 "BusinessTerm":"Settlement Method",
 "DictionaryEntryName":"Settlement Method_ List. Detail.",
-"Description":"",
+"Description":"Contains information on methods used to settle transactions. Businesses can adopt various methods to settle transactions and transfer money, especially in sales and purchase activities. Typical settlement methods include: cash settlements, issuing bills, using credit cards, bank remittances and bank collection.",
 "ObjectClassTermQualifier":"Settlement Method",
 "ObjectClassTerm":"List",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"SETTLEMENT METHOD"
 },{
 "module":"2.Base",
@@ -444,10 +480,11 @@
 "Table":"BAS CUSTOMER",
 "BusinessTerm":"Customer",
 "DictionaryEntryName":"Customer_ Party. Detail.",
-"Description":"",
+"Description":"Contains essential and generic information of the customers.",
 "ObjectClassTermQualifier":"Customer",
 "ObjectClassTerm":"Party",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"CUSTOMER"
 },{
 "module":"2.Base",
@@ -456,10 +493,11 @@
 "Table":"BAS CUSTOMER TYPE",
 "BusinessTerm":"Customer Type",
 "DictionaryEntryName":"Customer Type_ List. Detail.",
-"Description":"",
+"Description":"Contains detailed descriptions of the customer type.",
 "ObjectClassTermQualifier":"Customer Type",
 "ObjectClassTerm":"List",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"CUSTOMER TYPE"
 },{
 "module":"2.Base",
@@ -468,10 +506,11 @@
 "Table":"BAS SUPPLIER",
 "BusinessTerm":"Supplier",
 "DictionaryEntryName":"Supplier_ Party. Detail.",
-"Description":"",
+"Description":"Contains essential and generic information of the suppliers.",
 "ObjectClassTermQualifier":"Supplier",
 "ObjectClassTerm":"Party",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"SUPPLIER"
 },{
 "module":"2.Base",
@@ -480,10 +519,11 @@
 "Table":"BAS SUPPLIER TYPE",
 "BusinessTerm":"Supplier Type",
 "DictionaryEntryName":"Supplier Type_ List. Detail.",
-"Description":"",
+"Description":"Contains detailed descriptions of the supplier type.",
 "ObjectClassTermQualifier":"Supplier Type",
 "ObjectClassTerm":"List",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"SUPPLIER TYPE"
 },{
 "module":"2.Base",
@@ -492,10 +532,11 @@
 "Table":"BAS TAX REGULATORY",
 "BusinessTerm":"Tax regulatory",
 "DictionaryEntryName":"Tax Regulatory_ Party. Detail.",
-"Description":"",
+"Description":"Contains regulatory information related to taxes, for example, regulator country, region, name and role.",
 "ObjectClassTermQualifier":"Tax Regulatory",
 "ObjectClassTerm":"Party",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"TAX REGULATORY"
 },{
 "module":"2.Base",
@@ -504,10 +545,11 @@
 "Table":"BAS TAX TYPE",
 "BusinessTerm":"Tax type",
 "DictionaryEntryName":"Tax Type_ List. Detail.",
-"Description":"",
+"Description":"Contains detailed information on tax types used by the business. Tables in AR, Sales, AP and Purchase modules contain 4 tax types respectively, which can meet requirement of most cases of the business. Tax types could be tax in country level, in state level, in county level or in local level, or tax related to a transaction, for example, sale tax, value added tax or tariff.",
 "ObjectClassTermQualifier":"Tax Type",
 "ObjectClassTerm":"List",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"TAX TYPE"
 },{
 "module":"2.Base",
@@ -516,10 +558,11 @@
 "Table":"BAS USER",
 "BusinessTerm":"User",
 "DictionaryEntryName":"System User_ Person. Detail.",
-"Description":"",
+"Description":"Contains the user information of accounting and/or ERP system.",
 "ObjectClassTermQualifier":"System User",
 "ObjectClassTerm":"Person",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"USER"
 },{
 "module":"3.GL",
@@ -528,10 +571,11 @@
 "Table":"GL ACCOUNT PERIOD BALANCE",
 "BusinessTerm":"GL Account Period Balance",
 "DictionaryEntryName":"Account Period Balance_ List. Detail.",
-"Description":"",
+"Description":"Contains the cumulative total and balance of accounts in each accounting period, facilitating the calculation of beginning, ending balance, duration amounts and quantity, thus reflecting information and changes in GL more intuitively. In this table, the quantity can serve different regulatory and managerial purposes. For example, subledgers of inventory and PPE may not be covered in some auditees' systems. In this case, we can record the cumulative total and balance of quantity of inventory or PPE in this table. This is a well-established practice in some countries, like France and China. Countries can choose to use GL_Trial_Balance or GL_Accounts_Period_Balance or both, depending on their customary practice, regulatory and managerial requirements.",
 "ObjectClassTermQualifier":"Account Period Balance",
 "ObjectClassTerm":"List",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"GL ACCOUNT PERIOD BALANCE"
 },{
 "module":"3.GL",
@@ -540,10 +584,11 @@
 "Table":"GL ACCOUNT SEGMENT",
 "BusinessTerm":"GL Account Segment",
 "DictionaryEntryName":"Account Segment_ List. Detail.",
-"Description":"",
+"Description":"The code and name for account segment, as well as the GL_Account_Number to which the account segment is related.The account segment provides additional information for particular GL_Accounts; for example, the accounts receivable contains the information regarding supplier, customer, employee, and project. Such information would be treated as an account segment below A/R, thus resulting in a lengthy account structure. In light of this, the account segment structure is defined as a set to record related information, efficiently avoiding the case that account names and numbers are extended to be too long and too complex. Account segment is more flexible to capture the complicated information.",
 "ObjectClassTermQualifier":"Account Segment",
 "ObjectClassTerm":"List",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"GL ACCOUNT SEGMENT"
 },{
 "module":"3.GL",
@@ -552,10 +597,11 @@
 "Table":"GL DETAILS",
 "BusinessTerm":"General Ledger Details",
 "DictionaryEntryName":"GL Details_ List. Detail.",
-"Description":"",
+"Description":"Contains all of the journal entry details for each transaction; for example, the associated journal entry ID, the associated account number, and the debits or credits associated with the journal entry line. This table should be at the journal entry line level.",
 "ObjectClassTermQualifier":"GL Details",
 "ObjectClassTerm":"List",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"GENERAL LEDGER DETAILS"
 },{
 "module":"3.GL",
@@ -564,10 +610,11 @@
 "Table":"GL SOURCE",
 "BusinessTerm":"General Ledger Source information",
 "DictionaryEntryName":"GL Source_ List. Detail.",
-"Description":"",
+"Description":"Contains additional information about the sources provided in the GL_Details table. Each source shall include a description of the ERP system or accounting package, from which the data is extracted, and information relating to the business process the data represents.",
 "ObjectClassTermQualifier":"GL Source",
 "ObjectClassTerm":"List",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"GENERAL LEDGER SOURCE INFORMATION"
 },{
 "module":"3.GL",
@@ -576,10 +623,11 @@
 "Table":"GL TRIAL BALANCE",
 "BusinessTerm":"General Ledger Trial Balance",
 "DictionaryEntryName":"Trial Balance_ List. Detail.",
-"Description":"",
+"Description":"Conains all the ledger account balance information. The GL_Trial_Balance file shall contain the ending balances at a point in time. The GL_Trial_Balance should be extracted at the same time as the GL_Details to prevent differences in transactions and balances.",
 "ObjectClassTermQualifier":"Trial Balance",
 "ObjectClassTerm":"List",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"GENERAL LEDGER TRIAL BALANCE"
 },{
 "module":"4.P2P",
@@ -588,10 +636,11 @@
 "Table":"PUR CONTRACT",
 "BusinessTerm":"Purchase Contract",
 "DictionaryEntryName":"Purchase_ Contract. Detail.",
-"Description":"",
+"Description":"Contains summary information of purchase contracts placed during the period under review. In situations where companies only require purchase orders, the purchase contract(s) may not always be available.",
 "ObjectClassTermQualifier":"Purchase",
 "ObjectClassTerm":"Contract",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"CONTRACT",
 "DOMAIN":"is a"
 },{
@@ -601,10 +650,11 @@
 "Table":"PUR CONTRACT DETAILS",
 "BusinessTerm":"Purchase Contract Details",
 "DictionaryEntryName":"Purchase_ Contract Line. Detail.",
-"Description":"",
+"Description":"Contains line item details for the purchase contracts. Each line includes material, quantity, supplier, price per unit and trading amount.",
 "ObjectClassTermQualifier":"Purchase",
 "ObjectClassTerm":"Contract Line",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"CONTRACT DETAILS",
 "DOMAIN":"is a"
 },{
@@ -614,10 +664,11 @@
 "Table":"AP ADJUSTMENT",
 "BusinessTerm":"Account Payable Adjustment",
 "DictionaryEntryName":"Account Payable Adjustment_ List. Detail.",
-"Description":"",
+"Description":"Contains all adjustments recorded against the invoice and impacting the invoice balance during the period. For example, write-offs, credit memos, and other adjustments. The file will have one record for each adjustment to each invoice. For example, if an adjustment transaction impacted three invoices, there will be three records for that adjustment-one for each of the invoices impacted by the adjustment.",
 "ObjectClassTermQualifier":"Account Payable Adjustment",
 "ObjectClassTerm":"List",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"AP ADJUSTMENT"
 },{
 "module":"4.P2P",
@@ -626,10 +677,11 @@
 "Table":"AP ADJUSTMENT DETAILS",
 "BusinessTerm":"Account Payable Adjustment Details",
 "DictionaryEntryName":"Account Payable Adjustment Details_ List. Detail.",
-"Description":"",
+"Description":"Contains line item details for the invoices included in the AP_Adjustments table. The file will have one record for each invoice line item impacted by each adjustment.",
 "ObjectClassTermQualifier":"Account Payable Adjustment Details",
 "ObjectClassTerm":"List",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"AP ADJUSTMENT DETAILS"
 },{
 "module":"4.P2P",
@@ -638,10 +690,11 @@
 "Table":"AP CASH APPLICATION",
 "BusinessTerm":"Account Payable Cash Application",
 "DictionaryEntryName":"Account Payable Cash Application_ List. Detail.",
-"Description":"",
+"Description":"Contains information of all cash payments applied against the invoice during the period under review. The file will have one record for each application of a cash payment to an invoice; for example, if a cash payment was applied to three invoices, there will be three records for that payment - one for each of the invoices to which the cash was applied. In the context of this process, cash means any type of payment received including checks and wire transfers and cash.",
 "ObjectClassTermQualifier":"Account Payable Cash Application",
 "ObjectClassTerm":"List",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"AP CASH APPLICATION"
 },{
 "module":"4.P2P",
@@ -650,10 +703,11 @@
 "Table":"AP OPEN ACCOUNT PAYABLE",
 "BusinessTerm":"Open Account Payable",
 "DictionaryEntryName":"Open Account Payable_ List. Detail.",
-"Description":"",
+"Description":"Contains details regarding all open, unpaid, or unresolved payable transactions as of a specified date. Each row in this table represents the balance due to the supplier for one uniquely identifiable transaction. This file should be at the summary level (by invoice), not at the detailed level (by invoice line item). The sum total of the transaction amounts as of the specified date shall reconcile to the total AP amount in the general ledger (GL) as of the same date.",
 "ObjectClassTermQualifier":"Open Account Payable",
 "ObjectClassTerm":"List",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"AP OPEN ACCOUNT PAYABLE"
 },{
 "module":"4.P2P",
@@ -662,10 +716,11 @@
 "Table":"AP PAYMENT MADE",
 "BusinessTerm":"Payment Made",
 "DictionaryEntryName":"Payment Made_ List. Detail.",
-"Description":"",
+"Description":"Contains information on all payment transactions made during the period. Types of payments include check, wire transfer and cash.",
 "ObjectClassTermQualifier":"Payment Made",
 "ObjectClassTerm":"List",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"AP PAYMENT MADE"
 },{
 "module":"4.P2P",
@@ -674,10 +729,11 @@
 "Table":"PUR INVOICE RECEIVED",
 "BusinessTerm":"Invoice Received",
 "DictionaryEntryName":"Received_ Invoice. Detail.",
-"Description":"",
+"Description":"Contains summary information for the invoices received during the period under review. Invoices are included in the three-way match procedures, which control the decision process for AP entries. Each line includes invoice ID, invoice number, invoice date, supplier, invoice amount, currency type, tax type, tax amount, settle method and payment terms.",
 "ObjectClassTermQualifier":"Received",
 "ObjectClassTerm":"Invoice",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"INVOICE",
 "DOMAIN":"is a"
 },{
@@ -687,10 +743,11 @@
 "Table":"PUR INVOICE RECEIVED DETAILS",
 "BusinessTerm":"Invoice Received Details",
 "DictionaryEntryName":"Received_ Invoice Line. Detail.",
-"Description":"",
+"Description":"Contains line item details for invoices. Each line includes invoice line information on specific materials, measurement unit, price per unit, invoice amount, currency type, tax type code, and tax amount. The file will record for each invoice line item.",
 "ObjectClassTermQualifier":"Received",
 "ObjectClassTerm":"Invoice Line",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"INVOICE DETAILS",
 "DOMAIN":"is a"
 },{
@@ -700,10 +757,11 @@
 "Table":"PUR MATERIALS RECEIVED",
 "BusinessTerm":"Purchase Materials Received",
 "DictionaryEntryName":"Materials Received_ Transaction. Detail.",
-"Description":"",
+"Description":"Contains summary information for shipments and shipment adjustments received against purchase orders during the period under review. Materials received are included in the three-way match procedures, which control the decision process for AP entries.  Each line includes receipt ID and Number, receipt date, receipt amount, supplier information and currency type.",
 "ObjectClassTermQualifier":"Materials Received",
 "ObjectClassTerm":"Transaction",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"PURCHASE MATERIALS RECEIVED"
 },{
 "module":"4.P2P",
@@ -712,10 +770,11 @@
 "Table":"PUR MATERIALS RECEIVED DETAILS",
 "BusinessTerm":"Materials Received Details",
 "DictionaryEntryName":"Materials Received Details_ Transaction Line. Detail.",
-"Description":"",
+"Description":"Contains line item details for shipments and shipment adjustment. Each line includes materials received, measurement unit, price per unit, order amount and currency type.",
 "ObjectClassTermQualifier":"Materials Received Details",
 "ObjectClassTerm":"Transaction Line",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"PURCHASE MATERIALS RECEIVED DETAILS"
 },{
 "module":"4.P2P",
@@ -724,10 +783,11 @@
 "Table":"PUR ORDER",
 "BusinessTerm":"Purchase Order",
 "DictionaryEntryName":"Purchase_ Order. Detail.",
-"Description":"",
+"Description":"Contains summary information of purchase orders placed during the period under review. Purchase orders are included in the three-way match procedures, which control the decision process for AP entries.",
 "ObjectClassTermQualifier":"Purchase",
 "ObjectClassTerm":"Order",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"ORDER",
 "DOMAIN":"is a"
 },{
@@ -737,10 +797,11 @@
 "Table":"PUR ORDER DETAILS",
 "BusinessTerm":"Purchase Order Details",
 "DictionaryEntryName":"Purchase_ Order Line. Detail.",
-"Description":"",
+"Description":"Contains line item details for purchase orders. Each line includes material, quantity, due date, price per unit, trading amount, recipient and settlement organization. The file will have one record for each purchase order line item. Multiple types of materials may be presented in one purchase order.",
 "ObjectClassTermQualifier":"Purchase",
 "ObjectClassTerm":"Order Line",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"ORDER DETAILS",
 "DOMAIN":"is a"
 },{
@@ -750,10 +811,11 @@
 "Table":"PUR REQUISITION",
 "BusinessTerm":"Purchase Requisition",
 "DictionaryEntryName":"Purchase Requisition_ Transaction. Detail.",
-"Description":"",
+"Description":"Contains summary information for purchase requisitions placed during the period under review.  The file will have one record for each requisition.",
 "ObjectClassTermQualifier":"Purchase Requisition",
 "ObjectClassTerm":"Transaction",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"PURCHASE REQUISITION"
 },{
 "module":"4.P2P",
@@ -762,10 +824,11 @@
 "Table":"PUR REQUISITION DETAILS",
 "BusinessTerm":"Purchase Requisition Details",
 "DictionaryEntryName":"Purchase Requisition Details_ Transaction Line. Detail.",
-"Description":"",
+"Description":"Contains line item details for the purchase requisitions. The table contains material, quantity, due date, requisition organization and the purchase organization.",
 "ObjectClassTermQualifier":"Purchase Requisition Details",
 "ObjectClassTerm":"Transaction Line",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"PURCHASE REQUISITION DETAILS"
 },{
 "module":"5.O2C",
@@ -774,10 +837,11 @@
 "Table":"SAL CONTRACT",
 "BusinessTerm":"Sales Contract",
 "DictionaryEntryName":"Sales_ Contract. Detail.",
-"Description":"",
+"Description":"Contains summary information of sales contracts placed during the period under review. In situations where companies only require sales orders, the sales contract(s) may not always be available.",
 "ObjectClassTermQualifier":"Sales",
 "ObjectClassTerm":"Contract",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"CONTRACT",
 "DOMAIN":"is a"
 },{
@@ -787,10 +851,11 @@
 "Table":"SAL CONTRACT DETAILS",
 "BusinessTerm":"Sales Contract Details",
 "DictionaryEntryName":"Sales_ Contract Line. Detail.",
-"Description":"",
+"Description":"Contains line item details for the sales contracts. Each line includes product, quantity, customer, price per unit and trading amount.",
 "ObjectClassTermQualifier":"Sales",
 "ObjectClassTerm":"Contract Line",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"SALES CONTRACT DETAILS"
 },{
 "module":"5.O2C",
@@ -799,10 +864,11 @@
 "Table":"AR ADJUSTMENT",
 "BusinessTerm":"AR Adjustments",
 "DictionaryEntryName":"Account Receivable Adjustment_ Transaction. Detail.",
-"Description":"",
+"Description":"Contains all adjustments recorded against the invoice and impacting the invoice balance during the period. For example, write-offs, credit memos, and other adjustments. The data set shall contain one record for each adjustment to each invoice. For example, if an adjustment transaction impacted three invoices, there shall be three records for that adjustment; one for each of the invoices impacted by the adjustment.",
 "ObjectClassTermQualifier":"Account Receivable Adjustment",
 "ObjectClassTerm":"Transaction",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"AR ADJUSTMENTS"
 },{
 "module":"5.O2C",
@@ -811,10 +877,11 @@
 "Table":"AR ADJUSTMENT DETAILS",
 "BusinessTerm":"AR Adjustment Details",
 "DictionaryEntryName":"Account Receivable Adjustment Details_ Transaction. Detail.",
-"Description":"",
+"Description":"Contains line item details for the invoices included in the AR_Adjustments. The file will record for each invoice line item impacted by each adjustment.",
 "ObjectClassTermQualifier":"Account Receivable Adjustment Details",
 "ObjectClassTerm":"Transaction",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"AR ADJUSTMENT DETAILS"
 },{
 "module":"5.O2C",
@@ -823,10 +890,11 @@
 "Table":"AR CASH APPLICATION",
 "BusinessTerm":"Cash Application",
 "DictionaryEntryName":"Account Receivable Cash Application_ List. Detail.",
-"Description":"",
+"Description":"Contains information of all cash receipts applied against the invoice during the period under review. The file will have one record for each application of cash receipt to an invoice. For example, if a cash receipt was applied to three invoices, there will be three records for that receipt, one for each of the invoices to which the cash was applied. In the context of this process, cash means any type of receipt received including checks and wire transfers and crash.",
 "ObjectClassTermQualifier":"Account Receivable Cash Application",
 "ObjectClassTerm":"List",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"CASH APPLICATION"
 },{
 "module":"5.O2C",
@@ -835,10 +903,11 @@
 "Table":"AR CASH RECEIVED",
 "BusinessTerm":"Cash Received",
 "DictionaryEntryName":"Cash Received_ List. Detail.",
-"Description":"",
+"Description":"Contains information on all payment transactions received during the period. Cash means any type of receipt received including checks, wire transfers and cash.",
 "ObjectClassTermQualifier":"Cash Received",
 "ObjectClassTerm":"List",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"CASH RECEIVED"
 },{
 "module":"5.O2C",
@@ -847,10 +916,11 @@
 "Table":"AR OPEN ACCOUNT RECEIVABLE",
 "BusinessTerm":"Open Accounts Receivable",
 "DictionaryEntryName":"Open Account Receivable_ List. Detail.",
-"Description":"",
+"Description":"Contains details regarding all open, unpaid, or unresolved customer transactions as of a specified date. Each row in this table represents the balance expected from the customer for one uniquely identifiable transaction. This data should be at the summary level (by invoice), not at the detailed level (by invoice line item). The sum total of the transaction amounts as of the specified date shall reconcile to the total AR amount in the general ledger (GL) as of the same date.",
 "ObjectClassTermQualifier":"Open Account Receivable",
 "ObjectClassTerm":"List",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"OPEN ACCOUNTS RECEIVABLE"
 },{
 "module":"5.O2C",
@@ -859,10 +929,11 @@
 "Table":"SAL INVOICE GENERATED",
 "BusinessTerm":"Invoice Generated",
 "DictionaryEntryName":"Generated_ Invoice. Detail.",
-"Description":"",
+"Description":"Contains summary information for the invoices generated during the period under review. Invoices are included in the three-way match procedures, which control the decision process for AR entries.  Each line includes invoice ID, invoice number, invoice date, customer, invoice amount, currency type, tax type, tax amount, settlement method and payment terms.",
 "ObjectClassTermQualifier":"Generated",
 "ObjectClassTerm":"Invoice",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"INVOICE",
 "DOMAIN":"is a"
 },{
@@ -872,10 +943,11 @@
 "Table":"SAL INVOICE GENERATED DETAILS",
 "BusinessTerm":"Invoice Generated Details",
 "DictionaryEntryName":"Generated_ Invoice Line. Detail.",
-"Description":"",
+"Description":"Contains line item details for invoices. Each line includes invoice line information on specific products, measurement unit, price per unit, invoice amount, currency type, tax type code and tax amount.",
 "ObjectClassTermQualifier":"Generated",
 "ObjectClassTerm":"Invoice Line",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"INVOICE DETAILS",
 "DOMAIN":"is a"
 },{
@@ -885,10 +957,11 @@
 "Table":"SAL ORDER",
 "BusinessTerm":"Sales Order",
 "DictionaryEntryName":"Sales_ Order. Detail.",
-"Description":"",
+"Description":"Contains summary information of sales orders pertinent to orders placed during the period under review Sales orders are included in the three-way match procedures, which control the decision process for AR entries.",
 "ObjectClassTermQualifier":"Sales",
 "ObjectClassTerm":"Order",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"ORDER",
 "DOMAIN":"is a"
 },{
@@ -898,10 +971,11 @@
 "Table":"SAL ORDER DETAILS",
 "BusinessTerm":"Sales Order Details",
 "DictionaryEntryName":"Sales_ Order Line. Detail.",
-"Description":"",
+"Description":"Contains line item details for sales orders. Each line includes product, quantity, due date, price per unit, trading amount and settlement organization. The file will have one record for each sales order line item. Multiple types of products may be presented in one sales order. Additionally, different shippers and settlement organization may be assigned by each order line.",
 "ObjectClassTermQualifier":"Sales",
 "ObjectClassTerm":"Order Line",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"ORDER DETAILS",
 "DOMAIN":"is a"
 },{
@@ -911,10 +985,11 @@
 "Table":"SAL SHIPMENT MADE",
 "BusinessTerm":"Shipment Made",
 "DictionaryEntryName":"Shipment Made_ Transaction. Detail.",
-"Description":"",
+"Description":"Contains summary information for shipments and shipment adjustments made against sales orders during the period under review. Shipments made are included in the three-way match procedures, which control the decision process for AR entries.  Each line includes shipment ID and Number, shipment date, shipping amount, customer information and currency type.",
 "ObjectClassTermQualifier":"Shipment Made",
 "ObjectClassTerm":"Transaction",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"SALES SHIPMENT MADE"
 },{
 "module":"5.O2C",
@@ -923,10 +998,11 @@
 "Table":"SAL SHIPMENT MADE DETAILS",
 "BusinessTerm":"Shipment Made Details",
 "DictionaryEntryName":"Shipment Made Details_ Transaction Line. Detail.",
-"Description":"",
+"Description":"Contains line item details for shipments and shipment adjustments. Each line includes shipments made, measurement unit, price per unit, order amount and currency type.",
 "ObjectClassTermQualifier":"Shipment Made Details",
 "ObjectClassTerm":"Transaction Line",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"SHIPMENT MADE DETAILS"
 },{
 "module":"6.INV",
@@ -935,10 +1011,11 @@
 "Table":"INV LOCATION",
 "BusinessTerm":"Inventory Location",
 "DictionaryEntryName":"Inventory Location_ List. Detail.",
-"Description":"",
+"Description":"Contains information of inventory locations where inventory may be tracked.",
 "ObjectClassTermQualifier":"Inventory Location",
 "ObjectClassTerm":"List",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"INVENTORY LOCATION"
 },{
 "module":"6.INV",
@@ -947,10 +1024,11 @@
 "Table":"INV ON HAND",
 "BusinessTerm":"Inventory On Hand",
 "DictionaryEntryName":"Inventory On Hand_ List. Detail.",
-"Description":"",
+"Description":"Contains information of inventory on hand, for example, suppliers, quantities of items by location and amounts as of the specified date.",
 "ObjectClassTermQualifier":"Inventory On Hand",
 "ObjectClassTerm":"List",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"INVENTORY ON HAND"
 },{
 "module":"6.INV",
@@ -959,10 +1037,11 @@
 "Table":"INV PERIOD BALANCE",
 "BusinessTerm":"Inventory Period Balance",
 "DictionaryEntryName":"Inventory Period Balance_ List. Detail.",
-"Description":"",
+"Description":"Contains inventory information regarding its beginning and ending balances, quantities and durational quantities and amounts.",
 "ObjectClassTermQualifier":"Inventory Period Balance",
 "ObjectClassTerm":"List",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"INVENTORY PERIOD BALANCE"
 },{
 "module":"6.INV",
@@ -971,10 +1050,11 @@
 "Table":"INV PHYSICAL INVENTORY",
 "BusinessTerm":"Physical Inventory",
 "DictionaryEntryName":"Inventory Physical Inventory_ List. Detail.",
-"Description":"",
+"Description":"Contains the quantities on hand as of the date of the physical inventory count as well as the flow information.",
 "ObjectClassTermQualifier":"Inventory Physical Inventory",
 "ObjectClassTerm":"List",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"PHYSICAL INVENTORY"
 },{
 "module":"6.INV",
@@ -983,10 +1063,11 @@
 "Table":"INV PRODUCT",
 "BusinessTerm":"Inventory Product",
 "DictionaryEntryName":"Inventory Product_ List. Detail.",
-"Description":"",
+"Description":"Contains basic attributes of inventory items and other tracked items through the purchase, use and sales.",
 "ObjectClassTermQualifier":"Inventory Product",
 "ObjectClassTerm":"List",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"INVENTORY PRODUCT"
 },{
 "module":"6.INV",
@@ -995,10 +1076,11 @@
 "Table":"INV PRODUCT TYPE",
 "BusinessTerm":"Inventory Product Type",
 "DictionaryEntryName":"Inventory Product Type_ List. Detail.",
-"Description":"",
+"Description":"Contains inventory product type information and the tree structure information of inventory product type.",
 "ObjectClassTermQualifier":"Inventory Product Type",
 "ObjectClassTerm":"List",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"INVENTORY PRODUCT TYPE"
 },{
 "module":"6.INV",
@@ -1007,10 +1089,11 @@
 "Table":"INV TRANSACTION",
 "BusinessTerm":"Inventory Transaction",
 "DictionaryEntryName":"Inventory Transaction_ List. Detail.",
-"Description":"",
+"Description":"Contains transaction history impacting the inventory accounts during the specified time period.",
 "ObjectClassTermQualifier":"Inventory Transaction",
 "ObjectClassTerm":"List",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"INVENTORY TRANSACTION"
 },{
 "module":"7.PPE",
@@ -1019,10 +1102,11 @@
 "Table":"PPE ADDITION",
 "BusinessTerm":"PPE Addition",
 "DictionaryEntryName":"PPE Addition_ List. Detail.",
-"Description":"",
+"Description":"Contains the information of PPE addition transactions.",
 "ObjectClassTermQualifier":"PPE Addition",
 "ObjectClassTerm":"List",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"PPE ADDITION"
 },{
 "module":"7.PPE",
@@ -1031,10 +1115,11 @@
 "Table":"PPE CHANGE",
 "BusinessTerm":"PPE Change",
 "DictionaryEntryName":"PPE Change_ List. Detail.",
-"Description":"",
+"Description":"Contains changes in PPE information not related to additions and removals of PPE.  Examples of information changes recorded include: revaluation, historical cost, depreciation method and ownership.",
 "ObjectClassTermQualifier":"PPE Change",
 "ObjectClassTerm":"List",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"PPE CHANGE"
 },{
 "module":"7.PPE",
@@ -1043,10 +1128,11 @@
 "Table":"PPE DEPARTMENT ALLOCATION",
 "BusinessTerm":"Department Allocation",
 "DictionaryEntryName":"PPE Department Allocation_ List. Detail.",
-"Description":"",
+"Description":"Contains information about how the related expenses are allocated among departments who benefit from using the PPE, especially the depreciation expenses.",
 "ObjectClassTermQualifier":"PPE Department Allocation",
 "ObjectClassTerm":"List",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"DEPARTMENT ALLOCATION"
 },{
 "module":"7.PPE",
@@ -1055,10 +1141,11 @@
 "Table":"PPE DEPRECIATION",
 "BusinessTerm":"PPE Depreciation",
 "DictionaryEntryName":"PPE Depreciation_ List. Detail.",
-"Description":"",
+"Description":"Contains the information correlating with PPE summarized depreciation in the period.",
 "ObjectClassTermQualifier":"PPE Depreciation",
 "ObjectClassTerm":"List",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"PPE DEPRECIATION"
 },{
 "module":"7.PPE",
@@ -1067,10 +1154,11 @@
 "Table":"PPE DEPRECIATION METHOD",
 "BusinessTerm":"PPE Depreciation Method",
 "DictionaryEntryName":"PPE Depreciation Method_ List. Detail.",
-"Description":"",
+"Description":"Contains the information of depreciation methods used for PPE depreciation.",
 "ObjectClassTermQualifier":"PPE Depreciation Method",
 "ObjectClassTerm":"List",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"PPE DEPRECIATION METHOD"
 },{
 "module":"7.PPE",
@@ -1079,10 +1167,11 @@
 "Table":"PPE MASTER",
 "BusinessTerm":"PPE Master",
 "DictionaryEntryName":"PPE Master_ List. Detail.",
-"Description":"",
+"Description":"Contains the details of each PPE item, for example, its code, specification, location, acquiring date, original cost, and quantity.",
 "ObjectClassTermQualifier":"PPE Master",
 "ObjectClassTerm":"List",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"PROPERTY PLANT EQUIPMENT MASTER"
 },{
 "module":"7.PPE",
@@ -1091,7 +1180,7 @@
 "Table":"PPE REMOVAL",
 "BusinessTerm":"PPE Removal",
 "DictionaryEntryName":"PPE Removal_ List. Detail.",
-"Description":"",
+"Description":"Contains the details related to PPE removal transactions.",
 "ObjectClassTermQualifier":"PPE Removal",
 "ObjectClassTerm":"List",
 "PropertyTerm":"Detail",
@@ -1103,7 +1192,7 @@
 "Table":"PPE TYPE",
 "BusinessTerm":"Property Plant Equipment Type",
 "DictionaryEntryName":"PPE Type_ List. Detail.",
-"Description":"",
+"Description":"Contains the details of each PPE type. (Property, Plant and Equipment)",
 "ObjectClassTermQualifier":"PPE Type",
 "ObjectClassTerm":"List",
 "PropertyTerm":"Detail",

@@ -66,7 +66,7 @@
 "Table":"AMOUNT CURRENCY",
 "BusinessTerm":"Amount Currency",
 "DictionaryEntryName":"Multi Currency Amount. Detail.",
-"Description":"",
+"Description":"Amount in different currencies.",
 "ObjectClassTerm":"Multi Currency Amount",
 "PropertyTerm":"Detail",
 "ATTRIBUTE":"AMOUNT AND CURRENCY"
@@ -77,7 +77,7 @@
 "Table":"HANDLING",
 "BusinessTerm":"Handling",
 "DictionaryEntryName":"Handling. Detail.",
-"Description":"",
+"Description":"Handling information.",
 "ObjectClassTerm":"Handling",
 "PropertyTerm":"Detail"
 },{
@@ -117,7 +117,7 @@
 "Table":"CONTACT",
 "BusinessTerm":"Contact",
 "DictionaryEntryName":"Contact. Detail.",
-"Description":"",
+"Description":"Contact information.",
 "ObjectClassTerm":"Contact",
 "PropertyTerm":"Detail"
 },{
@@ -127,7 +127,7 @@
 "Table":"CONTRACT",
 "BusinessTerm":"Contract",
 "DictionaryEntryName":"Contract. Detail.",
-"Description":"",
+"Description":"Contains information about a contract.",
 "ObjectClassTerm":"Contract",
 "PropertyTerm":"Detail"
 },{
@@ -137,7 +137,7 @@
 "Table":"CONTRACT DETAILS",
 "BusinessTerm":"Contract Details",
 "DictionaryEntryName":"Contract Line. Detail.",
-"Description":"",
+"Description":"Contains line item details for a contract.",
 "ObjectClassTerm":"Contract Line",
 "PropertyTerm":"Detail",
 "ATTRIBUTE":"CONTRACT DETAILS"
@@ -148,7 +148,7 @@
 "Table":"INVOICE",
 "BusinessTerm":"Invoice",
 "DictionaryEntryName":"Invoice. Detail.",
-"Description":"",
+"Description":"Contains the summery information for the invoices.",
 "ObjectClassTerm":"Invoice",
 "PropertyTerm":"Detail",
 "ATTRIBUTE":"INVOICE"
@@ -159,9 +159,10 @@
 "Table":"INVOICE DETAILS",
 "BusinessTerm":"Invoice Details",
 "DictionaryEntryName":"Invoice Line. Detail.",
-"Description":"",
+"Description":"Contains line item details for invoices.",
 "ObjectClassTerm":"Invoice Line",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"INVOICE DETAILS"
 },{
 "module":"1.Common",
@@ -170,9 +171,10 @@
 "Table":"ORDER",
 "BusinessTerm":"Order",
 "DictionaryEntryName":"Order. Detail.",
-"Description":"",
+"Description":"Contains summary information of orders.",
 "ObjectClassTerm":"Order",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"ORDER"
 },{
 "module":"1.Common",
@@ -181,9 +183,10 @@
 "Table":"ORDER DETAILS",
 "BusinessTerm":"Order Details",
 "DictionaryEntryName":"Order Line. Detail.",
-"Description":"",
+"Description":"Line item details for orders.",
 "ObjectClassTerm":"Order Line",
 "PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
 "ATTRIBUTE":"ORDER DETAILS"
 },{
 "module":"1.Common",
@@ -194,6 +197,7 @@
 "DictionaryEntryName":"Party. Details.",
 "Description":"An individual, a group, or a body having a role in a business function. Party has a legal connotation in a business transaction.",
 "ObjectClassTerm":"Party",
-"PropertyTerm":"Details"
+"PropertyTerm":"Details",
+"RepresentationTerm":"Code"
 }]
 }

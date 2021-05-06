@@ -1,0 +1,1011 @@
+{
+"data":[{
+"DataType":"Identifier",
+"num":1,
+"Kind":"DT",
+"BusinessTerm":"Identifier",
+"DictionaryEntryName":"Identifier. Type",
+"Description":"",
+"ObjectClassTerm":"",
+"PropertyTerm":"Identifier",
+"RepresentationTerm":"Identifier"
+},{
+"DataType":"Identifier",
+"num":2,
+"Kind":"CC",
+"BusinessTerm":"Identifier",
+"DictionaryEntryName":"Identifier. Content",
+"Description":"A character string used to identify and distinguish uniquely, one instance of an object in an identification scheme from all other objects within the same scheme.",
+"ObjectClassTerm":"Identifier",
+"PropertyTerm":"Content",
+"RepresentationTerm":""
+},{
+"DataType":"Identifier",
+"num":3,
+"Kind":"SC",
+"BusinessTerm":"Identification Scheme",
+"DictionaryEntryName":"Identification Scheme. Identifier",
+"Description":"The identification of the identification scheme.",
+"ObjectClassTerm":"Identification Scheme",
+"PropertyTerm":"",
+"RepresentationTerm":"Identifier"
+},{
+"DataType":"Identifier",
+"num":4,
+"Kind":"SC",
+"BusinessTerm":"Identification Scheme Name",
+"DictionaryEntryName":"Identification Scheme. Name. Text",
+"Description":"The name of the identification scheme.",
+"ObjectClassTerm":"Identification Scheme",
+"PropertyTerm":"Name",
+"RepresentationTerm":"Text"
+},{
+"DataType":"Identifier",
+"num":5,
+"Kind":"SC",
+"BusinessTerm":"Identification Scheme Agency",
+"DictionaryEntryName":"Identification Scheme Agency. . Identifier",
+"Description":"The identification of the agency that maintains the identification scheme.",
+"ObjectClassTerm":"Identification Scheme Agency",
+"PropertyTerm":"",
+"RepresentationTerm":"Identifier"
+},{
+"DataType":"Identifier",
+"num":6,
+"Kind":"SC",
+"BusinessTerm":"Identification Scheme Agency Name",
+"DictionaryEntryName":"Identification Scheme. Agency Name. Text",
+"Description":"The name of the agency that maintains the identification scheme.",
+"ObjectClassTerm":"Identification Scheme",
+"PropertyTerm":"Agency Name",
+"RepresentationTerm":"Text"
+},{
+"DataType":"Identifier",
+"num":7,
+"Kind":"SC",
+"BusinessTerm":"Identification Scheme Version",
+"DictionaryEntryName":"Identification Scheme. Version. Identifier",
+"Description":"The version of the identification scheme.",
+"ObjectClassTerm":"Identification Scheme",
+"PropertyTerm":"Version",
+"RepresentationTerm":"Identifier"
+},{
+"DataType":"Identifier",
+"num":8,
+"Kind":"SC",
+"BusinessTerm":"Identification Scheme Data URI",
+"DictionaryEntryName":"Identification Scheme Data. Uniform Resource. Identifier",
+"Description":"The Uniform Resource Identifier that identifies where the identification scheme data is located.",
+"ObjectClassTerm":"Identification Scheme Data",
+"PropertyTerm":"Uniform Resource",
+"RepresentationTerm":"Identifier"
+},{
+"DataType":"Identifier",
+"num":9,
+"Kind":"SC",
+"BusinessTerm":"Identification Scheme URI",
+"DictionaryEntryName":"Identification Scheme. Uniform Resource. Identifier",
+"Description":"The Uniform Resource Identifier that identifies where the identification scheme is located.",
+"ObjectClassTerm":"Identification Scheme",
+"PropertyTerm":"Uniform Resource",
+"RepresentationTerm":"Identifier"
+},{
+"DataType":"Reference Identifier",
+"num":10,
+"Kind":"DT",
+"BusinessTerm":"Reference Identifier",
+"DictionaryEntryName":"Reference Identifier. Type",
+"Description":"",
+"ObjectClassTerm":"",
+"PropertyTerm":"Reference Identifier",
+"DatatypeQualifier":"Reference",
+"RepresentationTerm":"Identifier"
+},{
+"DataType":"Reference Identifier",
+"num":11,
+"Kind":"CC",
+"BusinessTerm":"Reference Identifier",
+"DictionaryEntryName":"Identifier. Content",
+"Description":"A character string used to identify and distinguish uniquely, one instance of an object in an identification scheme from all other objects within the same scheme.",
+"ObjectClassTerm":"Identifier",
+"PropertyTerm":"Content",
+"RepresentationTerm":""
+},{
+"DataType":"Reference Identifier",
+"num":12,
+"Kind":"SC",
+"BusinessTerm":"Reference Identification Scheme",
+"DictionaryEntryName":"Identification Scheme. Identifier",
+"Description":"The identification of the identification scheme.",
+"ObjectClassTerm":"Identification Scheme",
+"PropertyTerm":"",
+"RepresentationTerm":"Identifier"
+},{
+"DataType":"Reference Identifier",
+"num":13,
+"Kind":"SC",
+"BusinessTerm":"Reference Identification Scheme Name",
+"DictionaryEntryName":"Identification Scheme. Name. Text",
+"Description":"The name of the identification scheme.",
+"ObjectClassTerm":"Identification Scheme",
+"PropertyTerm":"Name",
+"RepresentationTerm":"Text"
+},{
+"DataType":"Reference Identifier",
+"num":14,
+"Kind":"SC",
+"BusinessTerm":"Reference Identification Scheme Agency",
+"DictionaryEntryName":"Identification Scheme Agency. . Identifier",
+"Description":"The identification of the agency that maintains the identification scheme.",
+"ObjectClassTerm":"Identification Scheme Agency",
+"PropertyTerm":"",
+"RepresentationTerm":"Identifier"
+},{
+"DataType":"Reference Identifier",
+"num":15,
+"Kind":"SC",
+"BusinessTerm":"Reference Identification Scheme Agency Name",
+"DictionaryEntryName":"Identification Scheme. Agency Name. Text",
+"Description":"The name of the agency that maintains the identification scheme.",
+"ObjectClassTerm":"Identification Scheme",
+"PropertyTerm":"Agency Name",
+"RepresentationTerm":"Text"
+},{
+"DataType":"Reference Identifier",
+"num":16,
+"Kind":"SC",
+"BusinessTerm":"Reference Identification Scheme Version",
+"DictionaryEntryName":"Identification Scheme. Version. Identifier",
+"Description":"The version of the identification scheme.",
+"ObjectClassTerm":"Identification Scheme",
+"PropertyTerm":"Version",
+"RepresentationTerm":"Identifier"
+},{
+"DataType":"Reference Identifier",
+"num":17,
+"Kind":"SC",
+"BusinessTerm":"Reference Identification Scheme Data URI",
+"DictionaryEntryName":"Identification Scheme Data. Uniform Resource. Identifier",
+"Description":"The Uniform Resource Identifier that identifies where the identification scheme data is located.",
+"ObjectClassTerm":"Identification Scheme Data",
+"PropertyTerm":"Uniform Resource",
+"RepresentationTerm":"Identifier"
+},{
+"DataType":"Reference Identifier",
+"num":18,
+"Kind":"SC",
+"BusinessTerm":"Reference Identification Scheme URI",
+"DictionaryEntryName":"Identification Scheme. Uniform Resource. Identifier",
+"Description":"The Uniform Resource Identifier that identifies where the identification scheme is located.",
+"ObjectClassTerm":"Identification Scheme",
+"PropertyTerm":"Uniform Resource",
+"RepresentationTerm":"Identifier"
+},{
+"DataType":"Indicator",
+"num":19,
+"Kind":"DT",
+"BusinessTerm":"Indicator",
+"DictionaryEntryName":"Indicator. Type",
+"Description":"",
+"ObjectClassTerm":"",
+"PropertyTerm":"Indicator",
+"RepresentationTerm":"Indicator"
+},{
+"DataType":"Indicator",
+"num":20,
+"Kind":"CC",
+"BusinessTerm":"Indicator",
+"DictionaryEntryName":"Indicator. Content",
+"Description":"A character string used to identify and distinguish uniquely, one instance of an object in an identification scheme from all other objects within the same scheme.",
+"ObjectClassTerm":"Indicator",
+"PropertyTerm":"Content",
+"RepresentationTerm":""
+},{
+"DataType":"Indicator",
+"num":21,
+"Kind":"SC",
+"BusinessTerm":"Identification Scheme",
+"DictionaryEntryName":"Indicator. Format. Text",
+"Description":"The identification of the identification scheme.",
+"ObjectClassTerm":"Indicator",
+"PropertyTerm":"Format",
+"RepresentationTerm":"Text"
+},{
+"DataType":"Amount",
+"num":22,
+"Kind":"DT",
+"BusinessTerm":"Amount",
+"DictionaryEntryName":"Amount. Type",
+"Description":"",
+"ObjectClassTerm":"",
+"PropertyTerm":"Amount",
+"RepresentationTerm":"Amount"
+},{
+"DataType":"Amount",
+"num":23,
+"Kind":"CC",
+"BusinessTerm":"Amount",
+"DictionaryEntryName":"Amount. Content",
+"Description":"A number of monetary units specified in a currency where the unit of currency is explicit or implied.",
+"ObjectClassTerm":"Amount",
+"PropertyTerm":"Content",
+"RepresentationTerm":""
+},{
+"DataType":"Amount",
+"num":24,
+"Kind":"SC",
+"BusinessTerm":"Currency",
+"DictionaryEntryName":"Amount. Currency. Identifier",
+"Description":"The currency of the amount.",
+"ObjectClassTerm":"Amount",
+"PropertyTerm":"Currency",
+"RepresentationTerm":"Identifier"
+},{
+"DataType":"Functional Amount",
+"num":25,
+"Kind":"DT",
+"BusinessTerm":"Functional Amount",
+"DictionaryEntryName":"Functional Amount. Type",
+"Description":"",
+"ObjectClassTerm":"",
+"PropertyTerm":"Functional Amount",
+"DatatypeQualifier":"Functional",
+"RepresentationTerm":"Amount"
+},{
+"DataType":"Functional Amount",
+"num":26,
+"Kind":"CC",
+"BusinessTerm":"Functional Amount",
+"DictionaryEntryName":"Amount. Content",
+"Description":"A number of monetary units specified in a currency where the unit of currency is explicit or implied.",
+"ObjectClassTerm":"Amount",
+"PropertyTerm":"Content",
+"RepresentationTerm":""
+},{
+"DataType":"Functional Amount",
+"num":27,
+"Kind":"SC",
+"BusinessTerm":"Functional Currency",
+"DictionaryEntryName":"Amount. Currency. Identifier",
+"Description":"The currency of the amount.",
+"ObjectClassTerm":"Amount",
+"PropertyTerm":"Currency",
+"RepresentationTerm":"Identifier"
+},{
+"DataType":"Local Amount",
+"num":28,
+"Kind":"DT",
+"BusinessTerm":"Local Amount",
+"DictionaryEntryName":"Local Amount. Type",
+"Description":"",
+"ObjectClassTerm":"",
+"PropertyTerm":"Local Amount",
+"DatatypeQualifier":"Local",
+"RepresentationTerm":"Amount"
+},{
+"DataType":"Local Amount",
+"num":29,
+"Kind":"CC",
+"BusinessTerm":"Local Amount",
+"DictionaryEntryName":"Amount. Content",
+"Description":"A number of monetary units specified in a currency where the unit of currency is explicit or implied.",
+"ObjectClassTerm":"Amount",
+"PropertyTerm":"Content",
+"RepresentationTerm":""
+},{
+"DataType":"Local Amount",
+"num":30,
+"Kind":"SC",
+"BusinessTerm":"Local Currency",
+"DictionaryEntryName":"Amount. Currency. Identifier",
+"Description":"The currency of the amount.",
+"ObjectClassTerm":"Amount",
+"PropertyTerm":"Currency",
+"RepresentationTerm":"Identifier"
+},{
+"DataType":"Reporting Amount",
+"num":31,
+"Kind":"DT",
+"BusinessTerm":"Reporting Amount",
+"DictionaryEntryName":"Reporting Amount. Type",
+"Description":"",
+"ObjectClassTerm":"",
+"PropertyTerm":"Reporting Amount",
+"DatatypeQualifier":"Reporting",
+"RepresentationTerm":"Amount"
+},{
+"DataType":"Reporting Amount",
+"num":32,
+"Kind":"CC",
+"BusinessTerm":"Reporting Amount",
+"DictionaryEntryName":"Amount. Content",
+"Description":"A number of monetary units specified in a currency where the unit of currency is explicit or implied.",
+"ObjectClassTerm":"Amount",
+"PropertyTerm":"Content",
+"RepresentationTerm":""
+},{
+"DataType":"Reporting Amount",
+"num":33,
+"Kind":"SC",
+"BusinessTerm":"Reporting Currency",
+"DictionaryEntryName":"Amount. Currency. Identifier",
+"Description":"The currency of the amount.",
+"ObjectClassTerm":"Amount",
+"PropertyTerm":"Currency",
+"RepresentationTerm":"Identifier"
+},{
+"DataType":"Transaction Amount",
+"num":34,
+"Kind":"DT",
+"BusinessTerm":"Transaction Amount",
+"DictionaryEntryName":"Transaction Amount. Type",
+"Description":"",
+"ObjectClassTerm":"",
+"PropertyTerm":"Transaction Amount",
+"DatatypeQualifier":"Transaction",
+"RepresentationTerm":"Amount"
+},{
+"DataType":"Transaction Amount",
+"num":35,
+"Kind":"CC",
+"BusinessTerm":"Transaction Amount",
+"DictionaryEntryName":"Amount. Content",
+"Description":"A number of monetary units specified in a currency where the unit of currency is explicit or implied.",
+"ObjectClassTerm":"Amount",
+"PropertyTerm":"Content",
+"RepresentationTerm":""
+},{
+"DataType":"Transaction Amount",
+"num":36,
+"Kind":"SC",
+"BusinessTerm":"Transaction Currency",
+"DictionaryEntryName":"Amount. Currency. Identifier",
+"Description":"The currency of the amount.",
+"ObjectClassTerm":"Amount",
+"PropertyTerm":"Currency",
+"RepresentationTerm":"Identifier"
+},{
+"DataType":"Percent",
+"num":37,
+"Kind":"DT",
+"BusinessTerm":"Percent",
+"DictionaryEntryName":"Percent. Type",
+"Description":"",
+"ObjectClassTerm":"",
+"PropertyTerm":"Percent",
+"RepresentationTerm":"Percent"
+},{
+"DataType":"Percent",
+"num":38,
+"Kind":"CC",
+"BusinessTerm":"Percent",
+"DictionaryEntryName":"Numeric. Content",
+"Description":"Numeric information that is assigned or is determined by calculation, counting or sequencing.",
+"ObjectClassTerm":"Numeric",
+"PropertyTerm":"Content",
+"RepresentationTerm":""
+},{
+"DataType":"Percent",
+"num":39,
+"Kind":"SC",
+"BusinessTerm":"Percent Format",
+"DictionaryEntryName":"Numeric. Format. Text",
+"Description":"Whether the number is an integer, decimal, real number or percentage.",
+"ObjectClassTerm":"Numeric",
+"PropertyTerm":"Format",
+"RepresentationTerm":"Text"
+},{
+"DataType":"Quantity",
+"num":40,
+"Kind":"DT",
+"BusinessTerm":"Quantity",
+"DictionaryEntryName":"Quantity. Type",
+"Description":"",
+"ObjectClassTerm":"",
+"PropertyTerm":"Quantity",
+"RepresentationTerm":"Quantity"
+},{
+"DataType":"Quantity",
+"num":41,
+"Kind":"CC",
+"BusinessTerm":"Quantity",
+"DictionaryEntryName":"Quantity. Content",
+"Description":"A counted number of non-monetary units possibly including fractions.",
+"ObjectClassTerm":"Quantity",
+"PropertyTerm":"Content",
+"RepresentationTerm":""
+},{
+"DataType":"Quantity",
+"num":42,
+"Kind":"SC",
+"BusinessTerm":"Quantity UOM",
+"DictionaryEntryName":"Quantity. Unit. Code",
+"Description":"The unit of the quantity.",
+"ObjectClassTerm":"Quantity",
+"PropertyTerm":"Unit",
+"RepresentationTerm":"Code"
+},{
+"DataType":"Quantity",
+"num":43,
+"Kind":"SC",
+"BusinessTerm":"Quantity UOM List",
+"DictionaryEntryName":"Quantity Unit. Code List. Identifier",
+"Description":"The quantity unit code list.",
+"ObjectClassTerm":"Quantity Unit",
+"PropertyTerm":"Code List",
+"RepresentationTerm":"Identifier"
+},{
+"DataType":"Quantity",
+"num":44,
+"Kind":"SC",
+"BusinessTerm":"Quantity UOM Agency Name",
+"DictionaryEntryName":"Quantity Unit. Code List Agency. Identifier",
+"Description":"The identification of the agency that maintains the quantity unit code list.",
+"ObjectClassTerm":"Quantity Unit",
+"PropertyTerm":"Code List Agency",
+"RepresentationTerm":"Identifier"
+},{
+"DataType":"Quantity",
+"num":45,
+"Kind":"SC",
+"BusinessTerm":"Quantity UOM Agency",
+"DictionaryEntryName":"Quantity Unit. Code List Agency Name. Text",
+"Description":"The name of the agency which maintains the quantity unit code list.",
+"ObjectClassTerm":"Quantity Unit",
+"PropertyTerm":"Code List Agency Name",
+"RepresentationTerm":"Text"
+},{
+"DataType":"Code",
+"num":46,
+"Kind":"DT",
+"BusinessTerm":"Code",
+"DictionaryEntryName":"Code. Type",
+"Description":"",
+"ObjectClassTerm":"",
+"PropertyTerm":"Code",
+"RepresentationTerm":"Code"
+},{
+"DataType":"Code",
+"num":47,
+"Kind":"CC",
+"BusinessTerm":"Code",
+"DictionaryEntryName":"Code. Content",
+"Description":"A character string (letters, figures or symbols) that for brevity and/or language independence may be used to represent or replace a definitive value or text of an attribute.",
+"ObjectClassTerm":"Code",
+"PropertyTerm":"Content",
+"RepresentationTerm":""
+},{
+"DataType":"Code",
+"num":48,
+"Kind":"SC",
+"BusinessTerm":"Code List",
+"DictionaryEntryName":"Code List. Identifier",
+"Description":"The identification of a list of codes.",
+"ObjectClassTerm":"Code List",
+"PropertyTerm":"",
+"RepresentationTerm":"Identifier"
+},{
+"DataType":"Code",
+"num":49,
+"Kind":"SC",
+"BusinessTerm":"Code List Agency",
+"DictionaryEntryName":"Code List. Agency. Identifier",
+"Description":"An agency that maintains one or more code lists.",
+"ObjectClassTerm":"Code List",
+"PropertyTerm":"Agency",
+"RepresentationTerm":"Identifier"
+},{
+"DataType":"Code",
+"num":50,
+"Kind":"SC",
+"BusinessTerm":"Code List Agency Name",
+"DictionaryEntryName":"Code List. Agency Name. Text",
+"Description":"The name of the agency that maintains the code list.",
+"ObjectClassTerm":"Code List",
+"PropertyTerm":"Agency Name",
+"RepresentationTerm":"Text"
+},{
+"DataType":"Code",
+"num":51,
+"Kind":"SC",
+"BusinessTerm":"Code List Name",
+"DictionaryEntryName":"Code List. Name. Text",
+"Description":"The name of a list of codes.",
+"ObjectClassTerm":"Code List",
+"PropertyTerm":"Name",
+"RepresentationTerm":"Text"
+},{
+"DataType":"Code",
+"num":52,
+"Kind":"SC",
+"BusinessTerm":"Code List Version",
+"DictionaryEntryName":"Code List. Version. Identifier",
+"Description":"The version of the code list.",
+"ObjectClassTerm":"Code List",
+"PropertyTerm":"Version",
+"RepresentationTerm":"Identifier"
+},{
+"DataType":"Code",
+"num":53,
+"Kind":"SC",
+"BusinessTerm":"Code Name",
+"DictionaryEntryName":"Code. Name. Text",
+"Description":"The textual equivalent of the code content.",
+"ObjectClassTerm":"Code",
+"PropertyTerm":"Name",
+"RepresentationTerm":"Text"
+},{
+"DataType":"Code",
+"num":54,
+"Kind":"SC",
+"BusinessTerm":"Language",
+"DictionaryEntryName":"Language. . Identifier",
+"Description":"The identifier of the language used in the corresponding text string.",
+"ObjectClassTerm":"Language",
+"PropertyTerm":"",
+"RepresentationTerm":"Identifier"
+},{
+"DataType":"Code",
+"num":55,
+"Kind":"SC",
+"BusinessTerm":"Code List URI",
+"DictionaryEntryName":"Code List. Uniform Resource. Identifier",
+"Description":"The Uniform Resource Identifier that identifies where the code list is located.",
+"ObjectClassTerm":"Code List",
+"PropertyTerm":"Uniform Resource",
+"RepresentationTerm":"Identifier"
+},{
+"DataType":"Code",
+"num":56,
+"Kind":"SC",
+"BusinessTerm":"Code List Scheme URI",
+"DictionaryEntryName":"Code List Scheme. Uniform Resource. Identifier",
+"Description":"The Uniform Resource identifier that identifies where the code list scheme is located.",
+"ObjectClassTerm":"Code List Scheme",
+"PropertyTerm":"Uniform Resource",
+"RepresentationTerm":"Identifier"
+},{
+"DataType":"Currency Code",
+"num":57,
+"Kind":"DT",
+"BusinessTerm":"Currency Code",
+"DictionaryEntryName":"Currency Code. Type",
+"Description":"",
+"ObjectClassTerm":"",
+"PropertyTerm":"Currency Code",
+"DatatypeQualifier":"Currency",
+"RepresentationTerm":"Code"
+},{
+"DataType":"Currency Code",
+"num":58,
+"Kind":"CC",
+"BusinessTerm":"Currency Code",
+"DictionaryEntryName":"Code. Content",
+"Description":"",
+"ObjectClassTerm":"Code",
+"PropertyTerm":"Content",
+"RepresentationTerm":""
+},{
+"DataType":"Currency Code",
+"num":59,
+"Kind":"SC",
+"BusinessTerm":"Currency Code List",
+"DictionaryEntryName":"Code List. Identifier",
+"Description":"",
+"ObjectClassTerm":"Code List",
+"PropertyTerm":"",
+"RepresentationTerm":"Identifier"
+},{
+"DataType":"Currency Code",
+"num":60,
+"Kind":"SC",
+"BusinessTerm":"Currency Code Agency",
+"DictionaryEntryName":"Code List. Agency. Identifier",
+"Description":"",
+"ObjectClassTerm":"Code List",
+"PropertyTerm":"Agency",
+"RepresentationTerm":"Identifier"
+},{
+"DataType":"Currency Code",
+"num":61,
+"Kind":"SC",
+"BusinessTerm":"Currency Code Version",
+"DictionaryEntryName":"Code List. Version. Identifier",
+"Description":"",
+"ObjectClassTerm":"Code List",
+"PropertyTerm":"Version",
+"RepresentationTerm":"Identifier"
+},{
+"DataType":"Currency Code",
+"num":62,
+"Kind":"SC",
+"BusinessTerm":"Currency Code URI",
+"DictionaryEntryName":"Code List. Uniform Resource. Identifier",
+"Description":"",
+"ObjectClassTerm":"Code List",
+"PropertyTerm":"Uniform Resource",
+"RepresentationTerm":"Identifier"
+},{
+"DataType":"Country Code",
+"num":63,
+"Kind":"DT",
+"BusinessTerm":"Country Code",
+"DictionaryEntryName":"Country Code. Type",
+"Description":"",
+"ObjectClassTerm":"",
+"PropertyTerm":"Country Code",
+"DatatypeQualifier":"Country",
+"RepresentationTerm":"Code"
+},{
+"DataType":"Country Code",
+"num":64,
+"Kind":"CC",
+"BusinessTerm":"Country Code",
+"DictionaryEntryName":"Code. Content",
+"Description":"",
+"ObjectClassTerm":"Code",
+"PropertyTerm":"Content",
+"RepresentationTerm":""
+},{
+"DataType":"Country Code",
+"num":65,
+"Kind":"SC",
+"BusinessTerm":"Country Code List",
+"DictionaryEntryName":"Code List. Identifier",
+"Description":"",
+"ObjectClassTerm":"Code List",
+"PropertyTerm":"",
+"RepresentationTerm":"Identifier"
+},{
+"DataType":"Country Code",
+"num":66,
+"Kind":"SC",
+"BusinessTerm":"Country Code Agency",
+"DictionaryEntryName":"Code List. Agency. Identifier",
+"Description":"",
+"ObjectClassTerm":"Code List",
+"PropertyTerm":"Agency",
+"RepresentationTerm":"Identifier"
+},{
+"DataType":"Country Code",
+"num":67,
+"Kind":"SC",
+"BusinessTerm":"Country Code Version",
+"DictionaryEntryName":"Code List. Version. Identifier",
+"Description":"",
+"ObjectClassTerm":"Code List",
+"PropertyTerm":"Version",
+"RepresentationTerm":"Identifier"
+},{
+"DataType":"Country Code",
+"num":68,
+"Kind":"SC",
+"BusinessTerm":"Country Code URI",
+"DictionaryEntryName":"Code List. Uniform Resource. Identifier",
+"Description":"",
+"ObjectClassTerm":"Code List",
+"PropertyTerm":"Uniform Resource",
+"RepresentationTerm":"Identifier"
+},{
+"DataType":"State Province Code",
+"num":69,
+"Kind":"DT",
+"BusinessTerm":"State Province Code",
+"DictionaryEntryName":"State Province Code. Type",
+"Description":"",
+"ObjectClassTerm":"",
+"PropertyTerm":"State Province Code",
+"DatatypeQualifier":"State Province",
+"RepresentationTerm":"Code"
+},{
+"DataType":"State Province Code",
+"num":70,
+"Kind":"CC",
+"BusinessTerm":"State Province Code",
+"DictionaryEntryName":"Code. Content",
+"Description":"",
+"ObjectClassTerm":"Code",
+"PropertyTerm":"Content",
+"RepresentationTerm":""
+},{
+"DataType":"State Province Code",
+"num":71,
+"Kind":"SC",
+"BusinessTerm":"State Province Code List",
+"DictionaryEntryName":"Code List. Identifier",
+"Description":"",
+"ObjectClassTerm":"Code List",
+"PropertyTerm":"",
+"RepresentationTerm":"Identifier"
+},{
+"DataType":"State Province Code",
+"num":72,
+"Kind":"SC",
+"BusinessTerm":"State Province Code Agency",
+"DictionaryEntryName":"Code List. Agency. Identifier",
+"Description":"",
+"ObjectClassTerm":"Code List",
+"PropertyTerm":"Agency",
+"RepresentationTerm":"Identifier"
+},{
+"DataType":"State Province Code",
+"num":73,
+"Kind":"SC",
+"BusinessTerm":"State Province Code Version",
+"DictionaryEntryName":"Code List. Version. Identifier",
+"Description":"",
+"ObjectClassTerm":"Code List",
+"PropertyTerm":"Version",
+"RepresentationTerm":"Identifier"
+},{
+"DataType":"State Province Code",
+"num":74,
+"Kind":"SC",
+"BusinessTerm":"State Province Code URI",
+"DictionaryEntryName":"Code List. Uniform Resource. Identifier",
+"Description":"",
+"ObjectClassTerm":"Code List",
+"PropertyTerm":"Uniform Resource",
+"RepresentationTerm":"Identifier"
+},{
+"DataType":"Date Time",
+"num":75,
+"Kind":"DT",
+"BusinessTerm":"Date Time",
+"DictionaryEntryName":"Date Time. Type",
+"Description":"",
+"ObjectClassTerm":"",
+"PropertyTerm":"Date Time",
+"RepresentationTerm":"Date Time"
+},{
+"DataType":"Date Time",
+"num":76,
+"Kind":"CC",
+"BusinessTerm":"Date Time",
+"DictionaryEntryName":"Date Time. Content",
+"Description":"The particular point in the progression of time.",
+"ObjectClassTerm":"Date Time",
+"PropertyTerm":"Content",
+"RepresentationTerm":""
+},{
+"DataType":"Date Time",
+"num":77,
+"Kind":"SC",
+"BusinessTerm":"Date Time Format",
+"DictionaryEntryName":"Date Time. Format. Text",
+"Description":"The format of the date/time content.",
+"ObjectClassTerm":"Date Time",
+"PropertyTerm":"Format",
+"RepresentationTerm":"Text"
+},{
+"DataType":"Date",
+"num":78,
+"Kind":"DT",
+"BusinessTerm":"Date",
+"DictionaryEntryName":"Date. Type",
+"Description":"",
+"ObjectClassTerm":"",
+"PropertyTerm":"Date",
+"RepresentationTerm":"Date"
+},{
+"DataType":"Date",
+"num":79,
+"Kind":"CC",
+"BusinessTerm":"Date",
+"DictionaryEntryName":"Date Time. Content",
+"Description":"The particular point in the progression of time.",
+"ObjectClassTerm":"Date Time",
+"PropertyTerm":"Content",
+"RepresentationTerm":""
+},{
+"DataType":"Date",
+"num":80,
+"Kind":"SC",
+"BusinessTerm":"Date Format",
+"DictionaryEntryName":"Date Time. Format. Text",
+"Description":"The format of the date/time content.",
+"ObjectClassTerm":"Date Time",
+"PropertyTerm":"Format",
+"RepresentationTerm":"Text"
+},{
+"DataType":"Time",
+"num":81,
+"Kind":"DT",
+"BusinessTerm":"Time",
+"DictionaryEntryName":"Time. Type",
+"Description":"",
+"ObjectClassTerm":"",
+"PropertyTerm":"Time",
+"RepresentationTerm":"Time"
+},{
+"DataType":"Time",
+"num":82,
+"Kind":"CC",
+"BusinessTerm":"Time",
+"DictionaryEntryName":"Date Time. Content",
+"Description":"The particular point in the progression of time.",
+"ObjectClassTerm":"Date Time",
+"PropertyTerm":"Content",
+"RepresentationTerm":""
+},{
+"DataType":"Time",
+"num":83,
+"Kind":"SC",
+"BusinessTerm":"Time Format",
+"DictionaryEntryName":"Date Time. Format. Text",
+"Description":"The format of the date/time content.",
+"ObjectClassTerm":"Date Time",
+"PropertyTerm":"Format",
+"RepresentationTerm":"Text"
+},{
+"DataType":"Text",
+"num":84,
+"Kind":"DT",
+"BusinessTerm":"Text. Type",
+"DictionaryEntryName":"Text. Type",
+"Description":"",
+"ObjectClassTerm":"",
+"PropertyTerm":"Text",
+"RepresentationTerm":""
+},{
+"DataType":"Text",
+"num":85,
+"Kind":"CC",
+"BusinessTerm":"Text. Content",
+"DictionaryEntryName":"Text. Content",
+"Description":"A character string (I.e. a finite set of characters) generally in the form of words of a language.",
+"ObjectClassTerm":"Text",
+"PropertyTerm":"Content",
+"RepresentationTerm":""
+},{
+"DataType":"Text",
+"num":86,
+"Kind":"SC",
+"BusinessTerm":"Language. Identifier",
+"DictionaryEntryName":"Language. Identifier",
+"Description":"The identifier of the language used in the corresponding text string.",
+"ObjectClassTerm":"Language",
+"PropertyTerm":"",
+"RepresentationTerm":"Identifier"
+},{
+"DataType":"Text",
+"num":87,
+"Kind":"SC",
+"BusinessTerm":"Language. Locale. Identifier",
+"DictionaryEntryName":"Language. Locale. Identifier",
+"Description":"The identification of the locale of the language.",
+"ObjectClassTerm":"Language",
+"PropertyTerm":"Locale",
+"RepresentationTerm":"Identifier"
+},{
+"DataType":"Name",
+"num":88,
+"Kind":"DT",
+"BusinessTerm":"Name. Type",
+"DictionaryEntryName":"Name. Type",
+"Description":"",
+"ObjectClassTerm":"",
+"PropertyTerm":"Name",
+"RepresentationTerm":""
+},{
+"DataType":"Name",
+"num":89,
+"Kind":"CC",
+"BusinessTerm":"Text. Content",
+"DictionaryEntryName":"Text. Content",
+"Description":"A character string (I.e. a finite set of characters) generally in the form of words of a language.",
+"ObjectClassTerm":"Text",
+"PropertyTerm":"Content",
+"RepresentationTerm":""
+},{
+"DataType":"Name",
+"num":90,
+"Kind":"SC",
+"BusinessTerm":"Language. Identifier",
+"DictionaryEntryName":"Language. Identifier",
+"Description":"The identifier of the language used in the corresponding text string.",
+"ObjectClassTerm":"Language",
+"PropertyTerm":"",
+"RepresentationTerm":"Identifier"
+},{
+"DataType":"Name",
+"num":91,
+"Kind":"SC",
+"BusinessTerm":"Language. Locale. Identifier",
+"DictionaryEntryName":"Language. Locale. Identifier",
+"Description":"The identification of the locale of the language.",
+"ObjectClassTerm":"Language",
+"PropertyTerm":"Locale",
+"RepresentationTerm":"Identifier"
+},{
+"DataType":"Numeric",
+"num":92,
+"Kind":"DT",
+"BusinessTerm":"Numeric. Type",
+"DictionaryEntryName":"Numeric. Type",
+"Description":"",
+"ObjectClassTerm":"",
+"PropertyTerm":"Numeric",
+"RepresentationTerm":""
+},{
+"DataType":"Numeric",
+"num":93,
+"Kind":"CC",
+"BusinessTerm":"Numeric. Content",
+"DictionaryEntryName":"Numeric. Content",
+"Description":"Numeric information that is assigned or is determined by calculation, counting or sequencing.",
+"ObjectClassTerm":"Numeric",
+"PropertyTerm":"Content",
+"RepresentationTerm":""
+},{
+"DataType":"Numeric",
+"num":94,
+"Kind":"SC",
+"BusinessTerm":"Numeric. Format. Text",
+"DictionaryEntryName":"Numeric. Format. Text",
+"Description":"Whether the number is an integer, decimal, real number or percentage.",
+"ObjectClassTerm":"Numeric",
+"PropertyTerm":"Format",
+"RepresentationTerm":"Text"
+},{
+"DataType":"Value",
+"num":95,
+"Kind":"DT",
+"BusinessTerm":"Value. Type",
+"DictionaryEntryName":"Value. Type",
+"Description":"",
+"ObjectClassTerm":"",
+"PropertyTerm":"Value",
+"RepresentationTerm":""
+},{
+"DataType":"Value",
+"num":96,
+"Kind":"CC",
+"BusinessTerm":"Numeric. Content",
+"DictionaryEntryName":"Numeric. Content",
+"Description":"Numeric information that is assigned or is determined by calculation, counting or sequencing.",
+"ObjectClassTerm":"Numeric",
+"PropertyTerm":"Content",
+"RepresentationTerm":""
+},{
+"DataType":"Value",
+"num":97,
+"Kind":"SC",
+"BusinessTerm":"Numeric. Format. Text",
+"DictionaryEntryName":"Numeric. Format. Text",
+"Description":"Whether the number is an integer, decimal, real number or percentage.",
+"ObjectClassTerm":"Numeric",
+"PropertyTerm":"Format",
+"RepresentationTerm":"Text"
+},{
+"DataType":"Rate",
+"num":98,
+"Kind":"DT",
+"BusinessTerm":"Rate. Type",
+"DictionaryEntryName":"Rate. Type",
+"Description":"",
+"ObjectClassTerm":"",
+"PropertyTerm":"Rate",
+"RepresentationTerm":""
+},{
+"DataType":"Rate",
+"num":99,
+"Kind":"CC",
+"BusinessTerm":"Numeric. Content",
+"DictionaryEntryName":"Numeric. Content",
+"Description":"Numeric information that is assigned or is determined by calculation, counting or sequencing.",
+"ObjectClassTerm":"Numeric",
+"PropertyTerm":"Content",
+"RepresentationTerm":""
+},{
+"DataType":"Rate",
+"num":100,
+"Kind":"SC",
+"BusinessTerm":"Numeric. Format. Text",
+"DictionaryEntryName":"Numeric. Format. Text",
+"Description":"Whether the number is an integer, decimal, real number or percentage.",
+"ObjectClassTerm":"Numeric",
+"PropertyTerm":"Format",
+"RepresentationTerm":"Text"
+}]
+}
