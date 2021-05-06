@@ -17,6 +17,9 @@ ENTITY_NAME	ATTRIBUTE_NAME	DOMAIN_NAME	#	Module	A/B/ID/RL/AS	CC/BIE	Business Ter
 		Reference Identifier	16	0.DT		SC	Reference Identification Scheme Version	Identification Scheme. Version. Identifier		Identification Scheme		Version		Identifier					The version of the identification scheme.
 		Reference Identifier	17	0.DT		SC	Reference Identification Scheme Data URI	Identification Scheme Data. Uniform Resource. Identifier		Identification Scheme Data		Uniform Resource		Identifier					The Uniform Resource Identifier that identifies where the identification scheme data is located.
 		Reference Identifier	18	0.DT		SC	Reference Identification Scheme URI	Identification Scheme. Uniform Resource. Identifier		Identification Scheme		Uniform Resource		Identifier					The Uniform Resource Identifier that identifies where the identification scheme is located.
+		Indicator	1	0.DT		DT	Indicator	Indicator. Type				Indicator		Indicator					
+		Indicator	2	0.DT		CC	Indicator	Indicator. Content		Indicator		Content							"A character string used to identify and distinguish uniquely, one instance of an object in an identification scheme from all other objects within the same scheme."
+		Indicator	3	0.DT		SC	Identification Scheme	Indicator. Format. Text		Indicator		Format		Text					The identification of the identification scheme.
 		Amount	19	0.DT		DT	Amount	Amount. Type				Amount		Amount					
 		Amount	20	0.DT		CC	Amount	Amount. Content		Amount		Content							A number of monetary units specified in a currency where the unit of currency is explicit or implied.
 		Amount	21	0.DT		SC	Currency	Amount. Currency. Identifier		Amount		Currency		Identifier					The currency of the amount.
