@@ -253,7 +253,7 @@ CONTRACT	PURCHASER ID	IDENTIFIER 60	145	1.Core	RL	CC	Purchaser ID	Contract. Purc
 CONTRACT	SETTLEMENT METHOD CODE	IDENTIFIER 60	146	1.Core	RL	CC	Settlement Method Code	Contract. Recorded. Settlement Method_ List		Contract 		Recorded					Settlement Method	List	The code value or indicator of the method by which the transaction (i.e. the debit or credit amount) amount was extinguished or apportioned to the debt by the customer or the supplier. 	0..1
 CONTRACT	PAYMENT TERM CODE	PAYMENT TERM CODE	147	1.Core	RL	CC	Payment Term Code	Contract. Recorded. Payment Term_ List		Contract 		Recorded					Payment Term	List	The code of the payment term. 	0..1
 CONTRACT	CONTRACT TRANSACTION CUR CODE	CURRENCY CODE	148	1.Core	RL	CC	Transaction Currency Code	Contract. Recorded. Currency_ List		Contract 		Recorded					Currency	List	The transactional currency specified in the contract (ISO 4217). 	0..1
-			149	1.Core	B	BIE	Created Date	Contract. Created Date. Date		Contract 		Created Date		Date						1..1
+			149	1.Core	B	CC	Created Date	Contract. Created Date. Date		Contract 		Created Date		Date						1..1
 CONTRACT	STATUS	STATUS CODE	150	1.Core	B	CC	Status	Contract. Status. Code		Contract 		Status		Code					"The status of the contract; for example, new, save, submit and frozen."	0..1
 CONTRACT	REMARK	TEXT 500	151	1.Core	B	CC	Remark	Contract. Remark. Text		Contract 		Remark		Text					Freeform text description.	0..1
 			152	1.Core	AS	CC	[Specified] Handling	Contract. Recorded. [Specified]_ Handling		Contract 		Recorded			[Specified]	Handling				1..n
