@@ -2280,6 +2280,13 @@ requestEntity(3);
 // -----------------------------------------------------------------
 // ADC
 //
+$('#adc-abie-module').on('change', function(event) {
+  var module = $(this).val();
+  adc_abie_table.column(adc_abie_COL_Module)
+  .search(module, /*regex*/true, /*smart*/false, /*caseInsen*/false).draw();
+});
+$('#adc-abie-module').val('Base');
+// -----
 $('#adc-abie tbody').on('click', 'td.info-control', function(event) {
   event.stopPropagation();
   var tr = $(this).closest('tr'), row = adc_abie_table.row(tr), data = row.data();

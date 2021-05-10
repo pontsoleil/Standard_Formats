@@ -23,7 +23,7 @@
     <!-- font awesome -->
     <link rel="stylesheet" href="/font-awesome-4.7.0/css/font-awesome.min.css ">
     <!-- this page -->
-    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="../css/upload.css">
     <link rel="stylesheet" href="../css/snackbar.css">
     <script type="text/javascript" src="js/main.js"></script>
@@ -52,8 +52,8 @@
         };
         $('#ie-warning').addClass('d-none');
         $('#root').removeClass('d-none').addClass('d-block');
-        $('#tab-1').removeClass('d-none');
-        $('#tab-2').removeClass('d-none');
+        // $('#tab-1').removeClass('d-none');
+        // $('#tab-2').removeClass('d-none');
         tab1 = getUrlParameter('t1');
         tab2 = getUrlParameter('t2');
         file = getUrlParameter('file'); // file, file=upload
@@ -167,6 +167,18 @@
       <div id="adc-abie-container">
         <div id="adc-abie-frame" class="pretty-split-pane-component-inner">
         <span class="table-title">Audit Data Collection Business Information Entiy</span>
+        <div class="adc-abie-module">
+          <label for="adc-abie-module">Module</label>
+          <select id="adc-abie-module" name="adc-abie-module">
+            <option value="Common">Common</option>
+            <option value="Base">Base</option>
+            <option value="GL">GL</option>
+            <option value="O2C">O2C</option>
+            <option value="P2P">P2P</option>
+            <option value="INV">INV</option>
+            <option value="PPE">PPE</option>
+          </select>
+        </div>
         <table id="adc-abie" class="display" style="width:100%">
           <thead>
             <tr>
