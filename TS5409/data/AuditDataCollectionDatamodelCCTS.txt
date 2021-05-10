@@ -347,7 +347,6 @@ AR ADJUSTMENT	BUSINESS SEGMENT X	TEXT 25	229	1.Core	RL	CC	Business Segment X	Tra
 			239	1.Core	AS	CC	Trade Settlement	Transaction. Applicable. Trade Settlement		Transaction		Applicable				Trade Settlement			"A document associated with this trade transaction, such as the purchase order, invoice or packing list."	0..1
 			240	1.Core	AS	CC	Product Group	Transaction. Included. Product Group		Transaction		Included				Product Group			Trade settlement details applicable to this trade transaction.	0..1
 			241	1.Core	AS	CC	Product	Transaction. Included. Product		Transaction		Included				Product			A product group included in this trade transaction.	0..1
-			242	1.Core	AS	CC	Trade Line	Transaction. Recorded. Trade Line		Transaction		Recorded				Trade Line			A product included in this trade transaction.	0..1
 			243	1.Core	A	CC	Transaction Line	Transaction Line. Detail. 		Transaction Line		Detail								
 			244	1.Core	RL	CC	Transaction ID	Transaction Line. Header. Trade Transaction		Transaction Line		Header						Trade Transaction	A collection of information specific to an item being used or reported on for trade purposes.	0..1
 			245	1.Core	ID	CC	Transaction Line ID	Transaction Line. ID		Transaction Line		Identification		Identifier					A specified reference identifier for trade transaction including this trade Line.	1..1
@@ -357,22 +356,22 @@ AR ADJUSTMENT	BUSINESS SEGMENT X	TEXT 25	229	1.Core	RL	CC	Business Segment X	Tra
 			249	1.Core	B	CC	Description	Transaction Line. Description. Text		Transaction Line		Description		Text					The unique identifier for this trade Line as assigned by the buyer.	0..1
 			250	1.Core	B	CC	Batch ID	Transaction Line. Production Batch. Identifier		Transaction Line		Production Batch		Identifier					A textual description of this trade Line.	0..1
 			251	1.Core	B	CC	Product Model ID	Transaction Line. Product Model. Identifier		Transaction Line		Product Model		Identifier					A unique production batch identifier for this trade Line.	0..1
-			252	1.Core	B	CC	Type Code	Transaction Line. Type. Code		Transaction Line		Type		Code					A unique product model identifier for this trade Line.	0..1
-			253	1.Core	B	CC	[Specified] Name	Transaction Line. [Specified] Name. Name		Transaction Line		[Specified] Name		Name					A measure of the net volume for this trade Line.	0..1
-			254	1.Core	B	CC	[Specified] Text	Transaction Line. [Specified] Text. Text		Transaction Line		[Specified] Text		Text					"A use, expressed as text, for this trade Line."	0..1
-			255	1.Core	B	CC	[Specified] Code	Transaction Line. [Specified] Code. Code		Transaction Line		[Specified] Code		Code					"A use, expressed as text, for this trade Line."	0..1
-			256	1.Core	B	CC	[Specified Transaction] Amount	Transaction Line. [Specified Transaction] Amount. Transaction Amount		Transaction Line		[Specified Transaction] Amount		Transaction Amount					"A use, expressed as text, for this trade Line."	0..1
-			257	1.Core	B	CC	[Specified Local] Amount	Transaction Line. [Specified Local] Amount. Local Amount		Transaction Line		[Specified Local] Amount		Local Amount					"A use, expressed as text, for this trade Line."	0..1
-			258	1.Core	B	CC	[Specified] Date	Transaction Line. [Specified] Date. Date		Transaction Line		[Specified] Date		Date					"A use, expressed as text, for this trade Line."	0..1
-			259	1.Core	B	CC	[Specified] Quantity	Transaction Line. [Specified] Quantity. Quantity		Transaction Line		[Specified] Quantity		Quantity					"A use, expressed as text, for this trade Line."	0..1
-			260	1.Core	B	CC	[Specified Basic] Quantity	Transaction Line. [Specified Basic] Quantity. Basic Quantity		Transaction Line		[Specified Basic] Quantity		Basic Quantity					"A use, expressed as text, for this trade Line."	0..1
-BAS CUSTOMER	TERMS DISCOUNT DAYS	NUMBER 6	261	1.Core	B	CC	[Specified Numeric]	Transaction Line. [Specified Numeric]. Numeric		Transaction Line		[Specified Numeric]		Numeric					"The number of days from the invoice date the customer has to take advantage of discounted terms. Terms are represented as integers with no decimal places; for example, 10 days would be represented as 10."	0..1
-			262	1.Core	B	CC	[Specified] Date	Transaction Line. [Specified] Date. Date		Transaction Line		[Specified] Date		Date					"A use, expressed as text, for this trade Line."	0..1
-			263	1.Core	AS	CC	[Specified] Party	Transaction Line. [Specified] Party. Party		Transaction Line		[Specified] Party				Party			A code specifying a description of this trade Line.	0..1
-			264	1.Core	AS	CC	[Specified] Account Number	Transaction Line. [Specified] Account Number. Accounting Account		Transaction Line		[Specified] Account Number				Accounting Account			A total tax for this trade Line.	0..1
+			252	1.Core	B	CC	Type Code	Transaction Line. Type. Code		Transaction Line		Type		Code					A type code for this trade Line.	0..1
+			253	1.Core	B	CC	[Specified] Name	Transaction Line. [Specified] Name. Name		Transaction Line		[Specified] Name		Name					A [Specified] Name for this trade Line.	0..1
+			254	1.Core	B	CC	[Specified] Text	Transaction Line. [Specified] Text. Text		Transaction Line		[Specified] Text		Text					A  [Specified] Text for this trade Line.	0..1
+			255	1.Core	B	CC	[Specified] Code	Transaction Line. [Specified] Code. Code		Transaction Line		[Specified] Code		Code					A  [Specified] Code for this trade Line.	0..1
+			256	1.Core	B	CC	[Specified Transaction] Amount	Transaction Line. [Specified Transaction] Amount. Transaction Amount		Transaction Line		[Specified Transaction] Amount		Transaction Amount					A  [Specified Tramsaction] Amountfor this trade Line.	0..1
+			257	1.Core	B	CC	[Specified Local] Amount	Transaction Line. [Specified Local] Amount. Local Amount		Transaction Line		[Specified Local] Amount		Local Amount					A  [Specified Local] Amount for this trade Line.	0..1
+			258	1.Core	B	CC	[Specified] Date	Transaction Line. [Specified] Date. Date		Transaction Line		[Specified] Date		Date					A  [Specified] Date for this trade Line.	0..1
+			259	1.Core	B	CC	[Specified] Quantity	Transaction Line. [Specified] Quantity. Quantity		Transaction Line		[Specified] Quantity		Quantity					A  [Specified] Quantity for this trade Line.	0..1
+			260	1.Core	B	CC	[Specified Basic] Quantity	Transaction Line. [Specified Basic] Quantity. Basic Quantity		Transaction Line		[Specified Basic] Quantity		Basic Quantity					A  [Specified Basic] Quantity for this trade Line.	0..1
+BAS CUSTOMER	TERMS DISCOUNT DAYS	NUMBER 6	261	1.Core	B	CC	[Specified Numeric]	Transaction Line. [Specified Numeric]. Numeric		Transaction Line		[Specified Numeric]		Numeric					A  [Specified Numeric]  for this trade Line.	0..1
+			262	1.Core	B	CC	[Specified] Date	Transaction Line. [Specified] Date. Date		Transaction Line		[Specified] Date		Date					A  [Specified] Date for this trade Line.	0..1
+			263	1.Core	AS	CC	[Specified] Party	Transaction Line. [Specified] Party. Party		Transaction Line		[Specified] Party				Party			A [Specified] Party for this trade Line.	0..1
+			264	1.Core	AS	CC	[Specified] Account Number	Transaction Line. [Specified] Account Number. Accounting Account		Transaction Line		[Specified] Account Number				Accounting Account			A [Specified] Account Number for this trade Line.	0..1
 			265	1.Core	AS	CC	Transaction Currency Tax	Transaction Line. has a. Transaction Currency Tax_ List		Transaction Line		has a			Transaction Currency Tax	List			Tax amount in local currency and Debit/Credit GL Account Number	0..n
 			266	1.Core	AS	CC	Local Currency Tax	Transaction Line. has a. Local Currency Tax_ List		Transaction Line		has a			Local Currency Tax	List			Tax amount in local currency and Debit/Credit GL Account Number	0..n
-			267	1.Core	AS	CC	Unit. Price	Transaction Line. Unit Price. Amount		Transaction Line		Unit Price				Amount			An accounting account for this trade Line.	0..1
+			267	1.Core	AS	CC	Unit. Price	Transaction Line. Unit Price. Amount		Transaction Line		Unit Price				Amount			An Unit Price for this trade Line.	0..1
 INV TRANSACTION	POSTED	was	268	1.Core	AS	CC	Posted	Transaction Line. was. Posted_ Handling		Transaction Line		was			Posted	Handling			A posted handling of this entry	0..1
 INV TRANSACTION	CREATED	was	269	1.Core	AS	CC	Created	Transaction Line. was. Created_ Handling		Transaction Line		was			Created	Handling			A create handling of this entry	1..1
 INV TRANSACTION	APPROVED	was	270	1.Core	AS	CC	Approved	Transaction Line. was. Approved_ Handling		Transaction Line		was			Approved	Handling			An approved handling of this entry	0..1
@@ -705,7 +704,6 @@ AR ADJUSTMENT	BUSINESS SEGMENT X	TEXT 25	270	2.Common	RL	BIE	Business Segment X	
 			280	2.Common	AS	BIE	Trade Settlement	Transaction. Applicable. Trade Settlement		Transaction		Applicable				Trade Settlement			"A document associated with this trade transaction, such as the purchase order, invoice or packing list."	0..1
 			281	2.Common	AS	BIE	Product Group	Transaction. Included. Product Group		Transaction		Included				Product Group			Trade settlement details applicable to this trade transaction.	0..1
 			282	2.Common	AS	BIE	Product	Transaction. Included. Product		Transaction		Included				Product			A product group included in this trade transaction.	0..1
-			283	2.Common	AS	BIE	Trade Line	Transaction. Recorded. Trade Line		Transaction		Recorded				Trade Line			A product included in this trade transaction.	0..1
 			284	2.Common	A	BIE	Transaction Line	Transaction Line. Detail. 		Transaction Line		Detail								
 			285	2.Common	RL	BIE	Transaction ID	Transaction Line. Header. Trade Transaction		Transaction Line		Header						Trade Transaction	A collection of information specific to an item being used or reported on for trade purposes.	0..1
 			286	2.Common	ID	BIE	Transaction Line ID	Transaction Line. ID		Transaction Line		Identification		Identifier					A specified reference identifier for trade transaction including this trade Line.	1..1
