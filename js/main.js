@@ -2978,10 +2978,20 @@ function showDetail(tr, frame) {
     $(this).addClass('d-none');
   });
 // -----------------------------------------------------------------
-  tab1 = tab1 || 'adc';
-  tab2 = tab2 || 'acc';
-  setFrame(2, tab2);
-  setFrame(1, tab1);
+  if (tab1 && !tab2) {
+    setFrame(1, tab1);
+    // $('#tab-2').hide()
+    // $('#tab-1').hide()
+    // $('#vertical-divider').hide()
+    $('#component-2').width('10%');
+    $('#component-1').width('90%');
+  }
+  else {
+    tab1 = tab1 || 'adc';
+    tab2 = tab2 || 'acc';
+    setFrame(2, tab2);
+    setFrame(1, tab1);
+  }
 /**
 https://github.com/shagstrom/split-pane
 Split pane component min-height and min-width are supported,
