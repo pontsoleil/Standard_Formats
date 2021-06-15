@@ -97,7 +97,8 @@ adcEntityMap, xbrlglEntityMap, adsEntityMap, ublEntityMap, bieComptMap, ccMap,
 adcRows, xbrlglRows, adsRows, ublRows, bieRows, abie,
 adcEntityRows, xbrlglEntityRows, adsEntityRows, ublEntityRows, bieComptRows, bie,
 populateAdc, populateXbrlgl, populateAds, populateUbl, populateBie, populateAcc,
-getTopTable, getTopTableID, getEntityTable, getEntityTableID;
+getTopTable, getTopTableID, getEntityTable, getEntityTableID,
+DESCRIPTION_LENGTH = DESCRIPTION_LENGTH;
 // -----------------------------------------------------------------
 // TAB MENU
 //
@@ -965,8 +966,8 @@ function renderDescription(description) {
   if (!description) {
     return '';
   }
-  else if (description.length > 72) {
-    description = description.substr(0, 72)+'...';
+  else if (description.length > DESCRIPTION_LENGTH) {
+    description = description.substr(0, DESCRIPTION_LENGTH)+'...';
   }
   return description;
 }
@@ -994,8 +995,8 @@ function renderAdcAbieModule(row) {
 }
 function rendeAdcAbierDescription(row) {
   var description = row.Description;
-  if (description.length > 72) {
-    description = description.substr(0, 72)+'...';
+  if (description.length > DESCRIPTION_LENGTH) {
+    description = description.substr(0, DESCRIPTION_LENGTH)+'...';
   }
   var match;
   match = description.match(/^(.*)( (is|are) contained in Table [0-9]*)(.*)$/);
@@ -1058,8 +1059,8 @@ function renderAdcEntityDescription(row) {
   description = description.replace(/ (is|are) contained in Table [0-9]+/g, '');
   // description = description.replace(/EXAMPLE/g, '<br><span style="font-size:smaller">EXAMPLE</span><br>');
   description = description.replace(/\(Table [0-9]+\) /g, '');
-  if (description.length > 72) {
-    description = description.substr(0, 72)+'...';
+  if (description.length > DESCRIPTION_LENGTH) {
+    description = description.substr(0, DESCRIPTION_LENGTH)+'...';
   }
   return renderDescription(description);
 }
@@ -1235,8 +1236,8 @@ function renderAdsDescription(row) {
     description = match[1];
   }
   description = description.replace(/''/g,'"');
-  if (description.length > 72) {
-    description = description.substr(0, 72)+'...';
+  if (description.length > DESCRIPTION_LENGTH) {
+    description = description.substr(0, DESCRIPTION_LENGTH)+'...';
   }
   return renderDescription(description);
 }
@@ -2980,11 +2981,7 @@ function showDetail(tr, frame) {
 // -----------------------------------------------------------------
   if (tab1 && !tab2) {
     setFrame(1, tab1);
-    // $('#tab-2').hide()
-    // $('#tab-1').hide()
-    // $('#vertical-divider').hide()
-    $('#component-2').width('10%');
-    $('#component-1').width('90%');
+    DESCRIPTION_LENGTH = 200;
   }
   else {
     tab1 = tab1 || 'adc';
