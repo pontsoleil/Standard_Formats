@@ -1,0 +1,877 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xs:schema xmlns="urn:OECD:StandardAuditFile-Payroll/1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:OECD:StandardAuditFile-Payroll/1.0">
+	<xs:element name="AuditFilePayroll">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Header">
+					<xs:annotation>
+						<xs:documentation>Holds general information about the file including the name of the software which produced it; the employer on whose behalf the SAF-P is being submitted; the name of the payroll bureau involved; and the selection criteria used. An extension point is provided to allow individual Revenue Bodies to  specify further relevant information to be supplied.</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:complexContent>
+							<xs:extension base="HeaderStructure">
+								<xs:sequence minOccurs="0">
+									<xs:element name="PayrollBureau" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>Payroll Bureau name and address details.</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="Name" minOccurs="0">
+													<xs:annotation>
+														<xs:documentation>Name of the payroll bureau.</xs:documentation>
+													</xs:annotation>
+													<xs:simpleType>
+														<xs:restriction base="SAFmiddle1textType"/>
+													</xs:simpleType>
+												</xs:element>
+												<xs:element name="Address" type="AddressStructure" minOccurs="0">
+													<xs:annotation>
+														<xs:documentation>Payroll bureau address details.</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="Contact" type="ContactInformationStructure">
+													<xs:annotation>
+														<xs:documentation>Payroll bureau contact details.</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:any namespace="##other" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>Represents space to allow individual Revenue Bodies to add further elements if required. See Annex A.</xs:documentation>
+										</xs:annotation>
+									</xs:any>
+								</xs:sequence>
+							</xs:extension>
+						</xs:complexContent>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="MasterFiles">
+					<xs:annotation>
+						<xs:documentation>Holds standing data about employer branches, employees and payroll elements. An extension point is provided to allow Revenue Bodies to specify additional elements or structures such as tax rate tables.</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="EmployerBranches" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>For use where an employer operates a number of distinct organisational units (referred to in SAF-P as "branches" for the sake of convenience).</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="EmployerBranch" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="BranchID" type="SAFshorttextType">
+														<xs:annotation>
+															<xs:documentation>A unique identifier for the branch whose details are shown below.</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element name="BranchDetails" type="CompanyStructure">
+														<xs:annotation>
+															<xs:documentation>Branch name and address details.</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="PayrollElements" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>Definition of the payroll elements be used in the transaction recordss. Includes income and deductions.</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="PayrollElement" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="PayrollElementID" type="SAFshorttextType">
+														<xs:annotation>
+															<xs:documentation>Unique ID used in the software to identify the element.</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element name="PayrollElementDescription" type="SAFlongtextType">
+														<xs:annotation>
+															<xs:documentation>Description given to the Payroll element.</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element name="PositionCode" type="xs:nonNegativeInteger" minOccurs="0">
+														<xs:annotation>
+															<xs:documentation>A code indicating the point in the tax calculation at which the element is taken into account when determining an employee's net pay. Can be used to reproduce transactions in a "payslip" format.</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element name="FlatRateTax" minOccurs="0">
+														<xs:annotation>
+															<xs:documentation>Represents space to provide country specific information about the liability of the element to flat rate taxes.</xs:documentation>
+														</xs:annotation>
+														<xs:complexType>
+															<xs:sequence>
+																<xs:any namespace="##other" minOccurs="0">
+																	<xs:annotation>
+																		<xs:documentation>Represents space to allow individual tax authorities to add the flat rate information.</xs:documentation>
+																	</xs:annotation>
+																</xs:any>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+													<xs:any namespace="##other" minOccurs="0">
+														<xs:annotation>
+															<xs:documentation>Represents space to allow individual Revenue Bodies to prescribe further information about payroll elements.</xs:documentation>
+														</xs:annotation>
+													</xs:any>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Employees" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>Employee personal details including name, address and other relevant information.</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Employee" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="EmployeeID" type="SAFlongtextType">
+														<xs:annotation>
+															<xs:documentation>Unique idenfitier for this employee within the payroll system</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element name="EmployeeRegistrationNumbers" type="TaxIDStructure" minOccurs="0">
+														<xs:annotation>
+															<xs:documentation>Personal tax regiistration details for the employee.</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element name="Name" type="PersonNameStructure">
+														<xs:annotation>
+															<xs:documentation>Employee name.</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element name="Address" minOccurs="0" maxOccurs="unbounded">
+														<xs:annotation>
+															<xs:documentation>Employee address details. Multiple entries are possible to allow concurrent or consecutive addresses to be reported. An extension point is provided to allow additional address information to be specified.</xs:documentation>
+														</xs:annotation>
+														<xs:complexType>
+															<xs:complexContent>
+																<xs:extension base="AddressStructure">
+																	<xs:sequence minOccurs="0">
+																		<xs:any namespace="##other"/>
+																	</xs:sequence>
+																</xs:extension>
+															</xs:complexContent>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="DateOfBirth" type="xs:date"/>
+													<xs:element name="Gender" type="xs:string">
+														<xs:annotation>
+															<xs:documentation>Revenue Bodies should consider the acceptable range of entries.</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element name="BankAccount" type="BankAccountStructure" minOccurs="0" maxOccurs="unbounded">
+														<xs:annotation>
+															<xs:documentation>Employee bank account details.</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element name="Identification" type="IdentificationStructure" minOccurs="0">
+														<xs:annotation>
+															<xs:documentation>For use when employers need to demonstrate that they have seen proof of an employee's identity.</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:any namespace="##other" minOccurs="0">
+														<xs:annotation>
+															<xs:documentation>Represents space to allow individual Revenue Bodies to specify further information relating to the employee.</xs:documentation>
+														</xs:annotation>
+													</xs:any>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:any namespace="##other" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>Represents space to allow individual Revenue Bodies to specify additional standing data.</xs:documentation>
+								</xs:annotation>
+							</xs:any>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="TransactionFiles">
+					<xs:annotation>
+						<xs:documentation>Detailed analysis of payroll transactions.</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Employment" maxOccurs="unbounded">
+								<xs:annotation>
+									<xs:documentation>Normally there should be one "Employment" record for each employee. Where an employee holds more than one job with the same employer (whether consecutively or concurrently) there may be more than one "Employment" record per employee.</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="EmployeeID" type="SAFlongtextType">
+											<xs:annotation>
+												<xs:documentation>A unique reference for the employee. This reference should correspond to an entry in the Employee masterfile.</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="EmployeeWorkReferenceNumber" type="SAFlongtextType" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>HR personnel number for the employee (if different to the employee ID)</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="DateStartEmployment" type="xs:date">
+											<xs:annotation>
+												<xs:documentation>The date the employee started the "Employment" referred to by the "PeriodicalPayments" shown below.</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="DateEndEmployment" type="xs:date" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>The date the employee started the "Employment" referred to by the "PeriodicalPayments" shown below - if applicable.</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="JobTitle" type="SAFlongtextType" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Title or description of the employee's job.</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="BranchID" type="SAFlongtextType" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Unique identifier for which the employee performs the main duties of the employment. This identifier should correspond to an entry in the EmployerBranches masterfile.</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="Department" type="SAFlongtextType" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Name of the department for which the employee performs the main duties of the employment.</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="PeriodicalPayments" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Detail of payroll transactions. For each employee there will normally be one PeriodicalPayments entry each time the payroll is run. This structure may also be used for other types of payroll transaction such as adjustments.</xs:documentation>
+											</xs:annotation>
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="PeriodicalPayment" maxOccurs="unbounded">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="PayrollPeriod" type="xs:nonNegativeInteger">
+																	<xs:annotation>
+																		<xs:documentation>Number of tax period as recorded in payroll system.</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
+																<xs:element name="PayrollPeriodYear">
+																	<xs:annotation>
+																		<xs:documentation>The year in which the payroll transaction took place. Revenue Bodies will wish to specify how this is to be shown if the fiscal year is not a calendar year.</xs:documentation>
+																	</xs:annotation>
+																	<xs:simpleType>
+																		<xs:restriction base="xs:nonNegativeInteger">
+																			<xs:minExclusive value="1970"/>
+																			<xs:maxExclusive value="2100"/>
+																		</xs:restriction>
+																	</xs:simpleType>
+																</xs:element>
+																<xs:element name="PayFrequency" type="SAFshorttextType">
+																	<xs:annotation>
+																		<xs:documentation>The time interval which forms the basis of periodic tax calculations for the employment, for example "Week" or "Month". </xs:documentation>
+																	</xs:annotation>
+																</xs:element>
+																<xs:element name="DatePeriodStart" type="xs:date" minOccurs="0">
+																	<xs:annotation>
+																		<xs:documentation>Start date of period for which payment has been made </xs:documentation>
+																	</xs:annotation>
+																</xs:element>
+																<xs:element name="DatePeriodEnd" type="xs:date" minOccurs="0">
+																	<xs:annotation>
+																		<xs:documentation>End date of period for which payment has been made.</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
+																<xs:element name="DatePaymentMade" type="xs:date" minOccurs="0">
+																	<xs:annotation>
+																		<xs:documentation>The date on which payment was actually made. Used to identify instances where payments are made in advance or in arrears.</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
+																<xs:element name="Element" minOccurs="0" maxOccurs="unbounded">
+																	<xs:annotation>
+																		<xs:documentation>Analysis of the total amount paid.</xs:documentation>
+																	</xs:annotation>
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element name="PayrollElementID" type="xs:nonNegativeInteger">
+																				<xs:annotation>
+																					<xs:documentation>Reference to master files payroll element definition.</xs:documentation>
+																				</xs:annotation>
+																			</xs:element>
+																			<xs:element name="Amount" type="AmountStructure">
+																				<xs:annotation>
+																					<xs:documentation>Basic amount is shown in "default" currency as defined in the header. Option provided to show amount in "local" currency also.</xs:documentation>
+																				</xs:annotation>
+																			</xs:element>
+																			<xs:element name="BankAccount" type="BankAccountStructure" minOccurs="0">
+																				<xs:annotation>
+																					<xs:documentation>Cross reference to bank account details in master files</xs:documentation>
+																				</xs:annotation>
+																			</xs:element>
+																			<xs:element name="PaymentDetails" minOccurs="0" maxOccurs="unbounded">
+																				<xs:annotation>
+																					<xs:documentation>Payment details</xs:documentation>
+																				</xs:annotation>
+																				<xs:complexType>
+																					<xs:sequence>
+																						<xs:element name="NumberOfUnits" type="SAFquantityType"/>
+																						<xs:element name="AmountPaidPerUnit" type="AmountStructure">
+																							<xs:annotation>
+																								<xs:documentation>Basic amount shown in "default" currency as defined in the header. Option to show amount in "local" currency also.</xs:documentation>
+																							</xs:annotation>
+																						</xs:element>
+																						<xs:element name="UnitDescription" type="SAFlongtextType">
+																							<xs:annotation>
+																								<xs:documentation>Description of units per which payment is made, e.g . hours, days</xs:documentation>
+																							</xs:annotation>
+																						</xs:element>
+																					</xs:sequence>
+																				</xs:complexType>
+																			</xs:element>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+																<xs:element name="Hours" minOccurs="0" maxOccurs="unbounded">
+																	<xs:annotation>
+																		<xs:documentation>To allow SAF-P to report payroll amounts attributable to specific types of employee activity.</xs:documentation>
+																	</xs:annotation>
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element name="HourType" type="SAFlongtextType">
+																				<xs:annotation>
+																					<xs:documentation>The type of activity being reported on. Revenue Bodies may wish to prescribe a list of activity codes.</xs:documentation>
+																				</xs:annotation>
+																			</xs:element>
+																			<xs:element name="NumberOfHours" type="SAFquantityType">
+																				<xs:annotation>
+																					<xs:documentation>The umber of hours being reported under the activity type.</xs:documentation>
+																				</xs:annotation>
+																			</xs:element>
+																			<xs:element name="AmountPaidPerUnit" type="AmountStructure" minOccurs="0">
+																				<xs:annotation>
+																					<xs:documentation>The hourly rate for the activity being reported upon.</xs:documentation>
+																				</xs:annotation>
+																			</xs:element>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+																<xs:any namespace="##other" minOccurs="0">
+																	<xs:annotation>
+																		<xs:documentation>Represents space to allow individual Revenue Bodies to specify additional transaction-level information.</xs:documentation>
+																	</xs:annotation>
+																</xs:any>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:any namespace="##other" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Represents space to allow individual Revenue Bodies to specify additional information about the employment.</xs:documentation>
+											</xs:annotation>
+										</xs:any>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+		<xs:key name="KeyBranch">
+			<xs:selector xpath="MasterFiles/EmployerBranches/EmployerBranch"/>
+			<xs:field xpath="BranchID"/>
+		</xs:key>
+		<xs:key name="KeyPayrollElement">
+			<xs:selector xpath="MasterFiles/PayrollElements/PayrollElement"/>
+			<xs:field xpath="PayrollElementID"/>
+		</xs:key>
+		<xs:key name="KeyEmployee">
+			<xs:selector xpath="MasterFiles/Employees/Employee"/>
+			<xs:field xpath="EmployeeID"/>
+		</xs:key>
+		<xs:keyref name="RefBranch" refer="KeyBranch">
+			<xs:selector xpath="TransactionFiles/Employment"/>
+			<xs:field xpath="EmployeeID"/>
+		</xs:keyref>
+		<xs:keyref name="RefPayrollElement" refer="KeyPayrollElement">
+			<xs:selector xpath="TransactionFiles/Employment/PeriodicalPayments/PeriodicalPayment/Element"/>
+			<xs:field xpath="PayrollElementID"/>
+		</xs:keyref>
+	</xs:element>
+	<xs:complexType name="AddressStructure">
+		<xs:annotation>
+			<xs:documentation>[Common to all SAFs] A common structure used wherever an address is required.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="StreetName" type="SAFmiddle2textType" minOccurs="0"/>
+			<xs:element name="Number" type="SAFshorttextType" minOccurs="0"/>
+			<xs:element name="AdditionalAddressDetail" type="SAFmiddle2textType" minOccurs="0"/>
+			<xs:element name="Building" type="SAFmiddle1textType" minOccurs="0"/>
+			<xs:element name="City" type="SAFmiddle1textType"/>
+			<xs:element name="PostalCode" type="SAFshorttextType"/>
+			<xs:element name="Region" type="SAFmiddle1textType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Country specific code to indicate regions / provinces within the tax authority. Preferably described according to ISO 3166-2. Example: GB-KEN for Kent county in the United Kingdom. </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Country" type="ISOCountryCode" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Two-letter country code according to ISO 3166-1 alpha 2 standard. Example NL for the Netherlands.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AddressType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Field to differentiate between multiple addresses. To indicate the type of address. Choose  from the predefined enumeration. (examples: StreetAddress PostalAddress, BillingAddress)</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="StreetAddress"/>
+						<xs:enumeration value="PostalAddress"/>
+						<xs:enumeration value=""/>
+						<xs:enumeration value=""/>
+						<xs:enumeration value=""/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AmountStructure">
+		<xs:annotation>
+			<xs:documentation>[Common to all SAFs] A common structure used wherever an amount is required. Monetary amount with optional foreign currency exchange rate information.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Amount" type="SAFmonetaryType">
+				<xs:annotation>
+					<xs:documentation>In the default currency as shown in the SAF-P header.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:sequence minOccurs="0">
+				<xs:element name="CurrencyCode" type="ISOCurrencyCode">
+					<xs:annotation>
+						<xs:documentation>Three-letter currency code according to ISO 4217 standard. Example: EUR for  Euros or USD for American Dollars.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="CurrencyAmount" type="SAFmonetaryType">
+					<xs:annotation>
+						<xs:documentation>Amount in the currency. referred to by the CurrencyCode above</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="ExchangeRate" type="SAFexchangerateType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>The exchange rate used. It should be reported in accordance with the formula: CurrencyAmount x ExchangeRate = Amount </xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BankAccountStructure">
+		<xs:annotation>
+			<xs:documentation>[Common to all SAFs] Bank account number information. IBAN number, or account number with optional information.</xs:documentation>
+		</xs:annotation>
+		<xs:choice>
+			<xs:element name="IBANNumber" type="SAFmiddle1textType">
+				<xs:annotation>
+					<xs:documentation>International Bank Account Number, ISO 13616</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:sequence>
+				<xs:element name="BankAccountNumber" type="SAFmiddle1textType">
+					<xs:annotation>
+						<xs:documentation>The number allocated to the account by the individual's or company's own bank.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="BankAccountName" type="SAFmiddle2textType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>The name of the individual or company holding the bank account.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="SortCode" type="SAFshorttextType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Identifier for the bank branch at which the account is held. May be needed to uniquely identify the account.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="CompanyHeaderStructure">
+		<xs:annotation>
+			<xs:documentation>[Common to all SAFs] CompanyStructure with mandatory RegistrationNumber and Telephone (Contact)</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="CompanyStructure">
+				<xs:sequence>
+					<xs:element name="RegistrationNumber" type="SAFmiddle1textType">
+						<xs:annotation>
+							<xs:documentation>Unique number to identify the company in the accounting records, issued by a government body or created by the company for internal purposes to identify different entities within their corporate group. </xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Name" type="SAFmiddle2textType"/>
+					<xs:element name="Address" type="AddressStructure" maxOccurs="unbounded"/>
+					<xs:element name="Contact" type="ContactHeaderStructure" maxOccurs="unbounded"/>
+					<xs:element name="TaxRegistration" type="TaxIDStructure" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="BankAccount" type="BankAccountStructure" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="CompanyStructure">
+		<xs:annotation>
+			<xs:documentation>[Common to all SAFs] Name, address, contact and identification information of a company or employer.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="RegistrationNumber" type="SAFmiddle1textType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Unique number to identify the company in the accounting records, issued by a government authority or created by the company for internal purposes to identify different entities within their corporate group. </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Name" type="SAFmiddle2textType"/>
+			<xs:element name="Address" type="AddressStructure" maxOccurs="unbounded"/>
+			<xs:element name="Contact" type="ContactInformationStructure" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="TaxRegistration" type="TaxIDStructure" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="BankAccount" type="BankAccountStructure" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ContactHeaderStructure">
+		<xs:annotation>
+			<xs:documentation>[Common to all SAFs] ContactInformationStructure with madatory TelephoneNumber</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="ContactInformationStructure">
+				<xs:sequence>
+					<xs:element name="ContactPerson" type="PersonNameStructure"/>
+					<xs:element name="Telephone" type="SAFshorttextType"/>
+					<xs:element name="Fax" type="SAFshorttextType" minOccurs="0"/>
+					<xs:element name="Email" type="SAFmiddle2textType" minOccurs="0"/>
+					<xs:element name="Website" type="xs:anyURI" minOccurs="0"/>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ContactInformationStructure">
+		<xs:annotation>
+			<xs:documentation>[Common to all SAFs] Contact information of a company or employer.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ContactPerson" type="PersonNameStructure"/>
+			<xs:element name="Telephone" type="SAFshorttextType" minOccurs="0"/>
+			<xs:element name="Fax" type="SAFshorttextType" minOccurs="0"/>
+			<xs:element name="Email" type="SAFmiddle2textType" minOccurs="0"/>
+			<xs:element name="Website" type="xs:anyURI" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="HeaderStructure">
+		<xs:annotation>
+			<xs:documentation>[Common to all SAFs] Overall information about this Standard Auditfile.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="AuditFileVersion" type="SAFcodeType">
+				<xs:annotation>
+					<xs:documentation>Identification of the Standard Audit File SAF-P version being used</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AuditFileCountry" type="ISOCountryCode">
+				<xs:annotation>
+					<xs:documentation>Two-letter country code according to ISO 3166-1 alpha 2 standard. Example NL for the Netherlands.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AuditFileRegion" type="SAFcodeType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Country specific code to indicate regions / provinces within the tax jurisdiction. Preferably described according to ISO 3166-2. Example: GB-KEN for Kent county in the United Kingdom. </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AuditFileDateCreated" type="xs:date">
+				<xs:annotation>
+					<xs:documentation>Date of production of SAF-P.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SoftwareCompanyName" type="SAFmiddle2textType">
+				<xs:annotation>
+					<xs:documentation>Name of the software company whose product created the SAF-P.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SoftwareID" type="SAFlongtextType">
+				<xs:annotation>
+					<xs:documentation>Name of the Software that generated the SAF-P.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SoftwareVersion" type="SAFshorttextType">
+				<xs:annotation>
+					<xs:documentation>Version of the software that created the SAF-P.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Company" type="CompanyHeaderStructure">
+				<xs:annotation>
+					<xs:documentation>Employer's name and address details.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DefaultCurrencyCode" type="ISOCurrencyCode">
+				<xs:annotation>
+					<xs:documentation>Three letter Currency Code  (ISO 4217) of local currency which is the default for the SAF.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SelectionCriteria" type="SelectionCriteriaStructure" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Criteria set by the user to populate the SAF-P.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="HeaderComment" type="SAFlongtextType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Space for any further generic comments on the SAF-P. Revenue Bodies should consider what information they would expect to see here.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="IdentificationStructure">
+		<xs:annotation>
+			<xs:documentation>Identification Document data. This section is used when employers need to demonstrate that they have seen proof of an employee's identity.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="IdentificationType" type="SAFshorttextType">
+				<xs:annotation>
+					<xs:documentation>The type of identity document supplied to the employer. Revenue bodies may wish to prescribe a specific list of codes.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IdentificationNumber" type="SAFmiddle1textType">
+				<xs:annotation>
+					<xs:documentation>Unique number on the identification document</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DateValidUntil" type="xs:date" minOccurs="0"/>
+			<xs:element name="PlaceOfIssue" type="SAFmiddle1textType" minOccurs="0"/>
+			<xs:element name="DateOfIssue" type="xs:date" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PersonNameStructure">
+		<xs:annotation>
+			<xs:documentation>[Common to all SAFs] All information about the name of a natural (non-corporate)  person.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Title" type="SAFcodeType" minOccurs="0"/>
+			<xs:element name="FirstName" type="SAFmiddle1textType"/>
+			<xs:element name="Initials" type="SAFshorttextType" minOccurs="0"/>
+			<xs:element name="LastNamePrefix" type="SAFshorttextType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>A textual expression of a prefix that precedes this person's family name such as Van, Von.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="LastName" type="SAFmiddle2textType"/>
+			<xs:element name="BirthName" type="SAFmiddle2textType" minOccurs="0"/>
+			<xs:element name="Salutation" type="SAFshorttextType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>A formal sign or expression of greeting, expressed as text, that is appropriate for this person such as Sir or Madam.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OtherTitles" type="SAFshorttextType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SelectionCriteriaStructure">
+		<xs:annotation>
+			<xs:documentation>[Common to all SAFs] The selection criteria used to generate this Standard Auditfile</xs:documentation>
+		</xs:annotation>
+		<xs:sequence minOccurs="0">
+			<xs:element name="TaxReportingJurisdiction" type="SAFmiddle1textType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Identifies the tax jurisdiction for whose purpose the SAF has been created. Principally for use where a single Revenue body covers more than one territory.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CompanyEntity" type="SAFmiddle2textType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>For use where data has been extracted from the full data set by reference to a specific corporate entity.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:choice>
+				<xs:annotation>
+					<xs:documentation>Allows for a choice between selection on calendar dates and periods according to the accounting system, e.g. 1 to 12 for a 12-months accounting system. </xs:documentation>
+				</xs:annotation>
+				<xs:sequence>
+					<xs:element name="SelectionStartDate" type="xs:date">
+						<xs:annotation>
+							<xs:documentation>The start date for the reporting period covered by the SAF.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="SelectionEndDate" type="xs:date">
+						<xs:annotation>
+							<xs:documentation>The end date for the reporting period covered by the SAF.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+				<xs:sequence>
+					<xs:element name="PeriodStart" type="xs:nonNegativeInteger">
+						<xs:annotation>
+							<xs:documentation>The first Accounting Period covered by the SAF.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="PeriodStartYear">
+						<xs:annotation>
+							<xs:documentation>The Accounting Year in which the PeriodStart falls.</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:nonNegativeInteger">
+								<xs:minExclusive value="1970"/>
+								<xs:maxExclusive value="2100"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="PeriodEnd" type="xs:nonNegativeInteger">
+						<xs:annotation>
+							<xs:documentation>The last Accounting Period covered by the SAF.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="PeriodEndYear">
+						<xs:annotation>
+							<xs:documentation>The Accounting Year in which the PeriodEnd falls.</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:nonNegativeInteger">
+								<xs:minExclusive value="1970"/>
+								<xs:maxExclusive value="2100"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+				</xs:sequence>
+			</xs:choice>
+			<xs:element name="DocumentType" type="SAFlongtextType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Type of documents selected. For use where the data has been restricted by reference to particular transaction types.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OtherCriteria" type="SAFlongtextType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Any other criteria used in selecting data. Individual Revenue Bodies may wish to draw up a list of other acceptable selection criteria for use within their jurisdiction.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TaxIDStructure">
+		<xs:annotation>
+			<xs:documentation>[Common to all SAFs] Tax information for a company or employer.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="TaxRegistrationNumber" type="SAFmiddle1textType">
+				<xs:annotation>
+					<xs:documentation>Unique number issued by Revenue Body for use by the employer.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TaxType" type="SAFcodeType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>For use where information reported in the SAF-P covers more than one type of tax regime: to identify the type of tax regime to which this entry relates.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TaxNumber" type="SAFmiddle1textType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The tax registration number for the particular tax regime referred to by TaxType.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TaxAuthority" type="SAFmiddle1textType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Identification of the Revenue Body to which this TaxType refers.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TaxVerificationDate" type="xs:date" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The date that the tax registration details referred to above were last checked.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="SAFmonetaryType">
+		<xs:annotation>
+			<xs:documentation>Monetary amount.18 digits max, of which 2 can be fractional digits.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:decimal">
+			<xs:totalDigits value="18"/>
+			<xs:fractionDigits value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="SAFexchangerateType">
+		<xs:annotation>
+			<xs:documentation>18 digits max, of which 8 can be fractional digits.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:decimal">
+			<xs:totalDigits value="18"/>
+			<xs:fractionDigits value="8"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="SAFquantityType">
+		<xs:annotation>
+			<xs:documentation>Used to describe a quantity. Monetary amount. 22 digits max, of which 6 can be fractional digits.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:decimal">
+			<xs:totalDigits value="22"/>
+			<xs:fractionDigits value="6"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="SAFweightType">
+		<xs:annotation>
+			<xs:documentation>Describes a weight. Monetary amount.14 digits max, of which 3 can be fractional digits.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:decimal">
+			<xs:totalDigits value="14"/>
+			<xs:fractionDigits value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="SAFcodeType">
+		<xs:annotation>
+			<xs:documentation>Text of max 9 characters.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="9"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="SAFshorttextType">
+		<xs:annotation>
+			<xs:documentation>18 character text.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="18"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="SAFmiddle1textType">
+		<xs:annotation>
+			<xs:documentation>35 character text.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="35"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="SAFmiddle2textType">
+		<xs:annotation>
+			<xs:documentation>70 character text.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="70"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="SAFlongtextType">
+		<xs:annotation>
+			<xs:documentation>256 character text.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="256"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ISOCountryCode">
+		<xs:annotation>
+			<xs:documentation>Two-letter country code according to ISO 3166-1 alpha 2 standard. Example: NL for the Netherlands.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:length value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ISOCurrencyCode">
+		<xs:annotation>
+			<xs:documentation>Three-letter currency code according to ISO 4217 standard. Example: EUR for the Euros or USD for American Dollars.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:length value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>
