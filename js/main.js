@@ -7,6 +7,10 @@ var ccts_cct = {
     'XML':'xsd:normalizadString', 'JSON':'string' },
   'DateTime': {
     'XML':'xsd:string', 'JSON':'string' },
+  'Date': {
+    'XML':'xsd:date', 'JSON':'string' },
+  'Time': {
+    'XML':'xsd:time', 'JSON':'string' },
   'Identifier': {
     'XML':'xsd:normalizadString', 'JSON':'string' },
   'Indicator': {
@@ -21,84 +25,125 @@ var ccts_cct = {
     'XML':'xsd:string', 'JSON':'string' },
   'Name': {
     'XML':'xsd:normalizadString', 'JSON':'string' }
-},
-content = {
-  'adc': {
-    'top': 'adc-abie', 'bottom-top': 'adc-entity', 'bottom-bottom': ['adc-entity2', 'adc-udt']
   },
-  'xbrlgl': {
-    'top': 'xbrlgl-abie', 'bottom-top': 'xbrlgl-entity', 'bottom-bottom': ['xbrlgl-entity2']
+  content = {
+    'adc': {
+      'top': 'adc-abie', 'bottom-top': 'adc-entity', 'bottom-bottom': ['adc-entity2', 'adc-udt']
+    },
+    'xbrlgl': {
+      'top': 'xbrlgl-abie', 'bottom-top': 'xbrlgl-entity', 'bottom-bottom': ['xbrlgl-entity2']
+    },
+    'ts5409': {
+      'top': 'ts5409-abie', 'bottom-top': 'ts5409-entity', 'bottom-bottom': ['ts5409-entity2', 'ts5409-udt']
+    },
+    'ads': {
+      'top': 'ads-abie', 'bottom-top': 'ads-entity', 'bottom-bottom': ['ads-entity2']
+    },
+    'gb': {
+      'top': 'gb-abie', 'bottom-top': 'gb-entity', 'bottom-bottom': ['gb-entity2']
+    },
+    'peppol': {
+      'top': 'peppol-abie', 'bottom-top': 'peppol-entity', 'bottom-bottom': ['peppol-entity2']
+    },
+    'ubl': {
+      'top': 'ubl-abie', 'bottom-top': 'ubl-entity', 'bottom-bottom': ['ubl-entity2', 'ubl-udt', 'ubl-qdt']
+    },
+    'bie': {
+      'top': 'bie', 'bottom-top': 'bie-compt', 'bottom-bottom': ['bie-compt2', 'uncefact-udt', 'qdt']
+    },
+    'acc': {
+      'top': 'acc', 'bottom-top': 'cc', 'bottom-bottom': ['cc2', 'udt']
+    }
   },
-  'ads': {
-    'top': 'ads-abie', 'bottom-top': 'ads-entity', 'bottom-bottom': ['ads-entity2']
+  loaded = {
+    'adc': false, 'xbrlgl': false, 'ts5409': false, 'ads': false, 'ubl': false, 'bie': false, 'acc': false
   },
-  'ubl': {
-    'top': 'ubl-abie', 'bottom-top': 'ubl-entity', 'bottom-bottom': ['ubl-entity2', 'ubl-udt', 'ubl-qdt']
+  pane = {
+    1: null,
+    2: null
   },
-  'bie': {
-    'top': 'bie', 'bottom-top': 'bie-compt', 'bottom-bottom': ['bie-compt2', 'uncefact-udt', 'qdt']
+  table_title = {
+    'adc': {
+      'adc-entity': null, 'adc-entity2': null, 'adc-udt': null
+    },
+    'xbrlgl': {
+      'xbrlgl-entity': null, 'xbrlgl-entity2': null
+    },
+    'ts5409': {
+      'ts5409-entity': null, 'ts5409-entity2': null, 'ts5409-udt': null
+    },
+    'ads': {
+      'ads-entity': null, 'ads-entity2': null
+    },
+    'gb': {
+      'gb-entity': null, 'gb-entity2': null
+    },
+    'peppol': {
+      'peppol-entity': null, 'peppol-entity2': null
+    },
+    'ubl': {
+      'ubl-entity': null, 'ubl-entity2': null, 'ubl-qd': null, 'ubl-udt': null
+    },
+    'bie': {
+      'bie-compt': null, 'bie-compt2': null, 'qdt': null, 'uncefact-udt': null
+    },
+    'acc': {
+      'cc': null, 'cc2': null, 'udt': null
+    }
   },
-  'acc': {
-    'top': 'acc', 'bottom-top': 'cc', 'bottom-bottom': ['cc2', 'udt']
-  }
-},
-loaded = {
-  'adc': false, 'xbrlgl': false, 'ads': false, 'ubl': false, 'bie': false, 'acc': false
-},
-pane = {
-  1: null,
-  2: null
-},
-table_title = {
-  'adc': {
-    'adc-entity': null, 'adc-entity2': null, 'adc-udt': null
+  previous_entity = {
+    1: null,
+    2: null
   },
-  'xbrlgl': {
-    'xbrlgl-entity': null, 'xbrlgl-entity2': null
-  },
-  'ads': {
-    'ads-entity': null, 'ads-entity2': null
-  },
-  'ubl': {
-    'ubl-entity': null, 'ubl-entity2': null, 'ubl-qd': null, 'ubl-udt': null
-  },
-  'bie': {
-    'bie-compt': null, 'bie-compt2': null, 'qdt': null, 'uncefact-udt': null
-  },
-  'acc': {
-    'cc': null, 'cc2': null, 'udt': null
-  }
-},
-previous_entity = {
-  1: null,
-  2: null
-},
-acc_table, cc_table, udt_table, cc2_table,
-bie_table, bie_compt_table, bie_compt2_table, qdt_table, uncefact_udt_table,
-adc_abie_table, adc_entity_table, adc_entity2_table, adc_udt_table,
-adc_abie_COL_Module, adc_abie_COL_ComponentName, adc_abie_COL_DictionaryEntryName,
-adc_entity_COL_DictionaryEntryName, adc_entity_COL_ObjectClassTerm,
-adc_dt_COL_CategoryCode, adc_dt_COL_ObjectClassTerm, adc_dt_COL_DictionaryEntryName, adc_dt_COL_DataType,
-xbrlgl_abie_table, xbrlgl_entity_table, xbrlgl_entity2_table,
-xbrlgl_abie_COL_ComponentName, xbrlgl_abie_COL_ObjectClassTerm, xbrlgl_abie_COL_DictionaryEntryName,
-xbrlgl_entity_COL_DictionaryEntryName, xbrlgl_entity_COL_ObjectClassTerm, //xbrlgl_entity_COL_num,
-ads_abie_table, ads_entity_table, ads_entity2_table,
-acc_COL_ObjectClassTerm, cc_COL_ObjectClassTerm, cc_COL_PropertyTerm, cc_COL_ShortName,
-dt_COL_DataType, dt_COL_DictionaryEntryName,
-bie_COL_ObjectClassTerm,
-bie_compt_COL_DictionaryEntryName, bie_compt_COL_ShortName,
-qdt_COL_UNID,
-ubl_abie_table, ubl_abie_COL_ComponentName, ubl_abie_COL_DictionaryEntryName,
-ubl_entity_table, ubl_entity_COL_DictionaryEntryName, ubl_entity_COL_ObjectClassTerm,
-ubl_udt_table, ubl_dt_COL_CategoryCode, ubl_dt_COL_DictionaryEntryName,
-ubl_acc_table, ubl_cc_table, ubl_un_udt_table, ubl_cc2_table,
-adcMap, xbrlglMap, adsMap, ublMap, bieMap, accMap,
-adcEntityMap, xbrlglEntityMap, adsEntityMap, ublEntityMap, bieComptMap, ccMap,
-adcRows, xbrlglRows, adsRows, ublRows, bieRows, abie,
-adcEntityRows, xbrlglEntityRows, adsEntityRows, ublEntityRows, bieComptRows, bie,
-populateAdc, populateXbrlgl, populateAds, populateUbl, populateBie, populateAcc,
-getTopTable, getTopTableID, getEntityTable, getEntityTableID,
-DESCRIPTION_LENGTH = DESCRIPTION_LENGTH;
+  acc_table, cc_table, udt_table, cc2_table,
+  bie_table, bie_compt_table, bie_compt2_table, qdt_table, uncefact_udt_table,
+
+  adc_abie_table, adc_entity_table, adc_entity2_table, adc_udt_table,
+  adc_abie_COL_Module, adc_abie_COL_ComponentName, adc_abie_COL_DictionaryEntryName,
+  adc_entity_COL_DictionaryEntryName, adc_entity_COL_ObjectClassTerm,
+  adc_dt_COL_CategoryCode, adc_dt_COL_ObjectClassTerm, adc_dt_COL_DictionaryEntryName, adc_dt_COL_DataType,
+
+  xbrlgl_abie_table, xbrlgl_entity_table, xbrlgl_entity2_table,
+  xbrlgl_abie_COL_ComponentName, xbrlgl_abie_COL_ObjectClassTerm, xbrlgl_abie_COL_DictionaryEntryName,
+  xbrlgl_entity_COL_DictionaryEntryName, xbrlgl_entity_COL_ObjectClassTerm,
+  
+  ts5409_abie_table, ts5409_entity_table, ts5409_entity2_table, ts5409_udt_table,
+  ts5409_abie_COL_Module, ts5409_abie_COL_ComponentName, ts5409_abie_COL_DictionaryEntryName,
+  ts5409_entity_COL_DictionaryEntryName, ts5409_entity_COL_ObjectClassTerm,
+  ts5409_dt_COL_CategoryCode, ts5409_dt_COL_ObjectClassTerm, ts5409_dt_COL_DictionaryEntryName, adc_dt_COL_DataType,
+
+  ads_abie_table, ads_entity_table, ads_entity2_table,
+  ts5409_abie_COL_Module,
+
+  acc_COL_ObjectClassTerm, cc_COL_ObjectClassTerm, cc_COL_PropertyTerm, cc_COL_ShortName,
+  dt_COL_DataType, dt_COL_DictionaryEntryName,
+  bie_COL_ObjectClassTerm,
+  bie_compt_COL_DictionaryEntryName, bie_compt_COL_ShortName,
+  qdt_COL_UNID,
+
+  gb_abie_table, gb_entity_table, gb_entity2_table,
+  gb_abie_COL_ComponentName, gb_abie_COL_ObjectClassTerm, gb_abie_COL_DictionaryEntryName,
+  gb_entity_COL_DictionaryEntryName, gb_entity_COL_ObjectClassTerm,
+
+  peppol_abie_table, peppol_entity_table, peppol_entity2_table,
+  peppol_abie_COL_ComponentName, peppol_abie_COL_ObjectClassTerm, peppol_abie_COL_DictionaryEntryName,
+  peppol_entity_COL_DictionaryEntryName, peppol_entity_COL_ObjectClassTerm,
+
+  ubl_abie_table, ubl_abie_COL_ComponentName, ubl_abie_COL_DictionaryEntryName,
+  ubl_entity_table, ubl_entity_COL_DictionaryEntryName, ubl_entity_COL_ObjectClassTerm,
+  ubl_udt_table, ubl_dt_COL_CategoryCode, ubl_dt_COL_DictionaryEntryName,
+  ubl_acc_table, ubl_cc_table, ubl_un_udt_table, ubl_cc2_table,
+
+  adcMap, xbrlglMap, ts5409Map, adsMap, gbMap, peppolMap, ublMap, bieMap, accMap,
+  adcEntityMap, xbrlglEntityMap, ts5409EntityMap, adsEntityMap, gbEntityMap, peppolEntityMap, ublEntityMap, bieComptMap, ccMap,
+  adcRows, xbrlglRows, ts5409Rows, adsRows, gbRows, peppolRows, ublRows, bieRows, abie,
+  adcEntityRows, xbrlglEntityRows, ts5409EntityRows, adsEntityRows, gbEntityRows, peppolEntityRows, ublEntityRows, bieComptRows, bie,
+
+  populateAdc, populateXbrlgl, populateTs5409, populateAds, populateGb, populatePeppol, populateUbl, populateBie, populateAcc,
+  getTopTable, getTopTableID, getEntityTable, getEntityTableID,
+
+  DESCRIPTION_LENGTH;
+
 // -----------------------------------------------------------------
 // TAB MENU
 //
@@ -168,22 +213,40 @@ function setFrame(num, frame) {
 
   $('#tab-'+num+' .tablinks').removeClass('active');
   $('#tab-'+num+' .tablinks.'+frame).addClass('active');
+  $('#tab-'+(1+num%2)+' .tablinks').removeClass('d-none');
+  $('#tab-'+(1+num%2)+' .tablinks.'+frame).addClass('d-none');
+  
   if ('adc' === frame) {
-    adc_abie_table.columns(adc_abie_COL_Module)
-    .search('^((?!(Core)).)*$', /*regex*/true, /*smart*/false, /*caseInsen*/false).draw();
+    // adc_abie_table.columns(adc_abie_COL_Module)
+    // .search('^.+$', /*regex*/true, /*smart*/false, /*caseInsen*/false).draw();
+    // .search('^((?!(Core)).)*$', /*regex*/true, /*smart*/false, /*caseInsen*/false).draw();
   }
   else if ('xbrlgl' === frame) {
-    xbrlgl_abie_table.columns(xbrlgl_abie_COL_ObjectClassTerm)
-    .search('^Accounting Entries$', /*regex*/true, /*smart*/false, /*caseInsen*/false).draw();
+    // xbrlgl_abie_table.columns(xbrlgl_abie_COL_ObjectClassTerm)
+    // .search('^.+$', /*regex*/true, /*smart*/false, /*caseInsen*/false).draw();
+    // .search('^Accounting Entries$', /*regex*/true, /*smart*/false, /*caseInsen*/false).draw();
+  }
+  else if ('ts5409' === frame) {
+    // ts5409_abie_table.columns(ts5409_abie_COL_Module)
+    // .search('^.+$', /*regex*/true, /*smart*/false, /*caseInsen*/false).draw();
+    // .search('^((?!(Core)).)*$', /*regex*/true, /*smart*/false, /*caseInsen*/false).draw();
   }
   else if ('ads' === frame) {
-    ads_abie_table.column(ads_abie_COL_Table)
-    .search('^.+$', /*regex*/true, /*smart*/false, /*caseInsen*/false).draw();
+    // ads_abie_table.column(ads_abie_COL_Table)
+    // .search('^.+$', /*regex*/true, /*smart*/false, /*caseInsen*/false).draw();
   }
-  // else if ('ubl' === frame) {
-  //   ubl_abie_table.column(ubl_abie_COL_DictionaryEntryName)
+  else if ('gb' === frame) {
+  }
+  else if ('peppol' === frame) {
+    // peppol_abie_table.columns(peppol_abie_COL_ObjectClassTerm)
+    // .search('^.+$', /*regex*/true, /*smart*/false, /*caseInsen*/false).draw();
+  //   .search('^Invoice$', /*regex*/true, /*smart*/false, /*caseInsen*/false).draw();
+  }
+  else if ('ubl' === frame) {
+    // ubl_abie_table.column(ubl_abie_COL_DictionaryEntryName)
+    // .search('^.+$', /*regex*/true, /*smart*/false, /*caseInsen*/false).draw();
   //   .search('Line\. Details$', /*regex*/true, /*smart*/false, /*caseInsen*/false).draw();
-  // }
+  }
   root_pane = $('#root');
   root_pane.removeClass('d-none');
   // save current content to backup.
@@ -262,104 +325,61 @@ function collapse(num) {
   }
 }
 $('#collapse-1').on('click', function(event) {
-event.stopPropagation();
-collapse(1);
+  event.stopPropagation();
+  collapse(1);
 });
 $('#collapse-2').on('click', function(event) {
-event.stopPropagation();
-collapse(2);
+  event.stopPropagation();
+  collapse(2);
 });
 // -----------------------------------------------------------------
 // Formatting function for row details
 //
 var H1 = 30, H2 = 70, Q1 = 25, Q2 = 25, Q3 = 25, Q4 = 25;
+// https://stackoverflow.com/questions/196972/convert-string-to-title-case-with-javascript
+function toTitleCase(str) {
+  return str.replace(
+    /\w\S*/g,
+    function(txt) {
+      return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    }
+  );
+}
+function capitalize(s) {
+  if (typeof s !== 'string') return ''
+  return s.charAt(0).toUpperCase() + s.slice(1)
+}
+function pad(num, size) {
+  var s = num + "";
+  s = s.padStart(size,'0');
+  return s;
+}
 function adc_entity_format(d) { // d is the original data object for the row
   if (!d) { return null; }
-  const capitalize = function(s) {
-    if (typeof s !== 'string') return ''
-    return s.charAt(0).toUpperCase() + s.slice(1)
+  var html, name, key, nameAC, cct, xml, json, match, description;
+  var Abbreviation = abbreviation;
+  if ('ABIE' === d.Kind) {
+    name = d.Table;
+    nameAC = name.split('_').map(function(t){ return toTitleCase(t)});
+    nameAC = nameAC.join('');
+    nameAC = 'Adc'+nameAC;
   }
-  const pad = function(num, size) {
-    var s = num + "";
-    while (s.length < size) s = "0" + s;
-    return s;
-  }
-  var html, name, key, nameC3, cct, xml, json, match, description;
-  var Abbreviation = {
-    'Account': 'ACC',
-    'Audit Data Collection Standard': 'ADCS',
-    'Adjustment': 'ADJ',
-    'Accounts Payable': 'AP',
-    'Accounts Receivable': 'AR',
-    'American Standard Code for Information Interchange': 'ASCII',
-    'Base': 'BAS',
-    'Beginning': 'BEG',
-    'Business Identifier Code': 'BIC',
-    'Chief Financial Officer': 'CFO',
-    'Chinese Yuan': 'CNY',
-    'Carriage-Return Line-Feed': 'CRLF',
-    'Comma Separated Values': 'CSV',
-    'Currency': 'CUR',
-    'Customer': 'CUS',
-    'Enterprise Resource Management': 'ERM',
-    'Enterprise Resource Planning': 'ERP',
-    'Euro': 'EUR',
-    '"First In, First Out"': 'FIFO',
-    'Free On Board': 'FOB',
-    'Financial Statement': 'FS',
-    'Gigabyte': 'GB',
-    'General Ledger': 'GL',
-    'International Bank Account Number': 'IBAN',
-    'Industrial and Commercial Bank of China': 'ICBC',
-    'Identification': 'ID',
-    'Inventory': 'INV',
-    'Information Technology': 'IT',
-    'Journal Entry': 'JE',
-    'Legal Entity Identifier': 'LEI',
-    '"Last In, First Out"': 'LIFO',
-    'Microsoft Disk Operating System': 'MS-DOS',
-    'New Technology File System': 'NTFS',
-    'Number': 'NUM',
-    'New York State': 'NY',
-    'Organization': 'ORG',
-    'Operating System': 'OS',
-    'Primary Key': 'PK',
-    'Purchase Order': 'PO',
-    '"Property, Plant and Equipment"': 'PPE',
-    'Province': 'PRV',
-    'Purchase': 'PUR',
-    'Reference Identifier': 'REF',
-    'Request For Comments': 'RFC',
-    'Sales': 'SAL',
-    'Systems Applications and Products in data processing': 'SAP',
-    'Structured Query Language': 'SQL',
-    'Terabytes': 'TB',
-    'Tax Identification Number': 'TIN',
-    'Transactional': 'TRX',
-    'Transaction': 'TRX',
-    'Unit of Measurement': 'UOM',
-    'United States of America': 'US',
-    'U.S. Dollars': 'USD',
-    'Coordinated Universal Time': 'UTC',
-    '8-bit Unicode Transformation Format': 'UTF-8',
-    'Work In Progress': 'WIP'
-  };
-  name = 'ABIE' === d.Kind
-    ? d.DictionaryEntryName.match(/^([^_\.]*_ )?([^\.]+)\. .*$/)[2]
-    : d.Name
-      ? d.Name
-      : d.PropertyTerm+' '+d.RepresentationTerm;
-  for (key in Abbreviation) {
-    var abbrev = Abbreviation[key],
-        regx = RegExp(key),
-        match = name.match(regx);
-    if (match) {
-      name = name.replace(regx, abbrev);
+  else {
+    name = d.Name
+        ? d.Name
+        : d.PropertyTerm+' '+d.RepresentationTerm;
+    nameAC = name;
+    name = name.replace(/ /g, '_');
+    for (key in Abbreviation) {
+      var abbrev = Abbreviation[key],
+          regx = RegExp(key),
+          match = name.match(regx);
+      if (match) {
+        nameAC = nameAC.replace(regx, abbrev);
+      }
     }
+    nameAC = nameAC.replace(/[ _]/g, '');
   }
-  name = name.replace(/ /g, '_');
-  nameC3 = name.split('_');
-  nameC3 = nameC3.map(function(n) { capitalize(n); }).join('');
 
   cct = ccts_cct[d.RepresentationTerm];
   xml = cct ? cct.XML : null;
@@ -381,6 +401,7 @@ function adc_entity_format(d) { // d is the original data object for the row
   description = description.replace(/ (is|are) contained in Table [0-9]+/g, '');
   description = description.replace(/EXAMPLE/g, '<br><span style="font-size:smaller">EXAMPLE</span><br>');
   description = description.replace(/\(Table [0-9]+\) /g, '');
+  description = description.replace(/_/g, ' ');
 
   html = '<table cellpadding="4" cellspacing="0" border="0" style="width:100%; padding-left:16px;">'+
   '<colgroup>'+
@@ -391,21 +412,21 @@ function adc_entity_format(d) { // d is the original data object for the row
   '<tr><td>'+
   (d.UNID
     ? d.UNID
-    : (d.num && d.No
-      ? 'ADC'+d.Kind+pad(d.num, 2)+pad(d.No, 3)
-      : 'Dictionary Entry Name:'+'</td>'+
-        '<td>'+(d.DictionaryEntryName ? d.DictionaryEntryName : '</td><td>')+'</td></tr>'
-      )
-  )+
+    : (d.num //&& d.No
+      ? 'ADC'+pad(d.num, 6)//+pad(d.No, 3)
+      : 'Dictionary Entry Name:'
+    )
+  )+'</td>'+
+  '<td>'+(d.DictionaryEntryName ? d.DictionaryEntryName : '')+'</td></tr>'+
   (d.ObjectClassTerm
     ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Object Class Term:</td>'+
       '<td>'+(d.ObjectClassTermQualifier ? d.ObjectClassTermQualifier+'_ ' : '')+d.ObjectClassTerm+'</td></tr>'
     : ''
   )+
   ('ABIE' === d.Kind
-    ? '<tr><td>CSV</td><td>'+d.Table+'</td></tr>'+
-        '<tr><td>XML</td><td>'+nameC3+'</td></tr>'+
-        '<tr><td>JSON</td><td>'+nameC3+'</td></tr>'
+    ? '<tr><td>ISO 21378:2019</td><td>'+name+'</td></tr>'+
+        '<tr><td>XML</td><td>'+nameAC+'.xsd</td></tr>'+
+        '<tr><td>JSON</td><td>'+nameAC+'.json</td></tr>'
     : (d.PropertyTerm
         ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Property Term:</td>'+
           '<td>'+(d.PropertyTermQualifier ? d.PropertyTermQualifier+'_ ' : '')+' '+d.PropertyTerm+'</td></tr>'
@@ -424,19 +445,19 @@ function adc_entity_format(d) { // d is the original data object for the row
         ? '<tr><td style="font-size:smaller">Usage Rule:</td><td>'+d.UsageRule+'</td></tr>'
         : '')+
       (d.Datatype
-        ? '<tr><td>CSV</td><td>name: '+name+'</td></tr>'+
+        ? '<tr><td>ISO 21378:2019</td><td>'+name+'</td></tr>'+
           (d.PK_REF
             ? '<tr><td></td>'+
               '<td>'+d.PK_REF+' '+(d.RefField ? d.RefField+' ( '+d.RefTable+' )' : '')+'</td></tr>'
             : '')+
           '<tr><td></td><td>data type: '+d.Datatype+'&nbsp;&nbsp;( '+d.Representation+' )'+(d.Occurence ? '&nbsp;&nbsp;occurence: '+d.Occurence+'</td></tr>' : '')
         : '')+
-      '<tr><td>XML</td><td>name: '+nameC3+
+      '<tr><td>XML</td><td>'+nameAC+
       (d.RepresentationTerm
-        ? ' Datatype: ccts-cct:'+d.RepresentationTerm+'Type'+(xml ? '&nbsp;&nbsp;( base: '+xml+' )' : '( complexType )')+'</td></tr>'
+        ? ' cct:'+d.RepresentationTerm+'Type'+(xml ? '&nbsp;&nbsp;( '+xml+' )' : '( complexType )')+'</td></tr>'
         : ' ( complexType )</td></tr>')+
-      '<tr><td>JSON</td><td>name: '+nameC3+(json ? '&nbsp;&nbsp;( Datatype: '+json+' )' : '&nbsp;&nbsp;( Datatype: object )')+'</td></tr>'+
-      '<tr><td>XBRL GL</td><td>'+(d.XBRLGL ? d.XBRLGL : 'TBD')+'</td></tr>'
+      '<tr><td>JSON</td><td>'+nameAC+(json ? '&nbsp;&nbsp;( '+json+' )' : '&nbsp;&nbsp;( object )')+'</td></tr>'+
+      '<tr><td>xBRL GL</td><td>'+(d.XBRLGL ? d.XBRLGL : 'TBD')+'</td></tr>'
   )+
   '</table>';
   return html;
@@ -514,10 +535,167 @@ function xbrlgl_entity_format(d) { // d is the original data object for the row
       d.AssociatedObjectClass+
     '</td></tr>'
   : '')+
-  '<tr><td>XBRL GL</td><td>'+
-  (d.Name
-    ? /*'gl-'+*/table_id.Name.trim()+' '+(d.Datatype ? '(xsd:'+d.Datatype+')' : '')
-    : '')+'</td></tr>'+
+  '<tr><td>xBRL GL</td><td>'+
+    (d.element
+      ? d.element.trim()+' '+(d.Datatype ? '(xsd:'+d.Datatype+')' : '')
+      : '')+
+    '</td></tr>'+
+  '</table>';
+  return html;
+}
+function ts5409_entity_format(d) { // d is the original data object for the row
+  if (!d) { return null; }
+  const capitalize = function(s) {
+    if (typeof s !== 'string') return ''
+    return s.charAt(0).toUpperCase() + s.slice(1)
+  }
+  const pad = function(num, size) {
+    var s = num + "";
+    while (s.length < size) s = "0" + s;
+    return s;
+  }
+  var html, name, name0, key, nameAC, cct, xml, json, match, description;
+  var Abbreviation = abbreviation;
+  if ('ABIE' === d.Kind) {
+    name = d.Table.split(' ');
+    name0 = name[0];
+    name.shift();
+    name = name.map(function(t){ return toTitleCase(t)});
+    name = name0+'_'+name.join('_')
+    nameAC = d.Table.split(' ').map(function(t){ return toTitleCase(t)});
+    nameAC = nameAC.join('');
+    nameAC = 'Adc'+nameAC;
+  }
+  else {
+    name = d.Name
+        ? d.Name
+        : d.PropertyTerm;//+' '+d.RepresentationTerm;
+    nameAC = name;
+    name = name.replace(/ /g, '_');
+    for (key in Abbreviation) {
+      var abbrev = Abbreviation[key],
+          regx = RegExp(key),
+          match = name.match(regx);
+      if (match) {
+        nameAC = nameAC.replace(regx, abbrev);
+      }
+    }
+    nameAC = nameAC.replace(/ /g, '');    
+  }
+
+  cct = ccts_cct[d.RepresentationTerm];
+  xml = cct ? cct.XML : null;
+  json = cct ? cct.JSON : null;
+
+  description = d.Description;
+  match = description.match(/^(.*)(Shall match .* table.)(.*)$/);
+  if (match) {
+    description = match[1]+match[3];
+  }
+  match = description.match(/^(.*)(Otherwise set NULL.)(.*)$/);
+  if (match) {
+    description = match[1]+match[3];
+  }
+  match = description.match(/^(.*)(Typically auto-generated by the system.)(.*)$/);
+  if (match) {
+    description = match[1]+match[3];
+  }
+  description = description.replace(/ (is|are) contained in Table [0-9]+/g, '');
+  description = description.replace(/EXAMPLE/g, '<br><span style="font-size:smaller">EXAMPLE</span><br>');
+  description = description.replace(/\(Table [0-9]+\) /g, '');
+  description = description.replace(/_/g, ' ');
+
+  html = '<table cellpadding="4" cellspacing="0" border="0" style="width:100%; padding-left:16px;">'+
+  '<colgroup>'+
+    '<col span="1" style="width: '+H1+'%;">'+
+    '<col span="1" style="width: '+H2+'%;">'+
+  '</colgroup>'+
+  (description ? '<tr><td colspan="2">'+description+'</td><tr>' : '')+
+  '<tr><td>'+
+  (d.UNID
+    ? d.UNID
+    : (d.num //&& d.No
+        // ? 'TS5409'+d.Kind+pad(d.num, 2)+pad(d.No, 3)
+        ? 'ADC'+pad(d.num, 6)
+        : 'Dictionary Entry Name:'
+      )
+  )+'</td><td>'+(d.DictionaryEntryName ? d.DictionaryEntryName : '')+'</td></tr>'+
+  (d.ObjectClassTerm
+    ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Object Class Term:</td>'+
+      '<td>'+(d.ObjectClassTermQualifier ? d.ObjectClassTermQualifier+'_ ' : '')+d.ObjectClassTerm+'</td></tr>'
+    : ''
+  )+
+  ('ABIE' === d.Kind
+    ? '<tr><td>ISO 21378:2019</td><td>'+name+'</td></tr>'+
+        '<tr><td>XML</td><td>'+nameAC+'.xsd</td></tr>'+
+        '<tr><td>JSON</td><td>'+nameAC+'.json</td></tr>'
+    : (d.PropertyTerm
+        ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Property Term:</td>'+
+          '<td>'+(d.PropertyTermQualifier ? d.PropertyTermQualifier+'_ ' : '')+' '+d.PropertyTerm+'</td></tr>'
+        : '')+
+      (d.RepresentationTerm
+        ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Representation Term:</td><td>'+d.RepresentationTerm+'</td></tr>'
+        : '')+
+      (d.AssociatedObjectClass
+        ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Associated Object Class:</td>'+
+          '<td>'+
+            (d.AssociatedObjectClassTermQualifier ? d.AssociatedObjectClassTermQualifier+'_ ' : '')+
+            d.AssociatedObjectClass+
+          '</td></tr>'
+        : '')+
+      (d.UsageRule
+        ? '<tr><td style="font-size:smaller">Usage Rule:</td><td>'+d.UsageRule+'</td></tr>'
+        : '')+
+      (d.Datatype
+        ? '<tr><td>CSV</td><td>'+name+'</td></tr>'+
+          (d.PK_REF
+            ? '<tr><td></td>'+
+              '<td>'+d.PK_REF+' '+(d.RefField ? d.RefField+' ( '+d.RefTable+' )' : '')+'</td></tr>'
+            : '')+
+          '<tr><td></td><td>data type: '+d.Datatype+'&nbsp;&nbsp;( '+d.Representation+' )'+(d.Occurence ? '&nbsp;&nbsp;occurence: '+d.Occurence+'</td></tr>' : '')
+        : '')+
+      '<tr><td>ISO 21378:2019</td><td>'+name+'</td></tr>'+
+      '<tr><td>XML</td><td>'+nameAC+(xml ? '&nbsp;&nbsp;( '+xml+' )' : '( complexType )')+'</td></tr>'+
+      '<tr><td>JSON</td><td>'+nameAC+(json ? '&nbsp;&nbsp;( '+json+' )' : '&nbsp;&nbsp;( object )')+'</td></tr>'//+
+      // '<tr><td>xBRL GL</td><td>'+(d.XBRLGL ? d.XBRLGL : 'TBD')+'</td></tr>'
+  )+
+  '</table>';
+  return html;
+}
+function ts5409_dt_format(d) { // d is the original data object for the row
+  if (!d) { return null; }
+  var cct, xml, json, html;
+  cct = ccts_cct[d.ObjectClassTerm];
+  xml = cct ? cct.XML : null;
+  json = cct ? cct.JSON : null;
+  html = '<table cellpadding="4" cellspacing="0" border="0" style="width:100%; padding-left:16px;">'+
+  '<colgroup>'+
+  '<col span="1" style="width: '+H1+'%;">'+
+  '<col span="1" style="width: '+H2+'%;">'+
+  '</colgroup>'+
+  (d.Description
+    ? '<tr><td colspan="2">'+d.Description+'</td><tr>'
+    : '')+
+  '<tr><td>'+(d.UNID ? d.UNID : 'Dictionary Entry Name:')+'</td>'+
+  '<td>'+d.DictionaryEntryName+'</td></tr>'+
+  (d.PropertyTerm
+    ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Property Term:</td><td>'+d.PropertyTerm+'</td></tr>'
+    : '')+
+  (d.RepresentationTerm
+    ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Representation Term:</td><td>'+
+      (d.DatatypeQualifier ? d.DatatypeQualifier+'_ ' : '')+d.RepresentationTerm+'</td></tr>'
+    : '')+
+  ('CC' === d.Kind
+    ? '<tr><td>XML</td><td>data type: ccts-cct:'+d.ObjectClassTerm+'Type&nbsp;&nbsp;(base:'+xml+')</td></tr>'+
+      '<tr><td>JSON</td><td>data type: '+(json ? json : '')+'</td></tr>'
+    : ''
+  )+
+  (d.Enumeration
+  ? '<tr><td style="font-size:smaller">Enumeration:</td><td>'+d.Enumeration+'</td></tr>'
+  : '')+
+  (d.RestrictionValue
+  ? '<tr><td style="font-size:smaller">Restriction Value:</td><td>'+d.RestrictionValue+'</td></tr>'
+  : '')+
   '</table>';
   return html;
 }
@@ -577,7 +755,7 @@ function ads_entity_format(d) { // d is the original data object for the row
         '<td>'+d.DataType+(d.Length ? ' (Length: '+d.Length+')' : '')+'</td></tr>'
     : '')+
   (xbrlgl
-    ? '<tr><td>XBRL GL</td><td>'+xbrlgl+'</td></tr>'
+    ? '<tr><td>xBRL GL</td><td>'+xbrlgl+'</td></tr>'
     : '')+
   '</table>';
   return html;
@@ -650,9 +828,7 @@ function bie_format(d) { // d is the original data object for the row
   (d.AssociatedObjectClass
     ? '<tr><td style="font-size:smaller">Associated Object Class:</td>'+
         '<td colspan="3">'+
-        (d.AssociatedObjectClassTermQualifier
-          ? d.AssociatedObjectClassTermQualifier+'_ '
-          : '')+
+        (d.AssociatedObjectClassTermQualifier ? d.AssociatedObjectClassTermQualifier+'_ ' : '')+
         d.AssociatedObjectClass+
         '</td></tr>'
     : '')+
@@ -909,6 +1085,148 @@ function ubl_dt_format(d) { // d is the original data object for the row
   (found.length > 0 ? related : '')+
   '</table>';
 }
+function peppol_entity_format(d) { // d is the original data object for the row
+  if (!d) { return null; }
+  var html, description, DEN, datatype, objectClass, propertyTerm, representationTerm, associatedObjectClass, xPath, ublDatatype;
+  html = '<table cellpadding="4" cellspacing="0" border="0" style="width:100%; padding-left:16px;">'+
+  '<colgroup>'+
+  '<col span="1" style="width: '+H1+'%;">'+
+  '<col span="1" style="width: '+H2+'%;">'+
+  '</colgroup>';
+  description = (d.Description
+      ? '<tr><td colspan="2">'+d.Description+'</td><tr>'
+      : ''
+    )+
+    (d.AdditionalExplanation
+      ? '<tr><td colspan="2">'+d.AdditionalExplanation+'</td><tr>'
+      : ''
+    );
+  html += description;
+  datatype = ('BBIE' === d.Kind && d.datatype
+      ? '<tr><td>Semantic Data Type:</td><td>'+
+        d.datatype+'</td></tr>'
+      : ''
+    );
+  html += datatype;
+  DEN = '<tr><td>'+
+    (d.DictionaryEntryName
+      ? 'Dictionary Entry Name:</td><td>'+d.DictionaryEntryName
+      : '</td><td>')+
+    '</td></tr>';
+  html += DEN;
+  objectClass = (d.ObjectClassTerm
+      ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Object Class Term:</td><td>'+
+        (d.ObjectClassTermQualifier ? d.ObjectClassTermQualifier+'_ ' : '')+
+        d.ObjectClassTerm+'</td></tr>'
+      : ''
+    );
+  html += objectClass;
+  propertyTerm = (d.PropertyTerm
+      ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Property Term:</td><td>'+
+        (d.PropertyTermQualifier ? d.PropertyTermQualifier+'_ ' : '')+
+        d.PropertyTerm+'</td></tr>'
+      : ''
+    );
+  html += propertyTerm;
+  representationTerm = ('BBIE' === d.Kind && d.RepresentationTerm
+      ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Representation Term:</td><td>'+
+        (d.DataTypeQualifier ? d.DataTypeQualifier+'_ ' : '')+
+        d.RepresentationTerm+'</td></tr>'
+      : ''
+    );
+  html += representationTerm;
+  associatedObjectClass = ('ASBIE' === d.Kind && d.AssociatedObjectClass
+    ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Associated Object Class:</td><td>'+
+        (d.AssociatedObjectClassTermQualifier ? d.AssociatedObjectClassTermQualifier+'_ ' : '')+
+        d.AssociatedObjectClass+'</td></tr>'
+      : ''
+    );
+  html += associatedObjectClass;
+  xPath = (d.XPath
+      ? '<tr><td>UBL XPath:</td><td>'+d.XPath+'</td></tr>'
+      : ''
+    );
+  html += xPath.replace(/\/c/g,'/ c');
+  ublDatatype = (d.UBL_Datatype
+      ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;UBL Datatype:</td><td>'+
+        d.UBL_Datatype+(d.UBL_Cardinality ? ' '+d.UBL_Cardinality : '')+'</td></tr>'
+      : ''
+    );
+  html += ublDatatype;
+  html += '</table>';
+  return html;
+}
+function gb_entity_format(d) { // d is the original data object for the row
+  if (!d) { return null; }
+  var html, description, DEN, datatype, objectClass, propertyTerm, representationTerm, associatedObjectClass, xPath, ublDatatype;
+  html = '<table cellpadding="4" cellspacing="0" border="0" style="width:100%; padding-left:16px;">'+
+  '<colgroup>'+
+  '<col span="1" style="width: '+H1+'%;">'+
+  '<col span="1" style="width: '+H2+'%;">'+
+  '</colgroup>';
+  description = (d.Description
+      ? '<tr><td colspan="2">'+d.Description+'</td><tr>'
+      : ''
+    )+
+    (d.AdditionalExplanation
+      ? '<tr><td colspan="2">'+d.AdditionalExplanation+'</td><tr>'
+      : ''
+    );
+  html += description;
+  datatype = ('BBIE' === d.Kind && d.datatype
+      ? '<tr><td>Semantic Data Type:</td><td>'+
+        d.datatype+'</td></tr>'
+      : ''
+    );
+  html += datatype;
+  DEN = '<tr><td>'+
+    (d.DictionaryEntryName
+      ? 'Dictionary Entry Name:</td><td>'+d.DictionaryEntryName
+      : '</td><td>')+
+    '</td></tr>';
+  html += DEN;
+  objectClass = (d.ObjectClassTerm
+      ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Object Class Term:</td><td>'+
+        (d.ObjectClassTermQualifier ? d.ObjectClassTermQualifier+'_ ' : '')+
+        d.ObjectClassTerm+'</td></tr>'
+      : ''
+    );
+  html += objectClass;
+  propertyTerm = (d.PropertyTerm
+      ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Property Term:</td><td>'+
+        (d.PropertyTermQualifier ? d.PropertyTermQualifier+'_ ' : '')+
+        d.PropertyTerm+'</td></tr>'
+      : ''
+    );
+  html += propertyTerm;
+  representationTerm = ('BBIE' === d.Kind && d.RepresentationTerm
+      ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Representation Term:</td><td>'+
+        (d.DataTypeQualifier ? d.DataTypeQualifier+'_ ' : '')+
+        d.RepresentationTerm+'</td></tr>'
+      : ''
+    );
+  html += representationTerm;
+  associatedObjectClass = ('ASBIE' === d.Kind && d.AssociatedObjectClass
+    ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Associated Object Class:</td><td>'+
+        (d.AssociatedObjectClassTermQualifier ? d.AssociatedObjectClassTermQualifier+'_ ' : '')+
+        d.AssociatedObjectClass+'</td></tr>'
+      : ''
+    );
+  html += associatedObjectClass;
+  xPath = (d.XPath
+      ? '<tr><td>UBL XPath:</td><td>'+d.XPath+'</td></tr>'
+      : ''
+    );
+  html += xPath.replace(/\/c/g,'/ c');
+  ublDatatype = (d.UBL_Datatype
+      ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;UBL Datatype:</td><td>'+
+        d.UBL_Datatype+(d.UBL_Cardinality ? ' '+d.UBL_Cardinality : '')+'</td></tr>'
+      : ''
+    );
+  html += ublDatatype;
+  html += '</table>';
+  return html;
+}
 // -----------------------------------------------------------------
 function openADC() {
   var name = 'Audit data collection';
@@ -951,16 +1269,20 @@ function splitLC3(letters) {
   return words;
 }
 function renderNameByNum(num, name) {
+  var depth, prefix;
   if (!name) {
     return '';
   }
-  var num = '' + num;
-  var depth = (num.match(/\./g) || []).length;
-  var prefix = '';
-  for (var i = 0; i < depth; i++) {
-    prefix += '+';
+  num = '' + num;
+  depth = (num.match(/\./g) || []).length;
+  prefix = '';
+  if (depth > 0 && ! name.match(/^&bullet;/)){
+    for (var i = 0; i < depth; i++) {
+      prefix += '&bullet;';
+    }
+    prefix += ' ';
   }
-  return (prefix ? prefix+' ' : '')+name;//splitLC3(name);
+  return prefix + name; //splitLC3(name);
 }
 function renderDescription(description) {
   if (!description) {
@@ -969,6 +1291,7 @@ function renderDescription(description) {
   else if (description.length > DESCRIPTION_LENGTH) {
     description = description.substr(0, DESCRIPTION_LENGTH)+'...';
   }
+  description = description.replace(/_/g, ' ');
   return description;
 }
 // -----------------------------------------------------------------
@@ -993,7 +1316,7 @@ function renderAdcAbieModule(row) {
   }
   return module;
 }
-function rendeAdcAbierDescription(row) {
+function rendeAdcAbieDescription(row) {
   var description = row.Description;
   if (description.length > DESCRIPTION_LENGTH) {
     description = description.substr(0, DESCRIPTION_LENGTH)+'...';
@@ -1009,31 +1332,45 @@ function rendeAdcAbierDescription(row) {
   return renderDescription(description);
 }
 function renderAdcEntityName(row) {
-  var dictionaryEntryName = row.DictionaryEntryName,
-      match, name = '',
-      objectClassTerm, qualifier, propertyTerm, representationTerm;
-  if (!dictionaryEntryName) {
-    return '';
+  var name = row.Name, name_list;
+  if (name) {
+    name_list = name.split(' ');
+    name_list = name_list.map(function(d) {
+      if (d != 'ID') {
+        text = iso21378abbrev[d];
+        if (text) { return text; }
+      }
+      return d;
+    });
+    name = name_list.join(' ');
   }
-  match = dictionaryEntryName.match(rgx);
-  if (match) {
-    objectClassTerm = match[rgx_COL_ObjectClassTerm];
-    objectClassTerm = objectClassTerm ? objectClassTerm.trim() : '';
-    qualifier = match[rgx_COL_PropertyTermQualifier];
-    qualifier = qualifier ? qualifier.trim()+'_ ' : '';
-    propertyTerm = match[rgx_COL_PropertyTerm];
-    propertyTerm = propertyTerm ? propertyTerm.trim() : '';
-    representationTerm = match[rgx_COL_RepresentationTerm];
-    representationTerm = representationTerm ? representationTerm.trim() : '';
-    if ('ID' === propertyTerm) {
-      name = objectClassTerm+'. ID';
+  else {
+    var dictionaryEntryName = row.DictionaryEntryName,
+        match, name = '',
+        objectClassTerm, qualifier, propertyTerm, representationTerm;
+    if (!dictionaryEntryName) {
+      return '';
     }
-    else if ((representationTerm && representationTerm.indexOf(propertyTerm) >= 0) ||
-        (propertyTerm && propertyTerm.indexOf(representationTerm) >= 0)) {
-      name = qualifier+propertyTerm;
-    }
-    else {
-      name = qualifier+propertyTerm+'. '+representationTerm;
+    match = dictionaryEntryName.match(rgx);
+    if (match) {
+      objectClassTerm = match[rgx_COL_ObjectClassTerm];
+      objectClassTerm = objectClassTerm ? objectClassTerm.trim() : '';
+      qualifier = match[rgx_COL_PropertyTermQualifier];
+      qualifier = qualifier ? qualifier.trim()+' ' : '';
+      propertyTerm = match[rgx_COL_PropertyTerm];
+      propertyTerm = propertyTerm ? propertyTerm.trim() : '';
+      representationTerm = match[rgx_COL_RepresentationTerm];
+      representationTerm = representationTerm ? representationTerm.trim() : '';
+      if ('ID' === propertyTerm) {
+        name = objectClassTerm+' ID';
+      }
+      else if ((representationTerm && representationTerm.indexOf(propertyTerm) >= 0) ||
+          (propertyTerm && propertyTerm.indexOf(representationTerm) >= 0)) {
+        name = qualifier+propertyTerm;
+      }
+      else {
+        name = qualifier+propertyTerm+' '+representationTerm;
+      }
     }
   }
   return renderNameByNum(row.num, name);
@@ -1057,28 +1394,24 @@ function renderAdcEntityDescription(row) {
     description = match[1]+match[3];
   }
   description = description.replace(/ (is|are) contained in Table [0-9]+/g, '');
-  // description = description.replace(/EXAMPLE/g, '<br><span style="font-size:smaller">EXAMPLE</span><br>');
-  description = description.replace(/\(Table [0-9]+\) /g, '');
-  if (description.length > DESCRIPTION_LENGTH) {
-    description = description.substr(0, DESCRIPTION_LENGTH)+'...';
-  }
+  description = description.replace(/EXAMPLE/g, '<br>EXAMPLE');
+  // description = description.replace(/\(Table [0-9]+\) /g, '');
   return renderDescription(description);
 }
-adc_abie_COL_ComponentName = 0;
+// adc_abie_COL_ComponentName = 0;
 adc_abie_COL_Module = 1;
 adc_abie_COL_DictionaryEntryName = 5;
 var adc_abie_columns = [
   { 'width': '4%',
+    'className': 'd-none',
     'data': 'Kind' }, // 0
   { 'width': '8%',
-    'data': 'module',
-    'render': function(data, type, row) {
-      return renderAdcAbieModule(row); }}, // 1
+    'data': 'module'}, // 1
   { 'width': '35%',
     'data': 'ObjectClassTerm' }, // 2
   { 'data': 'description',
     'render': function (data, type, row) {
-      return rendeAdcAbierDescription(row); }}, // 3
+      return rendeAdcAbieDescription(row); }}, // 3
   { 'width': '4%',
     'className': 'info-control',
     'orderable': false,
@@ -1088,29 +1421,30 @@ var adc_abie_columns = [
 ];
 var adc_abie_columnDefs = [
   { 'searchable': false, 'targets': 4},
-  { 'visible': false, 'targets': 5 } 
+  { 'visible': false, 'targets': [0, 5] } 
 ];
 adc_entity_COL_DictionaryEntryName = 7;
 adc_entity_COL_ObjectClassTerm = 8;
 var adc_entity_columns = [
-  { 'width': '2%',
+  { 'width': '3%',
     'className': 'details-control',
     'orderable': false,
     'data': null,
     'defaultContent': '' }, // 0
-  { 'width': '8%',
-    'data': 'Kind' }, // 1
-  { 'width': '35%',
+  { 'width': '1%',
+    'className': 'd-none',
+    'data': 'Kind'}, // 1
+  { 'width': '40%',
     'data': 'name',
     'render': function(data, type, row) {
       return renderAdcEntityName(row); }}, // 2
-  { 'width': '49%',
+  { 'width': '50%',
     'data': 'description',
     'render': function(data, type, row) {
       return renderAdcEntityDescription(row); }}, // 3
   { 'width': '4%',
-    'data': 'Level' }, // 4
-  { 'width': '2%',
+    'data': 'Occurrence'}, // 4
+  { 'width': '3%',
     'className': 'info-control',
     'orderable': false,
     'data': null,
@@ -1123,16 +1457,17 @@ var adc_entity_columnDefs = [
   { 'searchable': false, 'targets': [0, 5] },
   { 'visible': false, 'targets': [6, 7, 8] } 
 ];
-adc_dt_COL_CategoryCode = 0;
+// adc_dt_COL_CategoryCode = 0;
 adc_dt_COL_DictionaryEntryName = 1;
 adc_dt_COL_DataType = 4; // hidden
 adc_dt_COL_ObjectClassTerm = 5; // hidden
 var adc_dt_columns = [
   { 'width': '4%',
+    'className': 'd-none',
     'data': 'Kind' }, // 0
-  { 'width': '35%',
+  { 'width': '40%',
     'data': 'DictionaryEntryName' }, // 1
-  { 'width': '57%',
+  { 'width': '56%',
     'data': 'Definition' }, // 2
   { 'width': '4%',
     'className': 'info-control',
@@ -1149,32 +1484,33 @@ var adc_dt_columnDefs = [
   { 'visible': false, 'targets': [4, 5, 6, 7] } 
 ];
 // -----------------------------------------------------------------
-// XBRL GL
+// xBRL GL
 function renderXbrlglEntityName(row) {
-var dictionaryEntryName = row.DictionaryEntryName, name;
-if (!dictionaryEntryName) {
-  return '';
+  // var dictionaryEntryName = row.DictionaryEntryName, name;
+  // if (!dictionaryEntryName) {
+  //   return '';
+  // }
+  // var match = dictionaryEntryName.match(/^([^\.]+)\. (.*)$/);
+  // if (match) {
+  //   name = match[2];
+  // }
+  var name = row.Name;
+  return renderNameByNum(row.num, name);
 }
-var match = dictionaryEntryName.match(/^([^\.]+)\. (.*)$/);
-if (match) {
-  name = match[2];
-}
-
-return renderNameByNum(row.num, name);
-}
-xbrlgl_abie_COL_ComponentName = 0;
-xbrlgl_abie_COL_ObjectClassTerm = 1;
+// xbrlgl_abie_COL_ComponentName = 0;
+// xbrlgl_abie_COL_ObjectClassTerm = 1;
 xbrlgl_abie_COL_DictionaryEntryName = 4;
 var xbrlgl_abie_columns = [
-  { 'width': '4%',
+  { 'width': '0%',
+    'className': 'd-none',
     'data': 'Kind' }, // 0
-  { 'width': '35%',
-    'data': 'ObjectClassTerm' }, // 1
-  { 'width': '57%',
+  { 'width': '40%',
+    'data': 'Name' }, // 1
+  { 'width': '58%',
     'data': 'description',
     'render': function(data, type, row) {
       return renderDescription(row.Description); }}, // 2
-  { 'width': '4%',
+  { 'width': '2%',
     'className': 'info-control',
     'orderable': false,
     'data': null,
@@ -1185,7 +1521,7 @@ var xbrlgl_abie_columnDefs = [
   { 'searchable': false, 'targets': 3 },
   { 'visible': false, 'targets': 4 } 
 ];
-xbrlgl_entity_COL_DictionaryEntryName = 2;
+// xbrlgl_entity_COL_DictionaryEntryName = 2;
 xbrlgl_entity_COL_ObjectClassTerm = 5;
 var xbrlgl_entity_columns = [
   { 'width': '2%',
@@ -1193,13 +1529,14 @@ var xbrlgl_entity_columns = [
     'orderable': false,
     'data': null,
     'defaultContent': '' }, // 0
-  { 'width': '8%',
+  { 'width': '0%',
+    'className': 'd-none',
     'data': 'Kind' }, // 1
-  { 'width': '35%',
+  { 'width': '38%',
     'data': 'name',
     'render': function(data, type, row) {
       return renderXbrlglEntityName(row); }}, // 2
-  { 'width': '53%',
+  { 'width': '58%',
     'data': 'description',
     'render': function(data, type, row) {
       return renderDescription(row.Description); }}, // 3
@@ -1213,6 +1550,153 @@ var xbrlgl_entity_columns = [
 var xbrlgl_entity_columnDefs = [
   { 'searchable': false, 'targets': [0, 4] },
   { 'visible': false, 'targets': 5 } 
+];
+// -----------------------------------------------------------------
+// TS5409
+// -----------------------------------------------------------------
+// TS5409
+function renderTs5409Module(row) {
+  var module = row.module || '', match;
+  match = module.match(/^[0-9]\.(.*)$/);
+  if (match) { module = match[1]; }
+  return module;
+}
+function rendeAdcDescription(row) {
+  var description = row.Description;
+  return renderDescription(description);
+}
+function renderTs5409EntityName(row) {
+  var name = row.BusinessTerm || row.DictionaryEntryName;
+  if (!name) {
+    return '';
+  }
+  return renderNameByNum(row.num, name);
+}
+function renderTs5409EntityDescription(row) {
+  var match,
+      description = row.Description;
+  if (!description) {
+    return '';
+  }
+  match = description.match(/^(.*)(Shall match .* table.)(.*)$/);
+  if (match) {
+    description = match[1]+match[3];
+  }
+  match = description.match(/^(.*)(Otherwise set NULL.)(.*)$/);
+  if (match) {
+    description = match[1]+match[3];
+  }
+  match = description.match(/^(.*)(Typically auto-generated by the system.)(.*)$/);
+  if (match) {
+    description = match[1]+match[3];
+  }
+  description = description.replace(/ (is|are) contained in Table [0-9]+/g, '');
+  // description = description.replace(/EXAMPLE/g, '<br><span style="font-size:small">EXAMPLE</span><br>');
+  description = description.replace(/\(Table [0-9]+\) /g, '');
+  if (description.length > 72) {
+    description = description.substr(0, 72)+'...';
+  }
+  return renderDescription(description);
+}
+ts5409_abie_COL_ComponentName = 0;
+ts5409_abie_COL_Module = 1;
+ts5409_abie_COL_DictionaryEntryName = 5;
+var ts5409_abie_columns = [
+  { 'width': '4%',
+    'className': 'd-none',
+    'data': 'Kind' }, // 0
+  { 'width': '8%',
+    'data': 'module',
+    'render': function(data, type, row) {
+      return renderTs5409Module(row); }}, // 1
+  { 'width': '35%',
+    'data': 'BusinessTerm' /*'ObjectClass',
+    'render': function(data, type, row) {
+      var objectClass = (row.ObjectClassTermQualifier ? row.ObjectClassTermQualifier+'_ ' : '')+row.ObjectClassTerm;
+      return objectClass; 
+    }*/ }, // 2
+  { 'data': 'description',
+    'render': function (data, type, row) {
+      return rendeAdcDescription(row); }}, // 3
+  { 'width': '4%',
+    'className': 'info-control',
+    'orderable': false,
+    'data': null,
+    'defaultContent': '' }, // 4
+  { 'data': 'DictionaryEntryName' } // 5
+];
+var ts5409_abie_columnDefs = [
+  { 'searchable': false, 'targets': 4},
+  { 'visible': false, 'targets': 5 } 
+];
+ts5409_entity_COL_DictionaryEntryName = 6;
+ts5409_entity_COL_ObjectClassTerm = 7;
+var ts5409_entity_columns = [
+  { 'width': '2%',
+    'className': 'details-control',
+    'orderable': false,
+    'data': null,
+    'defaultContent': '' }, // 0
+  { 'width': '8%',
+    'className': 'd-none',
+    'data': 'Kind' }, // 1
+  { 'width': '35%',
+    'data': 'name',
+    'render': function(data, type, row) {
+      return renderTs5409EntityName(row); }}, // 2
+  { 'width': '49%',
+    'data': 'description',
+    'render': function(data, type, row) {
+      return renderTs5409EntityDescription(row); }}, // 3
+  { 'width': '2%',
+    'className': 'info-control',
+    'orderable': false,
+    'data': null,
+    'defaultContent': '' }, // 4
+  { 'data': 'Representation',
+    'render': function(data, type, row) {
+      var qualifier = row.DataTypeQualifier,
+          term = row.RepresentationTerm,
+          name;
+      name = (qualifier ? qualifier+'_ ' : '')+term;
+      return name; }}, // 5-
+  { 'data': 'DictionaryEntryName' }, // 6-
+  { 'data': 'ObjectClass',
+    'render': function(data, type, row) {
+      var qualifier = row.ObjectClassTermQualifier,
+          term = row.ObjectClassTerm;
+      return (qualifier ? qualifier+'_ ' : '')+term; }} // 7-
+];
+var ts5409_entity_columnDefs = [
+  { 'className': 'dt-body-right', 'targets': [1] },
+  { 'searchable': false, 'targets': [0, 4] },
+  { 'visible': false, 'targets': [5, 6, 7] } 
+];
+ts5409_dt_COL_CategoryCode = 0;
+ts5409_dt_COL_DictionaryEntryName = 1;
+ts5409_dt_COL_DataType = 4; // hidden
+ts5409_dt_COL_ObjectClassTerm = 5; // hidden
+var ts5409_dt_columns = [
+  { 'width': '4%',
+    'className': 'd-none',
+    'data': 'Kind' }, // 0
+  { 'width': '35%',
+    'data': 'DictionaryEntryName' }, // 1
+  { 'width': '57%',
+    'data': 'Description' }, // 2
+  { 'width': '4%',
+    'className': 'info-control',
+    'orderable': false,
+    'data': null,
+    'defaultContent': '' }, // 3
+  { 'data': 'DataType' }, // 4-
+  { 'data': 'ObjectClassTerm' }, // 5-
+  { 'data': 'PropertyTerm' }, // 6-
+  { 'data': 'RepresentationTerm' } // 7-
+];
+var ts5409_dt_columnDefs = [
+  { 'searchable': false, 'targets': 0 },
+  { 'visible': false, 'targets': [4, 5, 6, 7] } 
 ];
 // -----------------------------------------------------------------
 // ADS
@@ -1254,10 +1738,11 @@ function renderAdsEntityName(row) {
   }
   return renderNameByNum(row.num, name);
 }
-ads_abie_COL_ComponentName = 0;
 ads_abie_COL_Table = 2;
+ads_abie_COL_Module = 1;
 var ads_abie_columns = [
   { 'width': '4%',
+    'className': 'd-none',
     'data': 'Kind' }, // 0
   { 'width': '5%',
     'data': 'Module' }, // 1
@@ -1287,14 +1772,17 @@ var ads_entity_columns = [
     'data': null,
     'defaultContent': '' }, // 0
   { 'width': '8%',
+    'className': 'd-none',
     'data': 'Kind' }, // 1
   { 'width': '4%',
+    'className': 'd-none',
     'data': 'No' }, // 2
   { 'width': '35%',
     'data': 'name',
     'render': function(data, type, row) {
       return renderAdsEntityName(row); }}, // 3
   { 'width': '2%',
+    'className': 'd-none',
     'data': 'Level' }, // 4
   { 'width': '51%',
     'data': 'description',
@@ -1313,11 +1801,180 @@ var ads_entity_columnDefs = [
   { 'visible': false, 'targets': [7, 8] } 
 ];
 // -----------------------------------------------------------------
+// GB
+function renderGbAbieTable(row) {
+  var table = row.Table;
+  if (!table) {
+    return '';
+  }
+  table = table.replace(/_/g, ' ');
+  return table;
+}
+function renderGbDescription(row) {
+  var match, description = row.Description;
+  if (!description) {
+    return '';
+  }
+  description = description.replace(/(_YYYYMMDD_YYYYMMDD|_YYYYMMDD)/g, '');
+  description = description.replace(/_/g, ' ');
+  match = description.match(/^'(.*)'$/);
+  if (match) {
+    description = match[1];
+  }
+  description = description.replace(/''/g,'"');
+  if (description.length > DESCRIPTION_LENGTH) {
+    description = description.substr(0, DESCRIPTION_LENGTH)+'...';
+  }
+  return renderDescription(description);
+}
+function renderGbEntityName(row) {
+  var name = row.Name;
+  if (name) {
+    name = name.replace(/_/g, ' ');
+  }
+  else if (row.DictionaryEntryName) {
+    name = renderAdcEntityName(row);
+  }
+  else {
+    return '';
+  }
+  return renderNameByNum(row.num, name);
+}
+gb_abie_COL_Module = 1;
+gb_abie_COL_Table = 2;
+var gb_abie_columns = [
+  { 'width': '4%',
+    'className': 'd-none',
+    'data': 'Kind' }, // 0
+  { 'width': '40%',
+    'data': 'Module' }, // 1
+  { 'width': '52%',
+    'data': 'table',
+    'render': function (data, type, row) {
+      return renderGbAbieTable(row); }}, // 2
+  // { 'width': '2%',
+  //   'data': 'description',
+  //   'render': function (data, type, row) {
+  //     return renderGbDescription(row); }}, // 3
+  { 'width': '4%',
+    'className': 'info-control',
+    'orderable': false,
+    'data': null,
+    'defaultContent': '' } // 3
+];
+var gb_abie_columnDefs = [
+  { 'searchable': false, 'targets': 3 }
+];
+gb_entity_COL_No = 2;
+gb_entity_COL_ObjectClassTerm = 8;
+var gb_entity_columns = [
+  { 'width': '2%',
+    'className': 'details-control',
+    'orderable': false,
+    'data': null,
+    'defaultContent': '' }, // 0
+  { 'width': '8%',
+    'className': 'd-none',
+    'data': 'Kind' }, // 1
+  { 'width': '4%',
+    'className': 'd-none',
+    'data': 'No' }, // 2
+  { 'width': '35%',
+    'data': 'name',
+    'render': function(data, type, row) {
+      return renderGbEntityName(row); }}, // 3
+  { 'width': '2%',
+    'className': 'd-none',
+    'data': 'Level' }, // 4
+  { 'width': '51%',
+    'data': 'description',
+    'render': function(data, type, row) {
+      return renderDescription(row.Description); }}, // 5
+  { 'width': '2%',
+    'className': 'info-control',
+    'orderable': false,
+    'data': null,
+    'defaultContent': '' }, // 6
+  { 'data': 'Table' }, // 7-
+  { 'data': 'ObjectClassTerm' } // 8-
+];
+var gb_entity_columnDefs = [
+  { 'searchable': false, 'targets': [0, 6] },
+  { 'visible': false, 'targets': [7, 8] } 
+];
+// -----------------------------------------------------------------
+// Peppol
+function toTitleCase(str) {
+  return str.replace(
+    /\w\S*/g,
+    function(txt) {
+      return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    }
+  );
+}
+function renderPeppolEntityName(row) {
+  var name, num;
+  num = '' + row.num;
+  name = row.Name;
+  name = name.split(' ').map(function(d) {return toTitleCase(d)}).join(' ');
+  return renderNameByNum(num, name);
+}
+peppol_abie_COL_DictionaryEntryName = 4;
+var peppol_abie_columns = [
+  { 'width': '4%',
+    'className': 'd-none',
+    'data': 'Kind' }, // 0
+  { 'width': '35%',
+    'data': 'Name'}, // 1
+  { 'width': '57%',
+    'data': 'Description' },
+  { 'width': '4%',
+    'className': 'info-control',
+    'orderable': false,
+    'data': null,
+    'defaultContent': '' }, // 3
+  { 'data': 'DictionaryEntryName' } // 4
+];
+var peppol_abie_columnDefs = [
+  { 'searchable': false, 'targets': 3 },
+  { 'visible': false, 'targets': 4 } 
+];
+peppol_entity_COL_ObjectClassTerm = 6;
+var peppol_entity_columns = [
+  { 'width': '3%',
+    'className': 'details-control',
+    'orderable': false,
+    'data': null,
+    'defaultContent': '' }, // 0
+  { 'width': '1%',
+    'className': 'd-none',
+    'data': 'Kind' }, // 1
+  { 'width': '40%',
+    'data': 'Name' }, // 2
+  { 'width': '50%',
+    'data': 'description',
+    'render': function(data, type, row) {
+      return renderDescription(row.Description); }}, // 3
+  { 'width': '4%',
+    'data': 'Card'}, // 4
+  { 'width': '3%',
+    'className': 'info-control',
+    'orderable': false,
+    'data': null,
+    'defaultContent': '' }, // 5
+  { 'data': 'ObjectClassTerm' } // 6
+];
+var peppol_entity_columnDefs = [
+  { 'searchable': false, 'targets': [0, 5] },
+  { 'visible': false, 'targets': 6 } 
+];
+// -----------------------------------------------------------------
 // UBL
 ubl_abie_COL_ComponentName = 1;
 ubl_abie_COL_DictionaryEntryName = 4;
 var ubl_abie_columns = [
   { 'width': '4%',
+    'className': 'd-none',
     'data': 'ComponentType' }, // 0
   { 'width': '35%',
     'data': 'componentName',
@@ -1347,6 +2004,7 @@ var ubl_entity_columns = [
     'data': null,
     'defaultContent': '' }, // 0
   { 'width': '8%',
+    'className': 'd-none',
     'data': 'ComponentType' }, // 1
   { 'width': '35%',
     'data': 'name',
@@ -1371,10 +2029,14 @@ var ubl_entity_columnDefs = [
   { 'searchable': false, 'targets': [0, 5] },
   { 'visible': false, 'targets': [6, 7, 8] } 
 ];
-ubl_dt_COL_CategoryCode = 0;
-ubl_dt_COL_DictionaryEntryName = 5; // hidden
-var ubl_dt_columns = [
+// ubl_dt_COL_CategoryCode = 0;
+// ubl_dt_COL_DictionaryEntryName = 5; // hidden
+ubl_dt_COL_DictionaryEntryName = 2;
+ubl_dt_COL_DataType = 4;
+var ubl_dt_columns = dt_columns;
+/*[
   { 'width': '4%',
+    'className': 'd-none',
     'data': 'CategoryCode' }, // 0
   { 'width': '35%',
     'data': 'name' }, // 1
@@ -1389,15 +2051,19 @@ var ubl_dt_columns = [
     'defaultContent': '' }, // 4
   { 'data': 'DictionaryEntryName' } // 5-
 ];
-var ubl_dt_columnDefs = [
+*/
+var ubl_dt_columnDefs = dt_columnDefs;
+/*[
   { 'searchable': false, 'targets': 0 },
   { 'visible': false, 'targets': 5 } 
 ];
+*/
 // -----------------------------------------------------------------
 // UN/CEFACT
 acc_COL_ObjectClassTerm = 1;
 var acc_columns = [
   { 'width': '7%',
+    'className': 'd-none',
     'data': 'Kind' }, // 0
   { 'width': '35%',
     'data': 'ObjectClassTerm' }, // 1
@@ -1417,7 +2083,7 @@ var acc_columnDefs = [
   { 'searchable': false, 'targets': 3 },
   { 'visible': false, 'targets': [4, 5] }
 ];
-cc_COL_ShortName = 2;
+// cc_COL_ShortName = 2;
 cc_COL_ObjectClassTerm = 7;
 cc_COL_PropertyTerm = 8;
 var cc_columns = [
@@ -1427,6 +2093,7 @@ var cc_columns = [
     'data': null,
     'defaultContent': '' }, // 0
   { 'width': '8%',
+    'className': 'd-none',
     'data': 'Kind' }, // 1
   { 'width': '35%',
     'data': 'name',
@@ -1454,6 +2121,7 @@ var cc_columnDefs = [
 bie_COL_ObjectClassTerm = 5;
 var bie_columns = [
   { 'width': '7%',
+    'className': 'd-none',
     'data': 'Kind' }, // 0
   { 'width': '35%',
     'data': 'ShortName' }, // 1
@@ -1473,7 +2141,7 @@ var bie_columnDefs = [
   { 'searchable': false, 'targets': 3 },
   { 'visible': false, 'targets': [4, 5] },
 ];
-bie_compt_COL_ShortName = 3;
+// bie_compt_COL_ShortName = 3;
 bie_compt_COL_DictionaryEntryName = 8;
 var bie_compt_columns = [
   { 'width': '2%',
@@ -1482,8 +2150,10 @@ var bie_compt_columns = [
     'data': null,
     'defaultContent': '' }, // 0
   { 'width': '8%',
+    'className': 'd-none',
     'data': 'Kind' }, // 1
   { 'width': '2%',
+    'className': 'd-none',
     'data': 'SequenceNumber' }, // 2
   { 'width': '33%',
     'data': 'name',
@@ -1510,13 +2180,15 @@ var bie_compt_columnDefs = [
 dt_COL_DictionaryEntryName = 2;
 dt_COL_DataType = 4;
 var dt_columns = [
-  { 'width': '4%',
+  { 'width': '1%',
+    'className': 'd-none',
     'data': 'Kind' }, // 0
-  { 'width': '2%',
+  { 'width': '1%',
+    'className': 'd-none',
     'data': 'SequenceNumber' }, // 1
-  { 'width': '35%',
+  { 'width': '40%',
     'data': 'DictionaryEntryName' }, // 2
-  { 'width': '59%',
+  { 'width': '60%',
     'data': 'definition',
     'render': function(data, type, row) {
       return renderDescription(row.Definition); }}, // 3
@@ -1528,11 +2200,13 @@ var dt_columnDefs = [
 ];
 qdt_COL_UNID = 4;
 var qdt_columns = [
-  { 'width': '4%',
+  { 'width': '1%',
+    'className': 'd-none',
     'data': 'Kind' }, // 0
-  { 'width': '33%',
+  { 'width': '40%',
     'data': 'DictionaryEntryName' }, // 1
-  { 'data': 'definition',
+  { 'width': '56%',
+    'data': 'definition',
     'render': function(data, type, row) {
       return renderDescription(row.Definition); }}, // 2
   { 'width': '4%',
@@ -1555,7 +2229,10 @@ getTopTableID = function(frame) {
   switch (frame) {
     case 'adc':    table_id = 'adc-abie';    break;
     case 'xbrlgl': table_id = 'xbrlgl-abie'; break;
+    case 'ts5409': table_id = 'ts5409-abie'; break;
     case 'ads':    table_id = 'ads-abie';    break;
+    case 'gb':     table_id = 'gb-abie';     break;
+    case 'peppol': table_id = 'peppol-abie'; break;
     case 'ubl':    table_id = 'ubl-abie';    break;
     case 'bie':    table_id = 'bie';         break;
     case 'acc':    tavle_id = 'acc';         break;
@@ -1567,8 +2244,10 @@ getTopTable = function(frame) {
   switch (frame) {
     case 'adc':    table = adc_abie_table;    break;
     case 'xbrlgl': table = xbrlgl_abie_table; break;
+    case 'ts5409': table = ts5409_abie_table; break;
     case 'ads':    table = ads_abie_table;    break;
     case 'ubl':    table = ubl_abie_table;    break;
+    case 'peppol': table = peppol_abie_table; break;
     case 'bie':    table = bie_table;         break;
     case 'acc':    table = acc_table;         break;
   }
@@ -1579,7 +2258,9 @@ getEntityTableID = function(frame) {
   switch (frame) {
     case 'adc':    table_id = 'adc-entity';    break;
     case 'xbrlgl': table_id = 'xbrlgl-entity'; break;
+    case 'ts5409': table_id = 'ts5409-entity'; break;
     case 'ads':    table_id = 'ads-entity';    break;
+    case 'peppol': table_id = 'peppol-entity'; break;
     case 'ubl':    table_id = 'ubl-entity';    break;
     case 'bie':    table_id = 'bie-compt';     break;
     case 'acc':    table_id = 'cc';            break;
@@ -1591,7 +2272,10 @@ getEntityTable = function(frame) {
   switch (frame) {
     case 'adc':    table = adc_entity_table;    break;
     case 'xbrlgl': table = xbrlgl_entity_table; break;
+    case 'ts5409': table = ts5409_entity_table; break;
     case 'ads':    table = ads_entity_table;    break;
+    case 'gb':     table = gb_entity_table;     break;
+    case 'peppol': table = peppol_entity_table; break;
     case 'ubl':    table = ubl_entity_table;    break;
     case 'bie':    table = bie_compt_table;     break;
     case 'acc':    table = cc_table;            break;
@@ -1603,10 +2287,13 @@ function getEntityMap(frame) {
   switch (frame) {
     case 'adc':    map = adcEntityMap;    break;
     case 'xbrlgl': map = xbrlglEntityMap; break;
+    case 'ts5409': map = ts5409EntityMap; break;
     case 'ads':    map = adsEntityMap;    break;
+    case 'gb':     map = gbEntityMap;     break;
+    case 'peppol': map = peppolEntityMap; break;
     case 'ubl':    map = ublEntityMap;    break;
     case 'bie':    map = bieComptMap;     break;
-    case 'acc':    map = ccMap;            break;
+    case 'acc':    map = ccMap;           break;
   }
   return map;
 }
@@ -1614,10 +2301,13 @@ function assignEntityRows(frame, rows) {
   switch (frame) {
     case 'adc':    adcEntityRows = rows;    break;
     case 'xbrlgl': xbrlglEntityRows = rows; break;
+    case 'ts5409': ts5409EntityRows = rows; break;
     case 'ads':    adsEntityRows = rows;    break;
+    case 'gb':     gbEntityRows = rows;     break;
+    case 'peppol': peppolEntityRows = rows; break;
     case 'ubl':    ublEntityRows = rows;    break;
     case 'bie':    bieComptRows = rows;     break;
-    case 'acc':    bie = rows;            break;
+    case 'acc':    bie = rows;              break;
   }
 }
 function checkAssociated(table_id) {
@@ -1626,20 +2316,22 @@ function checkAssociated(table_id) {
   for (i = 0; i < rows.length; i++) {
     tr = rows[i];
     td_0 = tr.cells[0]; td_1 = tr.cells[1]; td_2 = tr.cells[2];
-    if (td_2 &&
-        td_2.innerHTML.match(/\. ID$/)) {
+    if ((td_1 && td_1.innerHTML.match(/^ID/)) || (td_2 && td_2.innerHTML.match(/\. ID$/))) {
       td_0.classList.remove('details-control');
       td_0.classList.add('key-control');
     }
-    else if (!td_1 ||
-        'BBIE' === td_1.innerHTML || 'BCC' === td_1.innerHTML) {
+    else if (td_1 && ('BBIE' === td_1.innerHTML || 'BCC' === td_1.innerHTML)) {
       td_0.classList.remove('details-control');
     }
-    else if ('RBIE' === td_1.innerHTML || 'RCC' === td_1.innerHTML) {
+    else if (td_1 && ('RFBIE' === td_1.innerHTML || 'RBIE' === td_1.innerHTML || 'RCC' === td_1.innerHTML)) {
       td_0.classList.remove('details-control');
       td_0.classList.add('link-control');
     }
-    else if ('' === td_1.innerHTML) {
+    else if (td_1 && ('ASBIE' === td_1.innerHTML || 'ASCC' === td_1.innerHTML)) {
+      td_0.classList.remove('link-control');
+      td_0.classList.add('details-control');
+    }
+    else { // if ('' === td_1.innerHTML) {
       td_0.classList.remove('details-control');
       td_0.classList.remove('link-control');
     }
@@ -1666,55 +2358,23 @@ function filterTop(frame) {
           : item.AssociatedObjectClass);
       if (dictionaryEntryName) {
         item.num = '' + item.num;
-        item.ancestor = item.ObjectClassTerm;
+        item.ancestor = (item.ObjectClassTermQualifier
+            ? item.ObjectClassTermQualifier+'_ '
+            : ''
+          )+item.ObjectClassTerm;
         item.DictionaryEntryName = dictionaryEntryName;
         entityMap.set(dictionaryEntryName, item);
       }
     }
   }
-  if (['xbrlgl', 'ubl'].indexOf(frame) >= 0) {
-    rows = table.data().toArray();
-  }
-  else {
-    if (['bie', 'acc'].indexOf(frame) >= 0) {
-      associates = {};
-      entityMap.forEach(function(v,k,m) {
-        if (v.AssociatedObjectClass) {
-          key = (v.AssociatedObjectClassTermQualifier
-            ? v.AssociatedObjectClassTermQualifier+'_ '
-            : '')+
-            v.AssociatedObjectClass;
-          associates[key] = true;
-        }
-      });
-    }
 
-    rows = [];
-    table.data().toArray().forEach(function(v, i) {
-      if (['adc', 'ads'].indexOf(frame) >= 0) {
-        if ('Core' !== v.Module) {
-          rows.push(v);
-        }
-      }
-      else if (['bie', 'acc'].indexOf(frame) >= 0) {
-        key = (v.ObjectClassTermQualifier
-          ? v.ObjectClassTermQualifier+'_ '
-          : '')+
-        v.ObjectClassTerm;
-        if (!associates[key]) {
-          rows.push(v);
-        }
-      }
-    });
-
-    table.clear();
-    table.rows.add(rows)
-    .draw();
-  }
   switch (frame) {
     case 'adc':    adcRows = rows;    adcEntityMap = entityMap;    break;
     case 'xbrlgl': xbrlglRows = rows; xbrlglEntityMap = entityMap; break;
+    case 'ts5409': ts5409Rows = rows; ts5409EntityMap = entityMap; break;
     case 'ads':    adsRows = rows;    adsEntityMap = entityMap;    break;
+    case 'gb':     gbRows = rows;     gbEntityMap = entityMap;     break;
+    case 'peppol': peppolRows = rows; peppolEntityMap = entityMap; break;
     case 'ubl':    ublRows = rows;    ublEntityMap = entityMap;    break;
     case 'bie':    bieRows = rows;    bieComptMap = entityMap;     break;
     case 'acc':    abie = rows;       ccMap = entityMap;           break;
@@ -1773,7 +2433,7 @@ adc_udt_table = $('#adc-udt').DataTable({
   'select': true
 });
 // -----------------------------------------------------------------
-// XBRL GL
+// xBRL GL
 //
 xbrlgl_abie_table = $('#xbrlgl-abie').DataTable({
   'ajax': 'data/list-xbrlgl-abie.json',
@@ -1811,6 +2471,55 @@ xbrlgl_entity2_table = $('#xbrlgl-entity2').DataTable({
   'drawCallback': function(settings) {
     checkAssociated('xbrlgl-entity2');
   }
+});
+// -----------------------------------------------------------------
+// TS5409
+//
+ts5409_abie_table = $('#ts5409-abie').DataTable({
+  'ajax': 'data/list-TS5409-abie.json',
+  'columns': ts5409_abie_columns,
+  'columnDefs': ts5409_abie_columnDefs,
+  'paging': false,
+  'autoWidth': false,
+  'ordering': false,
+  'select': true
+});
+ts5409_entity_table = $('#ts5409-entity').DataTable({
+  'ajax': 'data/list-TS5409-entity.json',
+  'columns': ts5409_entity_columns,
+  'columnDefs': ts5409_entity_columnDefs,
+  'paging': false,
+  'autoWidth': false,
+  'ordering': false,
+  'select': true,
+  'initComplete': function(settings, json) {
+    filterTop('ts5409');
+  },
+  'drawCallback': function(settings) {
+    checkAssociated('ts5409-entity');
+    hideOverlay();
+  }
+});
+ts5409_entity2_table = $('#ts5409-entity2').DataTable({
+  'ajax': 'data/list-TS5409-entity.json',
+  'columns': ts5409_entity_columns,
+  'columnDefs': ts5409_entity_columnDefs,
+  'paging': false,
+  'autoWidth': false,
+  'ordering': false,
+  'select': true,
+  'drawCallback': function(settings) {
+    checkAssociated('ts5409-entity2');
+  }
+});
+ts5409_udt_table = $('#ts5409-udt').DataTable({
+  'ajax': 'data/list-ADC-udt.json',
+  'columns': ts5409_dt_columns,
+  'columnDefs': ts5409_dt_columnDefs,
+  'paging': false,
+  'autoWidth': false,
+  'ordering': false,
+  'select': true
 });
 // -----------------------------------------------------------------
 // ADS
@@ -1853,6 +2562,86 @@ ads_entity2_table = $('#ads-entity2').DataTable({
   }
 });
 // -----------------------------------------------------------------
+// GB
+//
+gb_abie_table = $('#gb-abie').DataTable({
+  'ajax': 'data/list-GB-abie.json',
+  'columns': gb_abie_columns,
+  'columnDefs': gb_abie_columnDefs,
+  'paging': false,
+  'autoWidth': false,
+  'ordering': false,
+  'select': true
+});
+gb_entity_table = $('#gb-entity').DataTable({
+  'ajax': 'data/list-GB-entity.json',
+  'columns': gb_entity_columns,
+  'columnDefs': gb_entity_columnDefs,
+  'paging': false,
+  'autoWidth': false,
+  'ordering': false,
+  'select': true,
+  'initComplete': function(settings, json) {
+    filterTop('gb');
+  },
+  'drawCallback': function(settings) {
+    checkAssociated('gb-entity');
+    hideOverlay();
+  }
+});
+gb_entity2_table = $('#gb-entity2').DataTable({
+  'ajax': 'data/list-GB-entity.json',
+  'columns': gb_entity_columns,
+  'columnDefs': gb_entity_columnDefs,
+  'paging': false,
+  'autoWidth': false,
+  'ordering': false,
+  'select': true,
+  'drawCallback': function(settings) {
+    checkAssociated('gb-entity2');
+  }
+});
+// -----------------------------------------------------------------
+// PEPPOL
+//
+peppol_abie_table = $('#peppol-abie').DataTable({
+  'ajax': 'data/list-peppol-abie.json',
+  'columns': peppol_abie_columns,
+  'columnDefs': peppol_abie_columnDefs,
+  'paging': false,
+  'autoWidth': false,
+  'ordering': false,
+  'select': true
+});
+peppol_entity_table = $('#peppol-entity').DataTable({
+  'ajax': 'data/list-peppol-entity.json',
+  'columns': peppol_entity_columns,
+  'columnDefs': peppol_entity_columnDefs,
+  'paging': false,
+  'autoWidth': false,
+  'ordering': false,
+  'select': true,
+  'initComplete': function(settings, json) {
+    filterTop('peppol');
+  },
+  'drawCallback': function(settings) {
+    checkAssociated('peppol-entity');
+    hideOverlay();
+  }
+});
+peppol_entity2_table = $('#peppol-entity2').DataTable({
+  'ajax': 'data/list-peppol-entity.json',
+  'columns': peppol_entity_columns,
+  'columnDefs': peppol_entity_columnDefs,
+  'paging': false,
+  'autoWidth': false,
+  'ordering': false,
+  'select': true,
+  'drawCallback': function(settings) {
+    checkAssociated('peppol-entity2');
+  }
+});
+// -----------------------------------------------------------------
 // UBL
 //
 ubl_abie_table = $('#ubl-abie').DataTable({
@@ -1892,7 +2681,37 @@ ubl_entity2_table = $('#ubl-entity2').DataTable({
     checkAssociated('ubl-entity2');
   }
 });
-ubl_qdt_table = $('#ubl-qdt').DataTable({
+ubl_qdt_table = $('#ubl-qdt')
+.DataTable({
+  'ajax': 'data/list-udt.json',
+  'columns': dt_columns,
+  'columnDefs': dt_columnDefs,
+  'paging': false,
+  'autoWidth': false,
+  'ordering': false,
+  'select': true
+});
+/*.DataTable({
+  'ajax': 'data/list-ubl-udt.json',
+  'columns': ubl_dt_columns,
+  'columnDefs': ubl_dt_columnDefs,
+  'paging': false,
+  'autoWidth': false,
+  'ordering': false,
+  'select': true
+});*/
+ubl_udt_table = $('#ubl-udt')
+
+.DataTable({
+  'ajax': 'data/list-udt.json',
+  'columns': dt_columns,
+  'columnDefs': dt_columnDefs,
+  'paging': false,
+  'autoWidth': false,
+  'ordering': false,
+  'select': true
+});
+/*.DataTable({
   'ajax': 'data/list-ubl-udt.json',
   'columns': ubl_dt_columns,
   'columnDefs': ubl_dt_columnDefs,
@@ -1901,15 +2720,8 @@ ubl_qdt_table = $('#ubl-qdt').DataTable({
   'ordering': false,
   'select': true
 });
-ubl_udt_table = $('#ubl-udt').DataTable({
-  'ajax': 'data/list-ubl-udt.json',
-  'columns': ubl_dt_columns,
-  'columnDefs': ubl_dt_columnDefs,
-  'paging': false,
-  'autoWidth': false,
-  'ordering': false,
-  'select': true
-});
+uncefact_udt_table = $('#uncefact-udt')
+*/
 // -----------------------------------------------------------------
 // UN/CEFACT
 //
@@ -2020,6 +2832,14 @@ udt_table = $('#udt').DataTable({
 // -----------------------------------------------------------------
 // ADC
 //
+$('#adc-abie-module').on('change', function(event) {
+  var module = $(this).val();
+  adc_abie_table
+  .column(adc_abie_COL_Module)
+  .search(module, /*regex*/true, /*smart*/false, /*caseInsen*/false).draw();
+});
+// $('#adc-abie-module').val('Base');
+// -----
 $('#adc-abie tbody').on('click', 'td.info-control', function(event) {
   event.stopPropagation();
   var tr = $(this).closest('tr'), row = adc_abie_table.row(tr);
@@ -2061,7 +2881,7 @@ $('#adc-udt tbody').on('click', 'td.info-control', function(event) {
   }
 });
 // -----------------------------------------------------------------
-// XBRL GL
+// xBRL GL
 //
 $('#xbrlgl-abie tbody').on('click', 'td.info-control', function(event) {
   event.stopPropagation();
@@ -2094,8 +2914,67 @@ $('#xbrlgl-entity2 tbody').on('click', 'td.info-control', function(event) {
   }
 });
 // -----------------------------------------------------------------
+// TS5409
+//
+$('#ts5409-abie-module').on('change', function(event) {
+  var module = $(this).val();
+  ts5409_abie_table
+  .column(ts5409_abie_COL_Module)
+  .search(module, /*regex*/true, /*smart*/false, /*caseInsen*/false).draw();
+});
+// $('#ts5409-abie-module').val('Base');
+// -----
+$('#ts5409-abie tbody').on('click', 'td.info-control', function(event) {
+  event.stopPropagation();
+  var tr = $(this).closest('tr'), row = ts5409_abie_table.row(tr);
+  if (row.child.isShown()) { // This row is already open - close it
+    row.child.hide(); tr.removeClass('shown');
+  }
+  else { // Open this row
+    row.child(ts5409_entity_format(row.data())).show(); tr.addClass('shown');
+  }
+});
+$('#ts5409-entity tbody').on('click', 'td.info-control', function(event) {
+  event.stopPropagation();
+  var tr = $(this).closest('tr'), row = ts5409_entity_table.row(tr);
+  if (row.child.isShown()) { // This row is already open - close it
+    row.child.hide(); tr.removeClass('shown');
+  }
+  else { // Open this row
+    row.child(ts5409_entity_format(row.data())).show(); tr.addClass('shown');
+  }
+});
+$('#ts5409-entity2 tbody').on('click', 'td.info-control', function(event) {
+  event.stopPropagation();
+  var tr = $(this).closest('tr'), row = ts5409_entity2_table.row(tr);
+  if (row.child.isShown()) { // This row is already open - close it
+    row.child.hide(); tr.removeClass('shown');
+  }
+  else { // Open this row
+    row.child(ts5409_entity_format(row.data())).show(); tr.addClass('shown');
+  }
+});
+$('#ts5409-udt tbody').on('click', 'td.info-control', function(event) {
+  event.stopPropagation();
+  var tr = $(this).closest('tr'), row = ts5409_udt_table.row(tr);
+  if (row.child.isShown()) { // This row is already open - close it
+    row.child.hide(); tr.removeClass('shown');
+  }
+  else { // Open this row
+    row.child(ts5409_dt_format(row.data())).show(); tr.addClass('shown');
+  }
+});
+// -----------------------------------------------------------------
 // ADS
 //
+$('#ads-abie-module').on('change', function(event) {
+  var module = $(this).val();
+  ads_abie_table
+  .column(ads_abie_COL_Module)
+  .search(module, /*regex*/true, /*smart*/false, /*caseInsen*/false).draw();
+});
+// $('#ads-abie-module').val('Base');
+// -----
 $('#ads-abie tbody').on('click', 'td.info-control', function(event) {
   event.stopPropagation();
   var tr = $(this).closest('tr'), row = ads_abie_table.row(tr);
@@ -2124,6 +3003,80 @@ $('#ads-entity2 tbody').on('click', 'td.info-control', function(event) {
   }
   else { // Open this row
     row.child(ads_entity_format(row.data())).show(); tr.addClass('shown');
+  }
+});
+// -----------------------------------------------------------------
+// GB
+//
+$('#gb-abie-module').on('change', function(event) {
+  var module = $(this).val();
+  gb_abie_table
+  .column(gb_abie_COL_Module)
+  .search(module, /*regex*/true, /*smart*/false, /*caseInsen*/false).draw();
+});
+$('#gb-abie-module').val('Public Archives');
+// -----
+$('#gb-abie tbody').on('click', 'td.info-control', function(event) {
+  event.stopPropagation();
+  var tr = $(this).closest('tr'), row = gb_abie_table.row(tr);
+  if (row.child.isShown()) { // This row is already open - close it
+    row.child.hide(); tr.removeClass('shown');
+  }
+  else { // Open this row
+    row.child(gb_entity_format(row.data())).show(); tr.addClass('shown');
+  }
+});
+$('#gb-entity tbody').on('click', 'td.info-control', function(event) {
+  event.stopPropagation();
+  var tr = $(this).closest('tr'), row = gb_entity_table.row(tr);
+  if (row.child.isShown()) { // This row is already open - close it
+    row.child.hide(); tr.removeClass('shown');
+  }
+  else { // Open this row
+    row.child(gb_entity_format(row.data())).show(); tr.addClass('shown');
+  }
+});
+$('#gb-entity2 tbody').on('click', 'td.info-control', function(event) {
+  event.stopPropagation();
+  var tr = $(this).closest('tr'), row = gb_entity2_table.row(tr);
+  if (row.child.isShown()) { // This row is already open - close it
+    row.child.hide(); tr.removeClass('shown');
+  }
+  else { // Open this row
+    row.child(gb_entity_format(row.data())).show(); tr.addClass('shown');
+  }
+});
+// -----------------------------------------------------------------
+// PEPPOL
+//
+$('#peppol-abie tbody').on('click', 'td.info-control', function(event) {
+  event.stopPropagation();
+  var tr = $(this).closest('tr'), row = peppol_abie_table.row(tr);
+  if (row.child.isShown()) { // This row is already open - close it
+    row.child.hide(); tr.removeClass('shown');
+  }
+  else { // Open this row
+    row.child(peppol_entity_format(row.data())).show(); tr.addClass('shown');
+  }
+});
+$('#peppol-entity tbody').on('click', 'td.info-control', function(event) {
+  event.stopPropagation();
+  var tr = $(this).closest('tr'), row = peppol_entity_table.row(tr);
+  if (row.child.isShown()) { // This row is already open - close it
+    row.child.hide(); tr.removeClass('shown');
+  }
+  else { // Open this row
+    row.child(peppol_entity_format(row.data())).show(); tr.addClass('shown');
+  }
+});
+$('#peppol-entity2 tbody').on('click', 'td.info-control', function(event) {
+  event.stopPropagation();
+  var tr = $(this).closest('tr'), row = peppol_entity2_table.row(tr);
+  if (row.child.isShown()) { // This row is already open - close it
+    row.child.hide(); tr.removeClass('shown');
+  }
+  else { // Open this row
+    row.child(peppol_entity_format(row.data())).show(); tr.addClass('shown');
   }
 });
 // -----------------------------------------------------------------
@@ -2354,7 +3307,10 @@ function filterEntity(frame, objectClassTermQualifier, objectClassTerm) {
             : item.AssociatedObjectClass);
       if (dictionaryEntryName) {
         item.num = '' + (item.num || n++);
-        item.ancestor = item.ObjectClassTerm;
+        item.ancestor = (item.ObjectClassTermQualifier
+            ? item.ObjectClassTermQualifier+'_ '
+            : ''
+          )+item.ObjectClassTerm;
         item.DictionaryEntryName = dictionaryEntryName;
         entityMap.set(dictionaryEntryName, item);
       }
@@ -2424,7 +3380,7 @@ function expandCollapse(frame, entityMap, tr) {
       row, data, entityRows, componentType,
       expanded, collapsed, expandedRows, collapsedRows,
       tr_, tr_s, v,
-      rows, i, idx, regex, num, match, associated;
+      rows, i, idx, regex, num, match, qualifier, associated;
   table = getEntityTable(frame);
   table_id = getEntityTableID(frame);
   row = table.row(tr);
@@ -2440,6 +3396,35 @@ function expandCollapse(frame, entityMap, tr) {
     row = rows[i];
     entityRows.push(row);
   }
+/*  if ('ubl'==frame) {
+    entityMap.forEach(function(d,key){
+      if (data.ComponentName==d.ComponentName && data.num!=d.num) {
+        row = {
+          AssociatedObjectClass: d['AssociatedObjectClass'],
+          AssociatedObjectClassQualifier: d['AssociatedObjectClassQualifier'],
+          Cardinality: d['Cardinality'],
+          ComponentName: d['ComponentName'],
+          ComponentType: d['ComponentType'],
+          CurrentVersion: d['CurrentVersion'],
+          DataType: d['DataType'],
+          DataTypeQualifier: d['DataTypeQualifier'],
+          Definition: d['Definition'],
+          DictionaryEntryName: d['DictionaryEntryName'],
+          Name: d['Name'],
+          ObjectClassTerm: d['ObjectClassTerm'],
+          ObjectClassTermQualifier: d['ObjectClassTermQualifier'],
+          PropertyTerm: d['PropertyTerm'],
+          PropertyTermPrimaryNoun: d['PropertyTermPrimaryNoun'],
+          PropertyTermQualifier: d['PropertyTermQualifier'],
+          RepresentationTerm: d['RepresentationTerm'],
+          ancestor: d['ancestor'],
+          num: d['num']
+        }
+        entityRows.push(row);
+      }
+    });
+  }
+  */
   tr_s = $('#'+table_id+' tbody tr');
   if (tr.hasClass('expanded')) {
     tr.removeClass('expanded');
@@ -2471,26 +3456,50 @@ function expandCollapse(frame, entityMap, tr) {
       }
     }
 
+    // childRows = {};
     expandedRows.forEach(function(data_) {
       i = 0;
-      associated = (data_.AssociatedObjectClassTermQualifier
-          ? data_.AssociatedObjectClassTermQualifier+'_ '
-          : '')+
-        data_.AssociatedObjectClass;
-      regex = new RegExp('^('+associated+')\\.');
+      qualifier = data_.AssociatedObjectClassTermQualifier || '';
+      if (qualifier) {
+        if (qualifier.match(/^\[.*\]$/)) {
+          qualifier = '.*_ ';
+        }
+        else {
+          qualifier = qualifier+'_ ';
+        }
+      }
+      associated = data_.AssociatedObjectClass;
+      regex = new RegExp('^'+qualifier+associated+'\\.');
       entityMap.forEach(function(value, key) {
         if (value.ancestor === data_.ancestor) {
           v = JSON.parse(JSON.stringify(value));
           appendByNum(entityRows, v);
+          // childRows[key] = value;
         }
         if (key && key.match(regex)) {
-          idx = data_.num+'.'+(i++);
           v = JSON.parse(JSON.stringify(value));
+          idx = data_.num+'.'+(i++);
           v.num = idx;
           v.ancestor = data_.ancestor;
           appendByNum(entityRows, v);
+          // childRows[key] = value;
         }
       });
+    });
+
+    entityRows.forEach(function(d, key) {
+      var num, name, depth, prefix = '', i;
+      num = d.num;
+      name = d.Name || d.ComponentName || d.ShortName || d.BusinessTerm;
+      depth = num.split('.').length - 1;
+      prefix = ''
+      if (depth > 0 && ! name.match(/^&bullet;/)){
+        for (var i = 0; i < depth; i++) {
+          prefix += '&bullet;';
+        }
+        prefix += ' ';
+      }
+      d.Name = prefix + name;
     });
   }
 
@@ -2499,23 +3508,29 @@ function expandCollapse(frame, entityMap, tr) {
   table.clear();
   table.rows.add(entityRows)
   .draw();
-  //
+
   entityRowsUpdate(frame, entityRows, expandedRows, collapsedRows);
-  // $('#'+table_id).on('page.dt', function(event) {
-  // event.stopPropagation();
-  //   entityRowsUpdate(table, table_id, entityRows, expanded, collapsed);
-  // });
+
   return entityRows;
 }
 // -----------------------------------------------------------------
 // ADC
 adcEntityRows = [];
 // -----------------------------------------------------------------
-// XBRL GL
+// xBRL GL
 xbrlglEntityRows = [];
+// -----------------------------------------------------------------
+// TS5409
+ts5409EntityRows = [];
 // -----------------------------------------------------------------
 // ADS
 adsEntityRows = [];
+// -----------------------------------------------------------------
+// GB
+gbEntityRows = [];
+// -----------------------------------------------------------------
+// PEPPOL
+peppolEntityRows = [];
 // -----------------------------------------------------------------
 // UBL
 ublEntityRows = [];
@@ -2527,7 +3542,7 @@ ccRows = [];
 // -----------------------------------------------------------------
 // click row to show related
 // -----------------------------------------------------------------
-var FIRST_RATIO = 0.15;
+var FIRST_RATIO = 0.25;
 var LAST_RATIO = 0.5;
 // -----------------------------------------------------------------
 function setComponentStyle(frame, tr) {
@@ -2577,9 +3592,19 @@ function setEntityRows(frame, objectClassTermQualifier, objectClassTerm) {
     case 'xbrlgl':
       xbrlglEntityRows = filterEntity('xbrlgl', objectClassTermQualifier, objectClassTerm);
       break;
+    case 'ts5409':
+      objectClassTermQualifier = objectClassTermQualifier || 'TS5409';
+      ts5409EntityRows = filterEntity('ts5409', objectClassTermQualifier, objectClassTerm);
+      break;
     case 'ads':
       objectClassTermQualifier = objectClassTermQualifier || 'ADS';
       adsEntityRows = filterEntity('ads', objectClassTermQualifier, objectClassTerm);
+      break;
+    case 'gb':
+        gbEntityRows = filterEntity('gb', objectClassTermQualifier, objectClassTerm);
+        break;
+    case 'peppol':
+      peppolEntityRows = filterEntity('peppol', objectClassTermQualifier, objectClassTerm);
       break;
     case 'ubl':
       ublEntityRows = filterEntity('ubl', objectClassTermQualifier, objectClassTerm);
@@ -2605,7 +3630,7 @@ function upAssociation(num) {
     objectClassTermQualifier = match[2];
     objectClassTerm = match[3];
   }
-  if (!objectClassTermQualifier && ['adc', 'ads'].indexOf(frame) >= 0) {
+  if (!objectClassTermQualifier && ['adc', 'ts5409', 'ads'].indexOf(frame) >= 0) {
     objectClassTermQualifier = frame.toUpperCase();
   }
   previous_entity[num] = {
@@ -2666,8 +3691,17 @@ function showEntity(tr, frame) {
     case 'xbrlgl':
       table = xbrlgl_abie_table; entityMap = xbrlglEntityMap; entityRows = xbrlglEntityRows;
       break;
+    case 'ts5409':
+      table = ts5409_abie_table; entityMap = ts5409EntityMap; entityRows = ts5409EntityRows;
+      break;
     case 'ads':
       table = ads_abie_table; entityMap = adsEntityMap; entityRows = adsEntityRows;
+      break;
+    case 'gb':
+      table = gb_abie_table; entityMap = gbEntityMap; entityRows = gbEntityRows;
+      break;
+    case 'peppol':
+      table = peppol_abie_table; entityMap = peppolEntityMap; entityRows = peppolEntityRows;
       break;
     case 'ubl':
       table = ubl_abie_table; entityMap = ublEntityMap; entityRows = ublEntityMap;
@@ -2692,7 +3726,15 @@ function showEntity(tr, frame) {
   searchText = (qualifier ? qualifier+'_ ' : '')+data.ObjectClassTerm;
   showOverlay(null, false, searchText);
   tableTitle = $('#'+entity_id+'-frame .table-title');
-  tableTitle.text(searchText);
+  if (['adc', 'ads', 'xbrlgl'].indexOf(frame) >= 0) {
+    tableTitle.text(data.ObjectClassTerm);
+  }
+  else if ('peppol' == frame) {
+    tableTitle.text(searchText.replace(/_/, ''));
+  }
+  else {
+    tableTitle.text(searchText);
+  }
   $('#'+top_id+' tbody tr.selected').removeClass('selected');
   tr.addClass('selected');
 
@@ -2706,8 +3748,7 @@ function showEntity(tr, frame) {
 function showDetail(tr, frame) {
   var table_id, data, entity2_id, udt_id, qdt_id, num, componentType,
       entity2_table, COL_ObjectClassTerm, udttable, qdttable,
-      //COL_CategoryCode, 
-      COL_DictionaryEntryName,// COL_UNID, 
+      COL_DictionaryEntryName,
       COL_DataType,
       searchText = '', tableTitle;
   table = getEntityTable(frame);
@@ -2726,7 +3767,7 @@ function showDetail(tr, frame) {
   udt_id = content[frame]['bottom-bottom'][1];
   qdt_id = content[frame]['bottom-bottom'][2];
   num = getNum(frame);
-  componentType = data.ComponentType || data.Kind;
+  // componentType = data.ComponentType || data.Kind;
   switch (frame) {
     case 'adc':
       entity2_table = adc_entity2_table;
@@ -2737,13 +3778,30 @@ function showDetail(tr, frame) {
       break;
     case 'xbrlgl':
       entity2_table = xbrlgl_entity2_table;
-      COL_ObjectClassTerm = xbrlgl_entity_COL_ObjectClassTerm;
       // udttable = xbrlgl_udt_table;
+      COL_ObjectClassTerm = xbrlgl_entity_COL_ObjectClassTerm;
+      break;
+    case 'ts5409':
+      entity2_table = ts5409_entity2_table;
+      udttable      = ts5409_udt_table;
+      COL_ObjectClassTerm     = ts5409_entity_COL_ObjectClassTerm;
+      COL_DictionaryEntryName = ts5409_dt_COL_DictionaryEntryName;
+      COL_DataType            = ts5409_dt_COL_DataType;
       break;
     case 'ads':
       entity2_table = ads_entity2_table;
-      COL_ObjectClassTerm = ads_entity_COL_ObjectClassTerm;
       // udttable = ads_udt_table;
+      COL_ObjectClassTerm = ads_entity_COL_ObjectClassTerm;
+      break;
+    case 'gb':
+      entity2_table = gb_entity2_table;
+      // udttable      = ubl_udt_table;
+      COL_ObjectClassTerm = gb_entity_COL_ObjectClassTerm;
+      break;
+    case 'peppol':
+      entity2_table = peppol_entity2_table;
+      // udttable      = ubl_udt_table;
+      COL_ObjectClassTerm = peppol_entity_COL_ObjectClassTerm;
       break;
     case 'ubl':
       entity2_table = ubl_entity2_table;
@@ -2752,6 +3810,7 @@ function showDetail(tr, frame) {
       COL_ObjectClassTerm     = ubl_entity_COL_ObjectClassTerm;
       COL_DictionaryEntryName = ubl_dt_COL_DictionaryEntryName;
       COL_CategoryCode        = ubl_dt_COL_CategoryCode;
+      COL_DataType            = ubl_dt_COL_DataType;
       break;
     case 'bie':
       entity2_table = bie_compt2_table;
@@ -2760,7 +3819,7 @@ function showDetail(tr, frame) {
       // COL_ObjectClassTerm     = bie_compt_COL_ObjectClassTerm;
       COL_DictionaryEntryName = bie_compt_COL_DictionaryEntryName;
       COL_UNID                = qdt_COL_UNID;
-      COL_Datatype            = dt_COL_DataType;
+      COL_DataType            = dt_COL_DataType;
       break;
     case 'acc':
       entity2_table = cc2_table;
@@ -2769,19 +3828,31 @@ function showDetail(tr, frame) {
       COL_DataType        = dt_COL_DataType;
       break;
   }
-  if (['RBIE','RCC'].indexOf(componentType) >= 0) {
+  if (['RFBIE','RBIE','RCC'].indexOf(componentType) >= 0) {
     $('#'+entity2_id+'-frame').removeClass('d-none');
-    if (udt_id) {
-      $('#'+udt_id+'-frame').addClass('d-none');
-    }
     if (qdt_id) {
       $('#'+qdt_id+'-frame').addClass('d-none');
     }
-    if (['adc', 'xbrlgl', 'ads', 'ubl'].indexOf(frame) >= 0) {
-      searchText = data.AssociatedObjectClass;
+    else if (udt_id) {
+      $('#'+udt_id+'-frame').addClass('d-none');
+    }
+    if (['adc', 'xbrlgl', 'ts5409', 'ads', 'gb', 'peppol', 'ubl'].indexOf(frame) >= 0) {
+      var qualifier, assocClass;
+      qualifier = data.AssociatedObjectClassTermQualifier || '';
+      qualifier = qualifier ? qualifier.trim()+'_ ' : '';
+      assocClass = data.AssociatedObjectClass;
+      searchText = qualifier + assocClass;
       entity2_table.columns(COL_ObjectClassTerm)
       .search('^'+searchText+'$', /*regex*/true, /*smart*/false, /*caseInsen*/false)
       .draw();
+      var idx;
+      if (pane[1]==frame) { idx = 1; }
+      if (pane[2]==frame) { idx = 2; }
+      if ($('#'+frame+'-entity2 tbody td').hasClass('dataTables_empty')) {
+        entity2_table.columns(COL_ObjectClassTerm)
+        .search('^'+assocClass+'$', /*regex*/true, /*smart*/false, /*caseInsen*/false)
+        .draw();
+      }
     }
     else if (['bie', 'acc'].indexOf(frame) >= 0) {
       searchText = (data.AssociatedObjectClassTermQualifier
@@ -2791,66 +3862,50 @@ function showDetail(tr, frame) {
       entity2_table.columns(COL_DictionaryEntryName)
       .search('^'+searchText+'\\.', /*regex*/true, /*smart*/false, /*caseInsen*/false)
       .draw();
+
     }
     tableTitle = $('#'+entity2_id+'-frame .table-title');
-    tableTitle.text(searchText);
+    tableTitle.text(searchText);//assocClass);
     showUpControl(num);
   }
   else if (['BBIE','BCC'].indexOf(componentType) >= 0) {
+    $('#'+entity2_id+'-frame').addClass('d-none');
+    $('#'+qdt_id+'-frame').addClass('d-none');
+    $('#'+udt_id+'-frame').addClass('d-none');
     if (qdt_id && data.QualifiedDataTypeUID) {
-      tableTitle = $('#'+qdt_id+'-frame .table-title');
-      $('#'+entity2_id+'-frame').addClass('d-none');
-      if (udt_id) {
-        $('#'+udt_id+'-frame').addClass('d-none');
-      }
-      if (qdt_id) {
-        $('#'+qdt_id+'-frame').removeClass('d-none');
-      }
+      $('#'+qdt_id+'-frame').removeClass('d-none');
       searchText = data.QualifiedDataTypeUID;
       if (['bie'].indexOf(frame) >= 0) {
         qdttable.columns(qdt_COL_UNID)
         .search('^'+searchText+'$', /*regex*/true, /*smart*/false, /*caseInsen*/false)
         .draw();
       }
-      tableTitle.text(searchText);
+      tableTitle = $('#'+qdt_id+'-frame .table-title');
+      tableTitle.text(data.ShortName);
     }
     else if (udt_id) {
-      tableTitle = $('#'+udt_id+'-frame .table-title');
-      $('#'+entity2_id+'-frame').addClass('d-none');
-      if (udt_id) {
-        $('#'+udt_id+'-frame').removeClass('d-none');
-      }
-      if (qdt_id) {
-        $('#'+qdt_id+'-frame').addClass('d-none');
-      }
+      $('#'+udt_id+'-frame').removeClass('d-none');
       searchText = data.RepresentationTerm;
       if (['ubl'].indexOf(frame) >= 0) {
-        udttable.columns(COL_DictionaryEntryName)
-        .search('^'+searchText+'\\.', /*regex*/true, /*smart*/false, /*caseInsen*/false)
-        .draw();
-      }
-      else if (['bie'].indexOf(frame) >= 0) {
-        udttable.columns(dt_COL_DictionaryEntryName)
-        .search('^'+searchText+'\\.', true, false, false)
-        .draw();
-      }
-      else if (['adc', 'acc'].indexOf(frame) >= 0) {
         udttable.columns(COL_DataType)
         .search('^'+searchText+'\\.', /*regex*/true, /*smart*/false, /*caseInsen*/false)
         .draw();
       }
-      searchText = searchText+'\. Type';
-      tableTitle.text(searchText);
+      else if (['bie'].indexOf(frame) >= 0) {
+        udttable.columns(COL_DataType)
+        .search('^'+searchText+'\\.', true, false, false)
+        .draw();
+      }
+      else if (['adc', 'ts5409', 'acc'].indexOf(frame) >= 0) {
+        udttable.columns(COL_DataType)
+        .search('^'+searchText+'\\.', /*regex*/true, /*smart*/false, /*caseInsen*/false)
+        .draw();
+      }
+      tableTitle = $('#'+udt_id+'-frame .table-title');
+      tableTitle.text(searchText+'\. Type');
     }
     else {
       tr.removeClass('selected');
-      $('#'+entity2_id+'-frame').addClass('d-none');
-      if (udt_id) {
-        $('#'+udt_id+'-frame').addClass('d-none');
-      }
-      if (qdt_id) {
-        $('#'+qdt_id+'-frame').addClass('d-none');
-      }
       $('#bottom-component-'+num+' .split-pane').splitPane('lastComponentSize', 0);
     }
     hideUpControl(num);
@@ -2859,16 +3914,19 @@ function showDetail(tr, frame) {
 // -----------------------------------------------------------------
 // ADC
 //
-  $('#adc-abie tbody').on('click', 'td:not(.info-control)', function () {
+  $('#adc-abie tbody').on('click', 'td:not(.info-control)', function (event) {
     event.stopPropagation();
     var tr = $(this).closest('tr'), frame = 'adc';
     showEntity(tr, frame);
   });
-  $('#adc-entity tbody').on('click', 'td:not(.info-control)', function () {
+  $('#adc-entity tbody').on('click', 'td:not(.info-control)', function (event) {
     event.stopPropagation();
-    var tr = $(this).closest('tr'), frame = 'adc',
-        row = adc_entity_table.row(tr), data = row.data(),
-        componentType = data.ComponentType || data.Kind;
+    var tr = $(this).closest('tr'), frame = 'adc', row, data, componentType;
+    row = adc_entity_table.row(tr);
+    if (!row) { return false; }
+    data = row.data();
+    if (!data) { return false; }
+    componentType = data.ComponentType || data.Kind;
     if ('ASBIE' === componentType || 'ASCC' === componentType) {
       adcEntityRows = expandCollapse(frame, adcEntityMap, tr);      
     }
@@ -2877,18 +3935,21 @@ function showDetail(tr, frame) {
     }
   });
 // -----------------------------------------------------------------
-// XBRL GL
+// xBRL GL
 //
-  $('#xbrlgl-abie tbody').on('click', 'td:not(.info-control)', function () {
+  $('#xbrlgl-abie tbody').on('click', 'td:not(.info-control)', function (event) {
     event.stopPropagation();
     var tr = $(this).closest('tr'), frame ='xbrlgl';
     showEntity(tr, frame);
   });
-  $('#xbrlgl-entity tbody').on('click', 'td:not(.info-control)', function () {
+  $('#xbrlgl-entity tbody').on('click', 'td:not(.info-control)', function (event) {
     event.stopPropagation();
-    var tr = $(this).closest('tr'), frame ='xbrlgl',
-        row = xbrlgl_entity_table.row(tr), data = row.data(),
-        componentType = data.ComponentType || data.Kind;
+    var tr = $(this).closest('tr'), frame ='xbrlgl', row, data, componentType;
+    row = xbrlgl_entity_table.row(tr), data = row.data();
+    if (!row) { return false; }
+    data = row.data();
+    if (!data) { return false; }
+    componentType = data.ComponentType || data.Kind;
     if ('ASBIE' === componentType || 'ASCC' === componentType) {
       xbrlglEntityRows = expandCollapse(frame, xbrlglEntityMap, tr);      
     }
@@ -2897,18 +3958,44 @@ function showDetail(tr, frame) {
     }
   });
 // -----------------------------------------------------------------
+// TS5409
+//
+$('#ts5409-abie tbody').on('click', 'td:not(.info-control)', function (event) {
+  event.stopPropagation();
+  var tr = $(this).closest('tr'), frame = 'ts5409';
+  showEntity(tr, frame);
+});
+$('#ts5409-entity tbody').on('click', 'td:not(.info-control)', function (event) {
+  event.stopPropagation();
+  var tr = $(this).closest('tr'), frame = 'ts5409', row, data, componentType;
+  row = ts5409_entity_table.row(tr);
+  if (!row) { return false; }
+  data = row.data();
+  if (!data) { return false; }
+  componentType = data.ComponentType || data.Kind;
+  if ('ASBIE' === componentType || 'ASCC' === componentType) {
+    ts5409EntityRows = expandCollapse(frame, ts5409EntityMap, tr);      
+  }
+  else {
+    showDetail(tr, frame);
+  }
+});
+// -----------------------------------------------------------------
 // ADS
 //
-  $('#ads-abie tbody').on('click', 'td:not(.info-control)', function () {
+  $('#ads-abie tbody').on('click', 'td:not(.info-control)', function (event) {
     event.stopPropagation();
     var tr = $(this).closest('tr'), frame = 'ads';
     showEntity(tr, frame);
   });
-  $('#ads-entity tbody').on('click', 'td:not(.info-control)', function () {
+  $('#ads-entity tbody').on('click', 'td:not(.info-control)', function (event) {
     event.stopPropagation();
-    var tr = $(this).closest('tr'), frame = 'ads',
-        row = ads_entity_table.row(tr), data = row.data(),
-        componentType = data.ComponentType || data.Kind;
+    var tr = $(this).closest('tr'), frame = 'ads', row, data, componentType;
+    row = ads_entity_table.row(tr), data = row.data();
+    if (!row) { return false; }
+    data = row.data();
+    if (!data) { return false; }
+    componentType = data.ComponentType || data.Kind;
     if ('ASBIE' === componentType || 'ASCC' === componentType) {
       adsEntityRows = expandCollapse(frame, adsEntityMap, tr);      
     }
@@ -2917,18 +4004,67 @@ function showDetail(tr, frame) {
     }
   });
 // -----------------------------------------------------------------
+// GB
+//
+$('#gb-abie tbody').on('click', 'td:not(.info-control)', function (event) {
+  event.stopPropagation();
+  var tr = $(this).closest('tr'), frame ='gb';
+  showEntity(tr, frame);
+});
+$('#gb-entity tbody').on('click', 'td:not(.info-control)', function (event) {
+  event.stopPropagation();
+  var tr = $(this).closest('tr'), frame ='gb', row, data, componentType;
+  row = gb_entity_table.row(tr), data = row.data();
+  if (!row) { return false; }
+  data = row.data();
+  if (!data) { return false; }
+  componentType = data.ComponentType || data.Kind;
+  if ('ASBIE' === componentType || 'ASCC' === componentType) {
+    gbEntityRows = expandCollapse(frame, gbEntityMap, tr);      
+  }
+  else {
+    showDetail(tr, frame);
+  }
+});
+// -----------------------------------------------------------------
+// PEPPOL
+//
+$('#peppol-abie tbody').on('click', 'td:not(.info-control)', function (event) {
+  event.stopPropagation();
+  var tr = $(this).closest('tr'), frame ='peppol';
+  showEntity(tr, frame);
+});
+$('#peppol-entity tbody').on('click', 'td:not(.info-control)', function (event) {
+  event.stopPropagation();
+  var tr = $(this).closest('tr'), frame ='peppol', row, data, componentType;
+  row = peppol_entity_table.row(tr), data = row.data();
+  if (!row) { return false; }
+  data = row.data();
+  if (!data) { return false; }
+  componentType = data.ComponentType || data.Kind;
+  if ('ASBIE' === componentType || 'ASCC' === componentType) {
+    peppolEntityRows = expandCollapse(frame, peppolEntityMap, tr);      
+  }
+  else {
+    showDetail(tr, frame);
+  }
+});
+// -----------------------------------------------------------------
 // UBL
 //
-  $('#ubl-abie tbody').on('click', 'td:not(.info-control)', function () {
+  $('#ubl-abie tbody').on('click', 'td:not(.info-control)', function (event) {
     event.stopPropagation();
     var tr = $(this).closest('tr'), frame = 'ubl';
     showEntity(tr, frame);
   });
-  $('#ubl-entity tbody').on('click', 'td:not(.info-control)', function () {
+  $('#ubl-entity tbody').on('click', 'td:not(.info-control)', function (event) {
     event.stopPropagation();
-    var tr = $(this).closest('tr'), frame = 'ubl',
-        row = ubl_entity_table.row(tr), data = row.data(),
-        componentType = data.ComponentType || data.Kind;
+    var tr = $(this).closest('tr'), frame = 'ubl', row, data, componentType;
+    row = ubl_entity_table.row(tr), data = row.data();
+    if (!row) { return false; }
+    data = row.data();
+    if (!data) { return false; }
+    componentType = data.ComponentType || data.Kind;
     if ('ASBIE' === componentType || 'ASCC' === componentType) {
       ublEntityRows = expandCollapse(frame, ublEntityMap, tr);      
     }
@@ -2939,16 +4075,19 @@ function showDetail(tr, frame) {
 // -----------------------------------------------------------------
 // UN/CEFACT
 //
-  $('#bie tbody').on('click', 'td:not(.info-control)', function () {
+  $('#bie tbody').on('click', 'td:not(.info-control)', function (event) {
     event.stopPropagation();
     var tr = $(this).closest('tr'), frame = 'bie';
     showEntity(tr, frame);
   });
-  $('#bie-compt tbody').on('click', 'td:not(.info-control)', function () {
+  $('#bie-compt tbody').on('click', 'td:not(.info-control)', function (event) {
     event.stopPropagation();
-    var tr = $(this).closest('tr'), frame = 'bie',
-        row = bie_compt_table.row(tr), data = row.data(),
-        componentType = data.ComponentType || data.Kind;
+    var tr = $(this).closest('tr'), frame = 'bie', row, data, componentType;
+    row = bie_compt_table.row(tr), data = row.data();
+    if (!row) { return false; }
+    data = row.data();
+    if (!data) { return false; }
+    componentType = data.ComponentType || data.Kind;
     if ('ASBIE' === componentType || 'ASCC' === componentType) {
       bieComptRows = expandCollapse(frame, bieComptMap, tr);
     }
@@ -2957,16 +4096,19 @@ function showDetail(tr, frame) {
     }
   });
 // -----------------------------------------------------------------
-  $('#acc tbody').on('click', 'td:not(.info-control)', function () {
+  $('#acc tbody').on('click', 'td:not(.info-control)', function (event) {
     event.stopPropagation();
     var tr = $(this).closest('tr'), frame = 'acc';
     showEntity(tr, frame);
   });
-  $('#cc tbody').on('click', 'td:not(.info-control)', function () {
+  $('#cc tbody').on('click', 'td:not(.info-control)', function (event) {
     event.stopPropagation();
-    var tr = $(this).closest('tr'), frame = 'acc',
-        row = cc_table.row(tr), data = row.data(),
-        componentType = data.ComponentType || data.Kind;
+    var tr = $(this).closest('tr'), frame = 'acc', row, data, componentType;
+    row = cc_table.row(tr), data = row.data();
+    if (!row) { return false; }
+    data = row.data();
+    if (!data) { return false; }
+    componentType = data.ComponentType || data.Kind;
     if ('ASBIE' === componentType || 'ASCC' === componentType) {
       ccRows = expandCollapse(frame, ccMap, tr);      
     }
@@ -2979,13 +4121,13 @@ function showDetail(tr, frame) {
     $(this).addClass('d-none');
   });
 // -----------------------------------------------------------------
+  DESCRIPTION_LENGTH = 200;
   if (tab1 && !tab2) {
     setFrame(1, tab1);
-    DESCRIPTION_LENGTH = 200;
   }
   else {
     tab1 = tab1 || 'adc';
-    tab2 = tab2 || 'acc';
+    tab2 = tab2 || 'ts5409';//'ads';
     setFrame(2, tab2);
     setFrame(1, tab1);
   }

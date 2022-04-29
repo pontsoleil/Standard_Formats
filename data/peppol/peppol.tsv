@@ -1,0 +1,273 @@
+Module	Kind		seq	Businessterm	Definition	Datatype	ObjectClassTerm	PropertyTermQualifier	PropertyTerm	DatatypeQualifier	RepresentationTerm	AssociatedObjectClassTermQualifier	AssociatedObjectClass	Occurrence
+Billing	ABIE	0	ibg-00	INVOICE			Invoice		Detail					
+Billing	IDBIE	1	ibt-001	Invoice number	A unique identification of the Invoice.	Identifier	Invoice		Identification		Identifier			1..1 
+Billing	BBIE	2	ibt-002	Invoice issue date	The date when the Invoice was issued.	Date	Invoice		Issue		Date			1..1 
+Billing	BBIE	3	ibt-168	Invoice issue time	The time of day when an invoice was issued	Time	Invoice		Issue		Time			0..1
+Billing	BBIE	4	ibt-003	Invoice type code	A code specifying the functional type of the Invoice.	Code	Invoice		Type		Code			1..1 
+Billing	BBIE	5	ibt-005	Invoice currency code	"The currency in which all Invoice amounts are given, except for the Total TAX amount in accounting currency."	Code	Invoice		Currency		Code			1..1 
+Billing	BBIE	6	ibt-006	Tax accounting currency	The currency used for TAX accounting and reporting purposes as accepted or required in the country of the Seller.	Code	Invoice	Tax accounting	Currency		Code			0..1 
+Billing	BBIE	7	ibt-007	TAX point date	"The date when the TAX becomes accountable for the Seller and for the Buyer in so far as that date can be determined and differs from the date of issue of the invoice, according to the TAX directive."	Date	Invoice		Tax point date		Date			0..1 
+Billing	BBIE	8	ibt-008	TAX point date code	The code of the date when the TAX becomes accountable for the Seller and for the Buyer.	Code	Invoice		Tax point date		Code			0..1 
+Billing	BBIE	9	ibt-009	Payment due date	The date when the payment is due.	Date	Invoice		Payment due		Date			0..1 
+Billing	RFBIE	10	ibt-010	Buyer reference	An identifier assigned by the Buyer used for internal routing purposes.	Text	Invoice	Buyer	Reference				Buyer	0..1 
+Billing	RFBIE	11	ibt-011	Project reference	The identification of the project the invoice refers to 	Document Reference	Invoice	Project	Reference				Project	0..1 
+Billing	RFBIE	12	ibt-012	Contract reference	The identification of a contract.	Document Reference	Invoice	Contract	Reference				Contract	0..1 
+Billing	RFBIE	13	ibt-013	Purchase order reference	"An identifier of a referenced purchase order, issued by the Buyer."	Document Reference	Invoice	Purchase order	Reference				Purchase order	0..1 
+Billing	RFBIE	14	ibt-014	Sales order reference	An identifier of a referenced sales order issued by the Seller.	Document Reference	Invoice	Sales order	Reference				Sales order	0..1 
+Billing	RFBIE	15	ibt-015	Receiving advice reference	An identifier of a referenced receiving advice.	Document Reference	Invoice	Receiving advice	Reference				Receiving advice	0..1 
+Billing	RFBIE	16	ibt-016	Despatch advice reference	An identifier of a referenced despatch advice.	Document Reference	Invoice	Despatch advice	Reference				Despatch advice	0..n 
+Billing	RFBIE	17	ibt-017	Tender or lot reference	The identification of the call for tender or lot the invoice relates to.	Document Reference	Invoice	Tender or lot	Reference				Tender ot lot	0..1 
+Billing	RFBIE	18	ibt-018	Invoiced object identifier	"An identifier for an object on which the invoice is based, given by the Seller."	Identifier	Invoice	Invoiced object	Reference				Invoiced object	0..1
+Billing	BBIE	19	ibt-019	Buyer accounting reference	A textual value that specifies where to book the relevant data into the Buyer's financial accounts.	Text	Invoice		Buyer accounting		Identifier			0..1 
+Billing	ASBIE	20	ibg-33	INVOICE TERMS	Information about the terms that apply to the settlement of the invoice amount.		Invoice		Defined				Invoice Terms	0..n 
+Billing	ABIE	0	ibt-020	INVOICE TERMS	A textual description of the payment terms that apply to the amount due for payment (Including description of possible penalties).	Text	Invoice Terms		Detail					0..1 
+Billing	BBIE	1	ibt-020	Payment terms	A textual description of the payment terms that apply to the amount due for payment (Including description of possible penalties).	Text	Invoice Terms		Payment terms		Text			0..1 
+Billing	IDBIE	2	ibt-187	Terms payment instructions ID	The payment instructions that apply to these payment terms.	Identifier	Invoice Terms		Identification		Identifier			0..1
+Billing	BBIE	3	ibt-176	Terms amount	The payment amount that these terms apply to.	Amount	Invoice Terms		Terms amount		Amount			0..1
+Billing	BBIE	4	ibt-177	Terms installment due date	The date before end of which the terms amount shall be settled.	Date	Invoice Terms		Terms installment due date		Date			0..1
+Billing	ASBIE	21	ibg-01	INVOICE NOTE	"A group of business terms providing textual notes that are relevant for the invoice, together with an indication of the note subject."		Invoice		Defined				Invoice Note	0..n 
+Billing	ABIE	0	ibg-01	INVOICE NOTE	"A group of business terms providing textual notes that are relevant for the invoice, together with an indication of the note subject."		Invoice Note		Detail					0..n 
+Billing	BBIE	1	ibt-021	Invoice note subject code	The subject of the textual note in EN BT-22.	Text	Invoice Note		Subject		Code			0..1
+Billing	BBIE	2	ibt-022	Invoice note	A textual note that gives unstructured information that is relevant to the Invoice as a whole.	Text	Invoice Note		Note		Text			0..1
+Billing	ASBIE	22	ibg-02	PROCESS CONTROL	A group of business terms providing information on the business process and rules applicable to the Invoice document.		Invoice		Defined				Process Control	1..1 
+Billing	ABIE	0	ibg-02	PROCESS CONTROL	A group of business terms providing information on the business process and rules applicable to the Invoice document.		Process Control		Detail					1..1 
+Billing	BBIE	1	ibt-023	Business process type (Profile ID)	"Identifies the business process context in which the transaction appears, to enable the Buyer to process the Invoice in an appropriate way."	Text	Process Control		Business process type		Text			0..1 
+Billing	BBIE	2	ibt-024	Specification identifier (Customization ID)	"An identification of the specification containing the total set of rules regarding semantic content, cardinalities and business rules to which the data contained in the instance document conforms."	Identifier	Process Control		Specification		Identifier			1..1 
+Billing	ASBIE	23	ibg-03	PRECEDING INVOICE REFERENCE	A group of business terms providing information on one or more preceding Invoices.		Invoice		Defined				Preceding Invoice Reference	0..n 
+Billing	ABIE	0	ibg-03	PRECEDING INVOICE REFERENCE	A group of business terms providing information on one or more preceding Invoices.		Preceding Invoice Reference		Detail					0..n 
+Billing	RFBIE	1	ibt-025	Preceding Invoice reference	The identification of an Invoice that was previously sent by the Seller.	Document Reference	Preceding Invoice Reference	Preceding	Reference				Invoice	1..1 
+Billing	BBIE	2	ibt-026	Preceding Invoice issue date	The date when the Preceding Invoice was issued.	Date	Preceding Invoice Reference	Referencing	Invoice		Date			0..1 
+Billing	ASBIE	24	ibg-04	SELLER	A group of business terms providing information about the Seller.		Invoice		Defined				Seller	1..1
+Billing	ABIE	0	ibg-04	SELLER	A group of business terms providing information about the Seller.		Seller		Detail					1..1
+Billing	BBIE	1	ibt-027	Seller name	The full formal name by which the Seller is registered in the national registry of legal entities or as a Taxable person or otherwise trades as a person or persons.	Text	Seller		Name		Text			1..1 
+Billing	BBIE	2	ibt-028	Seller trading name	"A name by which the Seller is known, other than Seller name (also known as Business name)."	Text	Seller		Trading name		Text			0..1 
+Billing	IDBIE	3	ibt-029	Seller identifier	An identification of the Seller.	Identifier	Seller		Identification		Identifier			0..n 
+Billing	IDBIE	4	ibt-030	Seller legal registration identifier	An identifier issued by an official registrar that identifies the Seller as a legal entity or person.	Identifier	Seller		Legal refistration		Identifier			0..1 
+Billing	IDBIE	5	ibt-031	Seller TAX identifier	The Seller's TAX identifier (also known as Seller TAX identification number).	Identifier	Seller		Tax		Identifier			0..1 
+Billing	IDBIE	6	ibt-032	Seller TAX registration identifier	The local identification (defined by the SellerÅfs address) of the Seller for tax purposes or a reference that enables the Seller to state his registered tax status.	Identifier	Seller		Tax registration		Identifier			0..1
+Billing	BBIE	7	ibt-033	Seller additional legal information	Additional legal information relevant for the Seller. 	Text	Seller		Additional legal information		Text			0..1 
+Billing	IDBIE	8	ibt-034	Seller electronic address	Identifies the Seller's electronic address to which the application level response to the invoice may be delivered.	Identifier	Seller		Identification		Identifier			0..1 
+Billing	ASBIE	9	ibg-05	SELLER POSTAL ADDRESS	A group of business terms providing information about the address of the Seller.		Seller		Defined			Seller Postal	Address	1..1 
+Billing	ABIE	0	ibg-05	SELLER POSTAL ADDRESS	A group of business terms providing information about the address of the Seller.		Address		Detail					1..1 
+Billing	BBIE	1	ibt-035	Seller address line 1	The main address line in an address. 	Text	Address		Line 1		Text			0..1 
+Billing	BBIE	2	ibt-036	Seller address line 2	An additional address line in an address that can be used to give further details supplementing the main line.	Text	Address		Line 2		Text			0..1 
+Billing	BBIE	3	ibt-162	Seller address line 3	An additional address line in an address that can be used to give further details supplementing the main line.	Text	Address		Line 3		Text			0..1 
+Billing	BBIE	4	ibt-037	Seller city	"The common name of the city, town or village, where the Seller address is located."	Text	Address		City		Text			0..1 
+Billing	BBIE	5	ibt-038	Seller post code	The identifier for an addressable group of properties according to the relevant postal service.	Text	Address		Post code		Text			0..1 
+Billing	BBIE	6	ibt-039	Seller country subdivision	The subdivision of a country.	Text	Address		Country subdivision		Text			0..1 
+Billing	BBIE	7	ibt-040	Seller country code	A code that identifies the country.	Code	Address		Country		Code			1..1 
+Billing	ASBIE	10	ibg-06	SELLER CONTACT	A group of business terms providing contact information about the Seller. 		Seller		Defined			Seller	Contact	0..1 
+Billing	ABIE	0	ibg-06	SELLER CONTACT	A group of business terms providing contact information about the Seller. 		Contact		Detail					0..1 
+Billing	BBIE	1	ibt-041	Seller contact point	A contact point for a legal entity or person.	Text	Contact		Point		Text			0..1 
+Billing	BBIE	2	ibt-042	Seller contact telephone number	A phone number for the contact point. 	Text	Contact		Telephone number		Text			0..1 
+Billing	BBIE	3	ibt-043	Seller contact email address	An e-mail address for the contact point. 	Text	Contact		Email Address		Text			0..1 
+Billing	ASBIE	25	ibg-07	BUYER	A group of business terms providing information about the Buyer. 		Invoice		Defined				Buyer	1..1 
+Billing	ABIE	0	ibg-07	BUYER	A group of business terms providing information about the Buyer. 		Buyer		Detail					1..1 
+Billing	BBIE	1	ibt-044	Buyer name	The full name of the Buyer. 	Text	Buyer		Name		Text			1..1 
+Billing	BBIE	2	ibt-045	Buyer trading name	"A name by which the Buyer is known, other than Buyer name (also known as Business name)."	Text	Buyer		Trading Name		Text			0..1 
+Billing	IDBIE	3	ibt-046	Buyer identifier	An identifier of the Buyer.	Identifier	Buyer		Identification		Identifier			0..n 
+Billing	IDBIE	4	ibt-047	Buyer legal registration identifier	An identifier issued by an official registrar that identifies the Buyer as a legal entity or person.	Identifier	Buyer		Legal refistration		Identifier			0..1 
+Billing	IDBIE	5	ibt-048	Buyer TAX identifier	The Buyer's TAX identifier (also known as Buyer TAX identification number).	Identifier	Buyer		Tax		Identifier			0..1 
+Billing	IDBIE	6	ibt-049	Buyer electronic address	Identifies the Buyer's electronic address to which the invoice is delivered.	Identifier	Buyer		Tax registration		Identifier			0..1 
+Billing	ASBIE	7	ibg-08	BUYER POSTAL ADDRESS	A group of business terms providing information about the postal address for the Buyer.		Buyer		Defined			Buyer	Postal Address	1..1 
+Billing	ABIE	0	ibg-08	BUYER POSTAL ADDRESS	A group of business terms providing information about the postal address for the Buyer.		Postal Address		Detail					1..1 
+Billing	BBIE	1	ibt-050	Buyer address line 1	The main address line in an address. 	Text	Postal Address		Line 1		Text			0..1 
+Billing	BBIE	2	ibt-051	Buyer address line 2	An additional address line in an address that can be used to give further details supplementing the main line.	Text	Postal Address		Line 2		Text			0..1 
+Billing	BBIE	3	ibt-163	Buyer address line 3	An additional address line in an address that can be used to give further details supplementing the main line.	Text	Postal Address		Line 3		Text			0..1 
+Billing	BBIE	4	ibt-052	Buyer city	"The common name of the city, town or village, where the Buyer's address is located."	Text	Postal Address		City		Text			0..1 
+Billing	BBIE	5	ibt-053	Buyer post code	The identifier for an addressable group of properties according to the relevant postal service.	Text	Postal Address		Post code		Text			0..1 
+Billing	BBIE	6	ibt-054	Buyer country subdivision	The subdivision of a country. 	Text	Postal Address		Country subdivision		Text			0..1 
+Billing	BBIE	7	ibt-055	Buyer country code	A code that identifies the country.	Code	Postal Address		Country		Code			1..1 
+Billing	ASBIE	8	ibg-09	BUYER CONTACT	A group of business terms providing contact information relevant for the Buyer.		Buyer		Defined			Buyer 	Contact	0..1 
+Billing	ABIE	0	ibg-09	BUYER CONTACT	A group of business terms providing contact information relevant for the Buyer.		Contact		Detail					0..1 
+Billing	BBIE	1	ibt-056	Buyer contact point	A contact point for a legal entity or person.	Text	Contact		Point		Text			0..1 
+Billing	BBIE	2	ibt-057	Buyer contact telephone number	A phone number for the contact point. 	Text	Contact		Telephone number		Text			0..1 
+Billing	BBIE	3	ibt-058	Buyer contact email address	An e-mail address for the contact point. 	Text	Contact		Email Address		Text			0..1 
+Billing	ASBIE	26	ibg-10	PAYEE	"A group of business terms providing information about the Payee, i.e. the role that receives the payment."		Invoice		Defined				Payee	0..1 
+Billing	ABIE	0	ibg-10	PAYEE	"A group of business terms providing information about the Payee, i.e. the role that receives the payment."		Payee		Detail					0..1 
+Billing	BBIE	1	ibt-059	Payee name	The name of the Payee.	Text	Payee		Name		Text			1..1 
+Billing	IDBIE	2	ibt-060	Payee identifier	An identifier for the Payee.	Identifier	Payee		Identification		Identifier			0..1 
+Billing	IDBIE	3	ibt-061	Payee legal registration identifier	An identifier issued by an official registrar that identifies the Payee as a legal entity or person.	Identifier	Payee		Legal registration 		Identifier			0..1 
+Billing	ASBIE	27	ibg-11	SELLER TAX REPRESENTATIVE PARTY	A group of business terms providing information about the Seller's tax representative.		Invoice		Defined			Seller Tax Representative	Party	0..1 
+Billing	ABIE	0	ibg-11	SELLER TAX REPRESENTATIVE PARTY	A group of business terms providing information about the Seller's tax representative.		Party		Detail					0..1 
+Billing	BBIE	1	ibt-062	Seller tax representative name	The full name of the Seller's tax representative party. 	Text	Party		Name		Text			1..1 
+Billing	IDBIE	2	ibt-063	Seller tax representative TAX identifier	The TAX identifier of the Seller's tax representative party.	Identifier	Party		Tax identification		Identifier			1..1 
+Billing	ASBIE	3	ibg-12	SELLER TAX REPRESENTATIVE POSTAL ADDRESS	A group of business terms providing information about the postal address for the tax representative party.		Party		Defined			Tax Representative Postal	"Postal Address
+Postal Address
+Postal Address
+Postal Address
+Postal Address
+Postal Address
+Postal Address
+Postal Address"	1..1 
+Billing	ABIE	0	ibg-12	SELLER TAX REPRESENTATIVE POSTAL ADDRESS	A group of business terms providing information about the postal address for the tax representative party.		Postal Address		Detail					1..1 
+Billing	BBIE	1	ibt-064	Tax representative address line 1	The main address line in an address. 	Text	Postal Address		Line 1		Text			0..1 
+Billing	BBIE	2	ibt-065	Tax representative address line 2	An additional address line in an address that can be used to give further details supplementing the main line.	Text	Postal Address		Line 2		Text			0..1 
+Billing	BBIE	3	ibt-164	Tax representative address line 3	An additional address line in an address that can be used to give further details supplementing the main line.	Text	Postal Address		Line 3		Text			0..1 
+Billing	BBIE	4	ibt-066	Tax representative city	"The common name of the city, town or village, where the tax representative address is located."	Text	Postal Address		City		Text			0..1 
+Billing	BBIE	5	ibt-067	Tax representative post code	The identifier for an addressable group of properties according to the relevant postal service.	Text	Postal Address		Post code		Text			0..1 
+Billing	BBIE	6	ibt-068	Tax representative country subdivision	The subdivision of a country. 	Text	Postal Address		Country subdivision		Text			0..1 
+Billing	BBIE	7	ibt-069	Tax representative country code	A code that identifies the country.	Code	Postal Address		Country		Code			1..1 
+Billing	ASBIE	28	ibg-13	DELIVERY INFORMATION	A group of business terms providing information about where and when the goods and services invoiced are delivered.		Invoice		Defined				Delivery Information	0..1 
+Billing	ABIE	0	ibg-13	DELIVERY INFORMATION	A group of business terms providing information about where and when the goods and services invoiced are delivered.		Delivery Information		Detail					0..1 
+Billing	BBIE	1	ibt-070	Deliver to party name	The name of the party to which the goods and services are delivered.	Text	Delivery Information		Deliver to party name		Text			0..1 
+Billing	IDBIE	2	ibt-071	Deliver to location identifier	An identifier for the location at which the goods and services are delivered.	Identifier	Delivery Information		Identification		Identifier			0..1 
+Billing	BBIE	3	ibt-072	Actual delivery date	the date on which the supply of goods or services was made or completed.	Date	Delivery Information		Actual delivery date		Date			0..1 
+Billing	ASBIE	4	ibg-14	INVOICING PERIOD	A group of business terms providing information on the invoice period.		Delivery Information		Defined			Invoicing	Period	0..1 
+Billing	ABIE	0	ibg-14	INVOICING PERIOD	A group of business terms providing information on the invoice period.		Period		Detail					0..1 
+Billing	BBIE	1	ibt-073	Invoicing period start date	The date when the Invoice period starts.	Date	Period		Start date		Date			0..1 
+Billing	BBIE	2	ibt-074	Invoicing period end date	The date when the Invoice period ends.	Date	Period		ebd data		Date			0..1 
+Billing	ASBIE	5	ibg-15	DELIVER TO ADDRESS	A group of business terms providing information about the address to which goods and services invoiced were or are delivered.		Delivery Information		Defined			Deliver to	"Postal Address
+Postal Address
+Postal Address
+Postal Address
+Postal Address
+Postal Address
+Postal Address
+Postal Address"	0..1 
+Billing	ABIE	0	ibg-15	DELIVER TO ADDRESS	A group of business terms providing information about the address to which goods and services invoiced were or are delivered.		Postal Address		Detail					0..1 
+Billing	BBIE	1	ibt-075	Deliver to address line 1	The main address line in an address. 	Text	Postal Address		Line 1		Text			0..1 
+Billing	BBIE	2	ibt-076	Deliver to address line 2	An additional address line in an address that can be used to give further details supplementing the main line.	Text	Postal Address		Line 2		Text			0..1 
+Billing	BBIE	3	ibt-165	Deliver to address line 3	An additional address line in an address that can be used to give further details supplementing the main line.	Text	Postal Address		Line 3		Text			0..1 
+Billing	BBIE	4	ibt-077	Deliver to city	"The common name of the city, town or village, where the deliver to address is located."	Text	Postal Address		City		Text			0..1 
+Billing	BBIE	5	ibt-078	Deliver to post code	The identifier for an addressable group of properties according to the relevant postal service.	Text	Postal Address		Post code		Text			0..1 
+Billing	BBIE	6	ibt-079	Deliver to country subdivision	The subdivision of a country. 	Text	Postal Address		Country subdivision		Text			0..1 
+Billing	BBIE	7	ibt-080	Deliver to country code	A code that identifies the country.	Code	Postal Address		Country		Code			1..1 
+Billing	ASBIE	29	ibg-16	PAYMENT INSTRUCTIONS	A group of business terms providing information about the payment. 		Invoice		Defined				Payment Instructions	0..n 
+Billing	ABIE	0	ibg-16	PAYMENT INSTRUCTIONS	A group of business terms providing information about the payment. 		Payment Instructions		Detail					0..n 
+Billing	IDBIE	1	ibt-178	Payment Instructions ID	An identifier for the payment instructions.	Identifier	Payment Instructions		identification		Identifier			0..1
+Billing	BBIE	2	ibt-081	Payment means type code	"The means, expressed as code, for how a payment is expected to be or has been settled."	Code	Payment Instructions		Means type code		Code			1..1 
+Billing	BBIE	3	ibt-082	Payment means text	"The means, expressed as text, for how a payment is expected to be or has been settled."	Text	Payment Instructions		Means text		Text			0..1 
+Billing	BBIE	4	ibt-083	Remittance information	A textual value used for payment routing or to establish a link between the payment and the Invoice.	Text	Payment Instructions		Remittance information		Text			0..n 
+Billing	ASBIE	5	ibg-17	CREDIT TRANSFER	A group of business terms to specify credit transfer payments. 		Payment Instructions		Defined				Credit Transfer	0..n 
+Billing	ABIE	0	ibg-17	CREDIT TRANSFER	A group of business terms to specify credit transfer payments. 		Credit Transfer		Detail					0..n 
+Billing	IDBIE	1	ibt-084	Payment account identifier	"A unique identifier of the financial payment account, at a payment service provider, to which payment should be made."	Identifier	Credit Transfer		Identification		Identifier			1..1 
+Billing	BBIE	2	ibt-085	Payment account name	"The name of the payment account, at a payment service provider, to which payment should be made."	Text	Credit Transfer		Payment account name		Text			0..1 
+Billing	IDBIE	3	ibt-086	Payment service provider identifier	An identifier for the payment service provider where a payment account is located.	Identifier	Credit Transfer		Identification		Identifier			0..1 
+Billing	ASBIE	4	ibg-34	ADDRESS	The address of the financial institution or its branch that holds the payment account.		Credit Transfer		Defined				Postal Address	0..1
+Billing	ABIE	0	ibg-34	ADDRESS	The address of the financial institution or its branch that holds the payment account.		Postal Address		Detail					0..1
+Billing	BBIE	1	ibt-169	Account address line 1	The main address line in an address. 	Text	Postal Address		Line 1		Text			0..1 
+Billing	BBIE	2	ibt-170	Account address line 2	An additional address line in an address that can be used to give further details supplementing the main line.	Text	Postal Address		Line 2		Text			0..1 
+Billing	BBIE	3	ibt-171	Account city	"The common name of the city, town or village, where the account address is located."	Text	Postal Address		Line 3		Text			0..1 
+Billing	BBIE	4	ibt-172	Account post code	The identifier for an addressable group of properties according to the relevant postal service.	Text	Postal Address		City		Text			0..1 
+Billing	BBIE	5	ibt-173	Account country subdivision	The subdivision of a country. 	Text	Postal Address		Post code		Text			0..1 
+Billing	BBIE	6	ibt-174	Account address line 3	An additional address line in an address that can be used to give further details supplementing the main line.	Text	Postal Address		Country subdivision		Text			0..1 
+Billing	BBIE	7	ibt-175	Account country code	A code that identifies the country.	Code	Postal Address		Country		Code			0..1
+Billing	ASBIE	6	ibg-18	PAYMENT CARD INFORMATION	A group of business terms providing information about card used for payment contemporaneous with invoice issuance.		Payment Instructions		Defined				Payment Card Information	0..1 
+Billing	ABIE	0	ibg-18	PAYMENT CARD INFORMATION	A group of business terms providing information about card used for payment contemporaneous with invoice issuance.		Payment Card Information		Detail					0..1 
+Billing	BBIE	1	ibt-087	Payment card primary account number	The Primary Account Number (PAN) of the card used for payment.	Text	Payment Card Information		Primary account number		Text			1..1 
+Billing	BBIE	2	ibt-088	Payment card holder name	The name of the payment card holder. 	Text	Payment Card Information		Card holder name		Text			0..1 
+Billing	ASBIE	7	ibg-19	DIRECT DEBIT	A group of business terms to specify a direct debit.		Payment Instructions		Defined				Direct Debit	0..1 
+Billing	ABIE	0	ibg-19	DIRECT DEBIT	A group of business terms to specify a direct debit.		Direct Debit		Detail					0..1 
+Billing	BBIE	1	ibt-089	Mandate reference identifier	Unique identifier assigned by the Payee for referencing the direct debit mandate.	Identifier	Direct Debit		Mandate reference		Identifier			0..1 
+Billing	IDBIE	2	ibt-091	Debited account identifier	The account to be debited by the direct debit. 	Identifier	Direct Debit		Identification		Identifier			0..1 
+Billing	ASBIE	30	ibg-35	PAID AMOUNTS	The amount of the payment in the invoice currency.		Invoice		Defined				Paid Amounts	0..n 
+Billing	ABIE	0	ibg-35	PAID AMOUNTS	The amount of the payment in the invoice currency.		Paid Amounts		Detail					0..n 
+Billing	IDBIE	1	ibt-179	Payment identifier	"An identifier that references the payment, such as bank transfer identifier."	Identifier	Paid Amounts		Identification		Identifier			0..1
+Billing	BBIE	2	ibt-180	Paid amount	The amount of the payment in the invoice currency.	Amount	Paid Amounts		Paid		Amount			1..1
+Billing	BBIE	3	ibt-181	Debited to the invoice date	The date when the prepaid amount was received by the seller.	Date	Paid Amounts		Debited to the invoice date		Date			0..1
+Billing	BBIE	4	ibt-182	Payment type	The type of the the payment.	Code	Paid Amounts		Payment type		Code			0..1
+Billing	ASBIE	31	ibg-20	DOCUMENT LEVEL ALLOWANCES	A group of business terms providing information about allowances applicable to the Invoice as a whole.		Invoice		Defined				Document Level Allowances	0..n 
+Billing	ABIE	0	ibg-20	DOCUMENT LEVEL ALLOWANCES	A group of business terms providing information about allowances applicable to the Invoice as a whole.		Document Level Allowances		Detail					0..n 
+Billing	BBIE	1	ibt-092	Document level allowance amount	"The amount of an allowance, without TAX."	Amount	Document Level Allowances		Amount		Amount			1..1 
+Billing	BBIE	2	ibt-093	Document level allowance base amount	"The base amount that may be used, in conjunction with the document level allowance percentage, to calculate the document level allowance amount."	Amount	Document Level Allowances		Base amount		Amount			0..1 
+Billing	BBIE	3	ibt-094	Document level allowance percentage	"The percentage that may be used, in conjunction with the document level allowance base amount, to calculate the document level allowance amount."	Percent	Document Level Allowances		Percentage		Percentage			0..1 
+Billing	BBIE	4	ibt-095	Document level allowance TAX category code	A coded identification of what TAX category applies to the document level allowance.	Code	Document Level Allowances		Tax category code		Code			1..1 
+Billing	BBIE	5	ibt-096	Document level allowance TAX rate	"The TAX rate, represented as percentage that applies to the document level allowance."	Percent	Document Level Allowances		Tax rate		Percentage			0..1 
+Billing	BBIE	6	ibt-097	Document level allowance reason	"The reason for the document level allowance, expressed as text. "	Text	Document Level Allowances		Reason		Text			0..1 
+Billing	BBIE	7	ibt-098	Document level allowance reason code	"The reason for the document level allowance, expressed as a code."	Code	Document Level Allowances		Reason code		Code			0..1 
+Billing	ASBIE	32	ibg-21	DOCUMENT LEVEL CHARGES	"A group of business terms providing information about charges and taxes other than TAX, applicable to the Invoice as a whole."		Invoice		Defined				Document Level Charges	0..n 
+Billing	ABIE	0	ibg-21	DOCUMENT LEVEL CHARGES	"A group of business terms providing information about charges and taxes other than TAX, applicable to the Invoice as a whole."		Document Level Charges		Detail					0..n 
+Billing	BBIE	1	ibt-099	Document level charge amount	"The amount of a charge, without TAX."	Amount	Document Level Charges		Amount		Amount			1..1 
+Billing	BBIE	2	ibt-100	Document level charge base amount	"The base amount that may be used, in conjunction with the document level charge percentage, to calculate the document level charge amount."	Amount	Document Level Charges		Base amount		Amount			0..1 
+Billing	BBIE	3	ibt-101	Document level charge percentage	"The percentage that may be used, in conjunction with the document level charge base amount, to calculate the document level charge amount."	Percent	Document Level Charges		Charge percentage		Percent			0..1 
+Billing	BBIE	4	ibt-102	Document level charge TAX category code	A coded identification of what TAX category applies to the document level charge.	Code	Document Level Charges		Tax category code		Code			1..1 
+Billing	BBIE	5	ibt-103	Document level charge TAX rate	"The TAX rate, represented as percentage that applies to the document level charge."	Percent	Document Level Charges		Tax rate		Percent			0..1 
+Billing	BBIE	6	ibt-104	Document level charge reason	"The reason for the document level charge, expressed as text."	Text	Document Level Charges		Reason		Text			0..1 
+Billing	BBIE	7	ibt-105	Document level charge reason code	"The reason for the document level charge, expressed as a code."	Code	Document Level Charges		Reason code		Code			0..1 
+Billing	ASBIE	33	ibg-22	DOCUMENT TOTALS	A group of business terms providing the monetary totals for the Invoice. 		Invoice		Defined				Document Totals	1..1 
+Billing	ABIE	0	ibg-22	DOCUMENT TOTALS	A group of business terms providing the monetary totals for the Invoice. 		Document Totals		Detail					1..1 
+Billing	BBIE	1	ibt-106	Sum of Invoice line net amount	Sum of all Invoice line net amounts in the Invoice. 	Amount	Document Totals		Sum of Invoice line net amount		Amount			1..1 
+Billing	BBIE	2	ibt-107	Sum of allowances on document level	Sum of all allowances on document level in the Invoice.	Amount	Document Totals		Sum of allowances on document level		Amount			0..1 
+Billing	BBIE	3	ibt-108	Sum of charges on document level	Sum of all charges on document level in the Invoice.	Amount	Document Totals		Sum of charges on document level		Amount			0..1 
+Billing	BBIE	4	ibt-109	Invoice total amount without TAX	The total amount of the Invoice without TAX.	Amount	Document Totals		Invoice total amount without TAX		Amount			1..1 
+Billing	BBIE	5	ibt-110	Invoice total TAX amount	The total TAX amount for the Invoice.	Amount	Document Totals		Invoice total TAX amount		Amount			0..1 
+Billing	BBIE	6	ibt-111	Invoice total TAX amount in accounting currency	The TAX total amount expressed in the accounting currency accepted or required in the country of the Seller.	Amount	Document Totals		Invoice total TAX amount in accounting currency		Amount			0..1 
+Billing	BBIE	7	ibt-112	Invoice total amount with TAX	The total amount of the Invoice with tax.	Amount	Document Totals		Invoice total amount with TAX		Amount			1..1 
+Billing	BBIE	8	ibt-113	Paid amount	The sum of amounts which have been paid in advance.	Amount	Document Totals		Paid amount		Amount			0..1 
+Billing	BBIE	9	ibt-114	Rounding amount	The amount to be added to the invoice total to round the amount to be paid.	Amount	Document Totals		Rounding amount		Amount			0..1 
+Billing	BBIE	10	ibt-115	Amount due for payment	The outstanding amount that is requested to be paid.	Amount	Document Totals		Amount due for payment		Amount			1..1 
+Billing	ASBIE	34	ibg-23	TAX BREAKDOWN	"A group of business terms providing information about TAX breakdown by different categories, rates and exemption reasons"		Invoice		Defined				Tax Breakdown	1..n 
+Billing	ABIE	0	ibg-23	TAX BREAKDOWN	"A group of business terms providing information about TAX breakdown by different categories, rates and exemption reasons"		Tax Breakdown		Detail					1..n 
+Billing	BBIE	1	ibt-116	TAX category taxable amount	Sum of all taxable amounts subject to a specific TAX category code and TAX category rate (if the TAX category rate is applicable).	Amount	Tax Breakdown		TAX category taxable amount		Amount			1..1 
+Billing	BBIE	2	ibt-117	TAX category tax amount	The total TAX amount for a given TAX category.	Amount	Tax Breakdown		TAX category tax amount		Amount			1..1 
+Billing	BBIE	3	ibt-118	TAX category code	Coded identification of a TAX category.	Code	Tax Breakdown		TAX category code		Code			1..1 
+Billing	BBIE	4	ibt-119	TAX category rate	"The TAX rate, represented as percentage that applies for the relevant TAX category."	Percent	Tax Breakdown		TAX category rate		Rate			0..1 
+Billing	BBIE	5	ibt-120	TAX exemption reason text	A textual statement of the reason why the amount is exempted from TAX or why no TAX is being charged	Text	Tax Breakdown		TAX exemption reason text		Text			0..1 
+Billing	BBIE	6	ibt-121	TAX exemption reason code	A coded statement of the reason for why the amount is exempted from TAX.	Code	Tax Breakdown		TAX exemption reason code		Code			0..1 
+Billing	ASBIE	35	ibg-24	ADDITIONAL SUPPORTING DOCUMENTS	A group of business terms providing information about additional supporting documents substantiating the claims made in the Invoice.		Invoice		Defined				Additional Supporting Documents	0..n 
+Billing	ABIE	0	ibg-24	ADDITIONAL SUPPORTING DOCUMENTS	A group of business terms providing information about additional supporting documents substantiating the claims made in the Invoice.		Additional Supporting Documents		Detail					0..n 
+Billing	IDBIE	1	ibt-122	Supporting document reference	An identifier of the supporting document. 	Document Reference	Additional Supporting Documents		Identification		Identifier			1..1 
+Billing	BBIE	2	ibt-123	Supporting document description	A description of the supporting document. 	Text	Additional Supporting Documents		Description		Text			0..1 
+Billing	BBIE	3	ibt-124	External document location	The URL (Uniform Resource Locator) that identifies where the external document is located.	Text	Additional Supporting Documents		Location		Text			0..1 
+Billing	BBIE	4	ibt-125	Attached document	An attached document embedded as binary object or sent together with the invoice.	Binary Objects	Additional Supporting Documents		Attached document		Binary Objects			0..1 
+Billing	ASBIE	36	ibg-25	INVOICE LINE	A group of business terms providing information on individual Invoice lines.		Invoice		Defined				Invoice Line	1..n 
+Billing	ABIE	0	ibg-25	INVOICE LINE	A group of business terms providing information on individual Invoice lines.		Invoice Line		Detail					1..n 
+Billing	IDBIE	1	ibt-126	Invoice line identifier	A unique identifier for the individual line within the Invoice. 	Identifier	Invoice Line		identification		Identifier			1..1 
+Billing	BBIE	2	ibt-127	Invoice line note	A textual note that gives unstructured information that is relevant to the Invoice line.	Text	Invoice Line		Note		Text			0..1 
+Billing	BBIE	3	ibt-128	Invoice line object identifier	"An identifier for an object on which the invoice line is based, given by the Seller."	Identifier	Invoice Line		Invoice line object		Identifier			0..1 
+Billing	BBIE	4	ibt-188	Invoice line document identifier	An identifiers for a document that the invoice line referes to.	Document Reference	Invoice Line		Invoice line document		Identifier			0..1 
+Billing	BBIE	5	ibt-189	Document type code	A code that qualifies the type of the document that is referenced.	Code	Invoice Line		Type		Code			0..1
+Billing	BBIE	6	ibt-129	Invoiced quantity	The quantity of items (goods or services) that is charged in the Invoice line.	Quantity	Invoice Line		Quantity		Quantity			1..1 
+Billing	BBIE	7	ibt-130	Invoiced quantity unit of measure code	The unit of measure that applies to the invoiced quantity.	Code	Invoice Line		Unit of measure code		Code			1..1 
+Billing	BBIE	8	ibt-131	Invoice line net amount	The total amount of the Invoice line.	Amount	Invoice Line		Net amount		Amount			1..1 
+Billing	RFBIE	9	ibt-132	Referenced purchase order line reference	"An identifier for a referenced line within a purchase order, issued by the Buyer."	Document Reference	Invoice Line		Reference				Purchase order line	0..1 
+Billing	RFBIE	10	ibt-183	Order reference	"An identifier for a referenced purchase order, issued by the Buyer."	Document Reference	Invoice Line		Reference				Order document	0..1
+Billing	RFBIE	11	ibt-184	Despatch advice reference	An identifier for a referenced despatch advice.	Document Reference	Invoice Line		Reference				Despatch advice	0..1
+Billing	BBIE	12	ibt-133	Invoice line Buyer accounting reference	A textual value that specifies where to book the relevant data into the Buyer's financial accounts.	Text	Invoice Line		Invoice line Buyer accounting reference		Text			0..1 
+Billing	ASBIE	13	ibg-26	INVOICE LINE PERIOD	A group of business terms providing information about the period relevant for the Invoice line.		Invoice Line		Defined				Period	0..1 
+Billing	ABIE	0	ibg-26	INVOICE LINE PERIOD	A group of business terms providing information about the period relevant for the Invoice line.		Invoice Line Period		Detail					0..1 
+Billing	BBIE	1	ibt-134	Invoice line period start date	The date when the Invoice period for this Invoice line starts. 	Date	Invoice Line Period		Start date		Date			0..1 
+Billing	BBIE	2	ibt-135	Invoice line period end date	The date when the Invoice period for this Invoice line ends. 	Date	Invoice Line Period		End date		Date			0..1 
+Billing	ASBIE	14	ibg-27	INVOICE LINE ALLOWANCES	A group of business terms providing information about allowances applicable to the individual Invoice line.		Invoice Line		Defined				Allowances	0..n 
+Billing	ABIE	0	ibg-27	INVOICE LINE ALLOWANCES	A group of business terms providing information about allowances applicable to the individual Invoice line.		Invoice Line Allowances		Detail					0..n 
+Billing	BBIE	1	ibt-136	Invoice line allowance amount	"The amount of an allowance, without TAX."	Amount	Invoice Line Allowances		Amount		Amount			1..1 
+Billing	BBIE	2	ibt-137	Invoice line allowance base amount	"The base amount that may be used, in conjunction with the Invoice line allowance percentage, to calculate the Invoice line allowance amount."	Amount	Invoice Line Allowances		Base amount		Amount			0..1 
+Billing	BBIE	3	ibt-138	Invoice line allowance percentage	"The percentage that may be used, in conjunction with the Invoice line allowance base amount, to calculate the Invoice line allowance amount."	Percent	Invoice Line Allowances		Percentage		Percent			0..1 
+Billing	BBIE	4	ibt-139	Invoice line allowance reason	"The reason for the Invoice line allowance, expressed as text. "	Text	Invoice Line Allowances		Reason		Text			0..1 
+Billing	BBIE	5	ibt-140	Invoice line allowance reason code	"The reason for the Invoice line allowance, expressed as a code."	Code	Invoice Line Allowances		Reason code		Code			0..1 
+Billing	ASBIE	15	ibg-28	INVOICE LINE CHARGES	A group of business terms providing information about charges and taxes other than TAX applicable to the individual Invoice line.		Invoice Line		Defined				Charges	0..n 
+Billing	ABIE	0	ibg-28	INVOICE LINE CHARGES	A group of business terms providing information about charges and taxes other than TAX applicable to the individual Invoice line.		Invoice Line Charges		Detail					0..n 
+Billing	BBIE	1	ibt-141	Invoice line charge amount	"The amount of a charge, without TAX. "	Amount	Invoice Line Charges		Amount		Amount			1..1 
+Billing	BBIE	2	ibt-142	Invoice line charge base amount	"The base amount that may be used, in conjunction with the Invoice line charge percentage, to calculate the Invoice line charge amount."	Amount	Invoice Line Charges		Base amount		Amount			0..1 
+Billing	BBIE	3	ibt-143	Invoice line charge percentage	"The percentage that may be used, in conjunction with the Invoice line charge base amount, to calculate the Invoice line charge amount."	Percent	Invoice Line Charges		Percentage		Percent			0..1 
+Billing	BBIE	4	ibt-144	Invoice line charge reason	"The reason for the Invoice line charge, expressed as text. "	Text	Invoice Line Charges		Reason		Text			0..1 
+Billing	BBIE	5	ibt-145	Invoice line charge reason code	"The reason for the Invoice line charge, expressed as a code."	Code	Invoice Line Charges		Reason code		Code			0..1 
+Billing	ASBIE	16	ibg-29	PRICE DETAILS	A group of business terms providing information about the price applied for the goods and services invoiced on the Invoice line.		Invoice Line		Defined				Pice Details	1..1 
+Billing	ABIE	0	ibg-29	PRICE DETAILS	A group of business terms providing information about the price applied for the goods and services invoiced on the Invoice line.		Pice Details		Detail					1..1 
+Billing	BBIE	1	ibt-146	Item net price	"The price of an item, exclusive of TAX, after subtracting item price discount."	Unit Price Amount	Pice Details		Net price		Unit Price Amount			1..1 
+Billing	BBIE	2	ibt-147	Item price discount	The total discount subtracted from the Item gross price to calculate the Item net price.	Unit Price Amount	Pice Details		Discount		Unit Price Amount			0..1 
+Billing	BBIE	3	ibt-148	Item gross price	"The unit price, exclusive of TAX, before subtracting Item price discount."	Unit Price Amount	Pice Details		Gross price		Unit Price Amount			0..1 
+Billing	BBIE	4	ibt-149	Item price base quantity	The number of item units to which the price applies. 	Quantity	Pice Details		Base quantity		Quantity			0..1 
+Billing	BBIE	5	ibt-150	Item price base quantity unit of measure code	The unit of measure that applies to the Item price base quantity.	Code	Pice Details		Base quantity unit of measure code		Code			0..1 
+Billing	ASBIE	17	ibg-30	LINE TAX INFORMATION	A group of business terms providing information about the TAX applicable for the goods and services invoiced on the Invoice line.		Invoice Line		Defined				Line Tax Information	1..n 
+Billing	ABIE	0	ibg-30	LINE TAX INFORMATION	A group of business terms providing information about the TAX applicable for the goods and services invoiced on the Invoice line.		Line Tax Information		Detail					1..n 
+Billing	BBIE	1	ibt-151	Invoiced item TAX category code	The TAX category code for the invoiced item.	Code	Line Tax Information		Tax Category		Code			1..1 
+Billing	BBIE	2	ibt-152	Invoiced item TAX rate	"The TAX rate, represented as percentage that applies to the invoiced item."	Percent	Line Tax Information		Tax rate		Rate			0..1 
+Billing	BBIE	3	ibt-185	TAX exemption reason code	A coded statement of the reason for why the line amount is exempted from TAX.	Code	Line Tax Information		Tax exemption reason code		Code			0..1
+Billing	BBIE	4	ibt-186	TAX exemption reason text	A textual statement of the reason why the line amount is exempted from TAX or why no TAX is being charged	Text	Line Tax Information		Tax exemption reason text		Text			0..1
+Billing	BBIE	5	ibt-166	Unit TAX	A TAX amount that applied to each item unit.	Amount	Line Tax Information		Unit Tax		Amount			0..1
+Billing	BBIE	6	ibt-167	Tax Scheme	A code indicating the type of tax	Scheme	Line Tax Information		Tax Scheme		Scheme			0..1
+Billing	ASBIE	18	ibg-31	ITEM INFORMATION	A group of business terms providing information about the goods and services invoiced.		Invoice Line		Defined				Item Information	1..1 
+Billing	ABIE	0	ibg-31	ITEM INFORMATION	A group of business terms providing information about the goods and services invoiced.		Item Information		Detail					1..1 
+Billing	BBIE	1	ibt-153	Item name	A name for an item. 	Text	Item Information		Name		Text			1..1 
+Billing	BBIE	2	ibt-154	Item description	A description for an item. 	Text	Item Information		Description		Text			0..n 
+Billing	IDBIE	3	ibt-155	Item Seller's identifier	"An identifier, assigned by the Seller, for the item."	Identifier	Item Information		Identification		Identifier			0..1 
+Billing	IDBIE	4	ibt-156	Item Buyer's identifier	"An identifier, assigned by the Buyer, for the item."	Identifier	Item Information		Identification		Identifier			0..1 
+Billing	IDBIE	5	ibt-157	Item standard identifier	An item identifier based on a registered scheme.	Identifier	Item Information		Identification		Identifier			0..1 
+Billing	IDBIE	6	ibt-158	Item classification identifier	A code for classifying the item by its type or nature.	Identifier	Item Information		Identification		Identifier			0..n 
+Billing	BBIE	7	ibt-159	Item country of origin	The code identifying the country from which the item originates.	Code	Item Information		Origin country		Code			0..1 
+Billing	ASBIE	8	ibg-32	ITEM ATTRIBUTES	A group of business terms providing information about properties of the goods and services invoiced.		Item Information		Defined				Item Attributes	0..n 
+Billing	ABIE	0	ibg-32	ITEM ATTRIBUTES	A group of business terms providing information about properties of the goods and services invoiced.		Item Attributes							0..n 
+Billing	BBIE	1	ibt-160	Item attribute name	The name of the attribute or property of the item. 	Text	Item Attributes		Name		Text			1..1 
+Billing	BBIE	2	ibt-161	Item attribute value	The value of the attribute or property of the item. 	Text	Item Attributes		Value		Text			1..1 

@@ -1,0 +1,41 @@
+Module,Kind,Table,Name,Level,DictionaryEntryName,Description,ObjectClassTermQualifier,ObjectClassTerm
+Public Archives,ABIE,Electronic Books,,,GB_ Electronic Books. Details,,GB,Electronic Books
+Public Archives,ABIE,Accounting Period,,,GB_ Accounting Period. Details,,GB,Accounting Period
+Public Archives,ABIE,Type of Voucher,,,GB_ Type of Voucher. Details,,GB,Type of Voucher
+Public Archives,ABIE,Type of Exchange Rate,,,GB_ Type of Exchange Rate. Details,,GB,Type of Exchange Rate
+Public Archives,ABIE,Currency,,,GB_ Currency. Details,,GB,Currency
+Public Archives,ABIE,Settlement Way,,,GB_ Settlement Way. Details,,GB,Settlement Way
+Public Archives,ABIE,Department File,,,GB_ Department File. Details,,GB,Department File
+Public Archives,ABIE,Employee File,,,GB_ Employee File. Details,,GB,Employee File
+Public Archives,ABIE,Supplier File,,,GB_ Supplier File. Details,,GB,Supplier File
+Public Archives,ABIE,Client File,,,GB_ Client File. Details,,GB,Client File
+Public Archives,ABIE,Custom File Entries,,,GB_ Custom File Entries. Details,,GB,Custom File Entries
+Public Archives,ABIE,Custom File Value,,,GB_ Custom File Value. Details,,GB,Custom File Value
+General Ledger,ABIE,Basic Information of General Ledger,,,GB_ Basic Information of General Ledger. Details,,GB,Basic Information of General Ledger
+General Ledger,ABIE,Accounting Course,,,GB_ Accounting Course. Details,,GB,Accounting Course
+General Ledger,ABIE,Subject Assistant Accounting,,,GB_ Subject Assistant Accounting. Details,,GB,Subject Assistant Accounting
+General Ledger,ABIE,Cash Flow Project,,,GB_ Cash Flow Project. Details,,GB,Cash Flow Project
+General Ledger,ABIE,Account Balance and Occurrence,,,GB_ Account Balance and Occurrence. Details,,GB,Account Balance and Occurrence
+General Ledger,ABIE,Account Voucher,,,GB_ Account Voucher. Details,,GB,Account Voucher
+General Ledger,ABIE,Cash Flow Document Item Data,,,GB_ Cash Flow Document Item Data. Details,,GB,Cash Flow Document Item Data
+General Ledger,ABIE,Report Set,,,GB_ Report Set. Details,,GB,Report Set
+General Ledger,ABIE,Report Item Data,,,GB_ Report Item Data. Details,,GB,Report Item Data
+Receivable and Payable Account,ABIE,Type of Document,,,GB_ Type of Document. Details,,GB,Type of Document
+Receivable and Payable Account,ABIE,Type of Transaction,,,GB_ Type of Transaction. Details,,GB,Type of Transaction
+Receivable and Payable Account,ABIE,Statement of Receivable Account,,,GB_ Statement of Receivable Account. Details,,GB,Statement of Receivable Account
+Receivable and Payable Account,ABIE,Statement of Payable Account,,,GB_ Statement of Payable Account. Details,,GB,Statement of Payable Account
+PPE,ABIE,Basic Information of PPE,,,GB_ Basic Information of PPE. Details,,GB,Basic Information of PPE
+PPE,ABIE,Category Setting of PPE,,,GB_ Category Setting of PPE. Details,,GB,Category Setting of PPE
+PPE,ABIE,Change mode of PPE,,,GB_ Change mode of PPE. Details,,GB,Change mode of PPE
+PPE,ABIE,Depreciation Method of PPE,,,GB_ Depreciation Method of PPE. Details,,GB,Depreciation Method of PPE
+PPE,ABIE,Use Status of PPE,,,GB_ Use Status of PPE. Details,,GB,Use Status of PPE
+PPE,ABIE,PPE Card,,,GB_ PPE Card. Details,,GB,PPE Card
+PPE,ABIE,Physical Information of PPE Card,,,GB_ Physical Information of PPE Card. Details,,GB,Physical Information of PPE Card
+PPE,ABIE,Use Information of PPE Card,,,GB_ Use Information of PPE Card. Details,,GB,Use Information of PPE Card
+PPE,ABIE,Reduction of PPE,,,GB_ Reduction of PPE. Details,,GB,Reduction of PPE
+PPE,ABIE,Physical Information of PPE Reduction,,,GB_ Physical Information of PPE Reduction. Details,,GB,Physical Information of PPE Reduction
+PPE,ABIE,Change Information of PPE Reduction,,,GB_ Change Information of PPE Reduction. Details,,GB,Change Information of PPE Reduction
+Employee Payroll,ABIE,Payroll Period,,,GB_ Payroll Period. Details,,GB,Payroll Period
+Employee Payroll,ABIE,Payroll Item,,,GB_ Payroll Item. Details,,GB,Payroll Item
+Employee Payroll,ABIE,Employee Compensation Record,,,GB_ Employee Compensation Record. Details,,GB,Employee Compensation Record
+Employee Payroll,ABIE,Employee Pay Record Detail,,,GB_ Employee Pay Record Detail. Details,,GB,Employee Pay Record Detail

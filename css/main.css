@@ -271,7 +271,7 @@ tr.expanded td.details-control {
 }
 tr.expanded td.details-control:before {
   font-family: FontAwesome; /** https://fontawesome.com/v4.7.0/cheatsheet/ */
-  color: #2692c4;
+  color: #99a1e5;
   top:  0;
   left: -0.5rem;
   content: "\f056";
@@ -296,19 +296,38 @@ tr:hover td.link-control:before {
   color: rgb(77, 179, 205);
   text-shadow: 0em 0.1em 0.1em rgba(0, 0, 0, 0.3);
 }
-tr.expanded td.link-control {
-  position:relative;
-}
-tr.expanded td.link-control:before {
-  font-family: FontAwesome; /** https://fontawesome.com/v4.7.0/cheatsheet/ */
-  color: #26c426;
-  top:  0;
-  left: -0.5rem;
-  content: "\xf14c";
-}
+
 tr.expanded:hover td.link-control:before {
   color: #38e5f1;
   text-shadow: 0em 0.1em 0.1em rgba(0, 0, 0, 0.3);
+}
+
+#bottom-bottom-component-1 table tr,
+#bottom-bottom-component-2 table tr {
+  cursor: not-allowed;
+}
+
+/* #bottom-bottom-component-1 table tr td.details-control:before,
+#bottom-bottom-component-2 table tr td.details-control:before, */
+#bottom-bottom-component-1 table tr:hover td.details-control:before,
+#bottom-bottom-component-2 table tr:hover td.details-control:before {
+  /* font-family: FontAwesome; * https://fontawesome.com/v4.7.0/cheatsheet/ */
+  color: #d0d0d0;
+  /* top:0;
+  left: -0.5rem;
+  content: "\f055"; */
+  cursor: not-allowed;
+}
+/* #bottom-bottom-component-1 table tr td.link-control:before,
+#bottom-bottom-component-2 table tr td.link-control:before, */
+#bottom-bottom-component-1 table tr:hover td.link-control:before,
+#bottom-bottom-component-2 table tr:hover td.link-control:before {
+  /* font-family: FontAwesome; * https://fontawesome.com/v4.7.0/cheatsheet/ */
+  color: #d0d0d0;
+  /* top:0;
+  left: -0.5rem;
+  content: "\f08e"; */
+  cursor: not-allowed;
 }
 /** info control button */
 td.info-control {
@@ -352,13 +371,11 @@ td.key-control:before {
   left: -0.5rem;
   content: "\f084";
 }
-/* td.details-control {
-  background: url('../images/details_open.png') no-repeat center center;
-  cursor: pointer;
+#bottom-bottom-component-1 table tr:hover td.key-control:before,
+#bottom-bottom-component-2 table tr:hover td.key-control:before {
+  cursor: not-allowed;
+  color: #d0d0d0;
 }
-tr.shown td.details-control {
-  background: url('../images/details_close.png') no-repeat center center;
-} */
 /** overray */
 .overlay {
   position: absolute; /* Sit on top of the page content */
@@ -379,4 +396,17 @@ tr.shown td.details-control {
   font-size: 32px;
   font-weight: bold;
   text-align: center;
+}
+
+div.adc-abie-module {
+  float: right;
+}
+div.ts5409-abie-module {
+  float: right;
+}
+div.gb-abie-module {
+  float: right;
+}
+div.ads-abie-module {
+  float: right;
 }

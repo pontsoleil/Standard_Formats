@@ -7,7 +7,7 @@ set -euvx
 # -x  Print commands and their arguments as they are executed.
 export LC_ALL=C
 type command >/dev/null 2>&1 && type getconf >/dev/null 2>&1 &&
-export PATH=".:./bin:$(command -p getconf PATH)${PATH+:}${PATH-}"
+export PATH=".:./bin:../bin:$(command -p getconf PATH)${PATH+:}${PATH-}"
 export UNIX_STD=2003  # to make HP-UX conform to POSIX
 # escape space
 VT=$( printf '\v' )
@@ -24,7 +24,7 @@ exec 2>log/${0##*/}.$$.log
 # 14                15                 16                                 17
 # Datatype Representation Level Key RefField RefTable OccurrenceMin OccurrenceMax
 # 18       19             20    21  22       23       24            25
-cat ADC.tsv | awk -F'\t' 'BEGIN { n=0; }
+cat ADC.txt | awk -F'\t' 'BEGIN { n=0; }
 {
   if (NR>1 && "ABIE"!=$3) {
     gsub(/[\n\r\\\"]/,"",$0)

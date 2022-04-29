@@ -1,0 +1,520 @@
+{
+  "table-1-01": {
+    "name": "Electronic Books",
+    "field": {
+      "010101": "Number of Electronic Book",
+      "010102": "Name of Electronic Book",
+      "010103": "Accounting Entity",
+      "010104": "Organization Code",
+      "010105": "Organization Type",
+      "010106": "Industry",
+      "010107": "Name of Developer",
+      "010108": "Software Version",
+      "010109": "Functional Currency",
+      "010110": "Fiscal Year",
+      "010111": "Standard Version"
+    }
+  },
+  "table-1-02": {
+    "name": "Accounting Period",
+    "field": {
+      "010110": "Fiscal Year",
+      "010201": "Number of Accounting Period",
+      "010202": "Opening Date of Accounting Period",
+      "010203": "Closing Date of Accounting Period"
+    }
+  },
+  "table-1-03": {
+    "name": "Type of Voucher",
+    "field": {
+      "010301": "Number of Journal Entry Type",
+      "010302": "Name of Journal Entry Type",
+      "010303": "Abbreviation of Journal Entry Type"
+    }
+  },
+  "table-1-04": {
+    "name": "Type of Exchange Rate",
+    "field": {
+      "010401": "Code of Exchange Rate Type",
+      "010402": "Name of Exchange Rate Type"
+    }
+  },
+  "table-1-05": {
+    "name": "Currency",
+    "field": {
+      "010501": "Currency Code",
+      "010502": "Currency Name"
+    }
+  },
+  "table-1-06": {
+    "name": "Settlement Way",
+    "field": {
+      "010601": "Code of Settlement Method",
+      "010602": "Name of Settlement Method"
+    }
+  },
+  "table-1-07": {
+    "name": "Department File",
+    "field": {
+      "010701": "Department Code",
+      "010702": "Department Name",
+      "010703": "Code of Superior Department"
+    }
+  },
+  "table-1-08": {
+    "name": "Employee File",
+    "field": {
+      "010801": "Employee Code",
+      "010802": "Employee Name",
+      "010803": "ID Name",
+      "010804": "ID Number",
+      "010805": "Gender",
+      "010806": "D.O.B",
+      "010701": "Department Code",
+      "010807": "Date of Employment",
+      "010808": "Resignation Date"
+    }
+  },
+  "table-1-09": {
+    "name": "Supplier File",
+    "field": {
+      "010901": "Supplier Code",
+      "010902": "Supplier Name",
+      "010903": "Supplier Abbreviation"
+    }
+  },
+  "table-1-10": {
+    "name": "Client File",
+    "field": {
+      "011001": "Customer Number",
+      "011002": "Customer Name",
+      "011003": "Customer Abbreviation"
+    }
+  },
+  "table-1-11": {
+    "name": "Custom File Entries",
+    "field": {
+      "011101": "Segment Code",
+      "011102": "Segment Name",
+      "011103": "Segment Description",
+      "011104": "Hierarchy Features",
+      "011105": "Rule of File Encoding"
+    }
+  },
+  "table-1-12": {
+    "name": "Custom File Value",
+    "field": {
+      "011101": "Segment Code",
+      "011201": "Code of File Content",
+      "011202": "Name of File Content",
+      "011203": "Description of File Content",
+      "011204": "Parent Code of File Content",
+      "011205": "Hierarchy of File Content"
+    }
+  },
+  "table-2-01": {
+    "name": "Basic Information of General Ledger",
+    "field": {
+      "020101": "Structure Separator",
+      "020102": "Rules of Accounts Encoding",
+      "020103": "Rules of Cash-flow-item Encoding",
+      "020104": "Extensible Field Structure of Document",
+      "020105": "Corresponding Segment of Extensible Structure of Document",
+      "020106": "Extensible Field Structure of Entry",
+      "020107": "Corresponding Segment of Extensible Structure of Entry"
+    }
+  },
+  "table-2-02": {
+    "name": "Accounting Course",
+    "field": {
+      "020201": "Account Number",
+      "020202": "Account Name",
+      "020203": "Hierarchy of Account",
+      "020204": "Account Type",
+      "020205": "Debit or Credit Balance"
+    }
+  },
+  "table-2-03": {
+    "name": "Subject Assistant Accounting",
+    "field": {
+      "020201": "Account Number",
+      "020301": "Number of Subsidiary Item",
+      "020302": "Name of Subsidiary Item",
+      "020303": "Corresponding File",
+      "020304": "Description of Subsidiary Item"
+    }
+  },
+  "table-2-04": {
+    "name": "Cash Flow Project",
+    "field": {
+      "020401": "Code of Cash Flow Item",
+      "020402": "Name of Cash Flow Item",
+      "020403": "Description of Cash Flow Item",
+      "020404": "Bottom of Hierarchy",
+      "020405": "Hierarchy of Cash Flow Item",
+      "020406": "Parent of Cash Flow Item",
+      "020407": "Data Source of Cash Flow",
+      "020408": "Property of Cash Flow Item"
+    }
+  },
+  "table-2-05": {
+    "name": "Account Balance and Occurrence",
+    "field": {
+      "020201": "Account Number",
+      "020301": "Number N of Subsidiary Item",
+      "020501": "Opening Balance Debit or Credit",
+      "020502": "Closing Balance Debit or Credit",
+      "010501": "Currency Code",
+      "020503": "Measurement Unit",
+      "010110": "Fiscal Year",
+      "010201": "Number of Accounting Period",
+      "020504": "Amount of Beginning Balance",
+      "020505": "Beginning Balance of Local Currency",
+      "020506": "Beginning Balance of Functional Currency",
+      "020507": "Debit Amount",
+      "020508": "Debit Amount of Local Currency",
+      "020509": "Debit Amount of Functional Currency",
+      "020510": "Credit Amount",
+      "020511": "Credit Amount of Local Currency",
+      "020512": "Credit Amount of Functional Currency",
+      "020513": "Amount of Ending Balance",
+      "020514": "Ending Balance of Local Currency",
+      "020515": "Ending Balance of Functional Currency"
+    }
+  },
+  "table-2-06": {
+    "name": "Account Voucher",
+    "field": {
+      "020601": "Date of Journal Entry",
+      "010110": "Fiscal Year",
+      "010201": "Number of Accounting Period",
+      "010301": "Number of Journal Entry Type",
+      "020602": "Number of Journal Entry",
+      "020603": "Line Number of Journal Entry",
+      "020604": "Summary of Journal Entry",
+      "020201": "Account Number",
+      "020301": "Number N of Subsidiary Item",
+      "010501": "Currency Code",
+      "020503": "Measurement Unit",
+      "020507": "Debit Amount",
+      "020508": "Debit Amount of Local Currency",
+      "020509": "Debit Amount of Functional Currency",
+      "020510": "Credit Amount",
+      "020511": "Credit Amount of Local Currency",
+      "020512": "Credit Amount of Functional Currency",
+      "010401": "Code of Exchange Rate Type",
+      "020605": "Exchange Rate",
+      "020606": "Unit Price",
+      "020607": "Value of Extensible Field Structure of Document",
+      "020608": "Value of Extensible Field Structure of Entry",
+      "010601": "Code of Settlement Method",
+      "020609": "Document Type",
+      "020610": "Document Number",
+      "020611": "Document Date",
+      "020612": "Number of Attachments",
+      "020613": "Accountant Preparing Document",
+      "020614": "Accountant Verifying Document",
+      "020615": "Accountant in Charge of Entering",
+      "020616": "Sign of Entering",
+      "020617": "Sign of Cancellation",
+      "020618": "Source Module of Journal Entry"
+    }
+  },
+  "table-2-07": {
+    "name": "Cash Flow Document Item Data",
+    "field": {
+      "010301": "Number of Journal Entry Type",
+      "020602": "Number of Journal Entry",
+      "010501": "Currency Code",
+      "020701": "Line Number of Cash Flow",
+      "020702": "Summary of Cash Flow",
+      "020401": "Rules of Cash-flow-item Encoding",
+      "020408": "Property of Cash Flow Item",
+      "020703": "Cash Flow Amount of Local Currency",
+      "020704": "Cash Flow Amount of Functional Currency"
+    }
+  },
+  "table-2-08": {
+    "name": "Report Set",
+    "field": {
+      "020801": "Statement Number",
+      "020802": "Statement Name",
+      "020803": "Date of Statement",
+      "020804": "Reporting Period of Statement",
+      "020805": "Accounting Entity",
+      "020806": "Currency unit"
+    }
+  },
+  "table-2-09": {
+    "name": "Report Item Data",
+    "field": {
+      "020801": "Statement Number",
+      "020901": "Number of Statement Item",
+      "020902": "Name of Statement Item",
+      "020903": "Formula of Statement Item",
+      "020904": "Amount of Statement Item"
+    }
+  },
+  "table-3-01": {
+    "name": "Type of Document",
+    "field": {
+      "030101": "Code of Document Type",
+      "030102": "Name of Document Type"
+    }
+  },
+  "table-3-02": {
+    "name": "Type of Transaction",
+    "field": {
+      "030201": "Code of Transaction Type",
+      "030202": "Name of Transaction Type"
+    }
+  },
+  "table-3-03": {
+    "name": "Statement of Receivable Account",
+    "field": {
+      "011001": "Customer Number",
+      "020201": "Account Number",
+      "020601": "Date of Journal Entry",
+      "030301": "Entering Date",
+      "010110": "Fiscal Year",
+      "010201": "Number of Accounting Period",
+      "010301": "Number of Journal Entry Type",
+      "020602": "Number of Journal Entry",
+      "010109": "Functional Currency",
+      "020605": "Exchange Rate",
+      "020205": "Debit or Credit Balance",
+      "030302": "Balance of Functional Currency",
+      "030303": "Balance of Local Currency",
+      "030304": "Debit or Credit Amount of Functional Currency",
+      "030305": "Name of Local Currency",
+      "030306": "Debit or Currency ,CreditAmount of,Local",
+      "030307": "Summary",
+      "030308": "Due Date",
+      "030309": "Number of Write-Off Journal Entry",
+      "030310": "Write-Off Date",
+      "030101": "Code of Document Type",
+      "030201": "Code of Transaction Type",
+      "030311": "Document Number",
+      "030312": "Invoice Number",
+      "030313": "Contract Number",
+      "030314": "Item Code",
+      "010601": "Code of Settlement Method",
+      "030315": "Payment Date",
+      "030316": "Write-Off Sign",
+      "030317": "Draft Number"
+    }
+  },
+  "table-3-04": {
+    "name": "Statement of Payable Account",
+    "field": {
+      "010901": "Supplier Code",
+      "020201": "Account Number",
+      "020601": "Date of Journal Entry",
+      "030301": "Entering Date",
+      "010110": "Fiscal Year",
+      "010201": "Number of Accounting Period",
+      "010301": "Number of Journal Entry Type",
+      "020602": "Number of Journal Entry",
+      "010109": "Functional Currency",
+      "020605": "Exchange Rate",
+      "020205": "Debit or Credit Balance",
+      "030302": "Balance of Functional Currency",
+      "030303": "Balance of Local Currency",
+      "030304": "Debit or Credit Amount of Functional Currency",
+      "030305": "Name of Local Currency",
+      "030306": "Debit or Credit Amount of Local Currency",
+      "030307": "Summary",
+      "030308": "Due Date",
+      "030309": "Number of Write-Off Journal Entry",
+      "030310": "Write-Off Date",
+      "030101": "Code of Document Type",
+      "030201": "Code of Transaction Type",
+      "030311": "Document Number",
+      "030312": "Invoice Number",
+      "030313": "Contract Number",
+      "030314": "Item Code",
+      "010601": "Code of Settlement Method",
+      "030315": "Payment Date",
+      "030316": "Write-Off Sign",
+      "030317": "Draft Number"
+    }
+  },
+  "table-4-01": {
+    "name": "Basic Information of PPE",
+    "field": {
+      "040101": "Number of PPE Reconciliation Account",
+      "040102": "Number of PPE Impairment Provision Reconciliation Account",
+      "040103": "Number of Accumulated Depreciation Reconciliation Account"
+    }
+  },
+  "table-4-02": {
+    "name": "Category Setting of PPE",
+    "field": {
+      "040201": "Encoding Rules of PPE Categories",
+      "040202": "Code of PPE Category",
+      "040203": "Name of PPE Category"
+    }
+  },
+  "table-4-03": {
+    "name": "Change mode of PPE",
+    "field": {
+      "040301": "Code of Change Mode in PPE",
+      "040302": "Name of Change Mode in PPE"
+    }
+  },
+  "table-4-04": {
+    "name": "Depreciation Method of PPE",
+    "field": {
+      "040401": "Code of Depreciation Method",
+      "040402": "Name of Depreciation Method",
+      "040403": "Depreciation Formula"
+    }
+  },
+  "table-4-05": {
+    "name": "Use Status of PPE",
+    "field": {
+      "040501": "Code of PPE Condition",
+      "040502": "Name of PPE Condition"
+    }
+  },
+  "table-4-06": {
+    "name": "PPE Card",
+    "field": {
+      "040601": "Card Number of PPE",
+      "040202": "Code of PPE Category",
+      "040602": "PPE Number",
+      "040603": "PPE Name",
+      "040604": "Entering Date of PPE",
+      "010201": "Number of Accounting Period",
+      "040605": "PPE Measurement Unit",
+      "040606": "Quantity of PPE",
+      "040301": "Code of Change Mode in PPE",
+      "040401": "Code of Depreciation Method",
+      "040501": "Code of PPE Condition",
+      "040607": "Expected Durable Months of PPE",
+      "040608": "Depreciated Months",
+      "010109": "Functional Currency",
+      "040609": "Historical Cost of PPE",
+      "040610": "Accumulated Depreciation of PPE",
+      "040611": "Carrying Amount of PPE",
+      "040612": "Accumulated Impairment Provision of PPE",
+      "040613": "Net Residual Value Ratio of PPE",
+      "040614": "Net Residual Value of PPE",
+      "040615": "Monthly Depreciation Ratio of PPE",
+      "040616": "Monthly Depreciation of PPE",
+      "040617": "PPE Capacity Unit",
+      "040618": "Total PPE Capacity",
+      "040619": "Accumulated Usage of PPE Capacity",
+      "040101": "Number of PPE Reconciliation Account",
+      "040102": "Number of PPE Impairment Provision Reconciliation Account",
+      "040103": "Number of Accumulated Depreciation Reconciliation Account"
+    }
+  },
+  "table-4-07": {
+    "name": "Physical Information of PPE Card",
+    "field": {
+      "040601": "Card Number of PPE",
+      "010201": "Number of Accounting Period",
+      "040701": "Tag Number of PPE",
+      "040702": "Location of PPE",
+      "040703": "Specification Model of PPE"
+    }
+  },
+  "table-4-08": {
+    "name": "Use Information of PPE Card",
+    "field": {
+      "040601": "Card Number of PPE",
+      "040701": "Tag Number of PPE",
+      "010201": "Number of Accounting Period",
+      "010701": "Department Code",
+      "040801": "Depreciation Allocation Proportion"
+    }
+  },
+  "table-4-09": {
+    "name": "Reduction of PPE",
+    "field": {
+      "040901": "Serial Number of PPE Decrement",
+      "040902": "Date of PPE Decrement",
+      "010201": "Number of Accounting Period",
+      "040301": "Code of Change Mode in PPE",
+      "040601": "Card Number of PPE",
+      "040603": "PPE Name",
+      "040602": "PPE Number",
+      "040903": "Amount of PPE Decrement",
+      "040904": "Decrement of PPE Historical Cost",
+      "040905": "Decrement of PPE Accumulated Depreciation",
+      "040906": "Impairment Provision of Decrement of PPE",
+      "040907": "Residual Value of Decrement of PPE",
+      "040908": "Revenue of PPE Disposal",
+      "040909": "Expense of PPE Disposal",
+      "040910": "Reason for PPE Decrement"
+    }
+  },
+  "table-4-10": {
+    "name": "Physical Information of PPE Reduction",
+    "field": {
+      "040901": "Serial Number of PPE Decrement",
+      "040601": "Card Number of PPE",
+      "040701": "Tag Number of PPE",
+      "010201": "Number of Accounting Period"
+    }
+  },
+  "table-4-11": {
+    "name": "Change Information of PPE Reduction",
+    "field": {
+      "041101": "Serial Number of Changes in PPE",
+      "041102": "Date of Changes in PPE",
+      "010201": "Number of Accounting Period",
+      "040601": "Card Number of PPE",
+      "040602": "PPE Number",
+      "040603": "PPE Name",
+      "040301": "Code of Change Mode in PPE",
+      "040701": "Tag Number of PPE",
+      "041103": "Method or Value before Changes in PPE",
+      "041104": "Method or Value after Changes in PPE",
+      "041105": "Reason for Changes in PPE"
+    }
+  },
+  "table-5-01": {
+    "name": "Payroll Period",
+    "field": {
+      "050101": "Payroll Year",
+      "050102": "Number of Payroll Period",
+      "050103": "Beginning Date of Payroll Period",
+      "050104": "Ending Date of Payroll Period"
+    }
+  },
+  "table-5-02": {
+    "name": "Payroll Item",
+    "field": {
+      "050201": "Name of Payroll Category",
+      "050202": "Code of Payroll Item",
+      "050203": "Name of Payroll Item"
+    }
+  },
+  "table-5-03": {
+    "name": "Employee Compensation Record",
+    "field": {
+      "010801": "Employee Code",
+      "050301": "Employee Type",
+      "010701": "Department Code",
+      "050201": "Name of Payroll Category",
+      "050101": "Payroll Year",
+      "050102": "Number of Payroll Period",
+      "010110": "Fiscal Year",
+      "010201": "Number of Accounting Period",
+      "010501": "Currency Code"
+    }
+  },
+  "table-5-04": {
+    "name": "Employee Pay Record Detail",
+    "field": {
+      "010801": "Employee Code",
+      "050201": "Name of Payroll Category",
+      "050101": "Payroll Year",
+      "050102": "Number of Payroll Period",
+      "050202": "Code of Payroll Item",
+      "050401": "Payroll Amount"
+    }
+  }
+}

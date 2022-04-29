@@ -7,7 +7,7 @@ set -euvx
 # -x  Print commands and their arguments as they are executed.
 export LC_ALL=C
 type command >/dev/null 2>&1 && type getconf >/dev/null 2>&1 &&
-export PATH=".:./bin:$(command -p getconf PATH)${PATH+:}${PATH-}"
+export PATH=".:./bin:../bin:$(command -p getconf PATH)${PATH+:}${PATH-}"
 export UNIX_STD=2003  # to make HP-UX conform to POSIX
 # escape space
 VT=$( printf '\v' )

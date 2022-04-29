@@ -16,15 +16,13 @@ Tmp=/tmp/${0##*/}.$$
 # === Log ============================================================
 exec 2>log/${0##*/}.$$.log
 # --------------------------------------------------------------------
-# Module Kind # seq Name(element) DictionaryEntryName Description datatype(xsd)
-# 1      2    3 4   5             6                   7           8
-# objectClassTermQualifier ObjectClassTerm PropertyTermQualifier PropertyTerm
-# 9                        10              11                    12
+# Module Kind # seq Name(element) DictionaryEntryName Description datatype(xsd) objectClassTermQualifier ObjectClassTerm PropertyTermQualifier PropertyTerm
+# 1      2    3 4   5             6                   7           8             9                        10              11                    12
 # DatatypeQualifier RepresentationTerm AssociatedObjectClassTermQualifier AssociatedObjectClass
 # 13                14                 15                                 16
 cat xbrlgl.tsv | awk -F'\t' 'BEGIN { n=0; }
 {
-  if (NR>1 && $2!="" && "ABIE"==$2) {
+  if (NR>1 && $2!="" && "ABIE"!=$2) {
     gsub(/[\n\r\\\"]/,"",$0)
     print "$.data[" n "].num",n;
     print "$.data[" n "].Module",$1;
@@ -65,9 +63,9 @@ cat xbrlgl.tsv | awk -F'\t' 'BEGIN { n=0; }
     if ($16!="") {print "$.data[" n "].AssociatedObjectClass",$16;}
     n=n+1;
   }
-}' | makrj.sh > list-xbrlgl-abie.json #| sed "s/^\(\"[^\":,]*\":\),/\1null,/" > $Tmp-json
+}' | makrj.sh > list-xbrlgl-entity.json #| sed "s/^\(\"[^\":,]*\":\),/\1null,/" > $Tmp-json
 # --------------------------------------------------------------------
 rm $Tmp-*
 rm log/${0##*/}.$$.*
 exit 0
-# list-xbrlgl-abie.sh
+# list-xbrlgl-entity.sh

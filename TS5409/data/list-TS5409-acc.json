@@ -1,0 +1,203 @@
+{
+"data":[{
+"module":"0.Core",
+"num":84,
+"Kind":"ACC",
+"Table":"",
+"BusinessTerm":"List",
+"DictionaryEntryName":"List. Detail.",
+"Description":"A list.",
+"ObjectClassTerm":"List",
+"PropertyTerm":"Detail"
+},{
+"module":"0.Core",
+"num":96,
+"Kind":"ACC",
+"Table":"",
+"BusinessTerm":"Trade Transaction",
+"DictionaryEntryName":"Transaction. Details.",
+"Description":"A trade settlement specified for this trade Line.",
+"ObjectClassTerm":"Transaction",
+"PropertyTerm":"Details"
+},{
+"module":"0.Core",
+"num":126,
+"Kind":"ACC",
+"Table":"",
+"BusinessTerm":"Trade Line",
+"DictionaryEntryName":"Transaction Line. Details.",
+"Description":"",
+"ObjectClassTerm":"Transaction Line",
+"PropertyTerm":"Details"
+},{
+"module":"0.Core",
+"num":160,
+"Kind":"ACC",
+"Table":"",
+"BusinessTerm":" Amount",
+"DictionaryEntryName":"Monetary Value. Details.",
+"Description":"A material or monetary worth of a thing that is associated with a that is a part of an accounting entry.",
+"ObjectClassTerm":"Monetary Value",
+"PropertyTerm":"Details"
+},{
+"module":"0.Core",
+"num":165,
+"Kind":"ACC",
+"Table":"",
+"BusinessTerm":"Person",
+"DictionaryEntryName":"Person. Detail.",
+"Description":"A person who is an employee and perform ERP system operation.",
+"ObjectClassTerm":"Person",
+"PropertyTerm":"Detail"
+},{
+"module":"0.Core",
+"num":180,
+"Kind":"ACC",
+"Table":"",
+"BusinessTerm":"Contact",
+"DictionaryEntryName":"Contact. Details.",
+"Description":"A person or department that acts as a point of contact with another person or department.",
+"ObjectClassTerm":"Contact",
+"PropertyTerm":"Details"
+},{
+"module":"1.Common",
+"num":186,
+"Kind":"ACC",
+"Table":"AMOUNT CURRENCY",
+"BusinessTerm":"Amount Currency",
+"DictionaryEntryName":"Multi Currency Amount. Detail.",
+"Description":"Amount in different currencies.",
+"ObjectClassTerm":"Multi Currency Amount",
+"PropertyTerm":"Detail",
+"ATTRIBUTE":"AMOUNT AND CURRENCY"
+},{
+"module":"1.Common",
+"num":199,
+"Kind":"ACC",
+"Table":"HANDLING",
+"BusinessTerm":"Handling",
+"DictionaryEntryName":"Handling. Detail.",
+"Description":"Handling information.",
+"ObjectClassTerm":"Handling",
+"PropertyTerm":"Detail"
+},{
+"module":"1.Common",
+"num":203,
+"Kind":"ACC",
+"Table":"",
+"BusinessTerm":"Accounting Account",
+"DictionaryEntryName":"Accounting Account. Details.",
+"Description":"ADCS-00116 A specific account for recording debits and credits to general accounting, cost accounting or budget accounting.",
+"ObjectClassTerm":"Accounting Account",
+"PropertyTerm":"Details"
+},{
+"module":"1.Common",
+"num":219,
+"Kind":"ACC",
+"Table":"",
+"BusinessTerm":"Accounting Entry",
+"DictionaryEntryName":"Accounting Entry. Details.",
+"Description":"ADCS-00130 A posting of monetary values into accounting books that indicates the financial flow for an economic event, the acquisition or consumption of a resource, or the working contribution of an agent.",
+"ObjectClassTerm":"Accounting Entry",
+"PropertyTerm":"Details"
+},{
+"module":"1.Common",
+"num":242,
+"Kind":"ACC",
+"Table":"",
+"BusinessTerm":"Accounting Entry Line",
+"DictionaryEntryName":"Accounting Entry Line. Details.",
+"Description":"ADCS-00138 A line included in an accounting entry.",
+"ObjectClassTerm":"Accounting Entry Line",
+"PropertyTerm":"Details"
+},{
+"module":"1.Common",
+"num":259,
+"Kind":"ACC",
+"Table":"CONTACT",
+"BusinessTerm":"Contact",
+"DictionaryEntryName":"Contact. Detail.",
+"Description":"Contact information.",
+"ObjectClassTerm":"Contact",
+"PropertyTerm":"Detail"
+},{
+"module":"1.Common",
+"num":263,
+"Kind":"ACC",
+"Table":"CONTRACT",
+"BusinessTerm":"Contract",
+"DictionaryEntryName":"Contract. Detail.",
+"Description":"Contains information about a contract.",
+"ObjectClassTerm":"Contract",
+"PropertyTerm":"Detail"
+},{
+"module":"1.Common",
+"num":281,
+"Kind":"ACC",
+"Table":"CONTRACT DETAILS",
+"BusinessTerm":"Contract Details",
+"DictionaryEntryName":"Contract Line. Detail.",
+"Description":"Contains line item details for a contract.",
+"ObjectClassTerm":"Contract Line",
+"PropertyTerm":"Detail",
+"ATTRIBUTE":"CONTRACT DETAILS"
+},{
+"module":"1.Common",
+"num":299,
+"Kind":"ACC",
+"Table":"INVOICE",
+"BusinessTerm":"Invoice",
+"DictionaryEntryName":"Invoice. Detail.",
+"Description":"Contains the summery information for the invoices.",
+"ObjectClassTerm":"Invoice",
+"PropertyTerm":"Detail",
+"ATTRIBUTE":"INVOICE"
+},{
+"module":"1.Common",
+"num":323,
+"Kind":"ACC",
+"Table":"INVOICE DETAILS",
+"BusinessTerm":"Invoice Details",
+"DictionaryEntryName":"Invoice Line. Detail.",
+"Description":"Contains line item details for invoices.",
+"ObjectClassTerm":"Invoice Line",
+"PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
+"ATTRIBUTE":"INVOICE DETAILS"
+},{
+"module":"1.Common",
+"num":344,
+"Kind":"ACC",
+"Table":"ORDER",
+"BusinessTerm":"Order",
+"DictionaryEntryName":"Order. Detail.",
+"Description":"Contains summary information of orders.",
+"ObjectClassTerm":"Order",
+"PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
+"ATTRIBUTE":"ORDER"
+},{
+"module":"1.Common",
+"num":363,
+"Kind":"ACC",
+"Table":"ORDER DETAILS",
+"BusinessTerm":"Order Details",
+"DictionaryEntryName":"Order Line. Detail.",
+"Description":"Line item details for orders.",
+"ObjectClassTerm":"Order Line",
+"PropertyTerm":"Detail",
+"RepresentationTerm":"Code",
+"ATTRIBUTE":"ORDER DETAILS"
+},{
+"module":"1.Common",
+"num":390,
+"Kind":"ACC",
+"Table":"",
+"BusinessTerm":"Party",
+"DictionaryEntryName":"Party. Details.",
+"Description":"An individual, a group, or a body having a role in a business function. Party has a legal connotation in a business transaction.",
+"ObjectClassTerm":"Party",
+"PropertyTerm":"Details",
+"RepresentationTerm":"Code"
+}]
+}
