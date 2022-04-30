@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by Frans Bus, 2020-02-11. See also pixcels.nl/saf-t-testfiles/ -->
+<AuditFile xmlns="urn:OECD:StandardAuditFile-Taxation/2.00">
+  <Header>
+    <AuditFileVersion/>
+    <AuditFileCountry>N1</AuditFileCountry>
+    <AuditFileDateCreated>1900-01-01</AuditFileDateCreated>
+    <SoftwareCompanyName/>
+    <SoftwareID/>
+    <SoftwareVersion/>
+    <Company>
+      <RegistrationNumber/>
+      <Name/>
+      <Address>
+        <City/>
+        <PostalCode/>
+      </Address>
+      <Contact>
+        <ContactPerson>
+          <FirstName/>
+          <LastName/>
+        </ContactPerson>
+        <Telephone/>
+      </Contact>
+    </Company>
+    <DefaultCurrencyCode>De1</DefaultCurrencyCode>
+    <TaxAccountingBasis/>
+  </Header>
+</AuditFile>

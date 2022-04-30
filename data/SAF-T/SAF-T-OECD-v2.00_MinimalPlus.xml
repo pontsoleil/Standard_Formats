@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created by Frans Bus, 2020-02-11. See also pixcels.nl/saf-t-testfiles/ -->
+<AuditFile xmlns="urn:OECD:StandardAuditFile-Taxation/2.00">
+  <Header>
+    <AuditFileVersion/>
+    <AuditFileCountry>NL</AuditFileCountry>
+    <AuditFileDateCreated>1900-01-01</AuditFileDateCreated>
+    <SoftwareCompanyName/>
+    <SoftwareID/>
+    <SoftwareVersion/>
+    <Company>
+      <RegistrationNumber/>
+      <Name/>
+      <!--Address is repeating {1,-1}-->
+      <Address>
+        <City/>
+        <PostalCode/>
+      </Address>
+      <!--Contact is repeating {1,-1}-->
+      <Contact>
+        <ContactPerson>
+          <FirstName/>
+          <LastName/>
+        </ContactPerson>
+        <Telephone/>
+      </Contact>
+    </Company>
+    <DefaultCurrencyCode>EUR</DefaultCurrencyCode>
+    <TaxAccountingBasis/>
+  </Header>
+  <MasterFiles>
+    <GeneralLedgerAccounts>
+      <!--Account is repeating {1,-1}-->
+      <Account>
+        <AccountID>AccountID1</AccountID>
+        <AccountDescription/>
+        <AccountType/>
+        <OpeningDebitBalance>0.00</OpeningDebitBalance>
+        <ClosingCreditBalance>0.00</ClosingCreditBalance>
+      </Account>
+    </GeneralLedgerAccounts>
+    <Taxonomies>
+      <!--Taxonomy is repeating {1,-1}-->
+      <Taxonomy>
+        <TaxonomyReference/>
+      </Taxonomy>
+    </Taxonomies>
+    <Customers>
+      <!--Customer is repeating {1,-1}-->
+      <Customer>
+        <Name/>
+        <Address>
+          <City/>
+          <PostalCode/>
+        </Address>
+        <CustomerID>CustomerID1</CustomerID>
+      </Customer>
+    </Customers>
+    <Suppliers>
+      <!--Supplier is repeating {1,-1}-->
+      <Supplier>
+        <Name/>
+        <Address>
+          <City/>
+          <PostalCode/>
+        </Address>
+        <SupplierID>SupplierID1</SupplierID>
+      </Supplier>
+    </Suppliers>
+    <TaxTable>
+      <!--TaxTableEntry is repeating {1,-1}-->
+      <TaxTableEntry>
+        <TaxType>TaxType1</TaxType>
+        <Description/>
+        <TaxCodeDetails>
+          <TaxCode>TaxCode1</TaxCode>
+          <TaxPercentage>0.00</TaxPercentage>
+          <Country>NL</Country>
+        </TaxCodeDetails>
+      </TaxTableEntry>
+    </TaxTable>
+    <UOMTable>
+      <!--UOMTableEntry is repeating {1,-1}-->
+      <UOMTableEntry>
+        <UnitOfMeasure>UOM1</UnitOfMeasure>
+        <Description/>
+      </UOMTableEntry>
+    </UOMTable>
+    <AnalysisTypeTable>
+      <!--AnalysisTypeTableEntry is repeating {1,-1}-->
+      <AnalysisTypeTableEntry>
+        <AnalysisType>AnType1</AnalysisType>
+        <AnalysisTypeDescription/>
+        <AnalysisID>AnalysisID1</AnalysisID>
+        <AnalysisIDDescription/>
+      </AnalysisTypeTableEntry>
+    </AnalysisTypeTable>
+    <MovementTypeTable>
+      <!--MovementTypeTableEntry is repeating {1,-1}-->
+      <MovementTypeTableEntry>
+        <MovementType>Type1</MovementType>
+        <Description/>
+      </MovementTypeTableEntry>
+    </MovementTypeTable>
+    <Products>
+      <!--Product is repeating {1,-1}-->
+      <Product>
+        <ProductCode>ProductCode1</ProductCode>
+        <Description/>
+        <UOMBase>UOM1</UOMBase>
+      </Product>
+    </Products>
+    <PhysicalStock>
+      <!--PhysicalStockEntry is repeating {1,-1}-->
+      <PhysicalStockEntry>
+        <ProductCode>ProductCode1</ProductCode>
+        <StockAccountNo>StockAccountNo1</StockAccountNo>
+        <OpeningStockQuantity>0.00</OpeningStockQuantity>
+        <ClosingStockQuantity>0.00</ClosingStockQuantity>
+      </PhysicalStockEntry>
+    </PhysicalStock>
+    <Owners>
+      <!--Owner is repeating {1,-1}-->
+      <Owner>
+        <Name/>
+        <Address>
+          <City/>
+          <PostalCode/>
+        </Address>
+        <OwnerID/>
+      </Owner>
+    </Owners>
+    <Assets>
+      <!--Asset is repeating {1,-1}-->
+      <Asset>
+        <AssetID>AssetID1</AssetID>
+        <AccountID>AccountID1</AccountID>
+        <Description/>
+        <DateOfAcquisition>1900-01-01</DateOfAcquisition>
+        <Valuations>
+          <Valuation>
+            <AcquisitionAndProductionCostsBegin>0.00</AcquisitionAndProductionCostsBegin>
+            <AcquisitionAndProductionCostsEnd>0.00</AcquisitionAndProductionCostsEnd>
+            <AssetLifeYear>0.00</AssetLifeYear>
+            <DepreciationForPeriod>0.00</DepreciationForPeriod>
+            <BookValueEnd>0.00</BookValueEnd>
+          </Valuation>
+        </Valuations>
+      </Asset>
+    </Assets>
+    <!-- any ##other -->
+  </MasterFiles>
+  <GeneralLedgerEntries>
+    <NumberOfEntries>0</NumberOfEntries>
+    <TotalDebit>0.00</TotalDebit>
+    <TotalCredit>0.00</TotalCredit>
+    <!--Journal is repeating {0,-1}-->
+    <Journal>
+      <JournalID/>
+      <Description/>
+      <Type/>
+    </Journal>
+    <Journal>
+      <JournalID/>
+      <Description/>
+      <Type/>
+      <!--Transaction is repeating {0,-1}-->
+      <Transaction>
+        <TransactionID>TransactionID1</TransactionID>
+        <Period>0</Period>
+        <PeriodYear>2012</PeriodYear>
+        <TransactionDate>1900-01-01</TransactionDate>
+        <Description/>
+        <SystemEntryDate>1900-01-01</SystemEntryDate>
+        <GLPostingDate>1900-01-01</GLPostingDate>
+        <!--Line is repeating {1,-1}-->
+        <Line>
+          <RecordID/>
+          <AccountID>AccountID1</AccountID>
+          <Description/>
+          <DebitAmount>
+            <Amount>0.00</Amount>
+          </DebitAmount>
+        </Line>
+      </Transaction>
+    </Journal>
+  </GeneralLedgerEntries>
+  <SourceDocuments>
+    <SalesInvoices>
+      <NumberOfEntries>0</NumberOfEntries>
+      <TotalDebit>0.00</TotalDebit>
+      <TotalCredit>0.00</TotalCredit>
+      <!--Invoice is repeating {1,-1}-->
+      <Invoice>
+        <InvoiceNo/>
+        <InvoiceDate>1900-01-01</InvoiceDate>
+        <Line>
+          <UnitPrice>0.00</UnitPrice>
+          <TaxPointDate>1900-01-01</TaxPointDate>
+          <Description/>
+          <InvoiceLineAmount>
+            <Amount>0.00</Amount>
+          </InvoiceLineAmount>
+          <DebitCreditIndicator>D</DebitCreditIndicator>
+        </Line>
+      </Invoice>
+    </SalesInvoices>
+    <PurchaseInvoices>
+      <NumberOfEntries>0</NumberOfEntries>
+      <TotalDebit>0.00</TotalDebit>
+      <TotalCredit>0.00</TotalCredit>
+      <!--Invoice is repeating {1,-1}-->
+      <Invoice>
+        <InvoiceNo/>
+        <InvoiceDate>1900-01-01</InvoiceDate>
+        <Line>
+          <UnitPrice>0.00</UnitPrice>
+          <TaxPointDate>1900-01-01</TaxPointDate>
+          <Description/>
+          <InvoiceLineAmount>
+            <Amount>0.00</Amount>
+          </InvoiceLineAmount>
+          <DebitCreditIndicator>D</DebitCreditIndicator>
+        </Line>
+      </Invoice>
+    </PurchaseInvoices>
+    <Payments>
+      <NumberOfEntries>0</NumberOfEntries>
+      <TotalDebit>0.00</TotalDebit>
+      <TotalCredit>0.00</TotalCredit>
+      <!--Payment is repeating {1,-1}-->
+      <Payment>
+        <PaymentRefNo/>
+        <TransactionDate>1900-01-01</TransactionDate>
+        <Description/>
+        <Line>
+          <DebitCreditIndicator>D</DebitCreditIndicator>
+          <PaymentLineAmount>
+            <Amount>0.00</Amount>
+          </PaymentLineAmount>
+        </Line>
+      </Payment>
+    </Payments>
+    <MovementOfGoods>
+      <NumberOfMovementLines>0</NumberOfMovementLines>
+      <TotalQuantityReceived>0.00</TotalQuantityReceived>
+      <TotalQuantityIssued>0.00</TotalQuantityIssued>
+      <!--StockMovement is repeating {1,-1}-->
+      <StockMovement>
+        <MovementReference/>
+        <MovementDate>1900-01-01</MovementDate>
+        <MovementType>Type1</MovementType>
+        <!--Line is repeating {1,-1}-->
+        <Line>
+          <LineNumber/>
+          <ProductCode>ProductCode1</ProductCode>
+          <Quantity>0.00</Quantity>
+          <MovementSubType>Type1</MovementSubType>
+        </Line>
+      </StockMovement>
+    </MovementOfGoods>
+    <AssetTransactions>
+      <NumberOfAssetTransactions>0</NumberOfAssetTransactions>
+      <!--AssetTransaction is repeating {1,-1}-->
+      <AssetTransaction>
+        <AssetTransactionID>TransactionID1</AssetTransactionID>
+        <AssetID>AssetID1</AssetID>
+        <AssetTransactionType/>
+        <AssetTransactionDate>1900-01-01</AssetTransactionDate>
+        <AssetTransactionValuations>
+          <AssetTransactionValuation>
+            <AcquisitionAndProductionCostsOnTransaction>0.00</AcquisitionAndProductionCostsOnTransaction>
+            <BookValueOnTransaction>0.00</BookValueOnTransaction>
+            <AssetTransactionAmount>0.00</AssetTransactionAmount>
+          </AssetTransactionValuation>
+        </AssetTransactionValuations>
+      </AssetTransaction>
+    </AssetTransactions>
+  </SourceDocuments>
+</AuditFile>

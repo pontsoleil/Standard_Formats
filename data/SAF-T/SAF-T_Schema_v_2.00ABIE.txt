@@ -1,0 +1,1605 @@
+/AuditFile/@name AuditFile
+/AuditFile/Header/@name Header
+/AuditFile/Header/@desc Holds general information about the file including the name of the software which produced it; the company on whose behalf the SAF-T is being submitted; and the selection criteria used. An extension point is provided to allow individual Revenue Bodies to  specify further relevant information to be supplied.
+/AuditFile/Header/HeaderStructure/@base HeaderStructure
+/AuditFile/Header/TaxAccountingBasis/@name TaxAccountingBasis
+/AuditFile/Header/TaxAccountingBasis/@type SAFshorttextType
+/AuditFile/Header/TaxAccountingBasis/@desc Invoice Accounting, Cash Accounting, Delivery, other ...
+/AuditFile/Header/TaxEntity/@name TaxEntity
+/AuditFile/Header/TaxEntity/@type SAFmiddle2textType
+/AuditFile/Header/TaxEntity/@minOccurs 0
+/AuditFile/Header/TaxEntity/@desc Company / Division / Branch reference
+/AuditFile/Header/any@namespace ##other
+/AuditFile/Header/any@minOccurs 0
+/AuditFile/Header/any@desc Represents space to allow individual Revenue Bodies to add further elements if required. See Annex A.
+/AuditFile/MasterFiles/@name MasterFiles
+/AuditFile/MasterFiles/@minOccurs 0
+/AuditFile/MasterFiles/@desc Holds standing data about general ledger account, suppliers, customers, products, etc.. An extension point is provided to allow Revenue Bodies to specify additional elements or structures such as tax rate tables.
+/AuditFile/MasterFiles/GeneralLedgerAccount/@name GeneralLedgerAccounts
+/AuditFile/MasterFiles/GeneralLedgerAccount/@minOccurs 0
+/AuditFile/MasterFiles/GeneralLedgerAccount/Account/@name Account
+/AuditFile/MasterFiles/GeneralLedgerAccount/Account/@maxOccurs unbounded
+/AuditFile/MasterFiles/GeneralLedgerAccount/Account/AccountID/@name AccountID
+/AuditFile/MasterFiles/GeneralLedgerAccount/Account/AccountID/@type SAFmiddle2textType
+/AuditFile/MasterFiles/GeneralLedgerAccount/Account/AccountID/@desc General Ledger Account code. Can be including sub-account id. It can contain many different levels to identify the Account. It could include cost centres such as company, division, region, group and branch/department.
+/AuditFile/MasterFiles/GeneralLedgerAccount/Account/AccountDescription/@name AccountDescription
+/AuditFile/MasterFiles/GeneralLedgerAccount/Account/AccountDescription/@type SAFlongtextType
+/AuditFile/MasterFiles/GeneralLedgerAccount/Account/AccountDescription/@desc Name of individual GL account
+/AuditFile/MasterFiles/GeneralLedgerAccount/Account/StandardAccountID/@name StandardAccountID
+/AuditFile/MasterFiles/GeneralLedgerAccount/Account/StandardAccountID/@type SAFmiddle1textType
+/AuditFile/MasterFiles/GeneralLedgerAccount/Account/StandardAccountID/@minOccurs 0
+/AuditFile/MasterFiles/GeneralLedgerAccount/Account/StandardAccountID/@desc AccountID based on a standard prescribed by authorities.
+/AuditFile/MasterFiles/GeneralLedgerAccount/Account/GroupingCategory/@name GroupingCategory
+/AuditFile/MasterFiles/GeneralLedgerAccount/Account/GroupingCategory/@type SAFmiddle1textType
+/AuditFile/MasterFiles/GeneralLedgerAccount/Account/GroupingCategory/@minOccurs 0
+/AuditFile/MasterFiles/GeneralLedgerAccount/Account/GroupingCategory/@desc Category for grouping the accounts, relevant in reconciling financial statements f.i.
+/AuditFile/MasterFiles/GeneralLedgerAccount/Account/GroupingCode/@name GroupingCode
+/AuditFile/MasterFiles/GeneralLedgerAccount/Account/GroupingCode/@type SAFmiddle1textType
+/AuditFile/MasterFiles/GeneralLedgerAccount/Account/GroupingCode/@minOccurs 0
+/AuditFile/MasterFiles/GeneralLedgerAccount/Account/GroupingCode/@desc Subcode for grouping the accounts, relevant in reconciling financial statements f.i.
+/AuditFile/MasterFiles/GeneralLedgerAccount/Account/AccountType/@name AccountType
+/AuditFile/MasterFiles/GeneralLedgerAccount/Account/AccountType/@type SAFshorttextType
+/AuditFile/MasterFiles/GeneralLedgerAccount/Account/AccountType/@desc Type of account  - Asset/Liability/Sale/Expense
+/AuditFile/MasterFiles/GeneralLedgerAccount/Account/AccountCreationDate/@name AccountCreationDate
+/AuditFile/MasterFiles/GeneralLedgerAccount/Account/AccountCreationDate/@type date
+/AuditFile/MasterFiles/GeneralLedgerAccount/Account/AccountCreationDate/@minOccurs 0
+/AuditFile/MasterFiles/GeneralLedgerAccount/Account/AccountCreationDate/@desc Date of creating the generalledger account
+/AuditFile/MasterFiles/GeneralLedgerAccount/Account/OpeningDebitBalance/@choice OpeningDebitBalance/ClosingDebitBalance
+/AuditFile/MasterFiles/GeneralLedgerAccount/Account/OpeningDebitBalance/@name OpeningDebitBalance
+/AuditFile/MasterFiles/GeneralLedgerAccount/Account/OpeningDebitBalance/@type SAFmonetaryType
+/AuditFile/MasterFiles/GeneralLedgerAccount/Account/OpeningDebitBalance/@desc Debit balance at the start date of the selection period in the header's default currency.
+/AuditFile/MasterFiles/GeneralLedgerAccount/Account/OpeningCreditBalance/@name OpeningCreditBalance
+/AuditFile/MasterFiles/GeneralLedgerAccount/Account/OpeningCreditBalance/@type SAFmonetaryType
+/AuditFile/MasterFiles/GeneralLedgerAccount/Account/OpeningCreditBalance/@desc Credit balance at the start date of the selection period in the header's default currency.
+/AuditFile/MasterFiles/GeneralLedgerAccount/Account/ClosingDebitBalance/@name ClosingDebitBalance
+/AuditFile/MasterFiles/GeneralLedgerAccount/Account/ClosingDebitBalance/@type SAFmonetaryType
+/AuditFile/MasterFiles/GeneralLedgerAccount/Account/ClosingDebitBalance/@desc Debit balance at the end date of the selection period in the header's default currency.
+/AuditFile/MasterFiles/GeneralLedgerAccount/Account/ClosingCreditBalance/@name ClosingCreditBalance
+/AuditFile/MasterFiles/GeneralLedgerAccount/Account/ClosingCreditBalance/@type SAFmonetaryType
+/AuditFile/MasterFiles/GeneralLedgerAccount/Account/ClosingCreditBalance/@desc Credit balance at the end date of the selection period in the header's default currency.
+/AuditFile/MasterFiles/GeneralLedgerAccount/Account/any@namespace ##other
+/AuditFile/MasterFiles/GeneralLedgerAccount/Account/any@minOccurs 0
+/AuditFile/MasterFiles/GeneralLedgerAccount/Account/any@desc Represents space to allow individual Revenue Bodies to add further elements
+/AuditFile/MasterFiles/Taxonomies/@name Taxonomies
+/AuditFile/MasterFiles/Taxonomies/@minOccurs 0
+/AuditFile/MasterFiles/Taxonomies/Taxonomy/@name Taxonomy
+/AuditFile/MasterFiles/Taxonomies/Taxonomy/@maxOccurs unbounded
+/AuditFile/MasterFiles/Taxonomies/Taxonomy/TaxonomyReference/@name TaxonomyReference
+/AuditFile/MasterFiles/Taxonomies/Taxonomy/TaxonomyReference/@type SAFlongtextType
+/AuditFile/MasterFiles/Taxonomies/Taxonomy/TaxonomyReference/@desc Reference to the taxonomy that applies to the GL Account.
+/AuditFile/MasterFiles/Taxonomies/Taxonomy/TaxonomyElement/@name TaxonomyElement
+/AuditFile/MasterFiles/Taxonomies/Taxonomy/TaxonomyElement/@minOccurs 0
+/AuditFile/MasterFiles/Taxonomies/Taxonomy/TaxonomyElement/@maxOccurs unbounded
+/AuditFile/MasterFiles/Taxonomies/Taxonomy/TaxonomyElement/TaxonomyCode/@name TaxonomyCode
+/AuditFile/MasterFiles/Taxonomies/Taxonomy/TaxonomyElement/TaxonomyCode/@type SAFlongtextType
+/AuditFile/MasterFiles/Taxonomies/Taxonomy/TaxonomyElement/TaxonomyCode/@desc Reference to specific taxonomy element
+/AuditFile/MasterFiles/Taxonomies/Taxonomy/TaxonomyElement/TaxonomyClusterID/@name TaxonomyClusterID
+/AuditFile/MasterFiles/Taxonomies/Taxonomy/TaxonomyElement/TaxonomyClusterID/@type SAFlongtextType
+/AuditFile/MasterFiles/Taxonomies/Taxonomy/TaxonomyElement/TaxonomyClusterID/@minOccurs 0
+/AuditFile/MasterFiles/Taxonomies/Taxonomy/TaxonomyElement/TaxonomyClusterID/@desc Additional reference to specific taxonomy element
+/AuditFile/MasterFiles/Taxonomies/Taxonomy/TaxonomyElement/TaxonomyClusterContextID/@name TaxonomyClusterContextID
+/AuditFile/MasterFiles/Taxonomies/Taxonomy/TaxonomyElement/TaxonomyClusterContextID/@type SAFlongtextType
+/AuditFile/MasterFiles/Taxonomies/Taxonomy/TaxonomyElement/TaxonomyClusterContextID/@minOccurs 0
+/AuditFile/MasterFiles/Taxonomies/Taxonomy/TaxonomyElement/AccountID/@name AccountID
+/AuditFile/MasterFiles/Taxonomies/Taxonomy/TaxonomyElement/AccountID/@type SAFmiddle2textType
+/AuditFile/MasterFiles/Taxonomies/Taxonomy/TaxonomyElement/AccountID/@desc General Ledger Account code for this TaxanomyReference/TaxonomyCode. Can be including sub-account id. It can contain many different levels to identify the Account. It could include cost centres such as company, division, region, group and branch/department.
+/AuditFile/MasterFiles/Customers/@name Customers
+/AuditFile/MasterFiles/Customers/@minOccurs 0
+/AuditFile/MasterFiles/Customers/Customer/@name Customer
+/AuditFile/MasterFiles/Customers/Customer/@maxOccurs unbounded
+/AuditFile/MasterFiles/Customers/Customer/CompanyStructure/@base CompanyStructure
+/AuditFile/MasterFiles/Customers/Customer/CustomerID/@name CustomerID
+/AuditFile/MasterFiles/Customers/Customer/CustomerID/@type SAFmiddle1textType
+/AuditFile/MasterFiles/Customers/Customer/CustomerID/@minOccurs 0
+/AuditFile/MasterFiles/Customers/Customer/CustomerID/@desc Unique code for the customer
+/AuditFile/MasterFiles/Customers/Customer/SelfBillingIndicator/@name SelfBillingIndicator
+/AuditFile/MasterFiles/Customers/Customer/SelfBillingIndicator/@type SAFcodeType
+/AuditFile/MasterFiles/Customers/Customer/SelfBillingIndicator/@minOccurs 0
+/AuditFile/MasterFiles/Customers/Customer/SelfBillingIndicator/@desc Indicator showing if a self-billing agreement exists between the customer and the supplier
+/AuditFile/MasterFiles/Customers/Customer/AccountID/@name AccountID
+/AuditFile/MasterFiles/Customers/Customer/AccountID/@type SAFmiddle2textType
+/AuditFile/MasterFiles/Customers/Customer/AccountID/@minOccurs 0
+/AuditFile/MasterFiles/Customers/Customer/AccountID/@desc General Ledger Account code for this customer. Can be including sub-account id. It can contain many different levels to identify the Account. It could include cost centres such as company, division, region, group and branch/department.
+/AuditFile/MasterFiles/Customers/Customer/OpeningDebitBalance/@choice OpeningDebitBalance/OpeningDebitBalance
+/AuditFile/MasterFiles/Customers/Customer/OpeningDebitBalance/@name OpeningDebitBalance
+/AuditFile/MasterFiles/Customers/Customer/OpeningDebitBalance/@type SAFmonetaryType
+/AuditFile/MasterFiles/Customers/Customer/OpeningDebitBalance/@desc Debit balance at the start date of the selection period in the header's default currency.
+/AuditFile/MasterFiles/Customers/Customer/OpeningDebitBalance/@name OpeningDebitBalance
+/AuditFile/MasterFiles/Customers/Customer/OpeningDebitBalance/@type SAFmonetaryType
+/AuditFile/MasterFiles/Customers/Customer/OpeningDebitBalance/@desc Credit balance at the start date of the selection period in the header's default currency.
+/AuditFile/MasterFiles/Customers/Customer/ClosingDebitBalance/@choice ClosingDebitBalance/ClosingCreditBalance
+/AuditFile/MasterFiles/Customers/Customer/ClosingDebitBalance/@name ClosingDebitBalance
+/AuditFile/MasterFiles/Customers/Customer/ClosingDebitBalance/@type SAFmonetaryType
+/AuditFile/MasterFiles/Customers/Customer/ClosingDebitBalance/@desc Debit balance at the end date of the selection period in the header's default currency.
+/AuditFile/MasterFiles/Customers/Customer/ClosingCreditBalance/@name ClosingCreditBalance
+/AuditFile/MasterFiles/Customers/Customer/ClosingCreditBalance/@type SAFmonetaryType
+/AuditFile/MasterFiles/Customers/Customer/ClosingCreditBalance/@desc Credit balance at the end date of the selection period in the header's default currency.
+/AuditFile/MasterFiles/Customers/Customer/any@namespace ##other
+/AuditFile/MasterFiles/Customers/Customer/any@minOccurs 0
+/AuditFile/MasterFiles/Customers/Customer/any@desc Represents space to allow individual Revenue Bodies to add further elements
+/AuditFile/MasterFiles/Suppliers/@name Suppliers
+/AuditFile/MasterFiles/Suppliers/@minOccurs 0
+/AuditFile/MasterFiles/Suppliers/Supplier/@name Supplier
+/AuditFile/MasterFiles/Suppliers/Supplier/@maxOccurs unbounded
+/AuditFile/MasterFiles/Suppliers/Supplier/CompanyStructure/@base CompanyStructure
+/AuditFile/MasterFiles/Suppliers/Supplier/SupplierID/@name SupplierID
+/AuditFile/MasterFiles/Suppliers/Supplier/SupplierID/@type SAFmiddle1textType
+/AuditFile/MasterFiles/Suppliers/Supplier/SupplierID/@minOccurs 0
+/AuditFile/MasterFiles/Suppliers/Supplier/SupplierID/@desc Unique code for the supplier
+/AuditFile/MasterFiles/Suppliers/Supplier/SelfBillingIndicator/@name SelfBillingIndicator
+/AuditFile/MasterFiles/Suppliers/Supplier/SelfBillingIndicator/@type SAFcodeType
+/AuditFile/MasterFiles/Suppliers/Supplier/SelfBillingIndicator/@minOccurs 0
+/AuditFile/MasterFiles/Suppliers/Supplier/SelfBillingIndicator/@desc Indicator showing if a self-billing agreement exists between the customer and the supplier
+/AuditFile/MasterFiles/Suppliers/Supplier/AccountID/@name AccountID
+/AuditFile/MasterFiles/Suppliers/Supplier/AccountID/@type SAFmiddle2textType
+/AuditFile/MasterFiles/Suppliers/Supplier/AccountID/@minOccurs 0
+/AuditFile/MasterFiles/Suppliers/Supplier/AccountID/@desc General Ledger Account code for this supplier. Can be including sub-account id. It can contain many different levels to identify the Account. It could include cost centres such as company, division, region, group and branch/department.
+/AuditFile/MasterFiles/Suppliers/Supplier/OpeningDebitBalance/@choice OpeningDebitBalance/OpeningCreditBalance
+/AuditFile/MasterFiles/Suppliers/Supplier/OpeningDebitBalance/@name OpeningDebitBalance
+/AuditFile/MasterFiles/Suppliers/Supplier/OpeningDebitBalance/@type SAFmonetaryType
+/AuditFile/MasterFiles/Suppliers/Supplier/OpeningDebitBalance/@desc Debit balance at the start date of the selection period in the header's default currency.
+/AuditFile/MasterFiles/Suppliers/Supplier/OpeningCreditBalance/@name OpeningCreditBalance
+/AuditFile/MasterFiles/Suppliers/Supplier/OpeningCreditBalance/@type SAFmonetaryType
+/AuditFile/MasterFiles/Suppliers/Supplier/OpeningCreditBalance/@desc Credit balance at the start date of the selection period in the header's default currency.
+/AuditFile/MasterFiles/Suppliers/Supplier/ClosingDebitBalance/@name ClosingDebitBalance
+/AuditFile/MasterFiles/Suppliers/Supplier/ClosingDebitBalance/@type SAFmonetaryType
+/AuditFile/MasterFiles/Suppliers/Supplier/ClosingDebitBalance/@desc Debit balance at the end date of the selection period in the header's default currency.
+/AuditFile/MasterFiles/Suppliers/Supplier/ClosingCreditBalance/@name ClosingCreditBalance
+/AuditFile/MasterFiles/Suppliers/Supplier/ClosingCreditBalance/@type SAFmonetaryType
+/AuditFile/MasterFiles/Suppliers/Supplier/ClosingCreditBalance/@desc Credit balance at the end date of the selection period in the header's default currency.
+/AuditFile/MasterFiles/Suppliers/Supplier/any@namespace ##other
+/AuditFile/MasterFiles/Suppliers/Supplier/@minOccurs 0
+/AuditFile/MasterFiles/Suppliers/Supplier/any@desc Represents space to allow individual Revenue Bodies to add further elements
+/AuditFile/MasterFiles/TaxTable/@name TaxTable
+/AuditFile/MasterFiles/TaxTable/@minOccurs 0
+/AuditFile/MasterFiles/TaxTable/TaxTableEntry/@name TaxTableEntry
+/AuditFile/MasterFiles/TaxTable/TaxTableEntry/@maxOccurs unbounded
+/AuditFile/MasterFiles/TaxTable/TaxTableEntry/TaxType/@name TaxType
+/AuditFile/MasterFiles/TaxTable/TaxTableEntry/TaxType/@type SAFcodeType
+/AuditFile/MasterFiles/TaxTable/TaxTableEntry/TaxType/@desc Tax type for look-up in tables
+/AuditFile/MasterFiles/TaxTable/TaxTableEntry/Description/@name Description
+/AuditFile/MasterFiles/TaxTable/TaxTableEntry/Description/@type SAFlongtextType
+/AuditFile/MasterFiles/TaxTable/TaxTableEntry/Description/@desc Description of the Tax Type
+/AuditFile/MasterFiles/TaxTable/TaxTableEntry/TaxCodeDetails/@name TaxCodeDetails
+/AuditFile/MasterFiles/TaxTable/TaxTableEntry/TaxCodeDetails/@maxOccurs unbounded
+/AuditFile/MasterFiles/TaxTable/TaxTableEntry/TaxCodeDetails/TaxCode/@name TaxCode
+/AuditFile/MasterFiles/TaxTable/TaxTableEntry/TaxCodeDetails/TaxCode/@type SAFcodeType
+/AuditFile/MasterFiles/TaxTable/TaxTableEntry/TaxCodeDetails/TaxCode/@desc Tax Code for lookup in tables
+/AuditFile/MasterFiles/TaxTable/TaxTableEntry/TaxCodeDetails/EffectiveDate/@name EffectiveDate
+/AuditFile/MasterFiles/TaxTable/TaxTableEntry/TaxCodeDetails/EffectiveDate/@type date
+/AuditFile/MasterFiles/TaxTable/TaxTableEntry/TaxCodeDetails/EffectiveDate/@minOccurs 0
+/AuditFile/MasterFiles/TaxTable/TaxTableEntry/TaxCodeDetails/EffectiveDate/@desc Representing the starting date for this entry
+/AuditFile/MasterFiles/TaxTable/TaxTableEntry/TaxCodeDetails/ExpirationDate/@name ExpirationDate
+/AuditFile/MasterFiles/TaxTable/TaxTableEntry/TaxCodeDetails/ExpirationDate/@type date
+/AuditFile/MasterFiles/TaxTable/TaxTableEntry/TaxCodeDetails/ExpirationDate/@minOccurs 0
+/AuditFile/MasterFiles/TaxTable/TaxTableEntry/TaxCodeDetails/ExpirationDate/@desc Representing the ending date for this entry
+/AuditFile/MasterFiles/TaxTable/TaxTableEntry/TaxCodeDetails/Description/@name Description
+/AuditFile/MasterFiles/TaxTable/TaxTableEntry/TaxCodeDetails/Description/@type SAFlongtextType
+/AuditFile/MasterFiles/TaxTable/TaxTableEntry/TaxCodeDetails/Description/@minOccurs 0
+/AuditFile/MasterFiles/TaxTable/TaxTableEntry/TaxCodeDetails/Description/@desc Description of the Tax Code
+/AuditFile/MasterFiles/TaxTable/TaxTableEntry/TaxCodeDetails/TaxPercentage/@choice TaxPercentage/FlatTaxRate
+/AuditFile/MasterFiles/TaxTable/TaxTableEntry/TaxCodeDetails/TaxPercentage/@name TaxPercentage
+/AuditFile/MasterFiles/TaxTable/TaxTableEntry/TaxCodeDetails/TaxPercentage/@type decimal
+/AuditFile/MasterFiles/TaxTable/TaxTableEntry/TaxCodeDetails/TaxPercentage/@desc Tax percentage.
+/AuditFile/MasterFiles/TaxTable/TaxTableEntry/TaxCodeDetails/TaxPercentage/@name FlatTaxRate
+/AuditFile/MasterFiles/TaxTable/TaxTableEntry/TaxCodeDetails/TaxPercentage/@type AmountStructure
+/AuditFile/MasterFiles/TaxTable/TaxTableEntry/TaxCodeDetails/TaxPercentage/@desc FlatTaxRate
+/AuditFile/MasterFiles/TaxTable/TaxTableEntry/TaxCodeDetails/Country/@name Country
+/AuditFile/MasterFiles/TaxTable/TaxTableEntry/TaxCodeDetails/Country/@type ISOCountryCode
+/AuditFile/MasterFiles/TaxTable/TaxTableEntry/TaxCodeDetails/Country/@desc Two-letter country code according to ISO 3166-1 alpha 2 standard. Example NL for the Netherlands.
+/AuditFile/MasterFiles/TaxTable/TaxTableEntry/TaxCodeDetails/Country/@name Region
+/AuditFile/MasterFiles/TaxTable/TaxTableEntry/TaxCodeDetails/Country/@type SAFcodeType
+/AuditFile/MasterFiles/TaxTable/TaxTableEntry/TaxCodeDetails/Country/@minOccurs 0
+/AuditFile/MasterFiles/TaxTable/TaxTableEntry/TaxCodeDetails/Country/@desc Country specific code to indicate regions / provinces within the tax authority. Preferably described according to ISO 3166-2. Example: GB-KEN for Kent county in the United Kingdom.
+/AuditFile/MasterFiles/UOMTable/@name UOMTable
+/AuditFile/MasterFiles/UOMTable/@minOccurs 0
+/AuditFile/MasterFiles/UOMTable/@desc Table with descriptions of all different kinds of UOM's
+/AuditFile/MasterFiles/UOMTable/UOMTableEntry/@name UOMTableEntry
+/AuditFile/MasterFiles/UOMTable/UOMTableEntry/@maxOccurs unbounded
+/AuditFile/MasterFiles/UOMTable/UOMTableEntry/UnitOfMeasure/@name UnitOfMeasure
+/AuditFile/MasterFiles/UOMTable/UOMTableEntry/UnitOfMeasure/@type SAFcodeType
+/AuditFile/MasterFiles/UOMTable/UOMTableEntry/UnitOfMeasure/@desc Quantity unit of measure e.g. pack of 12
+/AuditFile/MasterFiles/UOMTable/UOMTableEntry/Description/@name Description
+/AuditFile/MasterFiles/UOMTable/UOMTableEntry/Description/@type SAFlongtextType
+/AuditFile/MasterFiles/UOMTable/UOMTableEntry/Description/@desc Description of the UOM
+/AuditFile/MasterFiles/AnalysisTypeTable/@name AnalysisTypeTable
+/AuditFile/MasterFiles/AnalysisTypeTable/@minOccurs 0
+/AuditFile/MasterFiles/AnalysisTypeTable/@desc Table with the analysiscode identifiers.\nsed for further specification of transaction data.\nxample: cost unit, cost center, project.
+/AuditFile/MasterFiles/AnalysisTypeTable/AnalysisTypeTableEntry/@name AnalysisTypeTableEntry
+/AuditFile/MasterFiles/AnalysisTypeTable/AnalysisTypeTableEntry/@maxOccurs unbounded
+/AuditFile/MasterFiles/AnalysisTypeTable/AnalysisTypeTableEntry/AnalysisType/@name AnalysisType
+/AuditFile/MasterFiles/AnalysisTypeTable/AnalysisTypeTableEntry/AnalysisType/@type SAFcodeType
+/AuditFile/MasterFiles/AnalysisTypeTable/AnalysisTypeTableEntry/AnalysisType/@desc Analysis type identifier: e.g. CC (for Cost Center), DEP (for department), etc.
+/AuditFile/MasterFiles/AnalysisTypeTable/AnalysisTypeTableEntry/AnalysisTypeDescription/@name AnalysisTypeDescription
+/AuditFile/MasterFiles/AnalysisTypeTable/AnalysisTypeTableEntry/AnalysisTypeDescription/@type SAFlongtextType
+/AuditFile/MasterFiles/AnalysisTypeTable/AnalysisTypeTableEntry/AnalysisTypeDescription/@desc Description of the AnalysisType, e.g. "Cost Center"
+/AuditFile/MasterFiles/AnalysisTypeTable/AnalysisTypeTableEntry/AnalysisID/@name AnalysisID
+/AuditFile/MasterFiles/AnalysisTypeTable/AnalysisTypeTableEntry/AnalysisID/@type SAFmiddle1textType
+/AuditFile/MasterFiles/AnalysisTypeTable/AnalysisTypeTableEntry/AnalysisID/@desc Analysis ID: e.g. 1200-HDOF-TR (for cost center treasury in the headoffice), P-4800-123 (for project 123 in branch 4800)
+/AuditFile/MasterFiles/AnalysisTypeTable/AnalysisTypeTableEntry/AnalysisIDDescription/@name AnalysisIDDescription
+/AuditFile/MasterFiles/AnalysisTypeTable/AnalysisTypeTableEntry/AnalysisIDDescription/@type SAFlongtextType
+/AuditFile/MasterFiles/AnalysisTypeTable/AnalysisTypeTableEntry/AnalysisIDDescription/@desc Description of the AnalysisID: e.g. "Headoffice-Treasury".
+/AuditFile/MasterFiles/MovementTypeTable/@name MovementTypeTable
+/AuditFile/MasterFiles/MovementTypeTable/@minOccurs 0
+/AuditFile/MasterFiles/MovementTypeTable/@desc Table with descriptions of all different kinds of movementtypes and movementsubtypes
+/AuditFile/MasterFiles/MovementTypeTable/MovementTypeTableEntry/@name MovementTypeTableEntry
+/AuditFile/MasterFiles/MovementTypeTable/MovementTypeTableEntry/@maxOccurs unbounded
+/AuditFile/MasterFiles/MovementTypeTable/MovementTypeTableEntry/MovementType/@name MovementType
+/AuditFile/MasterFiles/MovementTypeTable/MovementTypeTableEntry/MovementType/@type SAFcodeType
+/AuditFile/MasterFiles/MovementTypeTable/MovementTypeTableEntry/MovementType/@desc Identify kind of movement or movement line. E.g. sale, purchase, adjustment, etc.  Or  efficiencyloss, use of components in production, etc. Predescribed TABLE is possible.
+/AuditFile/MasterFiles/MovementTypeTable/MovementTypeTableEntry/Description/@name Description
+/AuditFile/MasterFiles/MovementTypeTable/MovementTypeTableEntry/Description/@type SAFlongtextType
+/AuditFile/MasterFiles/MovementTypeTable/MovementTypeTableEntry/Description/@desc Description of the movement(sub)type
+/AuditFile/MasterFiles/Products/@name Products
+/AuditFile/MasterFiles/Products/@minOccurs 0
+/AuditFile/MasterFiles/Products/Product/@name Product
+/AuditFile/MasterFiles/Products/Product/@maxOccurs unbounded
+/AuditFile/MasterFiles/Products/Product/ProductCode/@name ProductCode
+/AuditFile/MasterFiles/Products/Product/ProductCode/@type SAFmiddle2textType
+/AuditFile/MasterFiles/Products/Product/ProductCode/@desc Product code
+/AuditFile/MasterFiles/Products/Product/GoodsServicesID/@name GoodsServicesID
+/AuditFile/MasterFiles/Products/Product/GoodsServicesID/@type SAFcodeType
+/AuditFile/MasterFiles/Products/Product/GoodsServicesID/@minOccurs 0
+/AuditFile/MasterFiles/Products/Product/GoodsServicesID/@desc Indicator showing if goods or services (Predescribed TABLE is possible)
+/AuditFile/MasterFiles/Products/Product/ProductGroup/@name ProductGroup
+/AuditFile/MasterFiles/Products/Product/ProductGroup/@type SAFmiddle2textType
+/AuditFile/MasterFiles/Products/Product/ProductGroup/@minOccurs 0
+/AuditFile/MasterFiles/Products/Product/ProductGroup/@desc Code identifying aggregated level at which similar products are grouped
+/AuditFile/MasterFiles/Products/Product/Description/@name Description
+/AuditFile/MasterFiles/Products/Product/Description/@type SAFlongtextType
+/AuditFile/MasterFiles/Products/Product/Description/@desc Description of goods or services.
+/AuditFile/MasterFiles/Products/Product/ProductCommodityCode/@name ProductCommodityCode
+/AuditFile/MasterFiles/Products/Product/ProductCommodityCode/@type SAFmiddle1textType
+/AuditFile/MasterFiles/Products/Product/ProductCommodityCode/@minOccurs 0
+/AuditFile/MasterFiles/Products/Product/ProductCommodityCode/@desc Classification for import / export
+/AuditFile/MasterFiles/Products/Product/ProductNumberCode/@name ProductNumberCode
+/AuditFile/MasterFiles/Products/Product/ProductNumberCode/@type SAFmiddle2textType
+/AuditFile/MasterFiles/Products/Product/ProductNumberCode/@minOccurs 0
+/AuditFile/MasterFiles/Products/Product/ProductNumberCode/@desc EAN or other code
+/AuditFile/MasterFiles/Products/Product/ValuationMethod/@name ValuationMethod
+/AuditFile/MasterFiles/Products/Product/ValuationMethod/@type SAFcodeType
+/AuditFile/MasterFiles/Products/Product/ValuationMethod/@minOccurs 0
+/AuditFile/MasterFiles/Products/Product/ValuationMethod/@desc FIFO, LIFO, Average cost etc.
+/AuditFile/MasterFiles/Products/Product/UOMBase/@name UOMBase
+/AuditFile/MasterFiles/Products/Product/UOMBase/@type SAFcodeType
+/AuditFile/MasterFiles/Products/Product/UOMBase/@desc Unit of measure for Stock Administration for this product Predescribed TABLE is possible.
+/AuditFile/MasterFiles/Products/Product/sequence/@minOccurs 0
+/AuditFile/MasterFiles/Products/Product/sequence/@desc Not needed when not applicable
+/AuditFile/MasterFiles/Products/Product/sequence/UOMStandard/@name UOMStandard
+/AuditFile/MasterFiles/Products/Product/sequence/UOMStandard/@type SAFcodeType
+/AuditFile/MasterFiles/Products/Product/sequence/UOMStandard/@desc A Standard Unit of Measure applicable for this product, f.i. Kilo, Metres, Litres (Predescribed TABLE is possible)
+/AuditFile/MasterFiles/Products/Product/sequence/UOMToUOMBaseConversionFactor/@name UOMToUOMBaseConversionFactor
+/AuditFile/MasterFiles/Products/Product/sequence/UOMToUOMBaseConversionFactor/@type decimal
+/AuditFile/MasterFiles/Products/Product/sequence/UOMToUOMBaseConversionFactor/@desc Conversion factor of the UOM to UOM Base
+/AuditFile/MasterFiles/Products/Product/Tax/@name Tax
+/AuditFile/MasterFiles/Products/Product/Tax/@minOccurs 0
+/AuditFile/MasterFiles/Products/Product/Tax/@maxOccurs unbounded
+/AuditFile/MasterFiles/Products/Product/Tax/sequence/@minOccurs 0
+/AuditFile/MasterFiles/Products/Product/Tax/sequence/TaxType/@name TaxType
+/AuditFile/MasterFiles/Products/Product/Tax/sequence/TaxType/@type SAFcodeType
+/AuditFile/MasterFiles/Products/Product/Tax/sequence/TaxType/@desc Tax Type for lookup in tables
+/AuditFile/MasterFiles/Products/Product/Tax/sequence/TaxCode/@name TaxCode
+/AuditFile/MasterFiles/Products/Product/Tax/sequence/TaxCode/@type SAFcodeType
+/AuditFile/MasterFiles/Products/Product/Tax/sequence/TaxCode/@desc Tax Code for lookup in tables
+/AuditFile/MasterFiles/Products/Product/any@namespace ##other
+/AuditFile/MasterFiles/Products/Product/any@minOccurs 0
+/AuditFile/MasterFiles/Products/Product/any@desc Represents space to allow individual Revenue Bodies to add further elements
+/AuditFile/MasterFiles/PhysicalStock/@name PhysicalStock
+/AuditFile/MasterFiles/PhysicalStock/@minOccurs 0
+/AuditFile/MasterFiles/PhysicalStock/PhysicalStockEntry/@name PhysicalStockEntry
+/AuditFile/MasterFiles/PhysicalStock/PhysicalStockEntry/@maxOccurs unbounded
+/AuditFile/MasterFiles/PhysicalStock/PhysicalStockEntry/WarehouseID/@name WarehouseID
+/AuditFile/MasterFiles/PhysicalStock/PhysicalStockEntry/WarehouseID/@type SAFmiddle1textType
+/AuditFile/MasterFiles/PhysicalStock/PhysicalStockEntry/WarehouseID/@minOccurs 0
+/AuditFile/MasterFiles/PhysicalStock/PhysicalStockEntry/WarehouseID/@desc Warehouse where goods held - possoble also to identify work-in-progress, or stock-in-transit
+/AuditFile/MasterFiles/PhysicalStock/PhysicalStockEntry/LocationID/@name LocationID
+/AuditFile/MasterFiles/PhysicalStock/PhysicalStockEntry/LocationID/@type SAFshorttextType
+/AuditFile/MasterFiles/PhysicalStock/PhysicalStockEntry/LocationID/@minOccurs 0
+/AuditFile/MasterFiles/PhysicalStock/PhysicalStockEntry/LocationID/@desc Location of goods in warehouse
+/AuditFile/MasterFiles/PhysicalStock/PhysicalStockEntry/ProductCode/@name ProductCode
+/AuditFile/MasterFiles/PhysicalStock/PhysicalStockEntry/ProductCode/@type SAFmiddle2textType
+/AuditFile/MasterFiles/PhysicalStock/PhysicalStockEntry/ProductCode/@desc Product code
+/AuditFile/MasterFiles/PhysicalStock/PhysicalStockEntry/StockAccountNo/@name StockAccountNo
+/AuditFile/MasterFiles/PhysicalStock/PhysicalStockEntry/StockAccountNo/@type SAFmiddle2textType
+/AuditFile/MasterFiles/PhysicalStock/PhysicalStockEntry/StockAccountNo/@minOccurs 0
+/AuditFile/MasterFiles/PhysicalStock/PhysicalStockEntry/StockAccountNo/@desc Stock batch, lot, serial identification. Not used when there is exactly 1 PhysicalStock entry per ProductCode
+/AuditFile/MasterFiles/PhysicalStock/PhysicalStockEntry/ProductType/@name ProductType
+/AuditFile/MasterFiles/PhysicalStock/PhysicalStockEntry/ProductType/@type SAFshorttextType
+/AuditFile/MasterFiles/PhysicalStock/PhysicalStockEntry/ProductType/@minOccurs 0
+/AuditFile/MasterFiles/PhysicalStock/PhysicalStockEntry/ProductType/@desc To determine whether the product/stockaccount is raw material, work-in-progress, finished good, merchandise for resale, etc.
+/AuditFile/MasterFiles/PhysicalStock/PhysicalStockEntry/ProductStatus/@name ProductStatus
+/AuditFile/MasterFiles/PhysicalStock/PhysicalStockEntry/ProductStatus/@type SAFshorttextType
+/AuditFile/MasterFiles/PhysicalStock/PhysicalStockEntry/ProductStatus/@minOccurs 0
+/AuditFile/MasterFiles/PhysicalStock/PhysicalStockEntry/ProductStatus/@desc To determine whether the product/stockaccount is discontinued, damaged, obsolete, active, etc.
+/AuditFile/MasterFiles/PhysicalStock/PhysicalStockEntry/StockAccountCommodityCode/@name StockAccountCommodityCode
+/AuditFile/MasterFiles/PhysicalStock/PhysicalStockEntry/StockAccountCommodityCode/@type SAFmiddle1textType
+/AuditFile/MasterFiles/PhysicalStock/PhysicalStockEntry/StockAccountCommodityCode/@minOccurs 0
+/AuditFile/MasterFiles/PhysicalStock/PhysicalStockEntry/StockAccountCommodityCode/@desc Classification for import / export
+/AuditFile/MasterFiles/PhysicalStock/PhysicalStockEntry/OwnerID/@name OwnerID
+/AuditFile/MasterFiles/PhysicalStock/PhysicalStockEntry/OwnerID/@type SAFmiddle1textType
+/AuditFile/MasterFiles/PhysicalStock/PhysicalStockEntry/OwnerID/@minOccurs 0
+/AuditFile/MasterFiles/PhysicalStock/PhysicalStockEntry/OwnerID/@desc Reference to the owner Master File
+/AuditFile/MasterFiles/PhysicalStock/PhysicalStockEntry/sequence/@minOccurs 0
+/AuditFile/MasterFiles/PhysicalStock/PhysicalStockEntry/sequence/@desc Not needed when UOMPhysicalStock equals UOMBase
+/AuditFile/MasterFiles/PhysicalStock/PhysicalStockEntry/sequence/UOMPhysicalStock/@name UOMPhysicalStock
+/AuditFile/MasterFiles/PhysicalStock/PhysicalStockEntry/sequence/UOMPhysicalStock/@type SAFcodeType
+/AuditFile/MasterFiles/PhysicalStock/PhysicalStockEntry/sequence/UOMPhysicalStock/@desc Unit of Measurement for this Physical Stock position
+/AuditFile/MasterFiles/PhysicalStock/PhysicalStockEntry/sequence/UOMToUOMBaseConversionFactor/@name UOMToUOMBaseConversionFactor
+/AuditFile/MasterFiles/PhysicalStock/PhysicalStockEntry/sequence/UOMToUOMBaseConversionFactor/@type decimal
+/AuditFile/MasterFiles/PhysicalStock/PhysicalStockEntry/sequence/UOMToUOMBaseConversionFactor/@desc Conversion factor of the UOM to UOM Base
+/AuditFile/MasterFiles/PhysicalStock/PhysicalStockEntry/UnitPrice/@name UnitPrice
+/AuditFile/MasterFiles/PhysicalStock/PhysicalStockEntry/UnitPrice/@type SAFmonetaryType
+/AuditFile/MasterFiles/PhysicalStock/PhysicalStockEntry/UnitPrice/@minOccurs 0
+/AuditFile/MasterFiles/PhysicalStock/PhysicalStockEntry/UnitPrice/@desc Base Unit price for this stock account  in the header's default currency.
+/AuditFile/MasterFiles/PhysicalStock/PhysicalStockEntry/OpeningStockQuantity/@name OpeningStockQuantity
+/AuditFile/MasterFiles/PhysicalStock/PhysicalStockEntry/OpeningStockQuantity/@type SAFquantityType
+/AuditFile/MasterFiles/PhysicalStock/PhysicalStockEntry/OpeningStockQuantity/@desc In UOM Physical Stock for selection period
+/AuditFile/MasterFiles/PhysicalStock/PhysicalStockEntry/OpeningStockValue/@name OpeningStockValue
+/AuditFile/MasterFiles/PhysicalStock/PhysicalStockEntry/OpeningStockValue/@type SAFmonetaryType
+/AuditFile/MasterFiles/PhysicalStock/PhysicalStockEntry/OpeningStockValue/@minOccurs 0
+/AuditFile/MasterFiles/PhysicalStock/PhysicalStockEntry/OpeningStockValue/@desc In  the header's currency code for selection period
+/AuditFile/MasterFiles/PhysicalStock/PhysicalStockEntry/ClosingStockQuantity/@name ClosingStockQuantity
+/AuditFile/MasterFiles/PhysicalStock/PhysicalStockEntry/ClosingStockQuantity/@type SAFquantityType
+/AuditFile/MasterFiles/PhysicalStock/PhysicalStockEntry/ClosingStockQuantity/@desc In UOM Physical Stock for selection period
+/AuditFile/MasterFiles/PhysicalStock/PhysicalStockEntry/ClosingStockValue/@name ClosingStockValue
+/AuditFile/MasterFiles/PhysicalStock/PhysicalStockEntry/ClosingStockValue/@type SAFmonetaryType
+/AuditFile/MasterFiles/PhysicalStock/PhysicalStockEntry/ClosingStockValue/@minOccurs 0
+/AuditFile/MasterFiles/PhysicalStock/PhysicalStockEntry/ClosingStockValue/@desc Closing stock value  in the header's default currency for selection period
+/AuditFile/MasterFiles/PhysicalStock/PhysicalStockEntry/StockCharacteristics/@name StockCharacteristics
+/AuditFile/MasterFiles/PhysicalStock/PhysicalStockEntry/StockCharacteristics/@minOccurs 0
+/AuditFile/MasterFiles/PhysicalStock/PhysicalStockEntry/StockCharacteristics/sequence/@maxOccurs unbounded
+/AuditFile/MasterFiles/PhysicalStock/PhysicalStockEntry/StockCharacteristics/sequence/StockCharacteristic/@name StockCharacteristic
+/AuditFile/MasterFiles/PhysicalStock/PhysicalStockEntry/StockCharacteristics/sequence/StockCharacteristic/@type SAFshorttextType
+/AuditFile/MasterFiles/PhysicalStock/PhysicalStockEntry/StockCharacteristics/sequence/StockCharacteristic/@desc User definable characteristics of the goods. Predescribed TABLE is possible.
+/AuditFile/MasterFiles/PhysicalStock/PhysicalStockEntry/StockCharacteristics/sequence/StockCharacteristicValue/@name StockCharacteristicValue
+/AuditFile/MasterFiles/PhysicalStock/PhysicalStockEntry/StockCharacteristics/sequence/StockCharacteristicValue/@type SAFmiddle1textType
+/AuditFile/MasterFiles/PhysicalStock/PhysicalStockEntry/StockCharacteristics/sequence/StockCharacteristicValue/@desc The weight, pack size, colour etc.
+/AuditFile/MasterFiles/PhysicalStock/PhysicalStockEntry/any@namespace ##other
+/AuditFile/MasterFiles/PhysicalStock/PhysicalStockEntry/any@minOccurs 0
+/AuditFile/MasterFiles/PhysicalStock/PhysicalStockEntry/any@desc Represents space to allow individual Revenue Bodies to add further elements
+/AuditFile/MasterFiles/Owners/@name Owners
+/AuditFile/MasterFiles/Owners/@minOccurs 0
+/AuditFile/MasterFiles/Owners/Owner/@name Owner
+/AuditFile/MasterFiles/Owners/Owner/@maxOccurs unbounded
+/AuditFile/MasterFiles/Owners/Owner/extension/@base CompanyStructure
+/AuditFile/MasterFiles/Owners/Owner/extension/OwnerID/@name OwnerID
+/AuditFile/MasterFiles/Owners/Owner/extension/OwnerID/@type SAFmiddle1textType
+/AuditFile/MasterFiles/Owners/Owner/extension/OwnerID/@minOccurs 0
+/AuditFile/MasterFiles/Owners/Owner/extension/OwnerID/@desc Reference to the owner Master File
+/AuditFile/MasterFiles/Owners/Owner/extension/AccountID/@name AccountID
+/AuditFile/MasterFiles/Owners/Owner/extension/AccountID/@type SAFmiddle2textType
+/AuditFile/MasterFiles/Owners/Owner/extension/AccountID/@minOccurs 0
+/AuditFile/MasterFiles/Owners/Owner/extension/AccountID/@desc General Ledger Account code for this owner. Can be including sub-account id. It can contain many different levels to identify the Account. It could include cost centres such as company, division, region, group and branch/department.
+/AuditFile/MasterFiles/Owners/Owner/extension/any@namespace ##other
+/AuditFile/MasterFiles/Owners/Owner/extension/any@minOccurs 0
+/AuditFile/MasterFiles/Owners/Owner/extension/any@desc Represents space to allow individual Revenue Bodies to add further elements
+/AuditFile/MasterFiles/Assets/@name Assets
+/AuditFile/MasterFiles/Assets/@minOccurs 0
+/AuditFile/MasterFiles/Assets/Asset/@name Asset
+/AuditFile/MasterFiles/Assets/Asset/@maxOccurs unbounded
+/AuditFile/MasterFiles/Assets/Asset/AssetID/@name AssetID
+/AuditFile/MasterFiles/Assets/Asset/AssetID/@type SAFmiddle1textType
+/AuditFile/MasterFiles/Assets/Asset/AssetID/@desc Unique identifier of the asset
+/AuditFile/MasterFiles/Assets/Asset/AccountID/@name AccountID
+/AuditFile/MasterFiles/Assets/Asset/AccountID/@type SAFmiddle2textType
+/AuditFile/MasterFiles/Assets/Asset/AccountID/@desc General Ledger Account code. Can be including sub-account id. It can contain many different levels to identify the Account. It could include cost centres such as company, division, region, group and branch/department.
+/AuditFile/MasterFiles/Assets/Asset/Description/@name Description
+/AuditFile/MasterFiles/Assets/Asset/Description/@type SAFlongtextType
+/AuditFile/MasterFiles/Assets/Asset/Description/@desc Description of this asset
+/AuditFile/MasterFiles/Assets/Asset/Supplier/@name Supplier
+/AuditFile/MasterFiles/Assets/Asset/Supplier/@minOccurs 0
+/AuditFile/MasterFiles/Assets/Asset/Supplier/@maxOccurs unbounded
+/AuditFile/MasterFiles/Assets/Asset/Supplier/@desc Contains the information of all suppliers, including the historical suppliers.
+/AuditFile/MasterFiles/Assets/Asset/Supplier/SupplierName/@name SupplierName
+/AuditFile/MasterFiles/Assets/Asset/Supplier/SupplierName/@type SAFmiddle2textType
+/AuditFile/MasterFiles/Assets/Asset/Supplier/SupplierName/@desc Name of the supplier of the asset
+/AuditFile/MasterFiles/Assets/Asset/Supplier/SupplierID/@name SupplierID
+/AuditFile/MasterFiles/Assets/Asset/Supplier/SupplierID/@type SAFmiddle1textType
+/AuditFile/MasterFiles/Assets/Asset/Supplier/SupplierID/@minOccurs 0
+/AuditFile/MasterFiles/Assets/Asset/Supplier/SupplierID/@desc Unique code for the supplier
+/AuditFile/MasterFiles/Assets/Asset/Supplier/PostalAddress/@name PostalAddress
+/AuditFile/MasterFiles/Assets/Asset/Supplier/PostalAddress/@type AddressStructure
+/AuditFile/MasterFiles/Assets/Asset/Supplier/PostalAddress/@desc Address information of the supplier of the asset
+/AuditFile/MasterFiles/Assets/Asset/PurchaseOrderDate/@name PurchaseOrderDate
+/AuditFile/MasterFiles/Assets/Asset/PurchaseOrderDate/@type date
+/AuditFile/MasterFiles/Assets/Asset/PurchaseOrderDate/@minOccurs 0
+/AuditFile/MasterFiles/Assets/Asset/PurchaseOrderDate/@desc Date of the purchase order of this asset
+/AuditFile/MasterFiles/Assets/Asset/DateOfAcquisition/@name DateOfAcquisition
+/AuditFile/MasterFiles/Assets/Asset/DateOfAcquisition/@type date
+/AuditFile/MasterFiles/Assets/Asset/DateOfAcquisition/@desc Date of the acquisition of the asset (usually the date of delivery).
+/AuditFile/MasterFiles/Assets/Asset/StartUpDate/@name StartUpDate
+/AuditFile/MasterFiles/Assets/Asset/StartUpDate/@type date
+/AuditFile/MasterFiles/Assets/Asset/StartUpDate/@minOccurs 0
+/AuditFile/MasterFiles/Assets/Asset/StartUpDate/@desc Commissioning date of the asset.
+/AuditFile/MasterFiles/Assets/Asset/Valuations/@name Valuations
+/AuditFile/MasterFiles/Assets/Asset/Valuations/@desc The data can be reported for different purposes. More than one can be in this SAF.
+/AuditFile/MasterFiles/Assets/Asset/Valuations/Valuation/@name Valuation
+/AuditFile/MasterFiles/Assets/Asset/Valuations/Valuation/@maxOccurs unbounded
+/AuditFile/MasterFiles/Assets/Asset/Valuations/Valuation/AssetValuationType/@name AssetValuationType
+/AuditFile/MasterFiles/Assets/Asset/Valuations/Valuation/AssetValuationType/@type SAFshorttextType
+/AuditFile/MasterFiles/Assets/Asset/Valuations/Valuation/AssetValuationType/@minOccurs 0
+/AuditFile/MasterFiles/Assets/Asset/Valuations/Valuation/AssetValuationType/@desc Describes the purpose for the reporting: f.i. commercial, tax  in country 1, tax in country 2, etc.
+/AuditFile/MasterFiles/Assets/Asset/Valuations/Valuation/ValuationClass/@name ValuationClass
+/AuditFile/MasterFiles/Assets/Asset/Valuations/Valuation/ValuationClass/@type SAFshorttextType
+/AuditFile/MasterFiles/Assets/Asset/Valuations/Valuation/ValuationClass/@minOccurs 0
+/AuditFile/MasterFiles/Assets/Asset/Valuations/Valuation/ValuationClass/@desc This describes the classification of the asset for (tax) reporting purposes.
+/AuditFile/MasterFiles/Assets/Asset/Valuations/Valuation/AcquisitionAndProductionCostsBegin/@name AcquisitionAndProductionCostsBegin
+/AuditFile/MasterFiles/Assets/Asset/Valuations/Valuation/AcquisitionAndProductionCostsBegin/@type SAFmonetaryType
+/AuditFile/MasterFiles/Assets/Asset/Valuations/Valuation/AcquisitionAndProductionCostsBegin/@desc Total costs of acquisition and/or production of the asset at SelectionStartDate in the header's default currency.
+/AuditFile/MasterFiles/Assets/Asset/Valuations/Valuation/AcquisitionAndProductionCostsEnd/@name AcquisitionAndProductionCostsEnd
+/AuditFile/MasterFiles/Assets/Asset/Valuations/Valuation/AcquisitionAndProductionCostsEnd/@type SAFmonetaryType
+/AuditFile/MasterFiles/Assets/Asset/Valuations/Valuation/AcquisitionAndProductionCostsEnd/@desc Total costs of acquisition and/or production of the asset at SelectionEndDate in the header's default currency.
+/AuditFile/MasterFiles/Assets/Asset/Valuations/Valuation/InvestmentSupport/@name InvestmentSupport
+/AuditFile/MasterFiles/Assets/Asset/Valuations/Valuation/InvestmentSupport/@type SAFmonetaryType
+/AuditFile/MasterFiles/Assets/Asset/Valuations/Valuation/InvestmentSupport/@minOccurs 0
+/AuditFile/MasterFiles/Assets/Asset/Valuations/Valuation/InvestmentSupport/@desc Total amount of investment support for this asset in the header's default currency.
+/AuditFile/MasterFiles/Assets/Asset/Valuations/Valuation/AssetLifeYear/@choice AssetLifeYear/AssetLifeMonth
+/AuditFile/MasterFiles/Assets/Asset/Valuations/Valuation/AssetLifeYear/@name AssetLifeYear
+/AuditFile/MasterFiles/Assets/Asset/Valuations/Valuation/AssetLifeYear/@type decimal
+/AuditFile/MasterFiles/Assets/Asset/Valuations/Valuation/AssetLifeYear/@desc Periode of useful life in years
+/AuditFile/MasterFiles/Assets/Asset/Valuations/Valuation/AssetLifeMonth/@name AssetLifeMonth
+/AuditFile/MasterFiles/Assets/Asset/Valuations/Valuation/AssetLifeMonth/@type decimal
+/AuditFile/MasterFiles/Assets/Asset/Valuations/Valuation/AssetLifeMonth/@desc Period of useful life in months
+/AuditFile/MasterFiles/Assets/Asset/Valuations/Valuation/AssetAddition/@name AssetAddition
+/AuditFile/MasterFiles/Assets/Asset/Valuations/Valuation/AssetAddition/@type SAFmonetaryType
+/AuditFile/MasterFiles/Assets/Asset/Valuations/Valuation/AssetAddition/@minOccurs 0
+/AuditFile/MasterFiles/Assets/Asset/Valuations/Valuation/AssetAddition/@desc Bookvalue of the acquisition and/or production of the asset in the  Selectionperiod in the header's default currency.
+/AuditFile/MasterFiles/Assets/Asset/Valuations/Valuation/Transfers/@name Transfers
+/AuditFile/MasterFiles/Assets/Asset/Valuations/Valuation/Transfers/@type SAFmonetaryType
+/AuditFile/MasterFiles/Assets/Asset/Valuations/Valuation/Transfers/@minOccurs 0
+/AuditFile/MasterFiles/Assets/Asset/Valuations/Valuation/Transfers/@desc Book value of the transfers of the asset during the Selectionperiod in the header's default currency.
+/AuditFile/MasterFiles/Assets/Asset/Valuations/Valuation/AssetDisposal/@name AssetDisposal
+/AuditFile/MasterFiles/Assets/Asset/Valuations/Valuation/AssetDisposal/@type SAFmonetaryType
+/AuditFile/MasterFiles/Assets/Asset/Valuations/Valuation/AssetDisposal/@minOccurs 0
+/AuditFile/MasterFiles/Assets/Asset/Valuations/Valuation/AssetDisposal/@desc Book value of the disposals of the asset during the Selectionperiod in the header's default currency.
+/AuditFile/MasterFiles/Assets/Asset/Valuations/Valuation/BookValueBegin/@name BookValueBegin
+/AuditFile/MasterFiles/Assets/Asset/Valuations/Valuation/BookValueBegin/@type SAFmonetaryType
+/AuditFile/MasterFiles/Assets/Asset/Valuations/Valuation/BookValueBegin/@minOccurs 0
+/AuditFile/MasterFiles/Assets/Asset/Valuations/Valuation/BookValueBegin/@desc Bookvalue at the beginning of the Selectionperiod in the header's default currency.
+/AuditFile/MasterFiles/Assets/Asset/Valuations/Valuation/DepreciationMethod/@name DepreciationMethod
+/AuditFile/MasterFiles/Assets/Asset/Valuations/Valuation/DepreciationMethod/@type SAFmiddle1textType
+/AuditFile/MasterFiles/Assets/Asset/Valuations/Valuation/DepreciationMethod/@minOccurs 0
+/AuditFile/MasterFiles/Assets/Asset/Valuations/Valuation/DepreciationMethod/@desc Method of normal depreciation during the Selectionperiod.
+/AuditFile/MasterFiles/Assets/Asset/Valuations/Valuation/DepreciationPercentage/@name DepreciationPercentage
+/AuditFile/MasterFiles/Assets/Asset/Valuations/Valuation/DepreciationPercentage/@type decimal
+/AuditFile/MasterFiles/Assets/Asset/Valuations/Valuation/DepreciationPercentage/@minOccurs 0
+/AuditFile/MasterFiles/Assets/Asset/Valuations/Valuation/DepreciationPercentage/@desc The rate of the normal depreciation per year or month (depends on choice useful life periode)
+/AuditFile/MasterFiles/Assets/Asset/Valuations/Valuation/DepreciationForPeriod/@name DepreciationForPeriod
+/AuditFile/MasterFiles/Assets/Asset/Valuations/Valuation/DepreciationForPeriod/@type SAFmonetaryType
+/AuditFile/MasterFiles/Assets/Asset/Valuations/Valuation/DepreciationForPeriod/@desc Total amouunt of normal depreciation during the Selectionperiod in the header's default currency.
+/AuditFile/MasterFiles/Assets/Asset/Valuations/Valuation/AppreciationForPeriod/@name AppreciationForPeriod
+/AuditFile/MasterFiles/Assets/Asset/Valuations/Valuation/AppreciationForPeriod/@type SAFmonetaryType
+/AuditFile/MasterFiles/Assets/Asset/Valuations/Valuation/AppreciationForPeriod/@minOccurs 0
+/AuditFile/MasterFiles/Assets/Asset/Valuations/Valuation/AppreciationForPeriod/@desc Total amouunt of appreciation during the Selectionperiod in the header's default currency.
+/AuditFile/MasterFiles/Assets/Asset/Valuations/Valuation/ExtraordinaryDepreciationsForPeriod/@name ExtraordinaryDepreciationsForPeriod
+/AuditFile/MasterFiles/Assets/Asset/Valuations/Valuation/ExtraordinaryDepreciationsForPeriod/@minOccurs 0
+/AuditFile/MasterFiles/Assets/Asset/Valuations/Valuation/ExtraordinaryDepreciationsForPeriod/@desc Extraordinary depreciations for this asset during the Selectionperiod.
+/AuditFile/MasterFiles/Assets/Asset/Valuations/Valuation/ExtraordinaryDepreciationsForPeriod/ExtraordinaryDepreciationForPeriod/@name ExtraordinaryDepreciationForPeriod
+/AuditFile/MasterFiles/Assets/Asset/Valuations/Valuation/ExtraordinaryDepreciationsForPeriod/ExtraordinaryDepreciationForPeriod/@maxOccurs unbounded
+/AuditFile/MasterFiles/Assets/Asset/Valuations/Valuation/ExtraordinaryDepreciationsForPeriod/ExtraordinaryDepreciationForPeriod/ExtraordinaryDepreciationMethod/@name ExtraordinaryDepreciationMethod
+/AuditFile/MasterFiles/Assets/Asset/Valuations/Valuation/ExtraordinaryDepreciationsForPeriod/ExtraordinaryDepreciationForPeriod/ExtraordinaryDepreciationMethod/@type SAFmiddle1textType
+/AuditFile/MasterFiles/Assets/Asset/Valuations/Valuation/ExtraordinaryDepreciationsForPeriod/ExtraordinaryDepreciationForPeriod/ExtraordinaryDepreciationMethod/@desc Method of extraordinary depreciation during the Selectionperiod.
+/AuditFile/MasterFiles/Assets/Asset/Valuations/Valuation/ExtraordinaryDepreciationsForPeriod/ExtraordinaryDepreciationForPeriod/ExtraordinaryDepreciationForPeriod/@name ExtraordinaryDepreciationForPeriod
+/AuditFile/MasterFiles/Assets/Asset/Valuations/Valuation/ExtraordinaryDepreciationsForPeriod/ExtraordinaryDepreciationForPeriod/ExtraordinaryDepreciationForPeriod/@type SAFmonetaryType
+/AuditFile/MasterFiles/Assets/Asset/Valuations/Valuation/ExtraordinaryDepreciationsForPeriod/ExtraordinaryDepreciationForPeriod/ExtraordinaryDepreciationForPeriod/@desc Amouunt of extraordinary depreciation during the Selectionperiod in the header's default currency.
+/AuditFile/MasterFiles/Assets/Asset/Valuations/Valuation/AccumulatedDepreciation/@name AccumulatedDepreciation
+/AuditFile/MasterFiles/Assets/Asset/Valuations/Valuation/AccumulatedDepreciation/@type SAFmonetaryType
+/AuditFile/MasterFiles/Assets/Asset/Valuations/Valuation/AccumulatedDepreciation/@minOccurs 0
+/AuditFile/MasterFiles/Assets/Asset/Valuations/Valuation/AccumulatedDepreciation/@desc Total amount of depreciation for this asset
+/AuditFile/MasterFiles/Assets/Asset/Valuations/Valuation/AccumulatedDepreciation/@name BookValueEnd
+/AuditFile/MasterFiles/Assets/Asset/Valuations/Valuation/AccumulatedDepreciation/@type SAFmonetaryType
+/AuditFile/MasterFiles/Assets/Asset/Valuations/Valuation/AccumulatedDepreciation/@desc Bookvalue at the end of the Selectionperiod in the header's default currency.
+/AuditFile/MasterFiles/Assets/Asset/any@namespace ##other
+/AuditFile/MasterFiles/Assets/Asset/any@minOccurs 0
+/AuditFile/MasterFiles/Assets/Asset/any@desc Represents space to allow individual Revenue Bodies to add further elements
+/AuditFile/MasterFiles/any@namespace ##other
+/AuditFile/MasterFiles/any@minOccurs 0
+/AuditFile/MasterFiles/any@desc Represents space to allow individual Revenue Bodies to specify additional standing data.
+/AuditFile/GeneralLedgerEntries/@name GeneralLedgerEntries
+/AuditFile/GeneralLedgerEntries/@minOccurs 0
+/AuditFile/GeneralLedgerEntries/NumberOfEntries/@name NumberOfEntries
+/AuditFile/GeneralLedgerEntries/NumberOfEntries/@type nonNegativeInteger
+/AuditFile/GeneralLedgerEntries/NumberOfEntries/@desc Number of entries
+/AuditFile/GeneralLedgerEntries/TotalDebit/@name TotalDebit
+/AuditFile/GeneralLedgerEntries/TotalDebit/@type SAFmonetaryType
+/AuditFile/GeneralLedgerEntries/TotalDebit/@desc The total of all debit amounts in the header's default currency.
+/AuditFile/GeneralLedgerEntries/TotalCredit/@name TotalCredit
+/AuditFile/GeneralLedgerEntries/TotalCredit/@type SAFmonetaryType
+/AuditFile/GeneralLedgerEntries/TotalCredit/@desc The total of all credit amounts in the header's default currency.
+/AuditFile/GeneralLedgerEntries/Journal/@name Journal
+/AuditFile/GeneralLedgerEntries/Journal/@minOccurs 0
+/AuditFile/GeneralLedgerEntries/Journal/@maxOccurs unbounded
+/AuditFile/GeneralLedgerEntries/Journal/JournalID/@name JournalID
+/AuditFile/GeneralLedgerEntries/Journal/JournalID/@type SAFshorttextType
+/AuditFile/GeneralLedgerEntries/Journal/JournalID/@desc Source GL journal identifier, or invoices and payments in single ledger systems
+/AuditFile/GeneralLedgerEntries/Journal/Description/@name Description
+/AuditFile/GeneralLedgerEntries/Journal/Description/@type SAFlongtextType
+/AuditFile/GeneralLedgerEntries/Journal/Description/@desc Description of the Journal
+/AuditFile/GeneralLedgerEntries/Journal/Type/@name Type
+/AuditFile/GeneralLedgerEntries/Journal/Type/@type SAFcodeType
+/AuditFile/GeneralLedgerEntries/Journal/Type/@desc Grouping mechanism for journals
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/@name Transaction
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/@minOccurs 0
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/@maxOccurs unbounded
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/TransactionID/@name TransactionID
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/TransactionID/@type SAFmiddle2textType
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/TransactionID/@desc Cross-reference to GL posting. It can contain many different levels to identify the transaction. It could include cost centres such as company, division, region, group and branch/department.
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/Period/@name Period
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/Period/@type nonNegativeInteger
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/Period/@desc Accounting Period
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/PeriodYear/@name PeriodYear
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/PeriodYear/@desc The year of the Accounting Period.
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/PeriodYear/@base nonNegativeInteger
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/PeriodYear/@minInclusive 1970
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/PeriodYear/@maxInclusive 2100
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/TransactionDate/@name TransactionDate
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/TransactionDate/@type date
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/TransactionDate/@desc Document date
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/SourceID/@name SourceID
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/SourceID/@type SAFmiddle1textType
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/SourceID/@minOccurs 0
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/SourceID/@desc Details of person or application that entered the transaction
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/TransactionType/@name TransactionType
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/TransactionType/@type SAFshorttextType
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/TransactionType/@minOccurs 0
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/TransactionType/@desc Type of journaltransaction: normal, (automated) periodically, etc.
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/Description/@name Description
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/Description/@type SAFlongtextType
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/Description/@desc Description of Journal Transaction
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/BatchID/@name BatchID
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/BatchID/@type SAFmiddle1textType
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/BatchID/@minOccurs 0
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/BatchID/@desc Systems generated ID for batch
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/SystemEntryDate/@name SystemEntryDate
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/SystemEntryDate/@type date
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/SystemEntryDate/@desc Date captured  by system
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/GLPostingDate/@name GLPostingDate
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/GLPostingDate/@type date
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/GLPostingDate/@desc Date posting to GL
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/CustomerID/@name CustomerID
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/CustomerID/@type SAFmiddle1textType
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/CustomerID/@minOccurs 0
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/CustomerID/@desc Unique code for the customer
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/SupplierID/@name SupplierID
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/SupplierID/@type SAFmiddle1textType
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/SupplierID/@minOccurs 0
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/SupplierID/@desc Unique code for the supplier
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/SystemID/@name SystemID
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/SystemID/@type SAFshorttextType
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/SystemID/@minOccurs 0
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/SystemID/@desc Unique number created by the system for the document
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/TransactionLine/@name Line
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/TransactionLine/@maxOccurs unbounded
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/TransactionLine/RecordID/@name RecordID
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/TransactionLine/RecordID/@type SAFshorttextType
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/TransactionLine/RecordID/@desc Identifier to trace entry to journal line or posting reference
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/TransactionLine/AccountID/@name AccountID
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/TransactionLine/AccountID/@type SAFmiddle2textType
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/TransactionLine/AccountID/@desc General Ledger Account code. Can be including sub-account id. It can contain many different levels to identify the Account. It could include cost centres such as company, division, region, group and branch/department.
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/TransactionLine/Analysis/@name Analysis
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/TransactionLine/Analysis/@type AnalysisStructure
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/TransactionLine/Analysis/@minOccurs 0
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/TransactionLine/Analysis/@maxOccurs unbounded
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/TransactionLine/Analysis/@desc General Ledger analysis codes
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/TransactionLine/ValueDate/@name ValueDate
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/TransactionLine/ValueDate/@type date
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/TransactionLine/ValueDate/@minOccurs 0
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/TransactionLine/ValueDate/@desc Effective date from which interest charged. To be reported when this date differs from the transactiondate.
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/TransactionLine/SourceDocumentID/@name SourceDocumentID
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/TransactionLine/SourceDocumentID/@type SAFmiddle1textType
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/TransactionLine/SourceDocumentID/@minOccurs 0
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/TransactionLine/SourceDocumentID/@desc Source document number to which line relates
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/TransactionLine/CustomerID/@name CustomerID
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/TransactionLine/CustomerID/@type SAFmiddle1textType
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/TransactionLine/CustomerID/@minOccurs 0
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/TransactionLine/CustomerID/@desc Unique code for the customer
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/TransactionLine/SupplierID/@name SupplierID
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/TransactionLine/SupplierID/@type SAFmiddle1textType
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/TransactionLine/SupplierID/@minOccurs 0
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/TransactionLine/SupplierID/@desc Unique code for the supplier
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/TransactionLine/Description/@name Description
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/TransactionLine/Description/@type SAFlongtextType
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/TransactionLine/Description/@desc Description of the Journal Line.
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/TransactionLine/choice/@name DebitAmount/CreditAmount
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/TransactionLine/choice/DebitAmountt/@name DebitAmount
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/TransactionLine/choice/DebitAmountt/@type AmountStructure
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/TransactionLine/choice/DebitAmountt/@desc Debit amount information for transaction
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/TransactionLine/choice/CreditAmountt/@name CreditAmount
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/TransactionLine/choice/CreditAmountt/@type AmountStructure
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/TransactionLine/choice/CreditAmountt/@desc Credit amount information for transaction
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/TransactionLine/TaxInformation/@name TaxInformation
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/TransactionLine/TaxInformation/@type TaxInformationStructure
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/TransactionLine/TaxInformation/@minOccurs 0
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/TransactionLine/TaxInformation/@maxOccurs unbounded
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/TransactionLine/any@namespace ##other
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/TransactionLine/any@minOccurs 0
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/TransactionLine/any@desc Represents space to allow individual Revenue Bodies to add further elements
+/AuditFile/SourceDocuments/@name SourceDocuments
+/AuditFile/SourceDocuments/@minOccurs 0
+/AuditFile/SourceDocuments/SalesInvoices/@name SalesInvoices
+/AuditFile/SourceDocuments/SalesInvoices/@minOccurs 0
+/AuditFile/SourceDocuments/SalesInvoices/NumberOfEntries/@name NumberOfEntries
+/AuditFile/SourceDocuments/SalesInvoices/NumberOfEntries/@type nonNegativeInteger
+/AuditFile/SourceDocuments/SalesInvoices/NumberOfEntries/@desc Number of entries
+/AuditFile/SourceDocuments/SalesInvoices/TotalDebit/@name TotalDebit
+/AuditFile/SourceDocuments/SalesInvoices/TotalDebit/@type SAFmonetaryType
+/AuditFile/SourceDocuments/SalesInvoices/TotalDebit/@desc The total of all debit amounts in the header's default currency
+/AuditFile/SourceDocuments/SalesInvoices/TotalCredit/@name TotalCredit
+/AuditFile/SourceDocuments/SalesInvoices/TotalCredit/@type SAFmonetaryType
+/AuditFile/SourceDocuments/SalesInvoices/TotalCredit/@desc The total of all credit amounts in the header's default currency
+/AuditFile/SourceDocuments/SalesInvoices/Invoice/@name Invoice
+/AuditFile/SourceDocuments/SalesInvoices/Invoice/@type InvoiceStructure
+/AuditFile/SourceDocuments/SalesInvoices/Invoice/@maxOccurs unbounded
+/AuditFile/SourceDocuments/PurchaseInvoices/@name PurchaseInvoices
+/AuditFile/SourceDocuments/PurchaseInvoices/@minOccurs 0
+/AuditFile/SourceDocuments/PurchaseInvoices/NumberOfEntries/@name NumberOfEntries
+/AuditFile/SourceDocuments/PurchaseInvoices/NumberOfEntries/@type nonNegativeInteger
+/AuditFile/SourceDocuments/PurchaseInvoices/NumberOfEntries/@desc Number of entries
+/AuditFile/SourceDocuments/PurchaseInvoices/TotalDebit/@name TotalDebit
+/AuditFile/SourceDocuments/PurchaseInvoices/TotalDebit/@type SAFmonetaryType
+/AuditFile/SourceDocuments/PurchaseInvoices/TotalDebit/@desc The total of all debit amounts in the header's default currency
+/AuditFile/SourceDocuments/PurchaseInvoices/TotalCredit/@name TotalCredit
+/AuditFile/SourceDocuments/PurchaseInvoices/TotalCredit/@type SAFmonetaryType
+/AuditFile/SourceDocuments/PurchaseInvoices/TotalCredit/@desc The total of all credit amounts in the header's default currency
+/AuditFile/SourceDocuments/PurchaseInvoices/Invoice/@name Invoice
+/AuditFile/SourceDocuments/PurchaseInvoices/Invoice/@type InvoiceStructure
+/AuditFile/SourceDocuments/PurchaseInvoices/Invoice/@maxOccurs unbounded
+/AuditFile/SourceDocuments/Payments/@name Payments
+/AuditFile/SourceDocuments/Payments/@minOccurs 0
+/AuditFile/SourceDocuments/Payments/NumberOfEntries/@name NumberOfEntries
+/AuditFile/SourceDocuments/Payments/NumberOfEntries/@type nonNegativeInteger
+/AuditFile/SourceDocuments/Payments/NumberOfEntries/@desc Number of entries
+/AuditFile/SourceDocuments/Payments/TotalDebit/@name TotalDebit
+/AuditFile/SourceDocuments/Payments/TotalDebit/@type SAFmonetaryType
+/AuditFile/SourceDocuments/Payments/TotalDebit/@desc The total of all debit amounts in the header's default currency
+/AuditFile/SourceDocuments/Payments/TotalCredit/@name TotalCredit
+/AuditFile/SourceDocuments/Payments/TotalCredit/@type SAFmonetaryType
+/AuditFile/SourceDocuments/Payments/TotalCredit/@desc The total of all credit amounts in the header's default currency
+/AuditFile/SourceDocuments/Payments/Payment/@name Payment
+/AuditFile/SourceDocuments/Payments/Payment/@maxOccurs unbounded
+/AuditFile/SourceDocuments/Payments/Payment/PaymentRefNo/@name PaymentRefNo
+/AuditFile/SourceDocuments/Payments/Payment/PaymentRefNo/@type SAFmiddle1textType
+/AuditFile/SourceDocuments/Payments/Payment/PaymentRefNo/@desc Unique reference number for payment
+/AuditFile/SourceDocuments/Payments/Payment/Period/@name Period
+/AuditFile/SourceDocuments/Payments/Payment/Period/@type nonNegativeInteger
+/AuditFile/SourceDocuments/Payments/Payment/Period/@minOccurs 0
+/AuditFile/SourceDocuments/Payments/Payment/Period/@desc Accounting Period
+/AuditFile/SourceDocuments/Payments/Payment/PeriodYear/@name PeriodYear
+/AuditFile/SourceDocuments/Payments/Payment/PeriodYear/@minOccurs 0
+/AuditFile/SourceDocuments/Payments/Payment/PeriodYear/@desc The year of the Accounting Period.
+/AuditFile/SourceDocuments/Payments/Payment/PeriodYear/@base nonNegativeInteger
+/AuditFile/SourceDocuments/Payments/Payment/PeriodYear/@minInclusive 1970
+/AuditFile/SourceDocuments/Payments/Payment/PeriodYear/@maxInclusive 2100
+/AuditFile/SourceDocuments/Payments/Payment/TransactionID/@name TransactionID
+/AuditFile/SourceDocuments/Payments/Payment/TransactionID/@type SAFmiddle2textType
+/AuditFile/SourceDocuments/Payments/Payment/TransactionID/@minOccurs 0
+/AuditFile/SourceDocuments/Payments/Payment/TransactionID/@desc Cross-reference to GL posting. It can contain many different levels to identify the transaction. It could include cost centres such as company, division, region, group and branch/department.
+/AuditFile/SourceDocuments/Payments/Payment/TransactionDate/@name TransactionDate
+/AuditFile/SourceDocuments/Payments/Payment/TransactionDate/@type date
+/AuditFile/SourceDocuments/Payments/Payment/TransactionDate/@desc Document date
+/AuditFile/SourceDocuments/Payments/Payment/PaymentMethod/@name PaymentMethod
+/AuditFile/SourceDocuments/Payments/Payment/PaymentMethod/@type SAFcodeType
+/AuditFile/SourceDocuments/Payments/Payment/PaymentMethod/@minOccurs 0
+/AuditFile/SourceDocuments/Payments/Payment/PaymentMethod/@desc Cheque, Bank, Giro, Cash, etc.
+/AuditFile/SourceDocuments/Payments/Payment/Description/@name Description
+/AuditFile/SourceDocuments/Payments/Payment/Description/@type SAFlongtextType
+/AuditFile/SourceDocuments/Payments/Payment/Description/@desc Description of the payment.
+/AuditFile/SourceDocuments/Payments/Payment/BatchID/@name BatchID
+/AuditFile/SourceDocuments/Payments/Payment/BatchID/@type SAFmiddle1textType
+/AuditFile/SourceDocuments/Payments/Payment/BatchID/@minOccurs 0
+/AuditFile/SourceDocuments/Payments/Payment/BatchID/@desc Systems generated ID for batch
+/AuditFile/SourceDocuments/Payments/Payment/SystemID/@name SystemID
+/AuditFile/SourceDocuments/Payments/Payment/SystemID/@type SAFmiddle1textType
+/AuditFile/SourceDocuments/Payments/Payment/SystemID/@minOccurs 0
+/AuditFile/SourceDocuments/Payments/Payment/SystemID/@desc Unique number created by the system for the document
+/AuditFile/SourceDocuments/Payments/Payment/SourceID/@name SourceID
+/AuditFile/SourceDocuments/Payments/Payment/SourceID/@type SAFmiddle1textType
+/AuditFile/SourceDocuments/Payments/Payment/SourceID/@minOccurs 0
+/AuditFile/SourceDocuments/Payments/Payment/SourceID/@desc Details of person or application that entered the transaction
+/AuditFile/SourceDocuments/Payments/Payment/PaymentLine/@name Line
+/AuditFile/SourceDocuments/Payments/Payment/PaymentLine/@maxOccurs unbounded
+/AuditFile/SourceDocuments/Payments/Payment/PaymentLine/LineNumber/@name LineNumber
+/AuditFile/SourceDocuments/Payments/Payment/PaymentLine/LineNumber/@type SAFshorttextType
+/AuditFile/SourceDocuments/Payments/Payment/PaymentLine/LineNumber/@minOccurs 0
+/AuditFile/SourceDocuments/Payments/Payment/PaymentLine/LineNumber/@desc Number of the paymentline
+/AuditFile/SourceDocuments/Payments/Payment/PaymentLine/SourceDocumentID/@name SourceDocumentID
+/AuditFile/SourceDocuments/Payments/Payment/PaymentLine/SourceDocumentID/@type SAFmiddle1textType
+/AuditFile/SourceDocuments/Payments/Payment/PaymentLine/SourceDocumentID/@minOccurs 0
+/AuditFile/SourceDocuments/Payments/Payment/PaymentLine/SourceDocumentID/@desc The source document to which the line relates
+/AuditFile/SourceDocuments/Payments/Payment/PaymentLine/AccountID/@name AccountID
+/AuditFile/SourceDocuments/Payments/Payment/PaymentLine/AccountID/@type SAFmiddle2textType
+/AuditFile/SourceDocuments/Payments/Payment/PaymentLine/AccountID/@minOccurs 0
+/AuditFile/SourceDocuments/Payments/Payment/PaymentLine/AccountID/@desc General Ledger Account code. Can be including sub-account id. It can contain many different levels to identify the Account. It could include cost centres such as company, division, region, group and branch/department.
+/AuditFile/SourceDocuments/Payments/Payment/PaymentLine/Analysis/@name Analysis
+/AuditFile/SourceDocuments/Payments/Payment/PaymentLine/Analysis/@type AnalysisStructure
+/AuditFile/SourceDocuments/Payments/Payment/PaymentLine/Analysis/@minOccurs 0
+/AuditFile/SourceDocuments/Payments/Payment/PaymentLine/Analysis/@maxOccurs unbounded
+/AuditFile/SourceDocuments/Payments/Payment/PaymentLine/Analysis/@desc General Ledger analysis codes
+/AuditFile/SourceDocuments/Payments/Payment/PaymentLine/CustomerID/@name CustomerID
+/AuditFile/SourceDocuments/Payments/Payment/PaymentLine/CustomerID/@type SAFmiddle1textType
+/AuditFile/SourceDocuments/Payments/Payment/PaymentLine/CustomerID/@minOccurs 0
+/AuditFile/SourceDocuments/Payments/Payment/PaymentLine/CustomerID/@desc Unique code for the customer
+/AuditFile/SourceDocuments/Payments/Payment/PaymentLine/SupplierID/@name SupplierID
+/AuditFile/SourceDocuments/Payments/Payment/PaymentLine/SupplierID/@type SAFmiddle1textType
+/AuditFile/SourceDocuments/Payments/Payment/PaymentLine/SupplierID/@minOccurs 0
+/AuditFile/SourceDocuments/Payments/Payment/PaymentLine/SupplierID/@desc Unique code for the supplier
+/AuditFile/SourceDocuments/Payments/Payment/PaymentLine/TaxPointDate/@name TaxPointDate
+/AuditFile/SourceDocuments/Payments/Payment/PaymentLine/TaxPointDate/@type date
+/AuditFile/SourceDocuments/Payments/Payment/PaymentLine/TaxPointDate/@minOccurs 0
+/AuditFile/SourceDocuments/Payments/Payment/PaymentLine/TaxPointDate/@desc Tax Point date where recorded or if not recorded then the Invoice date
+/AuditFile/SourceDocuments/Payments/Payment/PaymentLine/Description/@name Description
+/AuditFile/SourceDocuments/Payments/Payment/PaymentLine/Description/@type SAFlongtextType
+/AuditFile/SourceDocuments/Payments/Payment/PaymentLine/Description/@minOccurs 0
+/AuditFile/SourceDocuments/Payments/Payment/PaymentLine/Description/@desc Description of the payment line.
+/AuditFile/SourceDocuments/Payments/Payment/PaymentLine/DebitCreditIndicator/@name DebitCreditIndicator
+/AuditFile/SourceDocuments/Payments/Payment/PaymentLine/DebitCreditIndicator/@desc Indicates whether the amounts on line-level are debit or credit amounts. Entry must correspond to entry reflected in General Ledger Entry. Signing of lineamounts is relative to this indicator. E.g. a return can lead to a negative amount.
+/AuditFile/SourceDocuments/Payments/Payment/PaymentLine/DebitCreditIndicator/@base SAFcodeType
+/AuditFile/SourceDocuments/Payments/Payment/PaymentLine/DebitCreditIndicator/enumeration@value D
+/AuditFile/SourceDocuments/Payments/Payment/PaymentLine/DebitCreditIndicator/enumeration@value C
+/AuditFile/SourceDocuments/Payments/Payment/PaymentLine/PaymentLineAmount/@name PaymentLineAmount
+/AuditFile/SourceDocuments/Payments/Payment/PaymentLine/PaymentLineAmount/@type AmountStructure
+/AuditFile/SourceDocuments/Payments/Payment/PaymentLine/PaymentLineAmount/@desc Amount for transaction excluding taxes.
+/AuditFile/SourceDocuments/Payments/Payment/PaymentLine/TaxInformation/@name TaxInformation
+/AuditFile/SourceDocuments/Payments/Payment/PaymentLine/TaxInformation/@type TaxInformationStructure
+/AuditFile/SourceDocuments/Payments/Payment/PaymentLine/TaxInformation/@minOccurs 0
+/AuditFile/SourceDocuments/Payments/Payment/PaymentLine/TaxInformation/@maxOccurs unbounded
+/AuditFile/SourceDocuments/Payments/Payment/PaymentLine/any@namespace ##other
+/AuditFile/SourceDocuments/Payments/Payment/PaymentLine/any@minOccurs 0
+/AuditFile/SourceDocuments/Payments/Payment/PaymentLine/any@desc Represents space to allow individual Revenue Bodies to add further elements
+/AuditFile/SourceDocuments/Payments/Payment/Settlement/@name Settlement
+/AuditFile/SourceDocuments/Payments/Payment/Settlement/@minOccurs 0
+/AuditFile/SourceDocuments/Payments/Payment/Settlement/SettlementDiscount/@name SettlementDiscount
+/AuditFile/SourceDocuments/Payments/Payment/Settlement/SettlementDiscount/@type SAFmiddle1textType
+/AuditFile/SourceDocuments/Payments/Payment/Settlement/SettlementDiscount/@minOccurs 0
+/AuditFile/SourceDocuments/Payments/Payment/Settlement/SettlementDiscount/@desc Description Settlement / Other Discount
+/AuditFile/SourceDocuments/Payments/Payment/Settlement/SettlementAmount/@name SettlementAmount
+/AuditFile/SourceDocuments/Payments/Payment/Settlement/SettlementAmount/@type AmountStructure
+/AuditFile/SourceDocuments/Payments/Payment/Settlement/SettlementAmount/@minOccurs 0
+/AuditFile/SourceDocuments/Payments/Payment/Settlement/SettlementAmount/@desc Settlement amount
+/AuditFile/SourceDocuments/Payments/Payment/Settlement/SettlementDate/@name SettlementDate
+/AuditFile/SourceDocuments/Payments/Payment/Settlement/SettlementDate/@type date
+/AuditFile/SourceDocuments/Payments/Payment/Settlement/SettlementDate/@minOccurs 0
+/AuditFile/SourceDocuments/Payments/Payment/Settlement/SettlementDate/@desc Date settled
+/AuditFile/SourceDocuments/Payments/Payment/Settlement/PaymentMechanism/@name PaymentMechanism
+/AuditFile/SourceDocuments/Payments/Payment/Settlement/PaymentMechanism/@type SAFcodeType
+/AuditFile/SourceDocuments/Payments/Payment/Settlement/PaymentMechanism/@minOccurs 0
+/AuditFile/SourceDocuments/Payments/Payment/Settlement/PaymentMechanism/@desc Payment mechanism
+/AuditFile/SourceDocuments/Payments/Payment/DocumentTotals/@name DocumentTotals
+/AuditFile/SourceDocuments/Payments/Payment/DocumentTotals/@minOccurs 0
+/AuditFile/SourceDocuments/Payments/Payment/DocumentTotals/TaxInformationTotals/@name TaxInformationTotals
+/AuditFile/SourceDocuments/Payments/Payment/DocumentTotals/TaxInformationTotals/@type TaxInformationStructure
+/AuditFile/SourceDocuments/Payments/Payment/DocumentTotals/TaxInformationTotals/@minOccurs 0
+/AuditFile/SourceDocuments/Payments/Payment/DocumentTotals/TaxInformationTotals/@maxOccurs unbounded
+/AuditFile/SourceDocuments/Payments/Payment/DocumentTotals/TaxInformationTotals/@desc Control totals tax payable information. Per TaxType/TaxCode the TaxBase and TaxAmount are summarised.
+/AuditFile/SourceDocuments/Payments/Payment/DocumentTotals/NetTotal/@name NetTotal
+/AuditFile/SourceDocuments/Payments/Payment/DocumentTotals/NetTotal/@type SAFmonetaryType
+/AuditFile/SourceDocuments/Payments/Payment/DocumentTotals/NetTotal/@minOccurs 0
+/AuditFile/SourceDocuments/Payments/Payment/DocumentTotals/NetTotal/@desc Total amount excluding tax in the header's default currency.
+/AuditFile/SourceDocuments/Payments/Payment/DocumentTotals/GrossTotal/@name GrossTotal
+/AuditFile/SourceDocuments/Payments/Payment/DocumentTotals/GrossTotal/@type SAFmonetaryType
+/AuditFile/SourceDocuments/Payments/Payment/DocumentTotals/GrossTotal/@desc Total amount including tax in the header's default currency.
+/AuditFile/SourceDocuments/Payments/Payment/any@namespace ##other
+/AuditFile/SourceDocuments/Payments/Payment/any@minOccurs 0
+/AuditFile/SourceDocuments/Payments/Payment/any@desc Represents space to allow individual Revenue Bodies to add further elements
+/AuditFile/SourceDocuments/MovementOfGoods/@name MovementOfGoods
+/AuditFile/SourceDocuments/MovementOfGoods/@minOccurs 0
+/AuditFile/SourceDocuments/MovementOfGoods/NumberOfMovementLines/@name NumberOfMovementLines
+/AuditFile/SourceDocuments/MovementOfGoods/NumberOfMovementLines/@type nonNegativeInteger
+/AuditFile/SourceDocuments/MovementOfGoods/NumberOfMovementLines/@desc Number of movementlines in selected period
+/AuditFile/SourceDocuments/MovementOfGoods/TotalQuantityReceived/@name TotalQuantityReceived
+/AuditFile/SourceDocuments/MovementOfGoods/TotalQuantityReceived/@type SAFquantityType
+/AuditFile/SourceDocuments/MovementOfGoods/TotalQuantityReceived/@desc Quantity of goods received
+/AuditFile/SourceDocuments/MovementOfGoods/TotalQuantityIssued/@name TotalQuantityIssued
+/AuditFile/SourceDocuments/MovementOfGoods/TotalQuantityIssued/@type SAFquantityType
+/AuditFile/SourceDocuments/MovementOfGoods/TotalQuantityIssued/@desc Quantity of goods issued in selected period
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/@name StockMovement
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/@maxOccurs unbounded
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/MovementReference/@name MovementReference
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/MovementReference/@type SAFmiddle1textType
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/MovementReference/@desc Unique reference to the movement.
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/MovementDate/@name MovementDate
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/MovementDate/@type date
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/MovementDate/@desc Document date
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/MovementPostingDate/@name MovementPostingDate
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/MovementPostingDate/@type date
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/MovementPostingDate/@minOccurs 0
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/MovementPostingDate/@desc Date of posting of the movement if different to Movement Date
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/MovementPostingTime/@name MovementPostingTime
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/MovementPostingTime/@type time
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/MovementPostingTime/@minOccurs 0
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/MovementPostingTime/@desc Time of posting of the movement
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/TaxPointDate/@name TaxPointDate
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/TaxPointDate/@type date
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/TaxPointDate/@minOccurs 0
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/TaxPointDate/@desc Date of supply of goods
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/MovementType/@name MovementType
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/MovementType/@type SAFcodeType
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/MovementType/@desc The movementtype expresses the type of the process for the underlaying lines. E.g. production, sales, purchase. Predescribed TABLE is possible.
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/SourceID/@name SourceID
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/SourceID/@type SAFmiddle1textType
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/SourceID/@minOccurs 0
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/SourceID/@desc Details of person or application that entered the transaction
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/SystemID/@name SystemID
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/SystemID/@type SAFmiddle1textType
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/SystemID/@minOccurs 0
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/SystemID/@desc Unique number created by the system for the document
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/DocumentReference/@name DocumentReference
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/DocumentReference/@minOccurs 0
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/DocumentReference/DocumentType/@name DocumentType
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/DocumentReference/DocumentType/@type SAFshorttextType
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/DocumentReference/DocumentType/@desc Type of document
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/DocumentReference/DocumentNumber/@name DocumentNumber
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/DocumentReference/DocumentNumber/@type SAFmiddle1textType
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/DocumentReference/DocumentNumber/@desc Reference number of the document
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/DocumentReference/DocumentLine/@name DocumentLine
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/DocumentReference/DocumentLine/@type SAFshorttextType
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/DocumentReference/DocumentLine/@minOccurs 0
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/DocumentReference/DocumentLine/@desc Line number of the document
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/StockMovementLine/@name Line
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/StockMovementLine/@maxOccurs unbounded
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/StockMovementLine/LineNumber/@name LineNumber
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/StockMovementLine/LineNumber/@type SAFshorttextType
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/StockMovementLine/LineNumber/@desc Number of the movementline
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/StockMovementLine/AccountID/@name AccountID
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/StockMovementLine/AccountID/@type SAFmiddle2textType
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/StockMovementLine/AccountID/@minOccurs 0
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/StockMovementLine/AccountID/@desc General Ledger Account code. Can be including sub-account id.
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/StockMovementLine/TransactionID/@name TransactionID
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/StockMovementLine/TransactionID/@type SAFmiddle2textType
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/StockMovementLine/TransactionID/@minOccurs 0
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/StockMovementLine/TransactionID/@desc Cross-reference to GL posting. It can contain many different levels to identify the transaction. It could include cost centres such as company, division, region, group and branch/department.
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/StockMovementLine/CustomerID/@name CustomerID
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/StockMovementLine/CustomerID/@type SAFmiddle1textType
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/StockMovementLine/CustomerID/@minOccurs 0
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/StockMovementLine/CustomerID/@desc Unique code for the customer
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/StockMovementLine/SupplierID/@name SupplierID
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/StockMovementLine/SupplierID/@type SAFmiddle1textType
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/StockMovementLine/SupplierID/@minOccurs 0
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/StockMovementLine/SupplierID/@desc Unique code for the supplier
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/StockMovementLine/ShipTo/@name ShipTo
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/StockMovementLine/ShipTo/@type ShippingPointStructure
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/StockMovementLine/ShipTo/@minOccurs 0
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/StockMovementLine/ShipTo/@desc Ship To details
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/StockMovementLine/ShipFrom/@name ShipFrom
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/StockMovementLine/ShipFrom/@type ShippingPointStructure
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/StockMovementLine/ShipFrom/@minOccurs 0
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/StockMovementLine/ShipFrom/@desc Ship from Details
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/StockMovementLine/ProductCode/@name ProductCode
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/StockMovementLine/ProductCode/@type SAFmiddle2textType
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/StockMovementLine/ProductCode/@desc Product code
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/StockMovementLine/StockAccountNo/@name StockAccountNo
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/StockMovementLine/StockAccountNo/@type SAFmiddle2textType
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/StockMovementLine/StockAccountNo/@minOccurs 0
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/StockMovementLine/StockAccountNo/@desc Stock batch, lot, serial identification. Not used when there is exactly 1 PhysicalStock entry per ProductCode
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/StockMovementLine/Quantity/@name Quantity
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/StockMovementLine/Quantity/@type SAFquantityType
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/StockMovementLine/Quantity/@desc Quantity of goods
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/StockMovementLine/UnitOfMeasure/@name UnitOfMeasure
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/StockMovementLine/UnitOfMeasure/@type SAFcodeType
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/StockMovementLine/UnitOfMeasure/@desc Quantity unit of measure e.g. pack of 12
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/StockMovementLine/UOMToUOMPhysicalStockConversionFactor/@name UOMToUOMPhysicalStockConversionFactor
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/StockMovementLine/UOMToUOMPhysicalStockConversionFactor/@type decimal
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/StockMovementLine/UOMToUOMPhysicalStockConversionFactor/@desc Conversion factor of the UOM to UOM Physical Stock
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/StockMovementLine/BookValue/@name BookValue
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/StockMovementLine/BookValue/@type SAFmonetaryType
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/StockMovementLine/BookValue/@minOccurs 0
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/StockMovementLine/BookValue/@desc Value of the transaction line as registrerd in the general ledger in the header's default currency.
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/StockMovementLine/MovementSubType/@name MovementSubType
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/StockMovementLine/MovementSubType/@type SAFcodeType
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/StockMovementLine/MovementSubType/@desc Indentify the type of the movement on line / article level. A movement(type) production contains f.i. use of components, getting finished product, efficiencyloss as movementsubtypes. Predescribed TABLE is possible.
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/StockMovementLine/MovementComments/@name MovementComments
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/StockMovementLine/MovementComments/@type SAFlongtextType
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/StockMovementLine/MovementComments/@minOccurs 0
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/StockMovementLine/MovementComments/@desc A reason for the movement
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/StockMovementLine/TaxInformation/@name TaxInformation
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/StockMovementLine/TaxInformation/@type TaxInformationStructure
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/StockMovementLine/TaxInformation/@minOccurs 0
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/StockMovementLine/TaxInformation/@maxOccurs unbounded
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/StockMovementLine/any@namespace ##other
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/StockMovementLine/any@minOccurs 0
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/StockMovementLine/any@desc Represents space to allow individual Revenue Bodies to add further elements
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/any@namespace ##other
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/any@minOccurs 0
+/AuditFile/SourceDocuments/MovementOfGoods/StockMovement/any@desc Represents space to allow individual Revenue Bodies to add further elements
+/AuditFile/SourceDocuments/AssetTransactions/@name AssetTransactions
+/AuditFile/SourceDocuments/AssetTransactions/@minOccurs 0
+/AuditFile/SourceDocuments/AssetTransactions/@desc Details of all transactions related to an asset during the Selectionperiod.
+/AuditFile/SourceDocuments/AssetTransactions/NumberOfAssetTransactions/@name NumberOfAssetTransactions
+/AuditFile/SourceDocuments/AssetTransactions/NumberOfAssetTransactions/@type nonNegativeInteger
+/AuditFile/SourceDocuments/AssetTransactions/NumberOfAssetTransactions/@desc Number of movementlines during selected period
+/AuditFile/SourceDocuments/AssetTransactions/AssetTransaction/@name AssetTransaction
+/AuditFile/SourceDocuments/AssetTransactions/AssetTransaction/@maxOccurs unbounded
+/AuditFile/SourceDocuments/AssetTransactions/AssetTransaction/AssetTransactionID/@name AssetTransactionID
+/AuditFile/SourceDocuments/AssetTransactions/AssetTransaction/AssetTransactionID/@type SAFmiddle2textType
+/AuditFile/SourceDocuments/AssetTransactions/AssetTransaction/AssetTransactionID/@desc Unique Identification  of the transaction
+/AuditFile/SourceDocuments/AssetTransactions/AssetTransaction/AssetID/@name AssetID
+/AuditFile/SourceDocuments/AssetTransactions/AssetTransaction/AssetID/@type SAFmiddle1textType
+/AuditFile/SourceDocuments/AssetTransactions/AssetTransaction/AssetID/@desc Unique identifier of the asset
+/AuditFile/SourceDocuments/AssetTransactions/AssetTransaction/AssetTransactionType/@name AssetTransactionType
+/AuditFile/SourceDocuments/AssetTransactions/AssetTransaction/AssetTransactionType/@type SAFcodeType
+/AuditFile/SourceDocuments/AssetTransactions/AssetTransaction/AssetTransactionType/@desc Code for the type of the transaction
+/AuditFile/SourceDocuments/AssetTransactions/AssetTransaction/Description/@name Description
+/AuditFile/SourceDocuments/AssetTransactions/AssetTransaction/Description/@type SAFlongtextType
+/AuditFile/SourceDocuments/AssetTransactions/AssetTransaction/Description/@minOccurs 0
+/AuditFile/SourceDocuments/AssetTransactions/AssetTransaction/Description/@desc Description of the type of the transaction.
+/AuditFile/SourceDocuments/AssetTransactions/AssetTransaction/AssetTransactionDate/@name AssetTransactionDate
+/AuditFile/SourceDocuments/AssetTransactions/AssetTransaction/AssetTransactionDate/@type date
+/AuditFile/SourceDocuments/AssetTransactions/AssetTransaction/AssetTransactionDate/@desc Recording date of the transaction type (e. g. assets: date of the addition of the asset)
+/AuditFile/SourceDocuments/AssetTransactions/AssetTransaction/Supplier/@name Supplier
+/AuditFile/SourceDocuments/AssetTransactions/AssetTransaction/Supplier/@minOccurs 0
+/AuditFile/SourceDocuments/AssetTransactions/AssetTransaction/Supplier/@desc Information about the supplier of the asset
+/AuditFile/SourceDocuments/AssetTransactions/AssetTransaction/Supplier/SupplierName/@name SupplierName
+/AuditFile/SourceDocuments/AssetTransactions/AssetTransaction/Supplier/SupplierName/@type SAFmiddle2textType
+/AuditFile/SourceDocuments/AssetTransactions/AssetTransaction/Supplier/SupplierName/@desc Name of the supplier of the asset
+/AuditFile/SourceDocuments/AssetTransactions/AssetTransaction/Supplier/SupplierID/@name SupplierID
+/AuditFile/SourceDocuments/AssetTransactions/AssetTransaction/Supplier/SupplierID/@type SAFmiddle1textType
+/AuditFile/SourceDocuments/AssetTransactions/AssetTransaction/Supplier/SupplierID/@minOccurs 0
+/AuditFile/SourceDocuments/AssetTransactions/AssetTransaction/Supplier/SupplierID/@desc Unique code for the supplier
+/AuditFile/SourceDocuments/AssetTransactions/AssetTransaction/Supplier/PostalAddress/@name PostalAddress
+/AuditFile/SourceDocuments/AssetTransactions/AssetTransaction/Supplier/PostalAddress/@type AddressStructure
+/AuditFile/SourceDocuments/AssetTransactions/AssetTransaction/Supplier/PostalAddress/@desc Address information of the supplier of the asset
+/AuditFile/SourceDocuments/AssetTransactions/AssetTransaction/TransactionID/@name TransactionID
+/AuditFile/SourceDocuments/AssetTransactions/AssetTransaction/TransactionID/@type SAFmiddle2textType
+/AuditFile/SourceDocuments/AssetTransactions/AssetTransaction/TransactionID/@minOccurs 0
+/AuditFile/SourceDocuments/AssetTransactions/AssetTransaction/TransactionID/@desc Cross-reference to GL posting in the journal. It can contain many different levels to identify the transaction. It could include cost centres such as company, division, region, group and branch/department.
+/AuditFile/SourceDocuments/AssetTransactions/AssetTransaction/AssetTransactionValuations/@name AssetTransactionValuations
+/AuditFile/SourceDocuments/AssetTransactions/AssetTransaction/AssetTransactionValuations/@desc These amounts of the transaction can differ per asset valuation type.
+/AuditFile/SourceDocuments/AssetTransactions/AssetTransaction/AssetTransactionValuations/AssetTransactionValuation/@name AssetTransactionValuation
+/AuditFile/SourceDocuments/AssetTransactions/AssetTransaction/AssetTransactionValuations/AssetTransactionValuation/@maxOccurs unbounded
+/AuditFile/SourceDocuments/AssetTransactions/AssetTransaction/AssetTransactionValuations/AssetTransactionValuation/AssetValuationType/@name AssetValuationType
+/AuditFile/SourceDocuments/AssetTransactions/AssetTransaction/AssetTransactionValuations/AssetTransactionValuation/AssetValuationType/@type SAFshorttextType
+/AuditFile/SourceDocuments/AssetTransactions/AssetTransaction/AssetTransactionValuations/AssetTransactionValuation/AssetValuationType/@minOccurs 0
+/AuditFile/SourceDocuments/AssetTransactions/AssetTransaction/AssetTransactionValuations/AssetTransactionValuation/AssetValuationType/@desc Describes the purpose for the reporting: f.i. commercial, tax  in country 1, tax in country 2, etc.
+/AuditFile/SourceDocuments/AssetTransactions/AssetTransaction/AssetTransactionValuations/AssetTransactionValuation/AcquisitionAndProductionCostsOnTransaction/@name AcquisitionAndProductionCostsOnTransaction
+/AuditFile/SourceDocuments/AssetTransactions/AssetTransaction/AssetTransactionValuations/AssetTransactionValuation/AcquisitionAndProductionCostsOnTransaction/@type SAFmonetaryType
+/AuditFile/SourceDocuments/AssetTransactions/AssetTransaction/AssetTransactionValuations/AssetTransactionValuation/AcquisitionAndProductionCostsOnTransaction/@desc Costs of acquisition and/or production of related asset transaction in the header's default currency at date of transaction.
+/AuditFile/SourceDocuments/AssetTransactions/AssetTransaction/AssetTransactionValuations/AssetTransactionValuation/BookValueOnTransaction/@name BookValueOnTransaction
+/AuditFile/SourceDocuments/AssetTransactions/AssetTransaction/AssetTransactionValuations/AssetTransactionValuation/BookValueOnTransaction/@type SAFmonetaryType
+/AuditFile/SourceDocuments/AssetTransactions/AssetTransaction/AssetTransactionValuations/AssetTransactionValuation/BookValueOnTransaction/@desc Bookvalue of related asset transaction in the header's default currency at date of transaction.
+/AuditFile/SourceDocuments/AssetTransactions/AssetTransaction/AssetTransactionValuations/AssetTransactionValuation/AssetTransactionAmount/@name AssetTransactionAmount
+/AuditFile/SourceDocuments/AssetTransactions/AssetTransaction/AssetTransactionValuations/AssetTransactionValuation/AssetTransactionAmount/@type SAFmonetaryType
+/AuditFile/SourceDocuments/AssetTransactions/AssetTransaction/AssetTransactionValuations/AssetTransactionValuation/AssetTransactionAmount/@desc Net Amount of related asset transaction in the header's default currency, for instance the net sales revenue.
+/AuditFile/SourceDocuments/AssetTransactions/AssetTransaction/AssetTransactionValuations/AssetTransactionValuation/any@namespace ##other
+/AuditFile/SourceDocuments/AssetTransactions/AssetTransaction/AssetTransactionValuations/AssetTransactionValuation/any@minOccurs 0
+/AuditFile/SourceDocuments/AssetTransactions/AssetTransaction/AssetTransactionValuations/AssetTransactionValuation/any@desc Represents space to allow individual Revenue Bodies to add further elements
+/AuditFile/SourceDocuments/AssetTransactions/AssetTransaction/any@namespace ##other
+/AuditFile/SourceDocuments/AssetTransactions/AssetTransaction/any@minOccurs 0
+/AuditFile/SourceDocuments/AssetTransactions/AssetTransaction/any@desc Represents space to allow individual Revenue Bodies to add further elements
+/InvoiceStructure/@name InvoiceStructure
+/InvoiceStructure/@desc Containing all information about sales invoices and suppliers invoices
+/InvoiceStructure/InvoiceNo/@name InvoiceNo
+/InvoiceStructure/InvoiceNo/@type SAFmiddle2textType
+/InvoiceStructure/choice/@minOccurs 0
+/InvoiceStructure/choice/@name CustomerInfo/SupplierInfo
+/InvoiceStructure/choice/CustomerInfo/@name CustomerInfo
+/InvoiceStructure/choice/CustomerInfo/chooice/@name CustomerID/Name
+/InvoiceStructure/choice/CustomerInfo/choice/CustomerID/@name CustomerID
+/InvoiceStructure/choice/CustomerInfo/choice/CustomerID/@type SAFmiddle1textType
+/InvoiceStructure/choice/CustomerInfo/choice/CustomerID/@desc Unique code for the customer
+/InvoiceStructure/choice/CustomerInfo/choice/Name/@name Name
+/InvoiceStructure/choice/CustomerInfo/choice/Name/@type SAFmiddle2textType
+/InvoiceStructure/choice/CustomerInfo/choice/Name/@desc Name of the customer
+/InvoiceStructure/choice/CustomerInfo/BillingAddress/@name BillingAddress
+/InvoiceStructure/choice/CustomerInfo/BillingAddress/@type AddressStructure
+/InvoiceStructure/choice/SupplierInfo/@name SupplierInfo
+/InvoiceStructure/choice/SupplierInfo/choice/@name SupplierID/Name
+/InvoiceStructure/choice/SupplierInfo/choice/SupplierID/@name SupplierID
+/InvoiceStructure/choice/SupplierInfo/choice/SupplierID/@type SAFmiddle1textType
+/InvoiceStructure/choice/SupplierInfo/choice/SupplierID/@desc Unique code for the supplier
+/InvoiceStructure/choice/SupplierInfo/choice/Name/@name Name
+/InvoiceStructure/choice/SupplierInfo/choice/Name/@type SAFmiddle2textType
+/InvoiceStructure/choice/SupplierInfo/choice/Name/@desc Name of the supplier
+/InvoiceStructure/choice/SupplierInfo/BillingAddress/@name BillingAddress
+/InvoiceStructure/choice/SupplierInfo/BillingAddress/@type AddressStructure
+/InvoiceStructure/AccountID/@name AccountID
+/InvoiceStructure/AccountID/@type SAFmiddle2textType
+/InvoiceStructure/AccountID/@minOccurs 0
+/InvoiceStructure/AccountID/@desc General Ledger Account code of the customer / supplier. Can be including sub-account id. It can contain many different levels to identify the Account. It could include cost centres such as company, division, region, group and branch/department.
+/InvoiceStructure/BranchStoreNumber/@name BranchStoreNumber
+/InvoiceStructure/BranchStoreNumber/@type SAFmiddle1textType
+/InvoiceStructure/BranchStoreNumber/@minOccurs 0
+/InvoiceStructure/BranchStoreNumber/@desc Branch or Storenumber, additional segregation of customer/supplier, used if not included as part of the customer/supplier id.
+/InvoiceStructure/Period/@name Period
+/InvoiceStructure/Period/@type nonNegativeInteger
+/InvoiceStructure/Period/@minOccurs 0
+/InvoiceStructure/Period/@desc Accounting Period
+/InvoiceStructure/PeriodYear/@name PeriodYear
+/InvoiceStructure/PeriodYear/@minOccurs 0
+/InvoiceStructure/PeriodYear/@desc The year of the Accounting Period.
+/InvoiceStructure/PeriodYear/@base nonNegativeInteger
+/InvoiceStructure/PeriodYear/@minInclusive 1970
+/InvoiceStructure/PeriodYear/@maxInclusive 2100
+/InvoiceStructure/InvoiceDate/@name InvoiceDate
+/InvoiceStructure/InvoiceDate/@type date
+/InvoiceStructure/InvoiceType/@name InvoiceType
+/InvoiceStructure/InvoiceType/@type SAFcodeType
+/InvoiceStructure/InvoiceType/@minOccurs 0
+/InvoiceStructure/InvoiceType/@desc Type of invoice: Debit invoice, Credit invoice, Cash, Ticket, etc.
+/InvoiceStructure/shipTo/@name ShipTo
+/InvoiceStructure/shipTo/@type ShippingPointStructure
+/InvoiceStructure/shipTo/@minOccurs 0
+/InvoiceStructure/shipTo/@desc Ship To details
+/InvoiceStructure/shipFrom/@name ShipFrom
+/InvoiceStructure/shipFrom/@type ShippingPointStructure
+/InvoiceStructure/shipFrom/@minOccurs 0
+/InvoiceStructure/shipFrom/@desc Ship from Details
+/InvoiceStructure/PaymentTerms/@name PaymentTerms
+/InvoiceStructure/PaymentTerms/@type SAFmiddle2textType
+/InvoiceStructure/PaymentTerms/@minOccurs 0
+/InvoiceStructure/PaymentTerms/@desc Payments terms for this invoice
+/InvoiceStructure/SelfBillingIndicator/@name SelfBillingIndicator
+/InvoiceStructure/SelfBillingIndicator/@type SAFcodeType
+/InvoiceStructure/SelfBillingIndicator/@minOccurs 0
+/InvoiceStructure/SelfBillingIndicator/@desc Indicator showing if self-billing  is used for this invoice.
+/InvoiceStructure/SourceID/@name SourceID
+/InvoiceStructure/SourceID/@type SAFmiddle1textType
+/InvoiceStructure/SourceID/@minOccurs 0
+/InvoiceStructure/SourceID/@desc Details of person or application that entered the transaction
+/InvoiceStructure/GLPostingDate/@name GLPostingDate
+/InvoiceStructure/GLPostingDate/@type date
+/InvoiceStructure/GLPostingDate/@minOccurs 0
+/InvoiceStructure/GLPostingDate/@desc Date posting to GL
+/InvoiceStructure/BatchID/@name BatchID
+/InvoiceStructure/BatchID/@type SAFmiddle1textType
+/InvoiceStructure/BatchID/@minOccurs 0
+/InvoiceStructure/BatchID/@desc Systems generated ID for batch
+/InvoiceStructure/SystemID/@name SystemID
+/InvoiceStructure/SystemID/@type SAFmiddle1textType
+/InvoiceStructure/SystemID/@minOccurs 0
+/InvoiceStructure/SystemID/@desc Unique number created by the system for the document
+/InvoiceStructure/TransactionID/@name TransactionID
+/InvoiceStructure/TransactionID/@type SAFmiddle2textType
+/InvoiceStructure/TransactionID/@minOccurs 0
+/InvoiceStructure/TransactionID/@desc Cross-reference to GL posting. It can contain many different levels to identify the transaction. It could include cost centres such as company, division, region, group and branch/department.
+/InvoiceStructure/ReceiptNumbers/@name ReceiptNumbers
+/InvoiceStructure/ReceiptNumbers/@type SAFlongtextType
+/InvoiceStructure/ReceiptNumbers/@minOccurs 0
+/InvoiceStructure/ReceiptNumbers/@desc The number(s) of the receipt(s) on this "consolidated invoicerecord". Can be a single number, a range or a list.
+/InvoiceStructure/InvoiceLine/@name Line
+/InvoiceStructure/InvoiceLine/@maxOccurs unbounded
+/InvoiceStructure/InvoiceLine/LineNumber/@name LineNumber
+/InvoiceStructure/InvoiceLine/LineNumber/@type SAFshorttextType
+/InvoiceStructure/InvoiceLine/LineNumber/@minOccurs 0
+/InvoiceStructure/InvoiceLine/LineNumber/@desc Number of the invoiceline
+/InvoiceStructure/InvoiceLine/AccountID/@name AccountID
+/InvoiceStructure/InvoiceLine/AccountID/@type SAFmiddle2textType
+/InvoiceStructure/InvoiceLine/AccountID/@minOccurs 0
+/InvoiceStructure/InvoiceLine/AccountID/@desc General Ledger Account code of the GL-revenue-account. Can be including sub-account id. It can contain many different levels to identify the Account. It could include cost centres such as company, division, region, group and branch/department.
+/InvoiceStructure/InvoiceLine/Analysis/@name Analysis
+/InvoiceStructure/InvoiceLine/Analysis/@type AnalysisStructure
+/InvoiceStructure/InvoiceLine/Analysis/@minOccurs 0
+/InvoiceStructure/InvoiceLine/Analysis/@maxOccurs unbounded
+/InvoiceStructure/InvoiceLine/Analysis/@desc General Ledger analysis codes
+/InvoiceStructure/InvoiceLine/OrderReferences/@name OrderReferences
+/InvoiceStructure/InvoiceLine/OrderReferences/@minOccurs 0
+/InvoiceStructure/InvoiceLine/OrderReferences/@maxOccurs unbounded
+/InvoiceStructure/InvoiceLine/OrderReferences/@desc Relevant order references
+/InvoiceStructure/InvoiceLine/OrderReferences/OriginatingON/@name OriginatingON
+/InvoiceStructure/InvoiceLine/OrderReferences/OriginatingON/@type SAFmiddle2textType
+/InvoiceStructure/InvoiceLine/OrderReferences/OriginatingON/@minOccurs 0
+/InvoiceStructure/InvoiceLine/OrderReferences/OriginatingON/@desc Origination Order Number
+/InvoiceStructure/InvoiceLine/OrderReferences/OrderDate/@name OrderDate
+/InvoiceStructure/InvoiceLine/OrderReferences/OrderDate/@type date
+/InvoiceStructure/InvoiceLine/OrderReferences/OrderDate/@minOccurs 0
+/InvoiceStructure/InvoiceLine/OrderReferences/OrderDate/@desc Date of order
+/InvoiceStructure/InvoiceLine/ShipTo/@name ShipTo
+/InvoiceStructure/InvoiceLine/ShipTo/@type ShippingPointStructure
+/InvoiceStructure/InvoiceLine/ShipTo/@minOccurs 0
+/InvoiceStructure/InvoiceLine/ShipTo/@desc Ship To details
+/InvoiceStructure/InvoiceLine/ShipFrom/@name ShipFrom
+/InvoiceStructure/InvoiceLine/ShipFrom/@type ShippingPointStructure
+/InvoiceStructure/InvoiceLine/ShipFrom/@minOccurs 0
+/InvoiceStructure/InvoiceLine/ShipFrom/@desc Ship from Details
+/InvoiceStructure/InvoiceLine/GoodsServicesID/@name GoodsServicesID
+/InvoiceStructure/InvoiceLine/GoodsServicesID/@type SAFcodeType
+/InvoiceStructure/InvoiceLine/GoodsServicesID/@minOccurs 0
+/InvoiceStructure/InvoiceLine/GoodsServicesID/@desc Indicator showing if goods or service
+/InvoiceStructure/InvoiceLine/ProductCode/@name ProductCode
+/InvoiceStructure/InvoiceLine/ProductCode/@type SAFmiddle2textType
+/InvoiceStructure/InvoiceLine/ProductCode/@minOccurs 0
+/InvoiceStructure/InvoiceLine/ProductCode/@desc Product code
+/InvoiceStructure/InvoiceLine/ProductDescription/@name ProductDescription
+/InvoiceStructure/InvoiceLine/ProductDescription/@type SAFlongtextType
+/InvoiceStructure/InvoiceLine/ProductDescription/@minOccurs 0
+/InvoiceStructure/InvoiceLine/ProductDescription/@desc Description of goods or services.
+/InvoiceStructure/InvoiceLine/Delivery/@name Delivery
+/InvoiceStructure/InvoiceLine/Delivery/@minOccurs 0
+/InvoiceStructure/InvoiceLine/Delivery/@desc Information about the date or timeframe of the delivery of the goods or services.
+/InvoiceStructure/InvoiceLine/Delivery/MovementReference/@choice MovementReference/DeliveryDate/DeliveryPeriod
+/InvoiceStructure/InvoiceLine/Delivery/MovementReference/@name MovementReference
+/InvoiceStructure/InvoiceLine/Delivery/MovementReference/@type SAFmiddle1textType
+/InvoiceStructure/InvoiceLine/Delivery/MovementReference/@maxOccurs unbounded
+/InvoiceStructure/InvoiceLine/Delivery/MovementReference/@desc Unique reference to the movement.
+/InvoiceStructure/InvoiceLine/Delivery/DeliveryDate/@name DeliveryDate
+/InvoiceStructure/InvoiceLine/Delivery/DeliveryDate/@type date
+/InvoiceStructure/InvoiceLine/Delivery/DeliveryDate/@desc The date of the delivery
+/InvoiceStructure/InvoiceLine/Delivery/DeliveryPeriod/@name DeliveryPeriod
+/InvoiceStructure/InvoiceLine/Delivery/DeliveryPeriod/@desc Timeframe of the deliveries
+/InvoiceStructure/InvoiceLine/Delivery/DeliveryPeriod/FromDate/@name FromDate
+/InvoiceStructure/InvoiceLine/Delivery/DeliveryPeriod/FromDate/@type date
+/InvoiceStructure/InvoiceLine/Delivery/DeliveryPeriod/FromDate/@desc Startdate of the deliveries
+/InvoiceStructure/InvoiceLine/Delivery/DeliveryPeriod/ToDate/@name ToDate
+/InvoiceStructure/InvoiceLine/Delivery/DeliveryPeriod/ToDate/@type date
+/InvoiceStructure/InvoiceLine/Delivery/DeliveryPeriod/ToDate/@desc Enddate of the deliveries
+/InvoiceStructure/InvoiceLine/Quantity/@name Quantity
+/InvoiceStructure/InvoiceLine/Quantity/@type SAFquantityType
+/InvoiceStructure/InvoiceLine/Quantity/@minOccurs 0
+/InvoiceStructure/InvoiceLine/Quantity/@desc Quantity of goods and services supplied.
+/InvoiceStructure/InvoiceLine/InvoiceUOM/@name InvoiceUOM
+/InvoiceStructure/InvoiceLine/InvoiceUOM/@type SAFcodeType
+/InvoiceStructure/InvoiceLine/InvoiceUOM/@minOccurs 0
+/InvoiceStructure/InvoiceLine/InvoiceUOM/@desc Quantity unit of measure e.g. pack of 12
+/InvoiceStructure/InvoiceLine/UOMToUOMBaseConversionFactor/@name UOMToUOMBaseConversionFactor
+/InvoiceStructure/InvoiceLine/UOMToUOMBaseConversionFactor/@type decimal
+/InvoiceStructure/InvoiceLine/UOMToUOMBaseConversionFactor/@minOccurs 0
+/InvoiceStructure/InvoiceLine/UOMToUOMBaseConversionFactor/@desc Conversion factor of the InvoiceUOM to UOM Base. Only needed when InvoiceUOM is reported and is different from the UOM Base.
+/InvoiceStructure/InvoiceLine/UnitPrice/@name UnitPrice
+/InvoiceStructure/InvoiceLine/UnitPrice/@type SAFmonetaryType
+/InvoiceStructure/InvoiceLine/UnitPrice/@desc Unit price for the unit/group of units per UOM in the header's default currency.
+/InvoiceStructure/InvoiceLine/TaxPointDate/@name TaxPointDate
+/InvoiceStructure/InvoiceLine/TaxPointDate/@type date
+/InvoiceStructure/InvoiceLine/TaxPointDate/@desc Tax Point date where recorded or if not recorded then the Invoice date
+/InvoiceStructure/InvoiceLine/References/@name References
+/InvoiceStructure/InvoiceLine/References/@minOccurs 0
+/InvoiceStructure/InvoiceLine/References/@desc Credit Note references
+/InvoiceStructure/InvoiceLine/References/CreditNote/@name CreditNote
+/InvoiceStructure/InvoiceLine/References/CreditNote/@minOccurs 0
+/InvoiceStructure/InvoiceLine/References/CreditNote/Reference/@name Reference
+/InvoiceStructure/InvoiceLine/References/CreditNote/Reference/@type SAFmiddle1textType
+/InvoiceStructure/InvoiceLine/References/CreditNote/Reference/@minOccurs 0
+/InvoiceStructure/InvoiceLine/References/CreditNote/Reference/@desc Credit note reference (where applicable) to original invoice
+/InvoiceStructure/InvoiceLine/References/CreditNote/Reason/@name Reason
+/InvoiceStructure/InvoiceLine/References/CreditNote/Reason/@type SAFlongtextType
+/InvoiceStructure/InvoiceLine/References/CreditNote/Reason/@minOccurs 0
+/InvoiceStructure/InvoiceLine/References/CreditNote/Reason/@desc Credit note reason or rationale
+/InvoiceStructure/InvoiceLine/Description/@name Description
+/InvoiceStructure/InvoiceLine/Description/@type SAFlongtextType
+/InvoiceStructure/InvoiceLine/Description/@desc Description of Invoice Line.
+/InvoiceStructure/InvoiceLine/InvoiceLineAmount/@name InvoiceLineAmount
+/InvoiceStructure/InvoiceLine/InvoiceLineAmount/@type AmountStructure
+/InvoiceStructure/InvoiceLine/InvoiceLineAmount/@desc Amount for transaction excluding taxes and freightcharges.
+/InvoiceStructure/InvoiceLine/DebitCreditIndicator/@name DebitCreditIndicator
+/InvoiceStructure/InvoiceLine/DebitCreditIndicator/@desc Indicates whether the amounts on line-level are debit or credit amounts. Entry must correspond to entry reflected in General Ledger Entry. Signing of lineamounts is relative to this indicator. E.g. a return can lead to a negative amount.
+/InvoiceStructure/InvoiceLine/DebitCreditIndicator/@base SAFcodeType
+/InvoiceStructure/InvoiceLine/DebitCreditIndicator/enumeration@value D
+/InvoiceStructure/InvoiceLine/DebitCreditIndicator/enumeration@value C
+/InvoiceStructure/InvoiceLine/ShippingCostsAmount/@name ShippingCostsAmount
+/InvoiceStructure/InvoiceLine/ShippingCostsAmount/@type AmountStructure
+/InvoiceStructure/InvoiceLine/ShippingCostsAmount/@minOccurs 0
+/InvoiceStructure/InvoiceLine/ShippingCostsAmount/@desc Amount for shipping/freight charges.
+/InvoiceStructure/InvoiceLine/TaxInformation/@name TaxInformation
+/InvoiceStructure/InvoiceLine/TaxInformation/@type TaxInformationStructure
+/InvoiceStructure/InvoiceLine/TaxInformation/@minOccurs 0
+/InvoiceStructure/InvoiceLine/TaxInformation/@maxOccurs unbounded
+/InvoiceStructure/InvoiceLine/any@namespace ##other
+/InvoiceStructure/InvoiceLine/any@minOccurs 0
+/InvoiceStructure/InvoiceLine/any@desc Represents space to allow individual Revenue Bodies to add further elements
+/InvoiceStructure/Settlement/@name Settlement
+/InvoiceStructure/Settlement/@minOccurs 0
+/InvoiceStructure/Settlement/SettlementDiscount/@name SettlementDiscount
+/InvoiceStructure/Settlement/SettlementDiscount/@type SAFmiddle1textType
+/InvoiceStructure/Settlement/SettlementDiscount/@minOccurs 0
+/InvoiceStructure/Settlement/SettlementDiscount/@desc Description Settlement / Other Discount
+/InvoiceStructure/Settlement/SettlementAmount/@name SettlementAmount
+/InvoiceStructure/Settlement/SettlementAmount/@type AmountStructure
+/InvoiceStructure/Settlement/SettlementAmount/@desc Settlement amount
+/InvoiceStructure/Settlement/SettlementDate/@name SettlementDate
+/InvoiceStructure/Settlement/SettlementDate/@type date
+/InvoiceStructure/Settlement/SettlementDate/@minOccurs 0
+/InvoiceStructure/Settlement/SettlementDate/@desc Date settled
+/InvoiceStructure/Settlement/PaymentMechanism/@name PaymentMechanism
+/InvoiceStructure/Settlement/PaymentMechanism/@type SAFcodeType
+/InvoiceStructure/Settlement/PaymentMechanism/@minOccurs 0
+/InvoiceStructure/Settlement/PaymentMechanism/@desc Payment mechanism
+/InvoiceStructure/DocumentTotals/@name DocumentTotals
+/InvoiceStructure/DocumentTotals/@minOccurs 0
+/InvoiceStructure/DocumentTotals/TaxInformationTotals/@name TaxInformationTotals
+/InvoiceStructure/DocumentTotals/TaxInformationTotals/@type TaxInformationStructure
+/InvoiceStructure/DocumentTotals/TaxInformationTotals/@minOccurs 0
+/InvoiceStructure/DocumentTotals/TaxInformationTotals/@maxOccurs unbounded
+/InvoiceStructure/DocumentTotals/TaxInformationTotals/@desc Control totals tax payable information. Per TaxType/TaxCode the TaxBase and TaxAmount are summarised.
+/InvoiceStructure/DocumentTotals/ShippingCostsAmountTotal/@name ShippingCostsAmountTotal
+/InvoiceStructure/DocumentTotals/ShippingCostsAmountTotal/@type SAFmonetaryType
+/InvoiceStructure/DocumentTotals/ShippingCostsAmountTotal/@minOccurs 0
+/InvoiceStructure/DocumentTotals/ShippingCostsAmountTotal/@desc Control total amount freight charges
+/InvoiceStructure/DocumentTotals/NetTotal/@name NetTotal
+/InvoiceStructure/DocumentTotals/NetTotal/@type SAFmonetaryType
+/InvoiceStructure/DocumentTotals/NetTotal/@desc Control total sales value excluding tax and shippingcosts.
+/InvoiceStructure/DocumentTotals/GrossTotal/@name GrossTotal
+/InvoiceStructure/DocumentTotals/GrossTotal/@type SAFmonetaryType
+/InvoiceStructure/DocumentTotals/GrossTotal/@desc Control total amount including tax and shippingcosts.
+/InvoiceStructure/any@namespace ##other
+/InvoiceStructure/any@minOccurs 0
+/InvoiceStructure/any@desc Represents space to allow individual Revenue Bodies to add further elements
+/ShippingPointStructure/@name ShippingPointStructure
+/ShippingPointStructure/@desc A structure that holds all shipping point information.
+/ShippingPointStructure/DeliveryID/@name DeliveryID
+/ShippingPointStructure/DeliveryID/@type SAFmiddle1textType
+/ShippingPointStructure/DeliveryID/@minOccurs 0
+/ShippingPointStructure/DeliveryID/@desc Identification of the delivery
+/ShippingPointStructure/DeliveryDate/@name DeliveryDate
+/ShippingPointStructure/DeliveryDate/@type date
+/ShippingPointStructure/DeliveryDate/@minOccurs 0
+/ShippingPointStructure/DeliveryDate/@desc Date goods are delivered
+/ShippingPointStructure/WarehouseID/@name WarehouseID
+/ShippingPointStructure/WarehouseID/@type SAFmiddle1textType
+/ShippingPointStructure/WarehouseID/@minOccurs 0
+/ShippingPointStructure/WarehouseID/@desc Warehouse where goods held - also to identify work-in-progress, or stock-in-transit
+/ShippingPointStructure/LocationID/@name LocationID
+/ShippingPointStructure/LocationID/@type SAFshorttextType
+/ShippingPointStructure/LocationID/@minOccurs 0
+/ShippingPointStructure/LocationID/@desc Location of goods in warehouse
+/ShippingPointStructure/UCR/@name UCR
+/ShippingPointStructure/UCR/@type SAFmiddle1textType
+/ShippingPointStructure/UCR/@minOccurs 0
+/ShippingPointStructure/UCR/@desc Unique consignment reference number
+/ShippingPointStructure/Address/@name Address
+/ShippingPointStructure/Address/@type AddressStructure
+/ShippingPointStructure/Address/@minOccurs 0
+/AddressStructure/@name AddressStructure
+/AddressStructure/@desc [Common to all SAFs] A common structure used wherever an address is required.
+/AddressStructure/StreetName/@name StreetName
+/AddressStructure/StreetName/@type SAFmiddle2textType
+/AddressStructure/StreetName/@minOccurs 0
+/AddressStructure/Number/@name Number
+/AddressStructure/Number/@type SAFshorttextType
+/AddressStructure/Number/@minOccurs 0
+/AddressStructure/AdditionalAddressDetail/@name AdditionalAddressDetail
+/AddressStructure/AdditionalAddressDetail/@type SAFmiddle2textType
+/AddressStructure/AdditionalAddressDetail/@minOccurs 0
+/AddressStructure/Building/@name Building
+/AddressStructure/Building/@type SAFmiddle1textType
+/AddressStructure/Building/@minOccurs 0
+/AddressStructure/City/@name City
+/AddressStructure/City/@type SAFmiddle1textType
+/AddressStructure/PostalCode/@name PostalCode
+/AddressStructure/PostalCode/@type SAFshorttextType
+/AddressStructure/Region/@name Region
+/AddressStructure/Region/@type SAFmiddle1textType
+/AddressStructure/Region/@minOccurs 0
+/AddressStructure/Region/@desc Country specific code to indicate regions / provinces within the tax authority. Preferably described according to ISO 3166-2. Example: GB-KEN for Kent county in the United Kingdom.
+/AddressStructure/Country/@name Country
+/AddressStructure/Country/@type ISOCountryCode
+/AddressStructure/Country/@minOccurs 0
+/AddressStructure/Country/@desc Two-letter country code according to ISO 3166-1 alpha 2 standard. Example NL for the Netherlands.
+/AddressStructure/AddressType/@name AddressType
+/AddressStructure/AddressType/@minOccurs 0
+/AddressStructure/AddressType/@desc Field to differentiate between multiple addresses. To indicate the type of address. Choose  from the predefined enumeration. (examples: StreetAddress PostalAddress, BillingAddress)
+/AddressStructure/AddressType/@base string
+/AddressStructure/AddressType/enumeration@value StreetAddress
+/AddressStructure/AddressType/enumeration@value PostalAddress
+/AddressStructure/AddressType/enumeration@value BillingAddress
+/AddressStructure/AddressType/enumeration@value ShipToAddress
+/AddressStructure/AddressType/enumeration@value ShipFromAddress
+/AmountStructure/@name AmountStructure
+/AmountStructure/@desc [Common to all SAFs] A common structure used wherever an amount is required. Monetary amount with optional foreign currency exchange rate information.
+/AmountStructure/sequence/element/@name Amount
+/AmountStructure/sequence/element/@type SAFmonetaryType
+/AmountStructure/sequence/element/@desc In the header's default currency.
+/AmountStructure/sequence/sequence/@minOccurs 0
+/AmountStructure/sequence/sequence/element/@name CurrencyCode
+/AmountStructure/sequence/sequence/element/@type ISOCurrencyCode
+/AmountStructure/sequence/sequence/element/@desc Three-letter currency code according to ISO 4217 standard. Example: EUR for the Euros or USD for American Dollars.
+/AmountStructure/sequence/sequence/element/@name CurrencyAmount
+/AmountStructure/sequence/sequence/element/@type SAFmonetaryType
+/AmountStructure/sequence/sequence/element/@desc Amount in foreign currency.
+/AmountStructure/sequence/sequence/element/@name ExchangeRate
+/AmountStructure/sequence/sequence/element/@type SAFexchangerateType
+/AmountStructure/sequence/sequence/element/@minOccurs 0
+/AmountStructure/sequence/sequence/element/@desc The exchange rate used. CurrencyAmount x ExchangeRate = Amount
+/AnalysisStructure/@name AnalysisStructure
+/AnalysisStructure/@desc General Ledger analysis codes
+/AnalysisStructure/sequence/element/@name AnalysisType
+/AnalysisStructure/sequence/element/@type SAFcodeType
+/AnalysisStructure/sequence/element/@desc Analysis code identifier: cost center, cost unit, cost type, project, etc. Refers to the MasterFile AnalysisTypeTable
+/AnalysisStructure/sequence/element/@name AnalysisID
+/AnalysisStructure/sequence/element/@type SAFlongtextType
+/AnalysisStructure/sequence/element/@desc Value of the analysisID: f.i. which cost center applies
+/AnalysisStructure/sequence/element/@name AnalysisAmount
+/AnalysisStructure/sequence/element/@type AmountStructure
+/AnalysisStructure/sequence/element/@minOccurs 0
+/AnalysisStructure/sequence/element/@desc Amount applying to the Analysis: f.i. the amount applying for this cost center
+/BankAccountStructure/@name BankAccountStructure
+/BankAccountStructure/@desc [Common to all SAFs] Bank account number information. IBAN number, or account number with optional information.
+/BankAccountStructure/choice/@choice IBANNumber/sequence
+/BankAccountStructure/choice/@name IBANNumber
+/BankAccountStructure/choice/@type SAFmiddle1textType
+/BankAccountStructure/choice/@desc International Bank Account Number, ISO 13616
+/BankAccountStructure/choice/sequence/BankAccountNumber/@name BankAccountNumber
+/BankAccountStructure/choice/sequence/BankAccountNumber/@type SAFmiddle1textType
+/BankAccountStructure/choice/sequence/BankAccountNumber/@desc The number allocated to the account by the individual’s or company’s own bank.
+/BankAccountStructure/choice/sequence/BankAccountName/@name BankAccountName
+/BankAccountStructure/choice/sequence/BankAccountName/@type SAFmiddle2textType
+/BankAccountStructure/choice/sequence/BankAccountName/@minOccurs 0
+/BankAccountStructure/choice/sequence/BankAccountName/@desc The name of the individual or company holding the bank account.
+/BankAccountStructure/choice/sequence/SortCode/@name SortCode
+/BankAccountStructure/choice/sequence/SortCode/@type SAFshorttextType
+/BankAccountStructure/choice/sequence/SortCode/@minOccurs 0
+/BankAccountStructure/choice/sequence/SortCode/@desc Identifier for the bank branch at which the account is held. May be needed to uniquely identify the account.
+/CompanyHeaderStructure/@name CompanyHeaderStructure
+/CompanyHeaderStructure/@desc [Common to all SAFs] CompanyStructure with mandatory RegistrationNumber and Telephone (Contact)
+/CompanyHeaderStructure/complexContent/restriction/@base CompanyStructure
+/CompanyHeaderStructure/complexContent/restriction/sequence/element/@name RegistrationNumber
+/CompanyHeaderStructure/complexContent/restriction/sequence/element/@type SAFmiddle1textType
+/CompanyHeaderStructure/complexContent/restriction/sequence/element/@desc Unique number to identify the company in the accounting records, issued by a government body or created by the company for internal purposes to identify different entities within their corporate group.
+/CompanyHeaderStructure/complexContent/restriction/sequence/element/@name Name
+/CompanyHeaderStructure/complexContent/restriction/sequence/element/@type SAFmiddle2textType
+/CompanyHeaderStructure/complexContent/restriction/sequence/element/@name Address
+/CompanyHeaderStructure/complexContent/restriction/sequence/element/@type AddressStructure
+/CompanyHeaderStructure/complexContent/restriction/sequence/element/@maxOccurs unbounded
+/CompanyHeaderStructure/complexContent/restriction/sequence/element/@name Contact
+/CompanyHeaderStructure/complexContent/restriction/sequence/element/@type ContactHeaderStructure
+/CompanyHeaderStructure/complexContent/restriction/sequence/element/@maxOccurs unbounded
+/CompanyHeaderStructure/complexContent/restriction/sequence/element/@name TaxRegistration
+/CompanyHeaderStructure/complexContent/restriction/sequence/element/@type TaxIDStructure
+/CompanyHeaderStructure/complexContent/restriction/sequence/element/@minOccurs 0
+/CompanyHeaderStructure/complexContent/restriction/sequence/element/@maxOccurs unbounded
+/CompanyHeaderStructure/complexContent/restriction/sequence/element/@name BankAccount
+/CompanyHeaderStructure/complexContent/restriction/sequence/element/@type BankAccountStructure
+/CompanyHeaderStructure/complexContent/restriction/sequence/element/@minOccurs 0
+/CompanyHeaderStructure/complexContent/restriction/sequence/element/@maxOccurs unbounded
+/CompanyStructure/@name CompanyStructure
+/CompanyStructure/@desc [Common to all SAFs] Name, address, contact and identification information of a company.
+/CompanyStructure/RegistrationNumber/@name RegistrationNumber
+/CompanyStructure/RegistrationNumber/@type SAFmiddle1textType
+/CompanyStructure/RegistrationNumber/@minOccurs 0
+/CompanyStructure/RegistrationNumber/@desc Unique number to identify the company in the accounting records, issued by a government authority or created by the company for internal purposes to identify different entities within their corporate group.
+/CompanyStructure/Name/@name Name
+/CompanyStructure/Name/@type SAFmiddle2textType
+/CompanyStructure/Name/@name Address
+/CompanyStructure/Name/@type AddressStructure
+/CompanyStructure/Name/@maxOccurs unbounded
+/CompanyStructure/Contact/@name Contact
+/CompanyStructure/Contact/@type ContactInformationStructure
+/CompanyStructure/Contact/@minOccurs 0
+/CompanyStructure/Contact/@maxOccurs unbounded
+/CompanyStructure/TaxRegistration/@name TaxRegistration
+/CompanyStructure/TaxRegistration/@type TaxIDStructure
+/CompanyStructure/TaxRegistration/@minOccurs 0
+/CompanyStructure/TaxRegistration/@maxOccurs unbounded
+/CompanyStructure/BankAccount/@name BankAccount
+/CompanyStructure/BankAccount/@type BankAccountStructure
+/CompanyStructure/BankAccount/@minOccurs 0
+/CompanyStructure/BankAccount/@maxOccurs unbounded
+/ContactHeaderStructure/@name ContactHeaderStructure
+/ContactHeaderStructure/@desc [Common to all SAFs] ContactInformationStructure with madatory TelephoneNumber
+/ContactHeaderStructure/@base ContactInformationStructure
+/ContactHeaderStructure/ContactPerson/@name ContactPerson
+/ContactHeaderStructure/ContactPerson/@type PersonNameStructure
+/ContactHeaderStructure/ContactPerson/@name Telephone
+/ContactHeaderStructure/ContactPerson/@type SAFshorttextType
+/ContactHeaderStructure/Fax/@name Fax
+/ContactHeaderStructure/Fax/@type SAFshorttextType
+/ContactHeaderStructure/Fax/@minOccurs 0
+/ContactHeaderStructure/Email/@name Email
+/ContactHeaderStructure/Email/@type SAFmiddle2textType
+/ContactHeaderStructure/Email/@minOccurs 0
+/ContactHeaderStructure/Website/@name Website
+/ContactHeaderStructure/Website/@type anyURI
+/ContactHeaderStructure/Website/@minOccurs 0
+/ContactInformationStructure/@name ContactInformationStructure
+/ContactInformationStructure/@desc [Common to all SAFs] Contact information of a company.
+/ContactInformationStructure/ContactPerson/@name ContactPerson
+/ContactInformationStructure/ContactPerson/@type PersonNameStructure
+/ContactInformationStructure/Telephone/@name Telephone
+/ContactInformationStructure/Telephone/@type SAFshorttextType
+/ContactInformationStructure/Telephone/@minOccurs 0
+/ContactInformationStructure/Fax/@name Fax
+/ContactInformationStructure/Fax/@type SAFshorttextType
+/ContactInformationStructure/Fax/@minOccurs 0
+/ContactInformationStructure/Email/@name Email
+/ContactInformationStructure/Email/@type SAFmiddle2textType
+/ContactInformationStructure/Email/@minOccurs 0
+/ContactInformationStructure/Website/@name Website
+/ContactInformationStructure/Website/@type anyURI
+/ContactInformationStructure/Website/@minOccurs 0
+/HeaderStructure/@name HeaderStructure
+/HeaderStructure/@desc [Common to all SAFs] Overall information about this Standard Auditfile.
+/HeaderStructure/AuditFileVersion/@name AuditFileVersion
+/HeaderStructure/AuditFileVersion/@type SAFcodeType
+/HeaderStructure/AuditFileVersion/@desc Identification of the Standard Audit File SAF-T version being used
+/HeaderStructure/AuditFileCountry/@name AuditFileCountry
+/HeaderStructure/AuditFileCountry/@type ISOCountryCode
+/HeaderStructure/AuditFileCountry/@desc Two-letter country code according to ISO 3166-1 alpha 2 standard. Example NL for the Netherlands.
+/HeaderStructure/AuditFileRegion/@name AuditFileRegion
+/HeaderStructure/AuditFileRegion/@type SAFcodeType
+/HeaderStructure/AuditFileRegion/@minOccurs 0
+/HeaderStructure/AuditFileRegion/@desc Country specific code to indicate regions / provinces within the tax authority. Preferably described according to ISO 3166-2. Example: GB-KEN for Kent county in the United Kingdom.
+/HeaderStructure/AuditFileDateCreated/@name AuditFileDateCreated
+/HeaderStructure/AuditFileDateCreated/@type date
+/HeaderStructure/AuditFileDateCreated/@desc Date of production of SAF-T
+/HeaderStructure/SoftwareCompanyName/@name SoftwareCompanyName
+/HeaderStructure/SoftwareCompanyName/@type SAFmiddle2textType
+/HeaderStructure/SoftwareCompanyName/@desc Name of the software company whose product created the SAF-T.
+/HeaderStructure/SoftwareID/@name SoftwareID
+/HeaderStructure/SoftwareID/@type SAFlongtextType
+/HeaderStructure/SoftwareID/@desc Name of the Software that generated the SAF-T.
+/HeaderStructure/SoftwareVersion/@name SoftwareVersion
+/HeaderStructure/SoftwareVersion/@type SAFshorttextType
+/HeaderStructure/SoftwareVersion/@desc Version of the software that created the SAF-T.
+/HeaderStructure/Company/@name Company
+/HeaderStructure/Company/@type CompanyHeaderStructure
+/HeaderStructure/Company/@desc Company's name and address details.
+/HeaderStructure/DefaultCurrencyCode/@name DefaultCurrencyCode
+/HeaderStructure/DefaultCurrencyCode/@type ISOCurrencyCode
+/HeaderStructure/DefaultCurrencyCode/@desc Three letter Currency Code  (ISO 4217) of local currency which is the default for the SAF.
+/HeaderStructure/SelectionCriteria/@name SelectionCriteria
+/HeaderStructure/SelectionCriteria/@type SelectionCriteriaStructure
+/HeaderStructure/SelectionCriteria/@minOccurs 0
+/HeaderStructure/SelectionCriteria/@desc Criteria set by the user to populate the audit files
+/HeaderStructure/HeaderComment/@name HeaderComment
+/HeaderStructure/HeaderComment/@type SAFlongtextType
+/HeaderStructure/HeaderComment/@minOccurs 0
+/HeaderStructure/HeaderComment/@desc Space for any further generic comments on the SAF-T. Revenue Bodies should consider what information they would expect to see here.
+/PersonNameStructure/@name PersonNameStructure
+/PersonNameStructure/@desc [Common to all SAFs] All information about the name of a natural person.
+/PersonNameStructure/Title/@name Title
+/PersonNameStructure/Title/@type SAFcodeType
+/PersonNameStructure/Title/@minOccurs 0
+/PersonNameStructure/FirstName/@name FirstName
+/PersonNameStructure/FirstName/@type SAFmiddle1textType
+/PersonNameStructure/Initials/@name Initials
+/PersonNameStructure/Initials/@type SAFshorttextType
+/PersonNameStructure/Initials/@minOccurs 0
+/PersonNameStructure/LastNamePrefix/@name LastNamePrefix
+/PersonNameStructure/LastNamePrefix/@type SAFshorttextType
+/PersonNameStructure/LastNamePrefix/@minOccurs 0
+/PersonNameStructure/LastNamePrefix/@desc A textual expression of a prefix that precedes this person's family name such as Van, Von.
+/PersonNameStructure/LastName/@name LastName
+/PersonNameStructure/LastName/@type SAFmiddle2textType
+/PersonNameStructure/BirthName/@name BirthName
+/PersonNameStructure/BirthName/@type SAFmiddle2textType
+/PersonNameStructure/BirthName/@minOccurs 0
+/PersonNameStructure/Salutation/@name Salutation
+/PersonNameStructure/Salutation/@type SAFshorttextType
+/PersonNameStructure/Salutation/@minOccurs 0
+/PersonNameStructure/Salutation/@desc A formal sign or expression of greeting, expressed as text, that is appropriate for this person such as Right Honourable, Monsignor or Madam.
+/PersonNameStructure/OtherTitles/@name OtherTitles
+/PersonNameStructure/OtherTitles/@type SAFshorttextType
+/PersonNameStructure/OtherTitles/@minOccurs 0
+/PersonNameStructure/OtherTitles/@maxOccurs unbounded
+/SelectionCriteriaStructure/@name SelectionCriteriaStructure
+/SelectionCriteriaStructure/@desc [Common to all SAFs] The selection criteria used to generate this Standard Auditfile
+/SelectionCriteriaStructure/@minOccurs 0
+/SelectionCriteriaStructure/TaxReportingJurisdiction/@name TaxReportingJurisdiction
+/SelectionCriteriaStructure/TaxReportingJurisdiction/@type SAFmiddle1textType
+/SelectionCriteriaStructure/TaxReportingJurisdiction/@minOccurs 0
+/SelectionCriteriaStructure/TaxReportingJurisdiction/@desc Identifies the tax jurisdiction for whose purpose the SAF has been created. Principally for use where a single Revenue body covers more than one territory.
+/SelectionCriteriaStructure/CompanyEntity/@name CompanyEntity
+/SelectionCriteriaStructure/CompanyEntity/@type SAFmiddle2textType
+/SelectionCriteriaStructure/CompanyEntity/@minOccurs 0
+/SelectionCriteriaStructure/CompanyEntity/@desc For use where data has been extracted from the full data set by reference to a specific corporate entity.
+/SelectionCriteriaStructure/choice/@desc Allows for a choice between selection on calendar dates and periods according to the accounting system, e.g. 1 to 12 for a 12-months accounting system.
+/SelectionCriteriaStructure/choice/SelectionStartDate/@name SelectionStartDate
+/SelectionCriteriaStructure/choice/SelectionStartDate/@type date
+/SelectionCriteriaStructure/choice/SelectionStartDate/@desc The start date for the reporting period covered by the SAF.
+/SelectionCriteriaStructure/choice/SelectionEndDate/@name SelectionEndDate
+/SelectionCriteriaStructure/choice/SelectionEndDate/@type date
+/SelectionCriteriaStructure/choice/SelectionEndDate/@desc The end date for the reporting period covered by the SAF.
+/SelectionCriteriaStructure/choice/PeriodStart/@name PeriodStart
+/SelectionCriteriaStructure/choice/PeriodStart/@type nonNegativeInteger
+/SelectionCriteriaStructure/choice/PeriodStart/@desc The first Accounting Period covered by the SAF.
+/SelectionCriteriaStructure/choice/PeriodStartYear/@name PeriodStartYear
+/SelectionCriteriaStructure/choice/PeriodStartYear/@desc The Accounting Year in which the PeriodStart falls.
+/SelectionCriteriaStructure/choice/PeriodStartYear/@base nonNegativeInteger
+/SelectionCriteriaStructure/choice/PeriodStartYear/@minInclusive 1970
+/SelectionCriteriaStructure/choice/PeriodStartYear/@maxInclusive 2100
+/SelectionCriteriaStructure/choice/PeriodEnd/@name PeriodEnd
+/SelectionCriteriaStructure/choice/PeriodEnd/@type nonNegativeInteger
+/SelectionCriteriaStructure/choice/PeriodEnd/@desc The last Accounting Period covered by the SAF.
+/SelectionCriteriaStructure/choice/PeriodEndYear/@name PeriodEndYear
+/SelectionCriteriaStructure/choice/PeriodEndYear/@desc The Accounting Year in which the PeriodEnd falls.
+/SelectionCriteriaStructure/choice/PeriodEndYear/@base nonNegativeInteger
+/SelectionCriteriaStructure/choice/PeriodEndYear/@minInclusive 1970
+/SelectionCriteriaStructure/choice/PeriodEndYear/@maxInclusive 2100
+/SelectionCriteriaStructure/DocumentType/@name DocumentType
+/SelectionCriteriaStructure/DocumentType/@type SAFlongtextType
+/SelectionCriteriaStructure/DocumentType/@minOccurs 0
+/SelectionCriteriaStructure/DocumentType/@desc Type of documents selected. For use where the data has been restricted by reference to particular transaction types.
+/SelectionCriteriaStructure/OtherCriteria/@name OtherCriteria
+/SelectionCriteriaStructure/OtherCriteria/@type SAFlongtextType
+/SelectionCriteriaStructure/OtherCriteria/@minOccurs 0
+/SelectionCriteriaStructure/OtherCriteria/@maxOccurs unbounded
+/SelectionCriteriaStructure/OtherCriteria/@desc Any other criteria used in selecting data. Individual Revenue Bodies may wish to draw up a list of other acceptable selection criteria for use within their jurisdiction.
+/TaxIDStructure/@name TaxIDStructure
+/TaxIDStructure/@desc [Common to all SAFs] Tax information of a company.
+/TaxIDStructure/TaxRegistrationNumber/@name TaxRegistrationNumber
+/TaxIDStructure/TaxRegistrationNumber/@type SAFmiddle1textType
+/TaxIDStructure/TaxRegistrationNumber/@desc Unique number issued by a Revenue Body for use by the company.
+/TaxIDStructure/TaxType/@name TaxType
+/TaxIDStructure/TaxType/@type SAFcodeType
+/TaxIDStructure/TaxType/@minOccurs 0
+/TaxIDStructure/TaxType/@desc For use where information reported in the SAF-T covers more than one type of tax regime: to identify the type of tax regime to which this entry relates.
+/TaxIDStructure/TaxNumber/@name TaxNumber
+/TaxIDStructure/TaxNumber/@type SAFmiddle1textType
+/TaxIDStructure/TaxNumber/@minOccurs 0
+/TaxIDStructure/TaxNumber/@desc The tax registration number for the particular tax regime referred to by TaxType, f.i. VAT-number
+/TaxIDStructure/TaxAuthority/@name TaxAuthority
+/TaxIDStructure/TaxAuthority/@type SAFmiddle1textType
+/TaxIDStructure/TaxAuthority/@minOccurs 0
+/TaxIDStructure/TaxAuthority/@desc Identification of the Revenue Body to which this TaxType refers.
+/TaxIDStructure/TaxVerificationDate/@name TaxVerificationDate
+/TaxIDStructure/TaxVerificationDate/@type date
+/TaxIDStructure/TaxVerificationDate/@minOccurs 0
+/TaxIDStructure/TaxVerificationDate/@desc The date that the tax registration details referred to above were last checked.
+/TaxInformationStructure/@name TaxInformationStructure
+/TaxInformationStructure/@desc  Tax Amount information structure
+/TaxInformationStructure/TaxType/@name TaxType
+/TaxInformationStructure/TaxType/@type SAFcodeType
+/TaxInformationStructure/TaxType/@minOccurs 0
+/TaxInformationStructure/TaxType/@desc Tax type for look-up in tables
+/TaxInformationStructure/TaxCode/@name TaxCode
+/TaxInformationStructure/TaxCode/@type SAFcodeType
+/TaxInformationStructure/TaxCode/@minOccurs 0
+/TaxInformationStructure/TaxCode/@desc Tax Code for lookup in tables
+/TaxInformationStructure/TaxPercentage/@name TaxPercentage
+/TaxInformationStructure/TaxPercentage/@type decimal
+/TaxInformationStructure/TaxPercentage/@minOccurs 0
+/TaxInformationStructure/TaxPercentage/@desc Tax percentage.
+/TaxInformationStructure/TaxBase/@name TaxBase
+/TaxInformationStructure/TaxBase/@type decimal
+/TaxInformationStructure/TaxBase/@minOccurs 0
+/TaxInformationStructure/TaxBase/@desc The base on which the tax is calculated. This can be an amount, or a quantity, eg. Litres.
+/TaxInformationStructure/TaxBaseDescription/@name TaxBaseDescription
+/TaxInformationStructure/TaxBaseDescription/@type SAFmiddle2textType
+/TaxInformationStructure/TaxBaseDescription/@minOccurs 0
+/TaxInformationStructure/TaxBaseDescription/@desc Description of the value in the TaxBase. Eg. Litres for excises on alcoholic bevarages.
+/TaxInformationStructure/TaxAmount/@name TaxAmount
+/TaxInformationStructure/TaxAmount/@type AmountStructure
+/TaxInformationStructure/TaxAmount/@desc Tax amount information
+/TaxInformationStructure/TaxExemptionReason/@name TaxExemptionReason
+/TaxInformationStructure/TaxExemptionReason/@type SAFmiddle2textType
+/TaxInformationStructure/TaxExemptionReason/@minOccurs 0
+/TaxInformationStructure/TaxExemptionReason/@desc Tax exemption or reduction reason or rationale
+/TaxInformationStructure/TaxDeclarationPeriod/@name TaxDeclarationPeriod
+/TaxInformationStructure/TaxDeclarationPeriod/@type SAFmiddle1textType
+/TaxInformationStructure/TaxDeclarationPeriod/@minOccurs 0
+/TaxInformationStructure/TaxDeclarationPeriod/@desc The identification of the declaration/return in which the taxamount is reported to the Revenue body.
+/SAFmonetaryType/@name SAFmonetaryType
+/SAFmonetaryType/@desc Monetary amount.18 digits max, of which 2 can be fractional digits.
+/SAFmonetaryType/@base decimal
+/SAFmonetaryType/＠totalDigits 18
+/SAFmonetaryType/＠fractionDigits 2
+/SAFexchangerateType/@name SAFexchangerateType
+/SAFexchangerateType/@desc 18 digits max, of which 8 can be fractional digits.
+/SAFexchangerateType/@base decimal
+/SAFexchangerateType/＠totalDigits 18
+/SAFexchangerateType/＠fractionDigits 8
+/SAFquantityType/@name SAFquantityType
+/SAFquantityType/@desc Used to describe a quantity. Monetary amount. 22 digits max, of which 6 can be fractional digits.
+/SAFquantityType/@base decimal
+/SAFquantityType/＠totalDigits 22
+/SAFquantityType/＠fractionDigits 6
+/SAFweightType/@name SAFweightType
+/SAFweightType/@desc Describes a weight. Monetary amount.14 digits max, of which 3 can be fractional digits.
+/SAFweightType/@base decimal
+/SAFweightType/＠totalDigits 14
+/SAFweightType/＠fractionDigits 3
+/SAFcodeType/@name SAFcodeType
+/SAFcodeType/@desc Text of max 9 characters.
+/SAFcodeType/@base string
+/SAFcodeType/＠maxLength 9
+/SAFshorttextType/@name SAFshorttextType
+/SAFshorttextType/@desc 18 character text.
+/SAFshorttextType/@base string
+/SAFshorttextType/＠maxLength 18
+/SAFmiddle1textType/@name SAFmiddle1textType
+/SAFmiddle1textType/@desc 35 character text.
+/SAFmiddle1textType/@base string
+/SAFmiddle1textType/＠maxLength 35
+/SAFmiddle2textType/@name SAFmiddle2textType
+/SAFmiddle2textType/@desc 70 character text.
+/SAFmiddle2textType/@base string
+/SAFmiddle2textType/＠maxLength 70
+/SAFlongtextType/@name SAFlongtextType
+/SAFlongtextType/@desc 256 character text.
+/SAFlongtextType/@base string
+/SAFlongtextType/＠maxLength 256
+/ISOCountryCode/@name ISOCountryCode
+/ISOCountryCode/@desc Two-letter country code according to ISO 3166-1 alpha 2 standard. Example: NL for the Netherlands.
+/ISOCountryCode/@base string
+/ISOCountryCode/＠length 2
+/ISOCurrencyCode/@name ISOCurrencyCode
+/ISOCurrencyCode/@desc Three-letter currency code according to ISO 4217 standard. Example: EUR for the Euros or USD for American Dollars.
+/ISOCurrencyCode/@base string
+/ISOCurrencyCode/＠length 3

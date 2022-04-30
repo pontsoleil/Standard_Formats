@@ -1669,6 +1669,8 @@ Example: cost unit, cost center, project.</xs:documentation>
 			<xs:field xpath="TransactionID"/>
 		</xs:key>
 		<xs:key name="KeyTaxCode">
+<!--			<xs:selector xpath="MasterFiles/TaxTable/TaxTableEntry"/>
+-->
 			<xs:selector xpath="MasterFiles/TaxTable/TaxTableEntry/TaxCodeDetails"/>
 			<xs:field xpath="TaxCode"/>
 		</xs:key>
