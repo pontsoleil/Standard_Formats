@@ -15,52 +15,52 @@
 /AuditFile/MasterFiles/@name MasterFiles
 /AuditFile/MasterFiles/@minOccurs 0
 /AuditFile/MasterFiles/@desc Holds standing data about general ledger account, suppliers, customers, products, etc.. An extension point is provided to allow Revenue Bodies to specify additional elements or structures such as tax rate tables.
-/AuditFile/MasterFiles/GeneralLedgerAccount/@name GeneralLedgerAccounts
-/AuditFile/MasterFiles/GeneralLedgerAccount/@minOccurs 0
-/AuditFile/MasterFiles/GeneralLedgerAccount/Account/@name Account
-/AuditFile/MasterFiles/GeneralLedgerAccount/Account/@maxOccurs unbounded
-/AuditFile/MasterFiles/GeneralLedgerAccount/Account/AccountID/@name AccountID
-/AuditFile/MasterFiles/GeneralLedgerAccount/Account/AccountID/@type SAFmiddle2textType
-/AuditFile/MasterFiles/GeneralLedgerAccount/Account/AccountID/@desc General Ledger Account code. Can be including sub-account id. It can contain many different levels to identify the Account. It could include cost centres such as company, division, region, group and branch/department.
-/AuditFile/MasterFiles/GeneralLedgerAccount/Account/AccountDescription/@name AccountDescription
-/AuditFile/MasterFiles/GeneralLedgerAccount/Account/AccountDescription/@type SAFlongtextType
-/AuditFile/MasterFiles/GeneralLedgerAccount/Account/AccountDescription/@desc Name of individual GL account
-/AuditFile/MasterFiles/GeneralLedgerAccount/Account/StandardAccountID/@name StandardAccountID
-/AuditFile/MasterFiles/GeneralLedgerAccount/Account/StandardAccountID/@type SAFmiddle1textType
-/AuditFile/MasterFiles/GeneralLedgerAccount/Account/StandardAccountID/@minOccurs 0
-/AuditFile/MasterFiles/GeneralLedgerAccount/Account/StandardAccountID/@desc AccountID based on a standard prescribed by authorities.
-/AuditFile/MasterFiles/GeneralLedgerAccount/Account/GroupingCategory/@name GroupingCategory
-/AuditFile/MasterFiles/GeneralLedgerAccount/Account/GroupingCategory/@type SAFmiddle1textType
-/AuditFile/MasterFiles/GeneralLedgerAccount/Account/GroupingCategory/@minOccurs 0
-/AuditFile/MasterFiles/GeneralLedgerAccount/Account/GroupingCategory/@desc Category for grouping the accounts, relevant in reconciling financial statements f.i.
-/AuditFile/MasterFiles/GeneralLedgerAccount/Account/GroupingCode/@name GroupingCode
-/AuditFile/MasterFiles/GeneralLedgerAccount/Account/GroupingCode/@type SAFmiddle1textType
-/AuditFile/MasterFiles/GeneralLedgerAccount/Account/GroupingCode/@minOccurs 0
-/AuditFile/MasterFiles/GeneralLedgerAccount/Account/GroupingCode/@desc Subcode for grouping the accounts, relevant in reconciling financial statements f.i.
-/AuditFile/MasterFiles/GeneralLedgerAccount/Account/AccountType/@name AccountType
-/AuditFile/MasterFiles/GeneralLedgerAccount/Account/AccountType/@type SAFshorttextType
-/AuditFile/MasterFiles/GeneralLedgerAccount/Account/AccountType/@desc Type of account  - Asset/Liability/Sale/Expense
-/AuditFile/MasterFiles/GeneralLedgerAccount/Account/AccountCreationDate/@name AccountCreationDate
-/AuditFile/MasterFiles/GeneralLedgerAccount/Account/AccountCreationDate/@type date
-/AuditFile/MasterFiles/GeneralLedgerAccount/Account/AccountCreationDate/@minOccurs 0
-/AuditFile/MasterFiles/GeneralLedgerAccount/Account/AccountCreationDate/@desc Date of creating the generalledger account
-/AuditFile/MasterFiles/GeneralLedgerAccount/Account/OpeningBalance/choice/@name OpeningDebitBalance/ClosingDebitBalance
-/AuditFile/MasterFiles/GeneralLedgerAccount/Account/OpeningBalance/OpeningDebitBalance/@name OpeningDebitBalance
-/AuditFile/MasterFiles/GeneralLedgerAccount/Account/OpeningBalance/OpeningDebitBalance/@type SAFmonetaryType
-/AuditFile/MasterFiles/GeneralLedgerAccount/Account/OpeningBalance/OpeningDebitBalance/@desc Debit balance at the start date of the selection period in the header's default currency.
-/AuditFile/MasterFiles/GeneralLedgerAccount/Account/OpeningBalance/OpeningCreditBalance/@name OpeningCreditBalance
-/AuditFile/MasterFiles/GeneralLedgerAccount/Account/OpeningBalance/OpeningCreditBalance/@type SAFmonetaryType
-/AuditFile/MasterFiles/GeneralLedgerAccount/Account/OpeningBalance/OpeningCreditBalance/@desc Credit balance at the start date of the selection period in the header's default currency.
-/AuditFile/MasterFiles/GeneralLedgerAccount/Account/ClosingBalance/choice/@name ClosingDebitBalance/ClosingCreditBalance
-/AuditFile/MasterFiles/GeneralLedgerAccount/Account/ClosingBalance/ClosingDebitBalance/@name ClosingDebitBalance
-/AuditFile/MasterFiles/GeneralLedgerAccount/Account/ClosingBalance/ClosingDebitBalance/@type SAFmonetaryType
-/AuditFile/MasterFiles/GeneralLedgerAccount/Account/ClosingBalance/ClosingDebitBalance/@desc Debit balance at the end date of the selection period in the header's default currency.
-/AuditFile/MasterFiles/GeneralLedgerAccount/Account/ClosingBalance/ClosingCreditBalance/@name ClosingCreditBalance
-/AuditFile/MasterFiles/GeneralLedgerAccount/Account/ClosingBalance/ClosingCreditBalance/@type SAFmonetaryType
-/AuditFile/MasterFiles/GeneralLedgerAccount/Account/ClosingBalance/ClosingCreditBalance/@desc Credit balance at the end date of the selection period in the header's default currency.
-/AuditFile/MasterFiles/GeneralLedgerAccount/Account/any@namespace ##other
-/AuditFile/MasterFiles/GeneralLedgerAccount/Account/any@minOccurs 0
-/AuditFile/MasterFiles/GeneralLedgerAccount/Account/any@desc Represents space to allow individual Revenue Bodies to add further elements
+/AuditFile/MasterFiles/GeneralLedgerAccounts/@name GeneralLedgerAccounts
+/AuditFile/MasterFiles/GeneralLedgerAccounts/@minOccurs 0
+/AuditFile/MasterFiles/GeneralLedgerAccounts/Account/@name Account
+/AuditFile/MasterFiles/GeneralLedgerAccounts/Account/@maxOccurs unbounded
+/AuditFile/MasterFiles/GeneralLedgerAccounts/Account/AccountID/@name AccountID
+/AuditFile/MasterFiles/GeneralLedgerAccounts/Account/AccountID/@type SAFmiddle2textType
+/AuditFile/MasterFiles/GeneralLedgerAccounts/Account/AccountID/@desc General Ledger Account code. Can be including sub-account id. It can contain many different levels to identify the Account. It could include cost centres such as company, division, region, group and branch/department.
+/AuditFile/MasterFiles/GeneralLedgerAccounts/Account/AccountDescription/@name AccountDescription
+/AuditFile/MasterFiles/GeneralLedgerAccounts/Account/AccountDescription/@type SAFlongtextType
+/AuditFile/MasterFiles/GeneralLedgerAccounts/Account/AccountDescription/@desc Name of individual GL account
+/AuditFile/MasterFiles/GeneralLedgerAccounts/Account/StandardAccountID/@name StandardAccountID
+/AuditFile/MasterFiles/GeneralLedgerAccounts/Account/StandardAccountID/@type SAFmiddle1textType
+/AuditFile/MasterFiles/GeneralLedgerAccounts/Account/StandardAccountID/@minOccurs 0
+/AuditFile/MasterFiles/GeneralLedgerAccounts/Account/StandardAccountID/@desc AccountID based on a standard prescribed by authorities.
+/AuditFile/MasterFiles/GeneralLedgerAccounts/Account/GroupingCategory/@name GroupingCategory
+/AuditFile/MasterFiles/GeneralLedgerAccounts/Account/GroupingCategory/@type SAFmiddle1textType
+/AuditFile/MasterFiles/GeneralLedgerAccounts/Account/GroupingCategory/@minOccurs 0
+/AuditFile/MasterFiles/GeneralLedgerAccounts/Account/GroupingCategory/@desc Category for grouping the accounts, relevant in reconciling financial statements f.i.
+/AuditFile/MasterFiles/GeneralLedgerAccounts/Account/GroupingCode/@name GroupingCode
+/AuditFile/MasterFiles/GeneralLedgerAccounts/Account/GroupingCode/@type SAFmiddle1textType
+/AuditFile/MasterFiles/GeneralLedgerAccounts/Account/GroupingCode/@minOccurs 0
+/AuditFile/MasterFiles/GeneralLedgerAccounts/Account/GroupingCode/@desc Subcode for grouping the accounts, relevant in reconciling financial statements f.i.
+/AuditFile/MasterFiles/GeneralLedgerAccounts/Account/AccountType/@name AccountType
+/AuditFile/MasterFiles/GeneralLedgerAccounts/Account/AccountType/@type SAFshorttextType
+/AuditFile/MasterFiles/GeneralLedgerAccounts/Account/AccountType/@desc Type of account  - Asset/Liability/Sale/Expense
+/AuditFile/MasterFiles/GeneralLedgerAccounts/Account/AccountCreationDate/@name AccountCreationDate
+/AuditFile/MasterFiles/GeneralLedgerAccounts/Account/AccountCreationDate/@type date
+/AuditFile/MasterFiles/GeneralLedgerAccounts/Account/AccountCreationDate/@minOccurs 0
+/AuditFile/MasterFiles/GeneralLedgerAccounts/Account/AccountCreationDate/@desc Date of creating the generalledger account
+/AuditFile/MasterFiles/GeneralLedgerAccounts/Account/OpeningBalance/choice/@name OpeningDebitBalance/ClosingDebitBalance
+/AuditFile/MasterFiles/GeneralLedgerAccounts/Account/OpeningBalance/OpeningDebitBalance/@name OpeningDebitBalance
+/AuditFile/MasterFiles/GeneralLedgerAccounts/Account/OpeningBalance/OpeningDebitBalance/@type SAFmonetaryType
+/AuditFile/MasterFiles/GeneralLedgerAccounts/Account/OpeningBalance/OpeningDebitBalance/@desc Debit balance at the start date of the selection period in the header's default currency.
+/AuditFile/MasterFiles/GeneralLedgerAccounts/Account/OpeningBalance/OpeningCreditBalance/@name OpeningCreditBalance
+/AuditFile/MasterFiles/GeneralLedgerAccounts/Account/OpeningBalance/OpeningCreditBalance/@type SAFmonetaryType
+/AuditFile/MasterFiles/GeneralLedgerAccounts/Account/OpeningBalance/OpeningCreditBalance/@desc Credit balance at the start date of the selection period in the header's default currency.
+/AuditFile/MasterFiles/GeneralLedgerAccounts/Account/ClosingBalance/choice/@name ClosingDebitBalance/ClosingCreditBalance
+/AuditFile/MasterFiles/GeneralLedgerAccounts/Account/ClosingBalance/ClosingDebitBalance/@name ClosingDebitBalance
+/AuditFile/MasterFiles/GeneralLedgerAccounts/Account/ClosingBalance/ClosingDebitBalance/@type SAFmonetaryType
+/AuditFile/MasterFiles/GeneralLedgerAccounts/Account/ClosingBalance/ClosingDebitBalance/@desc Debit balance at the end date of the selection period in the header's default currency.
+/AuditFile/MasterFiles/GeneralLedgerAccounts/Account/ClosingBalance/ClosingCreditBalance/@name ClosingCreditBalance
+/AuditFile/MasterFiles/GeneralLedgerAccounts/Account/ClosingBalance/ClosingCreditBalance/@type SAFmonetaryType
+/AuditFile/MasterFiles/GeneralLedgerAccounts/Account/ClosingBalance/ClosingCreditBalance/@desc Credit balance at the end date of the selection period in the header's default currency.
+/AuditFile/MasterFiles/GeneralLedgerAccounts/Account/any@namespace ##other
+/AuditFile/MasterFiles/GeneralLedgerAccounts/Account/any@minOccurs 0
+/AuditFile/MasterFiles/GeneralLedgerAccounts/Account/any@desc Represents space to allow individual Revenue Bodies to add further elements
 /AuditFile/MasterFiles/Taxonomies/@name Taxonomies
 /AuditFile/MasterFiles/Taxonomies/@minOccurs 0
 /AuditFile/MasterFiles/Taxonomies/Taxonomy/@name Taxonomy
@@ -603,12 +603,12 @@
 /AuditFile/GeneralLedgerEntries/Journal/Transaction/Line/Description/@type SAFlongtextType
 /AuditFile/GeneralLedgerEntries/Journal/Transaction/Line/Description/@desc Description of the Journal Line.
 /AuditFile/GeneralLedgerEntries/Journal/Transaction/Line/choice/@name DebitAmount/CreditAmount
-/AuditFile/GeneralLedgerEntries/Journal/Transaction/Line/choice/DebitAmountt/@name DebitAmount
-/AuditFile/GeneralLedgerEntries/Journal/Transaction/Line/choice/DebitAmountt/@type AmountStructure
-/AuditFile/GeneralLedgerEntries/Journal/Transaction/Line/choice/DebitAmountt/@desc Debit amount information for transaction
-/AuditFile/GeneralLedgerEntries/Journal/Transaction/Line/choice/CreditAmountt/@name CreditAmount
-/AuditFile/GeneralLedgerEntries/Journal/Transaction/Line/choice/CreditAmountt/@type AmountStructure
-/AuditFile/GeneralLedgerEntries/Journal/Transaction/Line/choice/CreditAmountt/@desc Credit amount information for transaction
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/Line/DebitAmountt/@name DebitAmount
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/Line/DebitAmountt/@type AmountStructure
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/Line/DebitAmountt/@desc Debit amount information for transaction
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/Line/CreditAmountt/@name CreditAmount
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/Line/CreditAmountt/@type AmountStructure
+/AuditFile/GeneralLedgerEntries/Journal/Transaction/Line/CreditAmountt/@desc Credit amount information for transaction
 /AuditFile/GeneralLedgerEntries/Journal/Transaction/Line/TaxInformation/@name TaxInformation
 /AuditFile/GeneralLedgerEntries/Journal/Transaction/Line/TaxInformation/@type TaxInformationStructure
 /AuditFile/GeneralLedgerEntries/Journal/Transaction/Line/TaxInformation/@minOccurs 0
@@ -973,26 +973,26 @@
 /InvoiceStructure/InvoiceNo/@type SAFmiddle2textType
 /InvoiceStructure/choice/@minOccurs 0
 /InvoiceStructure/choice/@name CustomerInfo/SupplierInfo
-/InvoiceStructure/choice/CustomerInfo/@name CustomerInfo
-/InvoiceStructure/choice/CustomerInfo/chooice/@name CustomerID/Name
-/InvoiceStructure/choice/CustomerInfo/choice/CustomerID/@name CustomerID
-/InvoiceStructure/choice/CustomerInfo/choice/CustomerID/@type SAFmiddle1textType
-/InvoiceStructure/choice/CustomerInfo/choice/CustomerID/@desc Unique code for the customer
-/InvoiceStructure/choice/CustomerInfo/choice/Name/@name Name
-/InvoiceStructure/choice/CustomerInfo/choice/Name/@type SAFmiddle2textType
-/InvoiceStructure/choice/CustomerInfo/choice/Name/@desc Name of the customer
-/InvoiceStructure/choice/CustomerInfo/BillingAddress/@name BillingAddress
-/InvoiceStructure/choice/CustomerInfo/BillingAddress/@type AddressStructure
-/InvoiceStructure/choice/SupplierInfo/@name SupplierInfo
-/InvoiceStructure/choice/SupplierInfo/choice/@name SupplierID/Name
-/InvoiceStructure/choice/SupplierInfo/choice/SupplierID/@name SupplierID
-/InvoiceStructure/choice/SupplierInfo/choice/SupplierID/@type SAFmiddle1textType
-/InvoiceStructure/choice/SupplierInfo/choice/SupplierID/@desc Unique code for the supplier
-/InvoiceStructure/choice/SupplierInfo/choice/Name/@name Name
-/InvoiceStructure/choice/SupplierInfo/choice/Name/@type SAFmiddle2textType
-/InvoiceStructure/choice/SupplierInfo/choice/Name/@desc Name of the supplier
-/InvoiceStructure/choice/SupplierInfo/BillingAddress/@name BillingAddress
-/InvoiceStructure/choice/SupplierInfo/BillingAddress/@type AddressStructure
+/InvoiceStructure/CustomerInfo/@name CustomerInfo
+/InvoiceStructure/CustomerInfo/chooice/@name CustomerID/Name
+/InvoiceStructure/CustomerInfo/CustomerID/@name CustomerID
+/InvoiceStructure/CustomerInfo/CustomerID/@type SAFmiddle1textType
+/InvoiceStructure/CustomerInfo/CustomerID/@desc Unique code for the customer
+/InvoiceStructure/CustomerInfo/Name/@name Name
+/InvoiceStructure/CustomerInfo/Name/@type SAFmiddle2textType
+/InvoiceStructure/CustomerInfo/Name/@desc Name of the customer
+/InvoiceStructure/CustomerInfo/BillingAddress/@name BillingAddress
+/InvoiceStructure/CustomerInfo/BillingAddress/@type AddressStructure
+/InvoiceStructure/SupplierInfo/@name SupplierInfo
+/InvoiceStructure/SupplierInfo/choice/@name SupplierID/Name
+/InvoiceStructure/SupplierInfo/SupplierID/@name SupplierID
+/InvoiceStructure/SupplierInfo/SupplierID/@type SAFmiddle1textType
+/InvoiceStructure/SupplierInfo/SupplierID/@desc Unique code for the supplier
+/InvoiceStructure/SupplierInfo/Name/@name Name
+/InvoiceStructure/SupplierInfo/Name/@type SAFmiddle2textType
+/InvoiceStructure/SupplierInfo/Name/@desc Name of the supplier
+/InvoiceStructure/SupplierInfo/BillingAddress/@name BillingAddress
+/InvoiceStructure/SupplierInfo/BillingAddress/@type AddressStructure
 /InvoiceStructure/AccountID/@name AccountID
 /InvoiceStructure/AccountID/@type SAFmiddle2textType
 /InvoiceStructure/AccountID/@minOccurs 0
@@ -1303,7 +1303,7 @@
 /AnalysisStructure/sequence/element/@desc Amount applying to the Analysis: f.i. the amount applying for this cost center
 /BankAccountStructure/@name BankAccountStructure
 /BankAccountStructure/@desc [Common to all SAFs] Bank account number information. IBAN number, or account number with optional information.
-/BankAccountStructure/choice/@choice IBANNumber/sequence
+/BankAccountStructure/choice/@name IBANNumber/sequence
 /BankAccountStructure/IBANNumber/@name IBANNumber
 /BankAccountStructure/IBANNumber/@type SAFmiddle1textType
 /BankAccountStructure/IBANNumber/@desc International Bank Account Number, ISO 13616
@@ -1472,28 +1472,29 @@
 /SelectionCriteriaStructure/CompanyEntity/@minOccurs 0
 /SelectionCriteriaStructure/CompanyEntity/@desc For use where data has been extracted from the full data set by reference to a specific corporate entity.
 /SelectionCriteriaStructure/choice/@desc Allows for a choice between selection on calendar dates and periods according to the accounting system, e.g. 1 to 12 for a 12-months accounting system.
-/SelectionCriteriaStructure/choice/SelectionStartDate/@name SelectionStartDate
-/SelectionCriteriaStructure/choice/SelectionStartDate/@type date
-/SelectionCriteriaStructure/choice/SelectionStartDate/@desc The start date for the reporting period covered by the SAF.
-/SelectionCriteriaStructure/choice/SelectionEndDate/@name SelectionEndDate
-/SelectionCriteriaStructure/choice/SelectionEndDate/@type date
-/SelectionCriteriaStructure/choice/SelectionEndDate/@desc The end date for the reporting period covered by the SAF.
-/SelectionCriteriaStructure/choice/PeriodStart/@name PeriodStart
-/SelectionCriteriaStructure/choice/PeriodStart/@type nonNegativeInteger
-/SelectionCriteriaStructure/choice/PeriodStart/@desc The first Accounting Period covered by the SAF.
-/SelectionCriteriaStructure/choice/PeriodStartYear/@name PeriodStartYear
-/SelectionCriteriaStructure/choice/PeriodStartYear/@desc The Accounting Year in which the PeriodStart falls.
-/SelectionCriteriaStructure/choice/PeriodStartYear/@base nonNegativeInteger
-/SelectionCriteriaStructure/choice/PeriodStartYear/@minInclusive 1970
-/SelectionCriteriaStructure/choice/PeriodStartYear/@maxInclusive 2100
-/SelectionCriteriaStructure/choice/PeriodEnd/@name PeriodEnd
-/SelectionCriteriaStructure/choice/PeriodEnd/@type nonNegativeInteger
-/SelectionCriteriaStructure/choice/PeriodEnd/@desc The last Accounting Period covered by the SAF.
-/SelectionCriteriaStructure/choice/PeriodEndYear/@name PeriodEndYear
-/SelectionCriteriaStructure/choice/PeriodEndYear/@desc The Accounting Year in which the PeriodEnd falls.
-/SelectionCriteriaStructure/choice/PeriodEndYear/@base nonNegativeInteger
-/SelectionCriteriaStructure/choice/PeriodEndYear/@minInclusive 1970
-/SelectionCriteriaStructure/choice/PeriodEndYear/@maxInclusive 2100
+/SelectionCriteriaStructure/choice/@name SelectionStartDate/SelectionEndDate/PeriodStart/PeriodStartYear/PeriodEnd/PeriodEndYear
+/SelectionCriteriaStructure/SelectionStartDate/@name SelectionStartDate
+/SelectionCriteriaStructure/SelectionStartDate/@type date
+/SelectionCriteriaStructure/SelectionStartDate/@desc The start date for the reporting period covered by the SAF.
+/SelectionCriteriaStructure/SelectionEndDate/@name SelectionEndDate
+/SelectionCriteriaStructure/SelectionEndDate/@type date
+/SelectionCriteriaStructure/SelectionEndDate/@desc The end date for the reporting period covered by the SAF.
+/SelectionCriteriaStructure/PeriodStart/@name PeriodStart
+/SelectionCriteriaStructure/PeriodStart/@type nonNegativeInteger
+/SelectionCriteriaStructure/PeriodStart/@desc The first Accounting Period covered by the SAF.
+/SelectionCriteriaStructure/PeriodStartYear/@name PeriodStartYear
+/SelectionCriteriaStructure/PeriodStartYear/@desc The Accounting Year in which the PeriodStart falls.
+/SelectionCriteriaStructure/PeriodStartYear/@base nonNegativeInteger
+/SelectionCriteriaStructure/PeriodStartYear/@minInclusive 1970
+/SelectionCriteriaStructure/PeriodStartYear/@maxInclusive 2100
+/SelectionCriteriaStructure/PeriodEnd/@name PeriodEnd
+/SelectionCriteriaStructure/PeriodEnd/@type nonNegativeInteger
+/SelectionCriteriaStructure/PeriodEnd/@desc The last Accounting Period covered by the SAF.
+/SelectionCriteriaStructure/PeriodEndYear/@name PeriodEndYear
+/SelectionCriteriaStructure/PeriodEndYear/@desc The Accounting Year in which the PeriodEnd falls.
+/SelectionCriteriaStructure/PeriodEndYear/@base nonNegativeInteger
+/SelectionCriteriaStructure/PeriodEndYear/@minInclusive 1970
+/SelectionCriteriaStructure/PeriodEndYear/@maxInclusive 2100
 /SelectionCriteriaStructure/DocumentType/@name DocumentType
 /SelectionCriteriaStructure/DocumentType/@type SAFlongtextType
 /SelectionCriteriaStructure/DocumentType/@minOccurs 0

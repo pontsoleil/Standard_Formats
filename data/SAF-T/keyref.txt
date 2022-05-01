@@ -1,21 +1,3 @@
-
-KeyGeneralLedgerAccount MasterFiles/GeneralLedgerAccounts/Account/AccountID
-KeySupplier MasterFiles/Suppliers/Supplier/SupplierID
-KeyCustomer MasterFiles/Customers/Customer/CustomerID
-KeyTaxType MasterFiles/TaxTable/TaxTableEntry/TaxType
-KeyUnitOfMeasure MasterFiles/UOMTable/UOMTableEntry/UnitOfMeasure
-KeyMovementType MasterFiles/MovementTypeTable/MovementTypeTableEntry/MovementType
-KeyProductCode MasterFiles/Products/Product/ProductCode
-KeyOwner MasterFiles/Owners/Owner/OwnerID
-KeyAsset MasterFiles/Assets/Asset/AssetID
-KeyMovementReference SourceDocuments/MovementOfGoods/StockMovement/MovementReference
-KeyTransactionReference GeneralLedgerEntries/Journal/Transaction/TransactionID
-KeyTaxCode MasterFiles/TaxTable/TaxTableEntry/TaxCodeDetails/TaxCode
-KeyAnalysisType MasterFiles/AnalysisTypeTable/AnalysisTypeTableEntry/AnalysisType
-KeyAnalysisID MasterFiles/AnalysisTypeTable/AnalysisTypeTableEntry/AnalysisID
-KeyStockAccountNo MasterFiles/PhysicalStock/PhysicalStockEntry/StockAccountNo
-
-
 RefTaxonomyAccount KeyGeneralLedgerAccount MasterFiles/Taxonomies/Taxonomy/TaxonomyElement/AccountID
 RefCustomerAccount KeyGeneralLedgerAccount MasterFiles/Customers/Customer/AccountID
 RefSupplierAccount KeyGeneralLedgerAccount MasterFiles/Suppliers/Supplier/AccountID

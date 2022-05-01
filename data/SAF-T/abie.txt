@@ -1,0 +1,3305 @@
+/xs:schema/@xmlns urn:OECD:StandardAuditFile-Taxation/2.00
+/xs:schema/@xmlns:xs http://www.w3.org/2001/XMLSchema
+/xs:schema/@xmlns:doc urn:schemas-OECD:schema-extensions:documentation
+/xs:schema/@targetNamespace urn:OECD:StandardAuditFile-Taxation/2.00
+/xs:schema/@elementFormDefault qualified
+/xs:schema/@attributeFormDefault unqualified
+/xs:schema/@version 2.00
+/xs:schema/@id SAF-T
+/xs:schema/xs:annotation/xs:documentation/doc:Title OECD Standard Audit File
+/xs:schema/xs:annotation/xs:documentation/doc:Copyright Copyright OECD
+/xs:schema/xs:annotation/xs:documentation/doc:Subject Standard Audit File - Taxation
+/xs:schema/xs:annotation/xs:documentation/doc:Version/doc:Number 2.00
+/xs:schema/xs:annotation/xs:documentation/doc:Version/doc:Status Final version
+/xs:schema/xs:annotation/xs:documentation/doc:Version
+/xs:schema/xs:annotation/xs:documentation/doc:Author OECD TeA team
+/xs:schema/xs:annotation/xs:documentation/doc:ModificationDate 17-09-2009
+/xs:schema/xs:annotation/xs:documentation
+/xs:schema/xs:annotation
+/schel/@name AuditFile
+/schel/el/@name Header
+/schel/el/xs:annotation/xs:documentation Holds general information about the file including the name of the software which produced it; the company on whose behalf the SAF-T is being submitted; and the selection criteria used. An extension point is provided to allow individual Revenue Bodies to  specify further relevant information to be supplied.
+/schel/el/xs:annotation
+/schel/el/xs:complexType/xs:complexContent/xs:extension/@base HeaderStructure
+/schel/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:element/@name TaxAccountingBasis
+/schel/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:element/@type SAFshorttextType
+/schel/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:element/xs:annotation/xs:documentation Invoice Accounting, Cash Accounting, Delivery, other ...
+/schel/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:element/xs:annotation
+/schel/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:element
+/schel/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:element/@name TaxEntity
+/schel/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:element/@type SAFmiddle2textType
+/schel/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:element/@minOccurs 0
+/schel/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:element/xs:annotation/xs:documentation Company / Division / Branch reference
+/schel/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:element/xs:annotation
+/schel/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:element
+/schel/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:any/@namespace ##other
+/schel/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:any/@minOccurs 0
+/schel/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:any/xs:annotation/xs:documentation Represents space to allow individual Revenue Bodies to add further elements if required. See Annex A.
+/schel/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:any/xs:annotation
+/schel/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:any
+/schel/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence
+/schel/el/xs:complexType/xs:complexContent/xs:extension
+/schel/el/xs:complexType/xs:complexContent
+/schel/el/xs:complexType
+/schel/el
+/schel/el/@name MasterFiles
+/schel/el/@minOccurs 0
+/schel/el/xs:annotation/xs:documentation Holds standing data about general ledger account, suppliers, customers, products, etc.. An extension point is provided to allow Revenue Bodies to specify additional elements or structures such as tax rate tables.
+/schel/el/xs:annotation
+/schel/el/el/@name GeneralLedgerAccounts
+/schel/el/el/@minOccurs 0
+/schel/el/el/el/@name Account
+/schel/el/el/el/@maxOccurs unbounded
+/schel/el/el/el/el/@name AccountID
+/schel/el/el/el/el/@type SAFmiddle2textType
+/schel/el/el/el/el/xs:annotation/xs:documentation General Ledger Account code. Can be including sub-account id. It can contain many different levels to identify the Account. It could include cost centres such as company, division, region, group and branch/department.
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/el/@name AccountDescription
+/schel/el/el/el/el/@type SAFlongtextType
+/schel/el/el/el/el/xs:annotation/xs:documentation Name of individual GL account
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/el/@name StandardAccountID
+/schel/el/el/el/el/@type SAFmiddle1textType
+/schel/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/xs:annotation/xs:documentation AccountID based on a standard prescribed by authorities.
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/el/@name GroupingCategory
+/schel/el/el/el/el/@type SAFmiddle1textType
+/schel/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/xs:annotation/xs:documentation Category for grouping the accounts, relevant in reconciling financial statements f.i.
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/el/@name GroupingCode
+/schel/el/el/el/el/@type SAFmiddle1textType
+/schel/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/xs:annotation/xs:documentation Subcode for grouping the accounts, relevant in reconciling financial statements f.i.
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/el/@name AccountType
+/schel/el/el/el/el/@type SAFshorttextType
+/schel/el/el/el/el/xs:annotation/xs:documentation Type of account  - Asset/Liability/Sale/Expense
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/el/@name AccountCreationDate
+/schel/el/el/el/el/@type xs:date
+/schel/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/xs:annotation/xs:documentation Date of creating the generalledger account
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/xs:complexType/xs:sequence/xs:choice/xs:element/@name OpeningDebitBalance
+/schel/el/el/el/xs:complexType/xs:sequence/xs:choice/xs:element/@type SAFmonetaryType
+/schel/el/el/el/xs:complexType/xs:sequence/xs:choice/xs:element/xs:annotation/xs:documentation Debit balance at the start date of the selection period in the header's default currency.
+/schel/el/el/el/xs:complexType/xs:sequence/xs:choice/xs:element/xs:annotation
+/schel/el/el/el/xs:complexType/xs:sequence/xs:choice/xs:element
+/schel/el/el/el/xs:complexType/xs:sequence/xs:choice/xs:element/@name OpeningCreditBalance
+/schel/el/el/el/xs:complexType/xs:sequence/xs:choice/xs:element/@type SAFmonetaryType
+/schel/el/el/el/xs:complexType/xs:sequence/xs:choice/xs:element/xs:annotation/xs:documentation Credit balance at the start date of the selection period in the header's default currency.
+/schel/el/el/el/xs:complexType/xs:sequence/xs:choice/xs:element/xs:annotation
+/schel/el/el/el/xs:complexType/xs:sequence/xs:choice/xs:element
+/schel/el/el/el/xs:complexType/xs:sequence/xs:choice
+/schel/el/el/el/xs:complexType/xs:sequence/xs:choice/xs:element/@name ClosingDebitBalance
+/schel/el/el/el/xs:complexType/xs:sequence/xs:choice/xs:element/@type SAFmonetaryType
+/schel/el/el/el/xs:complexType/xs:sequence/xs:choice/xs:element/xs:annotation/xs:documentation Debit balance at the end date of the selection period in the header's default currency.
+/schel/el/el/el/xs:complexType/xs:sequence/xs:choice/xs:element/xs:annotation
+/schel/el/el/el/xs:complexType/xs:sequence/xs:choice/xs:element
+/schel/el/el/el/xs:complexType/xs:sequence/xs:choice/xs:element/@name ClosingCreditBalance
+/schel/el/el/el/xs:complexType/xs:sequence/xs:choice/xs:element/@type SAFmonetaryType
+/schel/el/el/el/xs:complexType/xs:sequence/xs:choice/xs:element/xs:annotation/xs:documentation Credit balance at the end date of the selection period in the header's default currency.
+/schel/el/el/el/xs:complexType/xs:sequence/xs:choice/xs:element/xs:annotation
+/schel/el/el/el/xs:complexType/xs:sequence/xs:choice/xs:element
+/schel/el/el/el/xs:complexType/xs:sequence/xs:choice
+/schel/el/el/el/xs:complexType/xs:sequence/xs:any/@namespace ##other
+/schel/el/el/el/xs:complexType/xs:sequence/xs:any/@minOccurs 0
+/schel/el/el/el/xs:complexType/xs:sequence/xs:any/xs:annotation/xs:documentation Represents space to allow individual Revenue Bodies to add further elements
+/schel/el/el/el/xs:complexType/xs:sequence/xs:any/xs:annotation
+/schel/el/el/el/xs:complexType/xs:sequence/xs:any
+/schel/el/el/el/xs:complexType/xs:sequence
+/schel/el/el/el/xs:complexType
+/schel/el/el/el
+/schel/el/el/xs:complexType/xs:sequence
+/schel/el/el/xs:complexType
+/schel/el/el
+/schel/el/el/@name Taxonomies
+/schel/el/el/@minOccurs 0
+/schel/el/el/el/@name Taxonomy
+/schel/el/el/el/@maxOccurs unbounded
+/schel/el/el/el/el/@name TaxonomyReference
+/schel/el/el/el/el/@type SAFlongtextType
+/schel/el/el/el/el/xs:annotation/xs:documentation Reference to the taxonomy that applies to the GL Account.
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/el/@name TaxonomyElement
+/schel/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/@maxOccurs unbounded
+/schel/el/el/el/el/el/@name TaxonomyCode
+/schel/el/el/el/el/el/@type SAFlongtextType
+/schel/el/el/el/el/el/xs:annotation/xs:documentation Reference to specific taxonomy element
+/schel/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el
+/schel/el/el/el/el/el/@name TaxonomyClusterID
+/schel/el/el/el/el/el/@type SAFlongtextType
+/schel/el/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/el/xs:annotation/xs:documentation Additional reference to specific taxonomy element
+/schel/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el
+/schel/el/el/el/el/el/@name TaxonomyClusterContextID
+/schel/el/el/el/el/el/@type SAFlongtextType
+/schel/el/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/el
+/schel/el/el/el/el/el/@name AccountID
+/schel/el/el/el/el/el/@type SAFmiddle2textType
+/schel/el/el/el/el/el/xs:annotation/xs:documentation General Ledger Account code for this TaxanomyReference/TaxonomyCode. Can be including sub-account id. It can contain many different levels to identify the Account. It could include cost centres such as company, division, region, group and branch/department.
+/schel/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el
+/schel/el/el/el/el/xs:complexType/xs:sequence
+/schel/el/el/el/el/xs:complexType
+/schel/el/el/el/el
+/schel/el/el/el/xs:complexType/xs:sequence
+/schel/el/el/el/xs:complexType
+/schel/el/el/el
+/schel/el/el/xs:complexType/xs:sequence
+/schel/el/el/xs:complexType
+/schel/el/el
+/schel/el/el/@name Customers
+/schel/el/el/@minOccurs 0
+/schel/el/el/el/@name Customer
+/schel/el/el/el/@maxOccurs unbounded
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/@base CompanyStructure
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:element/@name CustomerID
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:element/@type SAFmiddle1textType
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:element/@minOccurs 0
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:element/xs:annotation/xs:documentation Unique code for the customer
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:element/xs:annotation
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:element
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:element/@name SelfBillingIndicator
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:element/@type SAFcodeType
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:element/@minOccurs 0
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:element/xs:annotation/xs:documentation Indicator showing if a self-billing agreement exists between the customer and the supplier
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:element/xs:annotation
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:element
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:element/@name AccountID
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:element/@type SAFmiddle2textType
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:element/@minOccurs 0
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:element/xs:annotation/xs:documentation General Ledger Account code for this customer. Can be including sub-account id. It can contain many different levels to identify the Account. It could include cost centres such as company, division, region, group and branch/department.
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:element/xs:annotation
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:element
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:choice/@minOccurs 0
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:choice/xs:element/@name OpeningDebitBalance
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:choice/xs:element/@type SAFmonetaryType
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:choice/xs:element/xs:annotation/xs:documentation Debit balance at the start date of the selection period in the header's default currency.
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:choice/xs:element/xs:annotation
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:choice/xs:element
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:choice/xs:element/@name OpeningCreditBalance
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:choice/xs:element/@type SAFmonetaryType
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:choice/xs:element/xs:annotation/xs:documentation Credit balance at the start date of the selection period in the header's default currency.
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:choice/xs:element/xs:annotation
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:choice/xs:element
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:choice
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:choice/@minOccurs 0
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:choice/xs:element/@name ClosingDebitBalance
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:choice/xs:element/@type SAFmonetaryType
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:choice/xs:element/xs:annotation/xs:documentation Debit balance at the end date of the selection period in the header's default currency.
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:choice/xs:element/xs:annotation
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:choice/xs:element
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:choice/xs:element/@name ClosingCreditBalance
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:choice/xs:element/@type SAFmonetaryType
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:choice/xs:element/xs:annotation/xs:documentation Credit balance at the end date of the selection period in the header's default currency.
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:choice/xs:element/xs:annotation
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:choice/xs:element
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:choice
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:any/@namespace ##other
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:any/@minOccurs 0
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:any/xs:annotation/xs:documentation Represents space to allow individual Revenue Bodies to add further elements
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:any/xs:annotation
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:any
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension
+/schel/el/el/el/xs:complexType/xs:complexContent
+/schel/el/el/el/xs:complexType
+/schel/el/el/el
+/schel/el/el/xs:complexType/xs:sequence
+/schel/el/el/xs:complexType
+/schel/el/el
+/schel/el/el/@name Suppliers
+/schel/el/el/@minOccurs 0
+/schel/el/el/el/@name Supplier
+/schel/el/el/el/@maxOccurs unbounded
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/@base CompanyStructure
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:element/@name SupplierID
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:element/@type SAFmiddle1textType
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:element/@minOccurs 0
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:element/xs:annotation/xs:documentation Unique code for the supplier
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:element/xs:annotation
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:element
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:element/@name SelfBillingIndicator
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:element/@type SAFcodeType
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:element/@minOccurs 0
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:element/xs:annotation/xs:documentation Indicator showing if a self-billing agreement exists between the customer and the supplier
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:element/xs:annotation
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:element
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:element/@name AccountID
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:element/@type SAFmiddle2textType
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:element/@minOccurs 0
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:element/xs:annotation/xs:documentation General Ledger Account code for this supplier. Can be including sub-account id. It can contain many different levels to identify the Account. It could include cost centres such as company, division, region, group and branch/department.
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:element/xs:annotation
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:element
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:choice/@minOccurs 0
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:choice/xs:element/@name OpeningDebitBalance
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:choice/xs:element/@type SAFmonetaryType
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:choice/xs:element/xs:annotation/xs:documentation Debit balance at the start date of the selection period in the header's default currency.
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:choice/xs:element/xs:annotation
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:choice/xs:element
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:choice/xs:element/@name OpeningCreditBalance
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:choice/xs:element/@type SAFmonetaryType
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:choice/xs:element/xs:annotation/xs:documentation Credit balance at the start date of the selection period in the header's default currency.
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:choice/xs:element/xs:annotation
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:choice/xs:element
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:choice
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:choice/@minOccurs 0
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:choice/xs:element/@name ClosingDebitBalance
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:choice/xs:element/@type SAFmonetaryType
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:choice/xs:element/xs:annotation/xs:documentation Debit balance at the end date of the selection period in the header's default currency.
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:choice/xs:element/xs:annotation
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:choice/xs:element
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:choice/xs:element/@name ClosingCreditBalance
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:choice/xs:element/@type SAFmonetaryType
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:choice/xs:element/xs:annotation/xs:documentation Credit balance at the end date of the selection period in the header's default currency.
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:choice/xs:element/xs:annotation
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:choice/xs:element
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:choice
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:any/@namespace ##other
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:any/@minOccurs 0
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:any/xs:annotation/xs:documentation Represents space to allow individual Revenue Bodies to add further elements
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:any/xs:annotation
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:any
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension
+/schel/el/el/el/xs:complexType/xs:complexContent
+/schel/el/el/el/xs:complexType
+/schel/el/el/el
+/schel/el/el/xs:complexType/xs:sequence
+/schel/el/el/xs:complexType
+/schel/el/el
+/schel/el/el/@name TaxTable
+/schel/el/el/@minOccurs 0
+/schel/el/el/el/@name TaxTableEntry
+/schel/el/el/el/@maxOccurs unbounded
+/schel/el/el/el/el/@name TaxType
+/schel/el/el/el/el/@type SAFcodeType
+/schel/el/el/el/el/xs:annotation/xs:documentation Tax type for look-up in tables
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/el/@name Description
+/schel/el/el/el/el/@type SAFlongtextType
+/schel/el/el/el/el/xs:annotation/xs:documentation Description of the Tax Type
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/el/@name TaxCodeDetails
+/schel/el/el/el/el/@maxOccurs unbounded
+/schel/el/el/el/el/el/@name TaxCode
+/schel/el/el/el/el/el/@type SAFcodeType
+/schel/el/el/el/el/el/xs:annotation/xs:documentation Tax Code for lookup in tables
+/schel/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el
+/schel/el/el/el/el/el/@name EffectiveDate
+/schel/el/el/el/el/el/@type xs:date
+/schel/el/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/el/xs:annotation/xs:documentation Representing the starting date for this entry
+/schel/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el
+/schel/el/el/el/el/el/@name ExpirationDate
+/schel/el/el/el/el/el/@type xs:date
+/schel/el/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/el/xs:annotation/xs:documentation Representing the ending date for this entry
+/schel/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el
+/schel/el/el/el/el/el/@name Description
+/schel/el/el/el/el/el/@type SAFlongtextType
+/schel/el/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/el/xs:annotation/xs:documentation Description of the Tax Code
+/schel/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el
+/schel/el/el/el/el/xs:complexType/xs:sequence/xs:choice/@minOccurs 0
+/schel/el/el/el/el/xs:complexType/xs:sequence/xs:choice/xs:element/@name TaxPercentage
+/schel/el/el/el/el/xs:complexType/xs:sequence/xs:choice/xs:element/@type xs:decimal
+/schel/el/el/el/el/xs:complexType/xs:sequence/xs:choice/xs:element/xs:annotation/xs:documentation Tax percentage.
+/schel/el/el/el/el/xs:complexType/xs:sequence/xs:choice/xs:element/xs:annotation
+/schel/el/el/el/el/xs:complexType/xs:sequence/xs:choice/xs:element
+/schel/el/el/el/el/xs:complexType/xs:sequence/xs:choice/xs:element/@name FlatTaxRate
+/schel/el/el/el/el/xs:complexType/xs:sequence/xs:choice/xs:element/@type AmountStructure
+/schel/el/el/el/el/xs:complexType/xs:sequence/xs:choice/xs:element/xs:annotation/xs:documentation FlatTaxRate
+/schel/el/el/el/el/xs:complexType/xs:sequence/xs:choice/xs:element/xs:annotation
+/schel/el/el/el/el/xs:complexType/xs:sequence/xs:choice/xs:element
+/schel/el/el/el/el/xs:complexType/xs:sequence/xs:choice
+/schel/el/el/el/el/el/@name Country
+/schel/el/el/el/el/el/@type ISOCountryCode
+/schel/el/el/el/el/el/xs:annotation/xs:documentation Two-letter country code according to ISO 3166-1 alpha 2 standard. Example NL for the Netherlands.
+/schel/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el
+/schel/el/el/el/el/el/@name Region
+/schel/el/el/el/el/el/@type SAFcodeType
+/schel/el/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/el/xs:annotation/xs:documentation Country specific code to indicate regions / provinces within the tax authority. Preferably described according to ISO 3166-2. Example: GB-KEN for Kent county in the United Kingdom.
+/schel/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el
+/schel/el/el/el/el/xs:complexType/xs:sequence
+/schel/el/el/el/el/xs:complexType
+/schel/el/el/el/el
+/schel/el/el/el/xs:complexType/xs:sequence
+/schel/el/el/el/xs:complexType
+/schel/el/el/el
+/schel/el/el/xs:complexType/xs:sequence
+/schel/el/el/xs:complexType
+/schel/el/el
+/schel/el/el/@name UOMTable
+/schel/el/el/@minOccurs 0
+/schel/el/el/xs:annotation/xs:documentation Table with descriptions of all different kinds of UOM's
+/schel/el/el/xs:annotation
+/schel/el/el/el/@name UOMTableEntry
+/schel/el/el/el/@maxOccurs unbounded
+/schel/el/el/el/el/@name UnitOfMeasure
+/schel/el/el/el/el/@type SAFcodeType
+/schel/el/el/el/el/xs:annotation/xs:documentation Quantity unit of measure e.g. pack of 12
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/el/@name Description
+/schel/el/el/el/el/@type SAFlongtextType
+/schel/el/el/el/el/xs:annotation/xs:documentation Description of the UOM
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/xs:complexType/xs:sequence
+/schel/el/el/el/xs:complexType
+/schel/el/el/el
+/schel/el/el/xs:complexType/xs:sequence
+/schel/el/el/xs:complexType
+/schel/el/el
+/schel/el/el/@name AnalysisTypeTable
+/schel/el/el/@minOccurs 0
+/schel/el/el/xs:annotation/xs:documentation Table with the analysiscode identifiers.\nsed for further specification of transaction data.\nxample: cost unit, cost center, project.
+/schel/el/el/xs:annotation
+/schel/el/el/el/@name AnalysisTypeTableEntry
+/schel/el/el/el/@maxOccurs unbounded
+/schel/el/el/el/el/@name AnalysisType
+/schel/el/el/el/el/@type SAFcodeType
+/schel/el/el/el/el/xs:annotation/xs:documentation Analysis type identifier: e.g. CC (for Cost Center), DEP (for department), etc.
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/el/@name AnalysisTypeDescription
+/schel/el/el/el/el/@type SAFlongtextType
+/schel/el/el/el/el/xs:annotation/xs:documentation Description of the AnalysisType, e.g. "Cost Center"
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/el/@name AnalysisID
+/schel/el/el/el/el/@type SAFmiddle1textType
+/schel/el/el/el/el/xs:annotation/xs:documentation Analysis ID: e.g. 1200-HDOF-TR (for cost center treasury in the headoffice), P-4800-123 (for project 123 in branch 4800)
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/el/@name AnalysisIDDescription
+/schel/el/el/el/el/@type SAFlongtextType
+/schel/el/el/el/el/xs:annotation/xs:documentation Description of the AnalysisID: e.g. "Headoffice-Treasury".
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/xs:complexType/xs:sequence
+/schel/el/el/el/xs:complexType
+/schel/el/el/el
+/schel/el/el/xs:complexType/xs:sequence
+/schel/el/el/xs:complexType
+/schel/el/el
+/schel/el/el/@name MovementTypeTable
+/schel/el/el/@minOccurs 0
+/schel/el/el/xs:annotation/xs:documentation Table with descriptions of all different kinds of movementtypes and movementsubtypes
+/schel/el/el/xs:annotation
+/schel/el/el/el/@name MovementTypeTableEntry
+/schel/el/el/el/@maxOccurs unbounded
+/schel/el/el/el/el/@name MovementType
+/schel/el/el/el/el/@type SAFcodeType
+/schel/el/el/el/el/xs:annotation/xs:documentation Identify kind of movement or movement line. E.g. sale, purchase, adjustment, etc.  Or  efficiencyloss, use of components in production, etc. Predescribed TABLE is possible.
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/el/@name Description
+/schel/el/el/el/el/@type SAFlongtextType
+/schel/el/el/el/el/xs:annotation/xs:documentation Description of the movement(sub)type
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/xs:complexType/xs:sequence
+/schel/el/el/el/xs:complexType
+/schel/el/el/el
+/schel/el/el/xs:complexType/xs:sequence
+/schel/el/el/xs:complexType
+/schel/el/el
+/schel/el/el/@name Products
+/schel/el/el/@minOccurs 0
+/schel/el/el/el/@name Product
+/schel/el/el/el/@maxOccurs unbounded
+/schel/el/el/el/el/@name ProductCode
+/schel/el/el/el/el/@type SAFmiddle2textType
+/schel/el/el/el/el/xs:annotation/xs:documentation Product code
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/el/@name GoodsServicesID
+/schel/el/el/el/el/@type SAFcodeType
+/schel/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/xs:annotation/xs:documentation Indicator showing if goods or services (Predescribed TABLE is possible)
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/el/@name ProductGroup
+/schel/el/el/el/el/@type SAFmiddle2textType
+/schel/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/xs:annotation/xs:documentation Code identifying aggregated level at which similar products are grouped
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/el/@name Description
+/schel/el/el/el/el/@type SAFlongtextType
+/schel/el/el/el/el/xs:annotation/xs:documentation Description of goods or services.
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/el/@name ProductCommodityCode
+/schel/el/el/el/el/@type SAFmiddle1textType
+/schel/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/xs:annotation/xs:documentation Classification for import / export
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/el/@name ProductNumberCode
+/schel/el/el/el/el/@type SAFmiddle2textType
+/schel/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/xs:annotation/xs:documentation EAN or other code
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/el/@name ValuationMethod
+/schel/el/el/el/el/@type SAFcodeType
+/schel/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/xs:annotation/xs:documentation FIFO, LIFO, Average cost etc.
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/el/@name UOMBase
+/schel/el/el/el/el/@type SAFcodeType
+/schel/el/el/el/el/xs:annotation/xs:documentation Unit of measure for Stock Administration for this product Predescribed TABLE is possible.
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/xs:complexType/xs:sequence/xs:sequence/@minOccurs 0
+/schel/el/el/el/xs:complexType/xs:sequence/xs:sequence/xs:annotation/xs:documentation Not needed when not applicable
+/schel/el/el/el/xs:complexType/xs:sequence/xs:sequence/xs:annotation
+/schel/el/el/el/xs:complexType/xs:sequence/xs:sequence/xs:element/@name UOMStandard
+/schel/el/el/el/xs:complexType/xs:sequence/xs:sequence/xs:element/@type SAFcodeType
+/schel/el/el/el/xs:complexType/xs:sequence/xs:sequence/xs:element/xs:annotation/xs:documentation A Standard Unit of Measure applicable for this product, f.i. Kilo, Metres, Litres (Predescribed TABLE is possible)
+/schel/el/el/el/xs:complexType/xs:sequence/xs:sequence/xs:element/xs:annotation
+/schel/el/el/el/xs:complexType/xs:sequence/xs:sequence/xs:element
+/schel/el/el/el/xs:complexType/xs:sequence/xs:sequence/xs:element/@name UOMToUOMBaseConversionFactor
+/schel/el/el/el/xs:complexType/xs:sequence/xs:sequence/xs:element/@type xs:decimal
+/schel/el/el/el/xs:complexType/xs:sequence/xs:sequence/xs:element/xs:annotation/xs:documentation Conversion factor of the UOM to UOM Base
+/schel/el/el/el/xs:complexType/xs:sequence/xs:sequence/xs:element/xs:annotation
+/schel/el/el/el/xs:complexType/xs:sequence/xs:sequence/xs:element
+/schel/el/el/el/xs:complexType/xs:sequence/xs:sequence
+/schel/el/el/el/el/@name Tax
+/schel/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/@maxOccurs unbounded
+/schel/el/el/el/el/xs:complexType/xs:sequence/@minOccurs 0
+/schel/el/el/el/el/el/@name TaxType
+/schel/el/el/el/el/el/@type SAFcodeType
+/schel/el/el/el/el/el/xs:annotation/xs:documentation Tax Type for lookup in tables
+/schel/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el
+/schel/el/el/el/el/el/@name TaxCode
+/schel/el/el/el/el/el/@type SAFcodeType
+/schel/el/el/el/el/el/xs:annotation/xs:documentation Tax Code for lookup in tables
+/schel/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el
+/schel/el/el/el/el/xs:complexType/xs:sequence
+/schel/el/el/el/el/xs:complexType
+/schel/el/el/el/el
+/schel/el/el/el/xs:complexType/xs:sequence/xs:any/@namespace ##other
+/schel/el/el/el/xs:complexType/xs:sequence/xs:any/@minOccurs 0
+/schel/el/el/el/xs:complexType/xs:sequence/xs:any/xs:annotation/xs:documentation Represents space to allow individual Revenue Bodies to add further elements
+/schel/el/el/el/xs:complexType/xs:sequence/xs:any/xs:annotation
+/schel/el/el/el/xs:complexType/xs:sequence/xs:any
+/schel/el/el/el/xs:complexType/xs:sequence
+/schel/el/el/el/xs:complexType
+/schel/el/el/el
+/schel/el/el/xs:complexType/xs:sequence
+/schel/el/el/xs:complexType
+/schel/el/el
+/schel/el/el/@name PhysicalStock
+/schel/el/el/@minOccurs 0
+/schel/el/el/el/@name PhysicalStockEntry
+/schel/el/el/el/@maxOccurs unbounded
+/schel/el/el/el/el/@name WarehouseID
+/schel/el/el/el/el/@type SAFmiddle1textType
+/schel/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/xs:annotation/xs:documentation Warehouse where goods held - possoble also to identify work-in-progress, or stock-in-transit
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/el/@name LocationID
+/schel/el/el/el/el/@type SAFshorttextType
+/schel/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/xs:annotation/xs:documentation Location of goods in warehouse
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/el/@name ProductCode
+/schel/el/el/el/el/@type SAFmiddle2textType
+/schel/el/el/el/el/xs:annotation/xs:documentation Product code
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/el/@name StockAccountNo
+/schel/el/el/el/el/@type SAFmiddle2textType
+/schel/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/xs:annotation/xs:documentation Stock batch, lot, serial identification. Not used when there is exactly 1 PhysicalStock entry per ProductCode
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/el/@name ProductType
+/schel/el/el/el/el/@type SAFshorttextType
+/schel/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/xs:annotation/xs:documentation To determine whether the product/stockaccount is raw material, work-in-progress, finished good, merchandise for resale, etc.
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/el/@name ProductStatus
+/schel/el/el/el/el/@type SAFshorttextType
+/schel/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/xs:annotation/xs:documentation To determine whether the product/stockaccount is discontinued, damaged, obsolete, active, etc.
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/el/@name StockAccountCommodityCode
+/schel/el/el/el/el/@type SAFmiddle1textType
+/schel/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/xs:annotation/xs:documentation Classification for import / export
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/el/@name OwnerID
+/schel/el/el/el/el/@type SAFmiddle1textType
+/schel/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/xs:annotation/xs:documentation Reference to the owner Master File
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/xs:complexType/xs:sequence/xs:sequence/@minOccurs 0
+/schel/el/el/el/xs:complexType/xs:sequence/xs:sequence/xs:annotation/xs:documentation Not needed when UOMPhysicalStock equals UOMBase
+/schel/el/el/el/xs:complexType/xs:sequence/xs:sequence/xs:annotation
+/schel/el/el/el/xs:complexType/xs:sequence/xs:sequence/xs:element/@name UOMPhysicalStock
+/schel/el/el/el/xs:complexType/xs:sequence/xs:sequence/xs:element/@type SAFcodeType
+/schel/el/el/el/xs:complexType/xs:sequence/xs:sequence/xs:element/xs:annotation/xs:documentation Unit of Measurement for this Physical Stock position
+/schel/el/el/el/xs:complexType/xs:sequence/xs:sequence/xs:element/xs:annotation
+/schel/el/el/el/xs:complexType/xs:sequence/xs:sequence/xs:element
+/schel/el/el/el/xs:complexType/xs:sequence/xs:sequence/xs:element/@name UOMToUOMBaseConversionFactor
+/schel/el/el/el/xs:complexType/xs:sequence/xs:sequence/xs:element/@type xs:decimal
+/schel/el/el/el/xs:complexType/xs:sequence/xs:sequence/xs:element/xs:annotation/xs:documentation Conversion factor of the UOM to UOM Base
+/schel/el/el/el/xs:complexType/xs:sequence/xs:sequence/xs:element/xs:annotation
+/schel/el/el/el/xs:complexType/xs:sequence/xs:sequence/xs:element
+/schel/el/el/el/xs:complexType/xs:sequence/xs:sequence
+/schel/el/el/el/el/@name UnitPrice
+/schel/el/el/el/el/@type SAFmonetaryType
+/schel/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/xs:annotation/xs:documentation Base Unit price for this stock account  in the header's default currency.
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/el/@name OpeningStockQuantity
+/schel/el/el/el/el/@type SAFquantityType
+/schel/el/el/el/el/xs:annotation/xs:documentation In UOM Physical Stock for selection period
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/el/@name OpeningStockValue
+/schel/el/el/el/el/@type SAFmonetaryType
+/schel/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/xs:annotation/xs:documentation In  the header's currency code for selection period
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/el/@name ClosingStockQuantity
+/schel/el/el/el/el/@type SAFquantityType
+/schel/el/el/el/el/xs:annotation/xs:documentation In UOM Physical Stock for selection period
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/el/@name ClosingStockValue
+/schel/el/el/el/el/@type SAFmonetaryType
+/schel/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/xs:annotation/xs:documentation Closing stock value  in the header's default currency for selection period
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/el/@name StockCharacteristics
+/schel/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/xs:complexType/xs:sequence/@maxOccurs unbounded
+/schel/el/el/el/el/el/@name StockCharacteristic
+/schel/el/el/el/el/el/@type SAFshorttextType
+/schel/el/el/el/el/el/xs:annotation/xs:documentation User definable characteristics of the goods. Predescribed TABLE is possible.
+/schel/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el
+/schel/el/el/el/el/el/@name StockCharacteristicValue
+/schel/el/el/el/el/el/@type SAFmiddle1textType
+/schel/el/el/el/el/el/xs:annotation/xs:documentation The weight, pack size, colour etc.
+/schel/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el
+/schel/el/el/el/el/xs:complexType/xs:sequence
+/schel/el/el/el/el/xs:complexType
+/schel/el/el/el/el
+/schel/el/el/el/xs:complexType/xs:sequence/xs:any/@namespace ##other
+/schel/el/el/el/xs:complexType/xs:sequence/xs:any/@minOccurs 0
+/schel/el/el/el/xs:complexType/xs:sequence/xs:any/xs:annotation/xs:documentation Represents space to allow individual Revenue Bodies to add further elements
+/schel/el/el/el/xs:complexType/xs:sequence/xs:any/xs:annotation
+/schel/el/el/el/xs:complexType/xs:sequence/xs:any
+/schel/el/el/el/xs:complexType/xs:sequence
+/schel/el/el/el/xs:complexType
+/schel/el/el/el
+/schel/el/el/xs:complexType/xs:sequence
+/schel/el/el/xs:complexType
+/schel/el/el
+/schel/el/el/@name Owners
+/schel/el/el/@minOccurs 0
+/schel/el/el/el/@name Owner
+/schel/el/el/el/@maxOccurs unbounded
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/@base CompanyStructure
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:element/@name OwnerID
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:element/@type SAFmiddle1textType
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:element/@minOccurs 0
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:element/xs:annotation/xs:documentation Reference to the owner Master File
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:element/xs:annotation
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:element
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:element/@name AccountID
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:element/@type SAFmiddle2textType
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:element/@minOccurs 0
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:element/xs:annotation/xs:documentation General Ledger Account code for this owner. Can be including sub-account id. It can contain many different levels to identify the Account. It could include cost centres such as company, division, region, group and branch/department.
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:element/xs:annotation
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:element
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:any/@namespace ##other
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:any/@minOccurs 0
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:any/xs:annotation/xs:documentation Represents space to allow individual Revenue Bodies to add further elements
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:any/xs:annotation
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:any
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension/xs:sequence
+/schel/el/el/el/xs:complexType/xs:complexContent/xs:extension
+/schel/el/el/el/xs:complexType/xs:complexContent
+/schel/el/el/el/xs:complexType
+/schel/el/el/el
+/schel/el/el/xs:complexType/xs:sequence
+/schel/el/el/xs:complexType
+/schel/el/el
+/schel/el/el/@name Assets
+/schel/el/el/@minOccurs 0
+/schel/el/el/el/@name Asset
+/schel/el/el/el/@maxOccurs unbounded
+/schel/el/el/el/el/@name AssetID
+/schel/el/el/el/el/@type SAFmiddle1textType
+/schel/el/el/el/el/xs:annotation/xs:documentation Unique identifier of the asset
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/el/@name AccountID
+/schel/el/el/el/el/@type SAFmiddle2textType
+/schel/el/el/el/el/xs:annotation/xs:documentation General Ledger Account code. Can be including sub-account id. It can contain many different levels to identify the Account. It could include cost centres such as company, division, region, group and branch/department.
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/el/@name Description
+/schel/el/el/el/el/@type SAFlongtextType
+/schel/el/el/el/el/xs:annotation/xs:documentation Description of this asset
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/el/@name Supplier
+/schel/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/@maxOccurs unbounded
+/schel/el/el/el/el/xs:annotation/xs:documentation Contains the information of all suppliers, including the historical suppliers.
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el/@name SupplierName
+/schel/el/el/el/el/el/@type SAFmiddle2textType
+/schel/el/el/el/el/el/xs:annotation/xs:documentation Name of the supplier of the asset
+/schel/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el
+/schel/el/el/el/el/el/@name SupplierID
+/schel/el/el/el/el/el/@type SAFmiddle1textType
+/schel/el/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/el/xs:annotation/xs:documentation Unique code for the supplier
+/schel/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el
+/schel/el/el/el/el/el/@name PostalAddress
+/schel/el/el/el/el/el/@type AddressStructure
+/schel/el/el/el/el/el/xs:annotation/xs:documentation Address information of the supplier of the asset
+/schel/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el
+/schel/el/el/el/el/xs:complexType/xs:sequence
+/schel/el/el/el/el/xs:complexType
+/schel/el/el/el/el
+/schel/el/el/el/el/@name PurchaseOrderDate
+/schel/el/el/el/el/@type xs:date
+/schel/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/xs:annotation/xs:documentation Date of the purchase order of this asset
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/el/@name DateOfAcquisition
+/schel/el/el/el/el/@type xs:date
+/schel/el/el/el/el/xs:annotation/xs:documentation Date of the acquisition of the asset (usually the date of delivery).
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/el/@name StartUpDate
+/schel/el/el/el/el/@type xs:date
+/schel/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/xs:annotation/xs:documentation Commissioning date of the asset.
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/el/@name Valuations
+/schel/el/el/el/el/xs:annotation/xs:documentation The data can be reported for different purposes. More than one can be in this SAF.
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el/@name Valuation
+/schel/el/el/el/el/el/@maxOccurs unbounded
+/schel/el/el/el/el/el/el/@name AssetValuationType
+/schel/el/el/el/el/el/el/@type SAFshorttextType
+/schel/el/el/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/el/el/xs:annotation/xs:documentation Describes the purpose for the reporting: f.i. commercial, tax  in country 1, tax in country 2, etc.
+/schel/el/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el/el
+/schel/el/el/el/el/el/el/@name ValuationClass
+/schel/el/el/el/el/el/el/@type SAFshorttextType
+/schel/el/el/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/el/el/xs:annotation/xs:documentation This describes the classification of the asset for (tax) reporting purposes.
+/schel/el/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el/el
+/schel/el/el/el/el/el/el/@name AcquisitionAndProductionCostsBegin
+/schel/el/el/el/el/el/el/@type SAFmonetaryType
+/schel/el/el/el/el/el/el/xs:annotation/xs:documentation Total costs of acquisition and/or production of the asset at SelectionStartDate in the header's default currency.
+/schel/el/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el/el
+/schel/el/el/el/el/el/el/@name AcquisitionAndProductionCostsEnd
+/schel/el/el/el/el/el/el/@type SAFmonetaryType
+/schel/el/el/el/el/el/el/xs:annotation/xs:documentation Total costs of acquisition and/or production of the asset at SelectionEndDate in the header's default currency.
+/schel/el/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el/el
+/schel/el/el/el/el/el/el/@name InvestmentSupport
+/schel/el/el/el/el/el/el/@type SAFmonetaryType
+/schel/el/el/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/el/el/xs:annotation/xs:documentation Total amount of investment support for this asset in the header's default currency.
+/schel/el/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el/el
+/schel/el/el/el/el/el/xs:complexType/xs:sequence/xs:choice/xs:element/@name AssetLifeYear
+/schel/el/el/el/el/el/xs:complexType/xs:sequence/xs:choice/xs:element/@type xs:decimal
+/schel/el/el/el/el/el/xs:complexType/xs:sequence/xs:choice/xs:element/xs:annotation/xs:documentation Periode of useful life in years
+/schel/el/el/el/el/el/xs:complexType/xs:sequence/xs:choice/xs:element/xs:annotation
+/schel/el/el/el/el/el/xs:complexType/xs:sequence/xs:choice/xs:element
+/schel/el/el/el/el/el/xs:complexType/xs:sequence/xs:choice/xs:element/@name AssetLifeMonth
+/schel/el/el/el/el/el/xs:complexType/xs:sequence/xs:choice/xs:element/@type xs:decimal
+/schel/el/el/el/el/el/xs:complexType/xs:sequence/xs:choice/xs:element/xs:annotation/xs:documentation Period of useful life in months
+/schel/el/el/el/el/el/xs:complexType/xs:sequence/xs:choice/xs:element/xs:annotation
+/schel/el/el/el/el/el/xs:complexType/xs:sequence/xs:choice/xs:element
+/schel/el/el/el/el/el/xs:complexType/xs:sequence/xs:choice
+/schel/el/el/el/el/el/el/@name AssetAddition
+/schel/el/el/el/el/el/el/@type SAFmonetaryType
+/schel/el/el/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/el/el/xs:annotation/xs:documentation Bookvalue of the acquisition and/or production of the asset in the  Selectionperiod in the header's default currency.
+/schel/el/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el/el
+/schel/el/el/el/el/el/el/@name Transfers
+/schel/el/el/el/el/el/el/@type SAFmonetaryType
+/schel/el/el/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/el/el/xs:annotation/xs:documentation Book value of the transfers of the asset during the Selectionperiod in the header's default currency.
+/schel/el/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el/el
+/schel/el/el/el/el/el/el/@name AssetDisposal
+/schel/el/el/el/el/el/el/@type SAFmonetaryType
+/schel/el/el/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/el/el/xs:annotation/xs:documentation Book value of the disposals of the asset during the Selectionperiod in the header's default currency.
+/schel/el/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el/el
+/schel/el/el/el/el/el/el/@name BookValueBegin
+/schel/el/el/el/el/el/el/@type SAFmonetaryType
+/schel/el/el/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/el/el/xs:annotation/xs:documentation Bookvalue at the beginning of the Selectionperiod in the header's default currency.
+/schel/el/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el/el
+/schel/el/el/el/el/el/el/@name DepreciationMethod
+/schel/el/el/el/el/el/el/@type SAFmiddle1textType
+/schel/el/el/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/el/el/xs:annotation/xs:documentation Method of normal depreciation during the Selectionperiod.
+/schel/el/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el/el
+/schel/el/el/el/el/el/el/@name DepreciationPercentage
+/schel/el/el/el/el/el/el/@type xs:decimal
+/schel/el/el/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/el/el/xs:annotation/xs:documentation The rate of the normal depreciation per year or month (depends on choice useful life periode)
+/schel/el/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el/el
+/schel/el/el/el/el/el/el/@name DepreciationForPeriod
+/schel/el/el/el/el/el/el/@type SAFmonetaryType
+/schel/el/el/el/el/el/el/xs:annotation/xs:documentation Total amouunt of normal depreciation during the Selectionperiod in the header's default currency.
+/schel/el/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el/el
+/schel/el/el/el/el/el/el/@name AppreciationForPeriod
+/schel/el/el/el/el/el/el/@type SAFmonetaryType
+/schel/el/el/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/el/el/xs:annotation/xs:documentation Total amouunt of appreciation during the Selectionperiod in the header's default currency.
+/schel/el/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el/el
+/schel/el/el/el/el/el/el/@name ExtraordinaryDepreciationsForPeriod
+/schel/el/el/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/el/el/xs:annotation/xs:documentation Extraordinary depreciations for this asset during the Selectionperiod.
+/schel/el/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el/el/el/@name ExtraordinaryDepreciationForPeriod
+/schel/el/el/el/el/el/el/el/@maxOccurs unbounded
+/schel/el/el/el/el/el/el/el/el/@name ExtraordinaryDepreciationMethod
+/schel/el/el/el/el/el/el/el/el/@type SAFmiddle1textType
+/schel/el/el/el/el/el/el/el/el/xs:annotation/xs:documentation Method of extraordinary depreciation during the Selectionperiod.
+/schel/el/el/el/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el/el/el/el
+/schel/el/el/el/el/el/el/el/el/@name ExtraordinaryDepreciationForPeriod
+/schel/el/el/el/el/el/el/el/el/@type SAFmonetaryType
+/schel/el/el/el/el/el/el/el/el/xs:annotation/xs:documentation Amouunt of extraordinary depreciation during the Selectionperiod in the header's default currency.
+/schel/el/el/el/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el/el/el/el
+/schel/el/el/el/el/el/el/el/xs:complexType/xs:sequence
+/schel/el/el/el/el/el/el/el/xs:complexType
+/schel/el/el/el/el/el/el/el
+/schel/el/el/el/el/el/el/xs:complexType/xs:sequence
+/schel/el/el/el/el/el/el/xs:complexType
+/schel/el/el/el/el/el/el
+/schel/el/el/el/el/el/el/@name AccumulatedDepreciation
+/schel/el/el/el/el/el/el/@type SAFmonetaryType
+/schel/el/el/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/el/el/xs:annotation/xs:documentation Total amount of depreciation for this asset
+/schel/el/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el/el
+/schel/el/el/el/el/el/el/@name BookValueEnd
+/schel/el/el/el/el/el/el/@type SAFmonetaryType
+/schel/el/el/el/el/el/el/xs:annotation/xs:documentation Bookvalue at the end of the Selectionperiod in the header's default currency.
+/schel/el/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el/el
+/schel/el/el/el/el/el/xs:complexType/xs:sequence \n
+/schel/el/el/el/el/el/xs:complexType
+/schel/el/el/el/el/el
+/schel/el/el/el/el/xs:complexType/xs:sequence
+/schel/el/el/el/el/xs:complexType
+/schel/el/el/el/el
+/schel/el/el/el/xs:complexType/xs:sequence/xs:any/@namespace ##other
+/schel/el/el/el/xs:complexType/xs:sequence/xs:any/@minOccurs 0
+/schel/el/el/el/xs:complexType/xs:sequence/xs:any/xs:annotation/xs:documentation Represents space to allow individual Revenue Bodies to add further elements
+/schel/el/el/el/xs:complexType/xs:sequence/xs:any/xs:annotation
+/schel/el/el/el/xs:complexType/xs:sequence/xs:any
+/schel/el/el/el/xs:complexType/xs:sequence
+/schel/el/el/el/xs:complexType
+/schel/el/el/el
+/schel/el/el/xs:complexType/xs:sequence
+/schel/el/el/xs:complexType
+/schel/el/el
+/schel/el/xs:complexType/xs:sequence/xs:any/@namespace ##other
+/schel/el/xs:complexType/xs:sequence/xs:any/@minOccurs 0
+/schel/el/xs:complexType/xs:sequence/xs:any/xs:annotation/xs:documentation Represents space to allow individual Revenue Bodies to specify additional standing data.
+/schel/el/xs:complexType/xs:sequence/xs:any/xs:annotation
+/schel/el/xs:complexType/xs:sequence/xs:any
+/schel/el/xs:complexType/xs:sequence
+/schel/el/xs:complexType
+/schel/el
+/schel/el/@name GeneralLedgerEntries
+/schel/el/@minOccurs 0
+/schel/el/el/@name NumberOfEntries
+/schel/el/el/@type xs:nonNegativeInteger
+/schel/el/el/xs:annotation/xs:documentation Number of entries
+/schel/el/el/xs:annotation
+/schel/el/el
+/schel/el/el/@name TotalDebit
+/schel/el/el/@type SAFmonetaryType
+/schel/el/el/xs:annotation/xs:documentation The total of all debit amounts in the header's default currency.
+/schel/el/el/xs:annotation
+/schel/el/el
+/schel/el/el/@name TotalCredit
+/schel/el/el/@type SAFmonetaryType
+/schel/el/el/xs:annotation/xs:documentation The total of all credit amounts in the header's default currency.
+/schel/el/el/xs:annotation
+/schel/el/el
+/schel/el/el/@name Journal
+/schel/el/el/@minOccurs 0
+/schel/el/el/@maxOccurs unbounded
+/schel/el/el/el/@name JournalID
+/schel/el/el/el/@type SAFshorttextType
+/schel/el/el/el/xs:annotation/xs:documentation Source GL journal identifier, or invoices and payments in single ledger systems
+/schel/el/el/el/xs:annotation
+/schel/el/el/el
+/schel/el/el/el/@name Description
+/schel/el/el/el/@type SAFlongtextType
+/schel/el/el/el/xs:annotation/xs:documentation Description of the Journal
+/schel/el/el/el/xs:annotation
+/schel/el/el/el
+/schel/el/el/el/@name Type
+/schel/el/el/el/@type SAFcodeType
+/schel/el/el/el/xs:annotation/xs:documentation Grouping mechanism for journals
+/schel/el/el/el/xs:annotation
+/schel/el/el/el
+/schel/el/el/el/@name Transaction
+/schel/el/el/el/@minOccurs 0
+/schel/el/el/el/@maxOccurs unbounded
+/schel/el/el/el/el/@name TransactionID
+/schel/el/el/el/el/@type SAFmiddle2textType
+/schel/el/el/el/el/xs:annotation/xs:documentation Cross-reference to GL posting. It can contain many different levels to identify the transaction. It could include cost centres such as company, division, region, group and branch/department.
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/el/@name Period
+/schel/el/el/el/el/@type xs:nonNegativeInteger
+/schel/el/el/el/el/xs:annotation/xs:documentation Accounting Period
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/el/@name PeriodYear
+/schel/el/el/el/el/xs:annotation/xs:documentation The year of the Accounting Period.
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el/xs:simpleType/xs:restriction/@base xs:nonNegativeInteger
+/schel/el/el/el/el/xs:simpleType/xs:restriction/xs:minInclusive/@value 1970
+/schel/el/el/el/el/xs:simpleType/xs:restriction/xs:minInclusive
+/schel/el/el/el/el/xs:simpleType/xs:restriction/xs:maxInclusive/@value 2100
+/schel/el/el/el/el/xs:simpleType/xs:restriction/xs:maxInclusive
+/schel/el/el/el/el/xs:simpleType/xs:restriction
+/schel/el/el/el/el/xs:simpleType
+/schel/el/el/el/el
+/schel/el/el/el/el/@name TransactionDate
+/schel/el/el/el/el/@type xs:date
+/schel/el/el/el/el/xs:annotation/xs:documentation Document date
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/el/@name SourceID
+/schel/el/el/el/el/@type SAFmiddle1textType
+/schel/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/xs:annotation/xs:documentation Details of person or application that entered the transaction
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/el/@name TransactionType
+/schel/el/el/el/el/@type SAFshorttextType
+/schel/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/xs:annotation/xs:documentation Type of journaltransaction: normal, (automated) periodically, etc.
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/el/@name Description
+/schel/el/el/el/el/@type SAFlongtextType
+/schel/el/el/el/el/xs:annotation/xs:documentation Description of Journal Transaction
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/el/@name BatchID
+/schel/el/el/el/el/@type SAFmiddle1textType
+/schel/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/xs:annotation/xs:documentation Systems generated ID for batch
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/el/@name SystemEntryDate
+/schel/el/el/el/el/@type xs:date
+/schel/el/el/el/el/xs:annotation/xs:documentation Date captured  by system
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/el/@name GLPostingDate
+/schel/el/el/el/el/@type xs:date
+/schel/el/el/el/el/xs:annotation/xs:documentation Date posting to GL
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/el/@name CustomerID
+/schel/el/el/el/el/@type SAFmiddle1textType
+/schel/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/xs:annotation/xs:documentation Unique code for the customer
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/el/@name SupplierID
+/schel/el/el/el/el/@type SAFmiddle1textType
+/schel/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/xs:annotation/xs:documentation Unique code for the supplier
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/el/@name SystemID
+/schel/el/el/el/el/@type SAFshorttextType
+/schel/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/xs:annotation/xs:documentation Unique number created by the system for the document
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/el/@name Line
+/schel/el/el/el/el/@maxOccurs unbounded
+/schel/el/el/el/el/el/@name RecordID
+/schel/el/el/el/el/el/@type SAFshorttextType
+/schel/el/el/el/el/el/xs:annotation/xs:documentation Identifier to trace entry to journal line or posting reference
+/schel/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el
+/schel/el/el/el/el/el/@name AccountID
+/schel/el/el/el/el/el/@type SAFmiddle2textType
+/schel/el/el/el/el/el/xs:annotation/xs:documentation General Ledger Account code. Can be including sub-account id. It can contain many different levels to identify the Account. It could include cost centres such as company, division, region, group and branch/department.
+/schel/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el
+/schel/el/el/el/el/el/@name Analysis
+/schel/el/el/el/el/el/@type AnalysisStructure
+/schel/el/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/el/@maxOccurs unbounded
+/schel/el/el/el/el/el/xs:annotation/xs:documentation General Ledger analysis codes
+/schel/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el
+/schel/el/el/el/el/el/@name ValueDate
+/schel/el/el/el/el/el/@type xs:date
+/schel/el/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/el/xs:annotation/xs:documentation Effective date from which interest charged. To be reported when this date differs from the transactiondate.
+/schel/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el
+/schel/el/el/el/el/el/@name SourceDocumentID
+/schel/el/el/el/el/el/@type SAFmiddle1textType
+/schel/el/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/el/xs:annotation/xs:documentation Source document number to which line relates
+/schel/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el
+/schel/el/el/el/el/el/@name CustomerID
+/schel/el/el/el/el/el/@type SAFmiddle1textType
+/schel/el/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/el/xs:annotation/xs:documentation Unique code for the customer
+/schel/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el
+/schel/el/el/el/el/el/@name SupplierID
+/schel/el/el/el/el/el/@type SAFmiddle1textType
+/schel/el/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/el/xs:annotation/xs:documentation Unique code for the supplier
+/schel/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el
+/schel/el/el/el/el/el/@name Description
+/schel/el/el/el/el/el/@type SAFlongtextType
+/schel/el/el/el/el/el/xs:annotation/xs:documentation Description of the Journal Line.
+/schel/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el
+/schel/el/el/el/el/xs:complexType/xs:sequence/xs:choice/xs:element/@name DebitAmount
+/schel/el/el/el/el/xs:complexType/xs:sequence/xs:choice/xs:element/@type AmountStructure
+/schel/el/el/el/el/xs:complexType/xs:sequence/xs:choice/xs:element/xs:annotation/xs:documentation Debit amount information for transaction
+/schel/el/el/el/el/xs:complexType/xs:sequence/xs:choice/xs:element/xs:annotation
+/schel/el/el/el/el/xs:complexType/xs:sequence/xs:choice/xs:element
+/schel/el/el/el/el/xs:complexType/xs:sequence/xs:choice/xs:element/@name CreditAmount
+/schel/el/el/el/el/xs:complexType/xs:sequence/xs:choice/xs:element/@type AmountStructure
+/schel/el/el/el/el/xs:complexType/xs:sequence/xs:choice/xs:element/xs:annotation/xs:documentation Credit amount information for transaction
+/schel/el/el/el/el/xs:complexType/xs:sequence/xs:choice/xs:element/xs:annotation
+/schel/el/el/el/el/xs:complexType/xs:sequence/xs:choice/xs:element
+/schel/el/el/el/el/xs:complexType/xs:sequence/xs:choice
+/schel/el/el/el/el/el/@name TaxInformation
+/schel/el/el/el/el/el/@type TaxInformationStructure
+/schel/el/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/el/@maxOccurs unbounded
+/schel/el/el/el/el/el
+/schel/el/el/el/el/xs:complexType/xs:sequence/xs:any/@namespace ##other
+/schel/el/el/el/el/xs:complexType/xs:sequence/xs:any/@minOccurs 0
+/schel/el/el/el/el/xs:complexType/xs:sequence/xs:any/xs:annotation/xs:documentation Represents space to allow individual Revenue Bodies to add further elements
+/schel/el/el/el/el/xs:complexType/xs:sequence/xs:any/xs:annotation
+/schel/el/el/el/el/xs:complexType/xs:sequence/xs:any
+/schel/el/el/el/el/xs:complexType/xs:sequence
+/schel/el/el/el/el/xs:complexType
+/schel/el/el/el/el
+/schel/el/el/el/xs:complexType/xs:sequence
+/schel/el/el/el/xs:complexType
+/schel/el/el/el
+/schel/el/el/xs:complexType/xs:sequence
+/schel/el/el/xs:complexType
+/schel/el/el
+/schel/el/xs:complexType/xs:sequence
+/schel/el/xs:complexType
+/schel/el
+/schel/el/@name SourceDocuments
+/schel/el/@minOccurs 0
+/schel/el/el/@name SalesInvoices
+/schel/el/el/@minOccurs 0
+/schel/el/el/el/@name NumberOfEntries
+/schel/el/el/el/@type xs:nonNegativeInteger
+/schel/el/el/el/xs:annotation/xs:documentation Number of entries
+/schel/el/el/el/xs:annotation
+/schel/el/el/el
+/schel/el/el/el/@name TotalDebit
+/schel/el/el/el/@type SAFmonetaryType
+/schel/el/el/el/xs:annotation/xs:documentation The total of all debit amounts in the header's default currency
+/schel/el/el/el/xs:annotation
+/schel/el/el/el
+/schel/el/el/el/@name TotalCredit
+/schel/el/el/el/@type SAFmonetaryType
+/schel/el/el/el/xs:annotation/xs:documentation The total of all credit amounts in the header's default currency
+/schel/el/el/el/xs:annotation
+/schel/el/el/el
+/schel/el/el/el/@name Invoice
+/schel/el/el/el/@type InvoiceStructure
+/schel/el/el/el/@maxOccurs unbounded
+/schel/el/el/el
+/schel/el/el/xs:complexType/xs:sequence
+/schel/el/el/xs:complexType
+/schel/el/el
+/schel/el/el/@name PurchaseInvoices
+/schel/el/el/@minOccurs 0
+/schel/el/el/el/@name NumberOfEntries
+/schel/el/el/el/@type xs:nonNegativeInteger
+/schel/el/el/el/xs:annotation/xs:documentation Number of entries
+/schel/el/el/el/xs:annotation
+/schel/el/el/el
+/schel/el/el/el/@name TotalDebit
+/schel/el/el/el/@type SAFmonetaryType
+/schel/el/el/el/xs:annotation/xs:documentation The total of all debit amounts in the header's default currency
+/schel/el/el/el/xs:annotation
+/schel/el/el/el
+/schel/el/el/el/@name TotalCredit
+/schel/el/el/el/@type SAFmonetaryType
+/schel/el/el/el/xs:annotation/xs:documentation The total of all credit amounts in the header's default currency
+/schel/el/el/el/xs:annotation
+/schel/el/el/el
+/schel/el/el/el/@name Invoice
+/schel/el/el/el/@type InvoiceStructure
+/schel/el/el/el/@maxOccurs unbounded
+/schel/el/el/el
+/schel/el/el/xs:complexType/xs:sequence
+/schel/el/el/xs:complexType
+/schel/el/el
+/schel/el/el/@name Payments
+/schel/el/el/@minOccurs 0
+/schel/el/el/el/@name NumberOfEntries
+/schel/el/el/el/@type xs:nonNegativeInteger
+/schel/el/el/el/xs:annotation/xs:documentation Number of entries
+/schel/el/el/el/xs:annotation
+/schel/el/el/el
+/schel/el/el/el/@name TotalDebit
+/schel/el/el/el/@type SAFmonetaryType
+/schel/el/el/el/xs:annotation/xs:documentation The total of all debit amounts in the header's default currency
+/schel/el/el/el/xs:annotation
+/schel/el/el/el
+/schel/el/el/el/@name TotalCredit
+/schel/el/el/el/@type SAFmonetaryType
+/schel/el/el/el/xs:annotation/xs:documentation The total of all credit amounts in the header's default currency
+/schel/el/el/el/xs:annotation
+/schel/el/el/el
+/schel/el/el/el/@name Payment
+/schel/el/el/el/@maxOccurs unbounded
+/schel/el/el/el/el/@name PaymentRefNo
+/schel/el/el/el/el/@type SAFmiddle1textType
+/schel/el/el/el/el/xs:annotation/xs:documentation Unique reference number for payment
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/el/@name Period
+/schel/el/el/el/el/@type xs:nonNegativeInteger
+/schel/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/xs:annotation/xs:documentation Accounting Period
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/el/@name PeriodYear
+/schel/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/xs:annotation/xs:documentation The year of the Accounting Period.
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el/xs:simpleType/xs:restriction/@base xs:nonNegativeInteger
+/schel/el/el/el/el/xs:simpleType/xs:restriction/xs:minInclusive/@value 1970
+/schel/el/el/el/el/xs:simpleType/xs:restriction/xs:minInclusive
+/schel/el/el/el/el/xs:simpleType/xs:restriction/xs:maxInclusive/@value 2100
+/schel/el/el/el/el/xs:simpleType/xs:restriction/xs:maxInclusive
+/schel/el/el/el/el/xs:simpleType/xs:restriction
+/schel/el/el/el/el/xs:simpleType
+/schel/el/el/el/el
+/schel/el/el/el/el/@name TransactionID
+/schel/el/el/el/el/@type SAFmiddle2textType
+/schel/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/xs:annotation/xs:documentation Cross-reference to GL posting. It can contain many different levels to identify the transaction. It could include cost centres such as company, division, region, group and branch/department.
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/el/@name TransactionDate
+/schel/el/el/el/el/@type xs:date
+/schel/el/el/el/el/xs:annotation/xs:documentation Document date
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/el/@name PaymentMethod
+/schel/el/el/el/el/@type SAFcodeType
+/schel/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/xs:annotation/xs:documentation Cheque, Bank, Giro, Cash, etc.
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/el/@name Description
+/schel/el/el/el/el/@type SAFlongtextType
+/schel/el/el/el/el/xs:annotation/xs:documentation Description of the payment.
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/el/@name BatchID
+/schel/el/el/el/el/@type SAFmiddle1textType
+/schel/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/xs:annotation/xs:documentation Systems generated ID for batch
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/el/@name SystemID
+/schel/el/el/el/el/@type SAFmiddle1textType
+/schel/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/xs:annotation/xs:documentation Unique number created by the system for the document
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/el/@name SourceID
+/schel/el/el/el/el/@type SAFmiddle1textType
+/schel/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/xs:annotation/xs:documentation Details of person or application that entered the transaction
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/el/@name Line
+/schel/el/el/el/el/@maxOccurs unbounded
+/schel/el/el/el/el/el/@name LineNumber
+/schel/el/el/el/el/el/@type SAFshorttextType
+/schel/el/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/el/xs:annotation/xs:documentation Number of the paymentline
+/schel/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el
+/schel/el/el/el/el/el/@name SourceDocumentID
+/schel/el/el/el/el/el/@type SAFmiddle1textType
+/schel/el/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/el/xs:annotation/xs:documentation The source document to which the line relates
+/schel/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el
+/schel/el/el/el/el/el/@name AccountID
+/schel/el/el/el/el/el/@type SAFmiddle2textType
+/schel/el/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/el/xs:annotation/xs:documentation General Ledger Account code. Can be including sub-account id. It can contain many different levels to identify the Account. It could include cost centres such as company, division, region, group and branch/department.
+/schel/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el
+/schel/el/el/el/el/el/@name Analysis
+/schel/el/el/el/el/el/@type AnalysisStructure
+/schel/el/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/el/@maxOccurs unbounded
+/schel/el/el/el/el/el/xs:annotation/xs:documentation General Ledger analysis codes
+/schel/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el
+/schel/el/el/el/el/el/@name CustomerID
+/schel/el/el/el/el/el/@type SAFmiddle1textType
+/schel/el/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/el/xs:annotation/xs:documentation Unique code for the customer
+/schel/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el
+/schel/el/el/el/el/el/@name SupplierID
+/schel/el/el/el/el/el/@type SAFmiddle1textType
+/schel/el/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/el/xs:annotation/xs:documentation Unique code for the supplier
+/schel/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el
+/schel/el/el/el/el/el/@name TaxPointDate
+/schel/el/el/el/el/el/@type xs:date
+/schel/el/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/el/xs:annotation/xs:documentation Tax Point date where recorded or if not recorded then the Invoice date
+/schel/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el
+/schel/el/el/el/el/el/@name Description
+/schel/el/el/el/el/el/@type SAFlongtextType
+/schel/el/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/el/xs:annotation/xs:documentation Description of the payment line.
+/schel/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el
+/schel/el/el/el/el/el/@name DebitCreditIndicator
+/schel/el/el/el/el/el/xs:annotation/xs:documentation Indicates whether the amounts on line-level are debit or credit amounts. Entry must correspond to entry reflected in General Ledger Entry. Signing of lineamounts is relative to this indicator. E.g. a return can lead to a negative amount.
+/schel/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el/xs:simpleType/xs:restriction/@base SAFcodeType
+/schel/el/el/el/el/el/xs:simpleType/xs:restriction/xs:enumeration/@value D
+/schel/el/el/el/el/el/xs:simpleType/xs:restriction/xs:enumeration
+/schel/el/el/el/el/el/xs:simpleType/xs:restriction/xs:enumeration/@value C
+/schel/el/el/el/el/el/xs:simpleType/xs:restriction/xs:enumeration
+/schel/el/el/el/el/el/xs:simpleType/xs:restriction
+/schel/el/el/el/el/el/xs:simpleType
+/schel/el/el/el/el/el
+/schel/el/el/el/el/el/@name PaymentLineAmount
+/schel/el/el/el/el/el/@type AmountStructure
+/schel/el/el/el/el/el/xs:annotation/xs:documentation Amount for transaction excluding taxes.
+/schel/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el
+/schel/el/el/el/el/el/@name TaxInformation
+/schel/el/el/el/el/el/@type TaxInformationStructure
+/schel/el/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/el/@maxOccurs unbounded
+/schel/el/el/el/el/el
+/schel/el/el/el/el/xs:complexType/xs:sequence/xs:any/@namespace ##other
+/schel/el/el/el/el/xs:complexType/xs:sequence/xs:any/@minOccurs 0
+/schel/el/el/el/el/xs:complexType/xs:sequence/xs:any/xs:annotation/xs:documentation Represents space to allow individual Revenue Bodies to add further elements
+/schel/el/el/el/el/xs:complexType/xs:sequence/xs:any/xs:annotation
+/schel/el/el/el/el/xs:complexType/xs:sequence/xs:any
+/schel/el/el/el/el/xs:complexType/xs:sequence
+/schel/el/el/el/el/xs:complexType
+/schel/el/el/el/el
+/schel/el/el/el/el/@name Settlement
+/schel/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/el/@name SettlementDiscount
+/schel/el/el/el/el/el/@type SAFmiddle1textType
+/schel/el/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/el/xs:annotation/xs:documentation Description Settlement / Other Discount
+/schel/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el
+/schel/el/el/el/el/el/@name SettlementAmount
+/schel/el/el/el/el/el/@type AmountStructure
+/schel/el/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/el/xs:annotation/xs:documentation Settlement amount
+/schel/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el
+/schel/el/el/el/el/el/@name SettlementDate
+/schel/el/el/el/el/el/@type xs:date
+/schel/el/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/el/xs:annotation/xs:documentation Date settled
+/schel/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el
+/schel/el/el/el/el/el/@name PaymentMechanism
+/schel/el/el/el/el/el/@type SAFcodeType
+/schel/el/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/el/xs:annotation/xs:documentation Payment mechanism
+/schel/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el
+/schel/el/el/el/el/xs:complexType/xs:sequence
+/schel/el/el/el/el/xs:complexType
+/schel/el/el/el/el
+/schel/el/el/el/el/@name DocumentTotals
+/schel/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/el/@name TaxInformationTotals
+/schel/el/el/el/el/el/@type TaxInformationStructure
+/schel/el/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/el/@maxOccurs unbounded
+/schel/el/el/el/el/el/xs:annotation/xs:documentation Control totals tax payable information. Per TaxType/TaxCode the TaxBase and TaxAmount are summarised.
+/schel/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el
+/schel/el/el/el/el/el/@name NetTotal
+/schel/el/el/el/el/el/@type SAFmonetaryType
+/schel/el/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/el/xs:annotation/xs:documentation Total amount excluding tax in the header's default currency.
+/schel/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el
+/schel/el/el/el/el/el/@name GrossTotal
+/schel/el/el/el/el/el/@type SAFmonetaryType
+/schel/el/el/el/el/el/xs:annotation/xs:documentation Total amount including tax in the header's default currency.
+/schel/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el
+/schel/el/el/el/el/xs:complexType/xs:sequence
+/schel/el/el/el/el/xs:complexType
+/schel/el/el/el/el
+/schel/el/el/el/xs:complexType/xs:sequence/xs:any/@namespace ##other
+/schel/el/el/el/xs:complexType/xs:sequence/xs:any/@minOccurs 0
+/schel/el/el/el/xs:complexType/xs:sequence/xs:any/xs:annotation/xs:documentation Represents space to allow individual Revenue Bodies to add further elements
+/schel/el/el/el/xs:complexType/xs:sequence/xs:any/xs:annotation
+/schel/el/el/el/xs:complexType/xs:sequence/xs:any
+/schel/el/el/el/xs:complexType/xs:sequence
+/schel/el/el/el/xs:complexType
+/schel/el/el/el
+/schel/el/el/xs:complexType/xs:sequence
+/schel/el/el/xs:complexType
+/schel/el/el
+/schel/el/el/@name MovementOfGoods
+/schel/el/el/@minOccurs 0
+/schel/el/el/el/@name NumberOfMovementLines
+/schel/el/el/el/@type xs:nonNegativeInteger
+/schel/el/el/el/xs:annotation/xs:documentation Number of movementlines in selected period
+/schel/el/el/el/xs:annotation
+/schel/el/el/el
+/schel/el/el/el/@name TotalQuantityReceived
+/schel/el/el/el/@type SAFquantityType
+/schel/el/el/el/xs:annotation/xs:documentation Quantity of goods received
+/schel/el/el/el/xs:annotation
+/schel/el/el/el
+/schel/el/el/el/@name TotalQuantityIssued
+/schel/el/el/el/@type SAFquantityType
+/schel/el/el/el/xs:annotation/xs:documentation Quantity of goods issued in selected period
+/schel/el/el/el/xs:annotation
+/schel/el/el/el
+/schel/el/el/el/@name StockMovement
+/schel/el/el/el/@maxOccurs unbounded
+/schel/el/el/el/el/@name MovementReference
+/schel/el/el/el/el/@type SAFmiddle1textType
+/schel/el/el/el/el/xs:annotation/xs:documentation Unique reference to the movement.
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/el/@name MovementDate
+/schel/el/el/el/el/@type xs:date
+/schel/el/el/el/el/xs:annotation/xs:documentation Document date
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/el/@name MovementPostingDate
+/schel/el/el/el/el/@type xs:date
+/schel/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/xs:annotation/xs:documentation Date of posting of the movement if different to Movement Date
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/el/@name MovementPostingTime
+/schel/el/el/el/el/@type xs:time
+/schel/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/xs:annotation/xs:documentation Time of posting of the movement
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/el/@name TaxPointDate
+/schel/el/el/el/el/@type xs:date
+/schel/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/xs:annotation/xs:documentation Date of supply of goods
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/el/@name MovementType
+/schel/el/el/el/el/@type SAFcodeType
+/schel/el/el/el/el/xs:annotation/xs:documentation The movementtype expresses the type of the process for the underlaying lines. E.g. production, sales, purchase. Predescribed TABLE is possible.
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/el/@name SourceID
+/schel/el/el/el/el/@type SAFmiddle1textType
+/schel/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/xs:annotation/xs:documentation Details of person or application that entered the transaction
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/el/@name SystemID
+/schel/el/el/el/el/@type SAFmiddle1textType
+/schel/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/xs:annotation/xs:documentation Unique number created by the system for the document
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/el/@name DocumentReference
+/schel/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/el/@name DocumentType
+/schel/el/el/el/el/el/@type SAFshorttextType
+/schel/el/el/el/el/el/xs:annotation/xs:documentation Type of document
+/schel/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el
+/schel/el/el/el/el/el/@name DocumentNumber
+/schel/el/el/el/el/el/@type SAFmiddle1textType
+/schel/el/el/el/el/el/xs:annotation/xs:documentation Reference number of the document
+/schel/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el
+/schel/el/el/el/el/el/@name DocumentLine
+/schel/el/el/el/el/el/@type SAFshorttextType
+/schel/el/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/el/xs:annotation/xs:documentation Line number of the document
+/schel/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el
+/schel/el/el/el/el/xs:complexType/xs:sequence
+/schel/el/el/el/el/xs:complexType
+/schel/el/el/el/el
+/schel/el/el/el/el/@name Line
+/schel/el/el/el/el/@maxOccurs unbounded
+/schel/el/el/el/el/el/@name LineNumber
+/schel/el/el/el/el/el/@type SAFshorttextType
+/schel/el/el/el/el/el/xs:annotation/xs:documentation Number of the movementline
+/schel/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el
+/schel/el/el/el/el/el/@name AccountID
+/schel/el/el/el/el/el/@type SAFmiddle2textType
+/schel/el/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/el/xs:annotation/xs:documentation General Ledger Account code. Can be including sub-account id.
+/schel/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el
+/schel/el/el/el/el/el/@name TransactionID
+/schel/el/el/el/el/el/@type SAFmiddle2textType
+/schel/el/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/el/xs:annotation/xs:documentation Cross-reference to GL posting. It can contain many different levels to identify the transaction. It could include cost centres such as company, division, region, group and branch/department.
+/schel/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el
+/schel/el/el/el/el/el/@name CustomerID
+/schel/el/el/el/el/el/@type SAFmiddle1textType
+/schel/el/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/el/xs:annotation/xs:documentation Unique code for the customer
+/schel/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el
+/schel/el/el/el/el/el/@name SupplierID
+/schel/el/el/el/el/el/@type SAFmiddle1textType
+/schel/el/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/el/xs:annotation/xs:documentation Unique code for the supplier
+/schel/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el
+/schel/el/el/el/el/el/@name ShipTo
+/schel/el/el/el/el/el/@type ShippingPointStructure
+/schel/el/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/el/xs:annotation/xs:documentation Ship To details
+/schel/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el
+/schel/el/el/el/el/el/@name ShipFrom
+/schel/el/el/el/el/el/@type ShippingPointStructure
+/schel/el/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/el/xs:annotation/xs:documentation Ship from Details
+/schel/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el
+/schel/el/el/el/el/el/@name ProductCode
+/schel/el/el/el/el/el/@type SAFmiddle2textType
+/schel/el/el/el/el/el/xs:annotation/xs:documentation Product code
+/schel/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el
+/schel/el/el/el/el/el/@name StockAccountNo
+/schel/el/el/el/el/el/@type SAFmiddle2textType
+/schel/el/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/el/xs:annotation/xs:documentation Stock batch, lot, serial identification. Not used when there is exactly 1 PhysicalStock entry per ProductCode
+/schel/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el
+/schel/el/el/el/el/el/@name Quantity
+/schel/el/el/el/el/el/@type SAFquantityType
+/schel/el/el/el/el/el/xs:annotation/xs:documentation Quantity of goods
+/schel/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el
+/schel/el/el/el/el/xs:complexType/xs:sequence/xs:sequence/@minOccurs 0
+/schel/el/el/el/el/xs:complexType/xs:sequence/xs:sequence/xs:annotation/xs:documentation Not needed when UOM of this line equals UOMPhysicalStock
+/schel/el/el/el/el/xs:complexType/xs:sequence/xs:sequence/xs:annotation
+/schel/el/el/el/el/xs:complexType/xs:sequence/xs:sequence/xs:element/@name UnitOfMeasure
+/schel/el/el/el/el/xs:complexType/xs:sequence/xs:sequence/xs:element/@type SAFcodeType
+/schel/el/el/el/el/xs:complexType/xs:sequence/xs:sequence/xs:element/xs:annotation/xs:documentation Quantity unit of measure e.g. pack of 12
+/schel/el/el/el/el/xs:complexType/xs:sequence/xs:sequence/xs:element/xs:annotation
+/schel/el/el/el/el/xs:complexType/xs:sequence/xs:sequence/xs:element
+/schel/el/el/el/el/xs:complexType/xs:sequence/xs:sequence/xs:element/@name UOMToUOMPhysicalStockConversionFactor
+/schel/el/el/el/el/xs:complexType/xs:sequence/xs:sequence/xs:element/@type xs:decimal
+/schel/el/el/el/el/xs:complexType/xs:sequence/xs:sequence/xs:element/xs:annotation/xs:documentation Conversion factor of the UOM to UOM Physical Stock
+/schel/el/el/el/el/xs:complexType/xs:sequence/xs:sequence/xs:element/xs:annotation
+/schel/el/el/el/el/xs:complexType/xs:sequence/xs:sequence/xs:element
+/schel/el/el/el/el/xs:complexType/xs:sequence/xs:sequence
+/schel/el/el/el/el/el/@name BookValue
+/schel/el/el/el/el/el/@type SAFmonetaryType
+/schel/el/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/el/xs:annotation/xs:documentation Value of the transaction line as registrerd in the general ledger in the header's default currency.
+/schel/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el
+/schel/el/el/el/el/el/@name MovementSubType
+/schel/el/el/el/el/el/@type SAFcodeType
+/schel/el/el/el/el/el/xs:annotation/xs:documentation Indentify the type of the movement on line / article level. A movement(type) production contains f.i. use of components, getting finished product, efficiencyloss as movementsubtypes. Predescribed TABLE is possible.
+/schel/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el
+/schel/el/el/el/el/el/@name MovementComments
+/schel/el/el/el/el/el/@type SAFlongtextType
+/schel/el/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/el/xs:annotation/xs:documentation A reason for the movement
+/schel/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el
+/schel/el/el/el/el/el/@name TaxInformation
+/schel/el/el/el/el/el/@type TaxInformationStructure
+/schel/el/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/el/@maxOccurs unbounded
+/schel/el/el/el/el/el
+/schel/el/el/el/el/xs:complexType/xs:sequence/xs:any/@namespace ##other
+/schel/el/el/el/el/xs:complexType/xs:sequence/xs:any/@minOccurs 0
+/schel/el/el/el/el/xs:complexType/xs:sequence/xs:any/xs:annotation/xs:documentation Represents space to allow individual Revenue Bodies to add further elements
+/schel/el/el/el/el/xs:complexType/xs:sequence/xs:any/xs:annotation
+/schel/el/el/el/el/xs:complexType/xs:sequence/xs:any
+/schel/el/el/el/el/xs:complexType/xs:sequence
+/schel/el/el/el/el/xs:complexType
+/schel/el/el/el/el
+/schel/el/el/el/xs:complexType/xs:sequence/xs:any/@namespace ##other
+/schel/el/el/el/xs:complexType/xs:sequence/xs:any/@minOccurs 0
+/schel/el/el/el/xs:complexType/xs:sequence/xs:any/xs:annotation/xs:documentation Represents space to allow individual Revenue Bodies to add further elements
+/schel/el/el/el/xs:complexType/xs:sequence/xs:any/xs:annotation
+/schel/el/el/el/xs:complexType/xs:sequence/xs:any
+/schel/el/el/el/xs:complexType/xs:sequence
+/schel/el/el/el/xs:complexType
+/schel/el/el/el
+/schel/el/el/xs:complexType/xs:sequence
+/schel/el/el/xs:complexType
+/schel/el/el
+/schel/el/el/@name AssetTransactions
+/schel/el/el/@minOccurs 0
+/schel/el/el/xs:annotation/xs:documentation Details of all transactions related to an asset during the Selectionperiod.
+/schel/el/el/xs:annotation
+/schel/el/el/el/@name NumberOfAssetTransactions
+/schel/el/el/el/@type xs:nonNegativeInteger
+/schel/el/el/el/xs:annotation/xs:documentation Number of movementlines during selected period
+/schel/el/el/el/xs:annotation
+/schel/el/el/el
+/schel/el/el/el/@name AssetTransaction
+/schel/el/el/el/@maxOccurs unbounded
+/schel/el/el/el/el/@name AssetTransactionID
+/schel/el/el/el/el/@type SAFmiddle2textType
+/schel/el/el/el/el/xs:annotation/xs:documentation Unique Identification  of the transaction
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/el/@name AssetID
+/schel/el/el/el/el/@type SAFmiddle1textType
+/schel/el/el/el/el/xs:annotation/xs:documentation Unique identifier of the asset
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/el/@name AssetTransactionType
+/schel/el/el/el/el/@type SAFcodeType
+/schel/el/el/el/el/xs:annotation/xs:documentation Code for the type of the transaction
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/el/@name Description
+/schel/el/el/el/el/@type SAFlongtextType
+/schel/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/xs:annotation/xs:documentation Description of the type of the transaction.
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/el/@name AssetTransactionDate
+/schel/el/el/el/el/@type xs:date
+/schel/el/el/el/el/xs:annotation/xs:documentation Recording date of the transaction type (e. g. assets: date of the addition of the asset)
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/el/@name Supplier
+/schel/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/xs:annotation/xs:documentation Information about the supplier of the asset
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el/@name SupplierName
+/schel/el/el/el/el/el/@type SAFmiddle2textType
+/schel/el/el/el/el/el/xs:annotation/xs:documentation Name of the supplier of the asset
+/schel/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el
+/schel/el/el/el/el/el/@name SupplierID
+/schel/el/el/el/el/el/@type SAFmiddle1textType
+/schel/el/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/el/xs:annotation/xs:documentation Unique code for the supplier
+/schel/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el
+/schel/el/el/el/el/el/@name PostalAddress
+/schel/el/el/el/el/el/@type AddressStructure
+/schel/el/el/el/el/el/xs:annotation/xs:documentation Address information of the supplier of the asset
+/schel/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el
+/schel/el/el/el/el/xs:complexType/xs:sequence
+/schel/el/el/el/el/xs:complexType
+/schel/el/el/el/el
+/schel/el/el/el/el/@name TransactionID
+/schel/el/el/el/el/@type SAFmiddle2textType
+/schel/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/xs:annotation/xs:documentation Cross-reference to GL posting in the journal. It can contain many different levels to identify the transaction. It could include cost centres such as company, division, region, group and branch/department.
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el
+/schel/el/el/el/el/@name AssetTransactionValuations
+/schel/el/el/el/el/xs:annotation/xs:documentation These amounts of the transaction can differ per asset valuation type.
+/schel/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el/@name AssetTransactionValuation
+/schel/el/el/el/el/el/@maxOccurs unbounded
+/schel/el/el/el/el/el/el/@name AssetValuationType
+/schel/el/el/el/el/el/el/@type SAFshorttextType
+/schel/el/el/el/el/el/el/@minOccurs 0
+/schel/el/el/el/el/el/el/xs:annotation/xs:documentation Describes the purpose for the reporting: f.i. commercial, tax  in country 1, tax in country 2, etc.
+/schel/el/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el/el
+/schel/el/el/el/el/el/el/@name AcquisitionAndProductionCostsOnTransaction
+/schel/el/el/el/el/el/el/@type SAFmonetaryType
+/schel/el/el/el/el/el/el/xs:annotation/xs:documentation Costs of acquisition and/or production of related asset transaction in the header's default currency at date of transaction.
+/schel/el/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el/el
+/schel/el/el/el/el/el/el/@name BookValueOnTransaction
+/schel/el/el/el/el/el/el/@type SAFmonetaryType
+/schel/el/el/el/el/el/el/xs:annotation/xs:documentation Bookvalue of related asset transaction in the header's default currency at date of transaction.
+/schel/el/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el/el
+/schel/el/el/el/el/el/el/@name AssetTransactionAmount
+/schel/el/el/el/el/el/el/@type SAFmonetaryType
+/schel/el/el/el/el/el/el/xs:annotation/xs:documentation Net Amount of related asset transaction in the header's default currency, for instance the net sales revenue.
+/schel/el/el/el/el/el/el/xs:annotation
+/schel/el/el/el/el/el/el
+/schel/el/el/el/el/el/xs:complexType/xs:sequence/xs:any/@namespace ##other
+/schel/el/el/el/el/el/xs:complexType/xs:sequence/xs:any/@minOccurs 0
+/schel/el/el/el/el/el/xs:complexType/xs:sequence/xs:any/xs:annotation/xs:documentation Represents space to allow individual Revenue Bodies to add further elements
+/schel/el/el/el/el/el/xs:complexType/xs:sequence/xs:any/xs:annotation
+/schel/el/el/el/el/el/xs:complexType/xs:sequence/xs:any
+/schel/el/el/el/el/el/xs:complexType/xs:sequence
+/schel/el/el/el/el/el/xs:complexType
+/schel/el/el/el/el/el
+/schel/el/el/el/el/xs:complexType/xs:sequence
+/schel/el/el/el/el/xs:complexType
+/schel/el/el/el/el
+/schel/el/el/el/xs:complexType/xs:sequence/xs:any/@namespace ##other
+/schel/el/el/el/xs:complexType/xs:sequence/xs:any/@minOccurs 0
+/schel/el/el/el/xs:complexType/xs:sequence/xs:any/xs:annotation/xs:documentation Represents space to allow individual Revenue Bodies to add further elements
+/schel/el/el/el/xs:complexType/xs:sequence/xs:any/xs:annotation
+/schel/el/el/el/xs:complexType/xs:sequence/xs:any
+/schel/el/el/el/xs:complexType/xs:sequence
+/schel/el/el/el/xs:complexType
+/schel/el/el/el
+/schel/el/el/xs:complexType/xs:sequence
+/schel/el/el/xs:complexType
+/schel/el/el
+/schel/el/xs:complexType/xs:sequence
+/schel/el/xs:complexType
+/schel/el
+/schel/xs:complexType/xs:sequence
+/schel/xs:complexType
+
+/schel/xs:key/@name KeyGeneralLedgerAccount
+/schel/xs:key/xs:selector/@xpath MasterFiles/GeneralLedgerAccounts/Account
+/schel/xs:key/xs:selector
+/schel/xs:key/xs:field/@xpath AccountID
+/schel/xs:key/xs:field
+/schel/xs:key
+/schel/xs:key/@name KeySupplier
+/schel/xs:key/xs:selector/@xpath MasterFiles/Suppliers/Supplier
+/schel/xs:key/xs:selector
+/schel/xs:key/xs:field/@xpath SupplierID
+/schel/xs:key/xs:field
+/schel/xs:key
+/schel/xs:key/@name KeyCustomer
+/schel/xs:key/xs:selector/@xpath MasterFiles/Customers/Customer
+/schel/xs:key/xs:selector
+/schel/xs:key/xs:field/@xpath CustomerID
+/schel/xs:key/xs:field
+/schel/xs:key
+/schel/xs:key/@name KeyTaxType
+/schel/xs:key/xs:selector/@xpath MasterFiles/TaxTable/TaxTableEntry
+/schel/xs:key/xs:selector
+/schel/xs:key/xs:field/@xpath TaxType
+/schel/xs:key/xs:field
+/schel/xs:key
+/schel/xs:key/@name KeyUnitOfMeasure
+/schel/xs:key/xs:selector/@xpath MasterFiles/UOMTable/UOMTableEntry
+/schel/xs:key/xs:selector
+/schel/xs:key/xs:field/@xpath UnitOfMeasure
+/schel/xs:key/xs:field
+/schel/xs:key
+/schel/xs:key/@name KeyMovementType
+/schel/xs:key/xs:selector/@xpath MasterFiles/MovementTypeTable/MovementTypeTableEntry
+/schel/xs:key/xs:selector
+/schel/xs:key/xs:field/@xpath MovementType
+/schel/xs:key/xs:field
+/schel/xs:key
+/schel/xs:key/@name KeyProductCode
+/schel/xs:key/xs:selector/@xpath MasterFiles/Products/Product
+/schel/xs:key/xs:selector
+/schel/xs:key/xs:field/@xpath ProductCode
+/schel/xs:key/xs:field
+/schel/xs:key
+/schel/xs:key/@name KeyOwner
+/schel/xs:key/xs:selector/@xpath MasterFiles/Owners/Owner
+/schel/xs:key/xs:selector
+/schel/xs:key/xs:field/@xpath OwnerID
+/schel/xs:key/xs:field
+/schel/xs:key
+/schel/xs:key/@name KeyAsset
+/schel/xs:key/xs:selector/@xpath MasterFiles/Assets/Asset
+/schel/xs:key/xs:selector
+/schel/xs:key/xs:field/@xpath AssetID
+/schel/xs:key/xs:field
+/schel/xs:key
+/schel/xs:key/@name KeyMovementReference
+/schel/xs:key/xs:selector/@xpath SourceDocuments/MovementOfGoods/StockMovement
+/schel/xs:key/xs:selector
+/schel/xs:key/xs:field/@xpath MovementReference
+/schel/xs:key/xs:field
+/schel/xs:key
+/schel/xs:key/@name KeyTransactionReference
+/schel/xs:key/xs:selector/@xpath GeneralLedgerEntries/Journal/Transaction
+/schel/xs:key/xs:selector
+/schel/xs:key/xs:field/@xpath TransactionID
+/schel/xs:key/xs:field
+/schel/xs:key
+/schel/xs:key/@name KeyTaxCode
+/schel/xs:key/xs:selector/@xpath MasterFiles/TaxTable/TaxTableEntry/TaxCodeDetails
+/schel/xs:key/xs:selector
+/schel/xs:key/xs:field/@xpath TaxCode
+/schel/xs:key/xs:field
+/schel/xs:key
+/schel/xs:key/@name KeyAnalysisType
+/schel/xs:key/xs:selector/@xpath MasterFiles/AnalysisTypeTable/AnalysisTypeTableEntry
+/schel/xs:key/xs:selector
+/schel/xs:key/xs:field/@xpath AnalysisType
+/schel/xs:key/xs:field
+/schel/xs:key
+/schel/xs:key/@name KeyAnalysisID
+/schel/xs:key/xs:selector/@xpath MasterFiles/AnalysisTypeTable/AnalysisTypeTableEntry
+/schel/xs:key/xs:selector
+/schel/xs:key/xs:field/@xpath AnalysisID
+/schel/xs:key/xs:field
+/schel/xs:key
+/schel/xs:key/@name KeyStockAccountNo
+/schel/xs:key/xs:selector/@xpath MasterFiles/PhysicalStock/PhysicalStockEntry
+/schel/xs:key/xs:selector
+/schel/xs:key/xs:field/@xpath StockAccountNo
+/schel/xs:key/xs:field
+/schel/xs:key
+/schel/xs:keyref/@name RefTaxonomyAccount
+/schel/xs:keyref/@refer KeyGeneralLedgerAccount
+/schel/xs:keyref/xs:selector/@xpath MasterFiles/Taxonomies/Taxonomy/TaxonomyElement
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath AccountID
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel/xs:keyref/@name RefCustomerAccount
+/schel/xs:keyref/@refer KeyGeneralLedgerAccount
+/schel/xs:keyref/xs:selector/@xpath MasterFiles/Customers/Customer
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath AccountID
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel/xs:keyref/@name RefSupplierAccount
+/schel/xs:keyref/@refer KeyGeneralLedgerAccount
+/schel/xs:keyref/xs:selector/@xpath MasterFiles/Suppliers/Supplier
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath AccountID
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel/xs:keyref/@name RefOwnerAccount
+/schel/xs:keyref/@refer KeyGeneralLedgerAccount
+/schel/xs:keyref/xs:selector/@xpath MasterFiles/Owners/Owner
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath AccountID
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel/xs:keyref/@name RefAssetAccount
+/schel/xs:keyref/@refer KeyGeneralLedgerAccount
+/schel/xs:keyref/xs:selector/@xpath MasterFiles/Assets/Asset
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath AccountID
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel/xs:keyref/@name RefTransactionLineAccount
+/schel/xs:keyref/@refer KeyGeneralLedgerAccount
+/schel/xs:keyref/xs:selector/@xpath GeneralLedgerEntries/Journal/Transaction/Line
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath AccountID
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel/xs:keyref/@name RefSalesInvoiceAccount
+/schel/xs:keyref/@refer KeyGeneralLedgerAccount
+/schel/xs:keyref/xs:selector/@xpath SourceDocuments/SalesInvoices/Invoice
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath AccountID
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel/xs:keyref/@name RefSalesInvoiceLineAccount
+/schel/xs:keyref/@refer KeyGeneralLedgerAccount
+/schel/xs:keyref/xs:selector/@xpath SourceDocuments/SalesInvoices/Invoice/Line
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath AccountID
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel/xs:keyref/@name RefPurchaseInvoiceAccount
+/schel/xs:keyref/@refer KeyGeneralLedgerAccount
+/schel/xs:keyref/xs:selector/@xpath SourceDocuments/PurchaseInvoices/Invoice
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath AccountID
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel/xs:keyref/@name RefPurchaseInvoiceLineAccount
+/schel/xs:keyref/@refer KeyGeneralLedgerAccount
+/schel/xs:keyref/xs:selector/@xpath SourceDocuments/PurchaseInvoices/Invoice/Line
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath AccountID
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel/xs:keyref/@name RefPaymentLineAccount
+/schel/xs:keyref/@refer KeyGeneralLedgerAccount
+/schel/xs:keyref/xs:selector/@xpath SourceDocuments/Payments/Payment/Line
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath AccountID
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel/xs:keyref/@name RefStockMovementLineAccount
+/schel/xs:keyref/@refer KeyGeneralLedgerAccount
+/schel/xs:keyref/xs:selector/@xpath SourceDocuments/MovementOfGoods/StockMovement/Line
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath AccountID
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel/xs:keyref/@name RefAssetSupplier
+/schel/xs:keyref/@refer KeySupplier
+/schel/xs:keyref/xs:selector/@xpath MasterFiles/Assets/Asset/Supplier
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath SupplierID
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel/xs:keyref/@name RefGLTransactionSupplier
+/schel/xs:keyref/@refer KeySupplier
+/schel/xs:keyref/xs:selector/@xpath GeneralLedgerEntries/Journal/Transaction
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath SupplierID
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel/xs:keyref/@name RefGLTransactionLineSupplier
+/schel/xs:keyref/@refer KeySupplier
+/schel/xs:keyref/xs:selector/@xpath GeneralLedgerEntries/Journal/Transaction/Line
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath SupplierID
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel/xs:keyref/@name RefSalesInvoiceSupplier
+/schel/xs:keyref/@refer KeySupplier
+/schel/xs:keyref/xs:selector/@xpath SourceDocuments/SalesInvoices/Invoice/SupplierInfo
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath SupplierID
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel/xs:keyref/@name RefPurchaseInvoiceSupplier
+/schel/xs:keyref/@refer KeySupplier
+/schel/xs:keyref/xs:selector/@xpath SourceDocuments/PurchaseInvoices/Invoice/SupplierInfo
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath SupplierID
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel/xs:keyref/@name RefPaymenLineSupplier
+/schel/xs:keyref/@refer KeySupplier
+/schel/xs:keyref/xs:selector/@xpath SourceDocuments/Payments/Payment/Line
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath SupplierID
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel/xs:keyref/@name RefStockMovementLineSupplier
+/schel/xs:keyref/@refer KeySupplier
+/schel/xs:keyref/xs:selector/@xpath SourceDocuments/MovementOfGoods/StockMovement/Line
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath SupplierID
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel/xs:keyref/@name RefAssetTransactionSupplier
+/schel/xs:keyref/@refer KeySupplier
+/schel/xs:keyref/xs:selector/@xpath SourceDocuments/AssetTransactions/AssetTransaction/Supplier
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath SupplierID
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel/xs:keyref/@name RefGLTransactionCustomer
+/schel/xs:keyref/@refer KeyCustomer
+/schel/xs:keyref/xs:selector/@xpath GeneralLedgerEntries/Journal/Transaction
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath CustomerID
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel/xs:keyref/@name RefGLTransactionLineCustomer
+/schel/xs:keyref/@refer KeyCustomer
+/schel/xs:keyref/xs:selector/@xpath GeneralLedgerEntries/Journal/Transaction/Line
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath CustomerID
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel/xs:keyref/@name RefSalesInvoiceCustomer
+/schel/xs:keyref/@refer KeyCustomer
+/schel/xs:keyref/xs:selector/@xpath SourceDocuments/SalesInvoices/Invoice/CustomerInfo
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath CustomerID
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel/xs:keyref/@name RefPurchaseInvoiceCustomer
+/schel/xs:keyref/@refer KeyCustomer
+/schel/xs:keyref/xs:selector/@xpath SourceDocuments/PurchaseInvoices/Invoice/CustomerInfo
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath CustomerID
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel/xs:keyref/@name RefPaymentLineCustomer
+/schel/xs:keyref/@refer KeyCustomer
+/schel/xs:keyref/xs:selector/@xpath SourceDocuments/Payments/Payment/Line
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath CustomerID
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel/xs:keyref/@name RefStockMovementLineCustomer
+/schel/xs:keyref/@refer KeyCustomer
+/schel/xs:keyref/xs:selector/@xpath SourceDocuments/MovementOfGoods/StockMovement/Line
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath CustomerID
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel/xs:keyref/@name RefRegistrationTaxType
+/schel/xs:keyref/@refer KeyTaxType
+/schel/xs:keyref/xs:selector/@xpath Header/Company/TaxRegistration
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath TaxType
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel/xs:keyref/@name RefCustomerTaxType
+/schel/xs:keyref/@refer KeyTaxType
+/schel/xs:keyref/xs:selector/@xpath MasterFiles/Customers/Customer/TaxRegistration
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath TaxType
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel/xs:keyref/@name RefSupplierTaxType
+/schel/xs:keyref/@refer KeyTaxType
+/schel/xs:keyref/xs:selector/@xpath MasterFiles/Suppliers/Supplier/TaxRegistration
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath TaxType
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel/xs:keyref/@name RefProductTaxType
+/schel/xs:keyref/@refer KeyTaxType
+/schel/xs:keyref/xs:selector/@xpath MasterFiles/Products/Product/Tax
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath TaxType
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel/xs:keyref/@name RefOwnerTaxType
+/schel/xs:keyref/@refer KeyTaxType
+/schel/xs:keyref/xs:selector/@xpath MasterFiles/Owners/Owner/TaxRegistration
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath TaxType
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel/xs:keyref/@name RefGLTransactionTaxType
+/schel/xs:keyref/@refer KeyTaxType
+/schel/xs:keyref/xs:selector/@xpath GeneralLedgerEntries/Journal/Transaction/Line/TaxInformation
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath TaxType
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel/xs:keyref/@name RefPurchaseInvoiceLineTaxType
+/schel/xs:keyref/@refer KeyTaxType
+/schel/xs:keyref/xs:selector/@xpath SourceDocuments/PurchaseInvoices/Invoice/Line/TaxInformation
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath TaxType
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel/xs:keyref/@name RefPurchaseInvoiceTotalsTaxType
+/schel/xs:keyref/@refer KeyTaxType
+/schel/xs:keyref/xs:selector/@xpath SourceDocuments/PurchaseInvoices/Invoice/DocumentTotals/TaxInformationTotals
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath TaxType
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel/xs:keyref/@name RefSalesInvoiceLineTaxType
+/schel/xs:keyref/@refer KeyTaxType
+/schel/xs:keyref/xs:selector/@xpath SourceDocuments/SalesInvoices/Invoice/Line/TaxInformation
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath TaxType
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel/xs:keyref/@name RefSalesInvoiceTotalsTaxType
+/schel/xs:keyref/@refer KeyTaxType
+/schel/xs:keyref/xs:selector/@xpath SourceDocuments/SalesInvoices/Invoice/DocumentTotals/TaxInformationTotals
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath TaxType
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel/xs:keyref/@name RefPaymentLineTaxType
+/schel/xs:keyref/@refer KeyTaxType
+/schel/xs:keyref/xs:selector/@xpath SourceDocuments/Payments/Payment/Line/TaxInformation
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath TaxType
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel/xs:keyref/@name RefPaymentTotalsTaxType
+/schel/xs:keyref/@refer KeyTaxType
+/schel/xs:keyref/xs:selector/@xpath SourceDocuments/Payments/Payment/Line/TaxInformation
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath TaxType
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel/xs:keyref/@name RefStockMovementLineTaxType
+/schel/xs:keyref/@refer KeyTaxType
+/schel/xs:keyref/xs:selector/@xpath SourceDocuments/MovementOfGoods/StockMovement/Line/TaxInformation
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath TaxType
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel/xs:keyref/@name RefProductUOMBase
+/schel/xs:keyref/@refer KeyUnitOfMeasure
+/schel/xs:keyref/xs:selector/@xpath MasterFiles/Products/Product
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath UOMBase
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel/xs:keyref/@name RefProductUOMStandard
+/schel/xs:keyref/@refer KeyUnitOfMeasure
+/schel/xs:keyref/xs:selector/@xpath MasterFiles/Products/Product
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath UOMStandard
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel/xs:keyref/@name RefUOMPhysicalStock
+/schel/xs:keyref/@refer KeyUnitOfMeasure
+/schel/xs:keyref/xs:selector/@xpath MasterFiles/PhysicalStock/PhysicalStockEntry
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath UOMPhysicalStock
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel/xs:keyref/@name RefSalesInvoiceLineUOM
+/schel/xs:keyref/@refer KeyUnitOfMeasure
+/schel/xs:keyref/xs:selector/@xpath SourceDocuments/SalesInvoices/Invoice/Line
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath InvoiceUOM
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel/xs:keyref/@name RefPurchaseInvoiceLineUOM
+/schel/xs:keyref/@refer KeyUnitOfMeasure
+/schel/xs:keyref/xs:selector/@xpath SourceDocuments/PurchaseInvoices/Invoice/Line
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath InvoiceUOM
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel/xs:keyref/@name RefStockMovementUOM
+/schel/xs:keyref/@refer KeyUnitOfMeasure
+/schel/xs:keyref/xs:selector/@xpath SourceDocuments/MovementOfGoods/StockMovement/Line
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath UnitOfMeasure
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel/xs:keyref/@name RefStockMovementType
+/schel/xs:keyref/@refer KeyMovementType
+/schel/xs:keyref/xs:selector/@xpath SourceDocuments/MovementOfGoods/StockMovement
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath MovementType
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel/xs:keyref/@name RefStockMovementLineType
+/schel/xs:keyref/@refer KeyMovementType
+/schel/xs:keyref/xs:selector/@xpath SourceDocuments/MovementOfGoods/StockMovement/Line
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath MovementSubType
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel/xs:keyref/@name RefPhysicalStockProductCode
+/schel/xs:keyref/@refer KeyProductCode
+/schel/xs:keyref/xs:selector/@xpath MasterFiles/PhysicalStock/PhysicalStockEntry
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath ProductCode
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel/xs:keyref/@name RefSalesInvoiceLineProductCode
+/schel/xs:keyref/@refer KeyProductCode
+/schel/xs:keyref/xs:selector/@xpath SourceDocuments/SalesInvoices/Invoice/Line
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath ProductCode
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel/xs:keyref/@name RefPurchaseInvpiceLineProductCode
+/schel/xs:keyref/@refer KeyProductCode
+/schel/xs:keyref/xs:selector/@xpath SourceDocuments/PurchaseInvoices/Invoice/Line
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath ProductCode
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel/xs:keyref/@name RefStockMovementLineProductCode
+/schel/xs:keyref/@refer KeyProductCode
+/schel/xs:keyref/xs:selector/@xpath SourceDocuments/MovementOfGoods/StockMovement/Line
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath ProductCode
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel/xs:keyref/@name RefPhysicalStockOwner
+/schel/xs:keyref/@refer KeyOwner
+/schel/xs:keyref/xs:selector/@xpath MasterFiles/PhysicalStock/PhysicalStockEntry
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath OwnerID
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel/xs:keyref/@name RefAssetTransactionAsset
+/schel/xs:keyref/@refer KeyAsset
+/schel/xs:keyref/xs:selector/@xpath SourceDocuments/AssetTransactions/AssetTransaction
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath AssetID
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel/xs:keyref/@name RefSalesInvoiceLineMovementReference
+/schel/xs:keyref/@refer KeyMovementReference
+/schel/xs:keyref/xs:selector/@xpath SourceDocuments/SalesInvoices/Invoice/Line/Delivery
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath MovementReference
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel/xs:keyref/@name RefPurchaseInvoiceLineMovementReference
+/schel/xs:keyref/@refer KeyMovementReference
+/schel/xs:keyref/xs:selector/@xpath SourceDocuments/PurchaseInvoices/Invoice/Line/Delivery
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath MovementReference
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel/xs:keyref/@name RefSalesInvoiceTransactionReference
+/schel/xs:keyref/@refer KeyTransactionReference
+/schel/xs:keyref/xs:selector/@xpath SourceDocuments/SalesInvoices/Invoice
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath TransactionID
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel/xs:keyref/@name RefPurchaseInvoideTransacrionReference
+/schel/xs:keyref/@refer KeyTransactionReference
+/schel/xs:keyref/xs:selector/@xpath SourceDocuments/PurchaseInvoices/Invoice
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath TransactionID
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel/xs:keyref/@name RefStockMovementTransactionReference
+/schel/xs:keyref/@refer KeyTransactionReference
+/schel/xs:keyref/xs:selector/@xpath SourceDocuments/MovementOfGoods/StockMovement/Line
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath TransactionID
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel/xs:keyref/@name RefPaymentTransactionReference
+/schel/xs:keyref/@refer KeyTransactionReference
+/schel/xs:keyref/xs:selector/@xpath SourceDocuments/Payments/Payment
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath TransactionID
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel/xs:keyref/@name RefAssetTransactionReference
+/schel/xs:keyref/@refer KeyTransactionReference
+/schel/xs:keyref/xs:selector/@xpath SourceDocuments/AssetTransactions/AssetTransaction
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath AssetTransactionID
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel/xs:keyref/@name RefProductTaxCode
+/schel/xs:keyref/@refer KeyTaxCode
+/schel/xs:keyref/xs:selector/@xpath MasterFiles/Products/Product/Tax
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath TaxCode
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel/xs:keyref/@name RefGLTransactionLineTaxCode
+/schel/xs:keyref/@refer KeyTaxCode
+/schel/xs:keyref/xs:selector/@xpath GeneralLedgerEntries/Journal/Transaction/Line/TaxInformation
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath TaxCode
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel/xs:keyref/@name RefPurchaseInvoiceLineTaxCode
+/schel/xs:keyref/@refer KeyTaxCode
+/schel/xs:keyref/xs:selector/@xpath SourceDocuments/PurchaseInvoices/Invoice/Line/TaxInformation
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath TaxCode
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel/xs:keyref/@name RefPurchaseInvoiceTotalsTaxCode
+/schel/xs:keyref/@refer KeyTaxCode
+/schel/xs:keyref/xs:selector/@xpath SourceDocuments/PurchaseInvoices/Invoice/DocumentTotals/TaxInformationTotals
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath TaxCode
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel/xs:keyref/@name RefSalesInvoiceLineTaxCode
+/schel/xs:keyref/@refer KeyTaxCode
+/schel/xs:keyref/xs:selector/@xpath SourceDocuments/SalesInvoices/Invoice/Line/TaxInformation
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath TaxCode
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel/xs:keyref/@name RefSalesInvoiceTotalsTaxCode
+/schel/xs:keyref/@refer KeyTaxCode
+/schel/xs:keyref/xs:selector/@xpath SourceDocuments/SalesInvoices/Invoice/DocumentTotals/TaxInformationTotals
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath TaxCode
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel/xs:keyref/@name RefPaymentLineTaxCode
+/schel/xs:keyref/@refer KeyTaxCode
+/schel/xs:keyref/xs:selector/@xpath SourceDocuments/Payments/Payment/Line/TaxInformation
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath TaxCode
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel/xs:keyref/@name RefPaymentTotalsTaxCode
+/schel/xs:keyref/@refer KeyTaxCode
+/schel/xs:keyref/xs:selector/@xpath SourceDocuments/Payments/Payment/DocumentTotals/TaxInformationTotals
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath TaxCode
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel/xs:keyref/@name RefStockMovementLineTaxCode
+/schel/xs:keyref/@refer KeyTaxCode
+/schel/xs:keyref/xs:selector/@xpath SourceDocuments/MovementOfGoods/StockMovement/Line/TaxInformation
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath TaxCode
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel/xs:keyref/@name RefGLAnalysisType
+/schel/xs:keyref/@refer KeyAnalysisType
+/schel/xs:keyref/xs:selector/@xpath GeneralLedgerEntries/Journal/Transaction/Line/Analysis
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath AnalysisType
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel/xs:keyref/@name RefGLAnalysisID
+/schel/xs:keyref/@refer KeyAnalysisID
+/schel/xs:keyref/xs:selector/@xpath GeneralLedgerEntries/Journal/Transaction/Line/Analysis
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath AnalysisID
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel/xs:keyref/@name RefSalesInvoiceLineAnalysisType
+/schel/xs:keyref/@refer KeyAnalysisType
+/schel/xs:keyref/xs:selector/@xpath SourceDocuments/SalesInvoices/Invoice/Line/Analysis
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath AnalysisType
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel/xs:keyref/@name RefSalesInvoiceLineAnalysisID
+/schel/xs:keyref/@refer KeyAnalysisID
+/schel/xs:keyref/xs:selector/@xpath SourceDocuments/SalesInvoices/Invoice/Line/Analysis
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath AnalysisID
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel/xs:keyref/@name RefPurchaseInvoiceLineAnalysisType
+/schel/xs:keyref/@refer KeyAnalysisType
+/schel/xs:keyref/xs:selector/@xpath SourceDocuments/PurchaseInvoices/Invoice/Line/Analysis
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath AnalysisType
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel/xs:keyref/@name RefPurchaseInvoiceLineAnalysisID
+/schel/xs:keyref/@refer KeyAnalysisID
+/schel/xs:keyref/xs:selector/@xpath SourceDocuments/PurchaseInvoices/Invoice/Line/Analysis
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath AnalysisID
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel/xs:keyref/@name RefPaymentLineAnalysisType
+/schel/xs:keyref/@refer KeyAnalysisType
+/schel/xs:keyref/xs:selector/@xpath SourceDocuments/Payments/Payment/Line/Analysis
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath AnalysisType
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel/xs:keyref/@name RefPaymentLineAnalysisID
+/schel/xs:keyref/@refer KeyAnalysisID
+/schel/xs:keyref/xs:selector/@xpath SourceDocuments/Payments/Payment/Line/Analysis
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath AnalysisID
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel/xs:keyref/@name RefStockMovementLineStockAccountNo
+/schel/xs:keyref/@refer KeyStockAccountNo
+/schel/xs:keyref/xs:selector/@xpath SourceDocuments/MovementOfGoods/StockMovement/Line
+/schel/xs:keyref/xs:selector
+/schel/xs:keyref/xs:field/@xpath StockAccountNo
+/schel/xs:keyref/xs:field
+/schel/xs:keyref
+/schel \n	\n	\n	\n	\n	\n	\n	\n	\n	\n	\n	\n	\n	\n	\n	\n	\n	\n	\n	\n	\n	\n	\n	\n	\n	\n	\n	\n	\n	\n	\n	\n	\n	\n	\n	\n	\n	\n	\n	\n	\n	\n	\n	\n	\n	\n	\n	\n	\n	\n	\n	\n	\n	\n	\n	\n	\n	\n	\n	\n	\n	\n	\n	\n	\n	\n	\n	\n	\n	\n	\n	\n	\n	\n	\n	\n	\n	\n
+/xs:schema/xs:complexType/@name InvoiceStructure
+/xs:schema/xs:complexType/xs:annotation/xs:documentation Containing all information about sales invoices and suppliers invoices
+/xs:schema/xs:complexType/xs:annotation
+/xs:schema/el/@name InvoiceNo
+/xs:schema/el/@type SAFmiddle2textType
+/xs:schema/el
+/xs:schema/xs:complexType/xs:sequence/xs:choice/@minOccurs 0
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:element/@name CustomerInfo
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:element/xs:complexType/xs:sequence/xs:choice/xs:element/@name CustomerID
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:element/xs:complexType/xs:sequence/xs:choice/xs:element/@type SAFmiddle1textType
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:element/xs:complexType/xs:sequence/xs:choice/xs:element/xs:annotation/xs:documentation Unique code for the customer
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:element/xs:complexType/xs:sequence/xs:choice/xs:element/xs:annotation
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:element/xs:complexType/xs:sequence/xs:choice/xs:element
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:element/xs:complexType/xs:sequence/xs:choice/xs:element/@name Name
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:element/xs:complexType/xs:sequence/xs:choice/xs:element/@type SAFmiddle2textType
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:element/xs:complexType/xs:sequence/xs:choice/xs:element/xs:annotation/xs:documentation Name of the customer
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:element/xs:complexType/xs:sequence/xs:choice/xs:element/xs:annotation
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:element/xs:complexType/xs:sequence/xs:choice/xs:element
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:element/xs:complexType/xs:sequence/xs:choice
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:element/el/@name BillingAddress
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:element/el/@type AddressStructure
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:element/el
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:element/xs:complexType/xs:sequence
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:element/xs:complexType
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:element
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:element/@name SupplierInfo
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:element/xs:complexType/xs:sequence/xs:choice/xs:element/@name SupplierID
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:element/xs:complexType/xs:sequence/xs:choice/xs:element/@type SAFmiddle1textType
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:element/xs:complexType/xs:sequence/xs:choice/xs:element/xs:annotation/xs:documentation Unique code for the supplier
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:element/xs:complexType/xs:sequence/xs:choice/xs:element/xs:annotation
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:element/xs:complexType/xs:sequence/xs:choice/xs:element
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:element/xs:complexType/xs:sequence/xs:choice/xs:element/@name Name
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:element/xs:complexType/xs:sequence/xs:choice/xs:element/@type SAFmiddle2textType
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:element/xs:complexType/xs:sequence/xs:choice/xs:element/xs:annotation/xs:documentation Name of the supplier
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:element/xs:complexType/xs:sequence/xs:choice/xs:element/xs:annotation
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:element/xs:complexType/xs:sequence/xs:choice/xs:element
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:element/xs:complexType/xs:sequence/xs:choice
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:element/el/@name BillingAddress
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:element/el/@type AddressStructure
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:element/el
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:element/xs:complexType/xs:sequence
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:element/xs:complexType
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:element
+/xs:schema/xs:complexType/xs:sequence/xs:choice
+/xs:schema/el/@name AccountID
+/xs:schema/el/@type SAFmiddle2textType
+/xs:schema/el/@minOccurs 0
+/xs:schema/el/xs:annotation/xs:documentation General Ledger Account code of the customer / supplier. Can be including sub-account id. It can contain many different levels to identify the Account. It could include cost centres such as company, division, region, group and branch/department.
+/xs:schema/el/xs:annotation
+/xs:schema/el/@name BranchStoreNumber
+/xs:schema/el/@type SAFmiddle1textType
+/xs:schema/el/@minOccurs 0
+/xs:schema/el/xs:annotation/xs:documentation Branch or Storenumber, additional segregation of customer/supplier, used if not included as part of the customer/supplier id.
+/xs:schema/el/xs:annotation
+/xs:schema/el/@name Period
+/xs:schema/el/@type xs:nonNegativeInteger
+/xs:schema/el/@minOccurs 0
+/xs:schema/el/xs:annotation/xs:documentation Accounting Period
+/xs:schema/el/xs:annotation
+/xs:schema/el/@name PeriodYear
+/xs:schema/el/@minOccurs 0
+/xs:schema/el/xs:annotation/xs:documentation The year of the Accounting Period.
+/xs:schema/el/xs:annotation
+/xs:schema/el/xs:simpleType/xs:restriction/@base xs:nonNegativeInteger
+/xs:schema/el/xs:simpleType/xs:restriction/xs:minInclusive/@value 1970
+/xs:schema/el/xs:simpleType/xs:restriction/xs:minInclusive
+/xs:schema/el/xs:simpleType/xs:restriction/xs:maxInclusive/@value 2100
+/xs:schema/el/xs:simpleType/xs:restriction/xs:maxInclusive
+/xs:schema/el/xs:simpleType/xs:restriction
+/xs:schema/el/xs:simpleType
+/xs:schema/el/@name InvoiceDate
+/xs:schema/el/@type xs:date
+/xs:schema/el
+/xs:schema/el/@name InvoiceType
+/xs:schema/el/@type SAFcodeType
+/xs:schema/el/@minOccurs 0
+/xs:schema/el/xs:annotation/xs:documentation Type of invoice: Debit invoice, Credit invoice, Cash, Ticket, etc.
+/xs:schema/el/xs:annotation
+/xs:schema/el/@name ShipTo
+/xs:schema/el/@type ShippingPointStructure
+/xs:schema/el/@minOccurs 0
+/xs:schema/el/xs:annotation/xs:documentation Ship To details
+/xs:schema/el/xs:annotation
+/xs:schema/el/@name ShipFrom
+/xs:schema/el/@type ShippingPointStructure
+/xs:schema/el/@minOccurs 0
+/xs:schema/el/xs:annotation/xs:documentation Ship from Details
+/xs:schema/el/xs:annotation
+/xs:schema/el/@name PaymentTerms
+/xs:schema/el/@type SAFmiddle2textType
+/xs:schema/el/@minOccurs 0
+/xs:schema/el/xs:annotation/xs:documentation Payments terms for this invoice
+/xs:schema/el/xs:annotation
+/xs:schema/el/@name SelfBillingIndicator
+/xs:schema/el/@type SAFcodeType
+/xs:schema/el/@minOccurs 0
+/xs:schema/el/xs:annotation/xs:documentation Indicator showing if self-billing  is used for this invoice.
+/xs:schema/el/xs:annotation
+/xs:schema/el/@name SourceID
+/xs:schema/el/@type SAFmiddle1textType
+/xs:schema/el/@minOccurs 0
+/xs:schema/el/xs:annotation/xs:documentation Details of person or application that entered the transaction
+/xs:schema/el/xs:annotation
+/xs:schema/el/@name GLPostingDate
+/xs:schema/el/@type xs:date
+/xs:schema/el/@minOccurs 0
+/xs:schema/el/xs:annotation/xs:documentation Date posting to GL
+/xs:schema/el/xs:annotation
+/xs:schema/el/@name BatchID
+/xs:schema/el/@type SAFmiddle1textType
+/xs:schema/el/@minOccurs 0
+/xs:schema/el/xs:annotation/xs:documentation Systems generated ID for batch
+/xs:schema/el/xs:annotation
+/xs:schema/el/@name SystemID
+/xs:schema/el/@type SAFmiddle1textType
+/xs:schema/el/@minOccurs 0
+/xs:schema/el/xs:annotation/xs:documentation Unique number created by the system for the document
+/xs:schema/el/xs:annotation
+/xs:schema/el/@name TransactionID
+/xs:schema/el/@type SAFmiddle2textType
+/xs:schema/el/@minOccurs 0
+/xs:schema/el/xs:annotation/xs:documentation Cross-reference to GL posting. It can contain many different levels to identify the transaction. It could include cost centres such as company, division, region, group and branch/department.
+/xs:schema/el/xs:annotation
+/xs:schema/el/@name ReceiptNumbers
+/xs:schema/el/@type SAFlongtextType
+/xs:schema/el/@minOccurs 0
+/xs:schema/el/xs:annotation/xs:documentation The number(s) of the receipt(s) on this "consolidated invoicerecord". Can be a single number, a range or a list.
+/xs:schema/el/xs:annotation
+/xs:schema/el/@name Line
+/xs:schema/el/@maxOccurs unbounded
+/xs:schema/el/el/@name LineNumber
+/xs:schema/el/el/@type SAFshorttextType
+/xs:schema/el/el/@minOccurs 0
+/xs:schema/el/el/xs:annotation/xs:documentation Number of the invoiceline
+/xs:schema/el/el/xs:annotation
+/xs:schema/el/el
+/xs:schema/el/el/@name AccountID
+/xs:schema/el/el/@type SAFmiddle2textType
+/xs:schema/el/el/@minOccurs 0
+/xs:schema/el/el/xs:annotation/xs:documentation General Ledger Account code of the GL-revenue-account. Can be including sub-account id. It can contain many different levels to identify the Account. It could include cost centres such as company, division, region, group and branch/department.
+/xs:schema/el/el/xs:annotation
+/xs:schema/el/el
+/xs:schema/el/el/@name Analysis
+/xs:schema/el/el/@type AnalysisStructure
+/xs:schema/el/el/@minOccurs 0
+/xs:schema/el/el/@maxOccurs unbounded
+/xs:schema/el/el/xs:annotation/xs:documentation General Ledger analysis codes
+/xs:schema/el/el/xs:annotation
+/xs:schema/el/el
+/xs:schema/el/el/@name OrderReferences
+/xs:schema/el/el/@minOccurs 0
+/xs:schema/el/el/@maxOccurs unbounded
+/xs:schema/el/el/xs:annotation/xs:documentation Relevant order references
+/xs:schema/el/el/xs:annotation
+/xs:schema/el/el/el/@name OriginatingON
+/xs:schema/el/el/el/@type SAFmiddle2textType
+/xs:schema/el/el/el/@minOccurs 0
+/xs:schema/el/el/el/xs:annotation/xs:documentation Origination Order Number
+/xs:schema/el/el/el/xs:annotation
+/xs:schema/el/el/el
+/xs:schema/el/el/el/@name OrderDate
+/xs:schema/el/el/el/@type xs:date
+/xs:schema/el/el/el/@minOccurs 0
+/xs:schema/el/el/el/xs:annotation/xs:documentation Date of order
+/xs:schema/el/el/el/xs:annotation
+/xs:schema/el/el/el
+/xs:schema/el/el/xs:complexType/xs:sequence
+/xs:schema/el/el/xs:complexType
+/xs:schema/el/el
+/xs:schema/el/el/@name ShipTo
+/xs:schema/el/el/@type ShippingPointStructure
+/xs:schema/el/el/@minOccurs 0
+/xs:schema/el/el/xs:annotation/xs:documentation Ship To details
+/xs:schema/el/el/xs:annotation
+/xs:schema/el/el
+/xs:schema/el/el/@name ShipFrom
+/xs:schema/el/el/@type ShippingPointStructure
+/xs:schema/el/el/@minOccurs 0
+/xs:schema/el/el/xs:annotation/xs:documentation Ship from Details
+/xs:schema/el/el/xs:annotation
+/xs:schema/el/el
+/xs:schema/el/el/@name GoodsServicesID
+/xs:schema/el/el/@type SAFcodeType
+/xs:schema/el/el/@minOccurs 0
+/xs:schema/el/el/xs:annotation/xs:documentation Indicator showing if goods or service
+/xs:schema/el/el/xs:annotation
+/xs:schema/el/el
+/xs:schema/el/el/@name ProductCode
+/xs:schema/el/el/@type SAFmiddle2textType
+/xs:schema/el/el/@minOccurs 0
+/xs:schema/el/el/xs:annotation/xs:documentation Product code
+/xs:schema/el/el/xs:annotation
+/xs:schema/el/el
+/xs:schema/el/el/@name ProductDescription
+/xs:schema/el/el/@type SAFlongtextType
+/xs:schema/el/el/@minOccurs 0
+/xs:schema/el/el/xs:annotation/xs:documentation Description of goods or services.
+/xs:schema/el/el/xs:annotation
+/xs:schema/el/el
+/xs:schema/el/el/@name Delivery
+/xs:schema/el/el/@minOccurs 0
+/xs:schema/el/el/xs:annotation/xs:documentation Information about the date or timeframe of the delivery of the goods or services.
+/xs:schema/el/el/xs:annotation
+/xs:schema/el/el/xs:complexType/xs:choice/xs:element/@name MovementReference
+/xs:schema/el/el/xs:complexType/xs:choice/xs:element/@type SAFmiddle1textType
+/xs:schema/el/el/xs:complexType/xs:choice/xs:element/@maxOccurs unbounded
+/xs:schema/el/el/xs:complexType/xs:choice/xs:element/xs:annotation/xs:documentation Unique reference to the movement.
+/xs:schema/el/el/xs:complexType/xs:choice/xs:element/xs:annotation
+/xs:schema/el/el/xs:complexType/xs:choice/xs:element
+/xs:schema/el/el/xs:complexType/xs:choice/xs:element/@name DeliveryDate
+/xs:schema/el/el/xs:complexType/xs:choice/xs:element/@type xs:date
+/xs:schema/el/el/xs:complexType/xs:choice/xs:element/xs:annotation/xs:documentation The date of the delivery
+/xs:schema/el/el/xs:complexType/xs:choice/xs:element/xs:annotation
+/xs:schema/el/el/xs:complexType/xs:choice/xs:element
+/xs:schema/el/el/xs:complexType/xs:choice/xs:element/@name DeliveryPeriod
+/xs:schema/el/el/xs:complexType/xs:choice/xs:element/xs:annotation/xs:documentation Timeframe of the deliveries
+/xs:schema/el/el/xs:complexType/xs:choice/xs:element/xs:annotation
+/xs:schema/el/el/xs:complexType/xs:choice/xs:element/el/@name FromDate
+/xs:schema/el/el/xs:complexType/xs:choice/xs:element/el/@type xs:date
+/xs:schema/el/el/xs:complexType/xs:choice/xs:element/el/xs:annotation/xs:documentation Startdate of the deliveries
+/xs:schema/el/el/xs:complexType/xs:choice/xs:element/el/xs:annotation
+/xs:schema/el/el/xs:complexType/xs:choice/xs:element/el
+/xs:schema/el/el/xs:complexType/xs:choice/xs:element/el/@name ToDate
+/xs:schema/el/el/xs:complexType/xs:choice/xs:element/el/@type xs:date
+/xs:schema/el/el/xs:complexType/xs:choice/xs:element/el/xs:annotation/xs:documentation Enddate of the deliveries
+/xs:schema/el/el/xs:complexType/xs:choice/xs:element/el/xs:annotation
+/xs:schema/el/el/xs:complexType/xs:choice/xs:element/el
+/xs:schema/el/el/xs:complexType/xs:choice/xs:element/xs:complexType/xs:sequence
+/xs:schema/el/el/xs:complexType/xs:choice/xs:element/xs:complexType
+/xs:schema/el/el/xs:complexType/xs:choice/xs:element
+/xs:schema/el/el/xs:complexType/xs:choice
+/xs:schema/el/el/xs:complexType
+/xs:schema/el/el
+/xs:schema/el/el/@name Quantity
+/xs:schema/el/el/@type SAFquantityType
+/xs:schema/el/el/@minOccurs 0
+/xs:schema/el/el/xs:annotation/xs:documentation Quantity of goods and services supplied.
+/xs:schema/el/el/xs:annotation
+/xs:schema/el/el
+/xs:schema/el/el/@name InvoiceUOM
+/xs:schema/el/el/@type SAFcodeType
+/xs:schema/el/el/@minOccurs 0
+/xs:schema/el/el/xs:annotation/xs:documentation Quantity unit of measure e.g. pack of 12
+/xs:schema/el/el/xs:annotation
+/xs:schema/el/el
+/xs:schema/el/el/@name UOMToUOMBaseConversionFactor
+/xs:schema/el/el/@type xs:decimal
+/xs:schema/el/el/@minOccurs 0
+/xs:schema/el/el/xs:annotation/xs:documentation Conversion factor of the InvoiceUOM to UOM Base. Only needed when InvoiceUOM is reported and is different from the UOM Base.
+/xs:schema/el/el/xs:annotation
+/xs:schema/el/el
+/xs:schema/el/el/@name UnitPrice
+/xs:schema/el/el/@type SAFmonetaryType
+/xs:schema/el/el/xs:annotation/xs:documentation Unit price for the unit/group of units per UOM in the header's default currency.
+/xs:schema/el/el/xs:annotation
+/xs:schema/el/el
+/xs:schema/el/el/@name TaxPointDate
+/xs:schema/el/el/@type xs:date
+/xs:schema/el/el/xs:annotation/xs:documentation Tax Point date where recorded or if not recorded then the Invoice date
+/xs:schema/el/el/xs:annotation
+/xs:schema/el/el
+/xs:schema/el/el/@name References
+/xs:schema/el/el/@minOccurs 0
+/xs:schema/el/el/xs:annotation/xs:documentation Credit Note references
+/xs:schema/el/el/xs:annotation
+/xs:schema/el/el/el/@name CreditNote
+/xs:schema/el/el/el/@minOccurs 0
+/xs:schema/el/el/el/el/@name Reference
+/xs:schema/el/el/el/el/@type SAFmiddle1textType
+/xs:schema/el/el/el/el/@minOccurs 0
+/xs:schema/el/el/el/el/xs:annotation/xs:documentation Credit note reference (where applicable) to original invoice
+/xs:schema/el/el/el/el/xs:annotation
+/xs:schema/el/el/el/el
+/xs:schema/el/el/el/el/@name Reason
+/xs:schema/el/el/el/el/@type SAFlongtextType
+/xs:schema/el/el/el/el/@minOccurs 0
+/xs:schema/el/el/el/el/xs:annotation/xs:documentation Credit note reason or rationale
+/xs:schema/el/el/el/el/xs:annotation
+/xs:schema/el/el/el/el
+/xs:schema/el/el/el/xs:complexType/xs:sequence
+/xs:schema/el/el/el/xs:complexType
+/xs:schema/el/el/el
+/xs:schema/el/el/xs:complexType/xs:sequence
+/xs:schema/el/el/xs:complexType
+/xs:schema/el/el
+/xs:schema/el/el/@name Description
+/xs:schema/el/el/@type SAFlongtextType
+/xs:schema/el/el/xs:annotation/xs:documentation Description of Invoice Line.
+/xs:schema/el/el/xs:annotation
+/xs:schema/el/el
+/xs:schema/el/el/@name InvoiceLineAmount
+/xs:schema/el/el/@type AmountStructure
+/xs:schema/el/el/xs:annotation/xs:documentation Amount for transaction excluding taxes and freightcharges.
+/xs:schema/el/el/xs:annotation
+/xs:schema/el/el
+/xs:schema/el/el/@name DebitCreditIndicator
+/xs:schema/el/el/xs:annotation/xs:documentation Indicates whether the amounts on line-level are debit or credit amounts. Entry must correspond to entry reflected in General Ledger Entry. Signing of lineamounts is relative to this indicator. E.g. a return can lead to a negative amount.
+/xs:schema/el/el/xs:annotation
+/xs:schema/el/el/xs:simpleType/xs:restriction/@base SAFcodeType
+/xs:schema/el/el/xs:simpleType/xs:restriction/xs:enumeration/@value D
+/xs:schema/el/el/xs:simpleType/xs:restriction/xs:enumeration
+/xs:schema/el/el/xs:simpleType/xs:restriction/xs:enumeration/@value C
+/xs:schema/el/el/xs:simpleType/xs:restriction/xs:enumeration
+/xs:schema/el/el/xs:simpleType/xs:restriction
+/xs:schema/el/el/xs:simpleType
+/xs:schema/el/el
+/xs:schema/el/el/@name ShippingCostsAmount
+/xs:schema/el/el/@type AmountStructure
+/xs:schema/el/el/@minOccurs 0
+/xs:schema/el/el/xs:annotation/xs:documentation Amount for shipping/freight charges.
+/xs:schema/el/el/xs:annotation
+/xs:schema/el/el
+/xs:schema/el/el/@name TaxInformation
+/xs:schema/el/el/@type TaxInformationStructure
+/xs:schema/el/el/@minOccurs 0
+/xs:schema/el/el/@maxOccurs unbounded
+/xs:schema/el/el
+/xs:schema/el/xs:complexType/xs:sequence/xs:any/@namespace ##other
+/xs:schema/el/xs:complexType/xs:sequence/xs:any/@minOccurs 0
+/xs:schema/el/xs:complexType/xs:sequence/xs:any/xs:annotation/xs:documentation Represents space to allow individual Revenue Bodies to add further elements
+/xs:schema/el/xs:complexType/xs:sequence/xs:any/xs:annotation
+/xs:schema/el/xs:complexType/xs:sequence/xs:any
+/xs:schema/el/xs:complexType/xs:sequence
+/xs:schema/el/xs:complexType
+/xs:schema/el/@name Settlement
+/xs:schema/el/@minOccurs 0
+/xs:schema/el/el/@name SettlementDiscount
+/xs:schema/el/el/@type SAFmiddle1textType
+/xs:schema/el/el/@minOccurs 0
+/xs:schema/el/el/xs:annotation/xs:documentation Description Settlement / Other Discount
+/xs:schema/el/el/xs:annotation
+/xs:schema/el/el
+/xs:schema/el/el/@name SettlementAmount
+/xs:schema/el/el/@type AmountStructure
+/xs:schema/el/el/xs:annotation/xs:documentation Settlement amount
+/xs:schema/el/el/xs:annotation
+/xs:schema/el/el
+/xs:schema/el/el/@name SettlementDate
+/xs:schema/el/el/@type xs:date
+/xs:schema/el/el/@minOccurs 0
+/xs:schema/el/el/xs:annotation/xs:documentation Date settled
+/xs:schema/el/el/xs:annotation
+/xs:schema/el/el
+/xs:schema/el/el/@name PaymentMechanism
+/xs:schema/el/el/@type SAFcodeType
+/xs:schema/el/el/@minOccurs 0
+/xs:schema/el/el/xs:annotation/xs:documentation Payment mechanism
+/xs:schema/el/el/xs:annotation
+/xs:schema/el/el
+/xs:schema/el/xs:complexType/xs:sequence
+/xs:schema/el/xs:complexType
+/xs:schema/el/@name DocumentTotals
+/xs:schema/el/@minOccurs 0
+/xs:schema/el/el/@name TaxInformationTotals
+/xs:schema/el/el/@type TaxInformationStructure
+/xs:schema/el/el/@minOccurs 0
+/xs:schema/el/el/@maxOccurs unbounded
+/xs:schema/el/el/xs:annotation/xs:documentation Control totals tax payable information. Per TaxType/TaxCode the TaxBase and TaxAmount are summarised.
+/xs:schema/el/el/xs:annotation
+/xs:schema/el/el
+/xs:schema/el/el/@name ShippingCostsAmountTotal
+/xs:schema/el/el/@type SAFmonetaryType
+/xs:schema/el/el/@minOccurs 0
+/xs:schema/el/el/xs:annotation/xs:documentation Control total amount freight charges
+/xs:schema/el/el/xs:annotation
+/xs:schema/el/el
+/xs:schema/el/el/@name NetTotal
+/xs:schema/el/el/@type SAFmonetaryType
+/xs:schema/el/el/xs:annotation/xs:documentation Control total sales value excluding tax and shippingcosts.
+/xs:schema/el/el/xs:annotation
+/xs:schema/el/el
+/xs:schema/el/el/@name GrossTotal
+/xs:schema/el/el/@type SAFmonetaryType
+/xs:schema/el/el/xs:annotation/xs:documentation Control total amount including tax and shippingcosts.
+/xs:schema/el/el/xs:annotation
+/xs:schema/el/el
+/xs:schema/el/xs:complexType/xs:sequence
+/xs:schema/el/xs:complexType
+/xs:schema/xs:complexType/xs:sequence/xs:any/@namespace ##other
+/xs:schema/xs:complexType/xs:sequence/xs:any/@minOccurs 0
+/xs:schema/xs:complexType/xs:sequence/xs:any/xs:annotation/xs:documentation Represents space to allow individual Revenue Bodies to add further elements
+/xs:schema/xs:complexType/xs:sequence/xs:any/xs:annotation
+/xs:schema/xs:complexType/xs:sequence/xs:any
+/xs:schema/xs:complexType/xs:sequence
+/xs:schema/xs:complexType
+/xs:schema/xs:complexType/@name ShippingPointStructure
+/xs:schema/xs:complexType/xs:annotation/xs:documentation  A structure that holds all shipping point information.
+/xs:schema/xs:complexType/xs:annotation
+/xs:schema/el/@name DeliveryID
+/xs:schema/el/@type SAFmiddle1textType
+/xs:schema/el/@minOccurs 0
+/xs:schema/el/xs:annotation/xs:documentation Identification of the delivery
+/xs:schema/el/xs:annotation
+/xs:schema/el/@name DeliveryDate
+/xs:schema/el/@type xs:date
+/xs:schema/el/@minOccurs 0
+/xs:schema/el/xs:annotation/xs:documentation Date goods are delivered
+/xs:schema/el/xs:annotation
+/xs:schema/el/@name WarehouseID
+/xs:schema/el/@type SAFmiddle1textType
+/xs:schema/el/@minOccurs 0
+/xs:schema/el/xs:annotation/xs:documentation Warehouse where goods held - also to identify work-in-progress, or stock-in-transit
+/xs:schema/el/xs:annotation
+/xs:schema/el/@name LocationID
+/xs:schema/el/@type SAFshorttextType
+/xs:schema/el/@minOccurs 0
+/xs:schema/el/xs:annotation/xs:documentation Location of goods in warehouse
+/xs:schema/el/xs:annotation
+/xs:schema/el/@name UCR
+/xs:schema/el/@type SAFmiddle1textType
+/xs:schema/el/@minOccurs 0
+/xs:schema/el/xs:annotation/xs:documentation Unique consignment reference number
+/xs:schema/el/xs:annotation
+/xs:schema/el/@name Address
+/xs:schema/el/@type AddressStructure
+/xs:schema/el/@minOccurs 0
+/xs:schema/el
+/xs:schema/xs:complexType/xs:sequence
+/xs:schema/xs:complexType
+/xs:schema/xs:complexType/@name AddressStructure
+/xs:schema/xs:complexType/xs:annotation/xs:documentation [Common to all SAFs] A common structure used wherever an address is required.
+/xs:schema/xs:complexType/xs:annotation
+/xs:schema/el/@name StreetName
+/xs:schema/el/@type SAFmiddle2textType
+/xs:schema/el/@minOccurs 0
+/xs:schema/el
+/xs:schema/el/@name Number
+/xs:schema/el/@type SAFshorttextType
+/xs:schema/el/@minOccurs 0
+/xs:schema/el
+/xs:schema/el/@name AdditionalAddressDetail
+/xs:schema/el/@type SAFmiddle2textType
+/xs:schema/el/@minOccurs 0
+/xs:schema/el
+/xs:schema/el/@name Building
+/xs:schema/el/@type SAFmiddle1textType
+/xs:schema/el/@minOccurs 0
+/xs:schema/el
+/xs:schema/el/@name City
+/xs:schema/el/@type SAFmiddle1textType
+/xs:schema/el
+/xs:schema/el/@name PostalCode
+/xs:schema/el/@type SAFshorttextType
+/xs:schema/el
+/xs:schema/el/@name Region
+/xs:schema/el/@type SAFmiddle1textType
+/xs:schema/el/@minOccurs 0
+/xs:schema/el/xs:annotation/xs:documentation Country specific code to indicate regions / provinces within the tax authority. Preferably described according to ISO 3166-2. Example: GB-KEN for Kent county in the United Kingdom.
+/xs:schema/el/xs:annotation
+/xs:schema/el/@name Country
+/xs:schema/el/@type ISOCountryCode
+/xs:schema/el/@minOccurs 0
+/xs:schema/el/xs:annotation/xs:documentation Two-letter country code according to ISO 3166-1 alpha 2 standard. Example NL for the Netherlands.
+/xs:schema/el/xs:annotation
+/xs:schema/el/@name AddressType
+/xs:schema/el/@minOccurs 0
+/xs:schema/el/xs:annotation/xs:documentation Field to differentiate between multiple addresses. To indicate the type of address. Choose  from the predefined enumeration. (examples: StreetAddress PostalAddress, BillingAddress)
+/xs:schema/el/xs:annotation
+/xs:schema/el/xs:simpleType/xs:restriction/@base xs:string
+/xs:schema/el/xs:simpleType/xs:restriction/xs:enumeration/@value StreetAddress
+/xs:schema/el/xs:simpleType/xs:restriction/xs:enumeration
+/xs:schema/el/xs:simpleType/xs:restriction/xs:enumeration/@value PostalAddress
+/xs:schema/el/xs:simpleType/xs:restriction/xs:enumeration
+/xs:schema/el/xs:simpleType/xs:restriction/xs:enumeration/@value BillingAddress
+/xs:schema/el/xs:simpleType/xs:restriction/xs:enumeration
+/xs:schema/el/xs:simpleType/xs:restriction/xs:enumeration/@value ShipToAddress
+/xs:schema/el/xs:simpleType/xs:restriction/xs:enumeration
+/xs:schema/el/xs:simpleType/xs:restriction/xs:enumeration/@value ShipFromAddress
+/xs:schema/el/xs:simpleType/xs:restriction/xs:enumeration
+/xs:schema/el/xs:simpleType/xs:restriction
+/xs:schema/el/xs:simpleType
+/xs:schema/xs:complexType/xs:sequence
+/xs:schema/xs:complexType
+/xs:schema/xs:complexType/@name AmountStructure
+/xs:schema/xs:complexType/xs:annotation/xs:documentation [Common to all SAFs] A common structure used wherever an amount is required. Monetary amount with optional foreign currency exchange rate information.
+/xs:schema/xs:complexType/xs:annotation
+/xs:schema/el/@name Amount
+/xs:schema/el/@type SAFmonetaryType
+/xs:schema/el/xs:annotation/xs:documentation In the header's default currency.
+/xs:schema/el/xs:annotation
+/xs:schema/xs:complexType/xs:sequence/xs:sequence/@minOccurs 0
+/xs:schema/xs:complexType/xs:sequence/xs:sequence/xs:element/@name CurrencyCode
+/xs:schema/xs:complexType/xs:sequence/xs:sequence/xs:element/@type ISOCurrencyCode
+/xs:schema/xs:complexType/xs:sequence/xs:sequence/xs:element/xs:annotation/xs:documentation Three-letter currency code according to ISO 4217 standard. Example: EUR for the Euros or USD for American Dollars.
+/xs:schema/xs:complexType/xs:sequence/xs:sequence/xs:element/xs:annotation
+/xs:schema/xs:complexType/xs:sequence/xs:sequence/xs:element
+/xs:schema/xs:complexType/xs:sequence/xs:sequence/xs:element/@name CurrencyAmount
+/xs:schema/xs:complexType/xs:sequence/xs:sequence/xs:element/@type SAFmonetaryType
+/xs:schema/xs:complexType/xs:sequence/xs:sequence/xs:element/xs:annotation/xs:documentation Amount in foreign currency.
+/xs:schema/xs:complexType/xs:sequence/xs:sequence/xs:element/xs:annotation
+/xs:schema/xs:complexType/xs:sequence/xs:sequence/xs:element
+/xs:schema/xs:complexType/xs:sequence/xs:sequence/xs:element/@name ExchangeRate
+/xs:schema/xs:complexType/xs:sequence/xs:sequence/xs:element/@type SAFexchangerateType
+/xs:schema/xs:complexType/xs:sequence/xs:sequence/xs:element/@minOccurs 0
+/xs:schema/xs:complexType/xs:sequence/xs:sequence/xs:element/xs:annotation/xs:documentation The exchange rate used. CurrencyAmount x ExchangeRate = Amount
+/xs:schema/xs:complexType/xs:sequence/xs:sequence/xs:element/xs:annotation
+/xs:schema/xs:complexType/xs:sequence/xs:sequence/xs:element
+/xs:schema/xs:complexType/xs:sequence/xs:sequence
+/xs:schema/xs:complexType/xs:sequence
+/xs:schema/xs:complexType
+/xs:schema/xs:complexType/@name AnalysisStructure
+/xs:schema/xs:complexType/xs:annotation/xs:documentation General Ledger analysis codes
+/xs:schema/xs:complexType/xs:annotation
+/xs:schema/el/@name AnalysisType
+/xs:schema/el/@type SAFcodeType
+/xs:schema/el/xs:annotation/xs:documentation Analysis code identifier: cost center, cost unit, cost type, project, etc. Refers to the MasterFile AnalysisTypeTable
+/xs:schema/el/xs:annotation
+/xs:schema/el/@name AnalysisID
+/xs:schema/el/@type SAFlongtextType
+/xs:schema/el/xs:annotation/xs:documentation Value of the analysisID: f.i. which cost center applies
+/xs:schema/el/xs:annotation
+/xs:schema/el/@name AnalysisAmount
+/xs:schema/el/@type AmountStructure
+/xs:schema/el/@minOccurs 0
+/xs:schema/el/xs:annotation/xs:documentation Amount applying to the Analysis: f.i. the amount applying for this cost center
+/xs:schema/el/xs:annotation
+/xs:schema/xs:complexType/xs:sequence
+/xs:schema/xs:complexType
+/xs:schema/xs:complexType/@name BankAccountStructure
+/xs:schema/xs:complexType/xs:annotation/xs:documentation [Common to all SAFs] Bank account number information. IBAN number, or account number with optional information.
+/xs:schema/xs:complexType/xs:annotation
+/xs:schema/xs:complexType/xs:choice/xs:element/@name IBANNumber
+/xs:schema/xs:complexType/xs:choice/xs:element/@type SAFmiddle1textType
+/xs:schema/xs:complexType/xs:choice/xs:element/xs:annotation/xs:documentation International Bank Account Number, ISO 13616
+/xs:schema/xs:complexType/xs:choice/xs:element/xs:annotation
+/xs:schema/xs:complexType/xs:choice/xs:element
+/xs:schema/xs:complexType/xs:choice/xs:sequence/xs:element/@name BankAccountNumber
+/xs:schema/xs:complexType/xs:choice/xs:sequence/xs:element/@type SAFmiddle1textType
+/xs:schema/xs:complexType/xs:choice/xs:sequence/xs:element/xs:annotation/xs:documentation The number allocated to the account by the individual’s or company’s own bank.
+/xs:schema/xs:complexType/xs:choice/xs:sequence/xs:element/xs:annotation
+/xs:schema/xs:complexType/xs:choice/xs:sequence/xs:element
+/xs:schema/xs:complexType/xs:choice/xs:sequence/xs:element/@name BankAccountName
+/xs:schema/xs:complexType/xs:choice/xs:sequence/xs:element/@type SAFmiddle2textType
+/xs:schema/xs:complexType/xs:choice/xs:sequence/xs:element/@minOccurs 0
+/xs:schema/xs:complexType/xs:choice/xs:sequence/xs:element/xs:annotation/xs:documentation The name of the individual or company holding the bank account.
+/xs:schema/xs:complexType/xs:choice/xs:sequence/xs:element/xs:annotation
+/xs:schema/xs:complexType/xs:choice/xs:sequence/xs:element
+/xs:schema/xs:complexType/xs:choice/xs:sequence/xs:element/@name SortCode
+/xs:schema/xs:complexType/xs:choice/xs:sequence/xs:element/@type SAFshorttextType
+/xs:schema/xs:complexType/xs:choice/xs:sequence/xs:element/@minOccurs 0
+/xs:schema/xs:complexType/xs:choice/xs:sequence/xs:element/xs:annotation/xs:documentation Identifier for the bank branch at which the account is held. May be needed to uniquely identify the account.
+/xs:schema/xs:complexType/xs:choice/xs:sequence/xs:element/xs:annotation
+/xs:schema/xs:complexType/xs:choice/xs:sequence/xs:element
+/xs:schema/xs:complexType/xs:choice/xs:sequence
+/xs:schema/xs:complexType/xs:choice
+/xs:schema/xs:complexType
+/xs:schema/xs:complexType/@name CompanyHeaderStructure
+/xs:schema/xs:complexType/xs:annotation/xs:documentation [Common to all SAFs] CompanyStructure with mandatory RegistrationNumber and Telephone (Contact)
+/xs:schema/xs:complexType/xs:annotation
+/xs:schema/xs:complexType/xs:complexContent/xs:restriction/@base CompanyStructure
+/xs:schema/xs:complexType/xs:complexContent/xs:restriction/xs:sequence/xs:element/@name RegistrationNumber
+/xs:schema/xs:complexType/xs:complexContent/xs:restriction/xs:sequence/xs:element/@type SAFmiddle1textType
+/xs:schema/xs:complexType/xs:complexContent/xs:restriction/xs:sequence/xs:element/xs:annotation/xs:documentation Unique number to identify the company in the accounting records, issued by a government body or created by the company for internal purposes to identify different entities within their corporate group.
+/xs:schema/xs:complexType/xs:complexContent/xs:restriction/xs:sequence/xs:element/xs:annotation
+/xs:schema/xs:complexType/xs:complexContent/xs:restriction/xs:sequence/xs:element
+/xs:schema/xs:complexType/xs:complexContent/xs:restriction/xs:sequence/xs:element/@name Name
+/xs:schema/xs:complexType/xs:complexContent/xs:restriction/xs:sequence/xs:element/@type SAFmiddle2textType
+/xs:schema/xs:complexType/xs:complexContent/xs:restriction/xs:sequence/xs:element
+/xs:schema/xs:complexType/xs:complexContent/xs:restriction/xs:sequence/xs:element/@name Address
+/xs:schema/xs:complexType/xs:complexContent/xs:restriction/xs:sequence/xs:element/@type AddressStructure
+/xs:schema/xs:complexType/xs:complexContent/xs:restriction/xs:sequence/xs:element/@maxOccurs unbounded
+/xs:schema/xs:complexType/xs:complexContent/xs:restriction/xs:sequence/xs:element
+/xs:schema/xs:complexType/xs:complexContent/xs:restriction/xs:sequence/xs:element/@name Contact
+/xs:schema/xs:complexType/xs:complexContent/xs:restriction/xs:sequence/xs:element/@type ContactHeaderStructure
+/xs:schema/xs:complexType/xs:complexContent/xs:restriction/xs:sequence/xs:element/@maxOccurs unbounded
+/xs:schema/xs:complexType/xs:complexContent/xs:restriction/xs:sequence/xs:element
+/xs:schema/xs:complexType/xs:complexContent/xs:restriction/xs:sequence/xs:element/@name TaxRegistration
+/xs:schema/xs:complexType/xs:complexContent/xs:restriction/xs:sequence/xs:element/@type TaxIDStructure
+/xs:schema/xs:complexType/xs:complexContent/xs:restriction/xs:sequence/xs:element/@minOccurs 0
+/xs:schema/xs:complexType/xs:complexContent/xs:restriction/xs:sequence/xs:element/@maxOccurs unbounded
+/xs:schema/xs:complexType/xs:complexContent/xs:restriction/xs:sequence/xs:element
+/xs:schema/xs:complexType/xs:complexContent/xs:restriction/xs:sequence/xs:element/@name BankAccount
+/xs:schema/xs:complexType/xs:complexContent/xs:restriction/xs:sequence/xs:element/@type BankAccountStructure
+/xs:schema/xs:complexType/xs:complexContent/xs:restriction/xs:sequence/xs:element/@minOccurs 0
+/xs:schema/xs:complexType/xs:complexContent/xs:restriction/xs:sequence/xs:element/@maxOccurs unbounded
+/xs:schema/xs:complexType/xs:complexContent/xs:restriction/xs:sequence/xs:element
+/xs:schema/xs:complexType/xs:complexContent/xs:restriction/xs:sequence
+/xs:schema/xs:complexType/xs:complexContent/xs:restriction
+/xs:schema/xs:complexType/xs:complexContent
+/xs:schema/xs:complexType
+/xs:schema/xs:complexType/@name CompanyStructure
+/xs:schema/xs:complexType/xs:annotation/xs:documentation [Common to all SAFs] Name, address, contact and identification information of a company.
+/xs:schema/xs:complexType/xs:annotation
+/xs:schema/el/@name RegistrationNumber
+/xs:schema/el/@type SAFmiddle1textType
+/xs:schema/el/@minOccurs 0
+/xs:schema/el/xs:annotation/xs:documentation Unique number to identify the company in the accounting records, issued by a government authority or created by the company for internal purposes to identify different entities within their corporate group.
+/xs:schema/el/xs:annotation
+/xs:schema/el/@name Name
+/xs:schema/el/@type SAFmiddle2textType
+/xs:schema/el
+/xs:schema/el/@name Address
+/xs:schema/el/@type AddressStructure
+/xs:schema/el/@maxOccurs unbounded
+/xs:schema/el
+/xs:schema/el/@name Contact
+/xs:schema/el/@type ContactInformationStructure
+/xs:schema/el/@minOccurs 0
+/xs:schema/el/@maxOccurs unbounded
+/xs:schema/el
+/xs:schema/el/@name TaxRegistration
+/xs:schema/el/@type TaxIDStructure
+/xs:schema/el/@minOccurs 0
+/xs:schema/el/@maxOccurs unbounded
+/xs:schema/el
+/xs:schema/el/@name BankAccount
+/xs:schema/el/@type BankAccountStructure
+/xs:schema/el/@minOccurs 0
+/xs:schema/el/@maxOccurs unbounded
+/xs:schema/el
+/xs:schema/xs:complexType/xs:sequence
+/xs:schema/xs:complexType
+/xs:schema/xs:complexType/@name ContactHeaderStructure
+/xs:schema/xs:complexType/xs:annotation/xs:documentation [Common to all SAFs] ContactInformationStructure with madatory TelephoneNumber
+/xs:schema/xs:complexType/xs:annotation
+/xs:schema/xs:complexType/xs:complexContent/xs:restriction/@base ContactInformationStructure
+/xs:schema/xs:complexType/xs:complexContent/xs:restriction/xs:sequence/xs:element/@name ContactPerson
+/xs:schema/xs:complexType/xs:complexContent/xs:restriction/xs:sequence/xs:element/@type PersonNameStructure
+/xs:schema/xs:complexType/xs:complexContent/xs:restriction/xs:sequence/xs:element
+/xs:schema/xs:complexType/xs:complexContent/xs:restriction/xs:sequence/xs:element/@name Telephone
+/xs:schema/xs:complexType/xs:complexContent/xs:restriction/xs:sequence/xs:element/@type SAFshorttextType
+/xs:schema/xs:complexType/xs:complexContent/xs:restriction/xs:sequence/xs:element
+/xs:schema/xs:complexType/xs:complexContent/xs:restriction/xs:sequence/xs:element/@name Fax
+/xs:schema/xs:complexType/xs:complexContent/xs:restriction/xs:sequence/xs:element/@type SAFshorttextType
+/xs:schema/xs:complexType/xs:complexContent/xs:restriction/xs:sequence/xs:element/@minOccurs 0
+/xs:schema/xs:complexType/xs:complexContent/xs:restriction/xs:sequence/xs:element
+/xs:schema/xs:complexType/xs:complexContent/xs:restriction/xs:sequence/xs:element/@name Email
+/xs:schema/xs:complexType/xs:complexContent/xs:restriction/xs:sequence/xs:element/@type SAFmiddle2textType
+/xs:schema/xs:complexType/xs:complexContent/xs:restriction/xs:sequence/xs:element/@minOccurs 0
+/xs:schema/xs:complexType/xs:complexContent/xs:restriction/xs:sequence/xs:element
+/xs:schema/xs:complexType/xs:complexContent/xs:restriction/xs:sequence/xs:element/@name Website
+/xs:schema/xs:complexType/xs:complexContent/xs:restriction/xs:sequence/xs:element/@type xs:anyURI
+/xs:schema/xs:complexType/xs:complexContent/xs:restriction/xs:sequence/xs:element/@minOccurs 0
+/xs:schema/xs:complexType/xs:complexContent/xs:restriction/xs:sequence/xs:element
+/xs:schema/xs:complexType/xs:complexContent/xs:restriction/xs:sequence
+/xs:schema/xs:complexType/xs:complexContent/xs:restriction
+/xs:schema/xs:complexType/xs:complexContent
+/xs:schema/xs:complexType
+/xs:schema/xs:complexType/@name ContactInformationStructure
+/xs:schema/xs:complexType/xs:annotation/xs:documentation [Common to all SAFs] Contact information of a company.
+/xs:schema/xs:complexType/xs:annotation
+/xs:schema/el/@name ContactPerson
+/xs:schema/el/@type PersonNameStructure
+/xs:schema/el
+/xs:schema/el/@name Telephone
+/xs:schema/el/@type SAFshorttextType
+/xs:schema/el/@minOccurs 0
+/xs:schema/el
+/xs:schema/el/@name Fax
+/xs:schema/el/@type SAFshorttextType
+/xs:schema/el/@minOccurs 0
+/xs:schema/el
+/xs:schema/el/@name Email
+/xs:schema/el/@type SAFmiddle2textType
+/xs:schema/el/@minOccurs 0
+/xs:schema/el
+/xs:schema/el/@name Website
+/xs:schema/el/@type xs:anyURI
+/xs:schema/el/@minOccurs 0
+/xs:schema/el
+/xs:schema/xs:complexType/xs:sequence
+/xs:schema/xs:complexType
+/xs:schema/xs:complexType/@name HeaderStructure
+/xs:schema/xs:complexType/xs:annotation/xs:documentation [Common to all SAFs] Overall information about this Standard Auditfile.
+/xs:schema/xs:complexType/xs:annotation
+/xs:schema/el/@name AuditFileVersion
+/xs:schema/el/@type SAFcodeType
+/xs:schema/el/xs:annotation/xs:documentation Identification of the Standard Audit File SAF-T version being used
+/xs:schema/el/xs:annotation
+/xs:schema/el/@name AuditFileCountry
+/xs:schema/el/@type ISOCountryCode
+/xs:schema/el/xs:annotation/xs:documentation Two-letter country code according to ISO 3166-1 alpha 2 standard. Example NL for the Netherlands.
+/xs:schema/el/xs:annotation
+/xs:schema/el/@name AuditFileRegion
+/xs:schema/el/@type SAFcodeType
+/xs:schema/el/@minOccurs 0
+/xs:schema/el/xs:annotation/xs:documentation Country specific code to indicate regions / provinces within the tax authority. Preferably described according to ISO 3166-2. Example: GB-KEN for Kent county in the United Kingdom.
+/xs:schema/el/xs:annotation
+/xs:schema/el/@name AuditFileDateCreated
+/xs:schema/el/@type xs:date
+/xs:schema/el/xs:annotation/xs:documentation Date of production of SAF-T
+/xs:schema/el/xs:annotation
+/xs:schema/el/@name SoftwareCompanyName
+/xs:schema/el/@type SAFmiddle2textType
+/xs:schema/el/xs:annotation/xs:documentation Name of the software company whose product created the SAF-T.
+/xs:schema/el/xs:annotation
+/xs:schema/el/@name SoftwareID
+/xs:schema/el/@type SAFlongtextType
+/xs:schema/el/xs:annotation/xs:documentation Name of the Software that generated the SAF-T.
+/xs:schema/el/xs:annotation
+/xs:schema/el/@name SoftwareVersion
+/xs:schema/el/@type SAFshorttextType
+/xs:schema/el/xs:annotation/xs:documentation Version of the software that created the SAF-T.
+/xs:schema/el/xs:annotation
+/xs:schema/el/@name Company
+/xs:schema/el/@type CompanyHeaderStructure
+/xs:schema/el/xs:annotation/xs:documentation Company's name and address details.
+/xs:schema/el/xs:annotation
+/xs:schema/el/@name DefaultCurrencyCode
+/xs:schema/el/@type ISOCurrencyCode
+/xs:schema/el/xs:annotation/xs:documentation Three letter Currency Code  (ISO 4217) of local currency which is the default for the SAF.
+/xs:schema/el/xs:annotation
+/xs:schema/el/@name SelectionCriteria
+/xs:schema/el/@type SelectionCriteriaStructure
+/xs:schema/el/@minOccurs 0
+/xs:schema/el/xs:annotation/xs:documentation Criteria set by the user to populate the audit files
+/xs:schema/el/xs:annotation
+/xs:schema/el/@name HeaderComment
+/xs:schema/el/@type SAFlongtextType
+/xs:schema/el/@minOccurs 0
+/xs:schema/el/xs:annotation/xs:documentation Space for any further generic comments on the SAF-T. Revenue Bodies should consider what information they would expect to see here.
+/xs:schema/el/xs:annotation
+/xs:schema/xs:complexType/xs:sequence
+/xs:schema/xs:complexType
+/xs:schema/xs:complexType/@name PersonNameStructure
+/xs:schema/xs:complexType/xs:annotation/xs:documentation [Common to all SAFs] All information about the name of a natural person.
+/xs:schema/xs:complexType/xs:annotation
+/xs:schema/el/@name Title
+/xs:schema/el/@type SAFcodeType
+/xs:schema/el/@minOccurs 0
+/xs:schema/el
+/xs:schema/el/@name FirstName
+/xs:schema/el/@type SAFmiddle1textType
+/xs:schema/el
+/xs:schema/el/@name Initials
+/xs:schema/el/@type SAFshorttextType
+/xs:schema/el/@minOccurs 0
+/xs:schema/el
+/xs:schema/el/@name LastNamePrefix
+/xs:schema/el/@type SAFshorttextType
+/xs:schema/el/@minOccurs 0
+/xs:schema/el/xs:annotation/xs:documentation A textual expression of a prefix that precedes this person's family name such as Van, Von.
+/xs:schema/el/xs:annotation
+/xs:schema/el/@name LastName
+/xs:schema/el/@type SAFmiddle2textType
+/xs:schema/el
+/xs:schema/el/@name BirthName
+/xs:schema/el/@type SAFmiddle2textType
+/xs:schema/el/@minOccurs 0
+/xs:schema/el
+/xs:schema/el/@name Salutation
+/xs:schema/el/@type SAFshorttextType
+/xs:schema/el/@minOccurs 0
+/xs:schema/el/xs:annotation/xs:documentation A formal sign or expression of greeting, expressed as text, that is appropriate for this person such as Right Honourable, Monsignor or Madam.
+/xs:schema/el/xs:annotation
+/xs:schema/el/@name OtherTitles
+/xs:schema/el/@type SAFshorttextType
+/xs:schema/el/@minOccurs 0
+/xs:schema/el/@maxOccurs unbounded
+/xs:schema/el
+/xs:schema/xs:complexType/xs:sequence
+/xs:schema/xs:complexType
+/xs:schema/xs:complexType/@name SelectionCriteriaStructure
+/xs:schema/xs:complexType/xs:annotation/xs:documentation [Common to all SAFs] The selection criteria used to generate this Standard Auditfile
+/xs:schema/xs:complexType/xs:annotation
+/xs:schema/xs:complexType/xs:sequence/@minOccurs 0
+/xs:schema/el/@name TaxReportingJurisdiction
+/xs:schema/el/@type SAFmiddle1textType
+/xs:schema/el/@minOccurs 0
+/xs:schema/el/xs:annotation/xs:documentation Identifies the tax jurisdiction for whose purpose the SAF has been created. Principally for use where a single Revenue body covers more than one territory.
+/xs:schema/el/xs:annotation
+/xs:schema/el/@name CompanyEntity
+/xs:schema/el/@type SAFmiddle2textType
+/xs:schema/el/@minOccurs 0
+/xs:schema/el/xs:annotation/xs:documentation For use where data has been extracted from the full data set by reference to a specific corporate entity.
+/xs:schema/el/xs:annotation
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:annotation/xs:documentation Allows for a choice between selection on calendar dates and periods according to the accounting system, e.g. 1 to 12 for a 12-months accounting system.
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:annotation
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:sequence/xs:element/@name SelectionStartDate
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:sequence/xs:element/@type xs:date
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:sequence/xs:element/xs:annotation/xs:documentation The start date for the reporting period covered by the SAF.
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:sequence/xs:element/xs:annotation
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:sequence/xs:element
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:sequence/xs:element/@name SelectionEndDate
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:sequence/xs:element/@type xs:date
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:sequence/xs:element/xs:annotation/xs:documentation The end date for the reporting period covered by the SAF.
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:sequence/xs:element/xs:annotation
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:sequence/xs:element
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:sequence
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:sequence/xs:element/@name PeriodStart
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:sequence/xs:element/@type xs:nonNegativeInteger
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:sequence/xs:element/xs:annotation/xs:documentation The first Accounting Period covered by the SAF.
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:sequence/xs:element/xs:annotation
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:sequence/xs:element
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:sequence/xs:element/@name PeriodStartYear
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:sequence/xs:element/xs:annotation/xs:documentation The Accounting Year in which the PeriodStart falls.
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:sequence/xs:element/xs:annotation
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:sequence/xs:element/xs:simpleType/xs:restriction/@base xs:nonNegativeInteger
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:sequence/xs:element/xs:simpleType/xs:restriction/xs:minInclusive/@value 1970
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:sequence/xs:element/xs:simpleType/xs:restriction/xs:minInclusive
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:sequence/xs:element/xs:simpleType/xs:restriction/xs:maxInclusive/@value 2100
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:sequence/xs:element/xs:simpleType/xs:restriction/xs:maxInclusive
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:sequence/xs:element/xs:simpleType/xs:restriction
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:sequence/xs:element/xs:simpleType
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:sequence/xs:element
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:sequence/xs:element/@name PeriodEnd
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:sequence/xs:element/@type xs:nonNegativeInteger
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:sequence/xs:element/xs:annotation/xs:documentation The last Accounting Period covered by the SAF.
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:sequence/xs:element/xs:annotation
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:sequence/xs:element
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:sequence/xs:element/@name PeriodEndYear
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:sequence/xs:element/xs:annotation/xs:documentation The Accounting Year in which the PeriodEnd falls.
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:sequence/xs:element/xs:annotation
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:sequence/xs:element/xs:simpleType/xs:restriction/@base xs:nonNegativeInteger
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:sequence/xs:element/xs:simpleType/xs:restriction/xs:minInclusive/@value 1970
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:sequence/xs:element/xs:simpleType/xs:restriction/xs:minInclusive
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:sequence/xs:element/xs:simpleType/xs:restriction/xs:maxInclusive/@value 2100
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:sequence/xs:element/xs:simpleType/xs:restriction/xs:maxInclusive
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:sequence/xs:element/xs:simpleType/xs:restriction
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:sequence/xs:element/xs:simpleType
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:sequence/xs:element
+/xs:schema/xs:complexType/xs:sequence/xs:choice/xs:sequence
+/xs:schema/xs:complexType/xs:sequence/xs:choice
+/xs:schema/el/@name DocumentType
+/xs:schema/el/@type SAFlongtextType
+/xs:schema/el/@minOccurs 0
+/xs:schema/el/xs:annotation/xs:documentation Type of documents selected. For use where the data has been restricted by reference to particular transaction types.
+/xs:schema/el/xs:annotation
+/xs:schema/el/@name OtherCriteria
+/xs:schema/el/@type SAFlongtextType
+/xs:schema/el/@minOccurs 0
+/xs:schema/el/@maxOccurs unbounded
+/xs:schema/el/xs:annotation/xs:documentation Any other criteria used in selecting data. Individual Revenue Bodies may wish to draw up a list of other acceptable selection criteria for use within their jurisdiction.
+/xs:schema/el/xs:annotation
+/xs:schema/xs:complexType/xs:sequence
+/xs:schema/xs:complexType
+/xs:schema/xs:complexType/@name TaxIDStructure
+/xs:schema/xs:complexType/xs:annotation/xs:documentation [Common to all SAFs] Tax information of a company.
+/xs:schema/xs:complexType/xs:annotation
+/xs:schema/el/@name TaxRegistrationNumber
+/xs:schema/el/@type SAFmiddle1textType
+/xs:schema/el/xs:annotation/xs:documentation Unique number issued by a Revenue Body for use by the company.
+/xs:schema/el/xs:annotation
+/xs:schema/el/@name TaxType
+/xs:schema/el/@type SAFcodeType
+/xs:schema/el/@minOccurs 0
+/xs:schema/el/xs:annotation/xs:documentation For use where information reported in the SAF-T covers more than one type of tax regime: to identify the type of tax regime to which this entry relates.
+/xs:schema/el/xs:annotation
+/xs:schema/el/@name TaxNumber
+/xs:schema/el/@type SAFmiddle1textType
+/xs:schema/el/@minOccurs 0
+/xs:schema/el/xs:annotation/xs:documentation The tax registration number for the particular tax regime referred to by TaxType, f.i. VAT-number
+/xs:schema/el/xs:annotation
+/xs:schema/el/@name TaxAuthority
+/xs:schema/el/@type SAFmiddle1textType
+/xs:schema/el/@minOccurs 0
+/xs:schema/el/xs:annotation/xs:documentation Identification of the Revenue Body to which this TaxType refers.
+/xs:schema/el/xs:annotation
+/xs:schema/el/@name TaxVerificationDate
+/xs:schema/el/@type xs:date
+/xs:schema/el/@minOccurs 0
+/xs:schema/el/xs:annotation/xs:documentation The date that the tax registration details referred to above were last checked.
+/xs:schema/el/xs:annotation
+/xs:schema/xs:complexType/xs:sequence
+/xs:schema/xs:complexType
+/xs:schema/xs:complexType/@name TaxInformationStructure
+/xs:schema/xs:complexType/xs:annotation/xs:documentation  Tax Amount information structure
+/xs:schema/xs:complexType/xs:annotation
+/xs:schema/el/@name TaxType
+/xs:schema/el/@type SAFcodeType
+/xs:schema/el/@minOccurs 0
+/xs:schema/el/xs:annotation/xs:documentation Tax type for look-up in tables
+/xs:schema/el/xs:annotation
+/xs:schema/el/@name TaxCode
+/xs:schema/el/@type SAFcodeType
+/xs:schema/el/@minOccurs 0
+/xs:schema/el/xs:annotation/xs:documentation Tax Code for lookup in tables
+/xs:schema/el/xs:annotation
+/xs:schema/el/@name TaxPercentage
+/xs:schema/el/@type xs:decimal
+/xs:schema/el/@minOccurs 0
+/xs:schema/el/xs:annotation/xs:documentation Tax percentage.
+/xs:schema/el/xs:annotation
+/xs:schema/el/@name TaxBase
+/xs:schema/el/@type xs:decimal
+/xs:schema/el/@minOccurs 0
+/xs:schema/el/xs:annotation/xs:documentation The base on which the tax is calculated. This can be an amount, or a quantity, eg. Litres.
+/xs:schema/el/xs:annotation
+/xs:schema/el/@name TaxBaseDescription
+/xs:schema/el/@type SAFmiddle2textType
+/xs:schema/el/@minOccurs 0
+/xs:schema/el/xs:annotation/xs:documentation Description of the value in the TaxBase. Eg. Litres for excises on alcoholic bevarages.
+/xs:schema/el/xs:annotation
+/xs:schema/el/@name TaxAmount
+/xs:schema/el/@type AmountStructure
+/xs:schema/el/xs:annotation/xs:documentation Tax amount information
+/xs:schema/el/xs:annotation
+/xs:schema/el/@name TaxExemptionReason
+/xs:schema/el/@type SAFmiddle2textType
+/xs:schema/el/@minOccurs 0
+/xs:schema/el/xs:annotation/xs:documentation Tax exemption or reduction reason or rationale
+/xs:schema/el/xs:annotation
+/xs:schema/el/@name TaxDeclarationPeriod
+/xs:schema/el/@type SAFmiddle1textType
+/xs:schema/el/@minOccurs 0
+/xs:schema/el/xs:annotation/xs:documentation The identification of the declaration/return in which the taxamount is reported to the Revenue body.
+/xs:schema/el/xs:annotation
+/xs:schema/xs:complexType/xs:sequence
+/xs:schema/xs:complexType
+/xs:schema/xs:simpleType/@name SAFmonetaryType
+/xs:schema/xs:simpleType/xs:annotation/xs:documentation Monetary amount.18 digits max, of which 2 can be fractional digits.
+/xs:schema/xs:simpleType/xs:annotation
+/xs:schema/xs:simpleType/xs:restriction/@base xs:decimal
+/xs:schema/xs:simpleType/xs:restriction/xs:totalDigits/@value 18
+/xs:schema/xs:simpleType/xs:restriction/xs:totalDigits
+/xs:schema/xs:simpleType/xs:restriction/xs:fractionDigits/@value 2
+/xs:schema/xs:simpleType/xs:restriction/xs:fractionDigits
+/xs:schema/xs:simpleType/xs:restriction
+/xs:schema/xs:simpleType
+/xs:schema/xs:simpleType/@name SAFexchangerateType
+/xs:schema/xs:simpleType/xs:annotation/xs:documentation 18 digits max, of which 8 can be fractional digits.
+/xs:schema/xs:simpleType/xs:annotation
+/xs:schema/xs:simpleType/xs:restriction/@base xs:decimal
+/xs:schema/xs:simpleType/xs:restriction/xs:totalDigits/@value 18
+/xs:schema/xs:simpleType/xs:restriction/xs:totalDigits
+/xs:schema/xs:simpleType/xs:restriction/xs:fractionDigits/@value 8
+/xs:schema/xs:simpleType/xs:restriction/xs:fractionDigits
+/xs:schema/xs:simpleType/xs:restriction
+/xs:schema/xs:simpleType
+/xs:schema/xs:simpleType/@name SAFquantityType
+/xs:schema/xs:simpleType/xs:annotation/xs:documentation Used to describe a quantity. Monetary amount. 22 digits max, of which 6 can be fractional digits.
+/xs:schema/xs:simpleType/xs:annotation
+/xs:schema/xs:simpleType/xs:restriction/@base xs:decimal
+/xs:schema/xs:simpleType/xs:restriction/xs:totalDigits/@value 22
+/xs:schema/xs:simpleType/xs:restriction/xs:totalDigits
+/xs:schema/xs:simpleType/xs:restriction/xs:fractionDigits/@value 6
+/xs:schema/xs:simpleType/xs:restriction/xs:fractionDigits
+/xs:schema/xs:simpleType/xs:restriction
+/xs:schema/xs:simpleType
+/xs:schema/xs:simpleType/@name SAFweightType
+/xs:schema/xs:simpleType/xs:annotation/xs:documentation Describes a weight. Monetary amount.14 digits max, of which 3 can be fractional digits.
+/xs:schema/xs:simpleType/xs:annotation
+/xs:schema/xs:simpleType/xs:restriction/@base xs:decimal
+/xs:schema/xs:simpleType/xs:restriction/xs:totalDigits/@value 14
+/xs:schema/xs:simpleType/xs:restriction/xs:totalDigits
+/xs:schema/xs:simpleType/xs:restriction/xs:fractionDigits/@value 3
+/xs:schema/xs:simpleType/xs:restriction/xs:fractionDigits
+/xs:schema/xs:simpleType/xs:restriction
+/xs:schema/xs:simpleType
+/xs:schema/xs:simpleType/@name SAFcodeType
+/xs:schema/xs:simpleType/xs:annotation/xs:documentation Text of max 9 characters.
+/xs:schema/xs:simpleType/xs:annotation
+/xs:schema/xs:simpleType/xs:restriction/@base xs:string
+/xs:schema/xs:simpleType/xs:restriction/xs:maxLength/@value 9
+/xs:schema/xs:simpleType/xs:restriction/xs:maxLength
+/xs:schema/xs:simpleType/xs:restriction
+/xs:schema/xs:simpleType
+/xs:schema/xs:simpleType/@name SAFshorttextType
+/xs:schema/xs:simpleType/xs:annotation/xs:documentation 18 character text.
+/xs:schema/xs:simpleType/xs:annotation
+/xs:schema/xs:simpleType/xs:restriction/@base xs:string
+/xs:schema/xs:simpleType/xs:restriction/xs:maxLength/@value 18
+/xs:schema/xs:simpleType/xs:restriction/xs:maxLength
+/xs:schema/xs:simpleType/xs:restriction
+/xs:schema/xs:simpleType
+/xs:schema/xs:simpleType/@name SAFmiddle1textType
+/xs:schema/xs:simpleType/xs:annotation/xs:documentation 35 character text.
+/xs:schema/xs:simpleType/xs:annotation
+/xs:schema/xs:simpleType/xs:restriction/@base xs:string
+/xs:schema/xs:simpleType/xs:restriction/xs:maxLength/@value 35
+/xs:schema/xs:simpleType/xs:restriction/xs:maxLength
+/xs:schema/xs:simpleType/xs:restriction
+/xs:schema/xs:simpleType
+/xs:schema/xs:simpleType/@name SAFmiddle2textType
+/xs:schema/xs:simpleType/xs:annotation/xs:documentation 70 character text.
+/xs:schema/xs:simpleType/xs:annotation
+/xs:schema/xs:simpleType/xs:restriction/@base xs:string
+/xs:schema/xs:simpleType/xs:restriction/xs:maxLength/@value 70
+/xs:schema/xs:simpleType/xs:restriction/xs:maxLength
+/xs:schema/xs:simpleType/xs:restriction
+/xs:schema/xs:simpleType
+/xs:schema/xs:simpleType/@name SAFlongtextType
+/xs:schema/xs:simpleType/xs:annotation/xs:documentation 256 character text.
+/xs:schema/xs:simpleType/xs:annotation
+/xs:schema/xs:simpleType/xs:restriction/@base xs:string
+/xs:schema/xs:simpleType/xs:restriction/xs:maxLength/@value 256
+/xs:schema/xs:simpleType/xs:restriction/xs:maxLength
+/xs:schema/xs:simpleType/xs:restriction
+/xs:schema/xs:simpleType
+/xs:schema/xs:simpleType/@name ISOCountryCode
+/xs:schema/xs:simpleType/xs:annotation/xs:documentation Two-letter country code according to ISO 3166-1 alpha 2 standard. Example: NL for the Netherlands.
+/xs:schema/xs:simpleType/xs:annotation
+/xs:schema/xs:simpleType/xs:restriction/@base xs:string
+/xs:schema/xs:simpleType/xs:restriction/xs:length/@value 2
+/xs:schema/xs:simpleType/xs:restriction/xs:length
+/xs:schema/xs:simpleType/xs:restriction
+/xs:schema/xs:simpleType
+/xs:schema/xs:simpleType/@name ISOCurrencyCode
+/xs:schema/xs:simpleType/xs:annotation/xs:documentation Three-letter currency code according to ISO 4217 standard. Example: EUR for the Euros or USD for American Dollars.
+/xs:schema/xs:simpleType/xs:annotation
+/xs:schema/xs:simpleType/xs:restriction/@base xs:string
+/xs:schema/xs:simpleType/xs:restriction/xs:length/@value 3
+/xs:schema/xs:simpleType/xs:restriction/xs:length
+/xs:schema/xs:simpleType/xs:restriction
+/xs:schema/xs:simpleType
+/xs:schema

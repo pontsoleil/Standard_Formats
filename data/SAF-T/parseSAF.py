@@ -48,6 +48,9 @@ if __name__ == '__main__':
   in_file = file_path('SAF-T_Schema_v_2.00ABIE.txt')
   out_file = file_path('SAF-T_Schema_v_2.00ABIE.csv')
   in_xsd = file_path('SAF-T_Schema_v_2.00ABIE.xsd')
+  key_file = file_path('key.txt')
+  keyref_file = file_path('keyref.txt')
+
   header = [
     'kind',
     'level',
@@ -60,15 +63,55 @@ if __name__ == '__main__':
     'enumeration@value',
     '@minOccurs',
     '@maxOccurs',
+    '@desc',
     'path',
+    'refpath',
     'any@namespace',
     'any@minOccurs',
-    '@desc',
     'any@desc',
     'any@namespace',
     'any@minOccurs',
     'any@desc'
   ]
+  simpleType = {
+    'SAFmonetaryType',
+    'SAFexchangerateType',
+    'SAFquantityType',
+    'SAFweightType',
+    'SAFcodeType',
+    'SAFshorttextType',
+    'SAFmiddle1textType',
+    'SAFmiddle2textType',
+    'SAFlongtextType',
+    'ISOCountryCode',
+    'ISOCurrencyCode',
+    'date',
+    'decimal'
+  }
+  complexType = {}
+
+  keyMap = {}
+  key = []
+  with open(key_file) as f:
+    for s_line in f:
+      s_list = s_line.split(' ')
+      id = s_list[0]
+      path = re.sub('\n','',s_list[1])
+      path = f'AuditFile/{path}'
+      keyMap[id] = path
+      key.append(path)
+
+  keyrefMap = {}
+  keyref = []
+  with open(keyref_file) as f:
+    for s_line in f:
+      s_list = s_line.split(' ')
+      id = s_list[0]
+      ref = s_list[1]
+      path = re.sub('\n','',s_list[2])
+      path = f'AuditFile/{path}'
+      keyrefMap[path] = ref
+      keyref.append(path)
 
   map = {}
   with open(in_file) as f:
@@ -87,15 +130,40 @@ if __name__ == '__main__':
       attr = d[-1]
       if not path in map:
         map[path] = {}
+      map[path][attr] = value
       kind = ''
       if 0==level:
         kind = 'ABIE'
-      map[path]['kind'] = kind
-      map[path]['level'] = level
-      map[path]['parent'] = parent
-      map[path]['name'] = name
+      elif '@type'==attr:
+        if value in simpleType:
+          kind = 'BBIE'
+        else:
+          kind = 'ASBIE'
+      elif '@base'==attr:
+        if len(value) > 0 and not value in simpleType:
+          kind='ASBIE'
+      if path in key:
+        kind = 'IDBIE'
+      if path in keyref:
+        kind = 'RFBIE'
+        refid = keyrefMap[path]
+        refpath = keyMap[refid]
+        map[path]['refpath'] = refpath
+      if kind:
+        map[path]['kind'] = kind
+      if level:
+        map[path]['level'] = level
+      if parent:
+        map[path]['parent'] = parent
+      if name:
+        map[path]['name'] = name
       map[path]['path'] = path
-      map[path][attr] = value
+      if '@minOccurs'==attr and '0'==map[path]['@minOccurs']:
+        map[path]['@minOccurs']="zero"
+  
+  for path,data in map.items():
+    if not 'kind' in data:
+      data['kind'] = 'ASBIE'
 
   records = []
   records.append(header)
@@ -107,7 +175,7 @@ if __name__ == '__main__':
       else:
         record.append('')
     records.append(record)
-     
+  
   # print(records)
   with open(out_file, 'w') as f:
     writer = csv.writer(f)
