@@ -60,7 +60,7 @@ if __name__ == '__main__':
     'enumeration@value',
     '@minOccurs',
     '@maxOccurs',
-    'path'
+    'path',
     'any@namespace',
     'any@minOccurs',
     '@desc',
