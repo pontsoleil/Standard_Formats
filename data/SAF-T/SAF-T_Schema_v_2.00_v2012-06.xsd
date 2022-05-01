@@ -1,7 +1,14 @@
 <?xml version="1.0"?>
 <!-- edited with XMLSpy v2011 (http://www.altova.com) by Belastingdienst (Belastingdienst) -->
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Belastingdienst/Centrum voor ICT (Belastingdienst/Centrum voor ICT) -->
-<xs:schema xmlns="urn:OECD:StandardAuditFile-Taxation/2.00" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:doc="urn:schemas-OECD:schema-extensions:documentation" targetNamespace="urn:OECD:StandardAuditFile-Taxation/2.00" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.00" id="SAF-T">
+<xs:schema
+	xmlns="urn:OECD:StandardAuditFile-Taxation/2.00" 
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+	xmlns:doc="urn:schemas-OECD:schema-extensions:documentation" 
+	targetNamespace="urn:OECD:StandardAuditFile-Taxation/2.00" 
+	elementFormDefault="qualified" 
+	attributeFormDefault="unqualified" 
+	version="2.00" id="SAF-T">
 	<xs:annotation>
 		<xs:documentation>
 			<doc:Title>OECD Standard Audit File</doc:Title>
@@ -1625,169 +1632,169 @@ Example: cost unit, cost center, project.</xs:documentation>
 			</xs:sequence>
 		</xs:complexType>
 		<xs:key name="KeyGeneralLedgerAccount">
-			<xs:selector xpath="MasterFiles/GeneralLedgerAccounts/Account"/>
+			<xs:selector xpath="./MasterFiles/GeneralLedgerAccounts/Account"/>
 			<xs:field xpath="AccountID"/>
 		</xs:key>
 		<xs:key name="KeySupplier">
-			<xs:selector xpath="MasterFiles/Suppliers/Supplier"/>
+			<xs:selector xpath="./MasterFiles/Suppliers/Supplier"/>
 			<xs:field xpath="SupplierID"/>
 		</xs:key>
 		<xs:key name="KeyCustomer">
-			<xs:selector xpath="MasterFiles/Customers/Customer"/>
+			<xs:selector xpath="./MasterFiles/Customers/Customer"/>
 			<xs:field xpath="CustomerID"/>
 		</xs:key>
 		<xs:key name="KeyTaxType">
-			<xs:selector xpath="MasterFiles/TaxTable/TaxTableEntry"/>
+			<xs:selector xpath="./MasterFiles/TaxTable/TaxTableEntry"/>
 			<xs:field xpath="TaxType"/>
 		</xs:key>
 		<xs:key name="KeyUnitOfMeasure">
-			<xs:selector xpath="MasterFiles/UOMTable/UOMTableEntry"/>
+			<xs:selector xpath="./MasterFiles/UOMTable/UOMTableEntry"/>
 			<xs:field xpath="UnitOfMeasure"/>
 		</xs:key>
 		<xs:key name="KeyMovementType">
-			<xs:selector xpath="MasterFiles/MovementTypeTable/MovementTypeTableEntry"/>
+			<xs:selector xpath="./MasterFiles/MovementTypeTable/MovementTypeTableEntry"/>
 			<xs:field xpath="MovementType"/>
 		</xs:key>
 		<xs:key name="KeyProductCode">
-			<xs:selector xpath="MasterFiles/Products/Product"/>
+			<xs:selector xpath="./MasterFiles/Products/Product"/>
 			<xs:field xpath="ProductCode"/>
 		</xs:key>
 		<xs:key name="KeyOwner">
-			<xs:selector xpath="MasterFiles/Owners/Owner"/>
+			<xs:selector xpath="./MasterFiles/Owners/Owner"/>
 			<xs:field xpath="OwnerID"/>
 		</xs:key>
 		<xs:key name="KeyAsset">
-			<xs:selector xpath="MasterFiles/Assets/Asset"/>
+			<xs:selector xpath="./MasterFiles/Assets/Asset"/>
 			<xs:field xpath="AssetID"/>
 		</xs:key>
 		<xs:key name="KeyMovementReference">
-			<xs:selector xpath="SourceDocuments/MovementOfGoods/StockMovement"/>
+			<xs:selector xpath="./SourceDocuments/MovementOfGoods/StockMovement"/>
 			<xs:field xpath="MovementReference"/>
 		</xs:key>
 		<xs:key name="KeyTransactionReference">
-			<xs:selector xpath="GeneralLedgerEntries/Journal/Transaction"/>
+			<xs:selector xpath="./GeneralLedgerEntries/Journal/Transaction"/>
 			<xs:field xpath="TransactionID"/>
 		</xs:key>
 		<xs:key name="KeyTaxCode">
-<!--			<xs:selector xpath="MasterFiles/TaxTable/TaxTableEntry"/>
+<!--			<xs:selector xpath="./MasterFiles/TaxTable/TaxTableEntry"/>
 -->
-			<xs:selector xpath="MasterFiles/TaxTable/TaxTableEntry/TaxCodeDetails"/>
+			<xs:selector xpath="./MasterFiles/TaxTable/TaxTableEntry/TaxCodeDetails"/>
 			<xs:field xpath="TaxCode"/>
 		</xs:key>
 		<xs:key name="KeyAnalysisType">
-			<xs:selector xpath="MasterFiles/AnalysisTypeTable/AnalysisTypeTableEntry"/>
+			<xs:selector xpath="./MasterFiles/AnalysisTypeTable/AnalysisTypeTableEntry"/>
 			<xs:field xpath="AnalysisType"/>
 		</xs:key>
 		<xs:key name="KeyAnalysisID">
-			<xs:selector xpath="MasterFiles/AnalysisTypeTable/AnalysisTypeTableEntry"/>
+			<xs:selector xpath="./MasterFiles/AnalysisTypeTable/AnalysisTypeTableEntry"/>
 			<xs:field xpath="AnalysisID"/>
 		</xs:key>
 		<xs:key name="KeyStockAccountNo">
-			<xs:selector xpath="MasterFiles/PhysicalStock/PhysicalStockEntry"/>
+			<xs:selector xpath="./MasterFiles/PhysicalStock/PhysicalStockEntry"/>
 			<xs:field xpath="StockAccountNo"/>
 		</xs:key>
 		<xs:keyref name="RefTaxonomyAccount" refer="KeyGeneralLedgerAccount">
-			<xs:selector xpath="MasterFiles/Taxonomies/Taxonomy/TaxonomyElement"/>
+			<xs:selector xpath="./MasterFiles/Taxonomies/Taxonomy/TaxonomyElement"/>
 			<xs:field xpath="AccountID"/>
 		</xs:keyref>
 		<xs:keyref name="RefCustomerAccount" refer="KeyGeneralLedgerAccount">
-			<xs:selector xpath="MasterFiles/Customers/Customer"/>
+			<xs:selector xpath="./MasterFiles/Customers/Customer"/>
 			<xs:field xpath="AccountID"/>
 		</xs:keyref>
 		<xs:keyref name="RefSupplierAccount" refer="KeyGeneralLedgerAccount">
-			<xs:selector xpath="MasterFiles/Suppliers/Supplier"/>
+			<xs:selector xpath="./MasterFiles/Suppliers/Supplier"/>
 			<xs:field xpath="AccountID"/>
 		</xs:keyref>
 		<xs:keyref name="RefOwnerAccount" refer="KeyGeneralLedgerAccount">
-			<xs:selector xpath="MasterFiles/Owners/Owner"/>
+			<xs:selector xpath="./MasterFiles/Owners/Owner"/>
 			<xs:field xpath="AccountID"/>
 		</xs:keyref>
 		<xs:keyref name="RefAssetAccount" refer="KeyGeneralLedgerAccount">
-			<xs:selector xpath="MasterFiles/Assets/Asset"/>
+			<xs:selector xpath="./MasterFiles/Assets/Asset"/>
 			<xs:field xpath="AccountID"/>
 		</xs:keyref>
 		<xs:keyref name="RefTransactionLineAccount" refer="KeyGeneralLedgerAccount">
-			<xs:selector xpath="GeneralLedgerEntries/Journal/Transaction/Line"/>
+			<xs:selector xpath="./GeneralLedgerEntries/Journal/Transaction/Line"/>
 			<xs:field xpath="AccountID"/>
 		</xs:keyref>
 		<xs:keyref name="RefSalesInvoiceAccount" refer="KeyGeneralLedgerAccount">
-			<xs:selector xpath="SourceDocuments/SalesInvoices/Invoice"/>
+			<xs:selector xpath="./SourceDocuments/SalesInvoices/Invoice"/>
 			<xs:field xpath="AccountID"/>
 		</xs:keyref>
 		<xs:keyref name="RefSalesInvoiceLineAccount" refer="KeyGeneralLedgerAccount">
-			<xs:selector xpath="SourceDocuments/SalesInvoices/Invoice/Line"/>
+			<xs:selector xpath="./SourceDocuments/SalesInvoices/Invoice/Line"/>
 			<xs:field xpath="AccountID"/>
 		</xs:keyref>
 		<xs:keyref name="RefPurchaseInvoiceAccount" refer="KeyGeneralLedgerAccount">
-			<xs:selector xpath="SourceDocuments/PurchaseInvoices/Invoice"/>
+			<xs:selector xpath="./SourceDocuments/PurchaseInvoices/Invoice"/>
 			<xs:field xpath="AccountID"/>
 		</xs:keyref>
 		<xs:keyref name="RefPurchaseInvoiceLineAccount" refer="KeyGeneralLedgerAccount">
-			<xs:selector xpath="SourceDocuments/PurchaseInvoices/Invoice/Line"/>
+			<xs:selector xpath="./SourceDocuments/PurchaseInvoices/Invoice/Line"/>
 			<xs:field xpath="AccountID"/>
 		</xs:keyref>
 		<xs:keyref name="RefPaymentLineAccount" refer="KeyGeneralLedgerAccount">
-			<xs:selector xpath="SourceDocuments/Payments/Payment/Line"/>
+			<xs:selector xpath="./SourceDocuments/Payments/Payment/Line"/>
 			<xs:field xpath="AccountID"/>
 		</xs:keyref>
 		<xs:keyref name="RefStockMovementLineAccount" refer="KeyGeneralLedgerAccount">
-			<xs:selector xpath="SourceDocuments/MovementOfGoods/StockMovement/Line"/>
+			<xs:selector xpath="./SourceDocuments/MovementOfGoods/StockMovement/Line"/>
 			<xs:field xpath="AccountID"/>
 		</xs:keyref>
 		<xs:keyref name="RefAssetSupplier" refer="KeySupplier">
-			<xs:selector xpath="MasterFiles/Assets/Asset/Supplier"/>
+			<xs:selector xpath="./MasterFiles/Assets/Asset/Supplier"/>
 			<xs:field xpath="SupplierID"/>
 		</xs:keyref>
 		<xs:keyref name="RefGLTransactionSupplier" refer="KeySupplier">
-			<xs:selector xpath="GeneralLedgerEntries/Journal/Transaction"/>
+			<xs:selector xpath="./GeneralLedgerEntries/Journal/Transaction"/>
 			<xs:field xpath="SupplierID"/>
 		</xs:keyref>
 		<xs:keyref name="RefGLTransactionLineSupplier" refer="KeySupplier">
-			<xs:selector xpath="GeneralLedgerEntries/Journal/Transaction/Line"/>
+			<xs:selector xpath="./GeneralLedgerEntries/Journal/Transaction/Line"/>
 			<xs:field xpath="SupplierID"/>
 		</xs:keyref>
 		<xs:keyref name="RefSalesInvoiceSupplier" refer="KeySupplier">
-			<xs:selector xpath="SourceDocuments/SalesInvoices/Invoice/SupplierInfo"/>
+			<xs:selector xpath="./SourceDocuments/SalesInvoices/Invoice/SupplierInfo"/>
 			<xs:field xpath="SupplierID"/>
 		</xs:keyref>
 		<xs:keyref name="RefPurchaseInvoiceSupplier" refer="KeySupplier">
-			<xs:selector xpath="SourceDocuments/PurchaseInvoices/Invoice/SupplierInfo"/>
+			<xs:selector xpath="./SourceDocuments/PurchaseInvoices/Invoice/SupplierInfo"/>
 			<xs:field xpath="SupplierID"/>
 		</xs:keyref>
 		<xs:keyref name="RefPaymenLineSupplier" refer="KeySupplier">
-			<xs:selector xpath="SourceDocuments/Payments/Payment/Line"/>
+			<xs:selector xpath="./SourceDocuments/Payments/Payment/Line"/>
 			<xs:field xpath="SupplierID"/>
 		</xs:keyref>
 		<xs:keyref name="RefStockMovementLineSupplier" refer="KeySupplier">
-			<xs:selector xpath="SourceDocuments/MovementOfGoods/StockMovement/Line"/>
+			<xs:selector xpath="./SourceDocuments/MovementOfGoods/StockMovement/Line"/>
 			<xs:field xpath="SupplierID"/>
 		</xs:keyref>
 		<xs:keyref name="RefAssetTransactionSupplier" refer="KeySupplier">
-			<xs:selector xpath="SourceDocuments/AssetTransactions/AssetTransaction/Supplier"/>
+			<xs:selector xpath="./SourceDocuments/AssetTransactions/AssetTransaction/Supplier"/>
 			<xs:field xpath="SupplierID"/>
 		</xs:keyref>
 		<xs:keyref name="RefGLTransactionCustomer" refer="KeyCustomer">
-			<xs:selector xpath="GeneralLedgerEntries/Journal/Transaction"/>
+			<xs:selector xpath="./GeneralLedgerEntries/Journal/Transaction"/>
 			<xs:field xpath="CustomerID"/>
 		</xs:keyref>
 		<xs:keyref name="RefGLTransactionLineCustomer" refer="KeyCustomer">
-			<xs:selector xpath="GeneralLedgerEntries/Journal/Transaction/Line"/>
+			<xs:selector xpath="./GeneralLedgerEntries/Journal/Transaction/Line"/>
 			<xs:field xpath="CustomerID"/>
 		</xs:keyref>
 		<xs:keyref name="RefSalesInvoiceCustomer" refer="KeyCustomer">
-			<xs:selector xpath="SourceDocuments/SalesInvoices/Invoice/CustomerInfo"/>
+			<xs:selector xpath="./SourceDocuments/SalesInvoices/Invoice/CustomerInfo"/>
 			<xs:field xpath="CustomerID"/>
 		</xs:keyref>
 		<xs:keyref name="RefPurchaseInvoiceCustomer" refer="KeyCustomer">
-			<xs:selector xpath="SourceDocuments/PurchaseInvoices/Invoice/CustomerInfo"/>
+			<xs:selector xpath="./SourceDocuments/PurchaseInvoices/Invoice/CustomerInfo"/>
 			<xs:field xpath="CustomerID"/>
 		</xs:keyref>
 		<xs:keyref name="RefPaymentLineCustomer" refer="KeyCustomer">
-			<xs:selector xpath="SourceDocuments/Payments/Payment/Line"/>
+			<xs:selector xpath="./SourceDocuments/Payments/Payment/Line"/>
 			<xs:field xpath="CustomerID"/>
 		</xs:keyref>
 		<xs:keyref name="RefStockMovementLineCustomer" refer="KeyCustomer">
-			<xs:selector xpath="SourceDocuments/MovementOfGoods/StockMovement/Line"/>
+			<xs:selector xpath="./SourceDocuments/MovementOfGoods/StockMovement/Line"/>
 			<xs:field xpath="CustomerID"/>
 		</xs:keyref>
 		<xs:keyref name="RefRegistrationTaxType" refer="KeyTaxType">
@@ -1795,207 +1802,207 @@ Example: cost unit, cost center, project.</xs:documentation>
 			<xs:field xpath="TaxType"/>
 		</xs:keyref>
 		<xs:keyref name="RefCustomerTaxType" refer="KeyTaxType">
-			<xs:selector xpath="MasterFiles/Customers/Customer/TaxRegistration"/>
+			<xs:selector xpath="./MasterFiles/Customers/Customer/TaxRegistration"/>
 			<xs:field xpath="TaxType"/>
 		</xs:keyref>
 		<xs:keyref name="RefSupplierTaxType" refer="KeyTaxType">
-			<xs:selector xpath="MasterFiles/Suppliers/Supplier/TaxRegistration"/>
+			<xs:selector xpath="./MasterFiles/Suppliers/Supplier/TaxRegistration"/>
 			<xs:field xpath="TaxType"/>
 		</xs:keyref>
 		<xs:keyref name="RefProductTaxType" refer="KeyTaxType">
-			<xs:selector xpath="MasterFiles/Products/Product/Tax"/>
+			<xs:selector xpath="./MasterFiles/Products/Product/Tax"/>
 			<xs:field xpath="TaxType"/>
 		</xs:keyref>
 		<xs:keyref name="RefOwnerTaxType" refer="KeyTaxType">
-			<xs:selector xpath="MasterFiles/Owners/Owner/TaxRegistration"/>
+			<xs:selector xpath="./MasterFiles/Owners/Owner/TaxRegistration"/>
 			<xs:field xpath="TaxType"/>
 		</xs:keyref>
 		<xs:keyref name="RefGLTransactionTaxType" refer="KeyTaxType">
-			<xs:selector xpath="GeneralLedgerEntries/Journal/Transaction/Line/TaxInformation"/>
+			<xs:selector xpath="./GeneralLedgerEntries/Journal/Transaction/Line/TaxInformation"/>
 			<xs:field xpath="TaxType"/>
 		</xs:keyref>
 		<xs:keyref name="RefPurchaseInvoiceLineTaxType" refer="KeyTaxType">
-			<xs:selector xpath="SourceDocuments/PurchaseInvoices/Invoice/Line/TaxInformation"/>
+			<xs:selector xpath="./SourceDocuments/PurchaseInvoices/Invoice/Line/TaxInformation"/>
 			<xs:field xpath="TaxType"/>
 		</xs:keyref>
 		<xs:keyref name="RefPurchaseInvoiceTotalsTaxType" refer="KeyTaxType">
-			<xs:selector xpath="SourceDocuments/PurchaseInvoices/Invoice/DocumentTotals/TaxInformationTotals"/>
+			<xs:selector xpath="./SourceDocuments/PurchaseInvoices/Invoice/DocumentTotals/TaxInformationTotals"/>
 			<xs:field xpath="TaxType"/>
 		</xs:keyref>
 		<xs:keyref name="RefSalesInvoiceLineTaxType" refer="KeyTaxType">
-			<xs:selector xpath="SourceDocuments/SalesInvoices/Invoice/Line/TaxInformation"/>
+			<xs:selector xpath="./SourceDocuments/SalesInvoices/Invoice/Line/TaxInformation"/>
 			<xs:field xpath="TaxType"/>
 		</xs:keyref>
 		<xs:keyref name="RefSalesInvoiceTotalsTaxType" refer="KeyTaxType">
-			<xs:selector xpath="SourceDocuments/SalesInvoices/Invoice/DocumentTotals/TaxInformationTotals"/>
+			<xs:selector xpath="./SourceDocuments/SalesInvoices/Invoice/DocumentTotals/TaxInformationTotals"/>
 			<xs:field xpath="TaxType"/>
 		</xs:keyref>
 		<xs:keyref name="RefPaymentLineTaxType" refer="KeyTaxType">
-			<xs:selector xpath="SourceDocuments/Payments/Payment/Line/TaxInformation"/>
+			<xs:selector xpath="./SourceDocuments/Payments/Payment/Line/TaxInformation"/>
 			<xs:field xpath="TaxType"/>
 		</xs:keyref>
 		<xs:keyref name="RefPaymentTotalsTaxType" refer="KeyTaxType">
-			<xs:selector xpath="SourceDocuments/Payments/Payment/Line/TaxInformation"/>
+			<xs:selector xpath="./SourceDocuments/Payments/Payment/Line/TaxInformation"/>
 			<xs:field xpath="TaxType"/>
 		</xs:keyref>
 		<xs:keyref name="RefStockMovementLineTaxType" refer="KeyTaxType">
-			<xs:selector xpath="SourceDocuments/MovementOfGoods/StockMovement/Line/TaxInformation"/>
+			<xs:selector xpath="./SourceDocuments/MovementOfGoods/StockMovement/Line/TaxInformation"/>
 			<xs:field xpath="TaxType"/>
 		</xs:keyref>
 		<xs:keyref name="RefProductUOMBase" refer="KeyUnitOfMeasure">
-			<xs:selector xpath="MasterFiles/Products/Product"/>
+			<xs:selector xpath="./MasterFiles/Products/Product"/>
 			<xs:field xpath="UOMBase"/>
 		</xs:keyref>
 		<xs:keyref name="RefProductUOMStandard" refer="KeyUnitOfMeasure">
-			<xs:selector xpath="MasterFiles/Products/Product"/>
+			<xs:selector xpath="./MasterFiles/Products/Product"/>
 			<xs:field xpath="UOMStandard"/>
 		</xs:keyref>
 		<xs:keyref name="RefUOMPhysicalStock" refer="KeyUnitOfMeasure">
-			<xs:selector xpath="MasterFiles/PhysicalStock/PhysicalStockEntry"/>
+			<xs:selector xpath="./MasterFiles/PhysicalStock/PhysicalStockEntry"/>
 			<xs:field xpath="UOMPhysicalStock"/>
 		</xs:keyref>
 		<xs:keyref name="RefSalesInvoiceLineUOM" refer="KeyUnitOfMeasure">
-			<xs:selector xpath="SourceDocuments/SalesInvoices/Invoice/Line"/>
+			<xs:selector xpath="./SourceDocuments/SalesInvoices/Invoice/Line"/>
 			<xs:field xpath="InvoiceUOM"/>
 		</xs:keyref>
 		<xs:keyref name="RefPurchaseInvoiceLineUOM" refer="KeyUnitOfMeasure">
-			<xs:selector xpath="SourceDocuments/PurchaseInvoices/Invoice/Line"/>
+			<xs:selector xpath="./SourceDocuments/PurchaseInvoices/Invoice/Line"/>
 			<xs:field xpath="InvoiceUOM"/>
 		</xs:keyref>
 		<xs:keyref name="RefStockMovementUOM" refer="KeyUnitOfMeasure">
-			<xs:selector xpath="SourceDocuments/MovementOfGoods/StockMovement/Line"/>
+			<xs:selector xpath="./SourceDocuments/MovementOfGoods/StockMovement/Line"/>
 			<xs:field xpath="UnitOfMeasure"/>
 		</xs:keyref>
 		<xs:keyref name="RefStockMovementType" refer="KeyMovementType">
-			<xs:selector xpath="SourceDocuments/MovementOfGoods/StockMovement"/>
+			<xs:selector xpath="./SourceDocuments/MovementOfGoods/StockMovement"/>
 			<xs:field xpath="MovementType"/>
 		</xs:keyref>
 		<xs:keyref name="RefStockMovementLineType" refer="KeyMovementType">
-			<xs:selector xpath="SourceDocuments/MovementOfGoods/StockMovement/Line"/>
+			<xs:selector xpath="./SourceDocuments/MovementOfGoods/StockMovement/Line"/>
 			<xs:field xpath="MovementSubType"/>
 		</xs:keyref>
 		<xs:keyref name="RefPhysicalStockProductCode" refer="KeyProductCode">
-			<xs:selector xpath="MasterFiles/PhysicalStock/PhysicalStockEntry"/>
+			<xs:selector xpath="./MasterFiles/PhysicalStock/PhysicalStockEntry"/>
 			<xs:field xpath="ProductCode"/>
 		</xs:keyref>
 		<xs:keyref name="RefSalesInvoiceLineProductCode" refer="KeyProductCode">
-			<xs:selector xpath="SourceDocuments/SalesInvoices/Invoice/Line"/>
+			<xs:selector xpath="./SourceDocuments/SalesInvoices/Invoice/Line"/>
 			<xs:field xpath="ProductCode"/>
 		</xs:keyref>
 		<xs:keyref name="RefPurchaseInvpiceLineProductCode" refer="KeyProductCode">
-			<xs:selector xpath="SourceDocuments/PurchaseInvoices/Invoice/Line"/>
+			<xs:selector xpath="./SourceDocuments/PurchaseInvoices/Invoice/Line"/>
 			<xs:field xpath="ProductCode"/>
 		</xs:keyref>
 		<xs:keyref name="RefStockMovementLineProductCode" refer="KeyProductCode">
-			<xs:selector xpath="SourceDocuments/MovementOfGoods/StockMovement/Line"/>
+			<xs:selector xpath="./SourceDocuments/MovementOfGoods/StockMovement/Line"/>
 			<xs:field xpath="ProductCode"/>
 		</xs:keyref>
 		<xs:keyref name="RefPhysicalStockOwner" refer="KeyOwner">
-			<xs:selector xpath="MasterFiles/PhysicalStock/PhysicalStockEntry"/>
+			<xs:selector xpath="./MasterFiles/PhysicalStock/PhysicalStockEntry"/>
 			<xs:field xpath="OwnerID"/>
 		</xs:keyref>
 		<xs:keyref name="RefAssetTransactionAsset" refer="KeyAsset">
-			<xs:selector xpath="SourceDocuments/AssetTransactions/AssetTransaction"/>
+			<xs:selector xpath="./SourceDocuments/AssetTransactions/AssetTransaction"/>
 			<xs:field xpath="AssetID"/>
 		</xs:keyref>
 		<xs:keyref name="RefSalesInvoiceLineMovementReference" refer="KeyMovementReference">
-			<xs:selector xpath="SourceDocuments/SalesInvoices/Invoice/Line/Delivery"/>
+			<xs:selector xpath="./SourceDocuments/SalesInvoices/Invoice/Line/Delivery"/>
 			<xs:field xpath="MovementReference"/>
 		</xs:keyref>
 		<xs:keyref name="RefPurchaseInvoiceLineMovementReference" refer="KeyMovementReference">
-			<xs:selector xpath="SourceDocuments/PurchaseInvoices/Invoice/Line/Delivery"/>
+			<xs:selector xpath="./SourceDocuments/PurchaseInvoices/Invoice/Line/Delivery"/>
 			<xs:field xpath="MovementReference"/>
 		</xs:keyref>
 		<xs:keyref name="RefSalesInvoiceTransactionReference" refer="KeyTransactionReference">
-			<xs:selector xpath="SourceDocuments/SalesInvoices/Invoice"/>
+			<xs:selector xpath="./SourceDocuments/SalesInvoices/Invoice"/>
 			<xs:field xpath="TransactionID"/>
 		</xs:keyref>
 		<xs:keyref name="RefPurchaseInvoideTransacrionReference" refer="KeyTransactionReference">
-			<xs:selector xpath="SourceDocuments/PurchaseInvoices/Invoice"/>
+			<xs:selector xpath="./SourceDocuments/PurchaseInvoices/Invoice"/>
 			<xs:field xpath="TransactionID"/>
 		</xs:keyref>
 		<xs:keyref name="RefStockMovementTransactionReference" refer="KeyTransactionReference">
-			<xs:selector xpath="SourceDocuments/MovementOfGoods/StockMovement/Line"/>
+			<xs:selector xpath="./SourceDocuments/MovementOfGoods/StockMovement/Line"/>
 			<xs:field xpath="TransactionID"/>
 		</xs:keyref>
 		<xs:keyref name="RefPaymentTransactionReference" refer="KeyTransactionReference">
-			<xs:selector xpath="SourceDocuments/Payments/Payment"/>
+			<xs:selector xpath="./SourceDocuments/Payments/Payment"/>
 			<xs:field xpath="TransactionID"/>
 		</xs:keyref>
 		<xs:keyref name="RefAssetTransactionReference" refer="KeyTransactionReference">
-			<xs:selector xpath="SourceDocuments/AssetTransactions/AssetTransaction"/>
+			<xs:selector xpath="./SourceDocuments/AssetTransactions/AssetTransaction"/>
 			<xs:field xpath="AssetTransactionID"/>
 		</xs:keyref>
 		<xs:keyref name="RefProductTaxCode" refer="KeyTaxCode">
-			<xs:selector xpath="MasterFiles/Products/Product/Tax"/>
+			<xs:selector xpath="./MasterFiles/Products/Product/Tax"/>
 			<xs:field xpath="TaxCode"/>
 		</xs:keyref>
 		<xs:keyref name="RefGLTransactionLineTaxCode" refer="KeyTaxCode">
-			<xs:selector xpath="GeneralLedgerEntries/Journal/Transaction/Line/TaxInformation"/>
+			<xs:selector xpath="./GeneralLedgerEntries/Journal/Transaction/Line/TaxInformation"/>
 			<xs:field xpath="TaxCode"/>
 		</xs:keyref>
 		<xs:keyref name="RefPurchaseInvoiceLineTaxCode" refer="KeyTaxCode">
-			<xs:selector xpath="SourceDocuments/PurchaseInvoices/Invoice/Line/TaxInformation"/>
+			<xs:selector xpath="./SourceDocuments/PurchaseInvoices/Invoice/Line/TaxInformation"/>
 			<xs:field xpath="TaxCode"/>
 		</xs:keyref>
 		<xs:keyref name="RefPurchaseInvoiceTotalsTaxCode" refer="KeyTaxCode">
-			<xs:selector xpath="SourceDocuments/PurchaseInvoices/Invoice/DocumentTotals/TaxInformationTotals"/>
+			<xs:selector xpath="./SourceDocuments/PurchaseInvoices/Invoice/DocumentTotals/TaxInformationTotals"/>
 			<xs:field xpath="TaxCode"/>
 		</xs:keyref>
 		<xs:keyref name="RefSalesInvoiceLineTaxCode" refer="KeyTaxCode">
-			<xs:selector xpath="SourceDocuments/SalesInvoices/Invoice/Line/TaxInformation"/>
+			<xs:selector xpath="./SourceDocuments/SalesInvoices/Invoice/Line/TaxInformation"/>
 			<xs:field xpath="TaxCode"/>
 		</xs:keyref>
 		<xs:keyref name="RefSalesInvoiceTotalsTaxCode" refer="KeyTaxCode">
-			<xs:selector xpath="SourceDocuments/SalesInvoices/Invoice/DocumentTotals/TaxInformationTotals"/>
+			<xs:selector xpath="./SourceDocuments/SalesInvoices/Invoice/DocumentTotals/TaxInformationTotals"/>
 			<xs:field xpath="TaxCode"/>
 		</xs:keyref>
 		<xs:keyref name="RefPaymentLineTaxCode" refer="KeyTaxCode">
-			<xs:selector xpath="SourceDocuments/Payments/Payment/Line/TaxInformation"/>
+			<xs:selector xpath="./SourceDocuments/Payments/Payment/Line/TaxInformation"/>
 			<xs:field xpath="TaxCode"/>
 		</xs:keyref>
 		<xs:keyref name="RefPaymentTotalsTaxCode" refer="KeyTaxCode">
-			<xs:selector xpath="SourceDocuments/Payments/Payment/DocumentTotals/TaxInformationTotals"/>
+			<xs:selector xpath="./SourceDocuments/Payments/Payment/DocumentTotals/TaxInformationTotals"/>
 			<xs:field xpath="TaxCode"/>
 		</xs:keyref>
 		<xs:keyref name="RefStockMovementLineTaxCode" refer="KeyTaxCode">
-			<xs:selector xpath="SourceDocuments/MovementOfGoods/StockMovement/Line/TaxInformation"/>
+			<xs:selector xpath="./SourceDocuments/MovementOfGoods/StockMovement/Line/TaxInformation"/>
 			<xs:field xpath="TaxCode"/>
 		</xs:keyref>
 		<xs:keyref name="RefGLAnalysisType" refer="KeyAnalysisType">
-			<xs:selector xpath="GeneralLedgerEntries/Journal/Transaction/Line/Analysis"/>
+			<xs:selector xpath="./GeneralLedgerEntries/Journal/Transaction/Line/Analysis"/>
 			<xs:field xpath="AnalysisType"/>
 		</xs:keyref>
 		<xs:keyref name="RefGLAnalysisID" refer="KeyAnalysisID">
-			<xs:selector xpath="GeneralLedgerEntries/Journal/Transaction/Line/Analysis"/>
+			<xs:selector xpath="./GeneralLedgerEntries/Journal/Transaction/Line/Analysis"/>
 			<xs:field xpath="AnalysisID"/>
 		</xs:keyref>
 		<xs:keyref name="RefSalesInvoiceLineAnalysisType" refer="KeyAnalysisType">
-			<xs:selector xpath="SourceDocuments/SalesInvoices/Invoice/Line/Analysis"/>
+			<xs:selector xpath="./SourceDocuments/SalesInvoices/Invoice/Line/Analysis"/>
 			<xs:field xpath="AnalysisType"/>
 		</xs:keyref>
 		<xs:keyref name="RefSalesInvoiceLineAnalysisID" refer="KeyAnalysisID">
-			<xs:selector xpath="SourceDocuments/SalesInvoices/Invoice/Line/Analysis"/>
+			<xs:selector xpath="./SourceDocuments/SalesInvoices/Invoice/Line/Analysis"/>
 			<xs:field xpath="AnalysisID"/>
 		</xs:keyref>
 		<xs:keyref name="RefPurchaseInvoiceLineAnalysisType" refer="KeyAnalysisType">
-			<xs:selector xpath="SourceDocuments/PurchaseInvoices/Invoice/Line/Analysis"/>
+			<xs:selector xpath="./SourceDocuments/PurchaseInvoices/Invoice/Line/Analysis"/>
 			<xs:field xpath="AnalysisType"/>
 		</xs:keyref>
 		<xs:keyref name="RefPurchaseInvoiceLineAnalysisID" refer="KeyAnalysisID">
-			<xs:selector xpath="SourceDocuments/PurchaseInvoices/Invoice/Line/Analysis"/>
+			<xs:selector xpath="./SourceDocuments/PurchaseInvoices/Invoice/Line/Analysis"/>
 			<xs:field xpath="AnalysisID"/>
 		</xs:keyref>
 		<xs:keyref name="RefPaymentLineAnalysisType" refer="KeyAnalysisType">
-			<xs:selector xpath="SourceDocuments/Payments/Payment/Line/Analysis"/>
+			<xs:selector xpath="./SourceDocuments/Payments/Payment/Line/Analysis"/>
 			<xs:field xpath="AnalysisType"/>
 		</xs:keyref>
 		<xs:keyref name="RefPaymentLineAnalysisID" refer="KeyAnalysisID">
-			<xs:selector xpath="SourceDocuments/Payments/Payment/Line/Analysis"/>
+			<xs:selector xpath="./SourceDocuments/Payments/Payment/Line/Analysis"/>
 			<xs:field xpath="AnalysisID"/>
 		</xs:keyref>
 		<xs:keyref name="RefStockMovementLineStockAccountNo" refer="KeyStockAccountNo">
-			<xs:selector xpath="SourceDocuments/MovementOfGoods/StockMovement/Line"/>
+			<xs:selector xpath="./SourceDocuments/MovementOfGoods/StockMovement/Line"/>
 			<xs:field xpath="StockAccountNo"/>
 		</xs:keyref>
 	</xs:element>
