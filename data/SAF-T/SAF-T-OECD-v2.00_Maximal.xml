@@ -3,8 +3,7 @@
 <AuditFile 
 	xmlns="urn:OECD:StandardAuditFile-Taxation/2.00"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="urn:OECD:StandardAuditFile-Taxation/2.00 
-	https://www.wuwei.space/iso/tc295/SAF-T/SAF-T_Schema_v_2.00_v2012-06.xsd">
+	xsi:schemaLocation="urn:OECD:StandardAuditFile-Taxation/2.00 SAF-T_Schema_v_2.00_v2012-06.xsd">
   <Header>
     <AuditFileVersion>AuditFil1</AuditFileVersion>
     <AuditFileCountry>NL</AuditFileCountry>
@@ -5121,7 +5120,7 @@
 				</SupplierInfo>
         -->
         <!--CHOICE END-->
-        <AccountID>AccountID-aaa</AccountID>
+        <AccountID>AccountID01</AccountID>
         <BranchStoreNumber>BranchStoreNumber1</BranchStoreNumber>
         <Period>0</Period>
         <PeriodYear>2010</PeriodYear>
