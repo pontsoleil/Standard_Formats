@@ -36,6 +36,9 @@ var ccts_cct = {
     'ts5409': {
       'top': 'ts5409-abie', 'bottom-top': 'ts5409-entity', 'bottom-bottom': ['ts5409-entity2', 'ts5409-udt']
     },
+    'saf': {
+      'top': 'saf-abie', 'bottom-top': 'saf-entity', 'bottom-bottom': ['saf-entity2']
+    },
     'ads': {
       'top': 'ads-abie', 'bottom-top': 'ads-entity', 'bottom-bottom': ['ads-entity2']
     },
@@ -56,7 +59,7 @@ var ccts_cct = {
     }
   },
   loaded = {
-    'adc': false, 'xbrlgl': false, 'ts5409': false, 'ads': false, 'ubl': false, 'bie': false, 'acc': false
+    'adc': false, 'xbrlgl': false, 'ts5409': false, 'saf': false, 'ads': false, 'peppol': false, 'ubl': false, 'bie': false, 'acc': false
   },
   pane = {
     1: null,
@@ -71,6 +74,9 @@ var ccts_cct = {
     },
     'ts5409': {
       'ts5409-entity': null, 'ts5409-entity2': null, 'ts5409-udt': null
+    },
+    'saf': {
+      'saf-entity': null, 'saf-entity2': null
     },
     'ads': {
       'ads-entity': null, 'ads-entity2': null
@@ -115,6 +121,10 @@ var ccts_cct = {
   ads_abie_table, ads_entity_table, ads_entity2_table,
   ts5409_abie_COL_Module,
 
+  saf_abie_table, saf_entity_table, saf_entity2_table,
+  saf_abie_COL_ComponentName, saf_abie_COL_ObjectClassTerm, saf_abie_COL_DictionaryEntryName,
+  saf_entity_COL_DictionaryEntryName, saf_entity_COL_ObjectClassTerm,
+
   acc_COL_ObjectClassTerm, cc_COL_ObjectClassTerm, cc_COL_PropertyTerm, cc_COL_ShortName,
   dt_COL_DataType, dt_COL_DictionaryEntryName,
   bie_COL_ObjectClassTerm,
@@ -134,12 +144,12 @@ var ccts_cct = {
   ubl_udt_table, ubl_dt_COL_CategoryCode, ubl_dt_COL_DictionaryEntryName,
   ubl_acc_table, ubl_cc_table, ubl_un_udt_table, ubl_cc2_table,
 
-  adcMap, xbrlglMap, ts5409Map, adsMap, gbMap, peppolMap, ublMap, bieMap, accMap,
-  adcEntityMap, xbrlglEntityMap, ts5409EntityMap, adsEntityMap, gbEntityMap, peppolEntityMap, ublEntityMap, bieComptMap, ccMap,
-  adcRows, xbrlglRows, ts5409Rows, adsRows, gbRows, peppolRows, ublRows, bieRows, abie,
-  adcEntityRows, xbrlglEntityRows, ts5409EntityRows, adsEntityRows, gbEntityRows, peppolEntityRows, ublEntityRows, bieComptRows, bie,
+  adcMap, xbrlglMap, ts5409Map, safMap, adsMap, gbMap, peppolMap, ublMap, bieMap, accMap,
+  adcEntityMap, xbrlglEntityMap, ts5409EntityMap, safEntityMap, adsEntityMap, gbEntityMap, peppolEntityMap, ublEntityMap, bieComptMap, ccMap,
+  adcRows, xbrlglRows, ts5409Rows, safRows, adsRows, gbRows, peppolRows, ublRows, bieRows, abie,
+  adcEntityRows, xbrlglEntityRows, ts5409EntityRows, safEntityRows, adsEntityRows, gbEntityRows, peppolEntityRows, ublEntityRows, bieComptRows, bie,
 
-  populateAdc, populateXbrlgl, populateTs5409, populateAds, populateGb, populatePeppol, populateUbl, populateBie, populateAcc,
+  populateAdc, populateXbrlgl, populateTs5409, populateSaf, populateAds, populateGb, populatePeppol, populateUbl, populateBie, populateAcc,
   getTopTable, getTopTableID, getEntityTable, getEntityTableID,
 
   DESCRIPTION_LENGTH;
@@ -236,6 +246,8 @@ function setFrame(num, frame) {
     // .search('^.+$', /*regex*/true, /*smart*/false, /*caseInsen*/false).draw();
   }
   else if ('gb' === frame) {
+  }
+  else if ('saf' === frame) {
   }
   else if ('peppol' === frame) {
     // peppol_abie_table.columns(peppol_abie_COL_ObjectClassTerm)
@@ -1227,6 +1239,77 @@ function gb_entity_format(d) { // d is the original data object for the row
   html += '</table>';
   return html;
 }
+function saf_entity_format(d) { // d is the original data object for the row
+  if (!d) { return null; }
+  var html, description, DEN, datatype, objectClass, propertyTerm, representationTerm, associatedObjectClass, xPath, ublDatatype;
+  html = '<table cellpadding="4" cellspacing="0" border="0" style="width:100%; padding-left:16px;">'+
+  '<colgroup>'+
+  '<col span="1" style="width: '+H1+'%;">'+
+  '<col span="1" style="width: '+H2+'%;">'+
+  '</colgroup>';
+  description = (d.Description
+      ? '<tr><td colspan="2">'+d.Description+'</td><tr>'
+      : ''
+    )+
+    (d.AdditionalExplanation
+      ? '<tr><td colspan="2">'+d.AdditionalExplanation+'</td><tr>'
+      : ''
+    );
+  html += description;
+  datatype = ('BBIE' === d.Kind && d.datatype
+      ? '<tr><td>Semantic Data Type:</td><td>'+
+        d.datatype+'</td></tr>'
+      : ''
+    );
+  html += datatype;
+  DEN = '<tr><td>'+
+    (d.DictionaryEntryName
+      ? 'Dictionary Entry Name:</td><td>'+d.DictionaryEntryName
+      : '</td><td>')+
+    '</td></tr>';
+  html += DEN;
+  objectClass = (d.ObjectClassTerm
+      ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Object Class Term:</td><td>'+
+        (d.ObjectClassTermQualifier ? d.ObjectClassTermQualifier+'_ ' : '')+
+        d.ObjectClassTerm+'</td></tr>'
+      : ''
+    );
+  html += objectClass;
+  propertyTerm = (d.PropertyTerm
+      ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Property Term:</td><td>'+
+        (d.PropertyTermQualifier ? d.PropertyTermQualifier+'_ ' : '')+
+        d.PropertyTerm+'</td></tr>'
+      : ''
+    );
+  html += propertyTerm;
+  representationTerm = ('BBIE' === d.Kind && d.RepresentationTerm
+      ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Representation Term:</td><td>'+
+        (d.DataTypeQualifier ? d.DataTypeQualifier+'_ ' : '')+
+        d.RepresentationTerm+'</td></tr>'
+      : ''
+    );
+  html += representationTerm;
+  associatedObjectClass = ('ASBIE' === d.Kind && d.AssociatedObjectClass
+    ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Associated Object Class:</td><td>'+
+        (d.AssociatedObjectClassTermQualifier ? d.AssociatedObjectClassTermQualifier+'_ ' : '')+
+        d.AssociatedObjectClass+'</td></tr>'
+      : ''
+    );
+  html += associatedObjectClass;
+  xPath = (d.XPath
+      ? '<tr><td>UBL XPath:</td><td>'+d.XPath+'</td></tr>'
+      : ''
+    );
+  html += xPath.replace(/\/c/g,'/ c');
+  ublDatatype = (d.UBL_Datatype
+      ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;UBL Datatype:</td><td>'+
+        d.UBL_Datatype+(d.UBL_Cardinality ? ' '+d.UBL_Cardinality : '')+'</td></tr>'
+      : ''
+    );
+  html += ublDatatype;
+  html += '</table>';
+  return html;
+}
 // -----------------------------------------------------------------
 function openADC() {
   var name = 'Audit data collection';
@@ -1698,6 +1781,113 @@ var ts5409_dt_columnDefs = [
   { 'searchable': false, 'targets': 0 },
   { 'visible': false, 'targets': [4, 5, 6, 7] } 
 ];
+// -----------------------------------------------------------------
+// SAF
+// function renderSafAbieTable(row) {
+//   var table = row.Table;
+//   if (!table) {
+//     return '';
+//   }
+//   table = table.replace(/_/g, ' ');
+//   return table;
+// }
+function renderSafDescription(row) {
+  var match, description = row.Description;
+  if (!description) {
+    return '';
+  }
+  description = description.replace(/(_YYYYMMDD_YYYYMMDD|_YYYYMMDD)/g, '');
+  description = description.replace(/_/g, ' ');
+  match = description.match(/^'(.*)'$/);
+  if (match) {
+    description = match[1];
+  }
+  description = description.replace(/''/g,'"');
+  if (description.length > DESCRIPTION_LENGTH) {
+    description = description.substr(0, DESCRIPTION_LENGTH)+'...';
+  }
+  return renderDescription(description);
+}
+function renderSafEntityName(row) {
+  var name = row.Name;
+  if (name) {
+    name = name//.replace(':', ':<br>');
+    // name = name.replace(/\//g, '<br/>');
+    // name = name.replace(/-/g, ' ');
+  }
+  else if (row.DictionaryEntryName) {
+    name = renderAdcEntityName(row);
+  }
+  else {
+    return '';
+  }
+
+  return renderNameByNum(row.num, name);
+}
+saf_abie_COL_Table = 2;
+saf_abie_COL_Module = 1;
+var saf_abie_columns = [
+  { 'width': '4%',
+    'className': 'd-none',
+    'data': 'Kind' }, // 0
+  { 'width': '5%',
+    'data': 'Module' }, // 1
+  { 'width': '35%',
+    'data': 'Name'
+    // ,
+    // 'render': function (data, type, row) {
+    //   return renderSafAbieTable(row); }
+    }, // 2
+  { 'width': '52%',
+    'data': 'Description',
+    'render': function (data, type, row) {
+      return renderSafDescription(row); }}, // 3
+  { 'width': '4%',
+    'className': 'info-control',
+    'orderable': false,
+    'data': null,
+    'defaultContent': '' } // 4
+];
+var saf_abie_columnDefs = [
+  { 'searchable': false, 'targets': 4 }
+];
+// saf_entity_COL_No = 2;
+saf_entity_COL_ObjectClassTerm = 7;
+var saf_entity_columns = [
+  { 'width': '2%',
+    'className': 'details-control',
+    'orderable': false,
+    'data': null,
+    'defaultContent': '' }, // 0
+  { 'width': '8%',
+    'className': 'd-none',
+    'data': 'Kind' }, // 1
+  { 'width': '2%',
+    'data': 'Level'
+  }, // 2
+  { 'width': '35%',
+    'data': 'Name',
+    'render': function(data, type, row) {
+      return renderSafEntityName(row); }}, // 3
+  { 'width': '2%',
+    // 'className': 'd-none',
+    'data': 'Card' }, // 4
+  { 'width': '51%',
+    'data': 'Description',
+    'render': function(data, type, row) {
+      return renderDescription(row.Description); }}, // 5
+  { 'width': '2%',
+    'className': 'info-control',
+    'orderable': false,
+    'data': null,
+    'defaultContent': '' }, // 6
+  { 'data': 'ObjectClassTerm' } // 7-
+];
+var saf_entity_columnDefs = [
+  { 'searchable': false, 'targets': [0,4,6] },
+  { 'visible': false, 'targets': [2,7] } 
+];
+
 // -----------------------------------------------------------------
 // ADS
 function renderAdsAbieTable(row) {
@@ -2230,6 +2420,7 @@ getTopTableID = function(frame) {
     case 'adc':    table_id = 'adc-abie';    break;
     case 'xbrlgl': table_id = 'xbrlgl-abie'; break;
     case 'ts5409': table_id = 'ts5409-abie'; break;
+    case 'saf':    table_id = 'saf-abie';    break;
     case 'ads':    table_id = 'ads-abie';    break;
     case 'gb':     table_id = 'gb-abie';     break;
     case 'peppol': table_id = 'peppol-abie'; break;
@@ -2245,6 +2436,7 @@ getTopTable = function(frame) {
     case 'adc':    table = adc_abie_table;    break;
     case 'xbrlgl': table = xbrlgl_abie_table; break;
     case 'ts5409': table = ts5409_abie_table; break;
+    case 'saf':    table = saf_abie_table;    break;
     case 'ads':    table = ads_abie_table;    break;
     case 'ubl':    table = ubl_abie_table;    break;
     case 'peppol': table = peppol_abie_table; break;
@@ -2259,6 +2451,7 @@ getEntityTableID = function(frame) {
     case 'adc':    table_id = 'adc-entity';    break;
     case 'xbrlgl': table_id = 'xbrlgl-entity'; break;
     case 'ts5409': table_id = 'ts5409-entity'; break;
+    case 'saf':    table_id = 'saf-entity';    break;
     case 'ads':    table_id = 'ads-entity';    break;
     case 'peppol': table_id = 'peppol-entity'; break;
     case 'ubl':    table_id = 'ubl-entity';    break;
@@ -2273,6 +2466,7 @@ getEntityTable = function(frame) {
     case 'adc':    table = adc_entity_table;    break;
     case 'xbrlgl': table = xbrlgl_entity_table; break;
     case 'ts5409': table = ts5409_entity_table; break;
+    case 'saf':    table = saf_entity_table;    break;
     case 'ads':    table = ads_entity_table;    break;
     case 'gb':     table = gb_entity_table;     break;
     case 'peppol': table = peppol_entity_table; break;
@@ -2288,6 +2482,7 @@ function getEntityMap(frame) {
     case 'adc':    map = adcEntityMap;    break;
     case 'xbrlgl': map = xbrlglEntityMap; break;
     case 'ts5409': map = ts5409EntityMap; break;
+    case 'saf':    map = safEntityMap;    break;
     case 'ads':    map = adsEntityMap;    break;
     case 'gb':     map = gbEntityMap;     break;
     case 'peppol': map = peppolEntityMap; break;
@@ -2302,6 +2497,7 @@ function assignEntityRows(frame, rows) {
     case 'adc':    adcEntityRows = rows;    break;
     case 'xbrlgl': xbrlglEntityRows = rows; break;
     case 'ts5409': ts5409EntityRows = rows; break;
+    case 'saf':    safEntityRows = rows;    break;
     case 'ads':    adsEntityRows = rows;    break;
     case 'gb':     gbEntityRows = rows;     break;
     case 'peppol': peppolEntityRows = rows; break;
@@ -2372,6 +2568,7 @@ function filterTop(frame) {
     case 'adc':    adcRows = rows;    adcEntityMap = entityMap;    break;
     case 'xbrlgl': xbrlglRows = rows; xbrlglEntityMap = entityMap; break;
     case 'ts5409': ts5409Rows = rows; ts5409EntityMap = entityMap; break;
+    case 'saf':    safRows = rows;    safEntityMap = entityMap;    break;
     case 'ads':    adsRows = rows;    adsEntityMap = entityMap;    break;
     case 'gb':     gbRows = rows;     gbEntityMap = entityMap;     break;
     case 'peppol': peppolRows = rows; peppolEntityMap = entityMap; break;
@@ -2520,6 +2717,46 @@ ts5409_udt_table = $('#ts5409-udt').DataTable({
   'autoWidth': false,
   'ordering': false,
   'select': true
+});
+// -----------------------------------------------------------------
+// SAF
+//
+saf_abie_table = $('#saf-abie').DataTable({
+  'ajax': 'data/list-SAF-abie.json',
+  'columns': saf_abie_columns,
+  'columnDefs': saf_abie_columnDefs,
+  'paging': false,
+  'autoWidth': false,
+  'ordering': false,
+  'select': true
+});
+saf_entity_table = $('#saf-entity').DataTable({
+  'ajax': 'data/list-SAF-entity.json',
+  'columns': saf_entity_columns,
+  'columnDefs': saf_entity_columnDefs,
+  'paging': false,
+  'autoWidth': false,
+  'ordering': false,
+  'select': true,
+  'initComplete': function(settings, json) {
+    filterTop('saf');
+  },
+  'drawCallback': function(settings) {
+    checkAssociated('saf-entity');
+    hideOverlay();
+  }
+});
+saf_entity2_table = $('#saf-entity2').DataTable({
+  'ajax': 'data/list-SAF-entity.json',
+  'columns': saf_entity_columns,
+  'columnDefs': saf_entity_columnDefs,
+  'paging': false,
+  'autoWidth': false,
+  'ordering': false,
+  'select': true,
+  'drawCallback': function(settings) {
+    checkAssociated('saf-entity2');
+  }
 });
 // -----------------------------------------------------------------
 // ADS
@@ -2965,6 +3202,47 @@ $('#ts5409-udt tbody').on('click', 'td.info-control', function(event) {
   }
 });
 // -----------------------------------------------------------------
+// SAF
+//
+$('#saf-abie-module').on('change', function(event) {
+  var module = $(this).val();
+  saf_abie_table
+  .column(saf_abie_COL_Module)
+  .search(module, /*regex*/true, /*smart*/false, /*caseInsen*/false).draw();
+});
+// $('#saf-abie-module').val('Base');
+// -----
+$('#saf-abie tbody').on('click', 'td.info-control', function(event) {
+  event.stopPropagation();
+  var tr = $(this).closest('tr'), row = saf_abie_table.row(tr);
+  if (row.child.isShown()) { // This row is already open - close it
+    row.child.hide(); tr.removeClass('shown');
+  }
+  else { // Open this row
+    row.child(saf_entity_format(row.data())).show(); tr.addClass('shown');
+  }
+});
+$('#saf-entity tbody').on('click', 'td.info-control', function(event) {
+  event.stopPropagation();
+  var tr = $(this).closest('tr'), row = saf_entity_table.row(tr);
+  if (row.child.isShown()) { // This row is already open - close it
+    row.child.hide(); tr.removeClass('shown');
+  }
+  else { // Open this row
+    row.child(saf_entity_format(row.data())).show(); tr.addClass('shown');
+  }
+});
+$('#saf-entity2 tbody').on('click', 'td.info-control', function(event) {
+  event.stopPropagation();
+  var tr = $(this).closest('tr'), row = saf_entity2_table.row(tr);
+  if (row.child.isShown()) { // This row is already open - close it
+    row.child.hide(); tr.removeClass('shown');
+  }
+  else { // Open this row
+    row.child(saf_entity_format(row.data())).show(); tr.addClass('shown');
+  }
+});
+// -----------------------------------------------------------------
 // ADS
 //
 $('#ads-abie-module').on('change', function(event) {
@@ -3337,10 +3615,14 @@ function filterEntity(frame, objectClassTermQualifier, objectClassTerm) {
   assignEntityRows(frame, entityRows);
   return entityRows;
 }
-function entityRowsUpdate(frame, entityRows, expandedRows, collapsedRows) {
+function entityRowsUpdate(frame, entityRows, expandedRows, collapsedRows, table_id) {
   var table, table_id, expanded, collapsed, info, rows, i, idx, tr;
-  table = getEntityTable(frame);
-  table_id = getEntityTableID(frame);
+  if (table_id) {
+    table = $('#'+table_id).DataTable();
+  }
+  else {
+    table = getEntityTable(frame);
+  }
   expanded = [];
   if (expandedRows) {
     expandedRows.forEach(function(row) {
@@ -3381,8 +3663,8 @@ function expandCollapse(frame, entityMap, tr) {
       expanded, collapsed, expandedRows, collapsedRows,
       tr_, tr_s, v,
       rows, i, idx, regex, num, match, qualifier, associated;
-  table = getEntityTable(frame);
-  table_id = getEntityTableID(frame);
+  table_id = tr.parent().parent().attr('id');
+  table = $('#'+table_id).DataTable();// getEntityTable(frame);
   row = table.row(tr);
   data = row.data();
   if (!data) { return; }
@@ -3396,35 +3678,6 @@ function expandCollapse(frame, entityMap, tr) {
     row = rows[i];
     entityRows.push(row);
   }
-/*  if ('ubl'==frame) {
-    entityMap.forEach(function(d,key){
-      if (data.ComponentName==d.ComponentName && data.num!=d.num) {
-        row = {
-          AssociatedObjectClass: d['AssociatedObjectClass'],
-          AssociatedObjectClassQualifier: d['AssociatedObjectClassQualifier'],
-          Cardinality: d['Cardinality'],
-          ComponentName: d['ComponentName'],
-          ComponentType: d['ComponentType'],
-          CurrentVersion: d['CurrentVersion'],
-          DataType: d['DataType'],
-          DataTypeQualifier: d['DataTypeQualifier'],
-          Definition: d['Definition'],
-          DictionaryEntryName: d['DictionaryEntryName'],
-          Name: d['Name'],
-          ObjectClassTerm: d['ObjectClassTerm'],
-          ObjectClassTermQualifier: d['ObjectClassTermQualifier'],
-          PropertyTerm: d['PropertyTerm'],
-          PropertyTermPrimaryNoun: d['PropertyTermPrimaryNoun'],
-          PropertyTermQualifier: d['PropertyTermQualifier'],
-          RepresentationTerm: d['RepresentationTerm'],
-          ancestor: d['ancestor'],
-          num: d['num']
-        }
-        entityRows.push(row);
-      }
-    });
-  }
-  */
   tr_s = $('#'+table_id+' tbody tr');
   if (tr.hasClass('expanded')) {
     tr.removeClass('expanded');
@@ -3472,16 +3725,24 @@ function expandCollapse(frame, entityMap, tr) {
       regex = new RegExp('^'+qualifier+associated+'\\.');
       entityMap.forEach(function(value, key) {
         if (value.ancestor === data_.ancestor) {
-          v = JSON.parse(JSON.stringify(value));
-          appendByNum(entityRows, v);
+          var json = JSON.stringify(value);
+          if (json) {
+            v = JSON.parse(json);
+            appendByNum(entityRows, v);
+          }
           // childRows[key] = value;
         }
         if (key && key.match(regex)) {
-          v = JSON.parse(JSON.stringify(value));
-          idx = data_.num+'.'+(i++);
-          v.num = idx;
-          v.ancestor = data_.ancestor;
-          appendByNum(entityRows, v);
+          var json = JSON.stringify(value);
+          if (json) {
+            v = JSON.parse(json);
+            idx = data_.num+'.'+(i++);
+            v.num = idx;
+            if (data_.ancestor) {
+              v.ancestor = data_.ancestor;
+            }
+            appendByNum(entityRows, v);
+          }
           // childRows[key] = value;
         }
       });
@@ -3509,7 +3770,7 @@ function expandCollapse(frame, entityMap, tr) {
   table.rows.add(entityRows)
   .draw();
 
-  entityRowsUpdate(frame, entityRows, expandedRows, collapsedRows);
+  entityRowsUpdate(frame, entityRows, expandedRows, collapsedRows, table_id);
 
   return entityRows;
 }
@@ -3522,6 +3783,9 @@ xbrlglEntityRows = [];
 // -----------------------------------------------------------------
 // TS5409
 ts5409EntityRows = [];
+// -----------------------------------------------------------------
+// SAF
+safEntityRows = [];
 // -----------------------------------------------------------------
 // ADS
 adsEntityRows = [];
@@ -3595,6 +3859,10 @@ function setEntityRows(frame, objectClassTermQualifier, objectClassTerm) {
     case 'ts5409':
       objectClassTermQualifier = objectClassTermQualifier || 'TS5409';
       ts5409EntityRows = filterEntity('ts5409', objectClassTermQualifier, objectClassTerm);
+      break;
+    case 'saf':
+      objectClassTermQualifier = objectClassTermQualifier || 'SAF';
+      safEntityRows = filterEntity('saf', objectClassTermQualifier, objectClassTerm);
       break;
     case 'ads':
       objectClassTermQualifier = objectClassTermQualifier || 'ADS';
@@ -3694,6 +3962,9 @@ function showEntity(tr, frame) {
     case 'ts5409':
       table = ts5409_abie_table; entityMap = ts5409EntityMap; entityRows = ts5409EntityRows;
       break;
+    case 'saf':
+      table = saf_abie_table; entityMap = safEntityMap; entityRows = safEntityRows;
+      break;
     case 'ads':
       table = ads_abie_table; entityMap = adsEntityMap; entityRows = adsEntityRows;
       break;
@@ -3726,7 +3997,7 @@ function showEntity(tr, frame) {
   searchText = (qualifier ? qualifier+'_ ' : '')+data.ObjectClassTerm;
   showOverlay(null, false, searchText);
   tableTitle = $('#'+entity_id+'-frame .table-title');
-  if (['adc', 'ads', 'xbrlgl'].indexOf(frame) >= 0) {
+  if (['adc', 'ads', 'saf', 'xbrlgl'].indexOf(frame) >= 0) {
     tableTitle.text(data.ObjectClassTerm);
   }
   else if ('peppol' == frame) {
@@ -3788,6 +4059,11 @@ function showDetail(tr, frame) {
       COL_DictionaryEntryName = ts5409_dt_COL_DictionaryEntryName;
       COL_DataType            = ts5409_dt_COL_DataType;
       break;
+    case 'saf':
+      entity2_table = saf_entity2_table;
+      // udttable = saf_udt_table;
+      COL_ObjectClassTerm = saf_entity_COL_ObjectClassTerm;
+      break;
     case 'ads':
       entity2_table = ads_entity2_table;
       // udttable = ads_udt_table;
@@ -3842,6 +4118,24 @@ function showDetail(tr, frame) {
       qualifier = qualifier ? qualifier.trim()+'_ ' : '';
       assocClass = data.AssociatedObjectClass;
       searchText = qualifier + assocClass;
+      entity2_table.columns(COL_ObjectClassTerm)
+      .search('^'+searchText+'$', /*regex*/true, /*smart*/false, /*caseInsen*/false)
+      .draw();
+      var idx;
+      if (pane[1]==frame) { idx = 1; }
+      if (pane[2]==frame) { idx = 2; }
+      if ($('#'+frame+'-entity2 tbody td').hasClass('dataTables_empty')) {
+        entity2_table.columns(COL_ObjectClassTerm)
+        .search('^'+assocClass+'$', /*regex*/true, /*smart*/false, /*caseInsen*/false)
+        .draw();
+      }
+    }
+    else if ('saf'==frame) {
+      var qualifier, assocClass;
+      qualifier = data.ReferencedObjectClassTermQualifier || '';
+      qualifier = qualifier ? qualifier.trim()+'_ ' : '';
+      referencedClass = data.ReferencedObjectClass;
+      searchText = qualifier + referencedClass;
       entity2_table.columns(COL_ObjectClassTerm)
       .search('^'+searchText+'$', /*regex*/true, /*smart*/false, /*caseInsen*/false)
       .draw();
@@ -3975,6 +4269,47 @@ $('#ts5409-entity tbody').on('click', 'td:not(.info-control)', function (event) 
   componentType = data.ComponentType || data.Kind;
   if ('ASBIE' === componentType || 'ASCC' === componentType) {
     ts5409EntityRows = expandCollapse(frame, ts5409EntityMap, tr);      
+  }
+  else {
+    showDetail(tr, frame);
+  }
+});
+// -----------------------------------------------------------------
+// SAF
+//
+$('#saf-abie tbody').on('click', 'td:not(.info-control)', function (event) {
+  event.stopPropagation();
+  var tr = $(this).closest('tr'), frame = 'saf';
+  showEntity(tr, frame);
+});
+function showDetailSAF(event) {
+
+}
+$('#saf-entity tbody').on('click', 'td:not(.info-control)', function (event) {
+  event.stopPropagation();
+  var tr = $(this).closest('tr'), frame = 'saf', row, data, componentType;
+  row = saf_entity_table.row(tr), data = row.data();
+  if (!row) { return false; }
+  data = row.data();
+  if (!data) { return false; }
+  componentType = data.ComponentType || data.Kind;
+  if ('ASBIE' === componentType || 'ASCC' === componentType) {
+    safEntityRows = expandCollapse(frame, safEntityMap, tr);      
+  }
+  else {
+    showDetail(tr, frame);
+  }
+});
+$('#saf-entity2 tbody').on('click', 'td:not(.info-control)', function (event) {
+  event.stopPropagation();
+  var tr = $(this).closest('tr'), frame = 'saf', row, data, componentType;
+  row = saf_entity2_table.row(tr), data = row.data();
+  if (!row) { return false; }
+  data = row.data();
+  if (!data) { return false; }
+  componentType = data.ComponentType || data.Kind;
+  if ('ASBIE' === componentType || 'ASCC' === componentType) {
+    safEntityRows = expandCollapse(frame, safEntityMap, tr);      
   }
   else {
     showDetail(tr, frame);
@@ -4126,8 +4461,8 @@ $('#peppol-entity tbody').on('click', 'td:not(.info-control)', function (event) 
     setFrame(1, tab1);
   }
   else {
-    tab1 = tab1 || 'adc';
-    tab2 = tab2 || 'ts5409';//'ads';
+    tab1 = tab1 || 'ts5409';
+    tab2 = tab2 || 'saf';//'ads';
     setFrame(2, tab2);
     setFrame(1, tab1);
   }

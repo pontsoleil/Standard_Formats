@@ -101,29 +101,31 @@
   </div>
 
   <div id="tab-1" class="tab d-none">
-    <p class="tablinks adc" onclick="setFrame(1, 'adc');return false;">ADC</p>
-    <p class="tablinks ts5409" onclick="setFrame(1, 'ts5409');return false;">TS5409</p>
-    <p class="tablinks ads" onclick="setFrame(1, 'ads');return false;">ADS</p>
-    <p class="tablinks gb" onclick="setFrame(1, 'gb');return false;">GB/T24589</p>
-    <p class="tablinks ubl" onclick="setFrame(1, 'ubl');return false;">UBL</p>
-    <p class="tablinks bie" onclick="setFrame(1, 'bie');return false;">UN/CEFACT</p>
-    <p class="tablinks acc" onclick="setFrame(1, 'acc');return false;">CCL</p>
-    <p class="tablinks peppol" onclick="setFrame(1, 'peppol');return false;">Peppol</p>
-    <p class="tablinks xbrlgl" onclick="setFrame(1, 'xbrlgl');return false;">xBRL</p>
+    <p class="tablinks adc" onclick="setFrame(1, 'adc');">ADC</p>
+    <p class="tablinks ts5409" onclick="setFrame(1, 'ts5409');">TS5409</p>
+    <p class="tablinks saf" onclick="setFrame(1, 'saf');">SAF</p>
+    <p class="tablinks ads" onclick="setFrame(1, 'ads');">ADS</p>
+    <p class="tablinks gb" onclick="setFrame(1, 'gb');">GB/T24589</p>
+    <p class="tablinks ubl" onclick="setFrame(1, 'ubl');">UBL</p>
+    <p class="tablinks bie" onclick="setFrame(1, 'bie');">UN/CEFACT</p>
+    <p class="tablinks acc" onclick="setFrame(1, 'acc');">CCL</p>
+    <p class="tablinks peppol" onclick="setFrame(1, 'peppol');">Peppol</p>
+    <p class="tablinks xbrlgl" onclick="setFrame(1, 'xbrlgl');">xBRL</p>
     <!-- <p class="tablinks" onclick="resetFilter()">Reset</p>
     <p class="tablinks file upload d-none" onclick="upload.open('upload')">Upload</p> -->
   </div>
 
   <div id="tab-2" class="tab d-none">
-    <p class="tablinks adc" onclick="setFrame(2, 'adc');return false;">ADC</p>
-    <p class="tablinks ts5409" onclick="setFrame(2, 'ts5409');return false;">TS5409</p>
-    <p class="tablinks ads" onclick="setFrame(2, 'ads');return false;">ADS</p>
-    <p class="tablinks gb" onclick="setFrame(2, 'gb');return false;">GB/T24589</p>
-    <p class="tablinks ubl" onclick="setFrame(2, 'ubl');return false;">UBL</p>
-    <p class="tablinks bie" onclick="setFrame(2, 'bie');return false;">UN/CEFACT</p>
-    <p class="tablinks acc" onclick="setFrame(2, 'acc');return false;">CCL</p>
-    <p class="tablinks peppol" onclick="setFrame(2, 'peppol');return false;">Peppol</p>
-    <p class="tablinks xbrlgl" onclick="setFrame(2, 'xbrlgl');return false;">xBRL</p>
+    <p class="tablinks adc" onclick="setFrame(2, 'adc');">ADC</p>
+    <p class="tablinks ts5409" onclick="setFrame(2, 'ts5409');">TS5409</p>
+    <p class="tablinks saf" onclick="setFrame(2, 'saf');">SAF</p>
+    <p class="tablinks ads" onclick="setFrame(2, 'ads');">ADS</p>
+    <p class="tablinks gb" onclick="setFrame(2, 'gb');">GB/T24589</p>
+    <p class="tablinks ubl" onclick="setFrame(2, 'ubl');">UBL</p>
+    <p class="tablinks bie" onclick="setFrame(2, 'bie');">UN/CEFACT</p>
+    <p class="tablinks acc" onclick="setFrame(2, 'acc');">CCL</p>
+    <p class="tablinks peppol" onclick="setFrame(2, 'peppol');">Peppol</p>
+    <p class="tablinks xbrlgl" onclick="setFrame(2, 'xbrlgl');">xBRL</p>
     <!-- <p class="tablinks" onclick="resetFilter()">Reset</p>
     <p class="tablinks file open_adc d-none" onclick="openADC()">ADC Sheet</p> -->
   </div>
@@ -175,6 +177,7 @@
   <p id="adc-title" class="title d-none">ISO 21378:2019 Audit data collection</p>
   <p id="xbrlgl-title" class="title d-none">xBRL Global Ledger: Transactional Reporting</p>
   <p id="ts5409-title" class="title d-none">IS0/TS 5409</p>
+  <p id="saf-title" class="title d-none">OECD Standard Audit File - Taxation v 2.00 </p>
   <p id="ads-title" class="title d-none">AICPA Audit Data Standards</p>
   <p id="gb-title" class="title d-none">GB/T 24589.1 Financial Information Technology - Data Interface of Accounting
     Software Part 1: Enterprise</p>
@@ -484,6 +487,60 @@
                 <th></th><!-- info-control -->
                 <th class="d-none"></th><!-- Table (hidden) -->
                 <th class="d-none"></th><!-- ObjectClassTerm (hidden) -->
+              </tr>
+            </thead>
+        </table>
+      </div>
+    </div>
+    <!-- SAF -->
+    <div id="saf-abie-container">
+      <div id="saf-abie-frame" class="pretty-split-pane-component-inner">
+        <span class="table-title">OECD Standard Audit File - Taxation v 2.00</span>
+        <table id="saf-abie" class="display" style="width:100%">
+          <thead>
+            <tr>
+              <th class="d-none">-</th>
+              <th>Business Term</th>
+              <th>Description</th>
+              <th></th><!-- info-control -->
+              <th class="d-none"></th><!--Dictionary Entry Name (hidden) -->
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </div>
+    <div id="saf-entity-container">
+      <div id="saf-entity-frame" class="pretty-split-pane-component-inner">
+        <span class="table-title">Basic/Associated Business Information Entity</span>
+        <table id="saf-entity" class="display" style="width:100%">
+          <thead>
+            <tr>
+              <th></th><!-- detail-control 0 -->
+              <th>-</th><!-- 1 -->
+              <th>L</th><!-- 2 -->
+              <th>Business Term</th><!-- 3 -->
+              <th>Card.</th><!-- 4 -->
+              <th>Description</th><!-- 5 -->
+              <th></th><!-- info-control 6 -->
+              <th class="d-none"></th><!-- Object Class (hidden) 7 -->
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </div>
+    <div id="saf-entity2-container">
+      <div id="saf-entity2-frame" class="pretty-split-pane-component-inner">
+        <span class="table-title">Referenced Business Information Entity</span>
+        <table id="saf-entity2" class="display" style="width:100%">
+          <thead>
+            <thead>
+              <tr>
+                <th></th><!-- detail-control -->
+                <th class="d-none">-</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th></th><!-- info-control -->
+                <th class="d-none"></th><!-- Object Class (hidden) -->
               </tr>
             </thead>
         </table>
