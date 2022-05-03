@@ -3615,10 +3615,14 @@ function filterEntity(frame, objectClassTermQualifier, objectClassTerm) {
   assignEntityRows(frame, entityRows);
   return entityRows;
 }
-function entityRowsUpdate(frame, entityRows, expandedRows, collapsedRows) {
+function entityRowsUpdate(frame, entityRows, expandedRows, collapsedRows, table_id) {
   var table, table_id, expanded, collapsed, info, rows, i, idx, tr;
-  table = getEntityTable(frame);
-  table_id = getEntityTableID(frame);
+  if (table_id) {
+    table = $('#'+table_id).DataTable();
+  }
+  else {
+    table = getEntityTable(frame);
+  }
   expanded = [];
   if (expandedRows) {
     expandedRows.forEach(function(row) {
@@ -3659,8 +3663,8 @@ function expandCollapse(frame, entityMap, tr) {
       expanded, collapsed, expandedRows, collapsedRows,
       tr_, tr_s, v,
       rows, i, idx, regex, num, match, qualifier, associated;
-  table = getEntityTable(frame);
-  table_id = getEntityTableID(frame);
+  table_id = tr.parent().parent().attr('id');
+  table = $('#'+table_id).DataTable();// getEntityTable(frame);
   row = table.row(tr);
   data = row.data();
   if (!data) { return; }
@@ -3674,35 +3678,6 @@ function expandCollapse(frame, entityMap, tr) {
     row = rows[i];
     entityRows.push(row);
   }
-/*  if ('ubl'==frame) {
-    entityMap.forEach(function(d,key){
-      if (data.ComponentName==d.ComponentName && data.num!=d.num) {
-        row = {
-          AssociatedObjectClass: d['AssociatedObjectClass'],
-          AssociatedObjectClassQualifier: d['AssociatedObjectClassQualifier'],
-          Cardinality: d['Cardinality'],
-          ComponentName: d['ComponentName'],
-          ComponentType: d['ComponentType'],
-          CurrentVersion: d['CurrentVersion'],
-          DataType: d['DataType'],
-          DataTypeQualifier: d['DataTypeQualifier'],
-          Definition: d['Definition'],
-          DictionaryEntryName: d['DictionaryEntryName'],
-          Name: d['Name'],
-          ObjectClassTerm: d['ObjectClassTerm'],
-          ObjectClassTermQualifier: d['ObjectClassTermQualifier'],
-          PropertyTerm: d['PropertyTerm'],
-          PropertyTermPrimaryNoun: d['PropertyTermPrimaryNoun'],
-          PropertyTermQualifier: d['PropertyTermQualifier'],
-          RepresentationTerm: d['RepresentationTerm'],
-          ancestor: d['ancestor'],
-          num: d['num']
-        }
-        entityRows.push(row);
-      }
-    });
-  }
-  */
   tr_s = $('#'+table_id+' tbody tr');
   if (tr.hasClass('expanded')) {
     tr.removeClass('expanded');
@@ -3761,10 +3736,11 @@ function expandCollapse(frame, entityMap, tr) {
           var json = JSON.stringify(value);
           if (json) {
             v = JSON.parse(json);
-          //v = JSON.parse(JSON.stringify(value));
             idx = data_.num+'.'+(i++);
             v.num = idx;
-            v.ancestor = data_.ancestor;
+            if (data_.ancestor) {
+              v.ancestor = data_.ancestor;
+            }
             appendByNum(entityRows, v);
           }
           // childRows[key] = value;
@@ -3794,7 +3770,7 @@ function expandCollapse(frame, entityMap, tr) {
   table.rows.add(entityRows)
   .draw();
 
-  entityRowsUpdate(frame, entityRows, expandedRows, collapsedRows);
+  entityRowsUpdate(frame, entityRows, expandedRows, collapsedRows, table_id);
 
   return entityRows;
 }
@@ -4136,12 +4112,30 @@ function showDetail(tr, frame) {
     else if (udt_id) {
       $('#'+udt_id+'-frame').addClass('d-none');
     }
-    if (['adc', 'xbrlgl', 'ts5409', 'saf', 'ads', 'gb', 'peppol', 'ubl'].indexOf(frame) >= 0) {
+    if (['adc', 'xbrlgl', 'ts5409', 'ads', 'gb', 'peppol', 'ubl'].indexOf(frame) >= 0) {
       var qualifier, assocClass;
       qualifier = data.AssociatedObjectClassTermQualifier || '';
       qualifier = qualifier ? qualifier.trim()+'_ ' : '';
       assocClass = data.AssociatedObjectClass;
       searchText = qualifier + assocClass;
+      entity2_table.columns(COL_ObjectClassTerm)
+      .search('^'+searchText+'$', /*regex*/true, /*smart*/false, /*caseInsen*/false)
+      .draw();
+      var idx;
+      if (pane[1]==frame) { idx = 1; }
+      if (pane[2]==frame) { idx = 2; }
+      if ($('#'+frame+'-entity2 tbody td').hasClass('dataTables_empty')) {
+        entity2_table.columns(COL_ObjectClassTerm)
+        .search('^'+assocClass+'$', /*regex*/true, /*smart*/false, /*caseInsen*/false)
+        .draw();
+      }
+    }
+    else if ('saf'==frame) {
+      var qualifier, assocClass;
+      qualifier = data.ReferencedObjectClassTermQualifier || '';
+      qualifier = qualifier ? qualifier.trim()+'_ ' : '';
+      referencedClass = data.ReferencedObjectClass;
+      searchText = qualifier + referencedClass;
       entity2_table.columns(COL_ObjectClassTerm)
       .search('^'+searchText+'$', /*regex*/true, /*smart*/false, /*caseInsen*/false)
       .draw();
@@ -4288,10 +4282,28 @@ $('#saf-abie tbody').on('click', 'td:not(.info-control)', function (event) {
   var tr = $(this).closest('tr'), frame = 'saf';
   showEntity(tr, frame);
 });
+function showDetailSAF(event) {
+
+}
 $('#saf-entity tbody').on('click', 'td:not(.info-control)', function (event) {
   event.stopPropagation();
   var tr = $(this).closest('tr'), frame = 'saf', row, data, componentType;
   row = saf_entity_table.row(tr), data = row.data();
+  if (!row) { return false; }
+  data = row.data();
+  if (!data) { return false; }
+  componentType = data.ComponentType || data.Kind;
+  if ('ASBIE' === componentType || 'ASCC' === componentType) {
+    safEntityRows = expandCollapse(frame, safEntityMap, tr);      
+  }
+  else {
+    showDetail(tr, frame);
+  }
+});
+$('#saf-entity2 tbody').on('click', 'td:not(.info-control)', function (event) {
+  event.stopPropagation();
+  var tr = $(this).closest('tr'), frame = 'saf', row, data, componentType;
+  row = saf_entity2_table.row(tr), data = row.data();
   if (!row) { return false; }
   data = row.data();
   if (!data) { return false; }
