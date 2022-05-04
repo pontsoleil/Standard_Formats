@@ -1296,17 +1296,11 @@ function saf_entity_format(d) { // d is the original data object for the row
       : ''
     );
   html += associatedObjectClass;
-  xPath = (d.XPath
-      ? '<tr><td>UBL XPath:</td><td>'+d.XPath+'</td></tr>'
+  type = (d.Type
+      ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;@type:</td><td>'+d.Type+'</td></tr>'
       : ''
     );
-  html += xPath.replace(/\/c/g,'/ c');
-  ublDatatype = (d.UBL_Datatype
-      ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;UBL Datatype:</td><td>'+
-        d.UBL_Datatype+(d.UBL_Cardinality ? ' '+d.UBL_Cardinality : '')+'</td></tr>'
-      : ''
-    );
-  html += ublDatatype;
+  html += type;
   html += '</table>';
   return html;
 }
@@ -1811,9 +1805,7 @@ function renderSafDescription(row) {
 function renderSafEntityName(row) {
   var name = row.Name;
   if (name) {
-    name = name//.replace(':', ':<br>');
-    // name = name.replace(/\//g, '<br/>');
-    // name = name.replace(/-/g, ' ');
+    name = name;
   }
   else if (row.DictionaryEntryName) {
     name = renderAdcEntityName(row);
@@ -1821,7 +1813,6 @@ function renderSafEntityName(row) {
   else {
     return '';
   }
-
   return renderNameByNum(row.num, name);
 }
 saf_abie_COL_Table = 2;
@@ -1833,11 +1824,7 @@ var saf_abie_columns = [
   { 'width': '5%',
     'data': 'Module' }, // 1
   { 'width': '35%',
-    'data': 'Name'
-    // ,
-    // 'render': function (data, type, row) {
-    //   return renderSafAbieTable(row); }
-    }, // 2
+    'data': 'Name' }, // 2
   { 'width': '52%',
     'data': 'Description',
     'render': function (data, type, row) {
@@ -1851,7 +1838,6 @@ var saf_abie_columns = [
 var saf_abie_columnDefs = [
   { 'searchable': false, 'targets': 4 }
 ];
-// saf_entity_COL_No = 2;
 saf_entity_COL_ObjectClassTerm = 7;
 var saf_entity_columns = [
   { 'width': '2%',
@@ -1863,14 +1849,12 @@ var saf_entity_columns = [
     'className': 'd-none',
     'data': 'Kind' }, // 1
   { 'width': '2%',
-    'data': 'Level'
-  }, // 2
+    'data': 'Level' }, // 2
   { 'width': '35%',
     'data': 'Name',
     'render': function(data, type, row) {
       return renderSafEntityName(row); }}, // 3
   { 'width': '2%',
-    // 'className': 'd-none',
     'data': 'Card' }, // 4
   { 'width': '51%',
     'data': 'Description',
@@ -3552,11 +3536,14 @@ function getNum(frame) {
   return null;
 }
 var compareNum = function(a, b) {
-  var a_arr = a.num.split('.').map(function(v){ return +v; }),
-      b_arr = b.num.split('.').map(function(v){ return +v; });
+  var a_num, b_num, a_arr, b_arr;
+  a_num = ''+a.num;
+  b_num = ''+b.num;
+  a_arr = a_num.split('.').map(function(v){ return +v; }),
+  b_arr = b_num.split('.').map(function(v){ return +v; });
   while (a_arr.length > 0 && b_arr.length > 0) {
-    var a_num = a_arr.shift(),
-        b_num = b_arr.shift();
+    a_num = a_arr.shift();
+    b_num = b_arr.shift();
     if (a_num < b_num) { return -1; }
     if (b_num < a_num) { return  1; }
   }
@@ -3567,9 +3554,15 @@ var compareNum = function(a, b) {
 function filterEntity(frame, objectClassTermQualifier, objectClassTerm) {
   var key, item, dictionaryEntryName, objectClass, regex,
       table, n, entityMap, entityRows;
-  if ('string' !== typeof objectClassTermQualifier || 'string' !== typeof objectClassTerm) {
-    return;
+  if (!objectClassTermQualifier) {
+    objectClassTermQualifier = '';
   }
+  if (!objectClassTerm) {
+    objectClassTerm = '';
+  }
+  // if ('string' !== typeof objectClassTermQualifier || 'string' !== typeof objectClassTerm) {
+  //   return;
+  // }
   table = getEntityTable(frame);
   entityMap = getEntityMap(frame);
   if(!entityMap) {
@@ -3599,7 +3592,7 @@ function filterEntity(frame, objectClassTermQualifier, objectClassTerm) {
       ? objectClassTermQualifier+'_ '
       : '')+
     objectClassTerm;
-  regex = new RegExp('^('+objectClass+')\\.');
+  regex = new RegExp('^'+objectClass+'\\.');
   entityMap.forEach(function(value, key) {
     if (key && key.match(regex)) {
       entityRows.push(value);
@@ -3750,7 +3743,7 @@ function expandCollapse(frame, entityMap, tr) {
 
     entityRows.forEach(function(d, key) {
       var num, name, depth, prefix = '', i;
-      num = d.num;
+      num = ''+d.num;
       name = d.Name || d.ComponentName || d.ShortName || d.BusinessTerm;
       depth = num.split('.').length - 1;
       prefix = ''
@@ -3850,22 +3843,21 @@ function hideBackControl(num) {
 function setEntityRows(frame, objectClassTermQualifier, objectClassTerm) {
   switch (frame) {
     case 'adc':
-      objectClassTermQualifier = objectClassTermQualifier || 'ADC';
+      // objectClassTermQualifier = objectClassTermQualifier || 'ADC';
       adcEntityRows = filterEntity('adc', objectClassTermQualifier, objectClassTerm);
       break;
     case 'xbrlgl':
       xbrlglEntityRows = filterEntity('xbrlgl', objectClassTermQualifier, objectClassTerm);
       break;
     case 'ts5409':
-      objectClassTermQualifier = objectClassTermQualifier || 'TS5409';
+      // objectClassTermQualifier = objectClassTermQualifier || 'TS5409';
       ts5409EntityRows = filterEntity('ts5409', objectClassTermQualifier, objectClassTerm);
       break;
     case 'saf':
-      objectClassTermQualifier = objectClassTermQualifier || 'SAF';
       safEntityRows = filterEntity('saf', objectClassTermQualifier, objectClassTerm);
       break;
     case 'ads':
-      objectClassTermQualifier = objectClassTermQualifier || 'ADS';
+      // objectClassTermQualifier = objectClassTermQualifier || 'ADS';
       adsEntityRows = filterEntity('ads', objectClassTermQualifier, objectClassTerm);
       break;
     case 'gb':
@@ -4196,7 +4188,7 @@ function showDetail(tr, frame) {
         .draw();
       }
       tableTitle = $('#'+udt_id+'-frame .table-title');
-      tableTitle.text(searchText+'\. Type');
+      tableTitle.text(searchText+'\\. Type');
     }
     else {
       tr.removeClass('selected');
@@ -4282,25 +4274,17 @@ $('#saf-abie tbody').on('click', 'td:not(.info-control)', function (event) {
   var tr = $(this).closest('tr'), frame = 'saf';
   showEntity(tr, frame);
 });
-function showDetailSAF(event) {
-
-}
-$('#saf-entity tbody').on('click', 'td:not(.info-control)', function (event) {
+$('#saf-entity tbody').on('click', 'td.details-control', function (event) {
   event.stopPropagation();
-  var tr = $(this).closest('tr'), frame = 'saf', row, data, componentType;
-  row = saf_entity_table.row(tr), data = row.data();
-  if (!row) { return false; }
-  data = row.data();
-  if (!data) { return false; }
-  componentType = data.ComponentType || data.Kind;
-  if ('ASBIE' === componentType || 'ASCC' === componentType) {
-    safEntityRows = expandCollapse(frame, safEntityMap, tr);      
-  }
-  else {
-    showDetail(tr, frame);
-  }
+  var tr = $(this).closest('tr'), frame = 'saf';
+  safEntityRows = expandCollapse(frame, safEntityMap, tr);      
 });
-$('#saf-entity2 tbody').on('click', 'td:not(.info-control)', function (event) {
+$('#saf-entity tbody').on('click', 'td.link-control', function (event) {
+  event.stopPropagation();
+  var tr = $(this).closest('tr'), frame = 'saf';
+  showDetail(tr, frame);
+});
+$('#saf-entity2 tbody').on('click', 'td.details-control', function (event) {
   event.stopPropagation();
   var tr = $(this).closest('tr'), frame = 'saf', row, data, componentType;
   row = saf_entity2_table.row(tr), data = row.data();
