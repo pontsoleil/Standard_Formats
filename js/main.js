@@ -3825,18 +3825,30 @@ function setComponentStyle(frame, tr) {
 // -----------------------------------------------------------------
 function showUpControl(num) {
   var control = $('#up-'+num);
+  if (!control) {
+    $('#bottom-horizontal-divider-'+num).append('<div id="up-'+num+'" class="d-none"><span class="up-control"></span></div>')
+  }
   control.removeClass('d-none');
 }
 function hideUpControl(num) {
   var control = $('#up-'+num);
+  if (!control) {
+    $('#bottom-horizontal-divider-'+num).append('<div id="up-'+num+'" class="d-none"><span class="up-control"></span></div>')
+  }
   control.addClass('d-none');
 }
 function showBackControl(num) {
   var control = $('#back-'+num);
+  if (!control) {
+    $('#bottom-horizontal-divider-'+num).append('<div id="back-'+num+'" class="d-none"><span class="up-control"></span></div>')
+  }
   control.removeClass('d-none');
 }
 function hideBackControl(num) {
   var control = $('#back-'+num);
+  if (!control) {
+    $('#bottom-horizontal-divider-'+num).append('<div id="back-'+num+'" class="d-none"><span class="up-control"></span></div>')
+  }
   control.addClass('d-none');
 }
 // -----------------------------------------------------------------
