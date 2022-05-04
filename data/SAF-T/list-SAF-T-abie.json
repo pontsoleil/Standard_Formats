@@ -1,0 +1,59 @@
+{
+    "data": [
+      {
+        "Module": "SAF-T",
+        "Kind": "ABIE",
+        "Table": "",
+        "Name": "AuditFile",
+        "Level": 0,
+        "DictionaryEntryName": "AuditFile. Detail",
+        "Description": "OECD Standard Audit File: Standard Audit File - Taxation version 2.00 (Final version) OECD author TeA team last modified 17-09-2009",
+        "ObjectClassTermQualifier": "",
+        "ObjectClassTerm": "AuditFile"
+      },
+      {
+        "Module": "SAF-T",
+        "Kind": "ABIE",
+        "Table": "",
+        "Name": "GeneralLedgerEntries",
+        "Level": 0,
+        "DictionaryEntryName": "GeneralLedgerEntries. Detail",
+        "Description": "",
+        "ObjectClassTermQualifier": "",
+        "ObjectClassTerm": "GeneralLedgerEntries"
+      },
+      {
+        "Module": "SAF-T",
+        "Kind": "ABIE",
+        "Table": "",
+        "Name": "Header",
+        "Level": 0,
+        "DictionaryEntryName": "Header. Detail",
+        "Description": "Holds general information about the file including the name of the software which produced it; the company on whose behalf the SAF-T is being submitted; and the selection criteria used. An extension point is provided to allow individual Revenue Bodies to  specify further relevant information to be supplied.",
+        "ObjectClassTermQualifier": "",
+        "ObjectClassTerm": "Header"
+      },
+      {
+        "Module": "SAF-T",
+        "Kind": "ABIE",
+        "Table": "",
+        "Name": "MasterFiles",
+        "Level": 0,
+        "DictionaryEntryName": "MasterFiles. Detail",
+        "Description": "Holds standing data about general ledger account, suppliers, customers, products, etc.. An extension point is provided to allow Revenue Bodies to specify additional elements or structures such as tax rate tables.",
+        "ObjectClassTermQualifier": "",
+        "ObjectClassTerm": "MasterFiles"
+      },
+      {
+        "Module": "SAF-T",
+        "Kind": "ABIE",
+        "Table": "",
+        "Name": "SourceDocuments",
+        "Level": 0,
+        "DictionaryEntryName": "SourceDocuments. Detail",
+        "Description": "Holds Sales Invoices, Purchase Invoices, Payments, Movement Of Goods, and Asset Transactions",
+        "ObjectClassTermQualifier": "",
+        "ObjectClassTerm": "SourceDocuments"
+      }
+    ]
+  }
