@@ -3825,29 +3825,45 @@ function setComponentStyle(frame, tr) {
 // -----------------------------------------------------------------
 function showUpControl(num) {
   var control = $('#up-'+num);
-  if (!control) {
-    $('#bottom-horizontal-divider-'+num).append('<div id="up-'+num+'" class="d-none"><span class="up-control"></span></div>')
+  if (!control[0]) {
+    $('#bottom-horizontal-divider-'+num)
+    .append('<div id="up-'+num+'" class="d-none"><span class="up-control"></span></div>')
+    $('#up-'+num).on('click', function(event) {
+      upAssociation(1);
+    });
   }
   control.removeClass('d-none');
 }
 function hideUpControl(num) {
   var control = $('#up-'+num);
-  if (!control) {
-    $('#bottom-horizontal-divider-'+num).append('<div id="up-'+num+'" class="d-none"><span class="up-control"></span></div>')
+  if (!control[0]) {
+    $('#bottom-horizontal-divider-'+num)
+    .append('<div id="up-'+num+'" class="d-none"><span class="up-control"></span></div>')
+    $('#up-'+num).on('click', function(event) {
+      upAssociation(1);
+    });
   }
   control.addClass('d-none');
 }
 function showBackControl(num) {
   var control = $('#back-'+num);
-  if (!control) {
-    $('#bottom-horizontal-divider-'+num).append('<div id="back-'+num+'" class="d-none"><span class="up-control"></span></div>')
+  if (!control[0]) {
+    $('#bottom-horizontal-divider-'+num)
+    .append('<div id="back-'+num+'" class="d-none"><span class="up-control"></span></div>')
+    $('#back-'+num).on('click', function(event) {
+      previousEntity(num);
+    });
   }
   control.removeClass('d-none');
 }
 function hideBackControl(num) {
   var control = $('#back-'+num);
-  if (!control) {
-    $('#bottom-horizontal-divider-'+num).append('<div id="back-'+num+'" class="d-none"><span class="up-control"></span></div>')
+  if (!control[0]) {
+    $('#bottom-horizontal-divider-'+num)
+    .append('<div id="back-'+num+'" class="d-none"><span class="up-control"></span></div>')
+    $('#back-'+num).on('click', function(event) {
+      previousEntity(num);
+    });
   }
   control.addClass('d-none');
 }
@@ -4457,8 +4473,8 @@ $('#peppol-entity tbody').on('click', 'td:not(.info-control)', function (event) 
     setFrame(1, tab1);
   }
   else {
-    tab1 = tab1 || 'ts5409';
-    tab2 = tab2 || 'saf';//'ads';
+    tab1 = tab1 || 'adc'; // 'ts5409';
+    tab2 = tab2 || 'saf'; //'ads';
     setFrame(2, tab2);
     setFrame(1, tab1);
   }
