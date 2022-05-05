@@ -62,12 +62,12 @@ if __name__ == '__main__':
             ObjectClassTermQualifier = l['ObjectClassTermQualifier']
         else: ObjectClassTermQualifier = ''
         ObjectClassTerm = l['ObjectClassTerm']
-        PropertyTerm = l['PropertyTerm']
-        csv_list.append([module,num,Kind,Table,BusinessTerm,DictionaryEntryName,Description,ObjectClassTermQualifier,ObjectClassTerm,PropertyTerm])
+        # PropertyTerm = l['PropertyTerm']
+        csv_list.append([module,num,Kind,Table,BusinessTerm,DictionaryEntryName,Description,ObjectClassTermQualifier,ObjectClassTerm])
 
     with open(out_file, 'w') as f:
         writer = csv.writer(f)
-        writer.writerow(['module','num','Kind','Table','BusinessTerm','DictionaryEntryName','Description','ObjectClassTermQualifier','ObjectClassTerm','PropertyTerm'])
+        writer.writerow(['module','num','Kind','Table','BusinessTerm','DictionaryEntryName','Description','ObjectClassTermQualifier','ObjectClassTerm'])
         for l in csv_list:
             writer.writerow(l)
 

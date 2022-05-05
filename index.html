@@ -104,6 +104,7 @@
     <p class="tablinks adc" onclick="setFrame(1, 'adc');">ADC</p>
     <p class="tablinks ts5409" onclick="setFrame(1, 'ts5409');">TS5409</p>
     <p class="tablinks saf" onclick="setFrame(1, 'saf');">SAF</p>
+    <p class="tablinks adcs" onclick="setFrame(1, 'adcs');">ADCS</p>
     <p class="tablinks ads" onclick="setFrame(1, 'ads');">ADS</p>
     <p class="tablinks gb" onclick="setFrame(1, 'gb');">GB/T24589</p>
     <p class="tablinks ubl" onclick="setFrame(1, 'ubl');">UBL</p>
@@ -119,6 +120,7 @@
     <p class="tablinks adc" onclick="setFrame(2, 'adc');">ADC</p>
     <p class="tablinks ts5409" onclick="setFrame(2, 'ts5409');">TS5409</p>
     <p class="tablinks saf" onclick="setFrame(2, 'saf');">SAF</p>
+    <p class="tablinks adcs" onclick="setFrame(2, 'adcs');">ADCS</p>
     <p class="tablinks ads" onclick="setFrame(2, 'ads');">ADS</p>
     <p class="tablinks gb" onclick="setFrame(2, 'gb');">GB/T24589</p>
     <p class="tablinks ubl" onclick="setFrame(2, 'ubl');">UBL</p>
@@ -178,6 +180,7 @@
   <p id="xbrlgl-title" class="title d-none">xBRL Global Ledger: Transactional Reporting</p>
   <p id="ts5409-title" class="title d-none">IS0/TS 5409</p>
   <p id="saf-title" class="title d-none">OECD Standard Audit File - Taxation v 2.00 </p>
+  <p id="adcs-title" class="title d-none">ISO 21378:2019 Audit data collection</p>
   <p id="ads-title" class="title d-none">AICPA Audit Data Standards</p>
   <p id="gb-title" class="title d-none">GB/T 24589.1 Financial Information Technology - Data Interface of Accounting
     Software Part 1: Enterprise</p>
@@ -492,6 +495,62 @@
         </table>
       </div>
     </div>
+    <!-- ADCS -->
+    <div id="adcs-abie-container">
+      <div id="adcs-abie-frame" class="pretty-split-pane-component-inner">
+        <span class="table-title">ISO 21378:2019 Audit data collection</span>
+        <table id="adcs-abie" class="display" style="width:100%">
+          <thead>
+            <tr>
+              <th class="d-none">-</th>
+              <th>Module</th>
+              <th>Business Term</th>
+              <th>Description</th>
+              <th></th><!-- info-control -->
+              <th class="d-none"></th><!--Dictionary Entry Name (hidden) -->
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </div>
+    <div id="adcs-entity-container">
+      <div id="adcs-entity-frame" class="pretty-split-pane-component-inner">
+        <span class="table-title">Basic/Associated Business Information Entity</span>
+        <table id="adcs-entity" class="display" style="width:100%">
+          <thead>
+            <tr>
+              <th></th><!-- detail-control 0 -->
+              <th class="d-none">-</th><!-- 1 -->
+              <th>L</th><!-- 2 -->
+              <th>Business Term</th><!-- 3 -->
+              <th>Card.</th><!-- 4 -->
+              <th>Description</th><!-- 5 -->
+              <th></th><!-- info-control 6 -->
+              <th></th><!-- Object Class (hidden) 7 -->
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </div>
+    <div id="adcs-entity2-container">
+      <div id="adcs-entity2-frame" class="pretty-split-pane-component-inner">
+        <span class="table-title">Referenced Business Information Entity</span>
+        <table id="adcs-entity2" class="display" style="width:100%">
+          <thead>
+            <tr>
+              <th></th><!-- detail-control 0 -->
+              <th class="d-none">-</th><!-- 1 -->
+              <th>L</th><!-- 2 -->
+              <th>Business Term</th><!-- 3 -->
+              <th>Card.</th><!-- 4 -->
+              <th>Description</th><!-- 5 -->
+              <th></th><!-- info-control 6 -->
+              <th></th><!-- Object Class (hidden) 7 -->
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </div>  
     <!-- SAF -->
     <div id="saf-abie-container">
       <div id="saf-abie-frame" class="pretty-split-pane-component-inner">
@@ -500,6 +559,7 @@
           <thead>
             <tr>
               <th class="d-none">-</th>
+              <th>Module</th>
               <th>Business Term</th>
               <th>Description</th>
               <th></th><!-- info-control -->

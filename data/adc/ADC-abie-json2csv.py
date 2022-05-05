@@ -59,14 +59,14 @@ if __name__ == '__main__':
         Name = l['Name']
         DictionaryEntryName = l['DictionaryEntryName']
         Description = l['Description']
-        ObjectClassTermQualifier = l['ObjectClassTermQualifier']
+        # ObjectClassTermQualifier = l['ObjectClassTermQualifier']
         ObjectClassTerm = l['ObjectClassTerm']
 
-        csv_list.append([module,num,Kind,Table,Name,DictionaryEntryName,Description,ObjectClassTermQualifier,ObjectClassTerm])
+        csv_list.append([module,num,Kind,Table,Name,DictionaryEntryName,Description,ObjectClassTerm])
 
     with open(out_file, 'w') as f:
         writer = csv.writer(f)
-        writer.writerow(['module','num','Kind','Table','Name','DictionaryEntryName','Description','ObjectClassTermQualifier','ObjectClassTerm'])
+        writer.writerow(['module','num','Kind','Table','Name','DictionaryEntryName','Description','ObjectClassTerm'])
         for l in csv_list:
             writer.writerow(l)
 

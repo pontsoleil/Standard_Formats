@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #coding: utf-8
 #
-# convert SAF-T_Schema_v_2.00.csv to json
+# convert audit data collection standard csv to json
 #
 # designed by SAMBUICHI, Nobuyuki (Sambuichi Professional Engineers Office)
 # written by SAMBUICHI, Nobuyuki (Sambuichi Professional Engineers Office)
@@ -44,30 +44,35 @@ def file_path(pathname):
 if __name__ == '__main__':
     d = date.today()
     dir = os.path.dirname(__file__)
-    in_file = dir+'/SAF-T_Schema_v_2.00.csv'
-    entity_file = dir+'/list-SAF-T-entity-'+d.isoformat()+'.json'
-    abie_file =  dir+'/list-SAF-T-abie-'+d.isoformat()+'.json'
+    in_file = dir+'/list-adcs.csv'
+    abie_file = dir+'/list-adcs-abie-'+d.isoformat()+'.json'
+    entity_file = dir+'/list-adcs-entity-'+d.isoformat()+'.json'
 
     # csv_header = ['module','num','Kind','Table','Name','DictionaryEntryName','Description','ObjectClassTermQualifier','ObjectClassTerm']
     csv_header = [
-        'num',
-        'Module',
+        'seq',
+        'module',
         'ObjectClassTermQualifier',
         'ObjectClassTerm',
+        'num',
         'Kind',
-        'Level',
         'Name',
-        'Card',
-        'PropertyTermQualifier',
+        'Occurrence',
         'PropertyTerm',
-        'DatatypeQualifier',
         'RepresentationTerm',
-        'AssciatedObjectClassTermQualifier',
+        'AssociatedObjectClassTermQualifier',
         'AssociatedObjectClass',
-        'ReferencedObjectClassTermQualifier',
+        'ReferencedObjectClassQualifier',
         'ReferencedObjectClass',
-        'Type',
-        'Description'
+        'Description',
+        'DictionaryEntryName',
+        'Table',
+        'PK_REF',
+        'RefField',
+        'RefTable',
+        'Datatype',
+        'Representation',
+        'XBRLGL',
     ]
     abie_list = []
     entity_list = []
@@ -75,106 +80,99 @@ if __name__ == '__main__':
         reader = csv.DictReader(csvfile,csv_header)
         next(reader, None)  # skip the headers
         for row in reader:
-            num = row['num']
-            Module = row['Module']
-            Kind = row['Kind']
-            Name = row['Name']
-            Level = row['Level']
-            Card = row['Card']
-            Type = row['Type']
-            Description = row['Description']
+            seq = row['seq']
+            module = row['module']
             ObjectClassTermQualifier = row['ObjectClassTermQualifier']
             ObjectClassTerm = row['ObjectClassTerm']
-            PropertyTermQualifier = row['PropertyTermQualifier']
-            PropertyTerm = row['PropertyTerm']
-            DatatypeQualifier = row['DatatypeQualifier']
-            RepresentationTerm = row['RepresentationTerm']
-            AssciatedObjectClassTermQualifier = row['AssciatedObjectClassTermQualifier']
-            AssociatedObjectClass = row['AssociatedObjectClass']
-            ReferencedObjectClassTermQualifier = row['ReferencedObjectClassTermQualifier']
-            ReferencedObjectClass = row['ReferencedObjectClass']
-            Description = row['Description']
             if ObjectClassTermQualifier:
                 _ObjectClassTerm = f'{ObjectClassTermQualifier}_ {ObjectClassTerm}'
             else:
                 _ObjectClassTerm = ObjectClassTerm
-            if PropertyTermQualifier:
-                _PropertyTerm =F'{PropertyTermQualifier}_ {PropertyTerm}'
-            else:
-                _PropertyTerm = PropertyTerm
-            if DatatypeQualifier:
-                _RepresentationTerm = f'{RepresentationTerm}_ {DatatypeQualifier}'
-            else:
-                _RepresentationTerm = RepresentationTerm
-            if AssciatedObjectClassTermQualifier:
-                _AssociatedObjectClass = f'{AssciatedObjectClassTermQualifier}_ {AssociatedObjectClass}'
+            num = row['num']
+            Kind = row['Kind']
+            Name = row['Name']
+            Occurrence = row['Occurrence']
+            PropertyTerm = row['PropertyTerm']
+            RepresentationTerm = row['RepresentationTerm']
+            AssociatedObjectClassTermQualifier = row['AssociatedObjectClassTermQualifier']
+            AssociatedObjectClass = row['AssociatedObjectClass']
+            if AssociatedObjectClassTermQualifier:
+                _AssociatedObjectClass = f'{AssociatedObjectClassTermQualifier}_ {AssociatedObjectClass}'
             else:
                 _AssociatedObjectClass = AssociatedObjectClass
+            ReferencedObjectClassTermQualifier = row['ReferencedObjectClassQualifier']
+            ReferencedObjectClass = row['ReferencedObjectClass']
             if ReferencedObjectClassTermQualifier:
                 _ReferencedObjectClass = f'{ReferencedObjectClassTermQualifier}_ {ReferencedObjectClass}'
             else:
                 _ReferencedObjectClass = ReferencedObjectClass
+            Description = row['Description']
+            DictionaryEntryName = row['DictionaryEntryName']
             if 'ABIE'==Kind:
-                DictionaryEntryName = f'{_ObjectClassTerm}. Detail'
-            elif Kind in ['BBIE','IDBIE']:
-                DictionaryEntryName = f'{_ObjectClassTerm}. {_PropertyTerm}. {_RepresentationTerm}'
+                _DictionaryEntryName = f'{_ObjectClassTerm}. Details'
+            elif 'BBIE'==Kind:
+                _DictionaryEntryName = f'{_ObjectClassTerm}.{PropertyTerm}. {RepresentationTerm}'
             elif 'ASBIE'==Kind:
-                DictionaryEntryName = f'{_ObjectClassTerm}. {_PropertyTerm}. {_AssociatedObjectClass}'
+                _DictionaryEntryName = f'{_ObjectClassTerm}.{PropertyTerm}. {_AssociatedObjectClass}'
             elif 'RFBIE'==Kind:
-                DictionaryEntryName = f'{_ObjectClassTerm}. {_PropertyTerm}. {_ReferencedObjectClass}'
+                _DictionaryEntryName = f'{_ObjectClassTerm}.{PropertyTerm}. {_ReferencedObjectClass}'
             else:
-                DictionaryEntryName = ''
-            SAF = [
-                'AuditFile',
-                'Header',
-                'MasterFiles',
-                'GeneralLedgerEntries',
-                'SourceDocuments'
-            ]
+                _DictionaryEntryName = ''
+            Table = row['Table']
+            PK_REF = row['PK_REF']
+            RefField = row['RefField']
+            RefTable = row['RefTable']
+            Datatype = row['Datatype']
+            Representation = row['Representation']
+            XBRLGL = row['XBRLGL']
             if 'ABIE'==Kind:
-                if 'choice'!=Name[:6] and 'sequence'!=Name[:8] and not '_' in Name and not '-' in Name:
-                    abie = {
-                        'num': num,
-                        'Module': Module,
-                        'Kind': Kind,
-                        'Table': '',
-                        'Name': Name,
-                        'Level': Level,
-                        'DictionaryEntryName': DictionaryEntryName,
-                        'Description': Description,
-                        'ObjectClassTermQualifier': ObjectClassTermQualifier,
-                        'ObjectClassTerm': ObjectClassTerm
-                    }
-                    abie_list.append(abie)
-            elif num:
-                entity = {
-                    'num': num,
-                    'Module': Module,
+                abie = {
+                    'Module': module,
                     'Kind': Kind,
                     'Table': '',
                     'Name': Name,
-                    'Level': Level,
-                    'Card': Card,
-                    'Type': Type,
-                    'DictionaryEntryName': DictionaryEntryName,
+                    'Level': 0,
+                    'DictionaryEntryName': _DictionaryEntryName,
                     'Description': Description,
                     'ObjectClassTermQualifier': ObjectClassTermQualifier,
                     'ObjectClassTerm': ObjectClassTerm,
-                    'DatatypeQualifier': DatatypeQualifier,
+                    'Table': Table
+                }
+                abie_list.append(abie)
+            elif num:
+                entity = {
+                    'Module': module,
+                    'num': num,
+                    'Kind': Kind,
+                    'Table': '',
+                    'Name': Name,
+                    'Level': 0,
+                    'Card': Occurrence,
+                    'Type': RepresentationTerm,
+                    'DictionaryEntryName': _DictionaryEntryName,
+                    'Description': Description,
+                    'ObjectClassTermQualifier': ObjectClassTermQualifier,
+                    'ObjectClassTerm': ObjectClassTerm,
+                    'DatatypeQualifier': '',
                     'RepresentationTerm': RepresentationTerm,
-                    'AssociatedObjectClassTermQualifier': AssciatedObjectClassTermQualifier,
+                    'AssociatedObjectClassTermQualifier': AssociatedObjectClassTermQualifier,
                     'AssociatedObjectClass': AssociatedObjectClass,
                     'ReferencedObjectClassTermQualifier': ReferencedObjectClassTermQualifier,
                     'ReferencedObjectClass': ReferencedObjectClass,
+                    'Table': Table,
+                    'PK_REF': PK_REF,
+                    'RefField': RefField,
+                    'RefTable': RefTable,
+                    'Datatype': Datatype,
+                    'Representation': Representation,
+                    'XBRLGL': XBRLGL
                 }
                 entity_list.append(entity)
 
-    abie_sorted = sorted(abie_list, key=lambda x:x['Module']+x['num'])
     with open(abie_file, 'w') as f:
-        json.dump({'data': abie_sorted}, f, indent=2)
+        json.dump({'data': abie_list}, f, indent=2)
 
-    entity_sorted = sorted(entity_list, key=lambda x:x['Module']+x['ObjectClassTermQualifier']+x['ObjectClassTerm']+x['num'])
     with open(entity_file, 'w') as f:
-        json.dump({'data': entity_sorted}, f, indent=2)
+        json.dump({'data': entity_list}, f, indent=2)
 
     print('done.')
