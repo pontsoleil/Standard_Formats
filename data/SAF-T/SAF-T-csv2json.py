@@ -28,6 +28,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 import os
+import re
 import argparse
 import json
 import csv
@@ -79,20 +80,39 @@ if __name__ == '__main__':
             Module = row['Module']
             Kind = row['Kind']
             Name = row['Name']
+            Name = re.sub(r'(.)([A-Z])',r'\1 \2',Name)
             Level = row['Level']
             Card = row['Card']
             Type = row['Type']
             Description = row['Description']
             ObjectClassTermQualifier = row['ObjectClassTermQualifier']
+            if ObjectClassTermQualifier:
+                ObjectClassTermQualifier = re.sub(r'(.)([A-Z])',r'\1 \2',ObjectClassTermQualifier)
             ObjectClassTerm = row['ObjectClassTerm']
+            if ObjectClassTerm:
+                ObjectClassTerm = re.sub(r'(.)([A-Z])',r'\1 \2',ObjectClassTerm)
             PropertyTermQualifier = row['PropertyTermQualifier']
+            if PropertyTermQualifier:
+                PropertyTermQualifier = re.sub(r'(.)([A-Z])',r'\1 \2',PropertyTermQualifier)
             PropertyTerm = row['PropertyTerm']
+            if PropertyTerm:
+                PropertyTerm = re.sub(r'(.)([A-Z])',r'\1 \2',PropertyTerm)
             DatatypeQualifier = row['DatatypeQualifier']
+            if DatatypeQualifier:
+                DatatypeQualifier = re.sub(r'(.)([A-Z])',r'\1 \2',DatatypeQualifier)
             RepresentationTerm = row['RepresentationTerm']
+            if RepresentationTerm:
+                RepresentationTerm = re.sub(r'(.)([A-Z])',r'\1 \2',RepresentationTerm)
             AssciatedObjectClassTermQualifier = row['AssciatedObjectClassTermQualifier']
             AssociatedObjectClass = row['AssociatedObjectClass']
+            if RepresentationTerm:
+                RepresentationTerm = re.sub(r'(.)([A-Z])',r'\1 \2',RepresentationTerm)
             ReferencedObjectClassTermQualifier = row['ReferencedObjectClassTermQualifier']
+            if ReferencedObjectClassTermQualifier:
+                ReferencedObjectClassTermQualifier = re.sub(r'(.)([A-Z])',r'\1 \2',ReferencedObjectClassTermQualifier)
             ReferencedObjectClass = row['ReferencedObjectClass']
+            if ReferencedObjectClass:
+                ReferencedObjectClass = re.sub(r'(.)([A-Z])',r'\1 \2',ReferencedObjectClass)
             Description = row['Description']
             if ObjectClassTermQualifier:
                 _ObjectClassTerm = f'{ObjectClassTermQualifier}_ {ObjectClassTerm}'

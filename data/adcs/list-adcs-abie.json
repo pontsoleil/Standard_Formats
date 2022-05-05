@@ -15,17 +15,6 @@
       "Module": "ADCS",
       "Kind": "ABIE",
       "Table": "",
-      "Name": "Code Lists",
-      "Level": 0,
-      "DictionaryEntryName": "Code Lists. Details",
-      "Description": "",
-      "ObjectClassTermQualifier": "",
-      "ObjectClassTerm": "Code Lists"
-    },
-    {
-      "Module": "ADCS",
-      "Kind": "ABIE",
-      "Table": "",
       "Name": "Master Files",
       "Level": 0,
       "DictionaryEntryName": "Master Files. Details",
@@ -65,6 +54,17 @@
       "Description": "",
       "ObjectClassTermQualifier": "",
       "ObjectClassTerm": "Source Documents"
+    },
+    {
+      "Module": "ADCS",
+      "Kind": "ABIE",
+      "Table": "",
+      "Name": "Code Lists",
+      "Level": 0,
+      "DictionaryEntryName": "Code Lists. Details",
+      "Description": "",
+      "ObjectClassTermQualifier": "",
+      "ObjectClassTerm": "Code Lists"
     },
     {
       "Module": "Base",

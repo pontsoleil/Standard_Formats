@@ -1,66 +1,6 @@
 {
   "data": [
     {
-      "num": "1",
-      "Module": "SAF-T",
-      "Kind": "ABIE",
-      "Table": "",
-      "Name": "AuditFile",
-      "Level": "",
-      "DictionaryEntryName": "AuditFile. Detail",
-      "Description": "OECD Standard Audit File: Standard Audit File - Taxation version 2.00 (Final version) OECD author TeA team last modified 17-09-2009",
-      "ObjectClassTermQualifier": "",
-      "ObjectClassTerm": "AuditFile"
-    },
-    {
-      "num": "6",
-      "Module": "SAF-T",
-      "Kind": "ABIE",
-      "Table": "",
-      "Name": "Header",
-      "Level": "",
-      "DictionaryEntryName": "Header. Detail",
-      "Description": "Holds general information about the file including the name of the software which produced it; the company on whose behalf the SAF-T is being submitted; and the selection criteria used. An extension point is provided to allow individual Revenue Bodies to  specify further relevant information to be supplied.",
-      "ObjectClassTermQualifier": "",
-      "ObjectClassTerm": "Header"
-    },
-    {
-      "num": "8",
-      "Module": "SAF-T",
-      "Kind": "ABIE",
-      "Table": "",
-      "Name": "MasterFiles",
-      "Level": "",
-      "DictionaryEntryName": "MasterFiles. Detail",
-      "Description": "Holds standing data about general ledger account, suppliers, customers, products, etc.. An extension point is provided to allow Revenue Bodies to specify additional elements or structures such as tax rate tables.",
-      "ObjectClassTermQualifier": "",
-      "ObjectClassTerm": "MasterFiles"
-    },
-    {
-      "num": "199",
-      "Module": "SAF-T",
-      "Kind": "ABIE",
-      "Table": "",
-      "Name": "GeneralLedgerEntries",
-      "Level": "",
-      "DictionaryEntryName": "GeneralLedgerEntries. Detail",
-      "Description": "",
-      "ObjectClassTermQualifier": "",
-      "ObjectClassTerm": "GeneralLedgerEntries"
-    },
-    {
-      "num": "240",
-      "Module": "SAF-T",
-      "Kind": "ABIE",
-      "Table": "",
-      "Name": "SourceDocuments",
-      "Level": "",
-      "DictionaryEntryName": "SourceDocuments. Detail",
-      "Description": "Holds Sales Invoices, Purchase Invoices, Payments, Movement Of Goods, and Asset Transactions",
-      "ObjectClassTermQualifier": "",
-      "ObjectClassTerm": "SourceDocuments"
-    },
-    {
       "num": "205",
       "Module": "General Ledger Entries",
       "Kind": "ABIE",
@@ -85,28 +25,16 @@
       "ObjectClassTerm": "Transaction"
     },
     {
-      "num": "225",
-      "Module": "General Ledger Entries",
-      "Kind": "ABIE",
-      "Table": "",
-      "Name": "Transaction_Line",
-      "Level": "",
-      "DictionaryEntryName": "Transaction_Line. Detail",
-      "Description": "",
-      "ObjectClassTermQualifier": "",
-      "ObjectClassTerm": "Transaction_Line"
-    },
-    {
       "num": "10",
       "Module": "Master Files",
       "Kind": "ABIE",
       "Table": "",
-      "Name": "GeneralLedgerAccounts",
+      "Name": "General Ledger Accounts",
       "Level": "",
-      "DictionaryEntryName": "GeneralLedgerAccounts. Detail",
+      "DictionaryEntryName": "General Ledger Accounts. Detail",
       "Description": "",
       "ObjectClassTermQualifier": "",
-      "ObjectClassTerm": "GeneralLedgerAccounts"
+      "ObjectClassTerm": "General Ledger Accounts"
     },
     {
       "num": "103",
@@ -151,34 +79,34 @@
       "Table": "",
       "Name": "Account",
       "Level": "",
-      "DictionaryEntryName": "GeneralLedgerAccount. Detail",
+      "DictionaryEntryName": "General Ledger Account. Detail",
       "Description": "",
       "ObjectClassTermQualifier": "",
-      "ObjectClassTerm": "GeneralLedgerAccount"
+      "ObjectClassTerm": "General Ledger Account"
     },
     {
       "num": "125",
       "Module": "Master Files",
       "Kind": "ABIE",
       "Table": "",
-      "Name": "PhysicalStock",
+      "Name": "Physical Stock",
       "Level": "",
-      "DictionaryEntryName": "PhysicalStock. Detail",
+      "DictionaryEntryName": "Physical Stock. Detail",
       "Description": "",
       "ObjectClassTermQualifier": "",
-      "ObjectClassTerm": "PhysicalStock"
+      "ObjectClassTerm": "Physical Stock"
     },
     {
       "num": "127",
       "Module": "Master Files",
       "Kind": "ABIE",
       "Table": "",
-      "Name": "PhysicalStockEntry",
+      "Name": "Physical Stock Entry",
       "Level": "",
-      "DictionaryEntryName": "PhysicalStockEntry. Detail",
+      "DictionaryEntryName": "Physical Stock Entry. Detail",
       "Description": "",
       "ObjectClassTermQualifier": "",
-      "ObjectClassTerm": "PhysicalStockEntry"
+      "ObjectClassTerm": "Physical Stock Entry"
     },
     {
       "num": "150",
@@ -199,10 +127,10 @@
       "Table": "",
       "Name": "Owner",
       "Level": "",
-      "DictionaryEntryName": "Owner_ CompanyStructure. Detail",
+      "DictionaryEntryName": "Owner_ Company Structure. Detail",
       "Description": "",
       "ObjectClassTermQualifier": "Owner",
-      "ObjectClassTerm": "CompanyStructure"
+      "ObjectClassTerm": "Company Structure"
     },
     {
       "num": "157",
@@ -257,24 +185,24 @@
       "Module": "Master Files",
       "Kind": "ABIE",
       "Table": "",
-      "Name": "ExtraordinaryDepreciationsForPeriod",
+      "Name": "Extraordinary Depreciations For Period",
       "Level": "",
-      "DictionaryEntryName": "ExtraordinaryDepreciationsForPeriod. Detail",
+      "DictionaryEntryName": "Extraordinary Depreciations For Period. Detail",
       "Description": "Extraordinary depreciations for this asset during the Selectionperiod.",
       "ObjectClassTermQualifier": "",
-      "ObjectClassTerm": "ExtraordinaryDepreciationsForPeriod"
+      "ObjectClassTerm": "Extraordinary Depreciations For Period"
     },
     {
       "num": "194",
       "Module": "Master Files",
       "Kind": "ABIE",
       "Table": "",
-      "Name": "ExtraordinaryDepreciationForPeriod",
+      "Name": "Extraordinary Depreciation For Period",
       "Level": "",
-      "DictionaryEntryName": "ExtraordinaryDepreciationForPeriod. Detail",
+      "DictionaryEntryName": "Extraordinary Depreciation For Period. Detail",
       "Description": "",
       "ObjectClassTermQualifier": "",
-      "ObjectClassTerm": "ExtraordinaryDepreciationForPeriod"
+      "ObjectClassTerm": "Extraordinary Depreciation For Period"
     },
     {
       "num": "27",
@@ -305,12 +233,12 @@
       "Module": "Master Files",
       "Kind": "ABIE",
       "Table": "",
-      "Name": "TaxonomyElement",
+      "Name": "Taxonomy Element",
       "Level": "",
-      "DictionaryEntryName": "TaxonomyElement. Detail",
+      "DictionaryEntryName": "Taxonomy Element. Detail",
       "Description": "",
       "ObjectClassTermQualifier": "",
-      "ObjectClassTerm": "TaxonomyElement"
+      "ObjectClassTerm": "Taxonomy Element"
     },
     {
       "num": "38",
@@ -331,10 +259,10 @@
       "Table": "",
       "Name": "Customer",
       "Level": "",
-      "DictionaryEntryName": "Customer_ CompanyStructure. Detail",
+      "DictionaryEntryName": "Customer_ Company Structure. Detail",
       "Description": "",
       "ObjectClassTermQualifier": "Customer",
-      "ObjectClassTerm": "CompanyStructure"
+      "ObjectClassTerm": "Company Structure"
     },
     {
       "num": "52",
@@ -355,142 +283,202 @@
       "Table": "",
       "Name": "Supplier",
       "Level": "",
-      "DictionaryEntryName": "Supplier_ CompanyStructure. Detail",
+      "DictionaryEntryName": "Supplier_ Company Structure. Detail",
       "Description": "",
       "ObjectClassTermQualifier": "Supplier",
-      "ObjectClassTerm": "CompanyStructure"
+      "ObjectClassTerm": "Company Structure"
     },
     {
       "num": "66",
       "Module": "Master Files",
       "Kind": "ABIE",
       "Table": "",
-      "Name": "TaxTable",
+      "Name": "Tax Table",
       "Level": "",
-      "DictionaryEntryName": "TaxTable. Detail",
+      "DictionaryEntryName": "Tax Table. Detail",
       "Description": "",
       "ObjectClassTermQualifier": "",
-      "ObjectClassTerm": "TaxTable"
+      "ObjectClassTerm": "Tax Table"
     },
     {
       "num": "68",
       "Module": "Master Files",
       "Kind": "ABIE",
       "Table": "",
-      "Name": "TaxTableEntry",
+      "Name": "Tax Table Entry",
       "Level": "",
-      "DictionaryEntryName": "TaxTableEntry. Detail",
+      "DictionaryEntryName": "Tax Table Entry. Detail",
       "Description": "",
       "ObjectClassTermQualifier": "",
-      "ObjectClassTerm": "TaxTableEntry"
+      "ObjectClassTerm": "Tax Table Entry"
     },
     {
       "num": "72",
       "Module": "Master Files",
       "Kind": "ABIE",
       "Table": "",
-      "Name": "TaxCodeDetails",
+      "Name": "Tax Code Details",
       "Level": "",
-      "DictionaryEntryName": "TaxCodeDetails. Detail",
+      "DictionaryEntryName": "Tax Code Details. Detail",
       "Description": "",
       "ObjectClassTermQualifier": "",
-      "ObjectClassTerm": "TaxCodeDetails"
+      "ObjectClassTerm": "Tax Code Details"
     },
     {
       "num": "83",
       "Module": "Master Files",
       "Kind": "ABIE",
       "Table": "",
-      "Name": "UOMTable",
+      "Name": "U OM Table",
       "Level": "",
-      "DictionaryEntryName": "UOMTable. Detail",
+      "DictionaryEntryName": "U OM Table. Detail",
       "Description": "Table with descriptions of all different kinds of UOM's",
       "ObjectClassTermQualifier": "",
-      "ObjectClassTerm": "UOMTable"
+      "ObjectClassTerm": "U OM Table"
     },
     {
       "num": "85",
       "Module": "Master Files",
       "Kind": "ABIE",
       "Table": "",
-      "Name": "UOMTableEntry",
+      "Name": "U OM Table Entry",
       "Level": "",
-      "DictionaryEntryName": "UOMTableEntry. Detail",
+      "DictionaryEntryName": "U OM Table Entry. Detail",
       "Description": "",
       "ObjectClassTermQualifier": "",
-      "ObjectClassTerm": "UOMTableEntry"
+      "ObjectClassTerm": "U OM Table Entry"
     },
     {
       "num": "89",
       "Module": "Master Files",
       "Kind": "ABIE",
       "Table": "",
-      "Name": "AnalysisTypeTable",
+      "Name": "Analysis Type Table",
       "Level": "",
-      "DictionaryEntryName": "AnalysisTypeTable. Detail",
+      "DictionaryEntryName": "Analysis Type Table. Detail",
       "Description": "Table with the analysiscode identifiers.\\nsed for further specification of transaction data.\\nxample: cost unit, cost center, project.",
       "ObjectClassTermQualifier": "",
-      "ObjectClassTerm": "AnalysisTypeTable"
+      "ObjectClassTerm": "Analysis Type Table"
     },
     {
       "num": "91",
       "Module": "Master Files",
       "Kind": "ABIE",
       "Table": "",
-      "Name": "AnalysisTypeTableEntry",
+      "Name": "Analysis Type Table Entry",
       "Level": "",
-      "DictionaryEntryName": "AnalysisTypeTableEntry. Detail",
+      "DictionaryEntryName": "Analysis Type Table Entry. Detail",
       "Description": "",
       "ObjectClassTermQualifier": "",
-      "ObjectClassTerm": "AnalysisTypeTableEntry"
+      "ObjectClassTerm": "Analysis Type Table Entry"
     },
     {
       "num": "97",
       "Module": "Master Files",
       "Kind": "ABIE",
       "Table": "",
-      "Name": "MovementTypeTable",
+      "Name": "Movement Type Table",
       "Level": "",
-      "DictionaryEntryName": "MovementTypeTable. Detail",
+      "DictionaryEntryName": "Movement Type Table. Detail",
       "Description": "Table with descriptions of all different kinds of movementtypes and movementsubtypes",
       "ObjectClassTermQualifier": "",
-      "ObjectClassTerm": "MovementTypeTable"
+      "ObjectClassTerm": "Movement Type Table"
     },
     {
       "num": "99",
       "Module": "Master Files",
       "Kind": "ABIE",
       "Table": "",
-      "Name": "MovementTypeTableEntry",
+      "Name": "Movement Type Table Entry",
       "Level": "",
-      "DictionaryEntryName": "MovementTypeTableEntry. Detail",
+      "DictionaryEntryName": "Movement Type Table Entry. Detail",
       "Description": "",
       "ObjectClassTermQualifier": "",
-      "ObjectClassTerm": "MovementTypeTableEntry"
+      "ObjectClassTerm": "Movement Type Table Entry"
+    },
+    {
+      "num": "1",
+      "Module": "SAF-T",
+      "Kind": "ABIE",
+      "Table": "",
+      "Name": "Audit File",
+      "Level": "",
+      "DictionaryEntryName": "Audit File. Detail",
+      "Description": "OECD Standard Audit File: Standard Audit File - Taxation version 2.00 (Final version) OECD author TeA team last modified 17-09-2009",
+      "ObjectClassTermQualifier": "",
+      "ObjectClassTerm": "Audit File"
+    },
+    {
+      "num": "199",
+      "Module": "SAF-T",
+      "Kind": "ABIE",
+      "Table": "",
+      "Name": "General Ledger Entries",
+      "Level": "",
+      "DictionaryEntryName": "General Ledger Entries. Detail",
+      "Description": "",
+      "ObjectClassTermQualifier": "",
+      "ObjectClassTerm": "General Ledger Entries"
+    },
+    {
+      "num": "240",
+      "Module": "SAF-T",
+      "Kind": "ABIE",
+      "Table": "",
+      "Name": "Source Documents",
+      "Level": "",
+      "DictionaryEntryName": "Source Documents. Detail",
+      "Description": "Holds Sales Invoices, Purchase Invoices, Payments, Movement Of Goods, and Asset Transactions",
+      "ObjectClassTermQualifier": "",
+      "ObjectClassTerm": "Source Documents"
+    },
+    {
+      "num": "6",
+      "Module": "SAF-T",
+      "Kind": "ABIE",
+      "Table": "",
+      "Name": "Header",
+      "Level": "",
+      "DictionaryEntryName": "Header. Detail",
+      "Description": "Holds general information about the file including the name of the software which produced it; the company on whose behalf the SAF-T is being submitted; and the selection criteria used. An extension point is provided to allow individual Revenue Bodies to  specify further relevant information to be supplied.",
+      "ObjectClassTermQualifier": "",
+      "ObjectClassTerm": "Header"
+    },
+    {
+      "num": "8",
+      "Module": "SAF-T",
+      "Kind": "ABIE",
+      "Table": "",
+      "Name": "Master Files",
+      "Level": "",
+      "DictionaryEntryName": "Master Files. Detail",
+      "Description": "Holds standing data about general ledger account, suppliers, customers, products, etc.. An extension point is provided to allow Revenue Bodies to specify additional elements or structures such as tax rate tables.",
+      "ObjectClassTermQualifier": "",
+      "ObjectClassTerm": "Master Files"
     },
     {
       "num": "242",
       "Module": "Source Documents",
       "Kind": "ABIE",
       "Table": "",
-      "Name": "SalesInvoices",
+      "Name": "Sales Invoices",
       "Level": "",
-      "DictionaryEntryName": "SalesInvoices. Detail",
+      "DictionaryEntryName": "Sales Invoices. Detail",
       "Description": "",
       "ObjectClassTermQualifier": "",
-      "ObjectClassTerm": "SalesInvoices"
+      "ObjectClassTerm": "Sales Invoices"
     },
     {
       "num": "248",
       "Module": "Source Documents",
       "Kind": "ABIE",
       "Table": "",
-      "Name": "PurchaseInvoices",
+      "Name": "Purchase Invoices",
       "Level": "",
-      "DictionaryEntryName": "PurchaseInvoices. Detail",
+      "DictionaryEntryName": "Purchase Invoices. Detail",
       "Description": "",
       "ObjectClassTermQualifier": "",
-      "ObjectClassTerm": "PurchaseInvoices"
+      "ObjectClassTerm": "Purchase Invoices"
     },
     {
       "num": "254",
@@ -517,23 +505,11 @@
       "ObjectClassTerm": "Payment"
     },
     {
-      "num": "271",
-      "Module": "Source Documents",
-      "Kind": "ABIE",
-      "Table": "",
-      "Name": "Payment_Line",
-      "Level": "",
-      "DictionaryEntryName": "Payment_Line. Detail",
-      "Description": "",
-      "ObjectClassTermQualifier": "",
-      "ObjectClassTerm": "Payment_Line"
-    },
-    {
       "num": "284",
       "Module": "Source Documents",
       "Kind": "ABIE",
       "Table": "",
-      "Name": "PaymentSettlement",
+      "Name": "Payment Settlement",
       "Level": "",
       "DictionaryEntryName": "Settlement. Detail",
       "Description": "",
@@ -545,156 +521,132 @@
       "Module": "Source Documents",
       "Kind": "ABIE",
       "Table": "",
-      "Name": "PaymentDocumentTotals",
+      "Name": "Payment Document Totals",
       "Level": "",
-      "DictionaryEntryName": "DocumentTotals. Detail",
+      "DictionaryEntryName": "Document Totals. Detail",
       "Description": "",
       "ObjectClassTermQualifier": "",
-      "ObjectClassTerm": "DocumentTotals"
+      "ObjectClassTerm": "Document Totals"
     },
     {
       "num": "295",
       "Module": "Source Documents",
       "Kind": "ABIE",
       "Table": "",
-      "Name": "MovementOfGoods",
+      "Name": "Movement Of Goods",
       "Level": "",
-      "DictionaryEntryName": "MovementOfGoods. Detail",
+      "DictionaryEntryName": "Movement Of Goods. Detail",
       "Description": "",
       "ObjectClassTermQualifier": "",
-      "ObjectClassTerm": "MovementOfGoods"
+      "ObjectClassTerm": "Movement Of Goods"
     },
     {
       "num": "300",
       "Module": "Source Documents",
       "Kind": "ABIE",
       "Table": "",
-      "Name": "StockMovement",
+      "Name": "Stock Movement",
       "Level": "",
-      "DictionaryEntryName": "StockMovement. Detail",
+      "DictionaryEntryName": "Stock Movement. Detail",
       "Description": "",
       "ObjectClassTermQualifier": "",
-      "ObjectClassTerm": "StockMovement"
+      "ObjectClassTerm": "Stock Movement"
     },
     {
       "num": "310",
       "Module": "Source Documents",
       "Kind": "ABIE",
       "Table": "",
-      "Name": "DocumentReference",
+      "Name": "Document Reference",
       "Level": "",
-      "DictionaryEntryName": "DocumentReference. Detail",
+      "DictionaryEntryName": "Document Reference. Detail",
       "Description": "",
       "ObjectClassTermQualifier": "",
-      "ObjectClassTerm": "DocumentReference"
-    },
-    {
-      "num": "315",
-      "Module": "Source Documents",
-      "Kind": "ABIE",
-      "Table": "",
-      "Name": "StockMovement_Line",
-      "Level": "",
-      "DictionaryEntryName": "StockMovement_Line. Detail",
-      "Description": "",
-      "ObjectClassTermQualifier": "",
-      "ObjectClassTerm": "StockMovement_Line"
+      "ObjectClassTerm": "Document Reference"
     },
     {
       "num": "333",
       "Module": "Source Documents",
       "Kind": "ABIE",
       "Table": "",
-      "Name": "AssetTransactions",
+      "Name": "Asset Transactions",
       "Level": "",
-      "DictionaryEntryName": "AssetTransactions. Detail",
+      "DictionaryEntryName": "Asset Transactions. Detail",
       "Description": "Details of all transactions related to an asset during the Selectionperiod.",
       "ObjectClassTermQualifier": "",
-      "ObjectClassTerm": "AssetTransactions"
+      "ObjectClassTerm": "Asset Transactions"
     },
     {
       "num": "336",
       "Module": "Source Documents",
       "Kind": "ABIE",
       "Table": "",
-      "Name": "AssetTransaction",
+      "Name": "Asset Transaction",
       "Level": "",
-      "DictionaryEntryName": "AssetTransaction. Detail",
+      "DictionaryEntryName": "Asset Transaction. Detail",
       "Description": "",
       "ObjectClassTermQualifier": "",
-      "ObjectClassTerm": "AssetTransaction"
+      "ObjectClassTerm": "Asset Transaction"
     },
     {
       "num": "349",
       "Module": "Source Documents",
       "Kind": "ABIE",
       "Table": "",
-      "Name": "AssetTransactionValuations",
+      "Name": "Asset Transaction Valuations",
       "Level": "",
-      "DictionaryEntryName": "AssetTransactionValuations. Detail",
+      "DictionaryEntryName": "Asset Transaction Valuations. Detail",
       "Description": "These amounts of the transaction can differ per asset valuation type.",
       "ObjectClassTermQualifier": "",
-      "ObjectClassTerm": "AssetTransactionValuations"
+      "ObjectClassTerm": "Asset Transaction Valuations"
     },
     {
       "num": "351",
       "Module": "Source Documents",
       "Kind": "ABIE",
       "Table": "",
-      "Name": "AssetTransactionValuation",
+      "Name": "Asset Transaction Valuation",
       "Level": "",
-      "DictionaryEntryName": "AssetTransactionValuation. Detail",
+      "DictionaryEntryName": "Asset Transaction Valuation. Detail",
       "Description": "",
       "ObjectClassTermQualifier": "",
-      "ObjectClassTerm": "AssetTransactionValuation"
+      "ObjectClassTerm": "Asset Transaction Valuation"
     },
     {
       "num": "361",
       "Module": "Source Documents",
       "Kind": "ABIE",
       "Table": "",
-      "Name": "CustomerInfo",
+      "Name": "Customer Info",
       "Level": "",
-      "DictionaryEntryName": "CustomerInfo. Detail",
+      "DictionaryEntryName": "Customer Info. Detail",
       "Description": "",
       "ObjectClassTermQualifier": "",
-      "ObjectClassTerm": "CustomerInfo"
+      "ObjectClassTerm": "Customer Info"
     },
     {
       "num": "368",
       "Module": "Source Documents",
       "Kind": "ABIE",
       "Table": "",
-      "Name": "SupplierInfo",
+      "Name": "Supplier Info",
       "Level": "",
-      "DictionaryEntryName": "SupplierInfo. Detail",
+      "DictionaryEntryName": "Supplier Info. Detail",
       "Description": "",
       "ObjectClassTermQualifier": "",
-      "ObjectClassTerm": "SupplierInfo"
-    },
-    {
-      "num": "391",
-      "Module": "Source Documents",
-      "Kind": "ABIE",
-      "Table": "",
-      "Name": "InvoiceStructure_Line",
-      "Level": "",
-      "DictionaryEntryName": "InvoiceStructure_Line. Detail",
-      "Description": "",
-      "ObjectClassTermQualifier": "",
-      "ObjectClassTerm": "InvoiceStructure_Line"
+      "ObjectClassTerm": "Supplier Info"
     },
     {
       "num": "396",
       "Module": "Source Documents",
       "Kind": "ABIE",
       "Table": "",
-      "Name": "OrderReferences",
+      "Name": "Order References",
       "Level": "",
-      "DictionaryEntryName": "OrderReferences. Detail",
+      "DictionaryEntryName": "Order References. Detail",
       "Description": "Relevant order references",
       "ObjectClassTermQualifier": "",
-      "ObjectClassTerm": "OrderReferences"
+      "ObjectClassTerm": "Order References"
     },
     {
       "num": "405",
@@ -713,12 +665,12 @@
       "Module": "Source Documents",
       "Kind": "ABIE",
       "Table": "",
-      "Name": "DeliveryPeriod",
+      "Name": "Delivery Period",
       "Level": "",
-      "DictionaryEntryName": "DeliveryPeriod. Detail",
+      "DictionaryEntryName": "Delivery Period. Detail",
       "Description": "Timeframe of the deliveries",
       "ObjectClassTermQualifier": "",
-      "ObjectClassTerm": "DeliveryPeriod"
+      "ObjectClassTerm": "Delivery Period"
     },
     {
       "num": "420",
@@ -737,19 +689,19 @@
       "Module": "Source Documents",
       "Kind": "ABIE",
       "Table": "",
-      "Name": "CreditNote",
+      "Name": "Credit Note",
       "Level": "",
-      "DictionaryEntryName": "CreditNote. Detail",
+      "DictionaryEntryName": "Credit Note. Detail",
       "Description": "",
       "ObjectClassTermQualifier": "",
-      "ObjectClassTerm": "CreditNote"
+      "ObjectClassTerm": "Credit Note"
     },
     {
       "num": "431",
       "Module": "Source Documents",
       "Kind": "ABIE",
       "Table": "",
-      "Name": "InvoiceSettlement",
+      "Name": "Invoice Settlement",
       "Level": "",
       "DictionaryEntryName": "Settlement. Detail",
       "Description": "",
@@ -761,216 +713,192 @@
       "Module": "Source Documents",
       "Kind": "ABIE",
       "Table": "",
-      "Name": "DocumentTotals",
+      "Name": "Document Totals",
       "Level": "",
-      "DictionaryEntryName": "DocumentTotals. Detail",
+      "DictionaryEntryName": "Document Totals. Detail",
       "Description": "",
       "ObjectClassTermQualifier": "",
-      "ObjectClassTerm": "DocumentTotals"
+      "ObjectClassTerm": "Document Totals"
     },
     {
       "num": "442",
       "Module": "Source Documents",
       "Kind": "ABIE",
       "Table": "",
-      "Name": "ShippingPointStructure",
+      "Name": "Shipping Point Structure",
       "Level": "",
-      "DictionaryEntryName": "ShippingPointStructure. Detail",
+      "DictionaryEntryName": "Shipping Point Structure. Detail",
       "Description": "A structure that holds all shipping point information.",
       "ObjectClassTermQualifier": "",
-      "ObjectClassTerm": "ShippingPointStructure"
+      "ObjectClassTerm": "Shipping Point Structure"
     },
     {
       "num": "449",
       "Module": "Source Documents",
       "Kind": "ABIE",
       "Table": "",
-      "Name": "AddressStructure",
+      "Name": "Address Structure",
       "Level": "",
-      "DictionaryEntryName": "AddressStructure. Detail",
+      "DictionaryEntryName": "Address Structure. Detail",
       "Description": "[Common to all SAFs] A common structure used wherever an address is required.",
       "ObjectClassTermQualifier": "",
-      "ObjectClassTerm": "AddressStructure"
+      "ObjectClassTerm": "Address Structure"
     },
     {
       "num": "459",
       "Module": "Source Documents",
       "Kind": "ABIE",
       "Table": "",
-      "Name": "AmountStructure",
+      "Name": "Amount Structure",
       "Level": "",
-      "DictionaryEntryName": "AmountStructure. Detail",
+      "DictionaryEntryName": "Amount Structure. Detail",
       "Description": "[Common to all SAFs] A common structure used wherever an amount is required. Monetary amount with optional foreign currency exchange rate information.",
       "ObjectClassTermQualifier": "",
-      "ObjectClassTerm": "AmountStructure"
+      "ObjectClassTerm": "Amount Structure"
     },
     {
       "num": "466",
       "Module": "Source Documents",
       "Kind": "ABIE",
       "Table": "",
-      "Name": "AnalysisStructure",
+      "Name": "Analysis Structure",
       "Level": "",
-      "DictionaryEntryName": "AnalysisStructure. Detail",
+      "DictionaryEntryName": "Analysis Structure. Detail",
       "Description": "General Ledger analysis codes",
       "ObjectClassTermQualifier": "",
-      "ObjectClassTerm": "AnalysisStructure"
+      "ObjectClassTerm": "Analysis Structure"
     },
     {
       "num": "470",
       "Module": "Source Documents",
       "Kind": "ABIE",
       "Table": "",
-      "Name": "BankAccountStructure",
+      "Name": "Bank Account Structure",
       "Level": "",
-      "DictionaryEntryName": "BankAccountStructure. Detail",
+      "DictionaryEntryName": "Bank Account Structure. Detail",
       "Description": "[Common to all SAFs] Bank account number information. IBAN number, or account number with optional information.",
       "ObjectClassTermQualifier": "",
-      "ObjectClassTerm": "BankAccountStructure"
+      "ObjectClassTerm": "Bank Account Structure"
     },
     {
       "num": "470",
       "Module": "Source Documents",
       "Kind": "ABIE",
       "Table": "",
-      "Name": "CompanyStructure",
+      "Name": "Company Structure",
       "Level": "",
-      "DictionaryEntryName": "CompanyStructure. Detail",
+      "DictionaryEntryName": "Company Structure. Detail",
       "Description": "[Common to all SAFs] CompanyStructure with mandatory RegistrationNumber and Telephone (Contact)",
       "ObjectClassTermQualifier": "",
-      "ObjectClassTerm": "CompanyStructure"
+      "ObjectClassTerm": "Company Structure"
     },
     {
       "num": "477",
       "Module": "Source Documents",
       "Kind": "ABIE",
       "Table": "",
-      "Name": "CompanyHeaderStructure",
+      "Name": "Company Header Structure",
       "Level": "",
-      "DictionaryEntryName": "CompanyHeaderStructure. Detail",
+      "DictionaryEntryName": "Company Header Structure. Detail",
       "Description": "[Common to all SAFs] CompanyStructure with mandatory RegistrationNumber and Telephone (Contact)",
       "ObjectClassTermQualifier": "",
-      "ObjectClassTerm": "CompanyHeaderStructure"
+      "ObjectClassTerm": "Company Header Structure"
     },
     {
       "num": "498",
       "Module": "Source Documents",
       "Kind": "ABIE",
       "Table": "",
-      "Name": "ContactHeaderStructure",
+      "Name": "Contact Header Structure",
       "Level": "",
-      "DictionaryEntryName": "ContactHeaderStructure. Detail",
+      "DictionaryEntryName": "Contact Header Structure. Detail",
       "Description": "[Common to all SAFs] ContactInformationStructure with madatory TelephoneNumber",
       "ObjectClassTermQualifier": "",
-      "ObjectClassTerm": "ContactHeaderStructure"
+      "ObjectClassTerm": "Contact Header Structure"
     },
     {
       "num": "501",
       "Module": "Source Documents",
       "Kind": "ABIE",
       "Table": "",
-      "Name": "HeaderStructure",
+      "Name": "Header Structure",
       "Level": "",
-      "DictionaryEntryName": "HeaderStructure. Detail",
+      "DictionaryEntryName": "Header Structure. Detail",
       "Description": "[Common to all SAFs] Overall information about this Standard Auditfile.",
       "ObjectClassTermQualifier": "",
-      "ObjectClassTerm": "HeaderStructure"
+      "ObjectClassTerm": "Header Structure"
     },
     {
       "num": "504",
       "Module": "Source Documents",
       "Kind": "ABIE",
       "Table": "",
-      "Name": "ContactInformationStructure",
+      "Name": "Contact Information Structure",
       "Level": "",
-      "DictionaryEntryName": "ContactInformationStructure. Detail",
+      "DictionaryEntryName": "Contact Information Structure. Detail",
       "Description": "[Common to all SAFs] Contact information of a company.",
       "ObjectClassTermQualifier": "",
-      "ObjectClassTerm": "ContactInformationStructure"
+      "ObjectClassTerm": "Contact Information Structure"
     },
     {
       "num": "509",
       "Module": "Source Documents",
       "Kind": "ABIE",
       "Table": "",
-      "Name": "HeaderStructure",
+      "Name": "Header Structure",
       "Level": "",
-      "DictionaryEntryName": "HeaderStructure. Detail",
+      "DictionaryEntryName": "Header Structure. Detail",
       "Description": "[Common to all SAFs] Overall information about this Standard Auditfile.",
       "ObjectClassTermQualifier": "",
-      "ObjectClassTerm": "HeaderStructure"
+      "ObjectClassTerm": "Header Structure"
     },
     {
       "num": "513",
       "Module": "Source Documents",
       "Kind": "ABIE",
       "Table": "",
-      "Name": "PersonNameStructure",
+      "Name": "Person Name Structure",
       "Level": "",
-      "DictionaryEntryName": "PersonNameStructure. Detail",
+      "DictionaryEntryName": "Person Name Structure. Detail",
       "Description": "[Common to all SAFs] All information about the name of a natural person.",
       "ObjectClassTermQualifier": "",
-      "ObjectClassTerm": "PersonNameStructure"
+      "ObjectClassTerm": "Person Name Structure"
     },
     {
       "num": "530",
       "Module": "Source Documents",
       "Kind": "ABIE",
       "Table": "",
-      "Name": "SelectionCriteriaStructure",
+      "Name": "Selection Criteria Structure",
       "Level": "",
-      "DictionaryEntryName": "SelectionCriteriaStructure. Detail",
+      "DictionaryEntryName": "Selection Criteria Structure. Detail",
       "Description": "[Common to all SAFs] The selection criteria used to generate this Standard Auditfile",
       "ObjectClassTermQualifier": "",
-      "ObjectClassTerm": "SelectionCriteriaStructure"
-    },
-    {
-      "num": "536",
-      "Module": "Source Documents",
-      "Kind": "ABIE",
-      "Table": "",
-      "Name": "SelectionStartDate-SelectionEndDate",
-      "Level": "",
-      "DictionaryEntryName": "SelectionStartDate-SelectionEndDate. Detail",
-      "Description": "",
-      "ObjectClassTermQualifier": "",
-      "ObjectClassTerm": "SelectionStartDate-SelectionEndDate"
+      "ObjectClassTerm": "Selection Criteria Structure"
     },
     {
       "num": "539",
       "Module": "Source Documents",
       "Kind": "ABIE",
       "Table": "",
-      "Name": "TaxIDStructure",
+      "Name": "Tax ID Structure",
       "Level": "",
-      "DictionaryEntryName": "TaxIDStructure. Detail",
+      "DictionaryEntryName": "Tax ID Structure. Detail",
       "Description": "[Common to all SAFs] Tax information of a company.",
       "ObjectClassTermQualifier": "",
-      "ObjectClassTerm": "TaxIDStructure"
-    },
-    {
-      "num": "540",
-      "Module": "Source Documents",
-      "Kind": "ABIE",
-      "Table": "",
-      "Name": "PeriodStart-PeriodStartYear-PeriodEnd-PeriodEndYear",
-      "Level": "",
-      "DictionaryEntryName": "PeriodStart-PeriodStartYear-PeriodEnd-PeriodEndYear. Detail",
-      "Description": "",
-      "ObjectClassTermQualifier": "",
-      "ObjectClassTerm": "PeriodStart-PeriodStartYear-PeriodEnd-PeriodEndYear"
+      "ObjectClassTerm": "Tax ID Structure"
     },
     {
       "num": "545",
       "Module": "Source Documents",
       "Kind": "ABIE",
       "Table": "",
-      "Name": "TaxInformationStructure",
+      "Name": "Tax Information Structure",
       "Level": "",
-      "DictionaryEntryName": "TaxInformationStructure. Detail",
+      "DictionaryEntryName": "Tax Information Structure. Detail",
       "Description": " Tax Amount information structure",
       "ObjectClassTermQualifier": "",
-      "ObjectClassTerm": "TaxInformationStructure"
+      "ObjectClassTerm": "Tax Information Structure"
     }
   ]
 }

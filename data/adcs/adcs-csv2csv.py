@@ -45,8 +45,7 @@ if __name__ == '__main__':
     d = date.today()
     dir = os.path.dirname(__file__)
     in_file = dir+'/list-adcs.csv'
-    abie_file = dir+'/list-adcs-abie-'+d.isoformat()+'.json'
-    entity_file = dir+'/list-adcs-entity-'+d.isoformat()+'.json'
+    csv_file = dir+'/list-adcs'+d.isoformat()+'.csv'
 
     # csv_header = ['module','num','Kind','Table','Name','DictionaryEntryName','Description','ObjectClassTermQualifier','ObjectClassTerm']
     csv_header = [
@@ -74,8 +73,9 @@ if __name__ == '__main__':
         'Representation',
         'XBRLGL',
     ]
-    abie_list = []
-    entity_list = []
+    moduleMap = {}
+    csv_list = []
+    csv_list = []
     with open(in_file, newline='') as csvfile:
         reader = csv.DictReader(csvfile,csv_header)
         next(reader, None)  # skip the headers
@@ -125,57 +125,55 @@ if __name__ == '__main__':
             Datatype = row['Datatype']
             Representation = row['Representation']
             XBRLGL = row['XBRLGL']
-            if 'ABIE'==Kind:
-                abie = {
-                    'seq': seq,
-                    'Module': module,
-                    'Kind': Kind,
-                    'Table': '',
-                    'Name': Name,
-                    'Level': 0,
-                    'DictionaryEntryName': _DictionaryEntryName,
-                    'Description': Description,
-                    'ObjectClassTermQualifier': ObjectClassTermQualifier,
-                    'ObjectClassTerm': ObjectClassTerm,
-                    'Table': Table
-                }
-                abie_list.append(abie)
-            elif num:
-                entity = {
-                    'Module': module,
-                    'num': num,
-                    'Kind': Kind,
-                    'Table': '',
-                    'Name': Name,
-                    'Level': 0,
-                    'Card': Occurrence,
-                    'Type': RepresentationTerm,
-                    'DictionaryEntryName': _DictionaryEntryName,
-                    'Description': Description,
-                    'ObjectClassTermQualifier': ObjectClassTermQualifier,
-                    'ObjectClassTerm': ObjectClassTerm,
-                    'DatatypeQualifier': '',
-                    'RepresentationTerm': RepresentationTerm,
-                    'AssociatedObjectClassTermQualifier': AssociatedObjectClassTermQualifier,
-                    'AssociatedObjectClass': AssociatedObjectClass,
-                    'ReferencedObjectClassTermQualifier': ReferencedObjectClassTermQualifier,
-                    'ReferencedObjectClass': ReferencedObjectClass,
-                    'Table': Table,
-                    'PK_REF': PK_REF,
-                    'RefField': RefField,
-                    'RefTable': RefTable,
-                    'Datatype': Datatype,
-                    'Representation': Representation,
-                    'XBRLGL': XBRLGL
-                }
-                entity_list.append(entity)
+            if 'ADCS'==module:
+                if 'Audit Data'==ObjectClassTerm:
+                    moduleMap[Name] = 'ADCS'
+                elif 'ASBIE'==Kind:
+                    moduleMap[Name] = ObjectClassTerm
+                    if AssociatedObjectClass:
+                        moduleMap[AssociatedObjectClass] = ObjectClassTerm
+            if 'Audit Data'!= ObjectClassTerm:
+                if 'Line' in ObjectClassTerm and 'General Ledger Line'!=ObjectClassTerm:
+                    module = moduleMap[ObjectClassTerm[:-5]]
+                elif not ObjectClassTerm in moduleMap:
+                    module = 'Core'
+                else:
+                    module = moduleMap[ObjectClassTerm]
+            record = {
+                'seq': seq,
+                'module': module,
+                'ObjectClassTermQualifier': ObjectClassTermQualifier,
+                'ObjectClassTerm': ObjectClassTerm,
+                'num': num,
+                'Kind': Kind,
+                'Name': Name,
+                'Occurrence': Occurrence,
+                'PropertyTerm': PropertyTerm,
+                'RepresentationTerm': RepresentationTerm,
+                'AssociatedObjectClassTermQualifier': AssociatedObjectClassTermQualifier,
+                'AssociatedObjectClass': AssociatedObjectClass,
+                'ReferencedObjectClassQualifier': ReferencedObjectClassTermQualifier,
+                'ReferencedObjectClass': ReferencedObjectClass,
+                'Description': Description,
+                'DictionaryEntryName': _DictionaryEntryName,
+                'Table': Table,
+                'PK_REF': PK_REF,
+                'RefField': RefField,
+                'RefTable': RefTable,
+                'Datatype': Datatype,
+                'Representation': Representation,
+                'XBRLGL': XBRLGL,
+            }
+            csv_list.append(record)
 
-    # abie_sorted = sorted(abie_list, key=lambda x:x['seq'])
-    with open(abie_file, 'w') as f:
-        json.dump({'data': abie_list}, f, indent=2)
+    csv_list = sorted(csv_list, key=lambda x:x['module']+x['ObjectClassTermQualifier']+x['ObjectClassTerm']+x['num'])
 
-    entity_sorted = sorted(entity_list, key=lambda x:x['Module']+x['ObjectClassTermQualifier']+x['ObjectClassTerm']+x['num'])
-    with open(entity_file, 'w') as f:
-        json.dump({'data': entity_sorted}, f, indent=2)
+    # with open(csv_file, 'w') as f:
+    #     json.dump({'data': csv_list}, f, indent=2)
 
-    print('done.')
+    with open(csv_file, 'w') as f:
+        writer = csv.DictWriter(f,csv_header)
+        writer.writeheader()
+        writer.writerows(csv_list)
+
+    print(f'done. {csv_file}')

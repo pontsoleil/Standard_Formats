@@ -4000,7 +4000,7 @@ function expandCollapse(frame, entityMap, tr) {
       name = d.Name || d.ComponentName || d.ShortName || d.BusinessTerm;
       depth = num.split('.').length - 1;
       prefix = ''
-      if (depth > 0 && ! name.match(/^&bullet;/)){
+      if (depth > 0 && name && ! name.match(/^&bullet;/)){
         for (var i = 0; i < depth; i++) {
           prefix += '&bullet;';
         }
