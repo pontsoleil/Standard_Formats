@@ -116,16 +116,16 @@
 1115,Master Files,,Product,BBIE,6,ProductNumberCode,0..1,,ProductNumberCode,,Text,,,,,SAFmiddle2textType,EAN or other code
 1116,Master Files,,Product,BBIE,7,ValuationMethod,0..1,,ValuationMethod,,Code,,,,,SAFcodeType,"FIFO, LIFO, Average cost etc."
 1117,Master Files,,Product,RFBIE,8,UOMBase,1..1,,Referenced,,Code,,,,UOMTableEntry,SAFcodeType,Unit of measure for Stock Administration for this product Predescribed TABLE is possible.
-1118,Master Files,,Product,ASBIE,9,sequence_UOM,0..1,,Associated,,,,sequence_UOM,,,,Not needed when not applicable
+1118,Master Files,,Product,ASBIE,9,sequence:UOM,0..1,,Associated,,,,sequence:UOM,,,,Not needed when not applicable
 1119,Master Files,,Product,ASBIE,10,Tax,0..*,,Associated,,,,Tax,,,,
 1120,Master Files,,Product,BBIE,11,any##other,0..1,,,,,,,,,Represents space to allow individual Revenue Bodies to add further elements,Represents space to allow individual Revenue Bodies to add further elements
-1121,Master Files,,sequence_UOM,ABIE,0,sequence_UOM,0..1,,Details,,,,,,,,Not needed when not applicable
-1122,Master Files,,sequence_UOM,BBIE,1,UOMStandard,1..1,,UOMStandard,,Code,,,,,SAFcodeType,"A Standard Unit of Measure applicable for this product, f.i. Kilo, Metres, Litres (Predescribed TABLE is possible)"
-1123,Master Files,,sequence_UOM,BBIE,2,UOMToUOMBaseConversionFactor,1..1,,UOMToUOMBaseConversionFactor,,Numeric,,,,,decimal,Conversion factor of the UOM to UOM Base
+1121,Master Files,,sequence:UOM,ABIE,0,sequence:UOM,0..1,,Details,,,,,,,,Not needed when not applicable
+1122,Master Files,,sequence:UOM,BBIE,1,UOMStandard,1..1,,UOMStandard,,Code,,,,,SAFcodeType,"A Standard Unit of Measure applicable for this product, f.i. Kilo, Metres, Litres (Predescribed TABLE is possible)"
+1123,Master Files,,sequence:UOM,BBIE,2,UOMToUOMBaseConversionFactor,1..1,,UOMToUOMBaseConversionFactor,,Numeric,,,,,decimal,Conversion factor of the UOM to UOM Base
 1124,Master Files,,Tax,ABIE,0,Tax,0..*,,Details,,,,,,,,
-1125,Master Files,,Tax,ASBIE,1,sequence_Tax,0..1,,Associated,,,,sequence_Tax,,,,
-1126,Master Files,,sequence_Tax,ABIE,0,sequence_Tax,0..1,,Details,,,,,,,,
-1127,Master Files,,sequence_Tax,BBIE,1,TaxType,1..1,,TaxType,,Code,,,,,SAFcodeType,Tax Type for lookup in tables
+1125,Master Files,,Tax,ASBIE,1,sequence:Tax,0..1,,Associated,,,,sequence:Tax,,,,
+1126,Master Files,,sequence:Tax,ABIE,0,sequence:Tax,0..1,,Details,,,,,,,,
+1127,Master Files,,sequence:Tax,BBIE,1,TaxType,1..1,,TaxType,,Code,,,,,SAFcodeType,Tax Type for lookup in tables
 1128,Master Files,,PhysicalStock,ABIE,0,PhysicalStock,0..1,,Details,,,,,,,,
 1129,Master Files,,PhysicalStock,ASBIE,1,PhysicalStockEntry,1..*,,Associated,,,,PhysicalStockEntry,,,,
 1130,Master Files,,PhysicalStockEntry,ABIE,0,PhysicalStockEntry,1..*,,Details,,,,,,,,
@@ -137,21 +137,21 @@
 1136,Master Files,,PhysicalStockEntry,BBIE,6,ProductStatus,0..1,,ProductStatus,,Code,,,,,SAFshorttextType,"To determine whether the product/stockaccount is discontinued, damaged, obsolete, active, etc."
 1137,Master Files,,PhysicalStockEntry,BBIE,7,StockAccountCommodityCode,0..1,,StockAccountCommodityCode,,Text,,,,,SAFmiddle1textType,Classification for import / export
 1138,Master Files,,PhysicalStockEntry,RFBIE,8,OwnerID,0..1,,Referenced,,Text,,,Owner,CompanyStructure,SAFmiddle1textType,Reference to the owner Master File
-1139,Master Files,,PhysicalStockEntry,ASBIE,9,sequence_PhysicalStockUOM,0..1,,Associated,,,,sequence_PhysicalStockUOM,,,,Not needed when UOMPhysicalStock equals UOMBase
+1139,Master Files,,PhysicalStockEntry,ASBIE,9,sequence:PhysicalStockUOM,0..1,,Associated,,,,sequence:PhysicalStockUOM,,,,Not needed when UOMPhysicalStock equals UOMBase
 1140,Master Files,,PhysicalStockEntry,BBIE,10,UnitPrice,0..1,,UnitPrice,,Monetary,,,,,SAFmonetaryType,Base Unit price for this stock account  in the header's default currency.
 1141,Master Files,,PhysicalStockEntry,BBIE,11,OpeningStockQuantity,1..1,,OpeningStockQuantity,,Quantity,,,,,SAFquantityType,In UOM Physical Stock for selection period
 1142,Master Files,,PhysicalStockEntry,BBIE,12,OpeningStockValue,0..1,,OpeningStockValue,,Monetary,,,,,SAFmonetaryType,In  the header's currency code for selection period
 1143,Master Files,,PhysicalStockEntry,BBIE,13,ClosingStockQuantity,1..1,,ClosingStockQuantity,,Quantity,,,,,SAFquantityType,In UOM Physical Stock for selection period
 1144,Master Files,,PhysicalStockEntry,BBIE,14,ClosingStockValue,0..1,,ClosingStockValue,,Monetary,,,,,SAFmonetaryType,Closing stock value  in the header's default currency for selection period
 1145,Master Files,,PhysicalStockEntry,ASBIE,15,StockCharacteristics,0..1,,Associated,,,,StockCharacteristics,,,,
-1146,Master Files,,PhysicalStockEntry,ASBIE,16,sequence_PhysicalStockCharacteristic,1..*,,Associated,,,,sequence_PhysicalStockCharacteristic,,,,
+1146,Master Files,,PhysicalStockEntry,ASBIE,16,sequence:PhysicalStockCharacteristic,1..*,,Associated,,,,sequence:PhysicalStockCharacteristic,,,,
 1147,Master Files,,PhysicalStockEntry,BBIE,17,any##other,0..1,,,,,,,,,Represents space to allow individual Revenue Bodies to add further elements,Represents space to allow individual Revenue Bodies to add further elements
-1148,Master Files,,sequence_PhysicalStockUOM,ABIE,0,sequence_PhysicalStockUOM,0..1,,Details,,,,,,,,Not needed when UOMPhysicalStock equals UOMBase
-1149,Master Files,,sequence_PhysicalStockUOM,BBIE,1,UOMPhysicalStock,1..1,,UOMPhysicalStock,,Code,,,,,SAFcodeType,Unit of Measurement for this Physical Stock position
-1150,Master Files,,sequence_PhysicalStockUOM,BBIE,2,UOMToUOMBaseConversionFactor,1..1,,UOMToUOMBaseConversionFactor,,Numeric,,,,,decimal,Conversion factor of the UOM to UOM Base
-1151,Master Files,,sequence_PhysicalStockCharacteristic,ABIE,,sequence_PhysicalStockCharacteristic,,,Details,,,,,,,,
-1152,Master Files,,sequence_PhysicalStockCharacteristic,BBIE,1,StockCharacteristic,1..1,,StockCharacteristic,,Code,,,,,SAFshorttextType,User definable characteristics of the goods. Predescribed TABLE is possible.
-1153,Master Files,,sequence_PhysicalStockCharacteristic,BBIE,1,StockCharacteristicValue,1..1,,StockCharacteristicValue,,Text,,,,,SAFmiddle1textType,"The weight, pack size, colour etc."
+1148,Master Files,,sequence:PhysicalStockUOM,ABIE,0,sequence:PhysicalStockUOM,0..1,,Details,,,,,,,,Not needed when UOMPhysicalStock equals UOMBase
+1149,Master Files,,sequence:PhysicalStockUOM,BBIE,1,UOMPhysicalStock,1..1,,UOMPhysicalStock,,Code,,,,,SAFcodeType,Unit of Measurement for this Physical Stock position
+1150,Master Files,,sequence:PhysicalStockUOM,BBIE,2,UOMToUOMBaseConversionFactor,1..1,,UOMToUOMBaseConversionFactor,,Numeric,,,,,decimal,Conversion factor of the UOM to UOM Base
+1151,Master Files,,sequence:PhysicalStockCharacteristic,ABIE,,sequence:PhysicalStockCharacteristic,,,Details,,,,,,,,
+1152,Master Files,,sequence:PhysicalStockCharacteristic,BBIE,1,StockCharacteristic,1..1,,StockCharacteristic,,Code,,,,,SAFshorttextType,User definable characteristics of the goods. Predescribed TABLE is possible.
+1153,Master Files,,sequence:PhysicalStockCharacteristic,BBIE,1,StockCharacteristicValue,1..1,,StockCharacteristicValue,,Text,,,,,SAFmiddle1textType,"The weight, pack size, colour etc."
 1154,Master Files,,Owners,ABIE,0,Owners,,,Details,,,,,,,,
 1155,Master Files,,Owners,ASBIE,1,Owner,1..*,,Associated,,,,Owner,,,,
 1156,Master Files,Owner,CompanyStructure,ABIE,0,Owner,,,Details,,,,,,,,
@@ -463,11 +463,11 @@
 1462,Source Documents,,AddressStructure,BBIE,9,AddressType,0..1,,AddressType,,,,,,,,"Field to differentiate between multiple addresses. To indicate the type of address. Choose  from the predefined enumeration. (examples: StreetAddress PostalAddress, BillingAddress)"
 1463,Source Documents,,AmountStructure,ABIE,0,AmountStructure,1..1,,Details,,,,,,,,[Common to all SAFs] A common structure used wherever an amount is required. Monetary amount with optional foreign currency exchange rate information.
 1464,Source Documents,,AmountStructure,BBIE,1,Amount,1..1,,Amount,,Monetary,,,,,SAFmonetaryType,In the header's default currency.
-1465,Source Documents,,AmountStructure,ASBIE,2,sequence_Amount,0..1,,Associated,,,,sequence_Amount,,,sequence_Amount,
-1466,Source Documents,,sequence_Amount,ABIE,0,sequence_Amount,0..1,,Details,,,,,,,,
-1467,Source Documents,,sequence_Amount,BBIE,1,CurrencyCode,1..1,,CurrencyCode,,Code,,,,,ISOCurrencyCode,Three-letter currency code according to ISO 4217 standard. Example: EUR for the Euros or USD for American Dollars.
-1468,Source Documents,,sequence_Amount,BBIE,2,CurrencyAmount,1..1,,CurrencyAmount,,Monetary,,,,,SAFmonetaryType,Amount in foreign currency.
-1469,Source Documents,,sequence_Amount,BBIE,3,ExchangeRate,0..1,,ExchangeRate,,,,,,,SAFexchangerateType,The exchange rate used. CurrencyAmount x ExchangeRate = Amount
+1465,Source Documents,,AmountStructure,ASBIE,2,sequence:Amount,0..1,,Associated,,,,sequence:Amount,,,sequence:Amount,
+1466,Source Documents,,sequence:Amount,ABIE,0,sequence:Amount,0..1,,Details,,,,,,,,
+1467,Source Documents,,sequence:Amount,BBIE,1,CurrencyCode,1..1,,CurrencyCode,,Code,,,,,ISOCurrencyCode,Three-letter currency code according to ISO 4217 standard. Example: EUR for the Euros or USD for American Dollars.
+1468,Source Documents,,sequence:Amount,BBIE,2,CurrencyAmount,1..1,,CurrencyAmount,,Monetary,,,,,SAFmonetaryType,Amount in foreign currency.
+1469,Source Documents,,sequence:Amount,BBIE,3,ExchangeRate,0..1,,ExchangeRate,,,,,,,SAFexchangerateType,The exchange rate used. CurrencyAmount x ExchangeRate = Amount
 1470,Source Documents,,AnalysisStructure,ABIE,0,AnalysisStructure,1..1,,Details,,,,,,,,General Ledger analysis codes
 1471,Source Documents,,AnalysisStructure,BBIE,1,AnalysisType,1..1,,AnalysisType,,Code,,,,,SAFcodeType,"Analysis code identifier: cost center, cost unit, cost type, project, etc. Refers to the MasterFile AnalysisTypeTable"
 1472,Source Documents,,AnalysisStructure,BBIE,2,AnalysisID,1..1,,AnalysisID,,Text,,,,,SAFlongtextType,Value of the analysisID: f.i. which cost center applies
