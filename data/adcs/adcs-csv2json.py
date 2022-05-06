@@ -111,11 +111,11 @@ if __name__ == '__main__':
             if 'ABIE'==Kind:
                 _DictionaryEntryName = f'{_ObjectClassTerm}. Details'
             elif 'BBIE'==Kind:
-                _DictionaryEntryName = f'{_ObjectClassTerm}.{PropertyTerm}. {RepresentationTerm}'
+                _DictionaryEntryName = f'{_ObjectClassTerm}. {PropertyTerm}. {RepresentationTerm}'
             elif 'ASBIE'==Kind:
-                _DictionaryEntryName = f'{_ObjectClassTerm}.{PropertyTerm}. {_AssociatedObjectClass}'
+                _DictionaryEntryName = f'{_ObjectClassTerm}. {PropertyTerm}. {_AssociatedObjectClass}'
             elif 'RFBIE'==Kind:
-                _DictionaryEntryName = f'{_ObjectClassTerm}.{PropertyTerm}. {_ReferencedObjectClass}'
+                _DictionaryEntryName = f'{_ObjectClassTerm}. {PropertyTerm}. {_ReferencedObjectClass}'
             else:
                 _DictionaryEntryName = ''
             Table = row['Table']

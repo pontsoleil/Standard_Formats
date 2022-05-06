@@ -42,6 +42,15 @@ def file_path(pathname):
         new_path = os.path.join(dir, pathname)
         return new_path
 
+def CC2TC(name):
+    if not name:
+        return ''
+    name = re.sub(r'(choice|sequence)_',r'\1:',name)
+    name = re.sub(r'(?<!^)(?=[A-Z])',' ',name)
+    name = re.sub(r'([^\s])([\/\-\:])',r'\1 \2',name)
+    name = re.sub(r'([\/\-\:])([^\s])',r'\1 \2',name)
+    return name
+
 if __name__ == '__main__':
     d = date.today()
     dir = os.path.dirname(__file__)
@@ -80,40 +89,22 @@ if __name__ == '__main__':
             Module = row['Module']
             Kind = row['Kind']
             Name = row['Name']
-            Name = re.sub(r'(.)([A-Z])',r'\1 \2',Name)
+            Name = CC2TC(Name)
             Level = row['Level']
             Card = row['Card']
             Type = row['Type']
             Description = row['Description']
-            ObjectClassTermQualifier = row['ObjectClassTermQualifier']
-            if ObjectClassTermQualifier:
-                ObjectClassTermQualifier = re.sub(r'(.)([A-Z])',r'\1 \2',ObjectClassTermQualifier)
-            ObjectClassTerm = row['ObjectClassTerm']
-            if ObjectClassTerm:
-                ObjectClassTerm = re.sub(r'(.)([A-Z])',r'\1 \2',ObjectClassTerm)
-            PropertyTermQualifier = row['PropertyTermQualifier']
-            if PropertyTermQualifier:
-                PropertyTermQualifier = re.sub(r'(.)([A-Z])',r'\1 \2',PropertyTermQualifier)
-            PropertyTerm = row['PropertyTerm']
-            if PropertyTerm:
-                PropertyTerm = re.sub(r'(.)([A-Z])',r'\1 \2',PropertyTerm)
-            DatatypeQualifier = row['DatatypeQualifier']
-            if DatatypeQualifier:
-                DatatypeQualifier = re.sub(r'(.)([A-Z])',r'\1 \2',DatatypeQualifier)
-            RepresentationTerm = row['RepresentationTerm']
-            if RepresentationTerm:
-                RepresentationTerm = re.sub(r'(.)([A-Z])',r'\1 \2',RepresentationTerm)
-            AssciatedObjectClassTermQualifier = row['AssciatedObjectClassTermQualifier']
-            AssociatedObjectClass = row['AssociatedObjectClass']
-            if RepresentationTerm:
-                RepresentationTerm = re.sub(r'(.)([A-Z])',r'\1 \2',RepresentationTerm)
-            ReferencedObjectClassTermQualifier = row['ReferencedObjectClassTermQualifier']
-            if ReferencedObjectClassTermQualifier:
-                ReferencedObjectClassTermQualifier = re.sub(r'(.)([A-Z])',r'\1 \2',ReferencedObjectClassTermQualifier)
-            ReferencedObjectClass = row['ReferencedObjectClass']
-            if ReferencedObjectClass:
-                ReferencedObjectClass = re.sub(r'(.)([A-Z])',r'\1 \2',ReferencedObjectClass)
-            Description = row['Description']
+            ObjectClassTermQualifier = CC2TC(row['ObjectClassTermQualifier'])
+            ObjectClassTerm = CC2TC(row['ObjectClassTerm'])
+            PropertyTermQualifier = CC2TC(row['PropertyTermQualifier'])
+            PropertyTerm = CC2TC(row['PropertyTerm'])
+            DatatypeQualifier = CC2TC(row['DatatypeQualifier'])
+            RepresentationTerm = CC2TC(row['RepresentationTerm'])
+            AssciatedObjectClassTermQualifier = CC2TC(row['AssciatedObjectClassTermQualifier'])
+            AssociatedObjectClass = CC2TC(row['AssociatedObjectClass'])
+            RepresentationTerm = CC2TC(row['RepresentationTerm'])
+            ReferencedObjectClassTermQualifier = CC2TC(row['ReferencedObjectClassTermQualifier'])
+            ReferencedObjectClass = CC2TC(row['ReferencedObjectClass'])
             if ObjectClassTermQualifier:
                 _ObjectClassTerm = f'{ObjectClassTermQualifier}_ {ObjectClassTerm}'
             else:

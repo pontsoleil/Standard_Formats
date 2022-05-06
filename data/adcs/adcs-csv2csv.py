@@ -75,7 +75,6 @@ if __name__ == '__main__':
     ]
     moduleMap = {}
     csv_list = []
-    csv_list = []
     with open(in_file, newline='') as csvfile:
         reader = csv.DictReader(csvfile,csv_header)
         next(reader, None)  # skip the headers
@@ -111,11 +110,11 @@ if __name__ == '__main__':
             if 'ABIE'==Kind:
                 _DictionaryEntryName = f'{_ObjectClassTerm}. Details'
             elif 'BBIE'==Kind:
-                _DictionaryEntryName = f'{_ObjectClassTerm}.{PropertyTerm}. {RepresentationTerm}'
+                _DictionaryEntryName = f'{_ObjectClassTerm}. {PropertyTerm}. {RepresentationTerm}'
             elif 'ASBIE'==Kind:
-                _DictionaryEntryName = f'{_ObjectClassTerm}.{PropertyTerm}. {_AssociatedObjectClass}'
+                _DictionaryEntryName = f'{_ObjectClassTerm}. {PropertyTerm}. {_AssociatedObjectClass}'
             elif 'RFBIE'==Kind:
-                _DictionaryEntryName = f'{_ObjectClassTerm}.{PropertyTerm}. {_ReferencedObjectClass}'
+                _DictionaryEntryName = f'{_ObjectClassTerm}. {PropertyTerm}. {_ReferencedObjectClass}'
             else:
                 _DictionaryEntryName = ''
             Table = row['Table']
@@ -137,6 +136,8 @@ if __name__ == '__main__':
                     module = moduleMap[ObjectClassTerm[:-5]]
                 elif not ObjectClassTerm in moduleMap:
                     module = 'Core'
+                elif Name in moduleMap:
+                    module = moduleMap[Name]
                 else:
                     module = moduleMap[ObjectClassTerm]
             record = {
