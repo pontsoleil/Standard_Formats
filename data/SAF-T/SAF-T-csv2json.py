@@ -180,11 +180,11 @@ if __name__ == '__main__':
                 }
                 entity_list.append(entity)
 
-    abie_sorted = sorted(abie_list, key=lambda x:x['Module']+x['num'])
+    abie_sorted = sorted(abie_list, key=lambda x:x['num'])
     with open(abie_file, 'w') as f:
         json.dump({'data': abie_sorted}, f, indent=2)
 
-    entity_sorted = sorted(entity_list, key=lambda x:x['Module']+x['ObjectClassTermQualifier']+x['ObjectClassTerm']+x['num'])
+    entity_sorted = sorted(entity_list, key=lambda x:x['num'])
     with open(entity_file, 'w') as f:
         json.dump({'data': entity_sorted}, f, indent=2)
 
