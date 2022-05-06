@@ -1,4 +1,4 @@
-﻿seq,Module,ObjectClassTermQualifier,ObjectClassTerm,kind,level,name,Card,PropertyTermQualifier,PropertyTerm,DatatypeQualifier,RepresentationTerm,AssciatedObjectClassTermQualifier,AssociatedObjectClass,ReferencedObjectClassTermQualifier,ReferencedObject Class,@type,@desc,
+﻿seq,Module,ObjectClassTermQualifier,ObjectClassTerm,kind,level,name,Card,PropertyTermQualifier,PropertyTerm,DatatypeQualifier,RepresentationTerm,AssciatedObjectClassTermQualifier,AssociatedObjectClass,ReferencedObjectClassTermQualifier,ReferencedObjectClass,Type,Description,
 199,SAF-T,,GeneralLedgerEntries,ABIE,,GeneralLedgerEntries,0..1,,Details,,,,,,,,,
 200,General Ledger Entries,,GeneralLedgerEntries,BBIE,1,NumberOfEntries,1..1,,NumberOfEntries,,Numeric,,,,,nonNegativeInteger,Number of entries,
 202,General Ledger Entries,,GeneralLedgerEntries,BBIE,1,TotalDebit,1..1,,TotalDebit,,Monetary,,,,,SAFmonetaryType,The total of all debit amounts in the header's default currency.,
