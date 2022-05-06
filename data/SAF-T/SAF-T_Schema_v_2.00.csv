@@ -1,570 +1,571 @@
-﻿seq,Module,ObjectClassTermQualifier,ObjectClassTerm,kind,level,name,Card,PropertyTermQualifier,PropertyTerm,DatatypeQualifier,RepresentationTerm,AssciatedObjectClassTermQualifier,AssociatedObjectClass,ReferencedObjectClassTermQualifier,ReferencedObjectClass,Type,Description,
-199,SAF-T,,GeneralLedgerEntries,ABIE,,GeneralLedgerEntries,0..1,,Details,,,,,,,,,
-200,General Ledger Entries,,GeneralLedgerEntries,BBIE,1,NumberOfEntries,1..1,,NumberOfEntries,,Numeric,,,,,nonNegativeInteger,Number of entries,
-202,General Ledger Entries,,GeneralLedgerEntries,BBIE,1,TotalDebit,1..1,,TotalDebit,,Monetary,,,,,SAFmonetaryType,The total of all debit amounts in the header's default currency.,
-203,General Ledger Entries,,GeneralLedgerEntries,BBIE,1,TotalCredit,1..1,,TotalCredit,,Monetary,,,,,SAFmonetaryType,The total of all credit amounts in the header's default currency.,
-204,General Ledger Entries,,GeneralLedgerEntries,ASBIE,1,Journal,0..*,,Associated,,,,Journal,,,,,
-205,General Ledger Entries,,Journal,ABIE,,Journal,0..*,,Details,,,,,,,,,
-206,General Ledger Entries,,Journal,BBIE,1,JournalID,1..1,,JournalID,,Code,,,,,SAFshorttextType,"Source GL journal identifier, or invoices and payments in single ledger systems",
-207,General Ledger Entries,,Journal,BBIE,1,Description,1..1,,Description,,Text,,,,,SAFlongtextType,Description of the Journal,
-208,General Ledger Entries,,Journal,BBIE,1,Type,1..1,,Type,,Code,,,,,SAFcodeType,Grouping mechanism for journals,
-209,General Ledger Entries,,Journal,ASBIE,1,Transaction,0..*,,Associated,,,,Transaction,,,,,
-210,General Ledger Entries,,Transaction,ABIE,,Transaction,0..*,,Details,,,,,,,,,
-211,General Ledger Entries,,Transaction,IDBIE,1,TransactionID,1..1,,TransactionID,,Identifier,,,,,SAFmiddle2textType,"Cross-reference to GL posting. It can contain many different levels to identify the transaction. It could include cost centres such as company, division, region, group and branch/department.",
-212,General Ledger Entries,,Transaction,BBIE,1,Period,1..1,,Period,,,,,,,nonNegativeInteger,Accounting Period,
-213,General Ledger Entries,,Transaction,BBIE,1,PeriodYear,1..1,,PeriodYear,,,,,,,,The year of the Accounting Period.,
-214,General Ledger Entries,,Transaction,BBIE,1,TransactionDate,1..1,,TransactionDate,,Date,,,,,date,Document date,
-215,General Ledger Entries,,Transaction,BBIE,1,SourceID,0..1,,SourceID,,Text,,,,,SAFmiddle1textType,Details of person or application that entered the transaction,
-216,General Ledger Entries,,Transaction,BBIE,1,TransactionType,0..1,,TransactionType,,Code,,,,,SAFshorttextType,"Type of journaltransaction: normal, (automated) periodically, etc.",
-217,General Ledger Entries,,Transaction,BBIE,1,Description,1..1,,Description,,Text,,,,,SAFlongtextType,Description of Journal Transaction,
-218,General Ledger Entries,,Transaction,BBIE,1,BatchID,0..1,,BatchID,,Text,,,,,SAFmiddle1textType,Systems generated ID for batch,
-219,General Ledger Entries,,Transaction,BBIE,1,SystemEntryDate,1..1,,SystemEntryDate,,Date,,,,,date,Date captured  by system,
-220,General Ledger Entries,,Transaction,BBIE,1,GLPostingDate,1..1,,GLPostingDate,,Date,,,,,date,Date posting to GL,
-221,General Ledger Entries,,Transaction,RFBIE,1,CustomerID,0..1,,Referenced,,Text,,,Customer,CompanyStructure,SAFmiddle1textType,Unique code for the customer,
-222,General Ledger Entries,,Transaction,RFBIE,1,SupplierID,0..1,,Referenced,,Text,,,Supplier,CompanyStructure,SAFmiddle1textType,Unique code for the supplier,
-223,General Ledger Entries,,Transaction,BBIE,1,SystemID,0..1,,SystemID,,Code,,,,,SAFshorttextType,Unique number created by the system for the document,
-224,General Ledger Entries,,Transaction,ASBIE,1,Transaction_Line,1..*,,Associated,,,,Transaction_Line,,,,,
-225,General Ledger Entries,,Transaction_Line,ABIE,,Transaction_Line,1..*,,Details,,,,,,,,,
-226,General Ledger Entries,,Transaction_Line,BBIE,1,RecordID,1..1,,RecordID,,Code,,,,,SAFshorttextType,Identifier to trace entry to journal line or posting reference,
-227,General Ledger Entries,,Transaction_Line,RFBIE,1,AccountID,1..1,,Referenced,,Text,,,,GeneralLedgerAccounts,SAFmiddle2textType,"General Ledger Account code. Can be including sub-account id. It can contain many different levels to identify the Account. It could include cost centres such as company, division, region, group and branch/department.",
-228,General Ledger Entries,,Transaction_Line,ASBIE,1,Analysis,0..*,,Associated,,,,AnalysisStructure,,,AnalysisStructure,General Ledger analysis codes,
-229,General Ledger Entries,,Transaction_Line,BBIE,1,ValueDate,0..1,,ValueDate,,Date,,,,,date,Effective date from which interest charged. To be reported when this date differs from the transactiondate.,
-230,General Ledger Entries,,Transaction_Line,BBIE,1,SourceDocumentID,0..1,,SourceDocumentID,,Text,,,,,SAFmiddle1textType,Source document number to which line relates,
-231,General Ledger Entries,,Transaction_Line,RFBIE,1,CustomerID,0..1,,Referenced,,Text,,,Customer,CompanyStructure,SAFmiddle1textType,Unique code for the customer,
-232,General Ledger Entries,,Transaction_Line,RFBIE,1,SupplierID,0..1,,Referenced,,Text,,,Supplier,CompanyStructure,SAFmiddle1textType,Unique code for the supplier,
-233,General Ledger Entries,,Transaction_Line,BBIE,1,Description,1..1,,Description,,Text,,,,,SAFlongtextType,Description of the Journal Line.,
-234,General Ledger Entries,,Transaction_Line,ASBIE,1,choice DebitAmount/CreditAmount,1..1,,Associated,,,,choice:DebitAmount/CreditAmount,,,,,
-238,General Ledger Entries,,Transaction_Line,ASBIE,1,TaxInformation,0..*,,Associated,,,,TaxInformationStructure,,,TaxInformationStructure,,
-238.5,General Ledger Entries,,Transaction_Line,BBIE,1,any##other,0..1,,,,,,,,,Represents space to allow individual Revenue Bodies to add further elements,Represents space to allow individual Revenue Bodies to add further elements,
-235,General Ledger Entries,,choice:DebitAmount/CreditAmount,ABIE,,choice DebitAmount/CreditAmount,1..1,,Details,,,,,,,,,
-236,General Ledger Entries,,choice:DebitAmount/CreditAmount,ASBIE,1,DebitAmountt,1..1,,Associated,,,,AmountStructure,,,AmountStructure,Debit amount information for transaction,
-237,General Ledger Entries,,choice:DebitAmount/CreditAmount,ASBIE,1,CreditAmountt,1..1,,Associated,,,,AmountStructure,,,AmountStructure,Credit amount information for transaction,
-6,SAF-T,,Header,ABIE,,Header,1..1,,Details,,,,,,,,Holds general information about the file including the name of the software which produced it; the company on whose behalf the SAF-T is being submitted; and the selection criteria used. An extension point is provided to allow individual Revenue Bodies to  specify further relevant information to be supplied.,
-7,Header,,Header,ASBIE,1,HeaderStructure,1..1,,Associated,,,,HeaderStructure,,,,,
-8,Header,,Header,BBIE,1,TaxAccountingBasis,1..1,,TaxAccountingBasis,,Code,,,,,SAFshorttextType,"Invoice Accounting, Cash Accounting, Delivery, other ...",
-9,Header,,Header,BBIE,1,TaxEntity,0..1,,TaxEntity,,Text,,,,,SAFmiddle2textType,Company / Division / Branch reference,
-9,Header,,Header,BBIE,1,any##other,0..1,,,,,,,,,Represents space to allow individual Revenue Bodies to add further elements if required. See Annex A.,Represents space to allow individual Revenue Bodies to add further elements if required. See Annex A.,
-8,SAF-T,,MasterFiles,ABIE,,MasterFiles,0..1,,Details,,,,,,,,"Holds standing data about general ledger account, suppliers, customers, products, etc.. An extension point is provided to allow Revenue Bodies to specify additional elements or structures such as tax rate tables.",
-9,Master Files,,MasterFiles,ASBIE,1,GeneralLedgerAccounts,0..1,,Associated,,,,GeneralLedgerAccounts,,,,,
-10,Master Files,,MasterFiles,ASBIE,1,Taxonomies,0..1,,Associated,,,,Taxonomies,,,,,
-11,Master Files,,MasterFiles,ASBIE,1,Customers,0..1,,Associated,,,,Customers,,,,,
-12,Master Files,,MasterFiles,ASBIE,1,Suppliers,0..1,,Associated,,,,Suppliers,,,,,
-13,Master Files,,MasterFiles,ASBIE,1,TaxTable,0..1,,Associated,,,,TaxTable,,,,,
-14,Master Files,,MasterFiles,ASBIE,1,UOMTable,0..1,,Associated,,,,UOMTable,,,,Table with descriptions of all different kinds of UOM's,
-15,Master Files,,MasterFiles,ASBIE,1,AnalysisTypeTable,0..1,,Associated,,,,AnalysisTypeTable,,,,"Table with the analysiscode identifiers.\nsed for further specification of transaction data.\nxample: cost unit, cost center, project.",
-16,Master Files,,MasterFiles,ASBIE,1,MovementTypeTable,0..1,,Associated,,,,MovementTypeTable,,,,Table with descriptions of all different kinds of movementtypes and movementsubtypes,
-17,Master Files,,MasterFiles,ASBIE,1,Products,0..1,,Associated,,,,Products,,,,,
-18,Master Files,,MasterFiles,ASBIE,1,PhysicalStock,0..1,,Associated,,,,PhysicalStock,,,,,
-19,Master Files,,MasterFiles,ASBIE,1,Owners,0..1,,Associated,,,,Owners,,,,,
-20,Master Files,,MasterFiles,ASBIE,1,Assets,0..1,,Associated,,,,Assets,,,,,
-89,Master Files,,AnalysisTypeTable,ABIE,,AnalysisTypeTable,0..1,,Details,,,,,,,,"Table with the analysiscode identifiers.\nsed for further specification of transaction data.\nxample: cost unit, cost center, project.",
-90,Master Files,,AnalysisTypeTable,ASBIE,1,AnalysisTypeTableEntry,1..*,,Associated,,,,AnalysisTypeTableEntry,,,,,
-91,Master Files,,AnalysisTypeTableEntry,ABIE,,AnalysisTypeTableEntry,1..*,,Details,,,,,,,,,
-92,Master Files,,AnalysisTypeTableEntry,IDBIE,1,AnalysisType,1..1,,AnalysisType,,Identifier,,,,,SAFcodeType,"Analysis type identifier: e.g. CC (for Cost Center), DEP (for department), etc.",
-93,Master Files,,AnalysisTypeTableEntry,BBIE,1,AnalysisTypeDescription,1..1,,AnalysisTypeDescription,,Text,,,,,SAFlongtextType,"Description of the AnalysisType, e.g. ""Cost Center""",
-94,Master Files,,AnalysisTypeTableEntry,IDBIE,1,AnalysisID,1..1,,AnalysisID,,Identifier,,,,,SAFmiddle1textType,"Analysis ID: e.g. 1200-HDOF-TR (for cost center treasury in the headoffice), P-4800-123 (for project 123 in branch 4800)",
-95,Master Files,,AnalysisTypeTableEntry,BBIE,1,AnalysisIDDescription,1..1,,AnalysisIDDescription,,Text,,,,,SAFlongtextType,"Description of the AnalysisID: e.g. ""Headoffice-Treasury"".",
-157,Master Files,,Assets,ABIE,,Assets,,,Details,,,,,,,,,
-158,Master Files,,Assets,ASBIE,1,Asset,1..*,,Associated,,,,Asset,,,,,
-159,Master Files,,Asset,ABIE,,Asset,,,Details,,,,,,,,,
-160,Master Files,,Asset,IDBIE,1,AssetID,1..1,,AssetID,,Identifier,,,,,SAFmiddle1textType,Unique identifier of the asset,
-161,Master Files,,Asset,RFBIE,1,AccountID,1..1,,Referenced,,Text,,,,GeneralLedgerAccounts,SAFmiddle2textType,"General Ledger Account code. Can be including sub-account id. It can contain many different levels to identify the Account. It could include cost centres such as company, division, region, group and branch/department.",
-162,Master Files,,Asset,BBIE,1,Description,1..1,,Description,,Text,,,,,SAFlongtextType,Description of this asset,
-163,Master Files,,Asset,ASBIE,1,Supplier,0..*,,Associated,,,Supplier,CompanyStructure,,,,"Contains the information of all suppliers, including the historical suppliers.",
-167,Master Files,,Asset,BBIE,1,PurchaseOrderDate,0..1,,PurchaseOrderDate,,Date,,,,,date,Date of the purchase order of this asset,
-168,Master Files,,Asset,BBIE,1,DateOfAcquisition,1..1,,DateOfAcquisition,,Date,,,,,date,Date of the acquisition of the asset (usually the date of delivery).,
-169,Master Files,,Asset,BBIE,1,StartUpDate,0..1,,StartUpDate,,Date,,,,,date,Commissioning date of the asset.,
-170,Master Files,,Asset,ASBIE,1,Valuations,1..1,,Associated,,,,Valuations,,,,The data can be reported for different purposes. More than one can be in this SAF.,
-180,Master Files,,choice:AssetLifeYear/AssetLifeMonth,ABIE,,choice:AssetLifeYear/AssetLifeMonth,1..1,,Details,,,,,,,,,
-181,Master Files,,choice:AssetLifeYear/AssetLifeMonth,BBIE,1,AssetLifeYear,1..1,,AssetLifeYear,,Numeric,,,,,decimal,Periode of useful life in years,
-182,Master Files,,choice:AssetLifeYear/AssetLifeMonth,BBIE,1,AssetLifeMonth,1..1,,AssetLifeMonth,,Numeric,,,,,decimal,Period of useful life in months,
-23,Master Files,,choice:ClosingDebitBalance/ClosingCreditBalance,ABIE,,choice:ClosingDebitBalance/ClosingCreditBalance,1..1,,Details,,,,,,,,,
-24,Master Files,,choice:ClosingDebitBalance/ClosingCreditBalance,BBIE,1,ClosingDebitBalance,1..1,,ClosingDebitBalance,,Monetary,,,,,SAFmonetaryType,Debit balance at the end date of the selection period in the header's default currency.,
-25,Master Files,,choice:ClosingDebitBalance/ClosingCreditBalance,BBIE,1,ClosingCreditBalance,1..1,,ClosingCreditBalance,,Monetary,,,,,SAFmonetaryType,Credit balance at the end date of the selection period in the header's default currency.,
-20,Master Files,,choice:OpeningDebitBalance/ClosingDebitBalance,ABIE,,choice:OpeningDebitBalance/ClosingDebitBalance,1..1,,Details,,,,,,,,,
-21,Master Files,,choice:OpeningDebitBalance/ClosingDebitBalance,BBIE,1,OpeningDebitBalance,1..1,,OpeningDebitBalance,,Monetary,,,,,SAFmonetaryType,Debit balance at the start date of the selection period in the header's default currency.,
-22,Master Files,,choice:OpeningDebitBalance/ClosingDebitBalance,BBIE,1,OpeningCreditBalance,1..1,,OpeningCreditBalance,,Monetary,,,,,SAFmonetaryType,Credit balance at the start date of the selection period in the header's default currency.,
-78,Master Files,,choice:TaxPercentage/FlatTaxRate,ABIE,,choice TaxPercentage/FlatTaxRate,1..1,,Details,,,,,,,,,
-79,Master Files,,choice:TaxPercentage/FlatTaxRate,BBIE,1,TaxPercentage,1..1,,TaxPercentage,,Percentage,,,,,decimal,Tax percentage.,
-80,Master Files,,choice:TaxPercentage/FlatTaxRate,ASBIE,1,FlatTaxRate,1..1,,Associated,,,,FlatTaxRate,,,AmountStructure,FlatTaxRate,
-40,Master Files,Customer,CompanyStructure,ABIE,,Customer,1..*,,Details,,,,,,,,,
-41,Master Files,Customer,CompanyStructure,ASBIE,1,CompanyStructure,1..1,,Associated,,,,CompanyStructure,,,,,
-42,Master Files,Customer,CompanyStructure,IDBIE,1,CustomerID,0..1,,CustomerID,,Identifier,,,,,SAFmiddle1textType,Unique code for the customer,
-43,Master Files,Customer,CompanyStructure,BBIE,1,SelfBillingIndicator,0..1,,SelfBillingIndicator,,Code,,,,,SAFcodeType,Indicator showing if a self-billing agreement exists between the customer and the supplier,
-44,Master Files,Customer,CompanyStructure,RFBIE,1,AccountID,0..1,,Referenced,,Text,,,,GeneralLedgerAccounts,SAFmiddle2textType,"General Ledger Account code for this customer. Can be including sub-account id. It can contain many different levels to identify the Account. It could include cost centres such as company, division, region, group and branch/department.",
-45,Master Files,Customer,CompanyStructure,ASBIE,1,choice:OpeningDebitBalance/OpeningCreditBalance,1..1,,Associated,,,,choice:OpeningDebitBalance/OpeningCreditBalance,,,,,
-48,Master Files,Customer,CompanyStructure,ASBIE,1,choice:ClosingDebitBalance/ClosingCreditBalance,1..1,,Associated,,,,choice:ClosingDebitBalance/ClosingCreditBalance,,,,,
-54,Master Files,Supplier,CompanyStructure,ABIE,,Supplier,0..*,,Details,,,,,,,,,
-55,Master Files,Supplier,CompanyStructure,ASBIE,1,CompanyStructure,1..1,,Associated,,,,CompanyStructure,,,,,
-56,Master Files,Supplier,CompanyStructure,IDBIE,1,SupplierID,0..1,,SupplierID,,Identifier,,,,,SAFmiddle1textType,Unique code for the supplier,
-57,Master Files,Supplier,CompanyStructure,BBIE,1,SelfBillingIndicator,0..1,,SelfBillingIndicator,,Code,,,,,SAFcodeType,Indicator showing if a self-billing agreement exists between the customer and the supplier,
-58,Master Files,Supplier,CompanyStructure,RFBIE,1,AccountID,0..1,,Referenced,,Text,,,,GeneralLedgerAccounts,SAFmiddle2textType,"General Ledger Account code for this supplier. Can be including sub-account id. It can contain many different levels to identify the Account. It could include cost centres such as company, division, region, group and branch/department.",
-59,Master Files,Supplier,CompanyStructure,ASBIE,1,choice:OpeningDebitBalance/OpeningCreditBalance,1..1,,Associated,,,,choice:OpeningDebitBalance/OpeningCreditBalance,,,,,
-62,Master Files,Supplier,CompanyStructure,ASBIE,1,choice:ClosingDebitBalance/ClosingCreditBalance,1..1,,Associated,,,,choice:ClosingDebitBalance/ClosingCreditBalance,,,,,
-152,Master Files,Owner,CompanyStructure,ABIE,,Owner,,,Details,,,,,,,,,
-153,Master Files,Owner,CompanyStructure,ASBIE,1,CompanyStructure,1..1,,Associated,,,,,,,,,
-154,Master Files,Owner,CompanyStructure,BBIE,1,OwnerID,0..1,,OwnerID,,Text,,,,,SAFmiddle1textType,Reference to the owner Master File,
-155,Master Files,Owner,CompanyStructure,BBIE,1,AccountID,0..1,,AccountID,,Text,,,,,SAFmiddle2textType,"General Ledger Account code for this owner. Can be including sub-account id. It can contain many different levels to identify the Account. It could include cost centres such as company, division, region, group and branch/department.",
-38,Master Files,,Customers,ABIE,,Customers,0..1,,Details,,,,,,,,,
-39,Master Files,,Customers,ASBIE,1,Customer,1..*,,Associated,,,Customer,CompanyStructure,,,,,
-194,Master Files,,ExtraordinaryDepreciationForPeriod,ABIE,,ExtraordinaryDepreciationForPeriod,1..*,,Details,,,,,,,,,
-195,Master Files,,ExtraordinaryDepreciationForPeriod,BBIE,1,ExtraordinaryDepreciationMethod,1..1,,ExtraordinaryDepreciationMethod,,Text,,,,,SAFmiddle1textType,Method of extraordinary depreciation during the Selectionperiod.,
-196,Master Files,,ExtraordinaryDepreciationForPeriod,BBIE,1,ExtraordinaryDepreciationForPeriod,1..1,,ExtraordinaryDepreciationForPeriod,,Monetary,,,,,SAFmonetaryType,Amouunt of extraordinary depreciation during the Selectionperiod in the header's default currency.,
-192,Master Files,,ExtraordinaryDepreciationsForPeriod,ABIE,,ExtraordinaryDepreciationsForPeriod,0..1,,Details,,,,,,,,Extraordinary depreciations for this asset during the Selectionperiod.,
-193,Master Files,,ExtraordinaryDepreciationsForPeriod,ASBIE,1,ExtraordinaryDepreciationForPeriod,1..*,,Associated,,,,ExtraordinaryDepreciationForPeriod,,,,,
-12,Master Files,,GeneralLedgerAccount,ABIE,,Account,1..*,,Details,,,,,,,,,
-13,Master Files,,GeneralLedgerAccount,IDBIE,1,AccountID,1..1,,AccountID,,Identifier,,,,,SAFmiddle2textType,"General Ledger Account code. Can be including sub-account id. It can contain many different levels to identify the Account. It could include cost centres such as company, division, region, group and branch/department.",
-14,Master Files,,GeneralLedgerAccount,BBIE,1,AccountDescription,1..1,,AccountDescription,,Text,,,,,SAFlongtextType,Name of individual GL account,
-15,Master Files,,GeneralLedgerAccount,BBIE,1,StandardAccountID,0..1,,StandardAccountID,,Text,,,,,SAFmiddle1textType,AccountID based on a standard prescribed by authorities.,
-16,Master Files,,GeneralLedgerAccount,BBIE,1,GroupingCategory,0..1,,GroupingCategory,,Text,,,,,SAFmiddle1textType,"Category for grouping the accounts, relevant in reconciling financial statements f.i.",
-17,Master Files,,GeneralLedgerAccount,BBIE,1,GroupingCode,0..1,,GroupingCode,,Text,,,,,SAFmiddle1textType,"Subcode for grouping the accounts, relevant in reconciling financial statements f.i.",
-18,Master Files,,GeneralLedgerAccount,BBIE,1,AccountType,1..1,,AccountType,,Code,,,,,SAFshorttextType,Type of account  - Asset/Liability/Sale/Expense,
-19,Master Files,,GeneralLedgerAccount,BBIE,1,AccountCreationDate,0..1,,AccountCreationDate,,Date,,,,,date,Date of creating the generalledger account,
-20,Master Files,,GeneralLedgerAccount,ASBIE,1,choice:OpeningDebitBalance/ClosingDebitBalance,1..1,,Associated,,,,choice:OpeningDebitBalance/ClosingDebitBalance,,,,,
-23,Master Files,,GeneralLedgerAccount,ASBIE,1,choice:ClosingDebitBalance/ClosingCreditBalance,1..1,,Associated,,,,choice:ClosingDebitBalance/ClosingCreditBalance,,,,,
-23.5,Master Files,,GeneralLedgerAccount,BBIE,1,any##other,0..1,,,,,,,,,Represents space to allow individual Revenue Bodies to add further elements,Represents space to allow individual Revenue Bodies to add further elements,
-10,Master Files,,GeneralLedgerAccounts,ABIE,,GeneralLedgerAccounts,0..1,,Details,,,,,,,,,
-11,Master Files,,GeneralLedgerAccounts,ASBIE,1,Account,1..*,,Associated,,,,GeneralLedgerAccount,,,,,
-156.5,Master Files,,MasterFiles,BBIE,1,any##other,0..1,,,,,,,,,Represents space to allow individual Revenue Bodies to specify additional standing data.,Represents space to allow individual Revenue Bodies to specify additional standing data.,
-97,Master Files,,MovementTypeTable,ABIE,,MovementTypeTable,0..1,,Details,,,,,,,,Table with descriptions of all different kinds of movementtypes and movementsubtypes,
-98,Master Files,,MovementTypeTable,ASBIE,1,MovementTypeTableEntry,1..*,,Associated,,,,MovementTypeTableEntry,,,,,
-99,Master Files,,MovementTypeTableEntry,ABIE,,MovementTypeTableEntry,1..*,,Details,,,,,,,,,
-100,Master Files,,MovementTypeTableEntry,IDBIE,1,MovementType,1..1,,MovementType,,Identifier,,,,,SAFcodeType,"Identify kind of movement or movement line. E.g. sale, purchase, adjustment, etc.  Or  efficiencyloss, use of components in production, etc. Predescribed TABLE is possible.",
-101,Master Files,,MovementTypeTableEntry,BBIE,1,Description,1..1,,Description,,Text,,,,,SAFlongtextType,Description of the movement(sub)type,
-150,Master Files,,Owners,ABIE,,Owners,,,Details,,,,,,,,,
-151,Master Files,,Owners,ASBIE,1,Owner,1..*,,Associated,,,,Owner,,,,,
-125,Master Files,,PhysicalStock,ABIE,,PhysicalStock,0..1,,Details,,,,,,,,,
-126,Master Files,,PhysicalStock,ASBIE,1,PhysicalStockEntry,1..*,,Associated,,,,PhysicalStockEntry,,,,,
-127,Master Files,,PhysicalStockEntry,ABIE,,PhysicalStockEntry,1..*,,Details,,,,,,,,,
-128,Master Files,,PhysicalStockEntry,BBIE,1,WarehouseID,0..1,,WarehouseID,,Text,,,,,SAFmiddle1textType,"Warehouse where goods held - possoble also to identify work-in-progress, or stock-in-transit",
-129,Master Files,,PhysicalStockEntry,BBIE,1,LocationID,0..1,,LocationID,,Code,,,,,SAFshorttextType,Location of goods in warehouse,
-130,Master Files,,PhysicalStockEntry,RFBIE,1,ProductCode,1..1,,Referenced,,Text,,,,Product,SAFmiddle2textType,Product code,
-131,Master Files,,PhysicalStockEntry,IDBIE,1,StockAccountNo,0..1,,StockAccountNo,,Identifier,,,,,SAFmiddle2textType,"Stock batch, lot, serial identification. Not used when there is exactly 1 PhysicalStock entry per ProductCode",
-132,Master Files,,PhysicalStockEntry,BBIE,1,ProductType,0..1,,ProductType,,Code,,,,,SAFshorttextType,"To determine whether the product/stockaccount is raw material, work-in-progress, finished good, merchandise for resale, etc.",
-133,Master Files,,PhysicalStockEntry,BBIE,1,ProductStatus,0..1,,ProductStatus,,Code,,,,,SAFshorttextType,"To determine whether the product/stockaccount is discontinued, damaged, obsolete, active, etc.",
-134,Master Files,,PhysicalStockEntry,BBIE,1,StockAccountCommodityCode,0..1,,StockAccountCommodityCode,,Text,,,,,SAFmiddle1textType,Classification for import / export,
-135,Master Files,,PhysicalStockEntry,RFBIE,1,OwnerID,0..1,,Referenced,,Text,,,Owner,CompanyStructure,SAFmiddle1textType,Reference to the owner Master File,
-136,Master Files,,PhysicalStockEntry,ASBIE,1,sequence_PhysicalStockUOM,0..1,,Associated,,,,sequence_PhysicalStockUOM,,,,Not needed when UOMPhysicalStock equals UOMBase,
-140,Master Files,,PhysicalStockEntry,BBIE,1,UnitPrice,0..1,,UnitPrice,,Monetary,,,,,SAFmonetaryType,Base Unit price for this stock account  in the header's default currency.,
-141,Master Files,,PhysicalStockEntry,BBIE,1,OpeningStockQuantity,1..1,,OpeningStockQuantity,,Quantity,,,,,SAFquantityType,In UOM Physical Stock for selection period,
-142,Master Files,,PhysicalStockEntry,BBIE,1,OpeningStockValue,0..1,,OpeningStockValue,,Monetary,,,,,SAFmonetaryType,In  the header's currency code for selection period,
-143,Master Files,,PhysicalStockEntry,BBIE,1,ClosingStockQuantity,1..1,,ClosingStockQuantity,,Quantity,,,,,SAFquantityType,In UOM Physical Stock for selection period,
-144,Master Files,,PhysicalStockEntry,BBIE,1,ClosingStockValue,0..1,,ClosingStockValue,,Monetary,,,,,SAFmonetaryType,Closing stock value  in the header's default currency for selection period,
-145,Master Files,,PhysicalStockEntry,ASBIE,1,StockCharacteristics,0..1,,Associated,,,,StockCharacteristics,,,,,
-146,Master Files,,PhysicalStockEntry,ASBIE,1,sequence_PhysicalStockCharacteristic,1..*,,Associated,,,,sequence_PhysicalStockCharacteristic,,,,,
-999,Master Files,,PhysicalStockEntry,BBIE,1,any##other,0..1,,,,,,,,,Represents space to allow individual Revenue Bodies to add further elements,Represents space to allow individual Revenue Bodies to add further elements,
-105,Master Files,,Product,ABIE,,Product,1..*,,Details,,,,,,,,,
-106,Master Files,,Product,IDBIE,1,ProductCode,1..1,,ProductCode,,Identifier,,,,,SAFmiddle2textType,Product code,
-107,Master Files,,Product,BBIE,1,GoodsServicesID,0..1,,GoodsServicesID,,Code,,,,,SAFcodeType,Indicator showing if goods or services (Predescribed TABLE is possible),
-108,Master Files,,Product,BBIE,1,ProductGroup,0..1,,ProductGroup,,Text,,,,,SAFmiddle2textType,Code identifying aggregated level at which similar products are grouped,
-109,Master Files,,Product,BBIE,1,Description,1..1,,Description,,Text,,,,,SAFlongtextType,Description of goods or services.,
-110,Master Files,,Product,BBIE,1,ProductCommodityCode,0..1,,ProductCommodityCode,,Text,,,,,SAFmiddle1textType,Classification for import / export,
-111,Master Files,,Product,BBIE,1,ProductNumberCode,0..1,,ProductNumberCode,,Text,,,,,SAFmiddle2textType,EAN or other code,
-112,Master Files,,Product,BBIE,1,ValuationMethod,0..1,,ValuationMethod,,Code,,,,,SAFcodeType,"FIFO, LIFO, Average cost etc.",
-113,Master Files,,Product,RFBIE,1,UOMBase,1..1,,Referenced,,Code,,,,UOMTableEntry,SAFcodeType,Unit of measure for Stock Administration for this product Predescribed TABLE is possible.,
-114,Master Files,,Product,ASBIE,1,sequence_UOM,0..1,,Associated,,,,sequence_UOM,,,,Not needed when not applicable,
-118,Master Files,,Product,ASBIE,1,Tax,0..*,,Associated,,,,Tax,,,,,
-999,Master Files,,Product,BBIE,1,any##other,0..1,,,,,,,,,Represents space to allow individual Revenue Bodies to add further elements,Represents space to allow individual Revenue Bodies to add further elements,
-103,Master Files,,Products,ABIE,,Products,0..1,,Details,,,,,,,,,
-104,Master Files,,Products,ASBIE,1,Product,1..*,,Associated,,,,Product,,,,,
-146,Master Files,,sequence_PhysicalStockCharacteristic,ABIE,,sequence_PhysicalStockCharacteristic,,,Details,,,,,,,,,
-147,Master Files,,sequence_PhysicalStockCharacteristic,BBIE,1,StockCharacteristic,1..1,,StockCharacteristic,,Code,,,,,SAFshorttextType,User definable characteristics of the goods. Predescribed TABLE is possible.,
-148,Master Files,,sequence_PhysicalStockCharacteristic,BBIE,1,StockCharacteristicValue,1..1,,StockCharacteristicValue,,Text,,,,,SAFmiddle1textType,"The weight, pack size, colour etc.",
-137,Master Files,,sequence_PhysicalStockUOM,ABIE,,sequence_PhysicalStockUOM,0..1,,Details,,,,,,,,Not needed when UOMPhysicalStock equals UOMBase,
-138,Master Files,,sequence_PhysicalStockUOM,BBIE,1,UOMPhysicalStock,1..1,,UOMPhysicalStock,,Code,,,,,SAFcodeType,Unit of Measurement for this Physical Stock position,
-139,Master Files,,sequence_PhysicalStockUOM,BBIE,1,UOMToUOMBaseConversionFactor,1..1,,UOMToUOMBaseConversionFactor,,Numeric,,,,,decimal,Conversion factor of the UOM to UOM Base,
-121,Master Files,,sequence_Tax,ABIE,,sequence_Tax,0..1,,Details,,,,,,,,,
-122,Master Files,,sequence_Tax,BBIE,1,TaxType,1..1,,TaxType,,Code,,,,,SAFcodeType,Tax Type for lookup in tables,
-123,Master Files,,sequence_Tax,BBIE,1,TaxCode,1..1,,TaxCode,,Code,,,,,SAFcodeType,Tax Code for lookup in tables,
-115,Master Files,,sequence_UOM,ABIE,,sequence_UOM,0..1,,Details,,,,,,,,Not needed when not applicable,
-116,Master Files,,sequence_UOM,BBIE,1,UOMStandard,1..1,,UOMStandard,,Code,,,,,SAFcodeType,"A Standard Unit of Measure applicable for this product, f.i. Kilo, Metres, Litres (Predescribed TABLE is possible)",
-117,Master Files,,sequence_UOM,BBIE,1,UOMToUOMBaseConversionFactor,1..1,,UOMToUOMBaseConversionFactor,,Numeric,,,,,decimal,Conversion factor of the UOM to UOM Base,
-52,Master Files,,Suppliers,ABIE,,Suppliers,0..1,,Details,,,,,,,,,
-53,Master Files,,Suppliers,ASBIE,1,Supplier,0..*,,Associated,,,Supplier,CompanyStructure,,,,,
-119,Master Files,,Tax,ABIE,,Tax,0..*,,Details,,,,,,,,,
-120,Master Files,,Tax,ASBIE,1,sequence_Tax,0..1,,Associated,,,,sequence_Tax,,,,,
-72,Master Files,,TaxCodeDetails,ABIE,,TaxCodeDetails,1..*,,Details,,,,,,,,,
-73,Master Files,,TaxCodeDetails,BBIE,1,TaxCode,1..1,,TaxCode,,Code,,,,,SAFcodeType,Tax Code for lookup in tables,
-74,Master Files,,TaxCodeDetails,BBIE,1,EffectiveDate,0..1,,EffectiveDate,,Date,,,,,date,Representing the starting date for this entry,
-75,Master Files,,TaxCodeDetails,BBIE,1,ExpirationDate,0..1,,ExpirationDate,,Date,,,,,date,Representing the ending date for this entry,
-76,Master Files,,TaxCodeDetails,BBIE,1,Description,0..1,,Description,,Text,,,,,SAFlongtextType,Description of the Tax Code,
-77,Master Files,,TaxCodeDetails,ASBIE,1,choice:TaxPercentage/FlatTaxRate,1..1,,Associated,,,,choice:TaxPercentage/FlatTaxRate,,,,,
-81,Master Files,,TaxCodeDetails,BBIE,1,Country,0..1,,Country,,Code,,,,,SAFcodeType,Country specific code to indicate regions / provinces within the tax authority. Preferably described according to ISO 3166-2. Example: GB-KEN for Kent county in the United Kingdom.,
-27,Master Files,,Taxonomies,ABIE,,Taxonomies,0..1,,Details,,,,,,,,,
-28,Master Files,,Taxonomies,ASBIE,1,Taxonomy,1..*,,Associated,,,,Taxonomy,,,,,
-29,Master Files,,Taxonomy,ABIE,,Taxonomy,1..*,,Details,,,,,,,,,
-30,Master Files,,Taxonomy,BBIE,1,TaxonomyReference,1..1,,TaxonomyReference,,Text,,,,,SAFlongtextType,Reference to the taxonomy that applies to the GL Account.,
-31,Master Files,,Taxonomy,ASBIE,1,TaxonomyElement,0..*,,Associated,,,,TaxonomyElement,,,,,
-32,Master Files,,TaxonomyElement,ABIE,,TaxonomyElement,0..*,,Details,,,,,,,,,
-33,Master Files,,TaxonomyElement,BBIE,1,TaxonomyCode,1..1,,TaxonomyCode,,Text,,,,,SAFlongtextType,Reference to specific taxonomy element,
-34,Master Files,,TaxonomyElement,BBIE,1,TaxonomyClusterID,0..1,,TaxonomyClusterID,,Text,,,,,SAFlongtextType,Additional reference to specific taxonomy element,
-35,Master Files,,TaxonomyElement,BBIE,1,TaxonomyClusterContextID,0..1,,TaxonomyClusterContextID,,Text,,,,,SAFlongtextType,,
-36,Master Files,,TaxonomyElement,IDBIE,1,AccountID,1..1,,AccountID,,Identifier,,,,GeneralLedgerAccounts. AccountID. Identifier,SAFmiddle2textType,"General Ledger Account code for this TaxanomyReference/TaxonomyCode. Can be including sub-account id. It can contain many different levels to identify the Account. It could include cost centres such as company, division, region, group and branch/department.",
-66,Master Files,,TaxTable,ABIE,,TaxTable,0..1,,Details,,,,,,,,,
-67,Master Files,,TaxTable,ASBIE,1,TaxTableEntry,1..*,,Associated,,,,TaxTableEntry,,,,,
-68,Master Files,,TaxTableEntry,ABIE,,TaxTableEntry,1..*,,Details,,,,,,,,,
-69,Master Files,,TaxTableEntry,IDBIE,1,TaxType,1..1,,TaxType,,Identifier,,,,,SAFcodeType,Tax type for look-up in tables,
-70,Master Files,,TaxTableEntry,BBIE,1,Description,1..1,,Description,,Text,,,,,SAFlongtextType,Description of the Tax Type,
-71,Master Files,,TaxTableEntry,ASBIE,1,TaxCodeDetails,1..*,,Associated,,,,TaxCodeDetails,,,,,
-83,Master Files,,UOMTable,ABIE,,UOMTable,0..1,,Details,,,,,,,,Table with descriptions of all different kinds of UOM's,
-84,Master Files,,UOMTable,ASBIE,1,UOMTableEntry,1..*,,Associated,,,,UOMTableEntry,,,,,
-85,Master Files,,UOMTableEntry,ABIE,,UOMTableEntry,1..*,,Details,,,,,,,,,
-86,Master Files,,UOMTableEntry,IDBIE,1,UnitOfMeasure,1..1,,UnitOfMeasure,,Identifier,,,,,SAFcodeType,Quantity unit of measure e.g. pack of 12,
-87,Master Files,,UOMTableEntry,BBIE,1,Description,1..1,,Description,,Text,,,,,SAFlongtextType,Description of the UOM,
-173,Master Files,,Valuation,ABIE,,Valuation,1..*,,Details,,,,,,,,,
-174,Master Files,,Valuation,BBIE,1,AssetValuationType,0..1,,AssetValuationType,,Code,,,,,SAFshorttextType,"Describes the purpose for the reporting: f.i. commercial, tax  in country 1, tax in country 2, etc.",
-175,Master Files,,Valuation,BBIE,1,ValuationClass,0..1,,ValuationClass,,Code,,,,,SAFshorttextType,This describes the classification of the asset for (tax) reporting purposes.,
-176,Master Files,,Valuation,BBIE,1,AcquisitionAndProductionCostsBegin,1..1,,AcquisitionAndProductionCostsBegin,,Monetary,,,,,SAFmonetaryType,Total costs of acquisition and/or production of the asset at SelectionStartDate in the header's default currency.,
-177,Master Files,,Valuation,BBIE,1,AcquisitionAndProductionCostsEnd,1..1,,AcquisitionAndProductionCostsEnd,,Monetary,,,,,SAFmonetaryType,Total costs of acquisition and/or production of the asset at SelectionEndDate in the header's default currency.,
-178,Master Files,,Valuation,BBIE,1,InvestmentSupport,0..1,,InvestmentSupport,,Monetary,,,,,SAFmonetaryType,Total amount of investment support for this asset in the header's default currency.,
-179,Master Files,,Valuation,ASBIE,1,choice:AssetLifeYear/AssetLifeMonth,1..1,,Associated,,,,choice:AssetLifeYear/AssetLifeMonth,,,,,
-183,Master Files,,Valuation,BBIE,1,AssetAddition,0..1,,AssetAddition,,Monetary,,,,,SAFmonetaryType,Bookvalue of the acquisition and/or production of the asset in the  Selectionperiod in the header's default currency.,
-184,Master Files,,Valuation,BBIE,1,Transfers,0..1,,Transfers,,Monetary,,,,,SAFmonetaryType,Book value of the transfers of the asset during the Selectionperiod in the header's default currency.,
-185,Master Files,,Valuation,BBIE,1,AssetDisposal,0..1,,AssetDisposal,,Monetary,,,,,SAFmonetaryType,Book value of the disposals of the asset during the Selectionperiod in the header's default currency.,
-186,Master Files,,Valuation,BBIE,1,BookValueBegin,0..1,,BookValueBegin,,Monetary,,,,,SAFmonetaryType,Bookvalue at the beginning of the Selectionperiod in the header's default currency.,
-187,Master Files,,Valuation,BBIE,1,DepreciationMethod,0..1,,DepreciationMethod,,Text,,,,,SAFmiddle1textType,Method of normal depreciation during the Selectionperiod.,
-188,Master Files,,Valuation,BBIE,1,DepreciationPercentage,0..1,,DepreciationPercentage,,Percentage,,,,,decimal,The rate of the normal depreciation per year or month (depends on choice useful life periode),
-189,Master Files,,Valuation,BBIE,1,DepreciationForPeriod,1..1,,DepreciationForPeriod,,Monetary,,,,,SAFmonetaryType,Total amouunt of normal depreciation during the Selectionperiod in the header's default currency.,
-190,Master Files,,Valuation,BBIE,1,AppreciationForPeriod,0..1,,AppreciationForPeriod,,Monetary,,,,,SAFmonetaryType,Total amouunt of appreciation during the Selectionperiod in the header's default currency.,
-191,Master Files,,Valuation,ASBIE,1,ExtraordinaryDepreciationsForPeriod,0..1,,Associated,,,,ExtraordinaryDepreciationsForPeriod,,,,Extraordinary depreciations for this asset during the Selectionperiod.,
-197,Master Files,,Valuation,BBIE,1,AccumulatedDepreciation,0..1,,AccumulatedDepreciation,,Monetary,,,,,SAFmonetaryType,Bookvalue at the end of the Selectionperiod in the header's default currency.,
-171,Master Files,,Valuations,ABIE,,Valuations,1..1,,Details,,,,,,,,The data can be reported for different purposes. More than one can be in this SAF.,
-172,Master Files,,Valuations,ASBIE,1,Valuation,1..*,,Associated,,,,Valuation,,,,,
-1,SAF-T,,AuditFile,ABIE,,AuditFile,1..1,,Details,,,,,,,,OECD Standard Audit File: Standard Audit File - Taxation version 2.00 (Final version) OECD author TeA team last modified 17-09-2009,
-2,SAF-T,,AuditFile,ASBIE,1,Header,1..1,,Associated,,,,Header,,,,Holds general information about the file including the name of the software which produced it; the company on whose behalf the SAF-T is being submitted; and the selection criteria used. An extension point is provided to allow individual Revenue Bodies to  specify further relevant information to be supplied.,
-3,SAF-T,,AuditFile,ASBIE,1,MasterFiles,0..1,,Associated,,,,MasterFiles,,,,"Holds standing data about general ledger account, suppliers, customers, products, etc.. An extension point is provided to allow Revenue Bodies to specify additional elements or structures such as tax rate tables.",
-4,SAF-T,,AuditFile,ASBIE,1,GeneralLedgerEntries,0..1,,Associated,,,,GeneralLedgerEntries,,,,,
-5,SAF-T,,AuditFile,ASBIE,1,SourceDocuments,0..1,,Associated,,,,SourceDocuments,,,,,
-449,Source Documents,,AddressStructure,ABIE,,AddressStructure,1..1,,Details,,,,,,,,[Common to all SAFs] A common structure used wherever an address is required.,
-450,Source Documents,,AddressStructure,BBIE,1,StreetName,0..1,,StreetName,,Text,,,,,SAFmiddle2textType,,
-451,Source Documents,,AddressStructure,BBIE,1,Number,0..1,,Number,,Code,,,,,SAFshorttextType,,
-452,Source Documents,,AddressStructure,BBIE,1,AdditionalAddressDetail,0..1,,AdditionalAddressDetail,,Text,,,,,SAFmiddle2textType,,
-453,Source Documents,,AddressStructure,BBIE,1,Building,0..1,,Building,,Text,,,,,SAFmiddle1textType,,
-454,Source Documents,,AddressStructure,BBIE,1,City,1..1,,City,,Text,,,,,SAFmiddle1textType,,
-455,Source Documents,,AddressStructure,BBIE,1,PostalCode,1..1,,PostalCode,,Code,,,,,SAFshorttextType,,
-456,Source Documents,,AddressStructure,BBIE,1,Region,0..1,,Region,,Text,,,,,SAFmiddle1textType,Country specific code to indicate regions / provinces within the tax authority. Preferably described according to ISO 3166-2. Example: GB-KEN for Kent county in the United Kingdom.,
-457,Source Documents,,AddressStructure,BBIE,1,Country,0..1,,Country,,Code,,,,,ISOCountryCode,Two-letter country code according to ISO 3166-1 alpha 2 standard. Example NL for the Netherlands.,
-458,Source Documents,,AddressStructure,BBIE,1,AddressType,0..1,,AddressType,,,,,,,,"Field to differentiate between multiple addresses. To indicate the type of address. Choose  from the predefined enumeration. (examples: StreetAddress PostalAddress, BillingAddress)",
-459,Source Documents,,AmountStructure,ABIE,,AmountStructure,1..1,,Details,,,,,,,,[Common to all SAFs] A common structure used wherever an amount is required. Monetary amount with optional foreign currency exchange rate information.,
-460,Source Documents,,AmountStructure,BBIE,1,Amount,1..1,,Amount,,Monetary,,,,,SAFmonetaryType,In the header's default currency.,
-461,Source Documents,,AmountStructure,ASBIE,1,sequence_Amount,0..1,,Associated,,,,sequence_Amount,,,sequence_Amount,,
-466,Source Documents,,AnalysisStructure,ABIE,,AnalysisStructure,1..1,,Details,,,,,,,,General Ledger analysis codes,
-467,Source Documents,,AnalysisStructure,BBIE,1,AnalysisType,1..1,,AnalysisType,,Code,,,,,SAFcodeType,"Analysis code identifier: cost center, cost unit, cost type, project, etc. Refers to the MasterFile AnalysisTypeTable",
-468,Source Documents,,AnalysisStructure,BBIE,1,AnalysisID,1..1,,AnalysisID,,Text,,,,,SAFlongtextType,Value of the analysisID: f.i. which cost center applies,
-469,Source Documents,,AnalysisStructure,BBIE,1,AnalysisAmount,0..1,,AnalysisAmount,,,,,,,AmountStructure,Amount applying to the Analysis: f.i. the amount applying for this cost center,
-170.5,Source Documents,,Asset,BBIE,1,any##other,0..1,,,,,,,,,Represents space to allow individual Revenue Bodies to add further elements,Represents space to allow individual Revenue Bodies to add further elements,
-336,Source Documents,,AssetTransaction,ABIE,,AssetTransaction,1..*,,Details,,,,,,,,,
-337,Source Documents,,AssetTransaction,RFBIE,1,AssetTransactionID,1..1,,Referenced,,Text,,,,Transaction,SAFmiddle2textType,Unique Identification  of the transaction,
-338,Source Documents,,AssetTransaction,RFBIE,1,AssetID,1..1,,Referenced,,Text,,,,Asset,SAFmiddle1textType,Unique identifier of the asset,
-339,Source Documents,,AssetTransaction,BBIE,1,AssetTransactionType,1..1,,Associated,,Code,,,,,SAFcodeType,Code for the type of the transaction,
-340,Source Documents,,AssetTransaction,BBIE,1,Description,0..1,,Associated,,Text,,,,,SAFlongtextType,Description of the type of the transaction.,
-341,Source Documents,,AssetTransaction,BBIE,1,AssetTransactionDate,1..1,,Associated,,Date,,,,,date,Recording date of the transaction type (e. g. assets: date of the addition of the asset),
-342,Source Documents,,AssetTransaction,ASBIE,1,Supplier,0..1,,Associated,,,Supplier,CompanyStructure,,,,Information about the supplier of the asset,
-347,Source Documents,,AssetTransaction,BBIE,1,TransactionID,0..1,,TransactionID,,Text,,,,,SAFmiddle2textType,"Cross-reference to GL posting in the journal. It can contain many different levels to identify the transaction. It could include cost centres such as company, division, region, group and branch/department.",
-348,Source Documents,,AssetTransaction,ASBIE,1,AssetTransactionValuations,1..1,,Associated,,,,AssetTransactionValuations,,,,These amounts of the transaction can differ per asset valuation type.,
-999,Source Documents,,AssetTransaction,BBIE,1,any##other,0..1,,,,,,,,,Represents space to allow individual Revenue Bodies to add further elements,Represents space to allow individual Revenue Bodies to add further elements,
-333,Source Documents,,AssetTransactions,ABIE,,AssetTransactions,0..1,,Details,,,,,,,,Details of all transactions related to an asset during the Selectionperiod.,
-334,Source Documents,,AssetTransactions,BBIE,1,NumberOfAssetTransactions,1..1,,Associated,,,,,,,nonNegativeInteger,Number of movementlines during selected period,
-335,Source Documents,,AssetTransactions,ASBIE,1,AssetTransaction,1..*,,Associated,,,,AssetTransaction,,,,,
-351,Source Documents,,AssetTransactionValuation,ABIE,,AssetTransactionValuation,1..*,,Details,,,,,,,,,
-352,Source Documents,,AssetTransactionValuation,BBIE,1,AssetValuationType,0..1,,AssetValuationType,,Code,,,,,SAFshorttextType,"Describes the purpose for the reporting: f.i. commercial, tax  in country 1, tax in country 2, etc.",
-353,Source Documents,,AssetTransactionValuation,BBIE,1,AcquisitionAndProductionCostsOnTransaction,1..1,,AcquisitionAndProductionCostsOnTransaction,,Monetary,,,,,SAFmonetaryType,Costs of acquisition and/or production of related asset transaction in the header's default currency at date of transaction.,
-354,Source Documents,,AssetTransactionValuation,BBIE,1,BookValueOnTransaction,1..1,,BookValueOnTransaction,,Monetary,,,,,SAFmonetaryType,Bookvalue of related asset transaction in the header's default currency at date of transaction.,
-355,Source Documents,,AssetTransactionValuation,BBIE,1,AssetTransactionAmount,1..1,,AssetTransactionAmount,,Monetary,,,,,SAFmonetaryType,"Net Amount of related asset transaction in the header's default currency, for instance the net sales revenue.",
-999,Source Documents,,AssetTransactionValuation,BBIE,1,any##other,0..1,,,,,,,,,Represents space to allow individual Revenue Bodies to add further elements,Represents space to allow individual Revenue Bodies to add further elements,
-349,Source Documents,,AssetTransactionValuations,ABIE,,AssetTransactionValuations,1..1,,Details,,,,,,,,These amounts of the transaction can differ per asset valuation type.,
-350,Source Documents,,AssetTransactionValuations,ASBIE,1,AssetTransactionValuation,1..*,,Associated,,,,AssetTransactionValuation,,,,,
-470,Source Documents,,BankAccountStructure,ABIE,,BankAccountStructure,1..1,,Details,,,,,,,,"[Common to all SAFs] Bank account number information. IBAN number, or account number with optional information.",
-471,Source Documents,,BankAccountStructure,ASBIE,1,choice:IBANNumber/sequence,1..1,,Associated,,,,choice:IBANNumber/sequence,,,,,
-475,Source Documents,,BankAccountStructure,BBIE,3,BankAccountName,1..1,,BankAccountName,,Text,,,,,SAFmiddle1textType,The number allocated to the account by the individual‚Äôs or company‚Äôs own bank.,
-476,Source Documents,,BankAccountStructure,BBIE,3,SortCode,0..1,,SortCode,,Text,,,,,SAFmiddle2textType,The name of the individual or company holding the bank account.,
-477,Source Documents,,BankAccountStructure,BBIE,3,CompanyHeaderStructure,0..1,,CompanyHeaderStructure,,Code,,,,,SAFshorttextType,Identifier for the bank branch at which the account is held. May be needed to uniquely identify the account.,
-359,Source Documents,,choice:CustomerInfo/SupplierInfo,ABIE,,choice:CustomerInfo/SupplierInfo,0..1,,Details,,,,,,,,,
-360,Source Documents,,choice:CustomerInfo/SupplierInfo,ASBIE,1,CustomerInfo,1..1,,Associated,,,,CustomerInfo,,,,,
-367,Source Documents,,choice:CustomerInfo/SupplierInfo,ASBIE,1,SupplierInfo,1..1,,Associated,,,,SupplierInfo,,,,,
-472,Source Documents,,choice:IBANNumber/sequence,ABIE,,choice:IBANNumber/sequence,1..1,,Details,,,,,,,,,
-473,Source Documents,,choice:IBANNumber/sequence,BBIE,2,IBANNumber,1..1,,IBANNumber,,Text,,,,,SAFmiddle1textType,"International Bank Account Number, ISO 13616",
-474,Source Documents,,choice:IBANNumber/sequence,ASBIE,2,BankAccountNumber,,,Associated,,,,BankAccountNumber,,,,,
-407,Source Documents,,choice:MovementReference/DeliveryDate/DeliveryPeriod,ABIE,,choice MovementReference/DeliveryDate/DeliveryPeriod,1..1,,Details,,,,,,,,,
-408,Source Documents,,choice:MovementReference/DeliveryDate/DeliveryPeriod,BBIE,1,MovementReference,1..*,,MovementReference,,Text,,,,,SAFmiddle1textType,Unique reference to the movement.,
-409,Source Documents,,choice:MovementReference/DeliveryDate/DeliveryPeriod,BBIE,1,DeliveryDate,1..1,,DeliveryDate,,Date,,,,,date,The date of the delivery,
-526,Source Documents,,choice:SelectionStartDate-SelectionEndDate/PeriodStart-PeriodStartYear-PeriodEnd-PeriodEndYear,ABIE,,choice:SelectionStartDate-SelectionEndDate/PeriodStart-PeriodStartYear-PeriodEnd-PeriodEndYear,1..1,,Details,,,,,,,,"Allows for a choice:between selection on calendar dates and periods according to the accounting system, e.g. 1 to 12 for a 12-months accounting system.",
-527,Source Documents,,choice:SelectionStartDate-SelectionEndDate/PeriodStart-PeriodStartYear-PeriodEnd-PeriodEndYear,ASBIE,1,SelectionStartDate-SelectionEndDate,1..1,,Associated,,,,SelectionCriteriaStructure,,,,"Allows for a choice:between selection on calendar dates and periods according to the accounting system, e.g. 1 to 12 for a 12-months accounting system.",
-528,Source Documents,,choice:SelectionStartDate-SelectionEndDate/PeriodStart-PeriodStartYear-PeriodEnd-PeriodEndYear,ASBIE,1,PeriodStart-PeriodStartYear-PeriodEnd-PeriodEndYear,,,Associated,,,,PeriodStart-PeriodStartYear-PeriodEnd-PeriodEndYear,,,,,
-370,Source Documents,,choice:SupplierID/Name,ABIE,,choice:SupplierID/Name,1..1,,Details,,,,,,,,,
-371,Source Documents,,choice:SupplierID/Name,RFBIE,1,SupplierID,1..1,,SupplierID,,Text,,,Supplier,CompanyStructure,SAFmiddle1textType,Unique code for the supplier,
-372,Source Documents,,choice:SupplierID/Name,BBIE,1,Name,1..1,,Name,,Text,,,,,SAFmiddle2textType,Name of the supplier,
-363,Source Documents,,choice:CustomerID/Name,ABIE,,choice:CustomerID/Name,1..1,,Details,,,,,,,,,
-364,Source Documents,,choice:CustomerID/Name,RFBIE,1,CustomerID,1..1,,CustomerID,,Text,,,Customer,CompanyStructure,SAFmiddle1textType,Unique code for the customer,
-365,Source Documents,,choice:CustomerID/Name,BBIE,1,Name,1..1,,Name,,Text,,,,,SAFmiddle2textType,Name of the customer,
-477,Source Documents,,CompanyHeaderStructure,ABIE,,CompanyHeaderStructure,,,Details,,,,,,,,[Common to all SAFs] CompanyStructure with mandatory RegistrationNumber and Telephone (Contact),
-478,Source Documents,,CompanyHeaderStructure,BBIE,1,RegistrationNumber,1..1,,RegistrationNumber,,Text,,,,,SAFmiddle1textType,"Unique number to identify the company in the accounting records, issued by a government body or created by the company for internal purposes to identify different entities within their corporate group.",
-479,Source Documents,,CompanyHeaderStructure,BBIE,1,Name,1..1,,Name,,Text,,,,,SAFmiddle2textType,,
-480,Source Documents,,CompanyHeaderStructure,ASBIE,1,Address,1..*,,Associated,,,,AddressStructure,,,AddressStructure,,
-481,Source Documents,,CompanyHeaderStructure,ASBIE,1,Contact,1..*,,Associated,,,,ContactInformationStructure,,,ContactInformationStructure,,
-482,Source Documents,,CompanyHeaderStructure,ASBIE,1,TaxRegistration,0..*,,Associated,,,,TaxIDStructure,,,TaxIDStructure,,
-483,Source Documents,,CompanyHeaderStructure,ASBIE,1,BankAccount,0..*,,Associated,,,,BankAccountStructure,,,BankAccountStructure,,
-470,Source Documents,,CompanyStructure,ABIE,,CompanyStructure,1..1,,Details,,,,,,,,[Common to all SAFs] CompanyStructure with mandatory RegistrationNumber and Telephone (Contact),
-471,Source Documents,,CompanyStructure,BBIE,1,RegistrationNumber,0..1,,RegistrationNumber,,Text,,,,,SAFmiddle1textType,"Unique number to identify the company in the accounting records, issued by a government authority or created by the company for internal purposes to identify different entities within their corporate group.",
-472,Source Documents,,CompanyStructure,BBIE,1,Name,1..1,,Name,,Text,,,,,SAFmiddle2textType,,
-473,Source Documents,,CompanyStructure,ASBIE,1,Address,1..*,,Associated,,,,AddressStructure,,,AddressStructure,,
-474,Source Documents,,CompanyStructure,ASBIE,1,Contact,0..*,,Associated,,,,ContactInformationStructure,,,ContactInformationStructure,,
-475,Source Documents,,CompanyStructure,ASBIE,1,TaxRegistration,0..*,,Associated,,,,TaxIDStructure,,,TaxIDStructure,,
-476,Source Documents,,CompanyStructure,ASBIE,1,BankAccount,0..*,,Associated,,,,BankAccountStructure,,,BankAccountStructure,,
-999,Source Documents,,CompanyStructure,BBIE,1,any##other,0..1,,,,,,,,,Represents space to allow individual Revenue Bodies to add further elements,Represents space to allow individual Revenue Bodies to add further elements,
-999,Source Documents,Customer,CompanyStructure,BBIE,1,any##other,0..1,,,,,,,,,Represents space to allow individual Revenue Bodies to add further elements,Represents space to allow individual Revenue Bodies to add further elements,
-999,Source Documents,Supplier,CompanyStructure,BBIE,1,any##other,0..1,,,,,,,,,Represents space to allow individual Revenue Bodies to add further elements,Represents space to allow individual Revenue Bodies to add further elements,
-498,Source Documents,,ContactHeaderStructure,ABIE,,ContactHeaderStructure,0..*,,Details,,,,,,,,[Common to all SAFs] ContactInformationStructure with madatory TelephoneNumber,
-499,Source Documents,,ContactHeaderStructure,ASBIE,1,ContactPerson,1..1,,Associated,,,,PersonNameStructure,,,PersonNameStructure,,
-504,Source Documents,,ContactHeaderStructure,ASBIE,,ContactInformationStructure,1..1,,Associated,,,,ContactInformationStructure,,,,[Common to all SAFs] Contact information of a company.,
-504,Source Documents,,ContactInformationStructure,ABIE,,ContactInformationStructure,1..1,,Details,,,,,,,,[Common to all SAFs] Contact information of a company.,
-505,Source Documents,,ContactInformationStructure,BBIE,1,Telephone,0..1,,Telephone,,Code,,,,,SAFshorttextType,,
-506,Source Documents,,ContactInformationStructure,BBIE,1,Fax,0..1,,Fax,,Code,,,,,SAFshorttextType,,
-507,Source Documents,,ContactInformationStructure,BBIE,1,Email,0..1,,Email,,Text,,,,,SAFmiddle2textType,,
-508,Source Documents,,ContactInformationStructure,BBIE,1,Website,0..1,,Website,,Code,,,,,anyURI,,
-422,Source Documents,,CreditNote,ABIE,,CreditNote,0..1,,Details,,,,,,,,,
-423,Source Documents,,CreditNote,BBIE,1,Reference,0..1,,Reference,,Text,,,,,SAFmiddle1textType,Credit note reference (where applicable) to original invoice,
-424,Source Documents,,CreditNote,BBIE,1,Reason,0..1,,Reason,,Text,,,,,SAFlongtextType,Credit note reason or rationale,
-361,Source Documents,,CustomerInfo,ABIE,,CustomerInfo,1..1,,Details,,,,,,,,,
-362,Source Documents,,CustomerInfo,ASBIE,1,choice:CustomerID/Name,1..1,,Associated,,,,choice:CustomerID/Name,,,,,
-366,Source Documents,,CustomerInfo,ASBIE,1,BillingAddress,1..1,,Associated,,,,AddressStructure,,,AddressStructure,,
-405,Source Documents,,Delivery,ABIE,,Delivery,0..1,,Details,,,,,,,,Information about the date or timeframe of the delivery of the goods or services.,
-406,Source Documents,,Delivery,ASBIE,1,choice:MovementReference/DeliveryDate/DeliveryPeriod,1..1,,Associated,,,,choice:MovementReference/DeliveryDate/DeliveryPeriod,,,,,
-410,Source Documents,,Delivery,ASBIE,1,DeliveryPeriod,1..1,,Associated,,,,DeliveryPeriod,,,,Timeframe of the deliveries,
-411,Source Documents,,DeliveryPeriod,ABIE,,DeliveryPeriod,1..1,,Details,,,,,,,,Timeframe of the deliveries,
-412,Source Documents,,DeliveryPeriod,BBIE,1,FromDate,1..1,,FromDate,,Date,,,,,date,Startdate of the deliveries,
-413,Source Documents,,DeliveryPeriod,BBIE,1,ToDate,1..1,,ToDate,,Date,,,,,date,Enddate of the deliveries,
-310,Source Documents,,DocumentReference,ABIE,,DocumentReference,0..1,,Details,,,,,,,,,
-311,Source Documents,,DocumentReference,BBIE,1,DocumentType,1..1,,DocumentType,,Code,,,,,SAFshorttextType,Type of document,
-312,Source Documents,,DocumentReference,BBIE,1,DocumentNumber,1..1,,DocumentNumber,,Text,,,,,SAFmiddle1textType,Reference number of the document,
-313,Source Documents,,DocumentReference,BBIE,1,DocumentLine,0..1,,DocumentLine,,Code,,,,,SAFshorttextType,Line number of the document,
-290,Source Documents,,DocumentTotals,ABIE,,PaymentDocumentTotals,0..1,,Details,,,,,,,,,
-291,Source Documents,,DocumentTotals,ASBIE,1,TaxInformationTotals,0..*,,Associated,,,,TaxInformationStructure,,,TaxInformationStructure,Control totals tax payable information. Per TaxType/TaxCode the TaxBase and TaxAmount are summarised.,
-292,Source Documents,,DocumentTotals,BBIE,1,NetTotal,0..1,,NetTotal,,Monetary,,,,,SAFmonetaryType,Total amount excluding tax in the header's default currency.,
-293,Source Documents,,DocumentTotals,BBIE,1,GrossTotal,1..1,,GrossTotal,,Monetary,,,,,SAFmonetaryType,Total amount including tax in the header's default currency.,
-437,Source Documents,,DocumentTotals,ABIE,,DocumentTotals,0..1,,Details,,,,,,,,,
-438,Source Documents,,DocumentTotals,ASBIE,1,TaxInformationTotals,0..*,,Associated,,,,TaxInformationStructure,,,TaxInformationStructure,Control totals tax payable information. Per TaxType/TaxCode the TaxBase and TaxAmount are summarised.,
-439,Source Documents,,DocumentTotals,BBIE,1,ShippingCostsAmountTotal,0..1,,ShippingCostsAmountTotal,,Monetary,,,,,SAFmonetaryType,Control total amount freight charges,
-440,Source Documents,,DocumentTotals,BBIE,1,NetTotal,1..1,,NetTotal,,Monetary,,,,,SAFmonetaryType,Control total sales value excluding tax and shippingcosts.,
-441,Source Documents,,DocumentTotals,BBIE,1,GrossTotal,1..1,,GrossTotal,,Monetary,,,,,SAFmonetaryType,Control total amount including tax and shippingcosts.,
-501,Source Documents,,HeaderStructure,ABIE,,HeaderStructure,0..1,,Details,,,,,,,,[Common to all SAFs] Overall information about this Standard Auditfile.,
-502,Source Documents,,HeaderStructure,BBIE,1,AuditFileVersion,1..1,,AuditFileVersion,,Code,,,,,SAFcodeType,Identification of the Standard Audit File SAF-T version being used,
-503,Source Documents,,HeaderStructure,BBIE,1,AuditFileCountry,1..1,,AuditFileCountry,,Code,,,,,ISOCountryCode,Two-letter country code according to ISO 3166-1 alpha 2 standard. Example NL for the Netherlands.,
-504,Source Documents,,HeaderStructure,BBIE,1,AuditFileRegion,1..1,,AuditFileRegion,,Code,,,,,SAFcodeType,Country specific code to indicate regions / provinces within the tax authority. Preferably described according to ISO 3166-2. Example: GB-KEN for Kent county in the United Kingdom.,
-505,Source Documents,,HeaderStructure,BBIE,1,AuditFileDateCreated,0..1,,AuditFileDateCreated,,Date,,,,,date,Date of production of SAF-T,
-506,Source Documents,,HeaderStructure,BBIE,1,SoftwareCompanyName,1..1,,SoftwareCompanyName,,Text,,,,,SAFmiddle2textType,Name of the software company whose product created the SAF-T.,
-507,Source Documents,,HeaderStructure,BBIE,1,SoftwareID,1..1,,SoftwareID,,Text,,,,,SAFlongtextType,Name of the Software that generated the SAF-T.,
-508,Source Documents,,HeaderStructure,BBIE,1,SoftwareVersion,1..1,,SoftwareVersion,,Code,,,,,SAFshorttextType,Version of the software that created the SAF-T.,
-509,Source Documents,,HeaderStructure,ASBIE,1,Company,1..1,,Associated,,,,CompanyHeaderStructure,,,CompanyHeaderStructure,Company's name and address details.,
-509,Source Documents,,HeaderStructure,ABIE,,HeaderStructure,0..1,,Details,,,,,,,,[Common to all SAFs] Overall information about this Standard Auditfile.,
-510,Source Documents,,HeaderStructure,BBIE,1,DefaultCurrencyCode,1..1,,DefaultCurrencyCode,,Code,,,,,ISOCurrencyCode,Three letter Currency Code  (ISO 4217) of local currency which is the default for the SAF.,
-510,Source Documents,,HeaderStructure,BBIE,1,AuditFileVersion,1..1,,AuditFileVersion,,Code,,,,,SAFcodeType,Identification of the Standard Audit File SAF-T version being used,
-511,Source Documents,,HeaderStructure,ASBIE,1,SelectionCriteria,1..1,,Associated,,,,SelectionCriteriaStructure,,,SelectionCriteriaStructure,Criteria set by the user to populate the audit files,
-511,Source Documents,,HeaderStructure,BBIE,1,AuditFileCountry,1..1,,AuditFileCountry,,Code,,,,,ISOCountryCode,Two-letter country code according to ISO 3166-1 alpha 2 standard. Example NL for the Netherlands.,
-512,Source Documents,,HeaderStructure,BBIE,1,HeaderComment,0..1,,HeaderComment,,Text,,,,,SAFlongtextType,Space for any further generic comments on the SAF-T. Revenue Bodies should consider what information they would expect to see here.,
-512,Source Documents,,HeaderStructure,BBIE,1,AuditFileRegion,1..1,,AuditFileRegion,,Code,,,,,SAFcodeType,Country specific code to indicate regions / provinces within the tax authority. Preferably described according to ISO 3166-2. Example: GB-KEN for Kent county in the United Kingdom.,
-513,Source Documents,,HeaderStructure,BBIE,1,AuditFileDateCreated,0..1,,AuditFileDateCreated,,Date,,,,,date,Date of production of SAF-T,
-514,Source Documents,,HeaderStructure,BBIE,1,SoftwareCompanyName,1..1,,SoftwareCompanyName,,Text,,,,,SAFmiddle2textType,Name of the software company whose product created the SAF-T.,
-515,Source Documents,,HeaderStructure,BBIE,1,SoftwareID,1..1,,SoftwareID,,Text,,,,,SAFlongtextType,Name of the Software that generated the SAF-T.,
-516,Source Documents,,HeaderStructure,BBIE,1,SoftwareVersion,1..1,,SoftwareVersion,,Code,,,,,SAFshorttextType,Version of the software that created the SAF-T.,
-517,Source Documents,,HeaderStructure,ASBIE,1,Company,1..1,,Associated,,,,CompanyHeaderStructure,,,CompanyHeaderStructure,Company's name and address details.,
-518,Source Documents,,HeaderStructure,BBIE,1,DefaultCurrencyCode,1..1,,DefaultCurrencyCode,,Code,,,,,ISOCurrencyCode,Three letter Currency Code  (ISO 4217) of local currency which is the default for the SAF.,
-519,Source Documents,,HeaderStructure,ASBIE,1,SelectionCriteria,1..1,,Associated,,,,SelectionCriteriaStructure,,,SelectionCriteriaStructure,Criteria set by the user to populate the audit files,
-520,Source Documents,,HeaderStructure,BBIE,1,HeaderComment,0..1,,HeaderComment,,Text,,,,,SAFlongtextType,Space for any further generic comments on the SAF-T. Revenue Bodies should consider what information they would expect to see here.,
-357,Source Documents,,InvoiceStructure,BBIE,1,InvoiceNo,1..1,,,,Text,,,,,SAFmiddle2textType,,
-358,Source Documents,,InvoiceStructure,ASBIE,1,choice:CustomerInfo/SupplierInfo,0..1,,Associated,,,,choice:CustomerInfo/SupplierInfo,,,,,
-374,Source Documents,,InvoiceStructure,BBIE,1,AccountID,0..1,,AccountID,,Text,,,,,SAFmiddle2textType,"General Ledger Account code of the customer / supplier. Can be including sub-account id. It can contain many different levels to identify the Account. It could include cost centres such as company, division, region, group and branch/department.",
-375,Source Documents,,InvoiceStructure,BBIE,1,BranchStoreNumber,0..1,,BranchStoreNumber,,Text,,,,,SAFmiddle1textType,"Branch or Storenumber, additional segregation of customer/supplier, used if not included as part of the customer/supplier id.",
-376,Source Documents,,InvoiceStructure,BBIE,1,Period,0..1,,Period,,,,,,,nonNegativeInteger,Accounting Period,
-377,Source Documents,,InvoiceStructure,BBIE,1,PeriodYear,0..1,,PeriodYear,,,,,,,,The year of the Accounting Period.,
-378,Source Documents,,InvoiceStructure,BBIE,1,InvoiceDate,1..1,,InvoiceDate,,Date,,,,,date,,
-379,Source Documents,,InvoiceStructure,BBIE,1,InvoiceType,0..1,,InvoiceType,,Code,,,,,SAFcodeType,"Type of invoice: Debit invoice, Credit invoice, Cash, Ticket, etc.",
-380,Source Documents,,InvoiceStructure,ASBIE,1,shipTo,0..1,,To,,,,ShippingPointStructure,,,ShippingPointStructure,Ship To details,
-381,Source Documents,,InvoiceStructure,ASBIE,1,shipFrom,0..1,,From,,,,ShippingPointStructure,,,ShippingPointStructure,Ship from Details,
-382,Source Documents,,InvoiceStructure,BBIE,1,PaymentTerms,0..1,,PaymentTerms,,Text,,,,,SAFmiddle2textType,Payments terms for this invoice,
-383,Source Documents,,InvoiceStructure,BBIE,1,SelfBillingIndicator,0..1,,SelfBillingIndicator,,Code,,,,,SAFcodeType,Indicator showing if self-billing  is used for this invoice.,
-384,Source Documents,,InvoiceStructure,BBIE,1,SourceID,0..1,,SourceID,,Text,,,,,SAFmiddle1textType,Details of person or application that entered the transaction,
-385,Source Documents,,InvoiceStructure,BBIE,1,GLPostingDate,0..1,,GLPostingDate,,Date,,,,,date,Date posting to GL,
-386,Source Documents,,InvoiceStructure,BBIE,1,BatchID,0..1,,BatchID,,Text,,,,,SAFmiddle1textType,Systems generated ID for batch,
-387,Source Documents,,InvoiceStructure,BBIE,1,SystemID,0..1,,SystemID,,Text,,,,,SAFmiddle1textType,Unique number created by the system for the document,
-388,Source Documents,,InvoiceStructure,BBIE,1,TransactionID,0..1,,TransactionID,,Text,,,,,SAFmiddle2textType,"Cross-reference to GL posting. It can contain many different levels to identify the transaction. It could include cost centres such as company, division, region, group and branch/department.",
-389,Source Documents,,InvoiceStructure,BBIE,1,ReceiptNumbers,0..1,,ReceiptNumbers,,Text,,,,,SAFlongtextType,"The number(s) of the receipt(s) on this ""consolidated invoicerecord"". Can be a single number, a range or a list.",
-390,Source Documents,,InvoiceStructure,ASBIE,1,InvoiceStructure_Line,1..*,,Associated,,,,InvoiceStructure_Line,,,,,
-999,Source Documents,,InvoiceStructure,BBIE,1,any##other,0..1,,,,,,,,,Represents space to allow individual Revenue Bodies to add further elements,Represents space to allow individual Revenue Bodies to add further elements,
-391,Source Documents,,InvoiceStructure_Line,ABIE,,InvoiceStructure_Line,1..*,,Details,,,,,,,,,
-392,Source Documents,,InvoiceStructure_Line,BBIE,1,LineNumber,0..1,,LineNumber,,Code,,,,,SAFshorttextType,Number of the invoiceline,
-393,Source Documents,,InvoiceStructure_Line,BBIE,1,AccountID,0..1,,AccountID,,Text,,,,,SAFmiddle2textType,"General Ledger Account code of the GL-revenue-account. Can be including sub-account id. It can contain many different levels to identify the Account. It could include cost centres such as company, division, region, group and branch/department.",
-394,Source Documents,,InvoiceStructure_Line,ASBIE,1,Analysis,0..*,,Associated,,,,AnalysisStructure,,,AnalysisStructure,General Ledger analysis codes,
-395,Source Documents,,InvoiceStructure_Line,ASBIE,1,OrderReferences,0..*,,Associated,,,,OrderReferences,,,,Relevant order references,
-399,Source Documents,,InvoiceStructure_Line,ASBIE,1,ShipTo,0..1,,To,,,,ShippingPointStructure,,,ShippingPointStructure,Ship To details,
-400,Source Documents,,InvoiceStructure_Line,ASBIE,1,ShipFrom,0..1,,From,,,,ShippingPointStructure,,,ShippingPointStructure,Ship from Details,
-401,Source Documents,,InvoiceStructure_Line,BBIE,1,GoodsServicesID,0..1,,GoodsServicesID,,Code,,,,,SAFcodeType,Indicator showing if goods or service,
-402,Source Documents,,InvoiceStructure_Line,BBIE,1,ProductCode,0..1,,ProductCode,,Text,,,,,SAFmiddle2textType,Product code,
-403,Source Documents,,InvoiceStructure_Line,BBIE,1,ProductDescription,0..1,,ProductDescription,,Text,,,,,SAFlongtextType,Description of goods or services.,
-404,Source Documents,,InvoiceStructure_Line,ASBIE,1,Delivery,0..1,,Associated,,,,Delivery,,,,Information about the date or timeframe of the delivery of the goods or services.,
-414,Source Documents,,InvoiceStructure_Line,BBIE,1,Quantity,0..1,,Quantity,,Quantity,,,,,SAFquantityType,Quantity of goods and services supplied.,
-415,Source Documents,,InvoiceStructure_Line,BBIE,1,InvoiceUOM,0..1,,InvoiceUOM,,Code,,,,,SAFcodeType,Quantity unit of measure e.g. pack of 12,
-416,Source Documents,,InvoiceStructure_Line,BBIE,1,UOMToUOMBaseConversionFactor,0..1,,UOMToUOMBaseConversionFactor,,Numeric,,,,,decimal,Conversion factor of the InvoiceUOM to UOM Base. Only needed when InvoiceUOM is reported and is different from the UOM Base.,
-417,Source Documents,,InvoiceStructure_Line,BBIE,1,UnitPrice,1..1,,UnitPrice,,Monetary,,,,,SAFmonetaryType,Unit price for the unit/group of units per UOM in the header's default currency.,
-418,Source Documents,,InvoiceStructure_Line,BBIE,1,TaxPointDate,1..1,,TaxPointDate,,Date,,,,,date,Tax Point date where recorded or if not recorded then the Invoice date,
-419,Source Documents,,InvoiceStructure_Line,ASBIE,1,References,0..1,,Associated,,,,References,,,,Credit Note references,
-425,Source Documents,,InvoiceStructure_Line,BBIE,1,Description,1..1,,Description,,Text,,,,,SAFlongtextType,Description of Invoice Line.,
-426,Source Documents,,InvoiceStructure_Line,ASBIE,1,InvoiceLineAmount,1..1,,Associated,,,,AmountStructure,,,AmountStructure,Amount for transaction excluding taxes and freightcharges.,
-427,Source Documents,,InvoiceStructure_Line,BBIE,1,DebitCreditIndicator,1..1,,DebitCreditIndicator,,,,,,,,Indicates whether the amounts on line-level are debit or credit amounts. Entry must correspond to entry reflected in General Ledger Entry. Signing of lineamounts is relative to this indicator. E.g. a return can lead to a negative amount.,
-428,Source Documents,,InvoiceStructure_Line,ASBIE,1,ShippingCostsAmount,0..1,,Associated,,,,AmountStructure,,,AmountStructure,Amount for shipping/freight charges.,
-429,Source Documents,,InvoiceStructure_Line,ASBIE,1,TaxInformation,0..*,,Associated,,,,TaxInformationStructure,,,TaxInformationStructure,,
-430,Source Documents,,InvoiceStructure_Line,ASBIE,1,Settlement,0..1,,Associated,,,,Settlement,,,,,
-436,Source Documents,,InvoiceStructure_Line,ASBIE,1,DocumentTotals,0..1,,Associated,,,,DocumentTotals,,,,,
-999,Source Documents,,InvoiceStructure_Line,BBIE,1,any##other,0..1,,,,,,,,,Represents space to allow individual Revenue Bodies to add further elements,Represents space to allow individual Revenue Bodies to add further elements,
-295,Source Documents,,MovementOfGoods,ABIE,,MovementOfGoods,0..1,,Details,,,,,,,,,
-296,Source Documents,,MovementOfGoods,BBIE,1,NumberOfMovementLines,1..1,,NumberOfMovementLines,,,,,,,nonNegativeInteger,Number of movementlines in selected period,
-297,Source Documents,,MovementOfGoods,BBIE,1,TotalQuantityReceived,1..1,,TotalQuantityReceived,,Quantity,,,,,SAFquantityType,Quantity of goods received,
-298,Source Documents,,MovementOfGoods,BBIE,1,TotalQuantityIssued,1..1,,TotalQuantityIssued,,Quantity,,,,,SAFquantityType,Quantity of goods issued in selected period,
-299,Source Documents,,MovementOfGoods,ASBIE,1,StockMovement,1..*,,Associated,,,,StockMovement,,,,,
-396,Source Documents,,OrderReferences,ABIE,,OrderReferences,0..*,,Details,,,,,,,,Relevant order references,
-397,Source Documents,,OrderReferences,BBIE,1,OriginatingON,0..1,,OriginatingON,,Text,,,,,SAFmiddle2textType,Origination Order Number,
-398,Source Documents,,OrderReferences,BBIE,1,OrderDate,0..1,,OrderDate,,Date,,,,,date,Date of order,
-259,Source Documents,,Payment,ABIE,,Payment,1..*,,Details,,,,,,,,,
-260,Source Documents,,Payment,BBIE,1,PaymentRefNo,1..1,,PaymentRefNo,,Text,,,,,SAFmiddle1textType,Unique reference number for payment,
-261,Source Documents,,Payment,BBIE,1,Period,0..1,,Period,,,,,,,nonNegativeInteger,Accounting Period,
-262,Source Documents,,Payment,BBIE,1,PeriodYear,0..1,,PeriodYear,,,,,,,,The year of the Accounting Period.,
-263,Source Documents,,Payment,RFBIE,1,TransactionID,0..1,,Referenced,,Text,,,,Transaction,SAFmiddle2textType,"Cross-reference to GL posting. It can contain many different levels to identify the transaction. It could include cost centres such as company, division, region, group and branch/department.",
-264,Source Documents,,Payment,BBIE,1,TransactionDate,1..1,,TransactionDate,,Date,,,,,date,Document date,
-265,Source Documents,,Payment,BBIE,1,PaymentMethod,0..1,,PaymentMethod,,Code,,,,,SAFcodeType,"Cheque, Bank, Giro, Cash, etc.",
-266,Source Documents,,Payment,BBIE,1,Description,1..1,,Description,,Text,,,,,SAFlongtextType,Description of the payment.,
-267,Source Documents,,Payment,BBIE,1,BatchID,0..1,,BatchID,,Text,,,,,SAFmiddle1textType,Systems generated ID for batch,
-268,Source Documents,,Payment,BBIE,1,SystemID,0..1,,SystemID,,Text,,,,,SAFmiddle1textType,Unique number created by the system for the document,
-269,Source Documents,,Payment,BBIE,1,SourceID,0..1,,SourceID,,Text,,,,,SAFmiddle1textType,Details of person or application that entered the transaction,
-270,Source Documents,,Payment,ASBIE,1,Payment_Line,1..*,,Associated,,,,Payment_Line,,,,,
-283,Source Documents,,Payment,ASBIE,1,PaymentSettlement,0..1,,Associated,,,,Settlement,,,,,
-289,Source Documents,,Payment,ASBIE,1,PaymentDocumentTotals,0..1,,Associated,,,,DocumentTotals,,,,,
-999,Source Documents,,Payment,BBIE,1,any##other,0..1,,,,,,,,,Represents space to allow individual Revenue Bodies to add further elements,Represents space to allow individual Revenue Bodies to add further elements,
-271,Source Documents,,Payment_Line,ABIE,,Payment_Line,1..*,,Details,,,,,,,,,
-272,Source Documents,,Payment_Line,BBIE,1,PLineNumber,0..1,,PLineNumber,,Code,,,,,SAFshorttextType,Number of the paymentline,
-273,Source Documents,,Payment_Line,BBIE,1,SourceDocumentID,0..1,,SourceDocumentID,,Text,,,,,SAFmiddle1textType,The source document to which the line relates,
-274,Source Documents,,Payment_Line,RFBIE,1,AccountID,0..1,,Referenced,,Text,,,,GeneralLedgerAccounts,SAFmiddle2textType,"General Ledger Account code. Can be including sub-account id. It can contain many different levels to identify the Account. It could include cost centres such as company, division, region, group and branch/department.",
-275,Source Documents,,Payment_Line,ASBIE,1,Analysis,0..*,,Associated,,,,AnalysisStructure,,,AnalysisStructure,General Ledger analysis codes,
-276,Source Documents,,Payment_Line,RFBIE,1,CustomerID,0..1,,Referenced,,Text,,,Customer,CompanyStructure,SAFmiddle1textType,Unique code for the customer,
-277,Source Documents,,Payment_Line,RFBIE,1,SupplierID,0..1,,Referenced,,Text,,,Supplier,CompanyStructure,SAFmiddle1textType,Unique code for the supplier,
-278,Source Documents,,Payment_Line,BBIE,1,TaxPointDate,0..1,,TaxPointDate,,Date,,,,,date,Tax Point date where recorded or if not recorded then the Invoice date,
-279,Source Documents,,Payment_Line,BBIE,1,Description,0..1,,Description,,Text,,,,,SAFlongtextType,Description of the payment line.,
-280,Source Documents,,Payment_Line,BBIE,1,DebitCreditIndicator,1..1,,DebitCreditIndicator,,,,,,,,Indicates whether the amounts on line-level are debit or credit amounts. Entry must correspond to entry reflected in General Ledger Entry. Signing of lineamounts is relative to this indicator. E.g. a return can lead to a negative amount.,
-281,Source Documents,,Payment_Line,ASBIE,1,PaymentLineAmount,1..1,,Associated,,,,AmountStructure,,,AmountStructure,Amount for transaction excluding taxes.,
-282,Source Documents,,Payment_Line,ASBIE,1,TaxInformation,0..*,,Associated,,,,TaxInformationStructure,,,TaxInformationStructure,,
-999,Source Documents,,Payment_Line,BBIE,1,any##other,0..1,,,,,,,,,Represents space to allow individual Revenue Bodies to add further elements,Represents space to allow individual Revenue Bodies to add further elements,
-254,Source Documents,,Payments,ABIE,,Payments,0..1,,Details,,,,,,,,,
-255,Source Documents,,Payments,BBIE,1,NumberOfEntries,1..1,,NumberOfEntries,,,,,,,nonNegativeInteger,Number of entries,
-256,Source Documents,,Payments,BBIE,1,TotalDebit,1..1,,TotalDebit,,Monetary,,,,,SAFmonetaryType,The total of all debit amounts in the header's default currency,
-257,Source Documents,,Payments,BBIE,1,TotalCredit,1..1,,TotalCredit,,Monetary,,,,,SAFmonetaryType,The total of all credit amounts in the header's default currency,
-258,Source Documents,,Payments,ASBIE,1,Payment,1..*,,Associated,,,,Payment,,,,,
-539,Source Documents,,PeriodStart-PeriodStartYear-PeriodEnd-PeriodEndYear,ASBIE,2,PeriodStart-PeriodStartYear-PeriodEnd-PeriodEndYear,,,Associated,,,,PeriodStart-PeriodStartYear-PeriodEnd-PeriodEndYear,,,,,
-540,Source Documents,,PeriodStart-PeriodStartYear-PeriodEnd-PeriodEndYear,ABIE,,PeriodStart-PeriodStartYear-PeriodEnd-PeriodEndYear,,,Details,,,,,,,,,
-541,Source Documents,,PeriodStart-PeriodStartYear-PeriodEnd-PeriodEndYear,BBIE,1,PeriodStart,1..1,,PeriodStart,,,,,,,nonNegativeInteger,The first Accounting Period covered by the SAF.,
-542,Source Documents,,PeriodStart-PeriodStartYear-PeriodEnd-PeriodEndYear,BBIE,1,PeriodStartYear,1..1,,PeriodStartYear,,,,,,,,The Accounting Year in which the PeriodStart falls.,
-543,Source Documents,,PeriodStart-PeriodStartYear-PeriodEnd-PeriodEndYear,BBIE,1,PeriodEnd,1..1,,PeriodEnd,,,,,,,nonNegativeInteger,The last Accounting Period covered by the SAF.,
-544,Source Documents,,PeriodStart-PeriodStartYear-PeriodEnd-PeriodEndYear,BBIE,1,PeriodEndYear,1..1,,PeriodEndYear,,,,,,,,The Accounting Year in which the PeriodEnd falls.,
-513,Source Documents,,PersonNameStructure,ABIE,,PersonNameStructure,0..1,,Details,,,,,,,,[Common to all SAFs] All information about the name of a natural person.,
-514,Source Documents,,PersonNameStructure,BBIE,1,Title,1..1,,Title,,Code,,,,,SAFcodeType,,
-515,Source Documents,,PersonNameStructure,BBIE,1,FirstName,0..1,,FirstName,,Text,,,,,SAFmiddle1textType,,
-516,Source Documents,,PersonNameStructure,BBIE,1,Initials,1..1,,Initials,,Code,,,,,SAFshorttextType,,
-517,Source Documents,,PersonNameStructure,BBIE,1,LastNamePrefix,0..1,,LastNamePrefix,,Code,,,,,SAFshorttextType,"A textual expression of a prefix that precedes this person's family name such as Van, Von.",
-518,Source Documents,,PersonNameStructure,BBIE,1,LastName,0..1,,LastName,,Text,,,,,SAFmiddle2textType,,
-519,Source Documents,,PersonNameStructure,BBIE,1,BirthName,1..1,,BirthName,,Text,,,,,SAFmiddle2textType,,
-520,Source Documents,,PersonNameStructure,BBIE,1,Salutation,0..1,,Salutation,,Code,,,,,SAFshorttextType,"A formal sign or expression of greeting, expressed as text, that is appropriate for this person such as Right Honourable, Monsignor or Madam.",
-521,Source Documents,,PersonNameStructure,BBIE,1,OtherTitles,0..1,,OtherTitles,,Code,,,,,SAFshorttextType,,
-248,Source Documents,,PurchaseInvoices,ABIE,,PurchaseInvoices,0..1,,Details,,,,,,,,,
-249,Source Documents,,PurchaseInvoices,BBIE,1,NumberOfEntries,1..1,,NumberOfEntries,,,,,,,nonNegativeInteger,Number of entries,
-250,Source Documents,,PurchaseInvoices,BBIE,1,TotalDebit,1..1,,TotalDebit,,Monetary,,,,,SAFmonetaryType,The total of all debit amounts in the header's default currency,
-251,Source Documents,,PurchaseInvoices,BBIE,1,TotalCredit,1..1,,TotalCredit,,Monetary,,,,,SAFmonetaryType,The total of all credit amounts in the header's default currency,
-252,Source Documents,,PurchaseInvoices,ASBIE,1,Invoice,1..*,,Associated,,,,InvoiceStructure,,,InvoiceStructure,,
-420,Source Documents,,References,ABIE,,References,0..1,,Details,,,,,,,,Credit Note references,
-421,Source Documents,,References,ASBIE,1,CreditNote,0..1,,Associated,,,,CreditNote,,,,,
-242,Source Documents,,SalesInvoices,ABIE,,SalesInvoices,0..1,,Details,,,,,,,,,
-243,Source Documents,,SalesInvoices,BBIE,1,NumberOfEntries,1..1,,NumberOfEntries,,,,,,,nonNegativeInteger,Number of entries,
-244,Source Documents,,SalesInvoices,BBIE,1,TotalDebit,1..1,,TotalDebit,,Monetary,,,,,SAFmonetaryType,The total of all debit amounts in the header's default currency,
-245,Source Documents,,SalesInvoices,BBIE,1,TotalCredit,1..1,,TotalCredit,,Monetary,,,,,SAFmonetaryType,The total of all credit amounts in the header's default currency,
-246,Source Documents,,SalesInvoices,ASBIE,1,Invoice,1..*,,Associated,,,,InvoiceStructure,,,InvoiceStructure,,
-530,Source Documents,,SelectionCriteriaStructure,ABIE,,SelectionCriteriaStructure,0..1,,Details,,,,,,,,[Common to all SAFs] The selection criteria used to generate this Standard Auditfile,
-531,Source Documents,,SelectionCriteriaStructure,BBIE,1,TaxReportingJurisdiction,0..1,,TaxReportingJurisdiction,,Text,,,,,SAFmiddle1textType,Identifies the tax jurisdiction for whose purpose the SAF has been created. Principally for use where a single Revenue body covers more than one territory.,
-532,Source Documents,,SelectionCriteriaStructure,BBIE,1,CompanyEntity,0..1,,CompanyEntity,,Text,,,,,SAFmiddle2textType,For use where data has been extracted from the full data set by reference to a specific corporate entity.,
-533,Source Documents,,SelectionCriteriaStructure,ASBIE,1,choice:SelectionStartDate-SelectionEndDate/PeriodStart-PeriodStartYear-PeriodEnd-PeriodEndYear,1..1,,Associated,,,,choice:SelectionStartDate-SelectionEndDate/PeriodStart-PeriodStartYear-PeriodEnd-PeriodEndYear,,,,"Allows for a choice between selection on calendar dates and periods according to the accounting system, e.g. 1 to 12 for a 12-months accounting system.",
-545,Source Documents,,SelectionCriteriaStructure,BBIE,1,DocumentType,0..1,,DocumentType,,Text,,,,,SAFlongtextType,Type of documents selected. For use where the data has been restricted by reference to particular transaction types.,
-546,Source Documents,,SelectionCriteriaStructure,BBIE,1,OtherCriteria,0..*,,OtherCriteria,,Text,,,,,SAFlongtextType,Any other criteria used in selecting data. Individual Revenue Bodies may wish to draw up a list of other acceptable selection criteria for use within their jurisdiction,
-536,Source Documents,,SelectionStartDate-SelectionEndDate,ABIE,,SelectionStartDate-SelectionEndDate,,,Details,,,,,,,,,
-537,Source Documents,,SelectionStartDate-SelectionEndDate,BBIE,1,SelectionStartDate,1..1,,SelectionStartDate,,Date,,,,,date,The start date for the reporting period covered by the SAF.,
-538,Source Documents,,SelectionStartDate-SelectionEndDate,BBIE,1,SelectionEndDate,1..1,,SelectionEndDate,,Date,,,,,date,The end date for the reporting period covered by the SAF.,
-462,Source Documents,,sequence_Amount,ABIE,,sequence_Amount,0..1,,Details,,,,,,,,,
-463,Source Documents,,sequence_Amount,BBIE,2,CurrencyCode,1..1,,CurrencyCode,,Code,,,,,ISOCurrencyCode,Three-letter currency code according to ISO 4217 standard. Example: EUR for the Euros or USD for American Dollars.,
-464,Source Documents,,sequence_Amount,BBIE,2,CurrencyAmount,1..1,,CurrencyAmount,,Monetary,,,,,SAFmonetaryType,Amount in foreign currency.,
-465,Source Documents,,sequence_Amount,BBIE,2,ExchangeRate,0..1,,ExchangeRate,,,,,,,SAFexchangerateType,The exchange rate used. CurrencyAmount x ExchangeRate = Amount,
-284,Source Documents,,Settlement,ABIE,,PaymentSettlement,0..1,,Details,,,,,,,,,
-285,Source Documents,,Settlement,BBIE,1,SettlementDiscount,0..1,,SettlementDiscount,,Text,,,,,SAFmiddle1textType,Description Settlement / Other Discount,
-286,Source Documents,,Settlement,ASBIE,1,SettlementAmount,0..1,,Associated,,,,AmountStructure,,,AmountStructure,Settlement amount,
-287,Source Documents,,Settlement,BBIE,1,SettlementDate,0..1,,SettlementDate,,Date,,,,,date,Date settled,
-288,Source Documents,,Settlement,BBIE,1,PaymentMechanism,0..1,,PaymentMechanism,,Code,,,,,SAFcodeType,Payment mechanism,
-431,Source Documents,,Settlement,ABIE,,InvoiceSettlement,0..1,,Details,,,,,,,,,
-432,Source Documents,,Settlement,BBIE,1,SettlementDiscount,0..1,,SettlementDiscount,,Text,,,,,SAFmiddle1textType,Description Settlement / Other Discount,
-433,Source Documents,,Settlement,ASBIE,1,SettlementAmount,1..1,,Associated,,,,AmountStructure,,,AmountStructure,Settlement amount,
-434,Source Documents,,Settlement,BBIE,1,SettlementDate,0..1,,SettlementDate,,Date,,,,,date,Date settled,
-435,Source Documents,,Settlement,BBIE,1,PaymentMechanism,0..1,,PaymentMechanism,,Code,,,,,SAFcodeType,Payment mechanism,
-442,Source Documents,,ShippingPointStructure,ABIE,,ShippingPointStructure,1..1,,Details,,,,,,,,A structure that holds all shipping point information.,
-443,Source Documents,,ShippingPointStructure,BBIE,1,DeliveryID,0..1,,DeliveryID,,Text,,,,,SAFmiddle1textType,Identification of the delivery,
-444,Source Documents,,ShippingPointStructure,BBIE,1,DeliveryDate,0..1,,DeliveryDate,,Date,,,,,date,Date goods are delivered,
-445,Source Documents,,ShippingPointStructure,BBIE,1,WarehouseID,0..1,,WarehouseID,,Text,,,,,SAFmiddle1textType,"Warehouse where goods held - also to identify work-in-progress, or stock-in-transit",
-446,Source Documents,,ShippingPointStructure,BBIE,1,LocationID,0..1,,LocationID,,Code,,,,,SAFshorttextType,Location of goods in warehouse,
-447,Source Documents,,ShippingPointStructure,BBIE,1,UCR,0..1,,UCR,,Text,,,,,SAFmiddle1textType,Unique consignment reference number,
-448,Source Documents,,ShippingPointStructure,ASBIE,1,Address,0..1,,Associated,,,,AddressStructure,,,AddressStructure,,
-240,SAF-T,,SourceDocuments,ABIE,,SourceDocuments,0..1,,Details,,,,,,,,"Holds Sales Invoices, Purchase Invoices, Payments, Movement Of Goods, and Asset Transactions",
-241,Source Documents,,SourceDocuments,ASBIE,1,SalesInvoices,0..1,,Associated,,,,SalesInvoices,,,,,
-247,Source Documents,,SourceDocuments,ASBIE,1,PurchaseInvoices,0..1,,Associated,,,,PurchaseInvoices,,,,,
-253,Source Documents,,SourceDocuments,ASBIE,1,Payments,0..1,,Associated,,,,Payments,,,,,
-294,Source Documents,,SourceDocuments,ASBIE,1,MovementOfGoods,0..1,,Associated,,,,MovementOfGoods,,,,,
-332,Source Documents,,SourceDocuments,ASBIE,1,AssetTransactions,0..1,,Associated,,,,AssetTransactions,,,,Details of all transactions related to an asset during the Selectionperiod.,
-300,Source Documents,,StockMovement,ABIE,,StockMovement,1..*,,Details,,,,,,,,,
-301,Source Documents,,StockMovement,BBIE,1,MovementReference,1..1,,MovementReference,,Text,,,,,SAFmiddle1textType,Unique reference to the movement.,
-302,Source Documents,,StockMovement,BBIE,1,MovementDate,1..1,,MovementDate,,Date,,,,,date,Document date,
-303,Source Documents,,StockMovement,BBIE,1,MovementPostingDate,0..1,,MovementPostingDate,,Date,,,,,date,Date of posting of the movement if different to Movement Date,
-304,Source Documents,,StockMovement,BBIE,1,MovementPostingTime,0..1,,MovementPostingTime,,Time,,,,,time,Time of posting of the movement,
-305,Source Documents,,StockMovement,BBIE,1,TaxPointDate,0..1,,TaxPointDate,,Date,,,,,date,Date of supply of goods,
-306,Source Documents,,StockMovement,RFBIE,1,MovementType,1..1,,Referenced,,Code,,,,MovementTypeTableEntry,SAFcodeType,"The movementtype expresses the type of the process for the underlaying lines. E.g. production, sales, purchase. Predescribed TABLE is possible.",
-307,Source Documents,,StockMovement,BBIE,1,SourceID,0..1,,SourceID,,Text,,,,,SAFmiddle1textType,Details of person or application that entered the transaction,
-308,Source Documents,,StockMovement,BBIE,1,SystemID,0..1,,SystemID,,Text,,,,,SAFmiddle1textType,Unique number created by the system for the document,
-309,Source Documents,,StockMovement,ASBIE,1,DocumentReference,0..1,,Associated,,,,DocumentReference,,,,,
-314,Source Documents,,StockMovement,ASBIE,1,StockMovement_Line,1..*,,Associated,,,,StockMovement_Line,,,,,
-999,Source Documents,,StockMovement,BBIE,1,any##other,0..1,,,,,,,,,Represents space to allow individual Revenue Bodies to add further elements,Represents space to allow individual Revenue Bodies to add further elements,
-315,Source Documents,,StockMovement_Line,ABIE,,StockMovement_Line,1..*,,Details,,,,,,,,,
-316,Source Documents,,StockMovement_Line,BBIE,1,LineNumber,1..1,,LineNumber,,Code,,,,,SAFshorttextType,Number of the movementline,
-317,Source Documents,,StockMovement_Line,RFBIE,1,AccountID,0..1,,Referenced,,Text,,,,GeneralLedgerAccounts,SAFmiddle2textType,General Ledger Account code. Can be including sub-account id.,
-318,Source Documents,,StockMovement_Line,RFBIE,1,TransactionID,0..1,,Referenced,,Text,,,,Transaction,SAFmiddle2textType,"Cross-reference to GL posting. It can contain many different levels to identify the transaction. It could include cost centres such as company, division, region, group and branch/department.",
-319,Source Documents,,StockMovement_Line,RFBIE,1,CustomerID,0..1,,Referenced,,Text,,,Customer,CompanyStructure,SAFmiddle1textType,Unique code for the customer,
-320,Source Documents,,StockMovement_Line,RFBIE,1,SupplierID,0..1,,Referenced,,Text,,,Supplier,CompanyStructure,SAFmiddle1textType,Unique code for the supplier,
-321,Source Documents,,StockMovement_Line,ASBIE,1,ShipTo,0..1,,To,,,,ShippingPointStructure,,,ShippingPointStructure,Ship To details,
-322,Source Documents,,StockMovement_Line,ASBIE,1,ShipFrom,0..1,,From,,,,ShippingPointStructure,,,ShippingPointStructure,Ship from Details,
-323,Source Documents,,StockMovement_Line,RFBIE,1,ProductCode,1..1,,Referenced,,Text,,,,Product,SAFmiddle2textType,Product code,
-324,Source Documents,,StockMovement_Line,RFBIE,1,StockAccountNo,0..1,,Referenced,,Text,,,,PhysicalStockEntry,SAFmiddle2textType,"Stock batch, lot, serial identification. Not used when there is exactly 1 PhysicalStock entry per ProductCode",
-325,Source Documents,,StockMovement_Line,BBIE,1,Quantity,1..1,,Quantity,,Quantity,,,,,SAFquantityType,Quantity of goods,
-326,Source Documents,,StockMovement_Line,RFBIE,1,UnitOfMeasure,1..1,,Referenced,,Code,,,,UOMTableEntry,SAFcodeType,Quantity unit of measure e.g. pack of 12,
-327,Source Documents,,StockMovement_Line,BBIE,1,UOMToUOMPhysicalStockConversionFactor,1..1,,UOMToUOMPhysicalStockConversionFactor,,Numeric,,,,,decimal,Conversion factor of the UOM to UOM Physical Stock,
-328,Source Documents,,StockMovement_Line,BBIE,1,BookValue,0..1,,BookValue,,Monetary,,,,,SAFmonetaryType,Value of the transaction line as registrerd in the general ledger in the header's default currency.,
-329,Source Documents,,StockMovement_Line,RFBIE,1,MovementSubType,1..1,,Referenced,,Code,,,,MovementTypeTableEntry,SAFcodeType,"Indentify the type of the movement on line / article level. A movement(type) production contains f.i. use of components, getting finished product, efficiencyloss as movementsubtypes. Predescribed TABLE is possible.",
-330,Source Documents,,StockMovement_Line,BBIE,1,MovementComments,0..1,,MovementComments,,Text,,,,,SAFlongtextType,A reason for the movement,
-331,Source Documents,,StockMovement_Line,ASBIE,1,TaxInformation,0..*,,Associated,,,,TaxInformationStructure,,,TaxInformationStructure,,
-999,Source Documents,,StockMovement_Line,BBIE,1,any##other,0..1,,,,,,,,,Represents space to allow individual Revenue Bodies to add further elements,Represents space to allow individual Revenue Bodies to add further elements,
-368,Source Documents,,SupplierInfo,ABIE,,SupplierInfo,1..1,,Details,,,,,,,,,
-369,Source Documents,,SupplierInfo,ASBIE,1,choice:SupplierID/Name,1..1,,Associated,,,,choice:SupplierID/Name,,,,,
-373,Source Documents,,SupplierInfo,ASBIE,1,BillingAddress,1..1,,Associated,,,,AddressStructure,,,AddressStructure,,
-539,Source Documents,,TaxIDStructure,ABIE,,TaxIDStructure,,,Details,,,,,,,,[Common to all SAFs] Tax information of a company.,
-540,Source Documents,,TaxIDStructure,BBIE,1,TaxRegistrationNumber,1..1,,TaxRegistrationNumber,,Text,,,,,SAFmiddle1textType,Unique number issued by a Revenue Body for use by the company.,
-541,Source Documents,,TaxIDStructure,BBIE,1,TaxType,1..1,,TaxType,,Code,,,,,SAFcodeType,For use where information reported in the SAF-T covers more than one type of tax regime: to identify the type of tax regime to which this entry relates.,
-542,Source Documents,,TaxIDStructure,BBIE,1,TaxNumber,0..1,,TaxNumber,,Text,,,,,SAFmiddle1textType,"The tax registration number for the particular tax regime referred to by TaxType, f.i. VAT-number",
-543,Source Documents,,TaxIDStructure,BBIE,1,TaxAuthority,0..1,,TaxAuthority,,Text,,,,,SAFmiddle1textType,Identification of the Revenue Body to which this TaxType refers.,
-544,Source Documents,,TaxIDStructure,BBIE,1,TaxVerificationDate,0..1,,TaxVerificationDate,,Date,,,,,date,The date that the tax registration details referred to above were last checked.,
-545,Source Documents,,TaxInformationStructure,ABIE,,TaxInformationStructure,0..1,,Details,,,,,,,, Tax Amount information structure,
-546,Source Documents,,TaxInformationStructure,BBIE,1,TaxType,1..1,,TaxType,,Code,,,,,SAFcodeType,Tax type for look-up in tables,
-547,Source Documents,,TaxInformationStructure,BBIE,1,TaxCode,0..1,,TaxCode,,Code,,,,,SAFcodeType,Tax Code for lookup in tables,
-548,Source Documents,,TaxInformationStructure,BBIE,1,TaxPercentage,0..1,,TaxPercentage,,Percentage,,,,,decimal,Tax percentage.,
-549,Source Documents,,TaxInformationStructure,BBIE,1,TaxBase,0..1,,TaxBase,,Numeric,,,,,decimal,"The base on which the tax is calculated. This can be an amount, or a quantity, eg. Litres.",
-550,Source Documents,,TaxInformationStructure,BBIE,1,TaxBaseDescription,0..1,,TaxBaseDescription,,Text,,,,,SAFmiddle2textType,Description of the value in the TaxBase. Eg. Litres for excises on alcoholic bevarages.,
-551,Source Documents,,TaxInformationStructure,BBIE,1,TaxAmount,0..1,,TaxAmount,,,,,,,AmountStructure,Tax amount information,
-552,Source Documents,,TaxInformationStructure,BBIE,1,TaxExemptionReason,1..1,,TaxExemptionReason,,Text,,,,,SAFmiddle2textType,Tax exemption or reduction reason or rationale,
-553,Source Documents,,TaxInformationStructure,BBIE,1,TaxDeclarationPeriod,0..1,,TaxDeclarationPeriod,,Text,,,,,SAFmiddle1textType,The identification of the declaration/return in which the taxamount is reported to the Revenue body.,
+﻿seq,Module,ObjectClassTermQualifier,ObjectClassTerm,kind,no,name,Card,PropertyTermQualifier,PropertyTerm,DatatypeQualifier,RepresentationTerm,AssciatedObjectClassTermQualifier,AssociatedObjectClass,ReferencedObjectClassTermQualifier,ReferencedObjectClass,Type,Description
+1001,SAF-T,,AuditFile,ABIE,0,AuditFile,1..1,,Details,,,,,,,,OECD Standard Audit File: Standard Audit File - Taxation version 2.00 (Final version) OECD author TeA team last modified 17-09-2009
+1002,SAF-T,,AuditFile,ASBIE,1,Header,1..1,,Associated,,,,Header,,,,Holds general information about the file including the name of the software which produced it; the company on whose behalf the SAF-T is being submitted; and the selection criteria used. An extension point is provided to allow individual Revenue Bodies to  specify further relevant information to be supplied.
+1003,SAF-T,,AuditFile,ASBIE,2,MasterFiles,0..1,,Associated,,,,MasterFiles,,,,"Holds standing data about general ledger account, suppliers, customers, products, etc.. An extension point is provided to allow Revenue Bodies to specify additional elements or structures such as tax rate tables."
+1004,SAF-T,,AuditFile,ASBIE,3,GeneralLedgerEntries,0..1,,Associated,,,,GeneralLedgerEntries,,,,
+1005,SAF-T,,AuditFile,ASBIE,4,SourceDocuments,0..1,,Associated,,,,SourceDocuments,,,,
+1006,Header,,Header,ABIE,0,Header,1..1,,Details,,,,,,,,Holds general information about the file including the name of the software which produced it; the company on whose behalf the SAF-T is being submitted; and the selection criteria used. An extension point is provided to allow individual Revenue Bodies to  specify further relevant information to be supplied.
+1007,Header,,Header,ASBIE,1,HeaderStructure,1..1,,Associated,,,,HeaderStructure,,,,
+1008,Header,,Header,BBIE,2,TaxAccountingBasis,1..1,,TaxAccountingBasis,,Code,,,,,SAFshorttextType,"Invoice Accounting, Cash Accounting, Delivery, other ..."
+1009,Header,,Header,BBIE,3,TaxEntity,0..1,,TaxEntity,,Text,,,,,SAFmiddle2textType,Company / Division / Branch reference
+1010,Header,,Header,BBIE,4,any##other,0..1,,,,,,,,,Represents space to allow individual Revenue Bodies to add further elements if required. See Annex A.,Represents space to allow individual Revenue Bodies to add further elements if required. See Annex A.
+1011,Master Files,,MasterFiles,ABIE,0,MasterFiles,0..1,,Details,,,,,,,,"Holds standing data about general ledger account, suppliers, customers, products, etc.. An extension point is provided to allow Revenue Bodies to specify additional elements or structures such as tax rate tables."
+1012,Master Files,,MasterFiles,ASBIE,1,GeneralLedgerAccounts,0..1,,Associated,,,,GeneralLedgerAccounts,,,,
+1013,Master Files,,MasterFiles,ASBIE,2,Taxonomies,0..1,,Associated,,,,Taxonomies,,,,
+1014,Master Files,,MasterFiles,ASBIE,3,Customers,0..1,,Associated,,,,Customers,,,,
+1015,Master Files,,MasterFiles,ASBIE,4,Suppliers,0..1,,Associated,,,,Suppliers,,,,
+1016,Master Files,,MasterFiles,ASBIE,5,TaxTable,0..1,,Associated,,,,TaxTable,,,,
+1017,Master Files,,MasterFiles,ASBIE,6,UOMTable,0..1,,Associated,,,,UOMTable,,,,Table with descriptions of all different kinds of UOM's
+1018,Master Files,,MasterFiles,ASBIE,7,AnalysisTypeTable,0..1,,Associated,,,,AnalysisTypeTable,,,,"Table with the analysiscode identifiers.\nsed for further specification of transaction data.\nxample: cost unit, cost center, project."
+1019,Master Files,,MasterFiles,ASBIE,8,MovementTypeTable,0..1,,Associated,,,,MovementTypeTable,,,,Table with descriptions of all different kinds of movementtypes and movementsubtypes
+1020,Master Files,,MasterFiles,ASBIE,9,Products,0..1,,Associated,,,,Products,,,,
+1021,Master Files,,MasterFiles,ASBIE,10,PhysicalStock,0..1,,Associated,,,,PhysicalStock,,,,
+1022,Master Files,,MasterFiles,ASBIE,11,Owners,0..1,,Associated,,,,Owners,,,,
+1023,Master Files,,MasterFiles,ASBIE,12,Assets,0..1,,Associated,,,,Assets,,,,
+1024,Master Files,,MasterFiles,BBIE,13,any##other,0..1,,,,,,,,,Represents space to allow individual Revenue Bodies to specify additional standing data.,Represents space to allow individual Revenue Bodies to specify additional standing data.
+1025,Master Files,,GeneralLedgerAccounts,ABIE,0,GeneralLedgerAccounts,0..1,,Details,,,,,,,,
+1026,Master Files,,GeneralLedgerAccounts,ASBIE,1,Account,1..*,,Associated,,,,GeneralLedgerAccount,,,,
+1027,Master Files,,GeneralLedgerAccount,ABIE,0,Account,1..*,,Details,,,,,,,,
+1028,Master Files,,GeneralLedgerAccount,IDBIE,1,AccountID,1..1,,AccountID,,Identifier,,,,,SAFmiddle2textType,"General Ledger Account code. Can be including sub-account id. It can contain many different levels to identify the Account. It could include cost centres such as company, division, region, group and branch/department."
+1029,Master Files,,GeneralLedgerAccount,BBIE,2,AccountDescription,1..1,,AccountDescription,,Text,,,,,SAFlongtextType,Name of individual GL account
+1030,Master Files,,GeneralLedgerAccount,BBIE,3,StandardAccountID,0..1,,StandardAccountID,,Text,,,,,SAFmiddle1textType,AccountID based on a standard prescribed by authorities.
+1031,Master Files,,GeneralLedgerAccount,BBIE,4,GroupingCategory,0..1,,GroupingCategory,,Text,,,,,SAFmiddle1textType,"Category for grouping the accounts, relevant in reconciling financial statements f.i."
+1032,Master Files,,GeneralLedgerAccount,BBIE,5,GroupingCode,0..1,,GroupingCode,,Text,,,,,SAFmiddle1textType,"Subcode for grouping the accounts, relevant in reconciling financial statements f.i."
+1033,Master Files,,GeneralLedgerAccount,BBIE,6,AccountType,1..1,,AccountType,,Code,,,,,SAFshorttextType,Type of account  - Asset/Liability/Sale/Expense
+1034,Master Files,,GeneralLedgerAccount,BBIE,7,AccountCreationDate,0..1,,AccountCreationDate,,Date,,,,,date,Date of creating the generalledger account
+1035,Master Files,,GeneralLedgerAccount,ASBIE,8,choice:OpeningDebitBalance/ClosingDebitBalance,1..1,,Associated,,,,choice:OpeningDebitBalance/ClosingDebitBalance,,,,
+1036,Master Files,,GeneralLedgerAccount,ASBIE,9,choice:ClosingDebitBalance/ClosingCreditBalance,1..1,,Associated,,,,choice:ClosingDebitBalance/ClosingCreditBalance,,,,
+1037,Master Files,,GeneralLedgerAccount,BBIE,10,any##other,0..1,,,,,,,,,Represents space to allow individual Revenue Bodies to add further elements,Represents space to allow individual Revenue Bodies to add further elements
+1038,Master Files,,choice:OpeningDebitBalance/ClosingDebitBalance,ABIE,0,choice:OpeningDebitBalance/ClosingDebitBalance,1..1,,Details,,,,,,,,
+1039,Master Files,,choice:OpeningDebitBalance/ClosingDebitBalance,BBIE,1,OpeningDebitBalance,1..1,,OpeningDebitBalance,,Monetary,,,,,SAFmonetaryType,Debit balance at the start date of the selection period in the header's default currency.
+1040,Master Files,,choice:OpeningDebitBalance/ClosingDebitBalance,BBIE,2,OpeningCreditBalance,1..1,,OpeningCreditBalance,,Monetary,,,,,SAFmonetaryType,Credit balance at the start date of the selection period in the header's default currency.
+1041,Master Files,,choice:ClosingDebitBalance/ClosingCreditBalance,ABIE,0,choice:ClosingDebitBalance/ClosingCreditBalance,1..1,,Details,,,,,,,,
+1042,Master Files,,choice:ClosingDebitBalance/ClosingCreditBalance,BBIE,1,ClosingDebitBalance,1..1,,ClosingDebitBalance,,Monetary,,,,,SAFmonetaryType,Debit balance at the end date of the selection period in the header's default currency.
+1043,Master Files,,choice:ClosingDebitBalance/ClosingCreditBalance,BBIE,2,ClosingCreditBalance,1..1,,ClosingCreditBalance,,Monetary,,,,,SAFmonetaryType,Credit balance at the end date of the selection period in the header's default currency.
+1044,Master Files,,Taxonomies,ABIE,0,Taxonomies,0..1,,Details,,,,,,,,
+1045,Master Files,,Taxonomies,ASBIE,1,Taxonomy,1..*,,Associated,,,,Taxonomy,,,,
+1046,Master Files,,Taxonomy,ABIE,0,Taxonomy,1..*,,Details,,,,,,,,
+1047,Master Files,,Taxonomy,BBIE,1,TaxonomyReference,1..1,,TaxonomyReference,,Text,,,,,SAFlongtextType,Reference to the taxonomy that applies to the GL Account.
+1048,Master Files,,Taxonomy,ASBIE,2,TaxonomyElement,0..*,,Associated,,,,TaxonomyElement,,,,
+1049,Master Files,,TaxonomyElement,ABIE,0,TaxonomyElement,0..*,,Details,,,,,,,,
+1050,Master Files,,TaxonomyElement,BBIE,1,TaxonomyCode,1..1,,TaxonomyCode,,Text,,,,,SAFlongtextType,Reference to specific taxonomy element
+1051,Master Files,,TaxonomyElement,BBIE,2,TaxonomyClusterID,0..1,,TaxonomyClusterID,,Text,,,,,SAFlongtextType,Additional reference to specific taxonomy element
+1052,Master Files,,TaxonomyElement,BBIE,3,TaxonomyClusterContextID,0..1,,TaxonomyClusterContextID,,Text,,,,,SAFlongtextType,
+1053,Master Files,,TaxonomyElement,IDBIE,4,AccountID,1..1,,AccountID,,Identifier,,,,GeneralLedgerAccounts. AccountID. Identifier,SAFmiddle2textType,"General Ledger Account code for this TaxanomyReference/TaxonomyCode. Can be including sub-account id. It can contain many different levels to identify the Account. It could include cost centres such as company, division, region, group and branch/department."
+1054,Master Files,,Customers,ABIE,0,Customers,0..1,,Details,,,,,,,,
+1055,Master Files,,Customers,ASBIE,1,Customer,1..*,,Associated,,,Customer,CompanyStructure,,,,
+1056,Master Files,Customer,CompanyStructure,ABIE,0,Customer,1..*,,Details,,,,,,,,
+1057,Master Files,Customer,CompanyStructure,ASBIE,1,CompanyStructure,1..1,,Associated,,,,CompanyStructure,,,,
+1058,Master Files,Customer,CompanyStructure,IDBIE,2,CustomerID,0..1,,CustomerID,,Identifier,,,,,SAFmiddle1textType,Unique code for the customer
+1059,Master Files,Customer,CompanyStructure,BBIE,3,SelfBillingIndicator,0..1,,SelfBillingIndicator,,Code,,,,,SAFcodeType,Indicator showing if a self-billing agreement exists between the customer and the supplier
+1060,Master Files,Customer,CompanyStructure,RFBIE,4,AccountID,0..1,,Referenced,,Text,,,,GeneralLedgerAccounts,SAFmiddle2textType,"General Ledger Account code for this customer. Can be including sub-account id. It can contain many different levels to identify the Account. It could include cost centres such as company, division, region, group and branch/department."
+1061,Master Files,Customer,CompanyStructure,ASBIE,5,choice:OpeningDebitBalance/OpeningCreditBalance,1..1,,Associated,,,,choice:OpeningDebitBalance/OpeningCreditBalance,,,,
+1062,Master Files,Customer,CompanyStructure,ASBIE,6,choice:ClosingDebitBalance/ClosingCreditBalance,1..1,,Associated,,,,choice:ClosingDebitBalance/ClosingCreditBalance,,,,
+1063,Source Documents,Customer,CompanyStructure,BBIE,7,any##other,0..1,,,,,,,,,Represents space to allow individual Revenue Bodies to add further elements,Represents space to allow individual Revenue Bodies to add further elements
+1064,Master Files,,Suppliers,ABIE,0,Suppliers,0..1,,Details,,,,,,,,
+1065,Master Files,,Suppliers,ASBIE,1,Supplier,0..*,,Associated,,,Supplier,CompanyStructure,,,,
+1066,Master Files,Supplier,CompanyStructure,ABIE,0,Supplier,0..*,,Details,,,,,,,,
+1067,Master Files,Supplier,CompanyStructure,ASBIE,1,CompanyStructure,1..1,,Associated,,,,CompanyStructure,,,,
+1068,Master Files,Supplier,CompanyStructure,IDBIE,2,SupplierID,0..1,,SupplierID,,Identifier,,,,,SAFmiddle1textType,Unique code for the supplier
+1069,Master Files,Supplier,CompanyStructure,BBIE,3,SelfBillingIndicator,0..1,,SelfBillingIndicator,,Code,,,,,SAFcodeType,Indicator showing if a self-billing agreement exists between the customer and the supplier
+1070,Master Files,Supplier,CompanyStructure,RFBIE,4,AccountID,0..1,,Referenced,,Text,,,,GeneralLedgerAccounts,SAFmiddle2textType,"General Ledger Account code for this supplier. Can be including sub-account id. It can contain many different levels to identify the Account. It could include cost centres such as company, division, region, group and branch/department."
+1071,Master Files,Supplier,CompanyStructure,ASBIE,5,choice:OpeningDebitBalance/OpeningCreditBalance,1..1,,Associated,,,,choice:OpeningDebitBalance/OpeningCreditBalance,,,,
+1072,Master Files,Supplier,CompanyStructure,ASBIE,6,choice:ClosingDebitBalance/ClosingCreditBalance,1..1,,Associated,,,,choice:ClosingDebitBalance/ClosingCreditBalance,,,,
+1073,Source Documents,Supplier,CompanyStructure,BBIE,7,any##other,0..1,,,,,,,,,Represents space to allow individual Revenue Bodies to add further elements,Represents space to allow individual Revenue Bodies to add further elements
+1074,Master Files,,TaxTable,ABIE,0,TaxTable,0..1,,Details,,,,,,,,
+1075,Master Files,,TaxTable,ASBIE,1,TaxTableEntry,1..*,,Associated,,,,TaxTableEntry,,,,
+1076,Master Files,,TaxTableEntry,ABIE,0,TaxTableEntry,1..*,,Details,,,,,,,,
+1077,Master Files,,TaxTableEntry,IDBIE,1,TaxType,1..1,,TaxType,,Identifier,,,,,SAFcodeType,Tax type for look-up in tables
+1078,Master Files,,TaxTableEntry,BBIE,2,Description,1..1,,Description,,Text,,,,,SAFlongtextType,Description of the Tax Type
+1079,Master Files,,TaxTableEntry,ASBIE,3,TaxCodeDetails,1..*,,Associated,,,,TaxCodeDetails,,,,
+1080,Master Files,,TaxCodeDetails,ABIE,0,TaxCodeDetails,1..*,,Details,,,,,,,,
+1081,Master Files,,TaxCodeDetails,BBIE,1,TaxCode,1..1,,TaxCode,,Code,,,,,SAFcodeType,Tax Code for lookup in tables
+1082,Master Files,,TaxCodeDetails,BBIE,2,EffectiveDate,0..1,,EffectiveDate,,Date,,,,,date,Representing the starting date for this entry
+1083,Master Files,,TaxCodeDetails,BBIE,3,ExpirationDate,0..1,,ExpirationDate,,Date,,,,,date,Representing the ending date for this entry
+1084,Master Files,,TaxCodeDetails,BBIE,4,Description,0..1,,Description,,Text,,,,,SAFlongtextType,Description of the Tax Code
+1085,Master Files,,TaxCodeDetails,ASBIE,5,choice:TaxPercentage/FlatTaxRate,1..1,,Associated,,,,choice:TaxPercentage/FlatTaxRate,,,,
+1086,Master Files,,TaxCodeDetails,BBIE,6,Country,0..1,,Country,,Code,,,,,SAFcodeType,Country specific code to indicate regions / provinces within the tax authority. Preferably described according to ISO 3166-2. Example: GB-KEN for Kent county in the United Kingdom.
+1087,Master Files,,choice:TaxPercentage/FlatTaxRate,ABIE,0,choice TaxPercentage/FlatTaxRate,1..1,,Details,,,,,,,,
+1088,Master Files,,choice:TaxPercentage/FlatTaxRate,BBIE,1,TaxPercentage,1..1,,TaxPercentage,,Percentage,,,,,decimal,Tax percentage.
+1089,Master Files,,choice:TaxPercentage/FlatTaxRate,ASBIE,2,FlatTaxRate,1..1,,Associated,,,,FlatTaxRate,,,AmountStructure,FlatTaxRate
+1090,Master Files,,UOMTable,ABIE,0,UOMTable,0..1,,Details,,,,,,,,Table with descriptions of all different kinds of UOM's
+1091,Master Files,,UOMTable,ASBIE,1,UOMTableEntry,1..*,,Associated,,,,UOMTableEntry,,,,
+1092,Master Files,,UOMTableEntry,ABIE,0,UOMTableEntry,1..*,,Details,,,,,,,,
+1093,Master Files,,UOMTableEntry,IDBIE,1,UnitOfMeasure,1..1,,UnitOfMeasure,,Identifier,,,,,SAFcodeType,Quantity unit of measure e.g. pack of 12
+1094,Master Files,,UOMTableEntry,BBIE,2,Description,1..1,,Description,,Text,,,,,SAFlongtextType,Description of the UOM
+1095,Master Files,,AnalysisTypeTable,ABIE,0,AnalysisTypeTable,0..1,,Details,,,,,,,,"Table with the analysiscode identifiers.\nsed for further specification of transaction data.\nxample: cost unit, cost center, project."
+1096,Master Files,,AnalysisTypeTable,ASBIE,1,AnalysisTypeTableEntry,1..*,,Associated,,,,AnalysisTypeTableEntry,,,,
+1097,Master Files,,AnalysisTypeTableEntry,ABIE,0,AnalysisTypeTableEntry,1..*,,Details,,,,,,,,
+1098,Master Files,,AnalysisTypeTableEntry,IDBIE,1,AnalysisType,1..1,,AnalysisType,,Identifier,,,,,SAFcodeType,"Analysis type identifier: e.g. CC (for Cost Center), DEP (for department), etc."
+1099,Master Files,,AnalysisTypeTableEntry,BBIE,2,AnalysisTypeDescription,1..1,,AnalysisTypeDescription,,Text,,,,,SAFlongtextType,"Description of the AnalysisType, e.g. ""Cost Center"""
+1100,Master Files,,AnalysisTypeTableEntry,IDBIE,3,AnalysisID,1..1,,AnalysisID,,Identifier,,,,,SAFmiddle1textType,"Analysis ID: e.g. 1200-HDOF-TR (for cost center treasury in the headoffice), P-4800-123 (for project 123 in branch 4800)"
+1101,Master Files,,AnalysisTypeTableEntry,BBIE,4,AnalysisIDDescription,1..1,,AnalysisIDDescription,,Text,,,,,SAFlongtextType,"Description of the AnalysisID: e.g. ""Headoffice-Treasury""."
+1102,Master Files,,MovementTypeTable,ABIE,0,MovementTypeTable,0..1,,Details,,,,,,,,Table with descriptions of all different kinds of movementtypes and movementsubtypes
+1103,Master Files,,MovementTypeTable,ASBIE,1,MovementTypeTableEntry,1..*,,Associated,,,,MovementTypeTableEntry,,,,
+1104,Master Files,,MovementTypeTableEntry,ABIE,0,MovementTypeTableEntry,1..*,,Details,,,,,,,,
+1105,Master Files,,MovementTypeTableEntry,IDBIE,1,MovementType,1..1,,MovementType,,Identifier,,,,,SAFcodeType,"Identify kind of movement or movement line. E.g. sale, purchase, adjustment, etc.  Or  efficiencyloss, use of components in production, etc. Predescribed TABLE is possible."
+1106,Master Files,,MovementTypeTableEntry,BBIE,2,Description,1..1,,Description,,Text,,,,,SAFlongtextType,Description of the movement(sub)type
+1107,Master Files,,Products,ABIE,0,Products,0..1,,Details,,,,,,,,
+1108,Master Files,,Products,ASBIE,1,Product,1..*,,Associated,,,,Product,,,,
+1109,Master Files,,Product,ABIE,0,Product,1..*,,Details,,,,,,,,
+1110,Master Files,,Product,IDBIE,1,ProductCode,1..1,,ProductCode,,Identifier,,,,,SAFmiddle2textType,Product code
+1111,Master Files,,Product,BBIE,2,GoodsServicesID,0..1,,GoodsServicesID,,Code,,,,,SAFcodeType,Indicator showing if goods or services (Predescribed TABLE is possible)
+1112,Master Files,,Product,BBIE,3,ProductGroup,0..1,,ProductGroup,,Text,,,,,SAFmiddle2textType,Code identifying aggregated level at which similar products are grouped
+1113,Master Files,,Product,BBIE,4,Description,1..1,,Description,,Text,,,,,SAFlongtextType,Description of goods or services.
+1114,Master Files,,Product,BBIE,5,ProductCommodityCode,0..1,,ProductCommodityCode,,Text,,,,,SAFmiddle1textType,Classification for import / export
+1115,Master Files,,Product,BBIE,6,ProductNumberCode,0..1,,ProductNumberCode,,Text,,,,,SAFmiddle2textType,EAN or other code
+1116,Master Files,,Product,BBIE,7,ValuationMethod,0..1,,ValuationMethod,,Code,,,,,SAFcodeType,"FIFO, LIFO, Average cost etc."
+1117,Master Files,,Product,RFBIE,8,UOMBase,1..1,,Referenced,,Code,,,,UOMTableEntry,SAFcodeType,Unit of measure for Stock Administration for this product Predescribed TABLE is possible.
+1118,Master Files,,Product,ASBIE,9,sequence_UOM,0..1,,Associated,,,,sequence_UOM,,,,Not needed when not applicable
+1119,Master Files,,Product,ASBIE,10,Tax,0..*,,Associated,,,,Tax,,,,
+1120,Master Files,,Product,BBIE,11,any##other,0..1,,,,,,,,,Represents space to allow individual Revenue Bodies to add further elements,Represents space to allow individual Revenue Bodies to add further elements
+1121,Master Files,,sequence_UOM,ABIE,0,sequence_UOM,0..1,,Details,,,,,,,,Not needed when not applicable
+1122,Master Files,,sequence_UOM,BBIE,1,UOMStandard,1..1,,UOMStandard,,Code,,,,,SAFcodeType,"A Standard Unit of Measure applicable for this product, f.i. Kilo, Metres, Litres (Predescribed TABLE is possible)"
+1123,Master Files,,sequence_UOM,BBIE,2,UOMToUOMBaseConversionFactor,1..1,,UOMToUOMBaseConversionFactor,,Numeric,,,,,decimal,Conversion factor of the UOM to UOM Base
+1124,Master Files,,Tax,ABIE,0,Tax,0..*,,Details,,,,,,,,
+1125,Master Files,,Tax,ASBIE,1,sequence_Tax,0..1,,Associated,,,,sequence_Tax,,,,
+1126,Master Files,,sequence_Tax,ABIE,0,sequence_Tax,0..1,,Details,,,,,,,,
+1127,Master Files,,sequence_Tax,BBIE,1,TaxType,1..1,,TaxType,,Code,,,,,SAFcodeType,Tax Type for lookup in tables
+1128,Master Files,,PhysicalStock,ABIE,0,PhysicalStock,0..1,,Details,,,,,,,,
+1129,Master Files,,PhysicalStock,ASBIE,1,PhysicalStockEntry,1..*,,Associated,,,,PhysicalStockEntry,,,,
+1130,Master Files,,PhysicalStockEntry,ABIE,0,PhysicalStockEntry,1..*,,Details,,,,,,,,
+1131,Master Files,,PhysicalStockEntry,BBIE,1,WarehouseID,0..1,,WarehouseID,,Text,,,,,SAFmiddle1textType,"Warehouse where goods held - possoble also to identify work-in-progress, or stock-in-transit"
+1132,Master Files,,PhysicalStockEntry,BBIE,2,LocationID,0..1,,LocationID,,Code,,,,,SAFshorttextType,Location of goods in warehouse
+1133,Master Files,,PhysicalStockEntry,RFBIE,3,ProductCode,1..1,,Referenced,,Text,,,,Product,SAFmiddle2textType,Product code
+1134,Master Files,,PhysicalStockEntry,IDBIE,4,StockAccountNo,0..1,,StockAccountNo,,Identifier,,,,,SAFmiddle2textType,"Stock batch, lot, serial identification. Not used when there is exactly 1 PhysicalStock entry per ProductCode"
+1135,Master Files,,PhysicalStockEntry,BBIE,5,ProductType,0..1,,ProductType,,Code,,,,,SAFshorttextType,"To determine whether the product/stockaccount is raw material, work-in-progress, finished good, merchandise for resale, etc."
+1136,Master Files,,PhysicalStockEntry,BBIE,6,ProductStatus,0..1,,ProductStatus,,Code,,,,,SAFshorttextType,"To determine whether the product/stockaccount is discontinued, damaged, obsolete, active, etc."
+1137,Master Files,,PhysicalStockEntry,BBIE,7,StockAccountCommodityCode,0..1,,StockAccountCommodityCode,,Text,,,,,SAFmiddle1textType,Classification for import / export
+1138,Master Files,,PhysicalStockEntry,RFBIE,8,OwnerID,0..1,,Referenced,,Text,,,Owner,CompanyStructure,SAFmiddle1textType,Reference to the owner Master File
+1139,Master Files,,PhysicalStockEntry,ASBIE,9,sequence_PhysicalStockUOM,0..1,,Associated,,,,sequence_PhysicalStockUOM,,,,Not needed when UOMPhysicalStock equals UOMBase
+1140,Master Files,,PhysicalStockEntry,BBIE,10,UnitPrice,0..1,,UnitPrice,,Monetary,,,,,SAFmonetaryType,Base Unit price for this stock account  in the header's default currency.
+1141,Master Files,,PhysicalStockEntry,BBIE,11,OpeningStockQuantity,1..1,,OpeningStockQuantity,,Quantity,,,,,SAFquantityType,In UOM Physical Stock for selection period
+1142,Master Files,,PhysicalStockEntry,BBIE,12,OpeningStockValue,0..1,,OpeningStockValue,,Monetary,,,,,SAFmonetaryType,In  the header's currency code for selection period
+1143,Master Files,,PhysicalStockEntry,BBIE,13,ClosingStockQuantity,1..1,,ClosingStockQuantity,,Quantity,,,,,SAFquantityType,In UOM Physical Stock for selection period
+1144,Master Files,,PhysicalStockEntry,BBIE,14,ClosingStockValue,0..1,,ClosingStockValue,,Monetary,,,,,SAFmonetaryType,Closing stock value  in the header's default currency for selection period
+1145,Master Files,,PhysicalStockEntry,ASBIE,15,StockCharacteristics,0..1,,Associated,,,,StockCharacteristics,,,,
+1146,Master Files,,PhysicalStockEntry,ASBIE,16,sequence_PhysicalStockCharacteristic,1..*,,Associated,,,,sequence_PhysicalStockCharacteristic,,,,
+1147,Master Files,,PhysicalStockEntry,BBIE,17,any##other,0..1,,,,,,,,,Represents space to allow individual Revenue Bodies to add further elements,Represents space to allow individual Revenue Bodies to add further elements
+1148,Master Files,,sequence_PhysicalStockUOM,ABIE,0,sequence_PhysicalStockUOM,0..1,,Details,,,,,,,,Not needed when UOMPhysicalStock equals UOMBase
+1149,Master Files,,sequence_PhysicalStockUOM,BBIE,1,UOMPhysicalStock,1..1,,UOMPhysicalStock,,Code,,,,,SAFcodeType,Unit of Measurement for this Physical Stock position
+1150,Master Files,,sequence_PhysicalStockUOM,BBIE,2,UOMToUOMBaseConversionFactor,1..1,,UOMToUOMBaseConversionFactor,,Numeric,,,,,decimal,Conversion factor of the UOM to UOM Base
+1151,Master Files,,sequence_PhysicalStockCharacteristic,ABIE,,sequence_PhysicalStockCharacteristic,,,Details,,,,,,,,
+1152,Master Files,,sequence_PhysicalStockCharacteristic,BBIE,1,StockCharacteristic,1..1,,StockCharacteristic,,Code,,,,,SAFshorttextType,User definable characteristics of the goods. Predescribed TABLE is possible.
+1153,Master Files,,sequence_PhysicalStockCharacteristic,BBIE,1,StockCharacteristicValue,1..1,,StockCharacteristicValue,,Text,,,,,SAFmiddle1textType,"The weight, pack size, colour etc."
+1154,Master Files,,Owners,ABIE,0,Owners,,,Details,,,,,,,,
+1155,Master Files,,Owners,ASBIE,1,Owner,1..*,,Associated,,,,Owner,,,,
+1156,Master Files,Owner,CompanyStructure,ABIE,0,Owner,,,Details,,,,,,,,
+1157,Master Files,Owner,CompanyStructure,ASBIE,1,CompanyStructure,1..1,,Associated,,,,,,,,
+1158,Master Files,Owner,CompanyStructure,BBIE,2,OwnerID,0..1,,OwnerID,,Text,,,,,SAFmiddle1textType,Reference to the owner Master File
+1159,Master Files,Owner,CompanyStructure,BBIE,3,AccountID,0..1,,AccountID,,Text,,,,,SAFmiddle2textType,"General Ledger Account code for this owner. Can be including sub-account id. It can contain many different levels to identify the Account. It could include cost centres such as company, division, region, group and branch/department."
+1160,Master Files,,Assets,ABIE,0,Assets,,,Details,,,,,,,,
+1161,Master Files,,Assets,ASBIE,1,Asset,1..*,,Associated,,,,Asset,,,,
+1162,Master Files,,Asset,ABIE,0,Asset,,,Details,,,,,,,,
+1163,Master Files,,Asset,IDBIE,1,AssetID,1..1,,AssetID,,Identifier,,,,,SAFmiddle1textType,Unique identifier of the asset
+1164,Master Files,,Asset,RFBIE,2,AccountID,1..1,,Referenced,,Text,,,,GeneralLedgerAccounts,SAFmiddle2textType,"General Ledger Account code. Can be including sub-account id. It can contain many different levels to identify the Account. It could include cost centres such as company, division, region, group and branch/department."
+1165,Master Files,,Asset,BBIE,3,Description,1..1,,Description,,Text,,,,,SAFlongtextType,Description of this asset
+1166,Master Files,,Asset,ASBIE,4,Supplier,0..*,,Associated,,,Supplier,CompanyStructure,,,,"Contains the information of all suppliers, including the historical suppliers."
+1167,Master Files,,Asset,BBIE,5,PurchaseOrderDate,0..1,,PurchaseOrderDate,,Date,,,,,date,Date of the purchase order of this asset
+1168,Master Files,,Asset,BBIE,6,DateOfAcquisition,1..1,,DateOfAcquisition,,Date,,,,,date,Date of the acquisition of the asset (usually the date of delivery).
+1169,Master Files,,Asset,BBIE,7,StartUpDate,0..1,,StartUpDate,,Date,,,,,date,Commissioning date of the asset.
+1170,Master Files,,Asset,ASBIE,8,Valuations,1..1,,Associated,,,,Valuations,,,,The data can be reported for different purposes. More than one can be in this SAF.
+1171,Source Documents,,Asset,BBIE,9,any##other,0..1,,,,,,,,,Represents space to allow individual Revenue Bodies to add further elements,Represents space to allow individual Revenue Bodies to add further elements
+1172,Master Files,,Valuations,ABIE,0,Valuations,1..1,,Details,,,,,,,,The data can be reported for different purposes. More than one can be in this SAF.
+1173,Master Files,,Valuations,ASBIE,1,Valuation,1..*,,Associated,,,,Valuation,,,,
+1174,Master Files,,Valuation,ABIE,0,Valuation,1..*,,Details,,,,,,,,
+1175,Master Files,,Valuation,BBIE,1,AssetValuationType,0..1,,AssetValuationType,,Code,,,,,SAFshorttextType,"Describes the purpose for the reporting: f.i. commercial, tax  in country 1, tax in country 2, etc."
+1176,Master Files,,Valuation,BBIE,2,ValuationClass,0..1,,ValuationClass,,Code,,,,,SAFshorttextType,This describes the classification of the asset for (tax) reporting purposes.
+1177,Master Files,,Valuation,BBIE,3,AcquisitionAndProductionCostsBegin,1..1,,AcquisitionAndProductionCostsBegin,,Monetary,,,,,SAFmonetaryType,Total costs of acquisition and/or production of the asset at SelectionStartDate in the header's default currency.
+1178,Master Files,,Valuation,BBIE,4,AcquisitionAndProductionCostsEnd,1..1,,AcquisitionAndProductionCostsEnd,,Monetary,,,,,SAFmonetaryType,Total costs of acquisition and/or production of the asset at SelectionEndDate in the header's default currency.
+1179,Master Files,,Valuation,BBIE,5,InvestmentSupport,0..1,,InvestmentSupport,,Monetary,,,,,SAFmonetaryType,Total amount of investment support for this asset in the header's default currency.
+1180,Master Files,,Valuation,ASBIE,6,choice:AssetLifeYear/AssetLifeMonth,1..1,,Associated,,,,choice:AssetLifeYear/AssetLifeMonth,,,,
+1181,Master Files,,Valuation,BBIE,7,AssetAddition,0..1,,AssetAddition,,Monetary,,,,,SAFmonetaryType,Bookvalue of the acquisition and/or production of the asset in the  Selectionperiod in the header's default currency.
+1182,Master Files,,Valuation,BBIE,8,Transfers,0..1,,Transfers,,Monetary,,,,,SAFmonetaryType,Book value of the transfers of the asset during the Selectionperiod in the header's default currency.
+1183,Master Files,,Valuation,BBIE,9,AssetDisposal,0..1,,AssetDisposal,,Monetary,,,,,SAFmonetaryType,Book value of the disposals of the asset during the Selectionperiod in the header's default currency.
+1184,Master Files,,Valuation,BBIE,10,BookValueBegin,0..1,,BookValueBegin,,Monetary,,,,,SAFmonetaryType,Bookvalue at the beginning of the Selectionperiod in the header's default currency.
+1185,Master Files,,Valuation,BBIE,11,DepreciationMethod,0..1,,DepreciationMethod,,Text,,,,,SAFmiddle1textType,Method of normal depreciation during the Selectionperiod.
+1186,Master Files,,Valuation,BBIE,12,DepreciationPercentage,0..1,,DepreciationPercentage,,Percentage,,,,,decimal,The rate of the normal depreciation per year or month (depends on choice useful life periode)
+1187,Master Files,,Valuation,BBIE,13,DepreciationForPeriod,1..1,,DepreciationForPeriod,,Monetary,,,,,SAFmonetaryType,Total amouunt of normal depreciation during the Selectionperiod in the header's default currency.
+1188,Master Files,,Valuation,BBIE,14,AppreciationForPeriod,0..1,,AppreciationForPeriod,,Monetary,,,,,SAFmonetaryType,Total amouunt of appreciation during the Selectionperiod in the header's default currency.
+1189,Master Files,,Valuation,ASBIE,15,ExtraordinaryDepreciationsForPeriod,0..1,,Associated,,,,ExtraordinaryDepreciationsForPeriod,,,,Extraordinary depreciations for this asset during the Selectionperiod.
+1190,Master Files,,Valuation,BBIE,16,AccumulatedDepreciation,0..1,,AccumulatedDepreciation,,Monetary,,,,,SAFmonetaryType,Bookvalue at the end of the Selectionperiod in the header's default currency.
+1191,Master Files,,choice:AssetLifeYear/AssetLifeMonth,ABIE,0,choice:AssetLifeYear/AssetLifeMonth,1..1,,Details,,,,,,,,
+1192,Master Files,,choice:AssetLifeYear/AssetLifeMonth,BBIE,1,AssetLifeYear,1..1,,AssetLifeYear,,Numeric,,,,,decimal,Periode of useful life in years
+1193,Master Files,,choice:AssetLifeYear/AssetLifeMonth,BBIE,2,AssetLifeMonth,1..1,,AssetLifeMonth,,Numeric,,,,,decimal,Period of useful life in months
+1194,Master Files,,ExtraordinaryDepreciationsForPeriod,ABIE,0,ExtraordinaryDepreciationsForPeriod,0..1,,Details,,,,,,,,Extraordinary depreciations for this asset during the Selectionperiod.
+1195,Master Files,,ExtraordinaryDepreciationsForPeriod,ASBIE,1,ExtraordinaryDepreciationForPeriod,1..*,,Associated,,,,ExtraordinaryDepreciationForPeriod,,,,
+1196,Master Files,,ExtraordinaryDepreciationForPeriod,ABIE,0,ExtraordinaryDepreciationForPeriod,1..*,,Details,,,,,,,,
+1197,Master Files,,ExtraordinaryDepreciationForPeriod,BBIE,1,ExtraordinaryDepreciationMethod,1..1,,ExtraordinaryDepreciationMethod,,Text,,,,,SAFmiddle1textType,Method of extraordinary depreciation during the Selectionperiod.
+1198,Master Files,,ExtraordinaryDepreciationForPeriod,BBIE,2,ExtraordinaryDepreciationForPeriod,1..1,,ExtraordinaryDepreciationForPeriod,,Monetary,,,,,SAFmonetaryType,Amouunt of extraordinary depreciation during the Selectionperiod in the header's default currency.
+1199,General Ledger Entries,,GeneralLedgerEntries,ABIE,0,GeneralLedgerEntries,0..1,,Details,,,,,,,,
+1200,General Ledger Entries,,GeneralLedgerEntries,BBIE,1,NumberOfEntries,1..1,,NumberOfEntries,,Numeric,,,,,nonNegativeInteger,Number of entries
+1201,General Ledger Entries,,GeneralLedgerEntries,BBIE,2,TotalDebit,1..1,,TotalDebit,,Monetary,,,,,SAFmonetaryType,The total of all debit amounts in the header's default currency.
+1202,General Ledger Entries,,GeneralLedgerEntries,BBIE,3,TotalCredit,1..1,,TotalCredit,,Monetary,,,,,SAFmonetaryType,The total of all credit amounts in the header's default currency.
+1203,General Ledger Entries,,GeneralLedgerEntries,ASBIE,4,Journal,0..*,,Associated,,,,Journal,,,,
+1204,General Ledger Entries,,Journal,ABIE,0,Journal,0..*,,Details,,,,,,,,
+1205,General Ledger Entries,,Journal,BBIE,1,JournalID,1..1,,JournalID,,Code,,,,,SAFshorttextType,"Source GL journal identifier, or invoices and payments in single ledger systems"
+1206,General Ledger Entries,,Journal,BBIE,2,Description,1..1,,Description,,Text,,,,,SAFlongtextType,Description of the Journal
+1207,General Ledger Entries,,Journal,BBIE,3,Type,1..1,,Type,,Code,,,,,SAFcodeType,Grouping mechanism for journals
+1208,General Ledger Entries,,Journal,ASBIE,4,Transaction,0..*,,Associated,,,,Transaction,,,,
+1209,General Ledger Entries,,Transaction,ABIE,0,Transaction,0..*,,Details,,,,,,,,
+1210,General Ledger Entries,,Transaction,IDBIE,1,TransactionID,1..1,,TransactionID,,Identifier,,,,,SAFmiddle2textType,"Cross-reference to GL posting. It can contain many different levels to identify the transaction. It could include cost centres such as company, division, region, group and branch/department."
+1211,General Ledger Entries,,Transaction,BBIE,2,Period,1..1,,Period,,,,,,,nonNegativeInteger,Accounting Period
+1212,General Ledger Entries,,Transaction,BBIE,3,PeriodYear,1..1,,PeriodYear,,,,,,,,The year of the Accounting Period.
+1213,General Ledger Entries,,Transaction,BBIE,4,TransactionDate,1..1,,TransactionDate,,Date,,,,,date,Document date
+1214,General Ledger Entries,,Transaction,BBIE,5,SourceID,0..1,,SourceID,,Text,,,,,SAFmiddle1textType,Details of person or application that entered the transaction
+1215,General Ledger Entries,,Transaction,BBIE,6,TransactionType,0..1,,TransactionType,,Code,,,,,SAFshorttextType,"Type of journaltransaction: normal, (automated) periodically, etc."
+1216,General Ledger Entries,,Transaction,BBIE,7,Description,1..1,,Description,,Text,,,,,SAFlongtextType,Description of Journal Transaction
+1217,General Ledger Entries,,Transaction,BBIE,8,BatchID,0..1,,BatchID,,Text,,,,,SAFmiddle1textType,Systems generated ID for batch
+1218,General Ledger Entries,,Transaction,BBIE,9,SystemEntryDate,1..1,,SystemEntryDate,,Date,,,,,date,Date captured  by system
+1219,General Ledger Entries,,Transaction,BBIE,10,GLPostingDate,1..1,,GLPostingDate,,Date,,,,,date,Date posting to GL
+1220,General Ledger Entries,,Transaction,RFBIE,11,CustomerID,0..1,,Referenced,,Text,,,Customer,CompanyStructure,SAFmiddle1textType,Unique code for the customer
+1221,General Ledger Entries,,Transaction,RFBIE,12,SupplierID,0..1,,Referenced,,Text,,,Supplier,CompanyStructure,SAFmiddle1textType,Unique code for the supplier
+1222,General Ledger Entries,,Transaction,BBIE,13,SystemID,0..1,,SystemID,,Code,,,,,SAFshorttextType,Unique number created by the system for the document
+1223,General Ledger Entries,,Transaction,ASBIE,14,Transaction_Line,1..*,,Associated,,,,Transaction_Line,,,,
+1224,General Ledger Entries,,Transaction_Line,ABIE,0,Transaction_Line,1..*,,Details,,,,,,,,
+1225,General Ledger Entries,,Transaction_Line,BBIE,1,RecordID,1..1,,RecordID,,Code,,,,,SAFshorttextType,Identifier to trace entry to journal line or posting reference
+1226,General Ledger Entries,,Transaction_Line,RFBIE,2,AccountID,1..1,,Referenced,,Text,,,,GeneralLedgerAccounts,SAFmiddle2textType,"General Ledger Account code. Can be including sub-account id. It can contain many different levels to identify the Account. It could include cost centres such as company, division, region, group and branch/department."
+1227,General Ledger Entries,,Transaction_Line,ASBIE,3,Analysis,0..*,,Associated,,,,AnalysisStructure,,,AnalysisStructure,General Ledger analysis codes
+1228,General Ledger Entries,,Transaction_Line,BBIE,4,ValueDate,0..1,,ValueDate,,Date,,,,,date,Effective date from which interest charged. To be reported when this date differs from the transactiondate.
+1229,General Ledger Entries,,Transaction_Line,BBIE,5,SourceDocumentID,0..1,,SourceDocumentID,,Text,,,,,SAFmiddle1textType,Source document number to which line relates
+1230,General Ledger Entries,,Transaction_Line,RFBIE,6,CustomerID,0..1,,Referenced,,Text,,,Customer,CompanyStructure,SAFmiddle1textType,Unique code for the customer
+1231,General Ledger Entries,,Transaction_Line,RFBIE,7,SupplierID,0..1,,Referenced,,Text,,,Supplier,CompanyStructure,SAFmiddle1textType,Unique code for the supplier
+1232,General Ledger Entries,,Transaction_Line,BBIE,8,Description,1..1,,Description,,Text,,,,,SAFlongtextType,Description of the Journal Line.
+1233,General Ledger Entries,,Transaction_Line,ASBIE,9,choice DebitAmount/CreditAmount,1..1,,Associated,,,,choice:DebitAmount/CreditAmount,,,,
+1234,General Ledger Entries,,Transaction_Line,ASBIE,10,TaxInformation,0..*,,Associated,,,,TaxInformationStructure,,,TaxInformationStructure,
+1235,General Ledger Entries,,Transaction_Line,BBIE,11,any##other,0..1,,,,,,,,,Represents space to allow individual Revenue Bodies to add further elements,Represents space to allow individual Revenue Bodies to add further elements
+1236,General Ledger Entries,,choice:DebitAmount/CreditAmount,ABIE,0,choice DebitAmount/CreditAmount,1..1,,Details,,,,,,,,
+1237,General Ledger Entries,,choice:DebitAmount/CreditAmount,ASBIE,1,DebitAmountt,1..1,,Associated,,,,AmountStructure,,,AmountStructure,Debit amount information for transaction
+1238,General Ledger Entries,,choice:DebitAmount/CreditAmount,ASBIE,2,CreditAmountt,1..1,,Associated,,,,AmountStructure,,,AmountStructure,Credit amount information for transaction
+1239,Source Documents,,SourceDocuments,ABIE,0,SourceDocuments,0..1,,Details,,,,,,,,"Holds Sales Invoices, Purchase Invoices, Payments, Movement Of Goods, and Asset Transactions"
+1240,Source Documents,,SourceDocuments,ASBIE,1,SalesInvoices,0..1,,Associated,,,,SalesInvoices,,,,
+1241,Source Documents,,SourceDocuments,ASBIE,2,PurchaseInvoices,0..1,,Associated,,,,PurchaseInvoices,,,,
+1242,Source Documents,,SourceDocuments,ASBIE,3,Payments,0..1,,Associated,,,,Payments,,,,
+1243,Source Documents,,SourceDocuments,ASBIE,4,MovementOfGoods,0..1,,Associated,,,,MovementOfGoods,,,,
+1244,Source Documents,,SourceDocuments,ASBIE,5,AssetTransactions,0..1,,Associated,,,,AssetTransactions,,,,Details of all transactions related to an asset during the Selectionperiod.
+1245,Source Documents,,SalesInvoices,ABIE,0,SalesInvoices,0..1,,Details,,,,,,,,
+1246,Source Documents,,SalesInvoices,BBIE,1,NumberOfEntries,1..1,,NumberOfEntries,,,,,,,nonNegativeInteger,Number of entries
+1247,Source Documents,,SalesInvoices,BBIE,2,TotalDebit,1..1,,TotalDebit,,Monetary,,,,,SAFmonetaryType,The total of all debit amounts in the header's default currency
+1248,Source Documents,,SalesInvoices,BBIE,3,TotalCredit,1..1,,TotalCredit,,Monetary,,,,,SAFmonetaryType,The total of all credit amounts in the header's default currency
+1249,Source Documents,,SalesInvoices,ASBIE,4,Invoice,1..*,,Associated,,,,InvoiceStructure,,,InvoiceStructure,
+1250,Source Documents,,PurchaseInvoices,ABIE,0,PurchaseInvoices,0..1,,Details,,,,,,,,
+1251,Source Documents,,PurchaseInvoices,BBIE,1,NumberOfEntries,1..1,,NumberOfEntries,,,,,,,nonNegativeInteger,Number of entries
+1252,Source Documents,,PurchaseInvoices,BBIE,2,TotalDebit,1..1,,TotalDebit,,Monetary,,,,,SAFmonetaryType,The total of all debit amounts in the header's default currency
+1253,Source Documents,,PurchaseInvoices,BBIE,3,TotalCredit,1..1,,TotalCredit,,Monetary,,,,,SAFmonetaryType,The total of all credit amounts in the header's default currency
+1254,Source Documents,,PurchaseInvoices,ASBIE,4,Invoice,1..*,,Associated,,,,InvoiceStructure,,,InvoiceStructure,
+1255,Source Documents,,Payments,ABIE,0,Payments,0..1,,Details,,,,,,,,
+1256,Source Documents,,Payments,BBIE,1,NumberOfEntries,1..1,,NumberOfEntries,,,,,,,nonNegativeInteger,Number of entries
+1257,Source Documents,,Payments,BBIE,2,TotalDebit,1..1,,TotalDebit,,Monetary,,,,,SAFmonetaryType,The total of all debit amounts in the header's default currency
+1258,Source Documents,,Payments,BBIE,3,TotalCredit,1..1,,TotalCredit,,Monetary,,,,,SAFmonetaryType,The total of all credit amounts in the header's default currency
+1259,Source Documents,,Payments,ASBIE,4,Payment,1..*,,Associated,,,,Payment,,,,
+1260,Source Documents,,Payment,ABIE,0,Payment,1..*,,Details,,,,,,,,
+1261,Source Documents,,Payment,BBIE,1,PaymentRefNo,1..1,,PaymentRefNo,,Text,,,,,SAFmiddle1textType,Unique reference number for payment
+1262,Source Documents,,Payment,BBIE,2,Period,0..1,,Period,,,,,,,nonNegativeInteger,Accounting Period
+1263,Source Documents,,Payment,BBIE,3,PeriodYear,0..1,,PeriodYear,,,,,,,,The year of the Accounting Period.
+1264,Source Documents,,Payment,RFBIE,4,TransactionID,0..1,,Referenced,,Text,,,,Transaction,SAFmiddle2textType,"Cross-reference to GL posting. It can contain many different levels to identify the transaction. It could include cost centres such as company, division, region, group and branch/department."
+1265,Source Documents,,Payment,BBIE,5,TransactionDate,1..1,,TransactionDate,,Date,,,,,date,Document date
+1266,Source Documents,,Payment,BBIE,6,PaymentMethod,0..1,,PaymentMethod,,Code,,,,,SAFcodeType,"Cheque, Bank, Giro, Cash, etc."
+1267,Source Documents,,Payment,BBIE,7,Description,1..1,,Description,,Text,,,,,SAFlongtextType,Description of the payment.
+1268,Source Documents,,Payment,BBIE,8,BatchID,0..1,,BatchID,,Text,,,,,SAFmiddle1textType,Systems generated ID for batch
+1269,Source Documents,,Payment,BBIE,9,SystemID,0..1,,SystemID,,Text,,,,,SAFmiddle1textType,Unique number created by the system for the document
+1270,Source Documents,,Payment,BBIE,10,SourceID,0..1,,SourceID,,Text,,,,,SAFmiddle1textType,Details of person or application that entered the transaction
+1271,Source Documents,,Payment,ASBIE,11,Payment_Line,1..*,,Associated,,,,Payment_Line,,,,
+1272,Source Documents,,Payment,ASBIE,12,PaymentSettlement,0..1,,Associated,,,,Settlement,,,,
+1273,Source Documents,,Payment,ASBIE,13,PaymentDocumentTotals,0..1,,Associated,,,,DocumentTotals,,,,
+1274,Source Documents,,Payment,BBIE,14,any##other,0..1,,,,,,,,,Represents space to allow individual Revenue Bodies to add further elements,Represents space to allow individual Revenue Bodies to add further elements
+1275,Source Documents,,Payment_Line,ABIE,0,Payment_Line,1..*,,Details,,,,,,,,
+1276,Source Documents,,Payment_Line,BBIE,1,PLineNumber,0..1,,PLineNumber,,Code,,,,,SAFshorttextType,Number of the paymentline
+1277,Source Documents,,Payment_Line,BBIE,2,SourceDocumentID,0..1,,SourceDocumentID,,Text,,,,,SAFmiddle1textType,The source document to which the line relates
+1278,Source Documents,,Payment_Line,RFBIE,3,AccountID,0..1,,Referenced,,Text,,,,GeneralLedgerAccounts,SAFmiddle2textType,"General Ledger Account code. Can be including sub-account id. It can contain many different levels to identify the Account. It could include cost centres such as company, division, region, group and branch/department."
+1279,Source Documents,,Payment_Line,ASBIE,4,Analysis,0..*,,Associated,,,,AnalysisStructure,,,AnalysisStructure,General Ledger analysis codes
+1280,Source Documents,,Payment_Line,RFBIE,5,CustomerID,0..1,,Referenced,,Text,,,Customer,CompanyStructure,SAFmiddle1textType,Unique code for the customer
+1281,Source Documents,,Payment_Line,RFBIE,6,SupplierID,0..1,,Referenced,,Text,,,Supplier,CompanyStructure,SAFmiddle1textType,Unique code for the supplier
+1282,Source Documents,,Payment_Line,BBIE,7,TaxPointDate,0..1,,TaxPointDate,,Date,,,,,date,Tax Point date where recorded or if not recorded then the Invoice date
+1283,Source Documents,,Payment_Line,BBIE,8,Description,0..1,,Description,,Text,,,,,SAFlongtextType,Description of the payment line.
+1284,Source Documents,,Payment_Line,BBIE,9,DebitCreditIndicator,1..1,,DebitCreditIndicator,,,,,,,,Indicates whether the amounts on line-level are debit or credit amounts. Entry must correspond to entry reflected in General Ledger Entry. Signing of lineamounts is relative to this indicator. E.g. a return can lead to a negative amount.
+1285,Source Documents,,Payment_Line,ASBIE,10,PaymentLineAmount,1..1,,Associated,,,,AmountStructure,,,AmountStructure,Amount for transaction excluding taxes.
+1286,Source Documents,,Payment_Line,ASBIE,11,TaxInformation,0..*,,Associated,,,,TaxInformationStructure,,,TaxInformationStructure,
+1287,Source Documents,,Payment_Line,BBIE,12,any##other,0..1,,,,,,,,,Represents space to allow individual Revenue Bodies to add further elements,Represents space to allow individual Revenue Bodies to add further elements
+1288,Source Documents,,Settlement,ABIE,0,PaymentSettlement,0..1,,Details,,,,,,,,
+1289,Source Documents,,Settlement,BBIE,1,SettlementDiscount,0..1,,SettlementDiscount,,Text,,,,,SAFmiddle1textType,Description Settlement / Other Discount
+1290,Source Documents,,Settlement,ASBIE,2,SettlementAmount,0..1,,Associated,,,,AmountStructure,,,AmountStructure,Settlement amount
+1291,Source Documents,,Settlement,BBIE,3,SettlementDate,0..1,,SettlementDate,,Date,,,,,date,Date settled
+1292,Source Documents,,Settlement,BBIE,4,PaymentMechanism,0..1,,PaymentMechanism,,Code,,,,,SAFcodeType,Payment mechanism
+1293,Source Documents,,DocumentTotals,ABIE,0,PaymentDocumentTotals,0..1,,Details,,,,,,,,
+1294,Source Documents,,DocumentTotals,ASBIE,1,TaxInformationTotals,0..*,,Associated,,,,TaxInformationStructure,,,TaxInformationStructure,Control totals tax payable information. Per TaxType/TaxCode the TaxBase and TaxAmount are summarised.
+1295,Source Documents,,DocumentTotals,BBIE,2,NetTotal,0..1,,NetTotal,,Monetary,,,,,SAFmonetaryType,Total amount excluding tax in the header's default currency.
+1296,Source Documents,,DocumentTotals,BBIE,3,GrossTotal,1..1,,GrossTotal,,Monetary,,,,,SAFmonetaryType,Total amount including tax in the header's default currency.
+1297,Source Documents,,MovementOfGoods,ABIE,0,MovementOfGoods,0..1,,Details,,,,,,,,
+1298,Source Documents,,MovementOfGoods,BBIE,1,NumberOfMovementLines,1..1,,NumberOfMovementLines,,,,,,,nonNegativeInteger,Number of movementlines in selected period
+1299,Source Documents,,MovementOfGoods,BBIE,2,TotalQuantityReceived,1..1,,TotalQuantityReceived,,Quantity,,,,,SAFquantityType,Quantity of goods received
+1300,Source Documents,,MovementOfGoods,BBIE,3,TotalQuantityIssued,1..1,,TotalQuantityIssued,,Quantity,,,,,SAFquantityType,Quantity of goods issued in selected period
+1301,Source Documents,,MovementOfGoods,ASBIE,4,StockMovement,1..*,,Associated,,,,StockMovement,,,,
+1302,Source Documents,,StockMovement,ABIE,0,StockMovement,1..*,,Details,,,,,,,,
+1303,Source Documents,,StockMovement,BBIE,1,MovementReference,1..1,,MovementReference,,Text,,,,,SAFmiddle1textType,Unique reference to the movement.
+1304,Source Documents,,StockMovement,BBIE,2,MovementDate,1..1,,MovementDate,,Date,,,,,date,Document date
+1305,Source Documents,,StockMovement,BBIE,3,MovementPostingDate,0..1,,MovementPostingDate,,Date,,,,,date,Date of posting of the movement if different to Movement Date
+1306,Source Documents,,StockMovement,BBIE,4,MovementPostingTime,0..1,,MovementPostingTime,,Time,,,,,time,Time of posting of the movement
+1307,Source Documents,,StockMovement,BBIE,5,TaxPointDate,0..1,,TaxPointDate,,Date,,,,,date,Date of supply of goods
+1308,Source Documents,,StockMovement,RFBIE,6,MovementType,1..1,,Referenced,,Code,,,,MovementTypeTableEntry,SAFcodeType,"The movementtype expresses the type of the process for the underlaying lines. E.g. production, sales, purchase. Predescribed TABLE is possible."
+1309,Source Documents,,StockMovement,BBIE,7,SourceID,0..1,,SourceID,,Text,,,,,SAFmiddle1textType,Details of person or application that entered the transaction
+1310,Source Documents,,StockMovement,BBIE,8,SystemID,0..1,,SystemID,,Text,,,,,SAFmiddle1textType,Unique number created by the system for the document
+1311,Source Documents,,StockMovement,ASBIE,9,DocumentReference,0..1,,Associated,,,,DocumentReference,,,,
+1312,Source Documents,,StockMovement,ASBIE,10,StockMovement_Line,1..*,,Associated,,,,StockMovement_Line,,,,
+1313,Source Documents,,StockMovement,BBIE,11,any##other,0..1,,,,,,,,,Represents space to allow individual Revenue Bodies to add further elements,Represents space to allow individual Revenue Bodies to add further elements
+1314,Source Documents,,DocumentReference,ABIE,0,DocumentReference,0..1,,Details,,,,,,,,
+1315,Source Documents,,DocumentReference,BBIE,1,DocumentType,1..1,,DocumentType,,Code,,,,,SAFshorttextType,Type of document
+1316,Source Documents,,DocumentReference,BBIE,2,DocumentNumber,1..1,,DocumentNumber,,Text,,,,,SAFmiddle1textType,Reference number of the document
+1317,Source Documents,,DocumentReference,BBIE,3,DocumentLine,0..1,,DocumentLine,,Code,,,,,SAFshorttextType,Line number of the document
+1318,Source Documents,,StockMovement_Line,ABIE,0,StockMovement_Line,1..*,,Details,,,,,,,,
+1319,Source Documents,,StockMovement_Line,BBIE,1,LineNumber,1..1,,LineNumber,,Code,,,,,SAFshorttextType,Number of the movementline
+1320,Source Documents,,StockMovement_Line,RFBIE,2,AccountID,0..1,,Referenced,,Text,,,,GeneralLedgerAccounts,SAFmiddle2textType,General Ledger Account code. Can be including sub-account id.
+1321,Source Documents,,StockMovement_Line,RFBIE,3,TransactionID,0..1,,Referenced,,Text,,,,Transaction,SAFmiddle2textType,"Cross-reference to GL posting. It can contain many different levels to identify the transaction. It could include cost centres such as company, division, region, group and branch/department."
+1322,Source Documents,,StockMovement_Line,RFBIE,4,CustomerID,0..1,,Referenced,,Text,,,Customer,CompanyStructure,SAFmiddle1textType,Unique code for the customer
+1323,Source Documents,,StockMovement_Line,RFBIE,5,SupplierID,0..1,,Referenced,,Text,,,Supplier,CompanyStructure,SAFmiddle1textType,Unique code for the supplier
+1324,Source Documents,,StockMovement_Line,ASBIE,6,ShipTo,0..1,,To,,,,ShippingPointStructure,,,ShippingPointStructure,Ship To details
+1325,Source Documents,,StockMovement_Line,ASBIE,7,ShipFrom,0..1,,From,,,,ShippingPointStructure,,,ShippingPointStructure,Ship from Details
+1326,Source Documents,,StockMovement_Line,RFBIE,8,ProductCode,1..1,,Referenced,,Text,,,,Product,SAFmiddle2textType,Product code
+1327,Source Documents,,StockMovement_Line,RFBIE,9,StockAccountNo,0..1,,Referenced,,Text,,,,PhysicalStockEntry,SAFmiddle2textType,"Stock batch, lot, serial identification. Not used when there is exactly 1 PhysicalStock entry per ProductCode"
+1328,Source Documents,,StockMovement_Line,BBIE,10,Quantity,1..1,,Quantity,,Quantity,,,,,SAFquantityType,Quantity of goods
+1329,Source Documents,,StockMovement_Line,RFBIE,11,UnitOfMeasure,1..1,,Referenced,,Code,,,,UOMTableEntry,SAFcodeType,Quantity unit of measure e.g. pack of 12
+1330,Source Documents,,StockMovement_Line,BBIE,12,UOMToUOMPhysicalStockConversionFactor,1..1,,UOMToUOMPhysicalStockConversionFactor,,Numeric,,,,,decimal,Conversion factor of the UOM to UOM Physical Stock
+1331,Source Documents,,StockMovement_Line,BBIE,13,BookValue,0..1,,BookValue,,Monetary,,,,,SAFmonetaryType,Value of the transaction line as registrerd in the general ledger in the header's default currency.
+1332,Source Documents,,StockMovement_Line,RFBIE,14,MovementSubType,1..1,,Referenced,,Code,,,,MovementTypeTableEntry,SAFcodeType,"Indentify the type of the movement on line / article level. A movement(type) production contains f.i. use of components, getting finished product, efficiencyloss as movementsubtypes. Predescribed TABLE is possible."
+1333,Source Documents,,StockMovement_Line,BBIE,15,MovementComments,0..1,,MovementComments,,Text,,,,,SAFlongtextType,A reason for the movement
+1334,Source Documents,,StockMovement_Line,ASBIE,16,TaxInformation,0..*,,Associated,,,,TaxInformationStructure,,,TaxInformationStructure,
+1335,Source Documents,,StockMovement_Line,BBIE,17,any##other,0..1,,,,,,,,,Represents space to allow individual Revenue Bodies to add further elements,Represents space to allow individual Revenue Bodies to add further elements
+1336,Source Documents,,AssetTransactions,ABIE,0,AssetTransactions,0..1,,Details,,,,,,,,Details of all transactions related to an asset during the Selectionperiod.
+1337,Source Documents,,AssetTransactions,BBIE,1,NumberOfAssetTransactions,1..1,,Associated,,,,,,,nonNegativeInteger,Number of movementlines during selected period
+1338,Source Documents,,AssetTransactions,ASBIE,2,AssetTransaction,1..*,,Associated,,,,AssetTransaction,,,,
+1339,Source Documents,,AssetTransaction,ABIE,3,AssetTransaction,1..*,,Details,,,,,,,,
+1340,Source Documents,,AssetTransaction,RFBIE,4,AssetTransactionID,1..1,,Referenced,,Text,,,,Transaction,SAFmiddle2textType,Unique Identification  of the transaction
+1341,Source Documents,,AssetTransaction,RFBIE,5,AssetID,1..1,,Referenced,,Text,,,,Asset,SAFmiddle1textType,Unique identifier of the asset
+1342,Source Documents,,AssetTransaction,BBIE,6,AssetTransactionType,1..1,,Associated,,Code,,,,,SAFcodeType,Code for the type of the transaction
+1343,Source Documents,,AssetTransaction,BBIE,7,Description,0..1,,Associated,,Text,,,,,SAFlongtextType,Description of the type of the transaction.
+1344,Source Documents,,AssetTransaction,BBIE,8,AssetTransactionDate,1..1,,Associated,,Date,,,,,date,Recording date of the transaction type (e. g. assets: date of the addition of the asset)
+1345,Source Documents,,AssetTransaction,ASBIE,9,Supplier,0..1,,Associated,,,Supplier,CompanyStructure,,,,Information about the supplier of the asset
+1346,Source Documents,,AssetTransaction,BBIE,10,TransactionID,0..1,,TransactionID,,Text,,,,,SAFmiddle2textType,"Cross-reference to GL posting in the journal. It can contain many different levels to identify the transaction. It could include cost centres such as company, division, region, group and branch/department."
+1347,Source Documents,,AssetTransaction,ASBIE,11,AssetTransactionValuations,1..1,,Associated,,,,AssetTransactionValuations,,,,These amounts of the transaction can differ per asset valuation type.
+1348,Source Documents,,AssetTransaction,BBIE,12,any##other,0..1,,,,,,,,,Represents space to allow individual Revenue Bodies to add further elements,Represents space to allow individual Revenue Bodies to add further elements
+1349,Source Documents,,AssetTransactionValuations,ABIE,0,AssetTransactionValuations,1..1,,Details,,,,,,,,These amounts of the transaction can differ per asset valuation type.
+1350,Source Documents,,AssetTransactionValuations,ASBIE,1,AssetTransactionValuation,1..*,,Associated,,,,AssetTransactionValuation,,,,
+1351,Source Documents,,AssetTransactionValuation,ABIE,0,AssetTransactionValuation,1..*,,Details,,,,,,,,
+1352,Source Documents,,AssetTransactionValuation,BBIE,1,AssetValuationType,0..1,,AssetValuationType,,Code,,,,,SAFshorttextType,"Describes the purpose for the reporting: f.i. commercial, tax  in country 1, tax in country 2, etc."
+1353,Source Documents,,AssetTransactionValuation,BBIE,2,AcquisitionAndProductionCostsOnTransaction,1..1,,AcquisitionAndProductionCostsOnTransaction,,Monetary,,,,,SAFmonetaryType,Costs of acquisition and/or production of related asset transaction in the header's default currency at date of transaction.
+1354,Source Documents,,AssetTransactionValuation,BBIE,3,BookValueOnTransaction,1..1,,BookValueOnTransaction,,Monetary,,,,,SAFmonetaryType,Bookvalue of related asset transaction in the header's default currency at date of transaction.
+1355,Source Documents,,AssetTransactionValuation,BBIE,4,AssetTransactionAmount,1..1,,AssetTransactionAmount,,Monetary,,,,,SAFmonetaryType,"Net Amount of related asset transaction in the header's default currency, for instance the net sales revenue."
+1356,Source Documents,,AssetTransactionValuation,BBIE,5,any##other,0..1,,,,,,,,,Represents space to allow individual Revenue Bodies to add further elements,Represents space to allow individual Revenue Bodies to add further elements
+1357,Source Documents,,choice:CustomerInfo/SupplierInfo,ABIE,,choice:CustomerInfo/SupplierInfo,0..1,,Details,,,,,,,,
+1358,Source Documents,,choice:CustomerInfo/SupplierInfo,ASBIE,1,CustomerInfo,1..1,,Associated,,,,CustomerInfo,,,,
+1359,Source Documents,,CustomerInfo,ABIE,,CustomerInfo,1..1,,Details,,,,,,,,
+1360,Source Documents,,CustomerInfo,ASBIE,1,choice:CustomerID/Name,1..1,,Associated,,,,choice:CustomerID/Name,,,,
+1361,Source Documents,,choice:CustomerID/Name,ABIE,,choice:CustomerID/Name,1..1,,Details,,,,,,,,
+1362,Source Documents,,choice:CustomerID/Name,RFBIE,1,CustomerID,1..1,,CustomerID,,Text,,,Customer,CompanyStructure,SAFmiddle1textType,Unique code for the customer
+1363,Source Documents,,choice:CustomerID/Name,BBIE,1,Name,1..1,,Name,,Text,,,,,SAFmiddle2textType,Name of the customer
+1364,Source Documents,,CustomerInfo,ASBIE,1,BillingAddress,1..1,,Associated,,,,AddressStructure,,,AddressStructure,
+1365,Source Documents,,choice:CustomerInfo/SupplierInfo,ASBIE,1,SupplierInfo,1..1,,Associated,,,,SupplierInfo,,,,
+1366,Source Documents,,SupplierInfo,ABIE,,SupplierInfo,1..1,,Details,,,,,,,,
+1367,Source Documents,,SupplierInfo,ASBIE,1,choice:SupplierID/Name,1..1,,Associated,,,,choice:SupplierID/Name,,,,
+1368,Source Documents,,choice:SupplierID/Name,ABIE,,choice:SupplierID/Name,1..1,,Details,,,,,,,,
+1369,Source Documents,,choice:SupplierID/Name,RFBIE,1,SupplierID,1..1,,SupplierID,,Text,,,Supplier,CompanyStructure,SAFmiddle1textType,Unique code for the supplier
+1370,Source Documents,,choice:SupplierID/Name,BBIE,1,Name,1..1,,Name,,Text,,,,,SAFmiddle2textType,Name of the supplier
+1371,Source Documents,,SupplierInfo,ASBIE,1,BillingAddress,1..1,,Associated,,,,AddressStructure,,,AddressStructure,
+1372,Source Documents,,InvoiceStructure,ABIE,0,InvoiceStructure,1..1,,,,,,,,,,
+1373,Source Documents,,InvoiceStructure,BBIE,1,InvoiceNo,1..1,,,,Text,,,,,SAFmiddle2textType,
+1374,Source Documents,,InvoiceStructure,ASBIE,2,choice:CustomerInfo/SupplierInfo,0..1,,Associated,,,,choice:CustomerInfo/SupplierInfo,,,,
+1375,Source Documents,,InvoiceStructure,BBIE,3,AccountID,0..1,,AccountID,,Text,,,,,SAFmiddle2textType,"General Ledger Account code of the customer / supplier. Can be including sub-account id. It can contain many different levels to identify the Account. It could include cost centres such as company, division, region, group and branch/department."
+1376,Source Documents,,InvoiceStructure,BBIE,4,BranchStoreNumber,0..1,,BranchStoreNumber,,Text,,,,,SAFmiddle1textType,"Branch or Storenumber, additional segregation of customer/supplier, used if not included as part of the customer/supplier id."
+1377,Source Documents,,InvoiceStructure,BBIE,5,Period,0..1,,Period,,,,,,,nonNegativeInteger,Accounting Period
+1378,Source Documents,,InvoiceStructure,BBIE,6,PeriodYear,0..1,,PeriodYear,,,,,,,,The year of the Accounting Period.
+1379,Source Documents,,InvoiceStructure,BBIE,7,InvoiceDate,1..1,,InvoiceDate,,Date,,,,,date,
+1380,Source Documents,,InvoiceStructure,BBIE,8,InvoiceType,0..1,,InvoiceType,,Code,,,,,SAFcodeType,"Type of invoice: Debit invoice, Credit invoice, Cash, Ticket, etc."
+1381,Source Documents,,InvoiceStructure,ASBIE,9,shipTo,0..1,,To,,,,ShippingPointStructure,,,ShippingPointStructure,Ship To details
+1382,Source Documents,,InvoiceStructure,ASBIE,10,shipFrom,0..1,,From,,,,ShippingPointStructure,,,ShippingPointStructure,Ship from Details
+1383,Source Documents,,InvoiceStructure,BBIE,11,PaymentTerms,0..1,,PaymentTerms,,Text,,,,,SAFmiddle2textType,Payments terms for this invoice
+1384,Source Documents,,InvoiceStructure,BBIE,12,SelfBillingIndicator,0..1,,SelfBillingIndicator,,Code,,,,,SAFcodeType,Indicator showing if self-billing  is used for this invoice.
+1385,Source Documents,,InvoiceStructure,BBIE,13,SourceID,0..1,,SourceID,,Text,,,,,SAFmiddle1textType,Details of person or application that entered the transaction
+1386,Source Documents,,InvoiceStructure,BBIE,14,GLPostingDate,0..1,,GLPostingDate,,Date,,,,,date,Date posting to GL
+1387,Source Documents,,InvoiceStructure,BBIE,15,BatchID,0..1,,BatchID,,Text,,,,,SAFmiddle1textType,Systems generated ID for batch
+1388,Source Documents,,InvoiceStructure,BBIE,16,SystemID,0..1,,SystemID,,Text,,,,,SAFmiddle1textType,Unique number created by the system for the document
+1389,Source Documents,,InvoiceStructure,BBIE,17,TransactionID,0..1,,TransactionID,,Text,,,,,SAFmiddle2textType,"Cross-reference to GL posting. It can contain many different levels to identify the transaction. It could include cost centres such as company, division, region, group and branch/department."
+1390,Source Documents,,InvoiceStructure,BBIE,18,ReceiptNumbers,0..1,,ReceiptNumbers,,Text,,,,,SAFlongtextType,"The number(s) of the receipt(s) on this ""consolidated invoicerecord"". Can be a single number, a range or a list."
+1391,Source Documents,,InvoiceStructure,ASBIE,19,InvoiceStructure_Line,1..*,,Associated,,,,InvoiceStructure_Line,,,,
+1392,Source Documents,,InvoiceStructure,BBIE,20,any##other,0..1,,,,,,,,,Represents space to allow individual Revenue Bodies to add further elements,Represents space to allow individual Revenue Bodies to add further elements
+1393,Source Documents,,InvoiceStructure_Line,ABIE,0,InvoiceStructure_Line,1..*,,Details,,,,,,,,
+1394,Source Documents,,InvoiceStructure_Line,BBIE,1,LineNumber,0..1,,LineNumber,,Code,,,,,SAFshorttextType,Number of the invoiceline
+1395,Source Documents,,InvoiceStructure_Line,BBIE,2,AccountID,0..1,,AccountID,,Text,,,,,SAFmiddle2textType,"General Ledger Account code of the GL-revenue-account. Can be including sub-account id. It can contain many different levels to identify the Account. It could include cost centres such as company, division, region, group and branch/department."
+1396,Source Documents,,InvoiceStructure_Line,ASBIE,3,Analysis,0..*,,Associated,,,,AnalysisStructure,,,AnalysisStructure,General Ledger analysis codes
+1397,Source Documents,,InvoiceStructure_Line,ASBIE,4,OrderReferences,0..*,,Associated,,,,OrderReferences,,,,Relevant order references
+1398,Source Documents,,OrderReferences,ABIE,0,OrderReferences,0..*,,Details,,,,,,,,Relevant order references
+1399,Source Documents,,OrderReferences,BBIE,1,OriginatingON,0..1,,OriginatingON,,Text,,,,,SAFmiddle2textType,Origination Order Number
+1400,Source Documents,,OrderReferences,BBIE,2,OrderDate,0..1,,OrderDate,,Date,,,,,date,Date of order
+1401,Source Documents,,InvoiceStructure_Line,ASBIE,1,ShipTo,0..1,,To,,,,ShippingPointStructure,,,ShippingPointStructure,Ship To details
+1402,Source Documents,,InvoiceStructure_Line,ASBIE,1,ShipFrom,0..1,,From,,,,ShippingPointStructure,,,ShippingPointStructure,Ship from Details
+1403,Source Documents,,InvoiceStructure_Line,BBIE,1,GoodsServicesID,0..1,,GoodsServicesID,,Code,,,,,SAFcodeType,Indicator showing if goods or service
+1404,Source Documents,,InvoiceStructure_Line,BBIE,1,ProductCode,0..1,,ProductCode,,Text,,,,,SAFmiddle2textType,Product code
+1405,Source Documents,,InvoiceStructure_Line,BBIE,1,ProductDescription,0..1,,ProductDescription,,Text,,,,,SAFlongtextType,Description of goods or services.
+1406,Source Documents,,InvoiceStructure_Line,ASBIE,1,Delivery,0..1,,Associated,,,,Delivery,,,,Information about the date or timeframe of the delivery of the goods or services.
+1407,Source Documents,,Delivery,ABIE,,Delivery,0..1,,Details,,,,,,,,Information about the date or timeframe of the delivery of the goods or services.
+1408,Source Documents,,Delivery,ASBIE,1,choice:MovementReference/DeliveryDate/DeliveryPeriod,1..1,,Associated,,,,choice:MovementReference/DeliveryDate/DeliveryPeriod,,,,
+1409,Source Documents,,choice:MovementReference/DeliveryDate/DeliveryPeriod,ABIE,,choice MovementReference/DeliveryDate/DeliveryPeriod,1..1,,Details,,,,,,,,
+1410,Source Documents,,choice:MovementReference/DeliveryDate/DeliveryPeriod,BBIE,1,MovementReference,1..*,,MovementReference,,Text,,,,,SAFmiddle1textType,Unique reference to the movement.
+1411,Source Documents,,choice:MovementReference/DeliveryDate/DeliveryPeriod,BBIE,1,DeliveryDate,1..1,,DeliveryDate,,Date,,,,,date,The date of the delivery
+1412,Source Documents,,Delivery,ASBIE,1,DeliveryPeriod,1..1,,Associated,,,,DeliveryPeriod,,,,Timeframe of the deliveries
+1413,Source Documents,,DeliveryPeriod,ABIE,,DeliveryPeriod,1..1,,Details,,,,,,,,Timeframe of the deliveries
+1414,Source Documents,,DeliveryPeriod,BBIE,1,FromDate,1..1,,FromDate,,Date,,,,,date,Startdate of the deliveries
+1415,Source Documents,,DeliveryPeriod,BBIE,1,ToDate,1..1,,ToDate,,Date,,,,,date,Enddate of the deliveries
+1416,Source Documents,,InvoiceStructure_Line,ABIE,0,InvoiceStructure_Line,,,,,,,,,,,
+1417,Source Documents,,InvoiceStructure_Line,BBIE,1,Quantity,0..1,,Quantity,,Quantity,,,,,SAFquantityType,Quantity of goods and services supplied.
+1418,Source Documents,,InvoiceStructure_Line,BBIE,2,InvoiceUOM,0..1,,InvoiceUOM,,Code,,,,,SAFcodeType,Quantity unit of measure e.g. pack of 12
+1419,Source Documents,,InvoiceStructure_Line,BBIE,3,UOMToUOMBaseConversionFactor,0..1,,UOMToUOMBaseConversionFactor,,Numeric,,,,,decimal,Conversion factor of the InvoiceUOM to UOM Base. Only needed when InvoiceUOM is reported and is different from the UOM Base.
+1420,Source Documents,,InvoiceStructure_Line,BBIE,4,UnitPrice,1..1,,UnitPrice,,Monetary,,,,,SAFmonetaryType,Unit price for the unit/group of units per UOM in the header's default currency.
+1421,Source Documents,,InvoiceStructure_Line,BBIE,5,TaxPointDate,1..1,,TaxPointDate,,Date,,,,,date,Tax Point date where recorded or if not recorded then the Invoice date
+1422,Source Documents,,InvoiceStructure_Line,ASBIE,6,References,0..1,,Associated,,,,References,,,,Credit Note references
+1423,Source Documents,,InvoiceStructure_Line,BBIE,7,Description,1..1,,Description,,Text,,,,,SAFlongtextType,Description of Invoice Line.
+1424,Source Documents,,InvoiceStructure_Line,ASBIE,8,InvoiceLineAmount,1..1,,Associated,,,,AmountStructure,,,AmountStructure,Amount for transaction excluding taxes and freightcharges.
+1425,Source Documents,,InvoiceStructure_Line,BBIE,9,DebitCreditIndicator,1..1,,DebitCreditIndicator,,,,,,,,Indicates whether the amounts on line-level are debit or credit amounts. Entry must correspond to entry reflected in General Ledger Entry. Signing of lineamounts is relative to this indicator. E.g. a return can lead to a negative amount.
+1426,Source Documents,,InvoiceStructure_Line,ASBIE,10,ShippingCostsAmount,0..1,,Associated,,,,AmountStructure,,,AmountStructure,Amount for shipping/freight charges.
+1427,Source Documents,,InvoiceStructure_Line,ASBIE,11,TaxInformation,0..*,,Associated,,,,TaxInformationStructure,,,TaxInformationStructure,
+1428,Source Documents,,InvoiceStructure_Line,ASBIE,12,Settlement,0..1,,Associated,,,,Settlement,,,,
+1429,Source Documents,,InvoiceStructure_Line,ASBIE,13,DocumentTotals,0..1,,Associated,,,,DocumentTotals,,,,
+1430,Source Documents,,InvoiceStructure_Line,BBIE,14,any##other,0..1,,,,,,,,,Represents space to allow individual Revenue Bodies to add further elements,Represents space to allow individual Revenue Bodies to add further elements
+1431,Source Documents,,References,ABIE,0,References,0..1,,Details,,,,,,,,Credit Note references
+1432,Source Documents,,References,ASBIE,1,CreditNote,0..1,,Associated,,,,CreditNote,,,,
+1433,Source Documents,,CreditNote,ABIE,0,CreditNote,0..1,,Details,,,,,,,,
+1434,Source Documents,,CreditNote,BBIE,1,Reference,0..1,,Reference,,Text,,,,,SAFmiddle1textType,Credit note reference (where applicable) to original invoice
+1435,Source Documents,,CreditNote,BBIE,2,Reason,0..1,,Reason,,Text,,,,,SAFlongtextType,Credit note reason or rationale
+1436,Source Documents,,Settlement,ABIE,0,InvoiceSettlement,0..1,,Details,,,,,,,,
+1437,Source Documents,,Settlement,BBIE,1,SettlementDiscount,0..1,,SettlementDiscount,,Text,,,,,SAFmiddle1textType,Description Settlement / Other Discount
+1438,Source Documents,,Settlement,ASBIE,2,SettlementAmount,1..1,,Associated,,,,AmountStructure,,,AmountStructure,Settlement amount
+1439,Source Documents,,Settlement,BBIE,3,SettlementDate,0..1,,SettlementDate,,Date,,,,,date,Date settled
+1440,Source Documents,,Settlement,BBIE,4,PaymentMechanism,0..1,,PaymentMechanism,,Code,,,,,SAFcodeType,Payment mechanism
+1441,Source Documents,,DocumentTotals,ABIE,0,DocumentTotals,0..1,,Details,,,,,,,,
+1442,Source Documents,,DocumentTotals,ASBIE,1,TaxInformationTotals,0..*,,Associated,,,,TaxInformationStructure,,,TaxInformationStructure,Control totals tax payable information. Per TaxType/TaxCode the TaxBase and TaxAmount are summarised.
+1443,Source Documents,,DocumentTotals,BBIE,2,ShippingCostsAmountTotal,0..1,,ShippingCostsAmountTotal,,Monetary,,,,,SAFmonetaryType,Control total amount freight charges
+1444,Source Documents,,DocumentTotals,BBIE,3,NetTotal,1..1,,NetTotal,,Monetary,,,,,SAFmonetaryType,Control total sales value excluding tax and shippingcosts.
+1445,Source Documents,,DocumentTotals,BBIE,4,GrossTotal,1..1,,GrossTotal,,Monetary,,,,,SAFmonetaryType,Control total amount including tax and shippingcosts.
+1446,Source Documents,,ShippingPointStructure,ABIE,0,ShippingPointStructure,1..1,,Details,,,,,,,,A structure that holds all shipping point information.
+1447,Source Documents,,ShippingPointStructure,BBIE,1,DeliveryID,0..1,,DeliveryID,,Text,,,,,SAFmiddle1textType,Identification of the delivery
+1448,Source Documents,,ShippingPointStructure,BBIE,2,DeliveryDate,0..1,,DeliveryDate,,Date,,,,,date,Date goods are delivered
+1449,Source Documents,,ShippingPointStructure,BBIE,3,WarehouseID,0..1,,WarehouseID,,Text,,,,,SAFmiddle1textType,"Warehouse where goods held - also to identify work-in-progress, or stock-in-transit"
+1450,Source Documents,,ShippingPointStructure,BBIE,4,LocationID,0..1,,LocationID,,Code,,,,,SAFshorttextType,Location of goods in warehouse
+1451,Source Documents,,ShippingPointStructure,BBIE,5,UCR,0..1,,UCR,,Text,,,,,SAFmiddle1textType,Unique consignment reference number
+1452,Source Documents,,ShippingPointStructure,ASBIE,6,Address,0..1,,Associated,,,,AddressStructure,,,AddressStructure,
+1453,Source Documents,,AddressStructure,ABIE,0,AddressStructure,1..1,,Details,,,,,,,,[Common to all SAFs] A common structure used wherever an address is required.
+1454,Source Documents,,AddressStructure,BBIE,1,StreetName,0..1,,StreetName,,Text,,,,,SAFmiddle2textType,
+1455,Source Documents,,AddressStructure,BBIE,2,Number,0..1,,Number,,Code,,,,,SAFshorttextType,
+1456,Source Documents,,AddressStructure,BBIE,3,AdditionalAddressDetail,0..1,,AdditionalAddressDetail,,Text,,,,,SAFmiddle2textType,
+1457,Source Documents,,AddressStructure,BBIE,4,Building,0..1,,Building,,Text,,,,,SAFmiddle1textType,
+1458,Source Documents,,AddressStructure,BBIE,5,City,1..1,,City,,Text,,,,,SAFmiddle1textType,
+1459,Source Documents,,AddressStructure,BBIE,6,PostalCode,1..1,,PostalCode,,Code,,,,,SAFshorttextType,
+1460,Source Documents,,AddressStructure,BBIE,7,Region,0..1,,Region,,Text,,,,,SAFmiddle1textType,Country specific code to indicate regions / provinces within the tax authority. Preferably described according to ISO 3166-2. Example: GB-KEN for Kent county in the United Kingdom.
+1461,Source Documents,,AddressStructure,BBIE,8,Country,0..1,,Country,,Code,,,,,ISOCountryCode,Two-letter country code according to ISO 3166-1 alpha 2 standard. Example NL for the Netherlands.
+1462,Source Documents,,AddressStructure,BBIE,9,AddressType,0..1,,AddressType,,,,,,,,"Field to differentiate between multiple addresses. To indicate the type of address. Choose  from the predefined enumeration. (examples: StreetAddress PostalAddress, BillingAddress)"
+1463,Source Documents,,AmountStructure,ABIE,0,AmountStructure,1..1,,Details,,,,,,,,[Common to all SAFs] A common structure used wherever an amount is required. Monetary amount with optional foreign currency exchange rate information.
+1464,Source Documents,,AmountStructure,BBIE,1,Amount,1..1,,Amount,,Monetary,,,,,SAFmonetaryType,In the header's default currency.
+1465,Source Documents,,AmountStructure,ASBIE,2,sequence_Amount,0..1,,Associated,,,,sequence_Amount,,,sequence_Amount,
+1466,Source Documents,,sequence_Amount,ABIE,0,sequence_Amount,0..1,,Details,,,,,,,,
+1467,Source Documents,,sequence_Amount,BBIE,1,CurrencyCode,1..1,,CurrencyCode,,Code,,,,,ISOCurrencyCode,Three-letter currency code according to ISO 4217 standard. Example: EUR for the Euros or USD for American Dollars.
+1468,Source Documents,,sequence_Amount,BBIE,2,CurrencyAmount,1..1,,CurrencyAmount,,Monetary,,,,,SAFmonetaryType,Amount in foreign currency.
+1469,Source Documents,,sequence_Amount,BBIE,3,ExchangeRate,0..1,,ExchangeRate,,,,,,,SAFexchangerateType,The exchange rate used. CurrencyAmount x ExchangeRate = Amount
+1470,Source Documents,,AnalysisStructure,ABIE,0,AnalysisStructure,1..1,,Details,,,,,,,,General Ledger analysis codes
+1471,Source Documents,,AnalysisStructure,BBIE,1,AnalysisType,1..1,,AnalysisType,,Code,,,,,SAFcodeType,"Analysis code identifier: cost center, cost unit, cost type, project, etc. Refers to the MasterFile AnalysisTypeTable"
+1472,Source Documents,,AnalysisStructure,BBIE,2,AnalysisID,1..1,,AnalysisID,,Text,,,,,SAFlongtextType,Value of the analysisID: f.i. which cost center applies
+1473,Source Documents,,AnalysisStructure,BBIE,3,AnalysisAmount,0..1,,AnalysisAmount,,,,,,,AmountStructure,Amount applying to the Analysis: f.i. the amount applying for this cost center
+1474,Source Documents,,BankAccountStructure,ABIE,,BankAccountStructure,1..1,,Details,,,,,,,,"[Common to all SAFs] Bank account number information. IBAN number, or account number with optional information."
+1475,Source Documents,,BankAccountStructure,ASBIE,1,choice:IBANNumber/sequence,1..1,,Associated,,,,choice:IBANNumber/sequence,,,,
+1476,Source Documents,,BankAccountStructure,BBIE,3,BankAccountName,1..1,,BankAccountName,,Text,,,,,SAFmiddle1textType,The number allocated to the account by the individual‚Äôs or company‚Äôs own bank.
+1477,Source Documents,,BankAccountStructure,BBIE,3,SortCode,0..1,,SortCode,,Text,,,,,SAFmiddle2textType,The name of the individual or company holding the bank account.
+1478,Source Documents,,BankAccountStructure,BBIE,3,CompanyHeaderStructure,0..1,,CompanyHeaderStructure,,Code,,,,,SAFshorttextType,Identifier for the bank branch at which the account is held. May be needed to uniquely identify the account.
+1479,Source Documents,,choice:IBANNumber/sequence,ABIE,,choice:IBANNumber/sequence,1..1,,Details,,,,,,,,
+1480,Source Documents,,choice:IBANNumber/sequence,BBIE,2,IBANNumber,1..1,,IBANNumber,,Text,,,,,SAFmiddle1textType,"International Bank Account Number, ISO 13616"
+1481,Source Documents,,choice:IBANNumber/sequence,ASBIE,2,BankAccountNumber,,,Associated,,,,BankAccountNumber,,,,
+1482,Source Documents,,CompanyStructure,ABIE,0,CompanyStructure,1..1,,Details,,,,,,,,[Common to all SAFs] CompanyStructure with mandatory RegistrationNumber and Telephone (Contact)
+1483,Source Documents,,CompanyStructure,BBIE,1,RegistrationNumber,0..1,,RegistrationNumber,,Text,,,,,SAFmiddle1textType,"Unique number to identify the company in the accounting records, issued by a government authority or created by the company for internal purposes to identify different entities within their corporate group."
+1484,Source Documents,,CompanyStructure,BBIE,2,Name,1..1,,Name,,Text,,,,,SAFmiddle2textType,
+1485,Source Documents,,CompanyStructure,ASBIE,3,Address,1..*,,Associated,,,,AddressStructure,,,AddressStructure,
+1486,Source Documents,,CompanyStructure,ASBIE,4,Contact,0..*,,Associated,,,,ContactInformationStructure,,,ContactInformationStructure,
+1487,Source Documents,,CompanyStructure,ASBIE,5,TaxRegistration,0..*,,Associated,,,,TaxIDStructure,,,TaxIDStructure,
+1488,Source Documents,,CompanyStructure,ASBIE,6,BankAccount,0..*,,Associated,,,,BankAccountStructure,,,BankAccountStructure,
+1489,Source Documents,,CompanyStructure,BBIE,1,any##other,0..1,,,,,,,,,Represents space to allow individual Revenue Bodies to add further elements,Represents space to allow individual Revenue Bodies to add further elements
+1490,Source Documents,,CompanyHeaderStructure,ABIE,0,CompanyHeaderStructure,,,Details,,,,,,,,[Common to all SAFs] CompanyStructure with mandatory RegistrationNumber and Telephone (Contact)
+1491,Source Documents,,CompanyHeaderStructure,BBIE,1,RegistrationNumber,1..1,,RegistrationNumber,,Text,,,,,SAFmiddle1textType,"Unique number to identify the company in the accounting records, issued by a government body or created by the company for internal purposes to identify different entities within their corporate group."
+1492,Source Documents,,CompanyHeaderStructure,BBIE,2,Name,1..1,,Name,,Text,,,,,SAFmiddle2textType,
+1493,Source Documents,,CompanyHeaderStructure,ASBIE,3,Address,1..*,,Associated,,,,AddressStructure,,,AddressStructure,
+1494,Source Documents,,CompanyHeaderStructure,ASBIE,4,Contact,1..*,,Associated,,,,ContactInformationStructure,,,ContactInformationStructure,
+1495,Source Documents,,CompanyHeaderStructure,ASBIE,5,TaxRegistration,0..*,,Associated,,,,TaxIDStructure,,,TaxIDStructure,
+1496,Source Documents,,CompanyHeaderStructure,ASBIE,6,BankAccount,0..*,,Associated,,,,BankAccountStructure,,,BankAccountStructure,
+1497,Source Documents,,ContactHeaderStructure,ABIE,,ContactHeaderStructure,0..*,,Details,,,,,,,,[Common to all SAFs] ContactInformationStructure with madatory TelephoneNumber
+1498,Source Documents,,ContactHeaderStructure,ASBIE,1,ContactPerson,1..1,,Associated,,,,PersonNameStructure,,,PersonNameStructure,
+1499,Source Documents,,ContactHeaderStructure,ASBIE,,ContactInformationStructure,1..1,,Associated,,,,ContactInformationStructure,,,,[Common to all SAFs] Contact information of a company.
+1500,Source Documents,,HeaderStructure,ABIE,,HeaderStructure,0..1,,Details,,,,,,,,[Common to all SAFs] Overall information about this Standard Auditfile.
+1501,Source Documents,,HeaderStructure,BBIE,1,AuditFileVersion,1..1,,AuditFileVersion,,Code,,,,,SAFcodeType,Identification of the Standard Audit File SAF-T version being used
+1502,Source Documents,,HeaderStructure,BBIE,1,AuditFileCountry,1..1,,AuditFileCountry,,Code,,,,,ISOCountryCode,Two-letter country code according to ISO 3166-1 alpha 2 standard. Example NL for the Netherlands.
+1503,Source Documents,,HeaderStructure,BBIE,1,AuditFileRegion,1..1,,AuditFileRegion,,Code,,,,,SAFcodeType,Country specific code to indicate regions / provinces within the tax authority. Preferably described according to ISO 3166-2. Example: GB-KEN for Kent county in the United Kingdom.
+1504,Source Documents,,HeaderStructure,BBIE,1,AuditFileDateCreated,0..1,,AuditFileDateCreated,,Date,,,,,date,Date of production of SAF-T
+1505,Source Documents,,HeaderStructure,BBIE,1,SoftwareCompanyName,1..1,,SoftwareCompanyName,,Text,,,,,SAFmiddle2textType,Name of the software company whose product created the SAF-T.
+1506,Source Documents,,HeaderStructure,BBIE,1,SoftwareID,1..1,,SoftwareID,,Text,,,,,SAFlongtextType,Name of the Software that generated the SAF-T.
+1507,Source Documents,,HeaderStructure,BBIE,1,SoftwareVersion,1..1,,SoftwareVersion,,Code,,,,,SAFshorttextType,Version of the software that created the SAF-T.
+1508,Source Documents,,HeaderStructure,ASBIE,1,Company,1..1,,Associated,,,,CompanyHeaderStructure,,,CompanyHeaderStructure,Company's name and address details.
+1509,Source Documents,,HeaderStructure,ABIE,,HeaderStructure,0..1,,Details,,,,,,,,[Common to all SAFs] Overall information about this Standard Auditfile.
+1510,Source Documents,,HeaderStructure,BBIE,1,DefaultCurrencyCode,1..1,,DefaultCurrencyCode,,Code,,,,,ISOCurrencyCode,Three letter Currency Code  (ISO 4217) of local currency which is the default for the SAF.
+1511,Source Documents,,HeaderStructure,BBIE,1,AuditFileVersion,1..1,,AuditFileVersion,,Code,,,,,SAFcodeType,Identification of the Standard Audit File SAF-T version being used
+1512,Source Documents,,HeaderStructure,ASBIE,1,SelectionCriteria,1..1,,Associated,,,,SelectionCriteriaStructure,,,SelectionCriteriaStructure,Criteria set by the user to populate the audit files
+1513,Source Documents,,HeaderStructure,BBIE,1,AuditFileCountry,1..1,,AuditFileCountry,,Code,,,,,ISOCountryCode,Two-letter country code according to ISO 3166-1 alpha 2 standard. Example NL for the Netherlands.
+1514,Source Documents,,HeaderStructure,BBIE,1,HeaderComment,0..1,,HeaderComment,,Text,,,,,SAFlongtextType,Space for any further generic comments on the SAF-T. Revenue Bodies should consider what information they would expect to see here.
+1515,Source Documents,,HeaderStructure,BBIE,1,AuditFileRegion,1..1,,AuditFileRegion,,Code,,,,,SAFcodeType,Country specific code to indicate regions / provinces within the tax authority. Preferably described according to ISO 3166-2. Example: GB-KEN for Kent county in the United Kingdom.
+1516,Source Documents,,HeaderStructure,BBIE,1,AuditFileDateCreated,0..1,,AuditFileDateCreated,,Date,,,,,date,Date of production of SAF-T
+1517,Source Documents,,HeaderStructure,BBIE,1,SoftwareCompanyName,1..1,,SoftwareCompanyName,,Text,,,,,SAFmiddle2textType,Name of the software company whose product created the SAF-T.
+1518,Source Documents,,HeaderStructure,BBIE,1,SoftwareID,1..1,,SoftwareID,,Text,,,,,SAFlongtextType,Name of the Software that generated the SAF-T.
+1519,Source Documents,,HeaderStructure,BBIE,1,SoftwareVersion,1..1,,SoftwareVersion,,Code,,,,,SAFshorttextType,Version of the software that created the SAF-T.
+1520,Source Documents,,HeaderStructure,ASBIE,1,Company,1..1,,Associated,,,,CompanyHeaderStructure,,,CompanyHeaderStructure,Company's name and address details.
+1521,Source Documents,,HeaderStructure,BBIE,1,DefaultCurrencyCode,1..1,,DefaultCurrencyCode,,Code,,,,,ISOCurrencyCode,Three letter Currency Code  (ISO 4217) of local currency which is the default for the SAF.
+1522,Source Documents,,HeaderStructure,ASBIE,1,SelectionCriteria,1..1,,Associated,,,,SelectionCriteriaStructure,,,SelectionCriteriaStructure,Criteria set by the user to populate the audit files
+1523,Source Documents,,HeaderStructure,BBIE,1,HeaderComment,0..1,,HeaderComment,,Text,,,,,SAFlongtextType,Space for any further generic comments on the SAF-T. Revenue Bodies should consider what information they would expect to see here.
+1524,Source Documents,,ContactInformationStructure,ABIE,,ContactInformationStructure,1..1,,Details,,,,,,,,[Common to all SAFs] Contact information of a company.
+1525,Source Documents,,ContactInformationStructure,BBIE,1,Telephone,0..1,,Telephone,,Code,,,,,SAFshorttextType,
+1526,Source Documents,,ContactInformationStructure,BBIE,1,Fax,0..1,,Fax,,Code,,,,,SAFshorttextType,
+1527,Source Documents,,ContactInformationStructure,BBIE,1,Email,0..1,,Email,,Text,,,,,SAFmiddle2textType,
+1528,Source Documents,,ContactInformationStructure,BBIE,1,Website,0..1,,Website,,Code,,,,,anyURI,
+1529,Source Documents,,PersonNameStructure,ABIE,,PersonNameStructure,0..1,,Details,,,,,,,,[Common to all SAFs] All information about the name of a natural person.
+1530,Source Documents,,PersonNameStructure,BBIE,1,Title,1..1,,Title,,Code,,,,,SAFcodeType,
+1531,Source Documents,,PersonNameStructure,BBIE,1,FirstName,0..1,,FirstName,,Text,,,,,SAFmiddle1textType,
+1532,Source Documents,,PersonNameStructure,BBIE,1,Initials,1..1,,Initials,,Code,,,,,SAFshorttextType,
+1533,Source Documents,,PersonNameStructure,BBIE,1,LastNamePrefix,0..1,,LastNamePrefix,,Code,,,,,SAFshorttextType,"A textual expression of a prefix that precedes this person's family name such as Van, Von."
+1534,Source Documents,,PersonNameStructure,BBIE,1,LastName,0..1,,LastName,,Text,,,,,SAFmiddle2textType,
+1535,Source Documents,,PersonNameStructure,BBIE,1,BirthName,1..1,,BirthName,,Text,,,,,SAFmiddle2textType,
+1536,Source Documents,,PersonNameStructure,BBIE,1,Salutation,0..1,,Salutation,,Code,,,,,SAFshorttextType,"A formal sign or expression of greeting, expressed as text, that is appropriate for this person such as Right Honourable, Monsignor or Madam."
+1537,Source Documents,,PersonNameStructure,BBIE,1,OtherTitles,0..1,,OtherTitles,,Code,,,,,SAFshorttextType,
+1538,Source Documents,,choice:SelectionStartDate-SelectionEndDate/PeriodStart-PeriodStartYear-PeriodEnd-PeriodEndYear,ABIE,,choice:SelectionStartDate-SelectionEndDate/PeriodStart-PeriodStartYear-PeriodEnd-PeriodEndYear,1..1,,Details,,,,,,,,"Allows for a choice:between selection on calendar dates and periods according to the accounting system, e.g. 1 to 12 for a 12-months accounting system."
+1539,Source Documents,,choice:SelectionStartDate-SelectionEndDate/PeriodStart-PeriodStartYear-PeriodEnd-PeriodEndYear,ASBIE,1,SelectionStartDate-SelectionEndDate,1..1,,Associated,,,,SelectionCriteriaStructure,,,,"Allows for a choice:between selection on calendar dates and periods according to the accounting system, e.g. 1 to 12 for a 12-months accounting system."
+1540,Source Documents,,choice:SelectionStartDate-SelectionEndDate/PeriodStart-PeriodStartYear-PeriodEnd-PeriodEndYear,ASBIE,1,PeriodStart-PeriodStartYear-PeriodEnd-PeriodEndYear,,,Associated,,,,PeriodStart-PeriodStartYear-PeriodEnd-PeriodEndYear,,,,
+1541,Source Documents,,SelectionCriteriaStructure,ABIE,,SelectionCriteriaStructure,0..1,,Details,,,,,,,,[Common to all SAFs] The selection criteria used to generate this Standard Auditfile
+1542,Source Documents,,SelectionCriteriaStructure,BBIE,1,TaxReportingJurisdiction,0..1,,TaxReportingJurisdiction,,Text,,,,,SAFmiddle1textType,Identifies the tax jurisdiction for whose purpose the SAF has been created. Principally for use where a single Revenue body covers more than one territory.
+1543,Source Documents,,SelectionCriteriaStructure,BBIE,1,CompanyEntity,0..1,,CompanyEntity,,Text,,,,,SAFmiddle2textType,For use where data has been extracted from the full data set by reference to a specific corporate entity.
+1544,Source Documents,,SelectionCriteriaStructure,ASBIE,1,choice:SelectionStartDate-SelectionEndDate/PeriodStart-PeriodStartYear-PeriodEnd-PeriodEndYear,1..1,,Associated,,,,choice:SelectionStartDate-SelectionEndDate/PeriodStart-PeriodStartYear-PeriodEnd-PeriodEndYear,,,,"Allows for a choice between selection on calendar dates and periods according to the accounting system, e.g. 1 to 12 for a 12-months accounting system."
+1545,Source Documents,,SelectionCriteriaStructure,BBIE,1,DocumentType,0..1,,DocumentType,,Text,,,,,SAFlongtextType,Type of documents selected. For use where the data has been restricted by reference to particular transaction types.
+1546,Source Documents,,SelectionCriteriaStructure,BBIE,1,OtherCriteria,0..*,,OtherCriteria,,Text,,,,,SAFlongtextType,Any other criteria used in selecting data. Individual Revenue Bodies may wish to draw up a list of other acceptable selection criteria for use within their jurisdiction
+1547,Source Documents,,SelectionStartDate-SelectionEndDate,ABIE,,SelectionStartDate-SelectionEndDate,,,Details,,,,,,,,
+1548,Source Documents,,SelectionStartDate-SelectionEndDate,BBIE,1,SelectionStartDate,1..1,,SelectionStartDate,,Date,,,,,date,The start date for the reporting period covered by the SAF.
+1549,Source Documents,,SelectionStartDate-SelectionEndDate,BBIE,1,SelectionEndDate,1..1,,SelectionEndDate,,Date,,,,,date,The end date for the reporting period covered by the SAF.
+1550,Source Documents,,PeriodStart-PeriodStartYear-PeriodEnd-PeriodEndYear,ASBIE,2,PeriodStart-PeriodStartYear-PeriodEnd-PeriodEndYear,,,Associated,,,,PeriodStart-PeriodStartYear-PeriodEnd-PeriodEndYear,,,,
+1551,Source Documents,,TaxIDStructure,ABIE,,TaxIDStructure,,,Details,,,,,,,,[Common to all SAFs] Tax information of a company.
+1552,Source Documents,,TaxIDStructure,BBIE,1,TaxRegistrationNumber,1..1,,TaxRegistrationNumber,,Text,,,,,SAFmiddle1textType,Unique number issued by a Revenue Body for use by the company.
+1553,Source Documents,,TaxIDStructure,BBIE,1,TaxType,1..1,,TaxType,,Code,,,,,SAFcodeType,For use where information reported in the SAF-T covers more than one type of tax regime: to identify the type of tax regime to which this entry relates.
+1554,Source Documents,,TaxIDStructure,BBIE,1,TaxNumber,0..1,,TaxNumber,,Text,,,,,SAFmiddle1textType,"The tax registration number for the particular tax regime referred to by TaxType, f.i. VAT-number"
+1555,Source Documents,,TaxIDStructure,BBIE,1,TaxAuthority,0..1,,TaxAuthority,,Text,,,,,SAFmiddle1textType,Identification of the Revenue Body to which this TaxType refers.
+1556,Source Documents,,TaxIDStructure,BBIE,1,TaxVerificationDate,0..1,,TaxVerificationDate,,Date,,,,,date,The date that the tax registration details referred to above were last checked.
+1557,Source Documents,,PeriodStart-PeriodStartYear-PeriodEnd-PeriodEndYear,ABIE,,PeriodStart-PeriodStartYear-PeriodEnd-PeriodEndYear,,,Details,,,,,,,,
+1558,Source Documents,,PeriodStart-PeriodStartYear-PeriodEnd-PeriodEndYear,BBIE,1,PeriodStart,1..1,,PeriodStart,,,,,,,nonNegativeInteger,The first Accounting Period covered by the SAF.
+1559,Source Documents,,PeriodStart-PeriodStartYear-PeriodEnd-PeriodEndYear,BBIE,1,PeriodStartYear,1..1,,PeriodStartYear,,,,,,,,The Accounting Year in which the PeriodStart falls.
+1560,Source Documents,,PeriodStart-PeriodStartYear-PeriodEnd-PeriodEndYear,BBIE,1,PeriodEnd,1..1,,PeriodEnd,,,,,,,nonNegativeInteger,The last Accounting Period covered by the SAF.
+1561,Source Documents,,PeriodStart-PeriodStartYear-PeriodEnd-PeriodEndYear,BBIE,1,PeriodEndYear,1..1,,PeriodEndYear,,,,,,,,The Accounting Year in which the PeriodEnd falls.
+1562,Source Documents,,TaxInformationStructure,ABIE,,TaxInformationStructure,0..1,,Details,,,,,,,, Tax Amount information structure
+1563,Source Documents,,TaxInformationStructure,BBIE,1,TaxType,1..1,,TaxType,,Code,,,,,SAFcodeType,Tax type for look-up in tables
+1564,Source Documents,,TaxInformationStructure,BBIE,1,TaxCode,0..1,,TaxCode,,Code,,,,,SAFcodeType,Tax Code for lookup in tables
+1565,Source Documents,,TaxInformationStructure,BBIE,1,TaxPercentage,0..1,,TaxPercentage,,Percentage,,,,,decimal,Tax percentage.
+1566,Source Documents,,TaxInformationStructure,BBIE,1,TaxBase,0..1,,TaxBase,,Numeric,,,,,decimal,"The base on which the tax is calculated. This can be an amount, or a quantity, eg. Litres."
+1567,Source Documents,,TaxInformationStructure,BBIE,1,TaxBaseDescription,0..1,,TaxBaseDescription,,Text,,,,,SAFmiddle2textType,Description of the value in the TaxBase. Eg. Litres for excises on alcoholic bevarages.
+1568,Source Documents,,TaxInformationStructure,BBIE,1,TaxAmount,0..1,,TaxAmount,,,,,,,AmountStructure,Tax amount information
+1569,Source Documents,,TaxInformationStructure,BBIE,1,TaxExemptionReason,1..1,,TaxExemptionReason,,Text,,,,,SAFmiddle2textType,Tax exemption or reduction reason or rationale
+1570,Source Documents,,TaxInformationStructure,BBIE,1,TaxDeclarationPeriod,0..1,,TaxDeclarationPeriod,,Text,,,,,SAFmiddle1textType,The identification of the declaration/return in which the taxamount is reported to the Revenue body.
