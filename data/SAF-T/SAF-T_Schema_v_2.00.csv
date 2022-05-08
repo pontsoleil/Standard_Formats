@@ -6,28 +6,28 @@
 1005,SAF-T,,AuditFile,ASBIE,4,SourceDocuments,0..1,,Associated,,,,_SourceDocuments,,,,
 1006,SAF-T,,_Header,ABIE,1,Header,1..1,,Details,,,,,,,,Holds general information about the file including the name of the software which produced it; the company on whose behalf the SAF-T is being submitted; and the selection criteria used. An extension point is provided to allow individual Revenue Bodies to  specify further relevant information to be supplied.
 1007,SAF-T,,_Header,ASBIE,1,Header,1..1,,Associated,,,,Header,,,,Holds general information about the file including the name of the software which produced it; the company on whose behalf the SAF-T is being submitted; and the selection criteria used. An extension point is provided to allow individual Revenue Bodies to  specify further relevant information to be supplied.
-1008,Master Files,,_MasterFiles,ABIE,0,MasterFiles,0..1,,Details,,,,,,,,"Holds standing data about general ledger account, suppliers, customers, products, etc.. An extension point is provided to allow Revenue Bodies to specify additional elements or structures such as tax rate tables."
-1009,Master Files,,_MasterFiles,ASBIE,1,GeneralLedgerAccounts,0..1,,Associated,,,,GeneralLedgerAccounts,,,,
-1010,Master Files,,_MasterFiles,ASBIE,2,Taxonomies,0..1,,Associated,,,,Taxonomies,,,,
-1011,Master Files,,_MasterFiles,ASBIE,3,Customers,0..1,,Associated,,,,Customers,,,,
-1012,Master Files,,_MasterFiles,ASBIE,4,Suppliers,0..1,,Associated,,,,Suppliers,,,,
-1013,Master Files,,_MasterFiles,ASBIE,5,TaxTable,0..1,,Associated,,,,TaxTable,,,,
-1014,Master Files,,_MasterFiles,ASBIE,6,UOMTable,0..1,,Associated,,,,UOMTable,,,,Table with descriptions of all different kinds of UOM's
-1015,Master Files,,_MasterFiles,ASBIE,7,AnalysisTypeTable,0..1,,Associated,,,,AnalysisTypeTable,,,,"Table with the analysiscode identifiers.\nsed for further specification of transaction data.\nxample: cost unit, cost center, project."
-1016,Master Files,,_MasterFiles,ASBIE,8,MovementTypeTable,0..1,,Associated,,,,MovementTypeTable,,,,Table with descriptions of all different kinds of movementtypes and movementsubtypes
-1017,Master Files,,_MasterFiles,ASBIE,9,Products,0..1,,Associated,,,,Products,,,,
-1018,Master Files,,_MasterFiles,ASBIE,10,PhysicalStock,0..1,,Associated,,,,PhysicalStock,,,,
-1019,Master Files,,_MasterFiles,ASBIE,11,Owners,0..1,,Associated,,,,Owners,,,,
-1020,Master Files,,_MasterFiles,ASBIE,12,Assets,0..1,,Associated,,,,Assets,,,,
-1021,Master Files,,_MasterFiles,ASBIE,13,any##other,0..1,,Associated,,,,any##other,,,Represents space to allow individual Revenue Bodies to specify additional standing data.,Represents space to allow individual Revenue Bodies to specify additional standing data.
+1008,SAF-T,,_MasterFiles,ABIE,0,MasterFiles,0..1,,Details,,,,,,,,"Holds standing data about general ledger account, suppliers, customers, products, etc.. An extension point is provided to allow Revenue Bodies to specify additional elements or structures such as tax rate tables."
+1009,SAF-T,,_MasterFiles,ASBIE,1,GeneralLedgerAccounts,0..1,,Associated,,,,GeneralLedgerAccounts,,,,
+1010,SAF-T,,_MasterFiles,ASBIE,2,Taxonomies,0..1,,Associated,,,,Taxonomies,,,,
+1011,SAF-T,,_MasterFiles,ASBIE,3,Customers,0..1,,Associated,,,,Customers,,,,
+1012,SAF-T,,_MasterFiles,ASBIE,4,Suppliers,0..1,,Associated,,,,Suppliers,,,,
+1013,SAF-T,,_MasterFiles,ASBIE,5,TaxTable,0..1,,Associated,,,,TaxTable,,,,
+1014,SAF-T,,_MasterFiles,ASBIE,6,UOMTable,0..1,,Associated,,,,UOMTable,,,,Table with descriptions of all different kinds of UOM's
+1015,SAF-T,,_MasterFiles,ASBIE,7,AnalysisTypeTable,0..1,,Associated,,,,AnalysisTypeTable,,,,"Table with the analysiscode identifiers.\nsed for further specification of transaction data.\nxample: cost unit, cost center, project."
+1016,SAF-T,,_MasterFiles,ASBIE,8,MovementTypeTable,0..1,,Associated,,,,MovementTypeTable,,,,Table with descriptions of all different kinds of movementtypes and movementsubtypes
+1017,SAF-T,,_MasterFiles,ASBIE,9,Products,0..1,,Associated,,,,Products,,,,
+1018,SAF-T,,_MasterFiles,ASBIE,10,PhysicalStock,0..1,,Associated,,,,PhysicalStock,,,,
+1019,SAF-T,,_MasterFiles,ASBIE,11,Owners,0..1,,Associated,,,,Owners,,,,
+1020,SAF-T,,_MasterFiles,ASBIE,12,Assets,0..1,,Associated,,,,Assets,,,,
+1021,SAF-T,,_MasterFiles,ASBIE,13,any##other,0..1,,Associated,,,,any##other,,,Represents space to allow individual Revenue Bodies to specify additional standing data.,Represents space to allow individual Revenue Bodies to specify additional standing data.
 1022,SAF-T,,_GeneralLedgerEntries,ABIE,3,GeneralLedgerEntries,0..1,,Details,,,,,,,,
 1023,SAF-T,,_GeneralLedgerEntries,ASBIE,3,GeneralLedgerEntries,0..1,,Associated,,,,GeneralLedgerEntries,,,,
-1024,Source Documents,,_SourceDocuments,ABIE,0,SourceDocuments,0..1,,Details,,,,,,,,"Holds Sales Invoices, Purchase Invoices, Payments, Movement Of Goods, and Asset Transactions"
-1025,Source Documents,,_SourceDocuments,ASBIE,1,SalesInvoices,0..1,,Associated,,,,SalesInvoices,,,,
-1026,Source Documents,,_SourceDocuments,ASBIE,2,PurchaseInvoices,0..1,,Associated,,,,PurchaseInvoices,,,,
-1027,Source Documents,,_SourceDocuments,ASBIE,3,Payments,0..1,,Associated,,,,Payments,,,,
-1028,Source Documents,,_SourceDocuments,ASBIE,4,MovementOfGoods,0..1,,Associated,,,,MovementOfGoods,,,,
-1029,Source Documents,,_SourceDocuments,ASBIE,5,AssetTransactions,0..1,,Associated,,,,AssetTransactions,,,,Details of all transactions related to an asset during the Selectionperiod.
+1024,SAF-T,,_SourceDocuments,ABIE,0,SourceDocuments,0..1,,Details,,,,,,,,"Holds Sales Invoices, Purchase Invoices, Payments, Movement Of Goods, and Asset Transactions"
+1025,SAF-T,,_SourceDocuments,ASBIE,1,SalesInvoices,0..1,,Associated,,,,SalesInvoices,,,,
+1026,SAF-T,,_SourceDocuments,ASBIE,2,PurchaseInvoices,0..1,,Associated,,,,PurchaseInvoices,,,,
+1027,SAF-T,,_SourceDocuments,ASBIE,3,Payments,0..1,,Associated,,,,Payments,,,,
+1028,SAF-T,,_SourceDocuments,ASBIE,4,MovementOfGoods,0..1,,Associated,,,,MovementOfGoods,,,,
+1029,SAF-T,,_SourceDocuments,ASBIE,5,AssetTransactions,0..1,,Associated,,,,AssetTransactions,,,,Details of all transactions related to an asset during the Selectionperiod.
 1030,Header,,Header,ABIE,0,Header,1..1,,Details,,,,,,,,Holds general information about the file including the name of the software which produced it; the company on whose behalf the SAF-T is being submitted; and the selection criteria used. An extension point is provided to allow individual Revenue Bodies to  specify further relevant information to be supplied.
 1031,Header,,Header,ASBIE,1,HeaderStructure,1..1,,Associated,,,,HeaderStructure,,,,
 1032,Header,,Header,BBIE,2,TaxAccountingBasis,1..1,,TaxAccountingBasis,,Code,,,,,SAFshorttextType,"Invoice Accounting, Cash Accounting, Delivery, other ..."
