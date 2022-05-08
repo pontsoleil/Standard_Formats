@@ -1116,5 +1116,5 @@
 2115,Common,,Monetary Amount,0,ABIE,Monetary Amount,0..n,Details,,,,,, currency monetary amount, Currency Amount. Details,,,,,,,
 2116,Common,,Monetary Amount,1,BBIE,Amount,1..1, Amount,Amount,,,,,The monetary amount of  currency., Currency Amount. Amount. Amount,,,,,Decimal,%22.4f,
 2117,Common,,Monetary Amount,2,RFBIE,Currency,0..1, Currency,,,,,Currency,The currency code of  currency., Currency Amount. Currency. Currency,,,,,String,%3s,
-2118,Master Files,,X,0,ABIE,Any Master,,,,,,,,X represents any master.,,,,,,,,
-2119,Master Files,,X,1,BBIE,Data elements under X,,,,,,,,,,,,,,,,
+2118,Master Files,,X,0,ABIE,Any Master,0..n,Details,,,,,,X represents any master.,,,,,,,,
+2119,Master Files,,X,1,BBIE,Any data elements defined under X,0..n,Any data elements defined under X,Data representations defined under X,,,,,Any data elements defined under X,,,,,,,,
