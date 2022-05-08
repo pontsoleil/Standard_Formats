@@ -4768,16 +4768,47 @@ $('#peppol-entity tbody').on('click', 'td:not(.info-control)', function (event) 
     $(this).addClass('d-none');
   });
 // -----------------------------------------------------------------
-  DESCRIPTION_LENGTH = 200;
-  if (tab1 && !tab2) {
-    setFrame(1, tab1);
+DESCRIPTION_LENGTH = 200;
+var defaultTab1 = 'adcs';
+var defaultTab2 = 'saf';
+function resetFrame(tab) {
+  alert(tab);
+  setTimeout(function(tab) {
+    location.replace(location.href)
+  },1000)
+}
+
+var tablinks = $('#tab-1 .tablinks');
+var tabs = [];
+for (var i=0;i<tablinks.length;i++) {
+  var x = tablinks[i];
+  var tab = x.className.substr(x.className.lastIndexOf(' ')+1);
+  tabs.push(tab);
+}
+if (tab1 && !tab2) {
+  if (tabs.indexOf(tab1) < 0) {
+    resetFrame(tab1);
   }
   else {
-    tab1 = tab1 || 'adcs'; // 'ts5409';
-    tab2 = tab2 || 'saf'; //'ads';
-    setFrame(2, tab2);
     setFrame(1, tab1);
   }
+}
+else {
+  tab1 = tab1 || defaultTab1;
+  tab2 = tab2 || defaultTab2;
+  if (tabs.indexOf(tab1) < 0) {
+    resetFrame(tab1);
+  }
+  else {
+   setFrame(1, tab1);
+  }
+  if (tabs.indexOf(tab2) < 0) {
+    resetFrame(tab2);
+  }
+  else {
+    setFrame(2, tab2);
+  }
+}
 /**
 https://github.com/shagstrom/split-pane
 Split pane component min-height and min-width are supported,

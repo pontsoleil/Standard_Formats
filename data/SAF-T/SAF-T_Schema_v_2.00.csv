@@ -87,7 +87,7 @@
 1086,Master Files,,TaxCodeDetails,BBIE,6,Country,0..1,,Country,,Code,,,,,SAFcodeType,Country specific code to indicate regions / provinces within the tax authority. Preferably described according to ISO 3166-2. Example: GB-KEN for Kent county in the United Kingdom.
 1087,Master Files,,choice:TaxPercentage/FlatTaxRate,ABIE,0,choice TaxPercentage/FlatTaxRate,1..1,,Details,,,,,,,,
 1088,Master Files,,choice:TaxPercentage/FlatTaxRate,BBIE,1,TaxPercentage,1..1,,TaxPercentage,,Percentage,,,,,decimal,Tax percentage.
-1089,Master Files,,choice:TaxPercentage/FlatTaxRate,ASBIE,2,FlatTaxRate,1..1,,Associated,,,,FlatTaxRate,,,AmountStructure,FlatTaxRate
+1089,Master Files,,choice:TaxPercentage/FlatTaxRate,ASBIE,2,FlatTaxRate,1..1,,Associated,,,,AmountStructure,,,AmountStructure,FlatTaxRate
 1090,Master Files,,UOMTable,ABIE,0,UOMTable,0..1,,Details,,,,,,,,Table with descriptions of all different kinds of UOM's
 1091,Master Files,,UOMTable,ASBIE,1,UOMTableEntry,1..*,,Associated,,,,UOMTableEntry,,,,
 1092,Master Files,,UOMTableEntry,ABIE,0,UOMTableEntry,1..*,,Details,,,,,,,,
