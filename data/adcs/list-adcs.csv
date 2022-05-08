@@ -1063,10 +1063,10 @@
 2062,Common,,Address,4,BBIE,State Province Code,0..1,State Province Code,Code,,,,,The state or province of the organization (ISO 3166-2).,Address. State Province Code. Code,Address,,,,String,%6s,gl-bus:identifierStateOrProvince*
 2063,Common,,Address,5,BBIE,Postal Code,1..1,Postal Code,Code,,,,,The postal code of the organization's city.,Address. Postal Code. Code,Address,,,,String,%20s,gl-bus:identifierZipOrPostalCode*
 2064,Common,,Address,6,BBIE,Country Code,1..1,Country Code,Code,,,,,The country code of the organization (ISO 3166-1).,Address. Country Code. Code,Address,,,,String,%3s,gl-bus:identifierCountry*
-2065,Common,,Physical Address,0,ABIE,Physical Address,0..n,Details,,,,,,Physical address data,Address. Details,Address,,,,,,
-2066,Common,,Physical Address,1,ASBIE,Physical Address,1..1,Assosiated,,,Address,,,Line 1 of the organization's physical address.,Physical_ Address.Street Address 1. Text,Address,,,,String,%100s,gl-bus:identifierStreet (*) with gl-bus:identifierAddressPurpose = physical or billing
-2067,Common,,Billing Address,0,ABIE,Billing Address,0..n,Details,,,,,,Billing address data,Address. Details,Address,,,,,,
-2068,Common,,Billing Address,1,ASBIE,Billing Address,1..1,Assosiated,,,Address,,,Line 1 of the organization's blling address.,Billing_ Address.Street Address 1. Text,Address,,,,String,%100s,gl-bus:identifierStreet (*) with gl-bus:identifierAddressPurpose = physical or billing
+2065,Common,,Physical Address,0,ABIE,Physical Address,0..n,Details,,,,,,Physical address data,Physical Address. Details,Address,,,,,,
+2066,Common,,Physical Address,1,ASBIE,Physical Address,1..1,Assosiated,,,Address,,,Organization's physical address.,Physical Address. Associated. Address,Address,,,,String,%100s,gl-bus:identifierStreet (*) with gl-bus:identifierAddressPurpose = physical or billing
+2067,Common,,Billing Address,0,ABIE,Billing Address,0..n,Details,,,,,,Billing address data,Billing Address. Details,Address,,,,,,
+2068,Common,,Billing Address,1,ASBIE,Billing Address,1..1,Assosiated,,,Address,,,Organization's blling address.,Billing Address.  Associated. Address,Address,,,,String,%100s,gl-bus:identifierStreet (*) with gl-bus:identifierAddressPurpose = physical or billing
 2069,Common,,Primary Contact,0,ABIE,Primary Contact,0..n,Details,,,,,,Primary contact information,Primary Contact. Details,Primary Contact,,,,,,
 2070,Common,,Primary Contact,1,BBIE,Name,0..1,Name,Name,,,,,The name of the primary contact for the organization.,Primary Contact. Name. Name,Primary Contact,,,,String,%100s,gl-cor:identifierContactAttentionLine
 2071,Common,,Primary Contact,2,BBIE,Phone Number,0..1,Phone Number,Code,,,,,The phone number of the primary contact for the organization.,Primary Contact. Phone Number. Code,Primary Contact,,,,String,%20s,gl-cor:identifierContactPhoneNumber
