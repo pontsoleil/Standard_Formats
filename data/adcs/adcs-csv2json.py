@@ -110,12 +110,12 @@ if __name__ == '__main__':
             DictionaryEntryName = row['DictionaryEntryName']
             if 'ABIE'==Kind:
                 DEN = f'{_ObjectClassTerm}. Details'
-            elif 'BBIE'==Kind or 'IDBIE':
-                DEN = f'{_ObjectClassTerm}. {PropertyTerm}. {RepresentationTerm}'
             elif 'ASBIE'==Kind:
                 DEN = f'{_ObjectClassTerm}. {PropertyTerm}. {_AssociatedObjectClass}'
             elif 'RFBIE'==Kind:
                 DEN = f'{_ObjectClassTerm}. {PropertyTerm}. {_ReferencedObjectClass}'
+            elif 'BBIE'==Kind or 'IDBIE'==Kind:
+                DEN = f'{_ObjectClassTerm}. {PropertyTerm}. {RepresentationTerm}'
             else:
                 DEN = ''
             Table = row['Table']
