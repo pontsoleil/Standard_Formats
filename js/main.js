@@ -4230,7 +4230,8 @@ function previousEntity(num) {
 }
 function showEntity(tr, frame) {
   var table, //entityMap, entityRows,
-      row, data, top_id, entity_id, num, qualifier, searchText, tableTitle;//, count;
+      row, data, top_id, entity_id, num, qualifier, searchText, tableTitle,
+      objectClassTerm;//, count;
   switch (frame) {
     case 'adc':
       table = adc_abie_table; entityMap = adcEntityMap; entityRows = adcEntityRows;
@@ -4279,8 +4280,12 @@ function showEntity(tr, frame) {
   searchText = (qualifier ? qualifier+'_ ' : '')+data.ObjectClassTerm;
   showOverlay(null, false, searchText);
   tableTitle = $('#'+entity_id+'-frame .table-title');
+  objectClassTerm = data.ObjectClassTerm;
   if (['adc', 'ads', 'adcs', 'saf', 'xbrlgl'].indexOf(frame) >= 0) {
-    tableTitle.text(data.ObjectClassTerm);
+    if ('_'==objectClassTerm.substr(0,1)) {
+      objectClassTerm = objectClassTerm.substr(1);
+    }
+    tableTitle.text(objectClassTerm);
   }
   else if ('peppol' == frame) {
     tableTitle.text(searchText.replace(/_/, ''));

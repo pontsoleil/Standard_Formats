@@ -126,20 +126,21 @@ if __name__ == '__main__':
             Representation = row['Representation']
             XBRLGL = row['XBRLGL']
             if 'ABIE'==Kind:
-                abie = {
-                    'seq': seq,
-                    'Module': module,
-                    'Kind': Kind,
-                    'Table': '',
-                    'Name': Name,
-                    'Level': 0,
-                    'DictionaryEntryName': DEN,
-                    'Description': Description,
-                    'ObjectClassTermQualifier': ObjectClassTermQualifier,
-                    'ObjectClassTerm': ObjectClassTerm,
-                    'Table': Table
-                }
-                abie_list.append(abie)
+                if 'choice'!=Name[:6] and 'sequence'!=Name[:8] and not '_' in Name and not '-' in Name:
+                    abie = {
+                        'seq': seq,
+                        'Module': module,
+                        'Kind': Kind,
+                        'Table': '',
+                        'Name': Name,
+                        'Level': 0,
+                        'DictionaryEntryName': DEN,
+                        'Description': Description,
+                        'ObjectClassTermQualifier': ObjectClassTermQualifier,
+                        'ObjectClassTerm': ObjectClassTerm,
+                        'Table': Table
+                    }
+                    abie_list.append(abie)
             elif num:
                 entity = {
                     'Module': module,

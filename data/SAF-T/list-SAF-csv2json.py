@@ -42,14 +42,11 @@ def file_path(pathname):
         new_path = os.path.join(dir, pathname)
         return new_path
 
-def CC2TC(name):
-    if not name:
-        return ''
-    name = re.sub(r'(choice|sequence)_',r'\1:',name)
-    name = re.sub(r'(?<!^)(?=[A-Z])',' ',name)
-    name = re.sub(r'([^\s])([\/\-\:])',r'\1 \2',name)
-    name = re.sub(r'([\/\-\:])([^\s])',r'\1 \2',name)
-    return name
+# Elegant Python function to convert CamelCase to snake_case?
+# https://stackoverflow.com/questions/1175208/elegant-python-function-to-convert-camelcase-to-snake-case
+def camel_to_title(name):
+    name = re.sub('(.)([A-Z][a-z]+)', r'\1 \2', name)
+    return re.sub('([a-z0-9])([A-Z])', r'\1 \2', name)
 
 if __name__ == '__main__':
     d = date.today()
@@ -58,7 +55,7 @@ if __name__ == '__main__':
     entity_file = dir+'/list-SAF-T-entity-'+d.isoformat()+'.json'
     abie_file =  dir+'/list-SAF-T-abie-'+d.isoformat()+'.json'
 
-    # csv_header = ['module','num','Kind','Table','Name','DictionaryEntryName','Description','ObjectClassTermQualifier','ObjectClassTerm']
+    # csv_header = ['module','num','Kind','Table','Name','DEN','Description','ObjectClassTermQualifier','ObjectClassTerm']
     csv_header = [
         'num',
         'Module',
@@ -89,22 +86,22 @@ if __name__ == '__main__':
             Module = row['Module']
             Kind = row['Kind']
             Name = row['Name']
-            Name = CC2TC(Name)
+            Name = camel_to_title(Name)
             Level = row['Level']
             Card = row['Card']
             Type = row['Type']
             Description = row['Description']
-            ObjectClassTermQualifier = CC2TC(row['ObjectClassTermQualifier'])
-            ObjectClassTerm = CC2TC(row['ObjectClassTerm'])
-            PropertyTermQualifier = CC2TC(row['PropertyTermQualifier'])
-            PropertyTerm = CC2TC(row['PropertyTerm'])
-            DatatypeQualifier = CC2TC(row['DatatypeQualifier'])
-            RepresentationTerm = CC2TC(row['RepresentationTerm'])
-            AssciatedObjectClassTermQualifier = CC2TC(row['AssciatedObjectClassTermQualifier'])
-            AssociatedObjectClass = CC2TC(row['AssociatedObjectClass'])
-            RepresentationTerm = CC2TC(row['RepresentationTerm'])
-            ReferencedObjectClassTermQualifier = CC2TC(row['ReferencedObjectClassTermQualifier'])
-            ReferencedObjectClass = CC2TC(row['ReferencedObjectClass'])
+            ObjectClassTermQualifier = camel_to_title(row['ObjectClassTermQualifier'])
+            ObjectClassTerm = camel_to_title(row['ObjectClassTerm'])
+            PropertyTermQualifier = camel_to_title(row['PropertyTermQualifier'])
+            PropertyTerm = camel_to_title(row['PropertyTerm'])
+            DatatypeQualifier = camel_to_title(row['DatatypeQualifier'])
+            RepresentationTerm = camel_to_title(row['RepresentationTerm'])
+            AssciatedObjectClassTermQualifier = camel_to_title(row['AssciatedObjectClassTermQualifier'])
+            AssociatedObjectClass = camel_to_title(row['AssociatedObjectClass'])
+            RepresentationTerm = camel_to_title(row['RepresentationTerm'])
+            ReferencedObjectClassTermQualifier = camel_to_title(row['ReferencedObjectClassTermQualifier'])
+            ReferencedObjectClass = camel_to_title(row['ReferencedObjectClass'])
             if ObjectClassTermQualifier:
                 _ObjectClassTerm = f'{ObjectClassTermQualifier}_ {ObjectClassTerm}'
             else:
@@ -126,15 +123,15 @@ if __name__ == '__main__':
             else:
                 _ReferencedObjectClass = ReferencedObjectClass
             if 'ABIE'==Kind:
-                DictionaryEntryName = f'{_ObjectClassTerm}. Detail'
+                DEN = f'{_ObjectClassTerm}. Detail'
             elif Kind in ['BBIE','IDBIE']:
-                DictionaryEntryName = f'{_ObjectClassTerm}. {_PropertyTerm}. {_RepresentationTerm}'
+                DEN = f'{_ObjectClassTerm}. {_PropertyTerm}. {_RepresentationTerm}'
             elif 'ASBIE'==Kind:
-                DictionaryEntryName = f'{_ObjectClassTerm}. {_PropertyTerm}. {_AssociatedObjectClass}'
+                DEN = f'{_ObjectClassTerm}. {_PropertyTerm}. {_AssociatedObjectClass}'
             elif 'RFBIE'==Kind:
-                DictionaryEntryName = f'{_ObjectClassTerm}. {_PropertyTerm}. {_ReferencedObjectClass}'
+                DEN = f'{_ObjectClassTerm}. {_PropertyTerm}. {_ReferencedObjectClass}'
             else:
-                DictionaryEntryName = ''
+                DEN = ''
             SAF = [
                 'AuditFile',
                 'Header',
@@ -151,7 +148,7 @@ if __name__ == '__main__':
                         'Table': '',
                         'Name': Name,
                         'Level': Level,
-                        'DictionaryEntryName': DictionaryEntryName,
+                        'DEN': DEN,
                         'Description': Description,
                         'ObjectClassTermQualifier': ObjectClassTermQualifier,
                         'ObjectClassTerm': ObjectClassTerm
@@ -167,7 +164,7 @@ if __name__ == '__main__':
                     'Level': Level,
                     'Card': Card,
                     'Type': Type,
-                    'DictionaryEntryName': DictionaryEntryName,
+                    'DEN': DEN,
                     'Description': Description,
                     'ObjectClassTermQualifier': ObjectClassTermQualifier,
                     'ObjectClassTerm': ObjectClassTerm,
