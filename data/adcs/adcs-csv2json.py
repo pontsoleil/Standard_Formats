@@ -109,15 +109,15 @@ if __name__ == '__main__':
             Description = row['Description']
             DictionaryEntryName = row['DictionaryEntryName']
             if 'ABIE'==Kind:
-                _DictionaryEntryName = f'{_ObjectClassTerm}. Details'
+                DEN = f'{_ObjectClassTerm}. Details'
             elif 'BBIE'==Kind or 'IDBIE':
-                _DictionaryEntryName = f'{_ObjectClassTerm}. {PropertyTerm}. {RepresentationTerm}'
+                DEN = f'{_ObjectClassTerm}. {PropertyTerm}. {RepresentationTerm}'
             elif 'ASBIE'==Kind:
-                _DictionaryEntryName = f'{_ObjectClassTerm}. {PropertyTerm}. {_AssociatedObjectClass}'
+                DEN = f'{_ObjectClassTerm}. {PropertyTerm}. {_AssociatedObjectClass}'
             elif 'RFBIE'==Kind:
-                _DictionaryEntryName = f'{_ObjectClassTerm}. {PropertyTerm}. {_ReferencedObjectClass}'
+                DEN = f'{_ObjectClassTerm}. {PropertyTerm}. {_ReferencedObjectClass}'
             else:
-                _DictionaryEntryName = ''
+                DEN = ''
             Table = row['Table']
             PK_REF = row['PK_REF']
             RefField = row['RefField']
@@ -133,7 +133,7 @@ if __name__ == '__main__':
                     'Table': '',
                     'Name': Name,
                     'Level': 0,
-                    'DictionaryEntryName': _DictionaryEntryName,
+                    'DictionaryEntryName': DEN,
                     'Description': Description,
                     'ObjectClassTermQualifier': ObjectClassTermQualifier,
                     'ObjectClassTerm': ObjectClassTerm,
@@ -150,7 +150,7 @@ if __name__ == '__main__':
                     'Level': 0,
                     'Card': Occurrence,
                     'Type': RepresentationTerm,
-                    'DictionaryEntryName': _DictionaryEntryName,
+                    'DictionaryEntryName': DEN,
                     'Description': Description,
                     'ObjectClassTermQualifier': ObjectClassTermQualifier,
                     'ObjectClassTerm': ObjectClassTerm,
