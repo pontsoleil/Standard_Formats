@@ -110,7 +110,7 @@ if __name__ == '__main__':
             DictionaryEntryName = row['DictionaryEntryName']
             if 'ABIE'==Kind:
                 _DictionaryEntryName = f'{_ObjectClassTerm}. Details'
-            elif 'BBIE'==Kind:
+            elif 'BBIE'==Kind or 'IDBIE':
                 _DictionaryEntryName = f'{_ObjectClassTerm}. {PropertyTerm}. {RepresentationTerm}'
             elif 'ASBIE'==Kind:
                 _DictionaryEntryName = f'{_ObjectClassTerm}. {PropertyTerm}. {_AssociatedObjectClass}'
