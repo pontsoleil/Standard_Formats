@@ -469,15 +469,15 @@
 1468,Source Documents,,TaxInformationStructure,BBIE,1,TaxExemptionReason,1..1,,TaxExemptionReason,,Text,,,,,SAFmiddle2textType,Tax exemption or reduction reason or rationale
 1469,Source Documents,,TaxInformationStructure,BBIE,1,TaxDeclarationPeriod,0..1,,TaxDeclarationPeriod,,Text,,,,,SAFmiddle1textType,The identification of the declaration/return in which the taxamount is reported to the Revenue body.
 1470,Common,,AddressStructure,ABIE,0,AddressStructure,1..1,,Details,,,,,,,,[Common to all SAFs] A common structure used wherever an address is required.
-1471,Common,,AddressStructure,BBIE,1,StreetName,0..1,,StreetName,,Text,,,,,SAFmiddle2textType,
-1472,Common,,AddressStructure,BBIE,2,Number,0..1,,Number,,Code,,,,,SAFshorttextType,
-1473,Common,,AddressStructure,BBIE,3,AdditionalAddressDetail,0..1,,AdditionalAddressDetail,,Text,,,,,SAFmiddle2textType,
-1474,Common,,AddressStructure,BBIE,4,Building,0..1,,Building,,Text,,,,,SAFmiddle1textType,
-1475,Common,,AddressStructure,BBIE,5,City,1..1,,City,,Text,,,,,SAFmiddle1textType,
-1476,Common,,AddressStructure,BBIE,6,PostalCode,1..1,,PostalCode,,Code,,,,,SAFshorttextType,
+1471,Common,,AddressStructure,BBIE,1,StreetName,0..1,,StreetName,,Text,,,,,SAFmiddle2textType,Street Name
+1472,Common,,AddressStructure,BBIE,2,Number,0..1,,Number,,Code,,,,,SAFshorttextType,Number
+1473,Common,,AddressStructure,BBIE,3,AdditionalAddressDetail,0..1,,AdditionalAddressDetail,,Text,,,,,SAFmiddle2textType,Additional Address Detail
+1474,Common,,AddressStructure,BBIE,4,Building,0..1,,Building,,Text,,,,,SAFmiddle1textType,Building
+1475,Common,,AddressStructure,BBIE,5,City,1..1,,City,,Text,,,,,SAFmiddle1textType,City
+1476,Common,,AddressStructure,BBIE,6,PostalCode,1..1,,PostalCode,,Code,,,,,SAFshorttextType,PostalCode
 1477,Common,,AddressStructure,BBIE,7,Region,0..1,,Region,,Text,,,,,SAFmiddle1textType,Country specific code to indicate regions / provinces within the tax authority. Preferably described according to ISO 3166-2. Example: GB-KEN for Kent county in the United Kingdom.
 1478,Common,,AddressStructure,BBIE,8,Country,0..1,,Country,,Code,,,,,ISOCountryCode,Two-letter country code according to ISO 3166-1 alpha 2 standard. Example NL for the Netherlands.
-1479,Common,,AddressStructure,BBIE,9,AddressType,0..1,,AddressType,,,,,,,,"Field to differentiate between multiple addresses. To indicate the type of address. Choose  from the predefined enumeration. (examples: StreetAddress PostalAddress, BillingAddress)"
+1479,Common,,AddressStructure,BBIE,9,AddressType,0..1,,AddressType,,enumeration,,,,,"StreetAddress PostalAddress BillingAddress ShipToAddress ShipFromAddress""","Field to differentiate between multiple addresses. To indicate the type of address. Choose  from the predefined enumeration. (examples: StreetAddress PostalAddress, BillingAddress)"
 1480,Common,,TaxIDStructure,ABIE,0,TaxIDStructure,1..1,,Details,,,,,,,,[Common to all SAFs] Tax information of a company.
 1481,Common,,TaxIDStructure,BBIE,1,TaxRegistrationNumber,1..1,,TaxRegistrationNumber,,Text,,,,,SAFmiddle1textType,Unique number issued by a Revenue Body for use by the company.
 1482,Common,,TaxIDStructure,BBIE,1,TaxType,1..1,,TaxType,,Code,,,,,SAFcodeType,For use where information reported in the SAF-T covers more than one type of tax regime: to identify the type of tax regime to which this entry relates.
