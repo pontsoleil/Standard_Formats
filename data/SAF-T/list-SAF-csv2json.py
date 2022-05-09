@@ -168,6 +168,8 @@ if __name__ == '__main__':
                     'Description': Description,
                     'ObjectClassTermQualifier': ObjectClassTermQualifier,
                     'ObjectClassTerm': ObjectClassTerm,
+                    'PropertyTermQualifier': PropertyTermQualifier,
+                    'PropertyTerm': PropertyTerm,
                     'DatatypeQualifier': DatatypeQualifier,
                     'RepresentationTerm': RepresentationTerm,
                     'AssociatedObjectClassTermQualifier': AssciatedObjectClassTermQualifier,
