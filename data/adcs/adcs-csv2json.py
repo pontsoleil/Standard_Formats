@@ -114,7 +114,7 @@ if __name__ == '__main__':
                 DEN = f'{_ObjectClassTerm}. {PropertyTerm}. {_AssociatedObjectClass}'
             elif 'RFBIE'==Kind:
                 DEN = f'{_ObjectClassTerm}. {PropertyTerm}. {_ReferencedObjectClass}'
-            elif 'BBIE'==Kind or 'IDBIE'==Kind:
+            elif Kind in ['BBIE','IDBIE']:
                 DEN = f'{_ObjectClassTerm}. {PropertyTerm}. {RepresentationTerm}'
             else:
                 DEN = ''
@@ -171,9 +171,9 @@ if __name__ == '__main__':
                 }
                 entity_list.append(entity)
 
-    # abie_sorted = sorted(abie_list, key=lambda x:x['seq'])
+    abie_sorted = sorted(abie_list, key=lambda x:x['seq'])
     with open(abie_file, 'w') as f:
-        json.dump({'data': abie_list}, f, indent=2)
+        json.dump({'data': abie_sorted}, f, indent=2)
 
     entity_sorted = sorted(entity_list, key=lambda x:x['Module']+x['ObjectClassTermQualifier']+x['ObjectClassTerm']+x['num'])
     with open(entity_file, 'w') as f:
