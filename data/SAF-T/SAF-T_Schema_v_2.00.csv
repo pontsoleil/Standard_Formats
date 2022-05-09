@@ -474,7 +474,7 @@
 1473,Common,,AddressStructure,BBIE,3,AdditionalAddressDetail,0..1,,AdditionalAddressDetail,,Text,,,,,SAFmiddle2textType,Additional Address Detail
 1474,Common,,AddressStructure,BBIE,4,Building,0..1,,Building,,Text,,,,,SAFmiddle1textType,Building
 1475,Common,,AddressStructure,BBIE,5,City,1..1,,City,,Text,,,,,SAFmiddle1textType,City
-1476,Common,,AddressStructure,BBIE,6,PostalCode,1..1,,PostalCode,,Code,,,,,SAFshorttextType,PostalCode
+1476,Common,,AddressStructure,BBIE,6,PostalCode,1..1,,PostalCode,,Code,,,,,SAFshorttextType,Postal Code
 1477,Common,,AddressStructure,BBIE,7,Region,0..1,,Region,,Text,,,,,SAFmiddle1textType,Country specific code to indicate regions / provinces within the tax authority. Preferably described according to ISO 3166-2. Example: GB-KEN for Kent county in the United Kingdom.
 1478,Common,,AddressStructure,BBIE,8,Country,0..1,,Country,,Code,,,,,ISOCountryCode,Two-letter country code according to ISO 3166-1 alpha 2 standard. Example NL for the Netherlands.
 1479,Common,,AddressStructure,BBIE,9,AddressType,0..1,,AddressType,,enumeration,,,,,"StreetAddress PostalAddress BillingAddress ShipToAddress ShipFromAddress""","Field to differentiate between multiple addresses. To indicate the type of address. Choose  from the predefined enumeration. (examples: StreetAddress PostalAddress, BillingAddress)"
