@@ -43,15 +43,15 @@
 1042,Master Files,,GeneralLedgerAccount,BBIE,5,GroupingCode,0..1,,GroupingCode,,Text,,,,,SAFmiddle1textType,"Subcode for grouping the accounts, relevant in reconciling financial statements f.i."
 1043,Master Files,,GeneralLedgerAccount,BBIE,6,AccountType,1..1,,AccountType,,Code,,,,,SAFshorttextType,Type of account  - Asset/Liability/Sale/Expense
 1044,Master Files,,GeneralLedgerAccount,BBIE,7,AccountCreationDate,0..1,,AccountCreationDate,,Date,,,,,date,Date of creating the generalledger account
-1045,Master Files,,GeneralLedgerAccount,ASBIE,8,choice:OpeningDebitBalance/ClosingDebitBalance,1..1,,Associated,,,,choice:OpeningDebitBalance/ClosingDebitBalance,,,,
-1046,Master Files,,GeneralLedgerAccount,ASBIE,9,choice:ClosingDebitBalance/ClosingCreditBalance,1..1,,Associated,,,,choice:ClosingDebitBalance/ClosingCreditBalance,,,,
+1045,Master Files,,GeneralLedgerAccount,ASBIE,8,choice:OpeningDebit/CreditBalance,1..1,,Associated,,,,choice:OpeningDebit/CreditBalance,,,,
+1046,Master Files,,GeneralLedgerAccount,ASBIE,9,choice:ClosingDebit/CreditBalance,1..1,,Associated,,,,choice:ClosingDebit/CreditBalance,,,,
 1047,Master Files,,GeneralLedgerAccount,BBIE,10,any##other,0..1,,any,,any,,,,,Represents space to allow individual Revenue Bodies to add further elements,Represents space to allow individual Revenue Bodies to add further elements
-1048,Master Files,,choice:OpeningDebitBalance/ClosingDebitBalance,ABIE,0,choice:OpeningDebitBalance/ClosingDebitBalance,1..1,,Details,,,,,,,,
-1049,Master Files,,choice:OpeningDebitBalance/ClosingDebitBalance,BBIE,1,OpeningDebitBalance,1..1,,OpeningDebitBalance,,Monetary,,,,,SAFmonetaryType,Debit balance at the start date of the selection period in the header's default currency.
-1050,Master Files,,choice:OpeningDebitBalance/ClosingDebitBalance,BBIE,2,OpeningCreditBalance,1..1,,OpeningCreditBalance,,Monetary,,,,,SAFmonetaryType,Credit balance at the start date of the selection period in the header's default currency.
-1051,Master Files,,choice:ClosingDebitBalance/ClosingCreditBalance,ABIE,0,choice:ClosingDebitBalance/ClosingCreditBalance,1..1,,Details,,,,,,,,
-1052,Master Files,,choice:ClosingDebitBalance/ClosingCreditBalance,BBIE,1,ClosingDebitBalance,1..1,,ClosingDebitBalance,,Monetary,,,,,SAFmonetaryType,Debit balance at the end date of the selection period in the header's default currency.
-1053,Master Files,,choice:ClosingDebitBalance/ClosingCreditBalance,BBIE,2,ClosingCreditBalance,1..1,,ClosingCreditBalance,,Monetary,,,,,SAFmonetaryType,Credit balance at the end date of the selection period in the header's default currency.
+1048,Master Files,,choice:OpeningDebit/CreditBalance,ABIE,0,choice:OpeningDebit/CreditBalance,1..1,,Details,,,,,,,,
+1049,Master Files,,choice:OpeningDebit/CreditBalance,BBIE,1,OpeningDebitBalance,1..1,,OpeningDebitBalance,,Monetary,,,,,SAFmonetaryType,Debit balance at the start date of the selection period in the header's default currency.
+1050,Master Files,,choice:OpeningDebit/CreditBalance,BBIE,2,OpeningCreditBalance,1..1,,OpeningCreditBalance,,Monetary,,,,,SAFmonetaryType,Credit balance at the start date of the selection period in the header's default currency.
+1051,Master Files,,choice:ClosingDebit/CreditBalance,ABIE,0,choice:ClosingDebit/CreditBalance,1..1,,Details,,,,,,,,
+1052,Master Files,,choice:ClosingDebit/CreditBalance,BBIE,1,ClosingDebitBalance,1..1,,ClosingDebitBalance,,Monetary,,,,,SAFmonetaryType,Debit balance at the end date of the selection period in the header's default currency.
+1053,Master Files,,choice:ClosingDebit/CreditBalance,BBIE,2,ClosingCreditBalance,1..1,,ClosingCreditBalance,,Monetary,,,,,SAFmonetaryType,Credit balance at the end date of the selection period in the header's default currency.
 1054,Master Files,,Taxonomies,ABIE,0,Taxonomies,0..1,,Details,,,,,,,,
 1055,Master Files,,Taxonomies,ASBIE,1,Taxonomy,1..*,,Associated,,,,Taxonomy,,,,
 1056,Master Files,,Taxonomy,ABIE,0,Taxonomy,1..*,,Details,,,,,,,,
@@ -69,8 +69,8 @@
 1068,Master Files,,Customer,IDBIE,2,CustomerID,0..1,,CustomerID,,Identifier,,,,,SAFmiddle1textType,Unique code for the customer
 1069,Master Files,,Customer,BBIE,3,SelfBillingIndicator,0..1,,SelfBillingIndicator,,Code,,,,,SAFcodeType,Indicator showing if a self-billing agreement exists between the customer and the supplier
 1070,Master Files,,Customer,RFBIE,4,AccountID,0..1,,Referenced,,Text,,,,GeneralLedgerAccounts,SAFmiddle2textType,"General Ledger Account code for this customer. Can be including sub-account id. It can contain many different levels to identify the Account. It could include cost centres such as company, division, region, group and branch/department."
-1071,Master Files,,Customer,ASBIE,5,choice:OpeningDebitBalance/OpeningCreditBalance,1..1,,Associated,,,,choice:OpeningDebitBalance/OpeningCreditBalance,,,,
-1072,Master Files,,Customer,ASBIE,6,choice:ClosingDebitBalance/ClosingCreditBalance,1..1,,Associated,,,,choice:ClosingDebitBalance/ClosingCreditBalance,,,,
+1071,Master Files,,Customer,ASBIE,5,choice:OpeningDebit/CreditBalance,1..1,,Associated,,,,choice:OpeningDebit/CreditBalance,,,,
+1072,Master Files,,Customer,ASBIE,6,choice:ClosingDebit/CreditBalance,1..1,,Associated,,,,choice:ClosingDebit/CreditBalance,,,,
 1073,Source Documents,,Customer,BBIE,7,any##other,0..1,,any,,any,,,,,Represents space to allow individual Revenue Bodies to add further elements,Represents space to allow individual Revenue Bodies to add further elements
 1074,Master Files,,Suppliers,ABIE,0,Suppliers,0..1,,Details,,,,,,,,
 1075,Master Files,,Suppliers,ASBIE,1,Supplier,0..*,,Associated,,,,Supplier,,,,
@@ -79,8 +79,8 @@
 1078,Master Files,,Supplier,IDBIE,2,SupplierID,0..1,,SupplierID,,Identifier,,,,,SAFmiddle1textType,Unique code for the supplier
 1079,Master Files,,Supplier,BBIE,3,SelfBillingIndicator,0..1,,SelfBillingIndicator,,Code,,,,,SAFcodeType,Indicator showing if a self-billing agreement exists between the customer and the supplier
 1080,Master Files,,Supplier,RFBIE,4,AccountID,0..1,,Referenced,,Text,,,,GeneralLedgerAccounts,SAFmiddle2textType,"General Ledger Account code for this supplier. Can be including sub-account id. It can contain many different levels to identify the Account. It could include cost centres such as company, division, region, group and branch/department."
-1081,Master Files,,Supplier,ASBIE,5,choice:OpeningDebitBalance/OpeningCreditBalance,1..1,,Associated,,,,choice:OpeningDebitBalance/OpeningCreditBalance,,,,
-1082,Master Files,,Supplier,ASBIE,6,choice:ClosingDebitBalance/ClosingCreditBalance,1..1,,Associated,,,,choice:ClosingDebitBalance/ClosingCreditBalance,,,,
+1081,Master Files,,Supplier,ASBIE,5,choice:OpeningDebit/CreditBalance,1..1,,Associated,,,,choice:OpeningDebit/CreditBalance,,,,
+1082,Master Files,,Supplier,ASBIE,6,choice:ClosingDebit/CreditBalance,1..1,,Associated,,,,choice:ClosingDebit/CreditBalance,,,,
 1083,Source Documents,,Supplier,BBIE,7,any##other,0..1,,any,,any,,,,,Represents space to allow individual Revenue Bodies to add further elements,Represents space to allow individual Revenue Bodies to add further elements
 1084,Master Files,,TaxTable,ABIE,0,TaxTable,0..1,,Details,,,,,,,,
 1085,Master Files,,TaxTable,ASBIE,1,TaxTableEntry,1..*,,Associated,,,,TaxTableEntry,,,,
