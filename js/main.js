@@ -195,18 +195,31 @@ function showOverlay(pane, autoclose, title_html) {
       else {
         frameTitle2 = $('#'+frame2+'-title');
       }
-      title_html = (title_html
-        ? title_html+'<br>vs<br>'
-        : '')+
-        frameTitle2.html().trim();
+      if (title_html.length > 0 && frameTitle2.length > 0) {
+        title_html = (title_html
+          ? title_html+'<br>vs<br>'
+          : '')+
+          frameTitle2.html().trim();
+      }
+      else {
+        title_html = '';
+      }
     }
   }
   $('.overlay').removeClass('d-none');
   $('.overlay .title').html(title_html);
-  if (autoclose) {
+  if (title_html) {
+    if (autoclose) {
+      setTimeout(function() {
+        hideOverlay();
+      }, 20000);
+    }
+  }
+  else {
+    $('.overlay .title').html(frame1+' or '+frame2+' does not exists.');
     setTimeout(function() {
-      hideOverlay();
-    }, 5000);
+      location.replace(location.href)
+    }, 20000);
   }
 }
 function setFrame(num, frame) {
@@ -219,8 +232,9 @@ function setFrame(num, frame) {
   frame = match[2] || match[3];
   pane[num] = frame;
 
-  showOverlay(pane, /** autoclose */true);
-
+  if (pane[1] && pane[2]) {
+    showOverlay(pane, /** autoclose */true);
+  }
   // save table title
   for (table in table_title[frame]) {
     title = $('#'+table+'-frame .table-title').text();
@@ -443,7 +457,7 @@ function adc_entity_format(d) { // d is the original data object for the row
   )+'</td>'+
   '<td>'+(d.DictionaryEntryName ? d.DictionaryEntryName : '')+'</td></tr>'+
   (d.ObjectClassTerm
-    ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Object Class Term:</td>'+
+    ? '<tr><td style="font-size:smaller;float:right">Object Class Term:</td>'+
       '<td>'+(d.ObjectClassTermQualifier ? d.ObjectClassTermQualifier+'_ ' : '')+d.ObjectClassTerm+'</td></tr>'
     : ''
   )+
@@ -452,14 +466,14 @@ function adc_entity_format(d) { // d is the original data object for the row
         '<tr><td>XML</td><td>'+nameAC+'.xsd</td></tr>'+
         '<tr><td>JSON</td><td>'+nameAC+'.json</td></tr>'
     : (d.PropertyTerm
-        ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Property Term:</td>'+
+        ? '<tr><td style="font-size:smaller;float:right">Property Term:</td>'+
           '<td>'+(d.PropertyTermQualifier ? d.PropertyTermQualifier+'_ ' : '')+' '+d.PropertyTerm+'</td></tr>'
         : '')+
       (d.RepresentationTerm
-        ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Representation Term:</td><td>'+d.RepresentationTerm+'</td></tr>'
+        ? '<tr><td style="font-size:smaller;float:right">Representation Term:</td><td>'+d.RepresentationTerm+'</td></tr>'
         : '')+
       (d.AssociatedObjectClass
-        ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Associated Object Class:</td>'+
+        ? '<tr><td style="font-size:smaller;float:right">Associated Object Class:</td>'+
           '<td>'+
             (d.AssociatedObjectClassTermQualifier ? d.AssociatedObjectClassTermQualifier+'_ ' : '')+
             d.AssociatedObjectClass+
@@ -503,10 +517,10 @@ function adc_dt_format(d) { // d is the original data object for the row
   '<tr><td>'+(d.UNID ? d.UNID : 'Dictionary Entry Name:')+'</td>'+
   '<td>'+d.DictionaryEntryName+'</td></tr>'+
   (d.PropertyTerm
-    ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Property Term:</td><td>'+d.PropertyTerm+'</td></tr>'
+    ? '<tr><td style="font-size:smaller;float:right">Property Term:</td><td>'+d.PropertyTerm+'</td></tr>'
     : '')+
   (d.RepresentationTerm
-    ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Representation Term:</td><td>'+
+    ? '<tr><td style="font-size:smaller;float:right">Representation Term:</td><td>'+
       (d.DatatypeQualifier ? d.DatatypeQualifier+'_ ' : '')+d.RepresentationTerm+'</td></tr>'
     : '')+
   ('CC' === d.Kind
@@ -535,23 +549,23 @@ function xbrlgl_entity_format(d) { // d is the original data object for the row
     ? '<tr><td colspan="2">'+d.Description+'</td><tr>'
     : '')+
   (d.ObjectClassTerm
-  ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Object Class Term:</td>'+
+  ? '<tr><td style="font-size:smaller;float:right">Object Class Term:</td>'+
     '<td>'+
     (d.ObjectClassTermQualifier ? d.ObjectClassTermQualifier+'_ ' : '')+
     d.ObjectClassTerm+'</td></tr>'
   : '')+
   (d.PropertyTerm
-  ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Property Term:</td>'+
+  ? '<tr><td style="font-size:smaller;float:right">Property Term:</td>'+
     '<td>'+
       (d.PropertyTermQualifier ? d.PropertyTermQualifier+'_ ' : '')+d.PropertyTerm+
     '</td></tr>'
   : '')+
   (d.RepresentationTerm
-  ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Representation Term:</td>'+
+  ? '<tr><td style="font-size:smaller;float:right">Representation Term:</td>'+
     '<td>'+d.RepresentationTerm+'</td></tr>'
   : '')+
   (d.AssociatedObjectClass
-  ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Associated Object Class:</td>'+
+  ? '<tr><td style="font-size:smaller;float:right">Associated Object Class:</td>'+
     '<td>'+
       (d.AssociatedObjectClassTermQualifier
         ? d.AssociatedObjectClassTermQualifier+'_ '
@@ -645,7 +659,7 @@ function ts5409_entity_format(d) { // d is the original data object for the row
       )
   )+'</td><td>'+(d.DictionaryEntryName ? d.DictionaryEntryName : '')+'</td></tr>'+
   (d.ObjectClassTerm
-    ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Object Class Term:</td>'+
+    ? '<tr><td style="font-size:smaller;float:right">Object Class Term:</td>'+
       '<td>'+(d.ObjectClassTermQualifier ? d.ObjectClassTermQualifier+'_ ' : '')+d.ObjectClassTerm+'</td></tr>'
     : ''
   )+
@@ -654,14 +668,14 @@ function ts5409_entity_format(d) { // d is the original data object for the row
         '<tr><td>XML</td><td>'+nameAC+'.xsd</td></tr>'+
         '<tr><td>JSON</td><td>'+nameAC+'.json</td></tr>'
     : (d.PropertyTerm
-        ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Property Term:</td>'+
+        ? '<tr><td style="font-size:smaller;float:right">Property Term:</td>'+
           '<td>'+(d.PropertyTermQualifier ? d.PropertyTermQualifier+'_ ' : '')+' '+d.PropertyTerm+'</td></tr>'
         : '')+
       (d.RepresentationTerm
-        ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Representation Term:</td><td>'+d.RepresentationTerm+'</td></tr>'
+        ? '<tr><td style="font-size:smaller;float:right">Representation Term:</td><td>'+d.RepresentationTerm+'</td></tr>'
         : '')+
       (d.AssociatedObjectClass
-        ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Associated Object Class:</td>'+
+        ? '<tr><td style="font-size:smaller;float:right">Associated Object Class:</td>'+
           '<td>'+
             (d.AssociatedObjectClassTermQualifier ? d.AssociatedObjectClassTermQualifier+'_ ' : '')+
             d.AssociatedObjectClass+
@@ -703,10 +717,10 @@ function ts5409_dt_format(d) { // d is the original data object for the row
   '<tr><td>'+(d.UNID ? d.UNID : 'Dictionary Entry Name:')+'</td>'+
   '<td>'+d.DictionaryEntryName+'</td></tr>'+
   (d.PropertyTerm
-    ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Property Term:</td><td>'+d.PropertyTerm+'</td></tr>'
+    ? '<tr><td style="font-size:smaller;float:right">Property Term:</td><td>'+d.PropertyTerm+'</td></tr>'
     : '')+
   (d.RepresentationTerm
-    ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Representation Term:</td><td>'+
+    ? '<tr><td style="font-size:smaller;float:right">Representation Term:</td><td>'+
       (d.DatatypeQualifier ? d.DatatypeQualifier+'_ ' : '')+d.RepresentationTerm+'</td></tr>'
     : '')+
   ('CC' === d.Kind
@@ -748,14 +762,14 @@ function ads_entity_format(d) { // d is the original data object for the row
   '</colgroup>'+
   (description ? '<tr><td colspan="2">'+description+'</td><tr>' : '')+
   '<tr><td style="font-size:smaller">Dictionary Entry Name:</td><td>'+d.DictionaryEntryName+'</td><tr>'+
-  '<tr><td style="font-size:smaller">&nbsp;&nbsp;object class term:</td>'+
+  '<tr><td style="font-size:smaller;float:right">object class term:</td>'+
     '<td>'+
     (d.ObjectClassTermQualifier
       ? d.ObjectClassTermQualifier+'_ '
       : '')+
     d.ObjectClassTerm+'</td><tr>'+
   (d.PropertyTerm
-    ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Property Term:</td>'+
+    ? '<tr><td style="font-size:smaller;float:right">Property Term:</td>'+
         '<td>'+
         (d.PropertyTermQualifier
           ? d.PropertyTermQualifier+'_ '
@@ -763,7 +777,7 @@ function ads_entity_format(d) { // d is the original data object for the row
         d.PropertyTerm+'</td><tr>'
     : '')+
   ("BBIE" === d.Kind
-    ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Representation Term:</td>'+
+    ? '<tr><td style="font-size:smaller;float:right">Representation Term:</td>'+
         '<td>'+
         (d.DatatypeQualifier
           ? d.DatatypeQualifier+'_ '
@@ -771,7 +785,7 @@ function ads_entity_format(d) { // d is the original data object for the row
         d.RepresentationTerm+'</td><tr>'
     : '')+
   ("ASBIE" === d.Kind
-    ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Associated Object Class:</td>'+
+    ? '<tr><td style="font-size:smaller;float:right">Associated Object Class:</td>'+
           '<td>'+d.AssociatedObjectClass+'</td></tr>'
     : '')+
   (d.DataType
@@ -814,16 +828,16 @@ function cc_format(d) { // d is the original data object for the row
       : d.ObjectClassTerm+'. '+d.PropertyTerm+'. '+d.AssociatedObjectClass+'</td>')+
   '</tr>'+
   (d.ObjectClassTerm
-    ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Object Class Term:</td><td>'+d.ObjectClassTerm+'</td></tr>'
+    ? '<tr><td style="font-size:smaller;float:right">Object Class Term:</td><td>'+d.ObjectClassTerm+'</td></tr>'
     : '')+
   (d.PropertyTerm
-    ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Property Term:</td><td>'+d.PropertyTerm+'</td></tr>'
+    ? '<tr><td style="font-size:smaller;float:right">Property Term:</td><td>'+d.PropertyTerm+'</td></tr>'
     : '')+
   ('BCC' === d.Kind && d.RepresentationTerm
-    ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Representation Term:</td><td>'+d.RepresentationTerm+'</td></tr>'
+    ? '<tr><td style="font-size:smaller;float:right">Representation Term:</td><td>'+d.RepresentationTerm+'</td></tr>'
     : '')+
   ('ASCC' === d.Kind && d.AssociatedObjectClass
-    ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Associated Object Class:</td><td>'+d.AssociatedObjectClass+'</td></tr>'
+    ? '<tr><td style="font-size:smaller;float:right">Associated Object Class:</td><td>'+d.AssociatedObjectClass+'</td></tr>'
     : '')+
   '</table>';
   return html;
@@ -955,15 +969,15 @@ function qdt_format(d) { // d is the original data object for the row
   '<col span="1" style="width: '+H2+'%;">'+
   '</colgroup>'+
   (d.ObjectClassTerm
-    ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Object Class Term:</td><td>'+
+    ? '<tr><td style="font-size:smaller;float:right">Object Class Term:</td><td>'+
       (d.ObjectClassTermQualifier ? d.ObjectClassTermQualifier+'_ ' : '')+
       d.ObjectClassTerm+'</td></tr>'
     : '')+
   (d.PropertyTerm
-    ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Property Term:</td><td>'+d.PropertyTerm+'</td></tr>'
+    ? '<tr><td style="font-size:smaller;float:right">Property Term:</td><td>'+d.PropertyTerm+'</td></tr>'
     : '')+
   (d.RepresentationTerm
-    ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Representation Term:</td><td>'+
+    ? '<tr><td style="font-size:smaller;float:right">Representation Term:</td><td>'+
       (d.DatatypeQualifier ? d.DatatypeQualifier+'_ ' : '')+d.RepresentationTerm+'</td></tr>'
     : '')+
   (d.Enumeration
@@ -994,30 +1008,30 @@ function ubl_entity_format(d) { // d is the original data object for the row
       (d.base ? ' base:'+d.base : '')+'</td></tr>'
     : '')+
   (d.ObjectClass
-    ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Object Class Term:</td><td>'+
+    ? '<tr><td style="font-size:smaller;float:right">Object Class Term:</td><td>'+
       (d.ObjectClassQualifier ? d.ObjectClassQualifier+'_ ' : '')+
       d.ObjectClass+'</td></tr>'
     : '')+
   (d.PropertyTerm
-    ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Property Term:</td><td>'+
+    ? '<tr><td style="font-size:smaller;float:right">Property Term:</td><td>'+
       (d.PropertyTermQualifier ? d.PropertyTermQualifier+'_ ' : '')+
       d.PropertyTerm+'</td></tr>'
     : '')+
   ('BBIE' === d.ComponentType && d.RepresentationTerm
-    ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Representation Term:</td><td>'+
+    ? '<tr><td style="font-size:smaller;float:right">Representation Term:</td><td>'+
       (d.DataTypeQualifier ? d.DataTypeQualifier+'_ ' : '')+' '+d.RepresentationTerm+'</td></tr>'
     : '')+
   ('BBIE' === d.ComponentType && d.DataType
-    ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Datatype:</td><td>'+
+    ? '<tr><td style="font-size:smaller;float:right">Datatype:</td><td>'+
       (d.DataType ? d.DataType : '')+'</td></tr>'
     : '')+
   ('ASBIE' === d.ComponentType && d.AssociatedObjectClass
-    ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Associated Object Class:</td><td>'+
+    ? '<tr><td style="font-size:smaller;float:right">Associated Object Class:</td><td>'+
       (d.AssociatedObjectClassTermQualifier ? d.AssociatedObjectClassTermQualifier+'_ ' : '')+
       d.AssociatedObjectClass+'</td></tr>'
     : '')+
   (d.UsageRule
-    ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Usage Rule:</td><td>'+d.UsageRule+'</td></tr>'
+    ? '<tr><td style="font-size:smaller;float:right">Usage Rule:</td><td>'+d.UsageRule+'</td></tr>'
     : '')+
   '</table>';
   return html;
@@ -1064,18 +1078,18 @@ function ubl_dt_format(d) { // d is the original data object for the row
     var _d = foundArray[i];
     related += 
       '<tr><td>'+_d.UniqueID+'</td><td>'+_d.CategoryCode+'_ '+_d.DictionaryEntryName+'</td></tr>'+
-      '<tr><td style="font-size:smaller">&nbsp;&nbsp;&nbsp;Name:</td><td>'+_d.name+'</td></tr>'+
-      '<tr><td style="font-size:smaller">&nbsp;&nbsp;&nbsp;Definition:</td><td>'+_d.Definition+'</td></tr>'+
+      '<tr><td style="font-size:smaller;float:right">&nbsp;Name:</td><td>'+_d.name+'</td></tr>'+
+      '<tr><td style="font-size:smaller;float:right">&nbsp;Definition:</td><td>'+_d.Definition+'</td></tr>'+
       (_d.UsageRule
-        ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;&nbsp;Usage Rule:</td><td>'+_d.UsageRule+'</td></tr>'
+        ? '<tr><td style="font-size:smaller;float:right">&nbsp;Usage Rule:</td><td>'+_d.UsageRule+'</td></tr>'
         : '')+
       (_d.ObjectClass
-        ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;&nbsp;Object Class Term:</td><td>'+_d.ObjectClass+'</td></tr>'
+        ? '<tr><td style="font-size:smaller;float:right">&nbsp;Object Class Term:</td><td>'+_d.ObjectClass+'</td></tr>'
         : '')+
       (_d.PropertyTermName
-        ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;&nbsp;Property Term:</td><td>'+_d.PropertyTermName+'</td></tr>' : '')+
+        ? '<tr><td style="font-size:smaller;float:right">&nbsp;Property Term:</td><td>'+_d.PropertyTermName+'</td></tr>' : '')+
       (_d.RepresentationTermName
-        ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;&nbsp;Representation Term:</td><td>'+_d.RepresentationTermName+'</td></tr>' : '')+
+        ? '<tr><td style="font-size:smaller;float:right">&nbsp;Representation Term:</td><td>'+_d.RepresentationTermName+'</td></tr>' : '')+
       '<tr><td></td>'+
         '<td>'+(_d.type ? _d.type : '')+' '+(_d.PrimitiveType ? '&nbsp;&nbsp;(primitive type:'+_d.PrimitiveType+')'
         : '')+
@@ -1095,13 +1109,13 @@ function ubl_dt_format(d) { // d is the original data object for the row
   '<tr><td></td><td>'+
       (d.base ? ' base:'+d.base : '')+'(primitive type:'+d.PrimitiveType+')</td></tr>'+
   (d.ObjectClass
-    ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Object Class Term:</td><td>'+d.ObjectClass+'</td></tr>'
+    ? '<tr><td style="font-size:smaller;float:right">Object Class Term:</td><td>'+d.ObjectClass+'</td></tr>'
     : '')+
   d.PropertyTermName
-    ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Property Term:</td><td>'+d.PropertyTermName+'</td></tr>'
+    ? '<tr><td style="font-size:smaller;float:right">Property Term:</td><td>'+d.PropertyTermName+'</td></tr>'
     : '')+
   (d.RepresentationTermName
-    ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Representation Term:</td><td>'+d.RepresentationTermName+'</td></tr>'
+    ? '<tr><td style="font-size:smaller;float:right">Representation Term:</td><td>'+d.RepresentationTermName+'</td></tr>'
     : '')+
   (d.UsageRule
     ? '<tr><td  style="font-size:smaller">Usage Rule:</td><td>'+d.UsageRule+'</td></tr>'
@@ -1126,7 +1140,7 @@ function peppol_entity_format(d) { // d is the original data object for the row
       : ''
     );
   html += description;
-  datatype = ('BBIE' === d.Kind && d.datatype
+  datatype = (('BBIE' === d.Kind || 'IDBIE' === d.Kind) && d.datatype
       ? '<tr><td>Semantic Data Type:</td><td>'+
         d.datatype+'</td></tr>'
       : ''
@@ -1139,28 +1153,28 @@ function peppol_entity_format(d) { // d is the original data object for the row
     '</td></tr>';
   html += DEN;
   objectClass = (d.ObjectClassTerm
-      ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Object Class Term:</td><td>'+
+      ? '<tr><td style="font-size:smaller;float:right">Object Class Term:</td><td>'+
         (d.ObjectClassTermQualifier ? d.ObjectClassTermQualifier+'_ ' : '')+
         d.ObjectClassTerm+'</td></tr>'
       : ''
     );
   html += objectClass;
   propertyTerm = (d.PropertyTerm
-      ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Property Term:</td><td>'+
+      ? '<tr><td style="font-size:smaller;float:right">Property Term:</td><td>'+
         (d.PropertyTermQualifier ? d.PropertyTermQualifier+'_ ' : '')+
         d.PropertyTerm+'</td></tr>'
       : ''
     );
   html += propertyTerm;
-  representationTerm = ('BBIE' === d.Kind && d.RepresentationTerm
-      ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Representation Term:</td><td>'+
+  representationTerm = (('BBIE' === d.Kind || 'IDBIE' === d.Kind) && d.RepresentationTerm
+      ? '<tr><td style="font-size:smaller;float:right">Representation Term:</td><td>'+
         (d.DataTypeQualifier ? d.DataTypeQualifier+'_ ' : '')+
         d.RepresentationTerm+'</td></tr>'
       : ''
     );
   html += representationTerm;
   associatedObjectClass = ('ASBIE' === d.Kind && d.AssociatedObjectClass
-    ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Associated Object Class:</td><td>'+
+    ? '<tr><td style="font-size:smaller;float:right">Associated Object Class:</td><td>'+
         (d.AssociatedObjectClassTermQualifier ? d.AssociatedObjectClassTermQualifier+'_ ' : '')+
         d.AssociatedObjectClass+'</td></tr>'
       : ''
@@ -1172,7 +1186,7 @@ function peppol_entity_format(d) { // d is the original data object for the row
     );
   html += xPath.replace(/\/c/g,'/ c');
   ublDatatype = (d.UBL_Datatype
-      ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;UBL Datatype:</td><td>'+
+      ? '<tr><td style="font-size:smaller;float:right">UBL Datatype:</td><td>'+
         d.UBL_Datatype+(d.UBL_Cardinality ? ' '+d.UBL_Cardinality : '')+'</td></tr>'
       : ''
     );
@@ -1197,7 +1211,7 @@ function gb_entity_format(d) { // d is the original data object for the row
       : ''
     );
   html += description;
-  datatype = ('BBIE' === d.Kind && d.datatype
+  datatype = (('BBIE' === d.Kind || 'IDBIE' === d.Kind) && d.datatype
       ? '<tr><td>Semantic Data Type:</td><td>'+
         d.datatype+'</td></tr>'
       : ''
@@ -1210,28 +1224,28 @@ function gb_entity_format(d) { // d is the original data object for the row
     '</td></tr>';
   html += DEN;
   objectClass = (d.ObjectClassTerm
-      ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Object Class Term:</td><td>'+
+      ? '<tr><td style="font-size:smaller;float:right">Object Class Term:</td><td>'+
         (d.ObjectClassTermQualifier ? d.ObjectClassTermQualifier+'_ ' : '')+
         d.ObjectClassTerm+'</td></tr>'
       : ''
     );
   html += objectClass;
   propertyTerm = (d.PropertyTerm
-      ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Property Term:</td><td>'+
+      ? '<tr><td style="font-size:smaller;float:right">Property Term:</td><td>'+
         (d.PropertyTermQualifier ? d.PropertyTermQualifier+'_ ' : '')+
         d.PropertyTerm+'</td></tr>'
       : ''
     );
   html += propertyTerm;
-  representationTerm = ('BBIE' === d.Kind && d.RepresentationTerm
-      ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Representation Term:</td><td>'+
+  representationTerm = (('BBIE' === d.Kind || 'IDBIE' === d.Kind) && d.RepresentationTerm
+      ? '<tr><td style="font-size:smaller;float:right">Representation Term:</td><td>'+
         (d.DataTypeQualifier ? d.DataTypeQualifier+'_ ' : '')+
         d.RepresentationTerm+'</td></tr>'
       : ''
     );
   html += representationTerm;
   associatedObjectClass = ('ASBIE' === d.Kind && d.AssociatedObjectClass
-    ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Associated Object Class:</td><td>'+
+    ? '<tr><td style="font-size:smaller;float:right">Associated Object Class:</td><td>'+
         (d.AssociatedObjectClassTermQualifier ? d.AssociatedObjectClassTermQualifier+'_ ' : '')+
         d.AssociatedObjectClass+'</td></tr>'
       : ''
@@ -1243,7 +1257,7 @@ function gb_entity_format(d) { // d is the original data object for the row
     );
   html += xPath.replace(/\/c/g,'/ c');
   ublDatatype = (d.UBL_Datatype
-      ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;UBL Datatype:</td><td>'+
+      ? '<tr><td style="font-size:smaller;float:right">UBL Datatype:</td><td>'+
         d.UBL_Datatype+(d.UBL_Cardinality ? ' '+d.UBL_Cardinality : '')+'</td></tr>'
       : ''
     );
@@ -1268,11 +1282,17 @@ function saf_entity_format(d) { // d is the original data object for the row
       : ''
     );
   html += description;
-  datatype = ('BBIE' === d.Kind && d.datatype
+  datatype = (('BBIE' === d.Kind || 'IDBIE' === d.Kind) && d.RepresentationTerm
       ? '<tr><td>Semantic Data Type:</td><td>'+
-        d.datatype+'</td></tr>'
+        d.RepresentationTerm+'</td></tr>'
       : ''
     );
+  html += datatype;
+  datatype = (('BBIE' === d.Kind || 'IDBIE' === d.Kind) && d.Type
+    ? '<tr><td style="font-size:smaller;float:right">@type:</td><td>'+
+      d.Type+'</td></tr>'
+    : ''
+  );
   html += datatype;
   DEN = '<tr><td>'+
     (d.DictionaryEntryName
@@ -1281,45 +1301,48 @@ function saf_entity_format(d) { // d is the original data object for the row
     '</td></tr>';
   html += DEN;
   objectClass = (d.ObjectClassTerm
-      ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Object Class Term:</td><td>'+
+      ? '<tr><td style="font-size:smaller;float:right">Object Class Term:</td><td>'+
         (d.ObjectClassTermQualifier ? d.ObjectClassTermQualifier+'_ ' : '')+
         d.ObjectClassTerm+'</td></tr>'
       : ''
     );
   html += objectClass;
   propertyTerm = (d.PropertyTerm
-      ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Property Term:</td><td>'+
+      ? '<tr><td style="font-size:smaller;float:right">Property Term:</td><td>'+
         (d.PropertyTermQualifier ? d.PropertyTermQualifier+'_ ' : '')+
         d.PropertyTerm+'</td></tr>'
       : ''
     );
   html += propertyTerm;
-  representationTerm = ('BBIE' === d.Kind && d.RepresentationTerm
-      ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Representation Term:</td><td>'+
+  representationTerm = (('BBIE' === d.Kind || 'IDBIE' === d.Kind) && d.RepresentationTerm
+      ? '<tr><td style="font-size:smaller;float:right">Representation Term:</td><td>'+
         (d.DataTypeQualifier ? d.DataTypeQualifier+'_ ' : '')+
         d.RepresentationTerm+'</td></tr>'
       : ''
     );
   html += representationTerm;
   associatedObjectClass = ('ASBIE' === d.Kind && d.AssociatedObjectClass
-    ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Associated Object Class:</td><td>'+
+    ? '<tr><td style="font-size:smaller;float:right">Associated Object Class:</td><td>'+
         (d.AssociatedObjectClassTermQualifier ? d.AssociatedObjectClassTermQualifier+'_ ' : '')+
         d.AssociatedObjectClass+'</td></tr>'
       : ''
     );
   html += associatedObjectClass;
-  type = (d.Type
-      ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;@type:</td><td>'+d.Type+'</td></tr>'
+  referencedObjectClass = ('RFBIE' === d.Kind && d.ReferencedObjectClass
+    ? '<tr><td style="font-size:smaller;float:right">Referenced Object Class:</td><td>'+
+        (d.ReferencedObjectClassTermQualifier ? d.ReferencedObjectClassTermQualifier+'_ ' : '')+
+        d.ReferencedObjectClass+'</td></tr>'
       : ''
     );
-  html += type;
+  html += referencedObjectClass;
   html += '</table>';
   return html;
 }
 function adcs_entity_format(d) { // d is the original data object for the row
   if (!d) { return null; }
-  var html, description, DEN, datatype, objectClass, propertyTerm, representationTerm, associatedObjectClass, xPath, ublDatatype;
-  html = '<table cellpadding="4" cellspacing="0" border="0" style="width:100%; padding-left:16px;">'+
+  var html, description, DEN, datatype,
+  representation, objectClass, propertyTerm, representationTerm, associatedObjectClass, referencedObjectClass;
+html = '<table cellpadding="4" cellspacing="0" border="0" style="width:100%; padding-left:16px;">'+
   '<colgroup>'+
   '<col span="1" style="width: '+H1+'%;">'+
   '<col span="1" style="width: '+H2+'%;">'+
@@ -1333,12 +1356,20 @@ function adcs_entity_format(d) { // d is the original data object for the row
       : ''
     );
   html += description;
-  datatype = ('BBIE' === d.Kind && d.datatype
-      ? '<tr><td>Semantic Data Type:</td><td>'+
-        d.datatype+'</td></tr>'
-      : ''
-    );
+  datatype = (('BBIE' === d.Kind || 'IDBIE' === d.Kind) && d.Type
+    ? '<tr><td>Semantic Data Type:</td><td>'+d.Type+'</td></tr>'
+    : ''
+  );
   html += datatype;
+  datatype = (('BBIE' === d.Kind || 'IDBIE' === d.Kind) && d.Datatype
+    ? '<tr><td style="font-size:smaller;float:right">Data Type:</td><td>'+d.Datatype
+    : ''
+  );
+  representation =  (('BBIE' === d.Kind || 'IDBIE' === d.Kind) && d.Representation
+    ? ' ( Representation: '+d.Representation+' )'
+    : ''
+  )+'</td></tr>';
+  html += datatype+representation;
   DEN = '<tr><td>'+
     (d.DictionaryEntryName
       ? 'Dictionary Entry Name:</td><td>'+d.DictionaryEntryName
@@ -1346,45 +1377,49 @@ function adcs_entity_format(d) { // d is the original data object for the row
     '</td></tr>';
   html += DEN;
   objectClass = (d.ObjectClassTerm
-      ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Object Class Term:</td><td>'+
+      ? '<tr><td style="font-size:smaller;float:right">Object Class Term:</td><td>'+
         (d.ObjectClassTermQualifier ? d.ObjectClassTermQualifier+'_ ' : '')+
         d.ObjectClassTerm+'</td></tr>'
       : ''
     );
   html += objectClass;
   propertyTerm = (d.PropertyTerm
-      ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Property Term:</td><td>'+
+      ? '<tr><td style="font-size:smaller;float:right">Property Term:</td><td>'+
         (d.PropertyTermQualifier ? d.PropertyTermQualifier+'_ ' : '')+
         d.PropertyTerm+'</td></tr>'
       : ''
     );
   html += propertyTerm;
-  representationTerm = ('BBIE' === d.Kind && d.RepresentationTerm
-      ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Representation Term:</td><td>'+
+  representationTerm = (('BBIE' === d.Kind || 'IDBIE' === d.Kind) && d.RepresentationTerm
+      ? '<tr><td style="font-size:smaller;float:right">Representation Term:</td><td>'+
         (d.DataTypeQualifier ? d.DataTypeQualifier+'_ ' : '')+
         d.RepresentationTerm+'</td></tr>'
       : ''
     );
   html += representationTerm;
   associatedObjectClass = ('ASBIE' === d.Kind && d.AssociatedObjectClass
-    ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Associated Object Class:</td><td>'+
+    ? '<tr><td style="font-size:smaller;float:right">Associated Object Class:</td><td>'+
         (d.AssociatedObjectClassTermQualifier ? d.AssociatedObjectClassTermQualifier+'_ ' : '')+
         d.AssociatedObjectClass+'</td></tr>'
       : ''
     );
   html += associatedObjectClass;
-  type = (d.Type
-      ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;@type:</td><td>'+d.Type+'</td></tr>'
+  referencedObjectClass = ('RFBIE' === d.Kind && d.ReferencedObjectClass
+    ? '<tr><td style="font-size:smaller;float:right">Referenced Object Class:</td><td>'+
+        (d.ReferencedObjectClassTermQualifier ? d.ReferencedObjectClassTermQualifier+'_ ' : '')+
+        d.ReferencedObjectClass+'</td></tr>'
       : ''
     );
-  html += type;
+  html += referencedObjectClass;
   Table = (d.Table
-    ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;Table</td><td>'+d.Table+'</td></tr>'
+    ? '<tr><td>Table</td><td>'+d.Table+'</td></tr>'
     : ''
   );
   html += Table;
   PK_REF = (d.PK_REF
-    ? '<tr><td style="font-size:smaller">&nbsp;&nbsp;'+d.PK_REF+'</td><td>'+d.RefField+' ( '+d.RefTable+' )</td></tr>'
+    ? 'REF'==d.PK_REF
+        ? '<tr><td style="font-size:smaller;float:right">Identifier</td><td>'+d.PK_REF+' (Referebce identifier)<br>Referenced field: '+d.RefField+'<br>Referenced table: '+d.RefTable+'</td></tr>'
+        : '<tr><td style="font-size:smaller;float:right">Identifier</td><td>'+d.PK_REF+' (Unigue identifier)</td></tr>'
     : ''
   );
   html += PK_REF;
