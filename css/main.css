@@ -398,14 +398,38 @@ td.key-control:before {
 }
 
 div.adc-abie-module {
-  float: right;
+  position: relative;
+  float: left;
+  top: 2rem;
+  z-index: 2;
+}
+div.adcs-abie-module {
+  position: relative;
+  float: left;
+  top: 2rem;
+  z-index: 2;
+}
+div.saf-abie-module {
+  position: relative;
+  float: left;
+  top: 2rem;
+  z-index: 2;
 }
 div.ts5409-abie-module {
-  float: right;
+  position: relative;
+  float: left;
+  top: 2rem;
+  z-index: 2;
 }
 div.gb-abie-module {
-  float: right;
+  position: relative;
+  float: left;
+  top: 2rem;
+  z-index: 2;
 }
 div.ads-abie-module {
-  float: right;
+  position: relative;
+  float: left;
+  top: 2rem;
+  z-index: 2;
 }

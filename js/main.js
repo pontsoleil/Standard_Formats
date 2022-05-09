@@ -2885,7 +2885,12 @@ adcs_abie_table = $('#adcs-abie').DataTable({
   'paging': false,
   'autoWidth': false,
   'ordering': false,
-  'select': true
+  'select': true,
+  'initComplete': function(settings, json) {
+    adcs_abie_table
+    .column(adcs_abie_COL_Module)
+    .search('ADCS', /*regex*/true, /*smart*/false, /*caseInsen*/false).draw();
+  }
 });
 adcs_entity_table = $('#adcs-entity').DataTable({
   'ajax': 'data/list-adcs-entity.json',
@@ -2925,7 +2930,12 @@ saf_abie_table = $('#saf-abie').DataTable({
   'paging': false,
   'autoWidth': false,
   'ordering': false,
-  'select': true
+  'select': true,
+  'initComplete': function(settings, json) {
+    saf_abie_table
+    .column(saf_abie_COL_Module)
+    .search('SAF-T', /*regex*/true, /*smart*/false, /*caseInsen*/false).draw();
+  }
 });
 saf_entity_table = $('#saf-entity').DataTable({
   'ajax': 'data/list-SAF-entity.json',
