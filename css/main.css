@@ -400,6 +400,16 @@ td.key-control:before {
 div.adc-abie-module {
   float: right;
 }
+div.adcs-abie-module {
+  position: absolute;
+  float: right;
+  top: 0;
+}
+div.saf-abie-module {
+  position: absolute;
+  float: right;
+  top: 0;
+}
 div.ts5409-abie-module {
   float: right;
 }
