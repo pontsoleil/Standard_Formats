@@ -245,8 +245,8 @@
 1244,General Ledger Entries,,Transaction_Line,ASBIE,10,TaxInformation,0..*,,Associated,,,,TaxInformationStructure,,,TaxInformationStructure,
 1245,General Ledger Entries,,Transaction_Line,BBIE,11,any##other,0..1,,any,,any,,,,,Represents space to allow individual Revenue Bodies to add further elements,Represents space to allow individual Revenue Bodies to add further elements
 1246,General Ledger Entries,,choice:DebitAmount/CreditAmount,ABIE,0,choice DebitAmount/CreditAmount,1..1,,Details,,,,,,,,
-1247,General Ledger Entries,,choice:DebitAmount/CreditAmount,ASBIE,1,DebitAmountt,1..1,,Associated,,,,AmountStructure,,,AmountStructure,Debit amount information for transaction
-1248,General Ledger Entries,,choice:DebitAmount/CreditAmount,ASBIE,2,CreditAmountt,1..1,,Associated,,,,AmountStructure,,,AmountStructure,Credit amount information for transaction
+1247,General Ledger Entries,,choice:DebitAmount/CreditAmount,ASBIE,1,DebitAmountt,1..1,,Debit,,,,AmountStructure,,,AmountStructure,Debit amount information for transaction
+1248,General Ledger Entries,,choice:DebitAmount/CreditAmount,ASBIE,2,CreditAmountt,1..1,,Credit,,,,AmountStructure,,,AmountStructure,Credit amount information for transaction
 1249,Source Documents,,SalesInvoices,ABIE,0,SalesInvoices,0..1,,Details,,,,,,,,
 1250,Source Documents,,SalesInvoices,BBIE,1,NumberOfEntries,1..1,,NumberOfEntries,,Numeric,,,,,nonNegativeInteger,Number of entries
 1251,Source Documents,,SalesInvoices,BBIE,2,TotalDebit,1..1,,TotalDebit,,Monetary,,,,,SAFmonetaryType,The total of all debit amounts in the header's default currency
