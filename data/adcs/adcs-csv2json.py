@@ -155,6 +155,7 @@ if __name__ == '__main__':
                     'Description': Description,
                     'ObjectClassTermQualifier': ObjectClassTermQualifier,
                     'ObjectClassTerm': ObjectClassTerm,
+                    'PropertyTerm': PropertyTerm,
                     'DatatypeQualifier': '',
                     'RepresentationTerm': RepresentationTerm,
                     'AssociatedObjectClassTermQualifier': AssociatedObjectClassTermQualifier,
